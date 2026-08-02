@@ -94,19 +94,35 @@ def _slugify(title: str) -> str:
     return s[:48] or "story"
 
 
-def save_image(url: str, dest: Path) -> bool:
+def _sniff_ext(data: bytes) -> str | None:
+    """Determine image type from magic bytes, not the (often missing) URL ext."""
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return ".png"
+    if len(data) >= 3 and data[:3] == b"\xff\xd8\xff":
+        return ".jpg"
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return ".webp"
+    if data[:4] == b"GIF8":
+        return ".gif"
+    if b"<svg" in data[:512].lower():
+        return ".svg"
+    return None
+
+
+def save_image(url: str, dest: Path) -> Path | None:
+    """Download an image and save it with the correct extension (magic sniff)."""
     try:
         data = _http_get(url, timeout=20, max_bytes=6_000_000)
     except Exception:
-        return False
+        return None
     if len(data) < 500:
-        return False
-    ext = Path(url).suffix.lower()
-    if ext not in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
-        ext = ".jpg"
-    dest = dest.with_suffix(ext if ext != ".jpeg" else ".jpg")
+        return None
+    ext = _sniff_ext(data)
+    if not ext:
+        return None
+    dest = dest.with_suffix(ext)
     dest.write_bytes(data)
-    return True
+    return dest
 
 
 def placeholder_svg(date_dir: Path, idx: int, source: str, title: str) -> str:
@@ -141,22 +157,35 @@ def placeholder_svg(date_dir: Path, idx: int, source: str, title: str) -> str:
 
 
 def build_story_images(date_dir: Path, date_str: str, stories: list[dict]) -> dict[int, str]:
-    """Fetch + cache one image per story; returns {index: relative_path}."""
+    """Fetch + cache one image per story; returns {index: relative_path}.
+
+    Idempotent: if an edition's images already exist on disk they are reused
+    (no re-download), so archived editions never change. Fresh editions fetch.
+    """
     date_dir.mkdir(parents=True, exist_ok=True)
+    existing = {
+        i: sorted(date_dir.glob(f"{i:02d}-*"))
+        for i in range(1, len(stories) + 1)
+    }
 
     def one(i: int, s: dict) -> tuple[int, str]:
+        hits = existing.get(i) or []
+        if hits:  # cached from an earlier run
+            return i, f"images/{date_str}/{hits[0].name}"
         rel = f"images/{date_str}/{i:02d}-{_slugify(s.get('title', 'story'))}.jpg"
         dest = date_dir / f"{i:02d}-{_slugify(s.get('title', 'story'))}.jpg"
         explicit = (s.get("image") or "").strip() or None
         # arXiv abstracts have no useful OG image -> straight to placeholder.
         if explicit:
-            ok = save_image(explicit, dest)
-            if ok:
-                return i, f"images/{date_str}/{dest.name}"
+            saved = save_image(explicit, dest)
+            if saved:
+                return i, f"images/{date_str}/{saved.name}"
         elif s.get("source") != "arxiv":
             og = og_image(s.get("url", ""))
-            if og and save_image(og, dest):
-                return i, f"images/{date_str}/{dest.name}"
+            if og:
+                saved = save_image(og, dest)
+                if saved:
+                    return i, f"images/{date_str}/{saved.name}"
         pl = placeholder_svg(date_dir, i, s.get("source", "other"), s.get("title", ""))
         return i, f"images/{date_str}/{pl}"
 

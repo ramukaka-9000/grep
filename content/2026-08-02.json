@@ -1,0 +1,105 @@
+{
+  "date": "2026-08-02",
+  "summary": "Open frontier weights are making it unusually cheap to run very good models: Kimi K3 landed in the open and the community is already benchmarking, serving and chewing on it.",
+  "stories": [
+    {
+      "title": "MoonshotAI/Kimi-K3 — Open Frontier Intelligence",
+      "url": "https://github.com/MoonshotAI/Kimi-K3",
+      "source": "github",
+      "byline": "MoonshotAI",
+      "tier": "must-read",
+      "discuss_url": "",
+      "summary": "Moonshot released Kimi K3 as open weights — a frontier reasoning model aimed squarely at the gpt-5.6 class of closed models. It was the most-starred new repo of the week (~7.9k), and the weights are already driving a wave of community benchmarks and self-hosted runs. Open-weight frontier models at this level are still rare; this is the day's headline."
+    },
+    {
+      "title": "Is memory the moat? Running Kimi K3 at ~952 tok/s on MI355X",
+      "url": "https://www.wafer.ai/blog/kimi-k3-mi355x",
+      "source": "other",
+      "byline": "Ian Ye · Wafer",
+      "tier": "must-read",
+      "discuss_url": "",
+      "summary": "Wafer engineers stacked Kimi K3 on AMD's MI355X and are serving ~952 tokens/s/node, claiming better performance-per-dollar than an NVIDIA B300 for the same open weights — via prefill optimizations, not raw silicon. The framing question — is memory bandwidth + software now the moat in inference economics? — is worth thinking through if you buy or rent serving capacity."
+    },
+    {
+      "title": "qm — Multiplayer agent harness for work",
+      "url": "https://github.com/yc-software/qm",
+      "source": "hn",
+      "byline": "tosh",
+      "tier": "must-read",
+      "discuss_url": "https://news.ycombinator.com/item?id=49126604",
+      "summary": "A YC-backed take on the agent harness: multiple agents plus a human working the same codebase/issue concurrently — plan, assign, review, run in parallel with a shared workspace view. It's the multi-agent-as-a-team pattern a lot of shops are converging on, and worth studying if you build agent fleets rather than single autocomplete agents."
+    },
+    {
+      "title": "Kimi K3 Benchmarks — r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1uy9cft/kimi_k3_benchmarks",
+      "source": "reddit",
+      "byline": "r/LocalLLaMA",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "Community numbers comparing agents in the wild: Kimi K3 burned ~23k tokens per task vs 15k for gpt-5.6 Sol and 69k for Fable — in Sol's ballpark while costing about half of gpt-5.6-sol. Community benchmark threads are a discovery signal, not ground truth, but this is the pulse of what people are actually self-hosting this week."
+    },
+    {
+      "title": "Seedance 2.5 — One-take Creation, Flexible Referencing",
+      "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "source": "other",
+      "byline": "ByteDance Seed",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "ByteDance's new video-generation model does a single 30-second one-take high-quality clip in one pass, extends via multi-turn, and takes up to 30 images + 10 videos + 10 audio clips as references, with timestamp-precise editing and synchronized audio. Shipped at Volcano Engine 2026 alongside a refreshed Seed family — the video-gen sprint keeps accelerating. (Spotted on HN.)"
+    },
+    {
+      "title": "Show HN: Elevators — how elevators push your buttons",
+      "url": "https://john.fun/elevators",
+      "source": "hn",
+      "byline": "Jrh0203",
+      "tier": "recommended",
+      "discuss_url": "https://news.ycombinator.com/item?id=49124218",
+      "summary": "An interactive explainer about the surprisingly complex brains inside elevators — why your button press doesn't behave, how dispatching and queueing logic actually works, and why the elevator always seems to take forever. The most-upvoted Show HN of the day (1600+ points, ~400 comments); a delightful visual engineering rabbit hole."
+    },
+    {
+      "title": "Change2Task: From Repository Changes to Executable Coding Agent Tasks",
+      "url": "https://arxiv.org/abs/2607.28591",
+      "source": "arxiv",
+      "byline": "Qi et al.",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "Scaling coding agents needs a continuing supply of executable training/eval data — task, realistic repo state, tools, and verification coupled together. Change2Task mines real repository changes and rebuilds reproducible task environments from them, a candidate source of fresh, realistic data instead of hand-constructed swe-bench-style triples."
+    },
+    {
+      "title": "Postmortem for Kernel Soundness Bug #14576",
+      "url": "https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/",
+      "source": "hn",
+      "byline": "Leonardo de Moura",
+      "tier": "must-read",
+      "discuss_url": "https://news.ycombinator.com/item?id=49137060",
+      "summary": "Lean's kernel carried a soundness bug (#14576) that was reported and fixed during the week of July 27; de Moura's postmortem walks through the flaw and how it slipped past a design whose entire value proposition is that certain bugs don't exist. Rare, first-hand, and important reading for anyone whose trust rests on proof-checked software."
+    },
+    {
+      "title": "Diátaxis",
+      "url": "https://diataxis.fr/",
+      "source": "hn",
+      "byline": "ryanseys",
+      "tier": "recommended",
+      "discuss_url": "https://news.ycombinator.com/item?id=49138188",
+      "summary": "The documentation framework that splits technical docs into four modes — tutorials, how-to guides, reference, explanation — along the axes of action-vs-understanding and study-vs-work. It keeps front-paging because teams rediscover how much it improves a docs system; a useful lens for anyone who ships a developer-facing product."
+    },
+    {
+      "title": "OSReward: Standardized Evaluation for Cross-Platform Computer-Use Reward Models",
+      "url": "https://arxiv.org/abs/2607.28609",
+      "source": "arxiv",
+      "byline": "Sun et al.",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "Computer-using agents (CUAs) need reward models to verify whether a task was actually fulfilled. OSReward institutes standardized, cross-platform evaluation so reward models can be compared fairly across desktop and web environments — directly relevant if you're building agent evaluation or RL pipelines rather than just shipping an agent."
+    },
+    {
+      "title": "QwenAudio/qwen-audio-agent — realtime voice runtime for agents",
+      "url": "https://github.com/QwenAudio/qwen-audio-agent",
+      "source": "github",
+      "byline": "QwenAudio",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "An open realtime voice runtime that keeps agents talking, working and present — a speech-to-speech loop that stays engaged through turns instead of the classic one-prompt-one-reply voice bot. Voice-interruptible agents are one of the hottest integration surfaces right now, and this is the Qwen team shipping an open implementation."
+    }
+  ]
+}

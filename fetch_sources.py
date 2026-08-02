@@ -185,7 +185,7 @@ def main() -> None:
     print(f"[fetch_sources] fetched {len(github)} GitHub candidates")
 
     payload = {
-        "fetched_at": datetime.utcnow().isoformat() + "Z",
+        "fetched_at": datetime.now().astimezone().isoformat(),
         "date": today,
         "caps": CAPS,
         "reddit_note": (
