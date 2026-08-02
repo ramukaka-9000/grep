@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{SITE_NAME}} · {{DATE_DISPLAY}}</title>
+<meta name="description" content="{{TAGLINE}}">
+<meta property="og:type" content="website">
+<link rel="canonical" href="{{CANONICAL}}">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  // set theme before paint to avoid a flash of the wrong palette
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">{{TAGLINE}}</p>
+  </div>
+  <nav class="topnav">
+    {{PREV_LINK}}
+    <span class="edition-pill">{{DATE_DISPLAY}} · <span id="count">{{COUNT}}</span> stories</span>
+    {{NEXT_LINK}}
+    <a class="navlink" href="archive.html">Archive</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  <section class="filters" aria-label="Filters">
+    <span class="filter-label">Source</span>
+    {{FILTER_SOURCES}}
+  </section>
+  <section class="stories" id="stories">
+    {{STORY_CARDS}}
+  </section>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning · {{DATE_DISPLAY}}. Editions are generated from JSON; no manual HTML upkeep.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

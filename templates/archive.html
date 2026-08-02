@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{SITE_NAME}} · archive</title>
+<meta name="description" content="past editions of grep">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">{{SITE_NAME}} · archive</p>
+  </div>
+  <nav class="topnav">
+    <a class="navlink" href="./">Latest</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">archive</h1>
+  <ul class="arch-list" id="archive">
+    {{ARCHIVE_ROWS}}
+  </ul>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
