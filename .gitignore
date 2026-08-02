@@ -1,4 +1,5 @@
 content/candidates/
+seen-items.json
 __pycache__/
 *.pyc
 .DS_Store
