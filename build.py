@@ -30,10 +30,10 @@ PAGES_DIR = BASE.parent / "grep-pages"          # gh-pages worktree (build targe
 TEMPLATES = BASE / "templates"
 CONTENT = BASE / "content"
 
-SITE_URL = "https://ramukaka-9000.github.io/grep"
+SITE_URL = "https://grep.shantanugoel.com"
 SITE_NAME = "grep"
 TAGLINE = "a daily signal hunt — HN · arXiv · GitHub · Reddit · the web"
-UA = "grep-daily-read build.py (+https://ramukaka-9000.github.io/grep)"
+UA = "grep-daily-read build.py (+https://grep.shantanugoel.com)"
 IMG_KEEP_DAYS = 60          # prune cached story images older than this
 MAX_OG_BYTES = 2_500_000
 
