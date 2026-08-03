@@ -32,17 +32,18 @@ CONTENT = BASE / "content"
 
 SITE_URL = "https://grep.shantanugoel.com"
 SITE_NAME = "grep"
-TAGLINE = "a daily signal hunt — HN · arXiv · GitHub · Reddit · the web"
+TAGLINE = "a daily signal hunt — HN · arXiv · GitHub · Reddit · HuggingFace · the web"
 UA = "grep-daily-read build.py (+https://grep.shantanugoel.com)"
 IMG_KEEP_DAYS = 60          # prune cached story images older than this
 MAX_OG_BYTES = 2_500_000
 
 SOURCES = {
-    "hn":     {"label": "HN",     "color": "#ff8000", "short": "HN"},
-    "arxiv":  {"label": "arXiv",  "color": "#ff5a5f", "short": "Ax"},
-    "github": {"label": "GitHub", "color": "#8b5cf6", "short": "Gh"},
-    "other":  {"label": "Web",    "color": "#22d3ee", "short": "WB"},
-    "reddit": {"label": "Reddit", "color": "#ff4500", "short": "r/"},
+    "hn":     {"label": "HN",          "color": "#ff8000", "short": "HN"},
+    "arxiv":  {"label": "arXiv",       "color": "#ff5a5f", "short": "Ax"},
+    "github": {"label": "GitHub",      "color": "#8b5cf6", "short": "Gh"},
+    "hf":     {"label": "HuggingFace", "color": "#ffd21e", "short": "HF"},
+    "other":  {"label": "Web",         "color": "#22d3ee", "short": "WB"},
+    "reddit": {"label": "Reddit",      "color": "#ff4500", "short": "r/"},
 }
 
 TIER_CHIP = {"essential": "Must-Read", "must-read": "Must-Read",
