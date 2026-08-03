@@ -1,0 +1,105 @@
+{
+  "date": "2026-08-03",
+  "summary": "Frontier-model testing is moving past one-shot prompts: Karpathy's two-hour, 5,500-line three.js run headlines a day where DeepSeek V4 and Kimi K3 land on local hardware (NVMe streaming, DGX Spark, speculative decoding) and KV-cache/vector-search papers attack inference cost.",
+  "stories": [
+    {
+      "title": "Karpathy's Pelican",
+      "url": "https://twitter.com/karpathy/status/2083749667410727319",
+      "source": "hn",
+      "byline": "Andrej Karpathy",
+      "tier": "must-read",
+      "discuss_url": "https://news.ycombinator.com/item?id=49140998",
+      "summary": "Karpathy argues we're leaving the era of one-shot prompt tests like 'make an SVG of a pelican on a bicycle' (the Pelican, nodding to that iconic eval). His proposal: budgeted, long-horizon generation — he gave Opus 5 the first paragraph of The Lord of the Rings with a 1M-token (~$10) budget and asked for a three.js render. Opus went off for ~2 hours, wrote 5,500 lines of code, and procedurally rendered the story: janky but working, and a serious signal about where codegen evals are headed. The most-discussed item of the day."
+    },
+    {
+      "title": "sqliteai/waste — run the full 2.78T Kimi K3 beyond RAM from NVMe",
+      "url": "https://github.com/sqliteai/waste",
+      "source": "github",
+      "byline": "sqliteai",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "A dependency-free, embeddable C inference engine that runs the full 2.78-trillion-parameter Kimi K3 without fitting it in memory — streaming activated weights directly from NVMe as they're needed. No forced quantization-to-fit, no multi-node sharding. ~1.1k stars in a couple of days; the 'run the frontier at home' end of the open-weights wave that's defining the month."
+    },
+    {
+      "title": "llama.cpp lifts DeepSeek V4 decoding 1.83x",
+      "url": "https://stephenvantran.com/notes/2026-08-02-llama-cpp-deepseek-dspark",
+      "source": "other",
+      "byline": "Stephen Van Tran",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "Independent, numbers-driven coverage of llama.cpp release b10228, which adds DeepSeek V4 DSpark speculative decoding: a nine-prompt run on a DGX Spark fell from 102.15s to 55.95s (1.83x), accepting 1,038 of 2,236 drafted tokens at 19.8–39.3 tok/s per prompt. Concrete benchmark data on the single hottest local-inference stack right now — worth reading if you serve open DeepSeek-class models on consumer hardware."
+    },
+    {
+      "title": "DeepSeek V4 Flash (0731) on 2x DGX Spark — 70+ t/s, 'not pretty but works'",
+      "url": "https://www.reddit.com/r/DGX_Spark/comments/1vdhw19/deepseek_v4_flash_0731_on_2x_dgx_spark_not_pretty",
+      "source": "reddit",
+      "byline": "r/DGX_Spark",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "A self-described non-infra user reports running DeepSeek V4 Flash (0731) across two DGX Sparks with vLLM — TP=2, 1M context, NVFP4 KV cache, speculative decoding — at 70+ tokens/s. The r/LocalLLaMA-adjacent communities are dominated by exactly this kind of report this week: real configs, real numbers, and honest caveats about the rough edges of serving a frontier-class model on a home workstation."
+    },
+    {
+      "title": "ResKV: Reconstructing Omitted Attention Contributions for Fixed-Budget KV Cache Compression",
+      "url": "https://arxiv.org/abs/2607.29591v1",
+      "source": "arxiv",
+      "byline": "Zhan, Chen, Shang",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "KV-cache eviction permanently discards the unselected tokens' aggregate contribution to attention, while merging perturbs the keys/values that should stay exact. ResKV splits a fixed cache budget into an exact main cache plus a compact residual cache that reconstructs what the omitted tokens contributed to softmax attention — a practical lever for long-context inference cost without losing information entirely."
+    },
+    {
+      "title": "QASP: Query-Adaptive Robust Vector Search Policy",
+      "url": "https://arxiv.org/abs/2607.29606v1",
+      "source": "arxiv",
+      "byline": "Ferhatosmanoglu, Kumar, Wagner, Warfield",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "Fixed vector-search parameters cause large per-query recall variance, and average-recall evals hide it. QASP predicts each query's full recall-vs-cost curve with a single upfront regression, then derives a search policy for any recall target — no iterative model invocations during search, no one-predictor-per-target. By a serious systems crew (Warfield), and directly relevant if you build or operate vector search/ANN infrastructure."
+    },
+    {
+      "title": "My personal AI benchmark: 'Generate an SVG of a frog with a Habsburg jaw'",
+      "url": "https://frogs.vaguespac.es/",
+      "source": "hn",
+      "byline": "thebigship · Frogs",
+      "tier": "recommended",
+      "discuss_url": "https://news.ycombinator.com/item?id=49147622",
+      "summary": "A public personal eval built around one prompt: 'Generate an SVG of a frog with a Habsburg jaw' — each model gets three tries a month (14 models, 42 runs in August 2026, all producing SVGs). It tests whether a model actually follows a specific, learnable trait (the protruding mandible) rather than emitting a generic frog. A sharp, cheap way to measure instruction-following in codegen, and a good complement to Karpathy's point that naive one-prompt evals may be getting saturated."
+    },
+    {
+      "title": "I made 12 LLM agents decide which one dies",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1vdp28y/i_made_12_llm_agents_decide_which_one_dies/",
+      "source": "reddit",
+      "byline": "r/OpenAI",
+      "tier": "notable",
+      "discuss_url": "",
+      "summary": "Twelve agents, each in an isolated container, write their own scripts, search the web and build tools while competing for survival — an experiment in making agent autonomy observable and replayable, with the author candidly reporting ~$150 burned on failed harness iterations. Part of a broader community shift from 'give agents more permission' to 'make agent runs inspectable and verifiable'."
+    },
+    {
+      "title": "microsoft/skill-recorder — record a session, get a reusable agent Skill",
+      "url": "https://github.com/microsoft/skill-recorder",
+      "source": "github",
+      "byline": "Microsoft",
+      "tier": "notable",
+      "discuss_url": "",
+      "summary": "A desktop app that records your on-screen work session and uses the GitHub Copilot CLI to reconstruct it as an intent plus ordered steps, then packages it as a reusable Skill/Automation for Microsoft Scout, Copilot Cowork, or Copilot Studio. A representative take on the 'record a workflow, convert it into an agent skill' pattern a lot of agent-tooling teams are racing to ship."
+    },
+    {
+      "title": "Autoregressive Language Model on the 6502 Processor",
+      "url": "https://mattbeton.com/blog/bitnet-6502.html",
+      "source": "hn",
+      "byline": "Matt Beton",
+      "tier": "notable",
+      "discuss_url": "https://news.ycombinator.com/item?id=49122655",
+      "summary": "Matt Beton trained a tiny Mamba-based autoregressive language model and wrote an inference engine that runs on a 1975 8-bit 6502 with 32KB of RAM — 9KB of inference code plus 13KB of weights — and made it generate text on his dad's BBC Micro. A lovely, concrete answer to 'how small can a real language model get', with a fast 8-bit-arithmetic inference path worth studying. (Notably a Mamba/state-space model, not a transformer.)"
+    },
+    {
+      "title": "Show HN: Kakehashi — run macOS binaries on Linux ARM in userspace",
+      "url": "https://github.com/wie-project/kakehashi",
+      "source": "hn",
+      "byline": "vlad_kalinkin",
+      "tier": "notable",
+      "discuss_url": "https://news.ycombinator.com/item?id=49145937",
+      "summary": "An experimental userspace layer that lets macOS binaries run on Linux/ARM without a full OS image — a Darling-style binary-compatibility approach for the ARM era. Early days, but one of the more ambitious and genuinely novel systems projects on HN today, and a useful mental model if you've ever wished you could run one (ma)codebase across both ecosystems."
+    }
+  ]
+}
