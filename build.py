@@ -364,7 +364,6 @@ def _section_block(section: dict, date_str: str, image_rels: dict[str, str]) -> 
   <section class="section-panel" id="{sid_html}" data-section-panel="{sid_html}" style="--section-color:{meta['color']}" aria-labelledby="heading-{sid_html}">
     <div class="section-heading">
       <div>
-        <p class="section-kicker">daily section</p>
         <h1 id="heading-{sid_html}">{H.escape(section["title"])}</h1>
         {summary_html}
       </div>
