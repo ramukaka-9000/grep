@@ -1,0 +1,114 @@
+{
+  "date": "2026-08-04",
+  "summary": "Open-weights frontier day: Alibaba will release the 2.4T Qwen3.8-Max open next week and MiniMax's H3 open video model drops day-0 in ComfyUI, while a JFrog audit exposes LLM-generated fake SQLite CVEs polluting NVD.",
+  "stories": [
+    {
+      "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+      "url": "https://qwen.ai/blog?id=qwen3.8",
+      "source": "hn",
+      "byline": "Alibaba Qwen",
+      "tier": "must-read",
+      "discuss_url": "https://news.ycombinator.com/item?id=49150470",
+      "summary": "Alibaba's new MoE flagship at 2.4T total parameters, billed as 'a new bar for coding and cowork' — the company says its long-horizon agentic coding ran for 10+ days of self-evolving development, building a complete project from an empty folder to production deliverables with a full trace. Open weights are announced for next week, alongside a 27B dense sibling also going open; 1M context and native vision per the official announcement. The biggest open-weights story of the day (1057 pts, 569 comments on HN) and a direct follow-on to the Kimi K3 frontier-open-weights wave."
+    },
+    {
+      "title": "Ten advances in mathematics and theoretical computer science",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "source": "hn",
+      "byline": "OpenAI",
+      "tier": "must-read",
+      "discuss_url": "https://news.ycombinator.com/item?id=49157930",
+      "summary": "OpenAI published results on ten long-standing open problems spanning mathematics and theoretical computer science — geometry, cryptography, and complexity among them. The results ship with Lean 4 formalizations (openai/ten-proofs), a meaningful step toward machine-checked frontier math rather than unverifiable claims. One of the most-discussed items of the day (459 pts, 726 comments)."
+    },
+    {
+      "title": "MiniMax H3 Day-0 Support in ComfyUI: Open Weights, Native Audio, 2K Video",
+      "url": "https://blog.comfy.org/p/minimax-h3-day-0-support-in-comfyui",
+      "source": "other",
+      "byline": "MiniMax / ComfyUI",
+      "tier": "recommended",
+      "discuss_url": "https://news.ycombinator.com/item?id=49155629",
+      "summary": "MiniMax's third-generation video model (successor to Hailuo 01/02) is out with open weights and native ComfyUI support on day zero: text, image, video, or audio in, 2K clips up to 15 seconds out, with stereo audio generated in the same pass. Comfy engineers pruned ~40% of the modulation weights into a functionally equivalent lookup table plus int8 convrot and dynamic VRAM offload, taking memory from 123.6 GB full-precision down to ~42.5 GB and reportedly running on an RTX 3060 — a real consumer-hardware video model story."
+    },
+    {
+      "title": "SQLite Critical CVEs or LLM Slop?",
+      "url": "https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/",
+      "source": "hn",
+      "byline": "JFrog Research",
+      "tier": "recommended",
+      "discuss_url": "https://news.ycombinator.com/item?id=49154332",
+      "summary": "JFrog's audit of a fresh batch of 'critical' SQLite CVEs found the advisories to be AI-generated slop: cited functions that don't exist in the pinned versions, PoCs that never crash, and line numbers past end-of-file. Of 55 advisories from the source repo, 54 were fabricated and one wrapped a real bug in wrong metadata; CVE-2026-51302 was even downgraded from 10.0 to 7.6 after scrutiny. A sharp case study in how LLM slop can flood NVD/GHSA and mislead automated triage and AI-driven patching."
+    },
+    {
+      "title": "Don't be a meat proxy",
+      "url": "https://gruhn.me/blog/2026-08-03/",
+      "source": "hn",
+      "byline": "Nikolaus Gruhn",
+      "tier": "recommended",
+      "discuss_url": "https://news.ycombinator.com/item?id=49151933",
+      "summary": "The top-scoring essay of the day: when answering in Slack, code review, or a group chat, don't just relay Claude's giant verbatim response — that's being a 'meat proxy' who adds no value (and who can't vouch for the output). The lesson lands hardest in code review: shipping someone else's unread LLM output under your name means the reviewers did the real implementation. Provocative and heavily discussed (1706 pts, 694 comments)."
+    },
+    {
+      "title": "Topology-Aware Data Movement for Disaggregated GPU Inference",
+      "url": "https://arxiv.org/abs/2607.28633",
+      "source": "arxiv",
+      "byline": "Ganjihal",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "A systems paper arguing disaggregated prefill/decode inference ignores interconnect topology: with a 70B model moving ~2.6 GB of KV cache per request, bandwidth between GPUs varies ~72x (NVLink ~900 GB/s vs InfiniBand ~50 GB/s vs TCP ~12.5 GB/s). It proposes a topology-aware transfer orchestrator — pipelined layer-by-layer transfer that hides latency behind prefill, NVLink-aware expert placement for MoE, and CXL 3.0 as an overflow tier — projecting 3-18x transfer-latency reduction over uniform RDMA. Directly relevant to anyone serving disaggregated LLMs."
+    },
+    {
+      "title": "kimi-k3-in-c — 2.78T Kimi K3 on a single CPU in 8.24 GB of RAM",
+      "url": "https://github.com/FareedKhan-dev/kimi-k3-in-c",
+      "source": "github",
+      "byline": "Fareed Khan",
+      "tier": "recommended",
+      "discuss_url": "",
+      "summary": "A portable C99 inference engine that runs the 2.78T-parameter Kimi K3 on a single CPU within 8.24 GB peak RSS — no BLAS, no framework, no GPU. The insight: the ~1.45 TB of routed experts stay packed at 4-bit and never resident, while the dense trunk streams layer-by-layer, so output stays byte-identical at every memory budget from 8 GB up to 224 GB. Slow (~10-33 s/token) but genuinely portable, with meticulous docs, sanitizer CI, and a 176 KB engine; ~1.3k stars in days. The 'run the frontier at home' theme continues."
+    },
+    {
+      "title": "Smaller, faster, safer: running Kimi and GLM at scale",
+      "url": "https://blog.cloudflare.com/smaller-faster-safer-models/",
+      "source": "other",
+      "byline": "Cloudflare Workers AI",
+      "tier": "recommended",
+      "discuss_url": "https://news.ycombinator.com/item?id=49158581",
+      "summary": "Cloudflare details how Workers AI serves big open MoE models (Kimi K-series, GLM) at scale: FP8 KV cache roughly doubles context on Kimi K2.6 (~686k->1.37M tokens) with no accuracy change, INT4 weights shrink GLM 5.2's checkpoint 705 GB->421 GB and speed up bandwidth-bound decode, and page-tagging KV integrity checks cost under 1%. All benchmarked on the disaggregated prefill/decode split with SGLang — concrete numbers on why memory, not FLOPs, is the serving bottleneck."
+    },
+    {
+      "title": "Andy Pavlo joins ClickHouse to establish ClickHouse Labs",
+      "url": "https://clickhouse.com/blog/andy-pavlo-joins-clickhouse",
+      "source": "other",
+      "byline": "Andy Pavlo",
+      "tier": "notable",
+      "discuss_url": "https://news.ycombinator.com/item?id=49156011",
+      "summary": "Andy Pavlo — CMU database professor, creator of dbdb.io, and one of the most-read voices in database systems — is joining ClickHouse to establish and lead a new research org. ClickHouse Labs will work directly with the ClickHouse and PostgreSQL engineering teams, with an explicit research line on how DBMSs should support AI agents and how agents can build DBMSs. A notable signal for anyone watching AI meet the database layer."
+    },
+    {
+      "title": "openai/ten-proofs — Lean certificates for the ten math advances",
+      "url": "https://github.com/openai/ten-proofs",
+      "source": "github",
+      "byline": "OpenAI",
+      "tier": "notable",
+      "discuss_url": "",
+      "summary": "The Lean 4 formalizations accompanying OpenAI's 'Ten advances in mathematics and theoretical computer science' announcement — machine-checked proofs rather than just claimed results. The repo that turns a headline into something you can verify term by term, and a concrete datapoint on the frontier-verification direction."
+    },
+    {
+      "title": "baidu/Unlimited-OCR — one-shot long-horizon document parsing at 3.3B",
+      "url": "https://huggingface.co/baidu/Unlimited-OCR",
+      "source": "hf",
+      "byline": "Baidu Inc.",
+      "tier": "notable",
+      "discuss_url": "",
+      "summary": "Baidu's 3.3B-parameter OCR model for one-shot, long-horizon document parsing — a full PDF in a single pass, explicitly pushing DeepSeek-OCR further, with vLLM/SGLang/ms-swift support and ~2.6M downloads. A genuinely small model (3.3B params, fits a basic 3060/3070 quantized) that has become a default pick for document pipelines."
+    },
+    {
+      "title": "Qwen3.8-27B announced alongside Qwen3.8-Max — r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ve0psn/qwen3827b_announced_alongside_qwen38max",
+      "source": "reddit",
+      "byline": "r/LocalLLaMA",
+      "tier": "notable",
+      "discuss_url": "",
+      "summary": "The r/LocalLLaMA thread around Alibaba's announcement that a 27B dense model is also going open alongside the 2.4T Qwen3.8-Max. For a community centered on hardware you can actually own, the 27B is the release that will run locally this month while the flagship points at the datacenter — a clean illustration of the split between frontier-scale and local-runnable open models."
+    }
+  ]
+}
