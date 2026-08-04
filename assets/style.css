@@ -98,6 +98,85 @@ a:hover { text-decoration: underline; }
   white-space: nowrap;
 }
 
+/* ---------- top-level sections ---------- */
+.section-nav {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 18px 0 0;
+  border-bottom: 1px solid var(--header-border);
+}
+.section-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+  padding: 9px 12px 10px;
+  white-space: nowrap;
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+}
+.section-tab:hover {
+  color: var(--text);
+  text-decoration: none;
+  border-color: var(--section-color);
+}
+.section-tab.active {
+  color: var(--section-color);
+  border-color: var(--section-color);
+}
+.section-tab-count {
+  color: var(--faint);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0 6px;
+  font-size: 11px;
+}
+.section-panel[hidden] { display: none; }
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px 0 8px;
+}
+.section-kicker {
+  margin: 0 0 3px;
+  color: var(--section-color);
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.section-heading h1 {
+  margin: 0;
+  font-family: ui-monospace, monospace;
+  font-size: 25px;
+  line-height: 1.2;
+}
+.section-summary {
+  max-width: 680px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+.section-count {
+  flex: 0 0 auto;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.empty-state {
+  margin: 24px 0;
+  color: var(--faint);
+  font-family: ui-monospace, monospace;
+}
+
 /* ---------- filters ---------- */
 main { max-width: 880px; margin: 0 auto; padding: 0 20px 60px; }
 .filters {
@@ -133,11 +212,19 @@ main { max-width: 880px; margin: 0 auto; padding: 0 20px 60px; }
   border-color: var(--accent);
   box-shadow: 0 0 0 1px var(--accent) inset;
 }
-.chip.active[data-filter-source="hn"]     { border-color: #ff8000; box-shadow: 0 0 0 1px #ff8000 inset; color: #ff8000; }
-.chip.active[data-filter-source="arxiv"]  { border-color: #ff5a5f; box-shadow: 0 0 0 1px #ff5a5f inset; color: #ff5a5f; }
-.chip.active[data-filter-source="github"] { border-color: #8b5cf6; box-shadow: 0 0 0 1px #8b5cf6 inset; color: #a78bfa; }
-.chip.active[data-filter-source="other"]  { border-color: #22d3ee; box-shadow: 0 0 0 1px #22d3ee inset; color: #22d3ee; }
-.chip.active[data-filter-source="reddit"] { border-color: #ff4500; box-shadow: 0 0 0 1px #ff4500 inset; color: #ff4500; }
+.chip.active[data-filter-source="hn"]         { border-color: #ff8000; box-shadow: 0 0 0 1px #ff8000 inset; color: #ff8000; }
+.chip.active[data-filter-source="arxiv"]      { border-color: #ff5a5f; box-shadow: 0 0 0 1px #ff5a5f inset; color: #ff5a5f; }
+.chip.active[data-filter-source="github"]     { border-color: #8b5cf6; box-shadow: 0 0 0 1px #8b5cf6 inset; color: #a78bfa; }
+.chip.active[data-filter-source="other"]      { border-color: #22d3ee; box-shadow: 0 0 0 1px #22d3ee inset; color: #22d3ee; }
+.chip.active[data-filter-source="reddit"]     { border-color: #ff4500; box-shadow: 0 0 0 1px #ff4500 inset; color: #ff4500; }
+.chip.active[data-filter-source="hackaday"]   { border-color: #f97316; box-shadow: 0 0 0 1px #f97316 inset; color: #f97316; }
+.chip.active[data-filter-source="adafruit"]   { border-color: #7c3aed; box-shadow: 0 0 0 1px #7c3aed inset; color: #a78bfa; }
+.chip.active[data-filter-source="arduino"]    { border-color: #00979d; box-shadow: 0 0 0 1px #00979d inset; color: #32c5c7; }
+.chip.active[data-filter-source="espressif"]  { border-color: #e7352c; box-shadow: 0 0 0 1px #e7352c inset; color: #ff817c; }
+.chip.active[data-filter-source="3dprinting"] { border-color: #14b8a6; box-shadow: 0 0 0 1px #14b8a6 inset; color: #2dd4bf; }
+.chip.active[data-filter-source="nasa"]       { border-color: #fc3d21; box-shadow: 0 0 0 1px #fc3d21 inset; color: #ff7b6b; }
+.chip.active[data-filter-source="esa"]        { border-color: #4f8ef7; box-shadow: 0 0 0 1px #4f8ef7 inset; color: #8bb8ff; }
+.chip.active[data-filter-source="science"]    { border-color: #10b981; box-shadow: 0 0 0 1px #10b981 inset; color: #34d399; }
 .chip-sep { width: 1px; height: 18px; background: var(--border); margin: 0 6px; }
 
 /* ---------- stories ---------- */
@@ -240,6 +327,9 @@ main { max-width: 880px; margin: 0 auto; padding: 0 20px 60px; }
 .site-footer p { margin: 0; }
 
 @media (max-width: 600px) {
+  .section-nav { margin-left: -4px; margin-right: -4px; }
+  .section-tab { padding-left: 8px; padding-right: 8px; }
+  .section-heading { flex-direction: column; gap: 8px; }
   .story { grid-template-columns: 1fr; }
   .thumb { max-width: 100%; aspect-ratio: 4/3; }
   .site-header { flex-direction: column; align-items: flex-start; }

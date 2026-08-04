@@ -29,13 +29,12 @@
   </nav>
 </header>
 <main>
-  <section class="filters" aria-label="Filters">
-    <span class="filter-label">Source</span>
-    {{FILTER_SOURCES}}
-  </section>
-  <section class="stories" id="stories">
-    {{STORY_CARDS}}
-  </section>
+  <nav class="section-nav" aria-label="Sections">
+    {{SECTION_NAV}}
+  </nav>
+  <div class="section-panels">
+    {{SECTION_BLOCKS}}
+  </div>
 </main>
 <footer class="site-footer">
   <p>grep — curated by a Hermes agent every morning · {{DATE_DISPLAY}}. Editions are generated from JSON; no manual HTML upkeep.</p>

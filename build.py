@@ -32,18 +32,33 @@ CONTENT = BASE / "content"
 
 SITE_URL = "https://grep.shantanugoel.com"
 SITE_NAME = "grep"
-TAGLINE = "a daily signal hunt — HN · arXiv · GitHub · Reddit · HuggingFace · the web"
+TAGLINE = "a daily signal hunt — AI · Electronics · Interesting News"
 UA = "grep-daily-read build.py (+https://grep.shantanugoel.com)"
 IMG_KEEP_DAYS = 60          # prune cached story images older than this
 MAX_OG_BYTES = 2_500_000
 
+SECTION_ORDER = ("ai", "electronics", "interesting-news")
+SECTIONS = {
+    "ai": {"label": "AI", "color": "#ff8000"},
+    "electronics": {"label": "Electronics", "color": "#22d3ee"},
+    "interesting-news": {"label": "Interesting News", "color": "#f472b6"},
+}
+
 SOURCES = {
-    "hn":     {"label": "HN",          "color": "#ff8000", "short": "HN"},
-    "arxiv":  {"label": "arXiv",       "color": "#ff5a5f", "short": "Ax"},
-    "github": {"label": "GitHub",      "color": "#8b5cf6", "short": "Gh"},
-    "hf":     {"label": "HuggingFace", "color": "#ffd21e", "short": "HF"},
-    "other":  {"label": "Web",         "color": "#22d3ee", "short": "WB"},
-    "reddit": {"label": "Reddit",      "color": "#ff4500", "short": "r/"},
+    "hn":         {"label": "HN",          "color": "#ff8000", "short": "HN"},
+    "arxiv":      {"label": "arXiv",       "color": "#ff5a5f", "short": "Ax"},
+    "github":     {"label": "GitHub",      "color": "#8b5cf6", "short": "Gh"},
+    "hf":         {"label": "HuggingFace", "color": "#ffd21e", "short": "HF"},
+    "other":      {"label": "Web",         "color": "#22d3ee", "short": "WB"},
+    "reddit":     {"label": "Reddit",      "color": "#ff4500", "short": "r/"},
+    "hackaday":   {"label": "Hackaday",    "color": "#f97316", "short": "HA"},
+    "adafruit":   {"label": "Adafruit",    "color": "#7c3aed", "short": "Ad"},
+    "arduino":    {"label": "Arduino",     "color": "#00979d", "short": "Ar"},
+    "espressif":  {"label": "Espressif",   "color": "#e7352c", "short": "Es"},
+    "3dprinting": {"label": "3D Print",    "color": "#14b8a6", "short": "3D"},
+    "nasa":       {"label": "NASA",        "color": "#fc3d21", "short": "NA"},
+    "esa":        {"label": "ESA",         "color": "#4f8ef7", "short": "ESA"},
+    "science":    {"label": "Science",     "color": "#10b981", "short": "Sci"},
 }
 
 TIER_CHIP = {"essential": "Must-Read", "must-read": "Must-Read",
@@ -126,7 +141,7 @@ def save_image(url: str, dest: Path) -> Path | None:
     return dest
 
 
-def placeholder_svg(date_dir: Path, idx: int, source: str, title: str) -> str:
+def placeholder_svg(date_dir: Path, key: str, source: str, title: str) -> str:
     """Deterministic styled placeholder when no usable image exists."""
     meta = SOURCES.get(source, SOURCES["other"])
     color = meta["color"]
@@ -152,51 +167,91 @@ def placeholder_svg(date_dir: Path, idx: int, source: str, title: str) -> str:
   <text x="28" y="382" font-family="ui-monospace,monospace" font-size="15"
     fill="rgba(242,244,248,.5)">{meta["label"].upper()} · no preview image</text>
 </svg>'''
-    dest = date_dir / f"{idx:02d}-{source}-placeholder.svg"
+    dest = date_dir / f"{key}-{source}-placeholder.svg"
     dest.write_text(svg)
     return dest.name
 
 
-def build_story_images(date_dir: Path, date_str: str, stories: list[dict]) -> dict[int, str]:
-    """Fetch + cache one image per story; returns {index: relative_path}.
-
-    Idempotent: if an edition's images already exist on disk they are reused
-    (no re-download), so archived editions never change. Fresh editions fetch.
-    """
+def build_story_images(date_dir: Path, date_str: str,
+                       entries: list[tuple[str, dict]]) -> dict[str, str]:
+    """Fetch + cache one image per section story; returns {key: relative_path}."""
     date_dir.mkdir(parents=True, exist_ok=True)
-    existing = {
-        i: sorted(date_dir.glob(f"{i:02d}-*"))
-        for i in range(1, len(stories) + 1)
-    }
+    existing = {key: sorted(date_dir.glob(f"{key}-*")) for key, _ in entries}
 
-    def one(i: int, s: dict) -> tuple[int, str]:
-        hits = existing.get(i) or []
-        if hits:  # cached from an earlier run
-            return i, f"images/{date_str}/{hits[0].name}"
-        rel = f"images/{date_str}/{i:02d}-{_slugify(s.get('title', 'story'))}.jpg"
-        dest = date_dir / f"{i:02d}-{_slugify(s.get('title', 'story'))}.jpg"
+    def one(key: str, s: dict) -> tuple[str, str]:
+        hits = existing.get(key) or []
+        # Reuse images from pre-section AI editions on the first section-aware
+        # build, so archived editions do not needlessly redownload every image.
+        if not hits and key.startswith("ai-"):
+            hits = sorted(date_dir.glob(f"{key.split('-', 1)[1]}-*"))
+        if hits:
+            return key, f"images/{date_str}/{hits[0].name}"
+        rel = f"images/{date_str}/{key}-{_slugify(s.get('title', 'story'))}.jpg"
+        dest = date_dir / f"{key}-{_slugify(s.get('title', 'story'))}.jpg"
         explicit = (s.get("image") or "").strip() or None
         # arXiv abstracts have no useful OG image -> straight to placeholder.
         if explicit:
             saved = save_image(explicit, dest)
             if saved:
-                return i, f"images/{date_str}/{saved.name}"
+                return key, f"images/{date_str}/{saved.name}"
         elif s.get("source") != "arxiv":
             og = og_image(s.get("url", ""))
             if og:
                 saved = save_image(og, dest)
                 if saved:
-                    return i, f"images/{date_str}/{saved.name}"
-        pl = placeholder_svg(date_dir, i, s.get("source", "other"), s.get("title", ""))
-        return i, f"images/{date_str}/{pl}"
+                    return key, f"images/{date_str}/{saved.name}"
+        pl = placeholder_svg(date_dir, key, s.get("source", "other"), s.get("title", ""))
+        return key, f"images/{date_str}/{pl}"
 
     with cf.ThreadPoolExecutor(max_workers=8) as ex:
-        futures = [ex.submit(one, i, s) for i, s in enumerate(stories, start=1)]
+        futures = [ex.submit(one, key, story) for key, story in entries]
         results = {}
         for f in futures:
-            i, rel = f.result()
-            results[i] = rel
+            key, rel = f.result()
+            results[key] = rel
     return results
+
+
+def _normalize_sections(data: dict) -> list[dict]:
+    """Return the section list while keeping old AI-only editions readable."""
+    raw = data.get("sections")
+    if isinstance(raw, dict):
+        raw_sections = [
+            {"id": sid, **(value if isinstance(value, dict) else {})}
+            for sid, value in raw.items()
+        ]
+    elif isinstance(raw, list):
+        raw_sections = [s for s in raw if isinstance(s, dict)]
+    else:
+        raw_sections = [{
+            "id": "ai",
+            "title": "AI",
+            "summary": data.get("summary", ""),
+            "stories": data.get("stories", []),
+        }]
+
+    order = {sid: i for i, sid in enumerate(SECTION_ORDER)}
+    sections: list[dict] = []
+    for section in raw_sections:
+        sid = str(section.get("id") or section.get("section") or "").strip()
+        if not sid:
+            continue
+        meta = SECTIONS.get(sid, {"label": sid.replace("-", " ").title(), "color": "#7ee787"})
+        stories = section.get("stories")
+        if not isinstance(stories, list):
+            stories = []
+        sections.append({
+            "id": sid,
+            "title": section.get("title") or meta["label"],
+            "summary": section.get("summary") or "",
+            "stories": stories,
+        })
+    sections.sort(key=lambda s: (order.get(s["id"], len(order)), s["id"]))
+    return sections
+
+
+def _story_count(edition: dict) -> int:
+    return sum(len(section.get("stories", [])) for section in edition.get("_sections", []))
 
 
 def load_editions() -> list[dict]:
@@ -209,7 +264,8 @@ def load_editions() -> list[dict]:
         except Exception as e:
             print(f"[build] skip {p.name}: {e}", file=sys.stderr)
             continue
-        if not data.get("stories"):
+        data["_sections"] = _normalize_sections(data)
+        if not data["_sections"] or _story_count(data) == 0:
             continue
         data["_file"] = p
         eds.append(data)
@@ -219,27 +275,30 @@ def load_editions() -> list[dict]:
 
 # ----------------------------------------------------------------------------- rendering
 
-def render_story_card(story: dict, idx: int, date_str: str, img_rel: str) -> str:
+def render_story_card(story: dict, section_id: str, idx: int, img_rel: str) -> str:
     src = story.get("source", "other")
     meta = SOURCES.get(src, SOURCES["other"])
     tier = story.get("tier", "recommended")
     chip = TIER_CHIP.get(tier, "Recommended")
     group = TIER_GROUP.get(tier, "rec")
-    url = story.get("url", "#")
-    title = H.escape(story.get("title", "Untitled"), quote=False)
-    author = H.escape(story.get("byline") or story.get("author") or "", quote=False)
-    discuss = H.escape(story.get("discuss_url") or "", quote=False)
+    url = str(story.get("url") or "#")
+    url_html = H.escape(url, quote=True)
+    title_raw = str(story.get("title") or "Untitled")
+    title = H.escape(title_raw, quote=False)
+    author = H.escape(str(story.get("byline") or story.get("author") or ""), quote=False)
+    discuss = str(story.get("discuss_url") or "")
+    discuss_html = H.escape(discuss, quote=True)
     desc = story.get("summary") or ""
     paras = "".join(f"<p>{H.escape(p)}</p>" for p in str(desc).split("\n") if p.strip())
 
-    meta_links = f'<a class="orig" href="{url}" target="_blank" rel="noopener">{H.escape(meta["label"])} ›</a>'
+    meta_links = f'<a class="orig" href="{url_html}" target="_blank" rel="noopener">{H.escape(meta["label"])} ›</a>'
     if discuss:
-        meta_links += f'<a class="discuss" href="{discuss}" target="_blank" rel="noopener">Discuss ›</a>'
+        meta_links += f'<a class="discuss" href="{discuss_html}" target="_blank" rel="noopener">Discuss ›</a>'
 
     return f"""
-    <article class="story" data-source="{src}" data-tier-group="{group}" data-tier="{H.escape(tier)}">
-      <a class="thumb" href="{url}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="{img_rel}" alt="{H.escape(title, quote=True)}" loading="lazy">
+    <article class="story" data-section="{H.escape(section_id, quote=True)}" data-source="{H.escape(src, quote=True)}" data-tier-group="{group}" data-tier="{H.escape(tier, quote=True)}">
+      <a class="thumb" href="{url_html}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="{img_rel}" alt="{H.escape(title_raw, quote=True)}" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
@@ -248,18 +307,84 @@ def render_story_card(story: dict, idx: int, date_str: str, img_rel: str) -> str
           {meta_links}
           <span class="tier-chip tier-{group}">{chip}</span>
         </div>
-        <h2 class="story-title"><a href="{url}" target="_blank" rel="noopener">{title}</a></h2>
+        <h2 class="story-title"><a href="{url_html}" target="_blank" rel="noopener">{title}</a></h2>
         <div class="story-summary">{paras}</div>
       </div>
     </article>"""
 
 
-def render_edition_page(edition: dict, stories_html: str, prev_href: str,
-                        next_href: str, filter_buttons: str, target: Path) -> None:
+def _filter_buttons(section: dict) -> str:
+    present = [
+        src for src in SOURCES
+        if any(s.get("source") == src for s in section.get("stories", []))
+    ]
+    parts = ['<button class="chip active" data-filter-source="all">All</button>']
+    for src in present:
+        m = SOURCES[src]
+        parts.append(
+            f'<button class="chip" data-filter-source="{src}" style="--c:{m["color"]}">{H.escape(m["label"])}</button>'
+        )
+    parts.append('<span class="chip-sep"></span>')
+    parts.append('<button class="chip active" data-filter-tier="all">All</button>')
+    parts.append('<button class="chip" data-filter-tier="rec">Recommended</button>')
+    parts.append('<button class="chip" data-filter-tier="must">Must-Read</button>')
+    return "\n".join(parts)
+
+
+def _section_nav(sections: list[dict]) -> str:
+    parts = []
+    for i, section in enumerate(sections):
+        sid = H.escape(section["id"], quote=True)
+        meta = SECTIONS.get(section["id"], {"label": section["title"], "color": "#7ee787"})
+        count = len(section.get("stories", []))
+        active = " active" if i == 0 else ""
+        parts.append(
+            f'<a class="section-tab{active}" href="#{sid}" data-section-tab="{sid}" '
+            f'style="--section-color:{meta["color"]}">{H.escape(section["title"])} '
+            f'<span class="section-tab-count">{count}</span></a>'
+        )
+    return "\n".join(parts)
+
+
+def _section_block(section: dict, date_str: str, image_rels: dict[str, str]) -> str:
+    sid = section["id"]
+    sid_html = H.escape(sid, quote=True)
+    meta = SECTIONS.get(sid, {"label": section["title"], "color": "#7ee787"})
+    stories = section.get("stories", [])
+    cards = []
+    for idx, story in enumerate(stories, start=1):
+        key = f"{sid}-{idx:02d}"
+        cards.append(render_story_card(story, sid, idx, image_rels[key]))
+    summary = str(section.get("summary") or "")
+    summary_html = f'<p class="section-summary">{H.escape(summary)}</p>' if summary else ""
+    body = "\n".join(cards)
+    if not body:
+        body = '<p class="empty-state">No strong items cleared the bar today.</p>'
+    return f"""
+  <section class="section-panel" id="{sid_html}" data-section-panel="{sid_html}" style="--section-color:{meta['color']}" aria-labelledby="heading-{sid_html}">
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">daily section</p>
+        <h1 id="heading-{sid_html}">{H.escape(section["title"])}</h1>
+        {summary_html}
+      </div>
+      <span class="section-count" id="count-{sid_html}">{len(stories)} stories</span>
+    </div>
+    <section class="filters" data-section-filters="{sid_html}" aria-label="{H.escape(section["title"])} filters">
+      <span class="filter-label">Source</span>
+      {_filter_buttons(section)}
+    </section>
+    <section class="stories" data-section-stories="{sid_html}">
+      {body}
+    </section>
+  </section>"""
+
+
+def render_edition_page(edition: dict, section_nav: str, section_blocks: str,
+                        prev_href: str, next_href: str, target: Path) -> None:
     tpl = (TEMPLATES / "edition.html").read_text()
     date_iso = edition["date"]
-    dt = os.path.getmtime(edition["_file"]) if edition.get("_file") else 0
-    count = len(edition.get("stories", []))
+    count = _story_count(edition)
     page = (
         tpl
         .replace("{{SITE_NAME}}", SITE_NAME)
@@ -267,8 +392,8 @@ def render_edition_page(edition: dict, stories_html: str, prev_href: str,
         .replace("{{DATE_ISO}}", date_iso)
         .replace("{{DATE_DISPLAY}}", _fmt_date(date_iso))
         .replace("{{COUNT}}", str(count))
-        .replace("{{FILTER_SOURCES}}", filter_buttons)
-        .replace("{{STORY_CARDS}}", stories_html)
+        .replace("{{SECTION_NAV}}", section_nav)
+        .replace("{{SECTION_BLOCKS}}", section_blocks)
         .replace("{{PREV_LINK}}", prev_href)
         .replace("{{NEXT_LINK}}", next_href)
         .replace("{{CANONICAL}}", f"{SITE_URL}/{date_iso}.html")
@@ -289,12 +414,17 @@ def render_archive(editions: list[dict]) -> None:
     rows = []
     for e in reversed(editions):
         d = e["date"]
-        href = f"{d}.html"
+        href = f"{d}.html#ai"
         if d == editions[-1]["date"]:
-            href = "./"
+            href = "./#ai"
+        counts = " · ".join(
+            f"{H.escape(section['title'])} {len(section.get('stories', []))}"
+            for section in e.get("_sections", [])
+            if section.get("stories")
+        )
         rows.append(
             f'<li class="arch-row"><a href="{href}">{d}</a>'
-            f'<span class="arch-meta">{len(e.get("stories", []))} stories</span></li>'
+            f'<span class="arch-meta">{_story_count(e)} stories · {counts}</span></li>'
         )
     page = tpl.replace("{{SITE_NAME}}", SITE_NAME).replace("{{ARCHIVE_ROWS}}", "\n".join(rows))
     (PAGES_DIR / "archive.html").write_text(page)
@@ -362,14 +492,18 @@ def main() -> None:
         print("[build] no editions found under content/", file=sys.stderr)
         sys.exit(2)
 
-    filter_buttons = _filter_buttons(editions[-1])
     for i, ed in enumerate(editions):
         d = ed["date"]
+        entries = [
+            (f"{section['id']}-{idx:02d}", story)
+            for section in ed["_sections"]
+            for idx, story in enumerate(section.get("stories", []), start=1)
+        ]
         img_dir = PAGES_DIR / "images" / d
-        rels = build_story_images(img_dir, d, ed["stories"])
-        cards = [
-            render_story_card(s, idx, d, rels[idx])
-            for idx, s in enumerate(ed["stories"], start=1)
+        rels = build_story_images(img_dir, d, entries)
+        blocks = [
+            _section_block(section, d, rels)
+            for section in ed["_sections"]
         ]
         prev_el, next_el = "", ""
         if i > 0:
@@ -381,8 +515,12 @@ def main() -> None:
         else:
             next_el = '<span class="navlink disabled">Next ›</span>'
         target = PAGES_DIR / f"{d}.html"
-        render_edition_page(ed, "\n".join(cards), prev_el, next_el, filter_buttons, target)
-        print(f"[build] rendered {d}.html ({len(cards)} stories)")
+        render_edition_page(
+            ed, _section_nav(ed["_sections"]), "\n".join(blocks),
+            prev_el, next_el, target,
+        )
+        print(f"[build] rendered {d}.html ({_story_count(ed)} stories, "
+              f"{len(ed['_sections'])} sections)")
 
     # index = latest edition
     shutil.copy2(PAGES_DIR / f"{editions[-1]['date']}.html", PAGES_DIR / "index.html")
@@ -390,21 +528,6 @@ def main() -> None:
     prune_stale_images()
     print(f"[build] rendered index.html + archive.html")
     deploy(editions[-1]["date"], no_deploy)
-
-
-def _filter_buttons(latest: dict) -> str:
-    present = [src for src in SOURCES if any(s.get("source") == src for s in latest.get("stories", []))]
-    parts = ['<button class="chip active" data-filter-source="all">All</button>']
-    for src in present:
-        m = SOURCES[src]
-        parts.append(
-            f'<button class="chip" data-filter-source="{src}" style="--c:{m["color"]}">{H.escape(m["label"])}</button>'
-        )
-    parts.append('<span class="chip-sep"></span>')
-    parts.append('<button class="chip active" data-filter-tier="all">All</button>')
-    parts.append('<button class="chip" data-filter-tier="rec">Recommended</button>')
-    parts.append('<button class="chip" data-filter-tier="must">Must-Read</button>')
-    return "\n".join(parts)
 
 
 if __name__ == "__main__":

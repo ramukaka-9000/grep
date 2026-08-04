@@ -6,14 +6,16 @@ Pulls raw candidate stories from Hacker News, arXiv and GitHub (created/
 updated in the last ~7 days) and writes them to:
     content/candidates/<YYYY-MM-DD>.json
 
-Reddit is network-blocked on this host, so its bucket is left empty and the
-number of reddit picks (max REDDIT_CAP) is fulfilled by the agent via web
-search during curation instead.
+Reddit candidates are collected during curation rather than by this
+standalone collector: the cron agent uses the authenticated persistent browser
+RSS path first and Degoog search/scrape as fallback. The bucket stays empty in
+this deterministic candidate file.
 
 Pure stdlib. No third-party dependencies.
 """
 from __future__ import annotations
 
+import html as html_mod
 import json
 import re
 import subprocess
@@ -31,9 +33,11 @@ CAND_DIR = BASE / "content" / "candidates"
 UA = "grep-daily-read/1.0 (hermes agent, personal daily digest)"
 HEADERS = {"User-Agent": UA}
 
-# Per-source ceilings; the TOTAL cap is enforced at curation time.
-CAPS = {"hn": 4, "arxiv": 2, "github": 2, "other": 4, "reddit": 2, "hf": 2,
-        "total": 12}
+# AI's existing per-source ceilings are intentionally unchanged. The two new
+# sections have their own section-level caps and are curated independently.
+CAPS = {"hn": 4, "arxiv": 2, "github": 2, "other": 4, "reddit": 4, "hf": 2,
+        "total": 14}
+SECTION_CAPS = {"ai": 14, "electronics": 6, "interesting-news": 6}
 
 HN_API = "https://hacker-news.firebaseio.com/v0"
 ARXIV_API = "https://export.arxiv.org/api/query"
@@ -54,6 +58,22 @@ HF_JUNK = re.compile(
     r"(?<![A-Za-z0-9])draft(?![A-Za-z0-9])|"
     r"(?<![A-Za-z0-9])staging(?![A-Za-z0-9]))",
     re.I,
+)
+
+# These are candidate feeds, not an allow-list. The cron curator still uses
+# Degoog/primary-source verification before publishing anything.
+ELECTRONICS_FEEDS = (
+    ("hackaday", "https://hackaday.com/feed/"),
+    ("adafruit", "https://blog.adafruit.com/feed/"),
+    ("arduino", "https://blog.arduino.cc/feed/"),
+    ("3dprinting", "https://3dprintingindustry.com/feed/"),
+)
+
+INTERESTING_FEEDS = (
+    ("nasa", "https://www.nasa.gov/rss/dyn/breaking_news.rss"),
+    ("esa", "https://www.esa.int/rssfeed/Our_Activities/Space_Science"),
+    ("science", "https://www.sciencedaily.com/rss/top/science.xml"),
+    ("reddit", "https://www.reddit.com/r/todayilearned/.rss?limit=40"),
 )
 
 
@@ -110,6 +130,89 @@ def fetch_hn() -> list[dict]:
 def _clean(s: str | None) -> str:
     s = re.sub(r"\s+", " ", s or "").strip()
     return s
+
+
+def _strip_markup(s: str | None) -> str:
+    """Turn feed HTML snippets into compact plain text candidates."""
+    text = html_mod.unescape(s or "")
+    return _clean(re.sub(r"<[^>]+>", " ", text))
+
+
+def _local_name(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1]
+
+
+def _child_text(node: ET.Element, names: set[str]) -> str:
+    for child in node.iter():
+        if child is node or _local_name(child.tag) not in names:
+            continue
+        value = _clean(child.text)
+        if value:
+            return value
+    return ""
+
+
+def _child_link(node: ET.Element) -> str:
+    for child in node.iter():
+        if child is node or _local_name(child.tag) != "link":
+            continue
+        href = (child.attrib.get("href") or "").strip()
+        if href:
+            return href
+        value = _clean(child.text)
+        if value:
+            return value
+    return ""
+
+
+def fetch_feed(url: str, source: str, section: str) -> list[dict]:
+    """Fetch a small RSS/Atom feed into the common candidate shape."""
+    root = ET.fromstring(get(url, timeout=20))
+    root_name = _local_name(root.tag)
+    if root_name == "feed":
+        nodes = [n for n in root.iter() if _local_name(n.tag) == "entry"]
+    else:
+        nodes = [n for n in root.iter() if _local_name(n.tag) == "item"]
+
+    items: list[dict] = []
+    for node in nodes[:30]:
+        title = _strip_markup(_child_text(node, {"title"}))
+        link = _child_link(node)
+        if not title or not link or not link.startswith(("http://", "https://")):
+            continue
+        summary = _strip_markup(
+            _child_text(node, {"description", "summary", "content", "encoded"})
+        )
+        published = _child_text(node, {"pubDate", "published", "updated", "date"})
+        items.append(
+            {
+                "title": title,
+                "url": link,
+                "source": source,
+                "summary": summary[:700],
+                "published": published,
+                "section": section,
+            }
+        )
+    return items
+
+
+def fetch_feeds(feeds: tuple[tuple[str, str], ...], section: str) -> list[dict]:
+    items: list[dict] = []
+    seen: set[str] = set()
+    for source, url in feeds:
+        try:
+            found = fetch_feed(url, source, section)
+            print(f"[fetch_sources] {source}: {len(found)} feed candidates")
+        except Exception as e:
+            print(f"[fetch_sources] {source} feed failed: {e}", file=sys.stderr)
+            continue
+        for item in found:
+            if item["url"] in seen:
+                continue
+            seen.add(item["url"])
+            items.append(item)
+    return items
 
 
 def _txt(entry: ET.Element, ns: dict, path: str) -> str:
@@ -304,16 +407,38 @@ def main() -> None:
     print("[fetch_sources] fetching Hugging Face ...")
     hf = fetch_hf()
     print(f"[fetch_sources] fetched {len(hf)} small-model HF candidates")
+    print("[fetch_sources] fetching Electronics feeds ...")
+    electronics = fetch_feeds(ELECTRONICS_FEEDS, "electronics")
+    print(f"[fetch_sources] fetched {len(electronics)} Electronics candidates")
+    print("[fetch_sources] fetching Interesting News feeds ...")
+    interesting = fetch_feeds(INTERESTING_FEEDS, "interesting-news")
+    print(f"[fetch_sources] fetched {len(interesting)} Interesting News candidates")
 
     payload = {
         "fetched_at": datetime.now().astimezone().isoformat(),
         "date": today,
-        "caps": CAPS,
+        "caps": {
+            "ai": CAPS,
+            "electronics": SECTION_CAPS["electronics"],
+            "interesting-news": SECTION_CAPS["interesting-news"],
+            "edition_total": sum(SECTION_CAPS.values()),
+        },
         "reddit_note": (
-            "Reddit JSON/RSS is blocked on this host; the reddit bucket is "
-            "filled during curation via web search (r/MachineLearning, "
-            "r/LocalLLaMA, r/programming), capped at 2."
+            "Reddit candidates are filled during curation: use authenticated "
+            "persistent-browser Atom RSS first for the AI, Electronics, and "
+            "Interesting News subreddits; use Degoog search/scrape as fallback."
         ),
+        "section_notes": {
+            "electronics": (
+                "Use the feed candidates as leads, then prioritize reproducible "
+                "DIY builds, ESP32/embedded work, tools, hacks, open hardware, "
+                "and meaningful 3D-printing technology. Curate at most 6."
+            ),
+            "interesting-news": (
+                "Use feed candidates as leads, but verify surprising TIL-style "
+                "claims against a primary or authoritative source. Curate at most 6."
+            ),
+        },
         "hf_note": (
             "HF candidates are new/trending model repos with VERIFIED small "
             "param counts (safetensors total, else trending numParameters) of "
@@ -328,6 +453,8 @@ def main() -> None:
         "github": github,
         "reddit": [],
         "hf": hf,
+        "electronics": electronics,
+        "interesting-news": interesting,
         "other": [],
     }
     out = CAND_DIR / f"{today}.json"
