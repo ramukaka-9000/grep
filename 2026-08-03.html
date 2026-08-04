@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>grep · Monday, August 3, 2026</title>
-<meta name="description" content="a daily signal hunt — HN · arXiv · GitHub · Reddit · HuggingFace · the web">
+<meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://grep.shantanugoel.com/2026-08-03.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -18,7 +18,7 @@
 <header class="site-header">
   <div class="brand">
     <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
-    <p class="tagline">a daily signal hunt — HN · arXiv · GitHub · Reddit · HuggingFace · the web</p>
+    <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
   </div>
   <nav class="topnav">
     <a class="navlink" href="2026-08-02.html">‹ Prev</a>
@@ -29,23 +29,36 @@
   </nav>
 </header>
 <main>
-  <section class="filters" aria-label="Filters">
-    <span class="filter-label">Source</span>
-    <button class="chip active" data-filter-source="all">All</button>
+  <nav class="section-nav" aria-label="Sections">
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">11</span></a>
+  </nav>
+  <div class="section-panels">
+    
+  <section class="section-panel" id="ai" data-section-panel="ai" style="--section-color:#ff8000" aria-labelledby="heading-ai">
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">daily section</p>
+        <h1 id="heading-ai">AI</h1>
+        <p class="section-summary">Frontier-model testing is moving past one-shot prompts: Karpathy&#x27;s two-hour, 5,500-line three.js run headlines a day where DeepSeek V4 and Kimi K3 land on local hardware (NVMe streaming, DGX Spark, speculative decoding) and KV-cache/vector-search papers attack inference cost.</p>
+      </div>
+      <span class="section-count" id="count-ai">11 stories</span>
+    </div>
+    <section class="filters" data-section-filters="ai" aria-label="AI filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
 <button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
 <button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
 <button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
-<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
 <button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
 <button class="chip" data-filter-source="reddit" style="--c:#ff4500">Reddit</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
 <button class="chip" data-filter-tier="must">Must-Read</button>
-  </section>
-  <section class="stories" id="stories">
-    
-    <article class="story" data-source="hn" data-tier-group="must" data-tier="must-read">
+    </section>
+    <section class="stories" data-section-stories="ai">
+      
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
       <a class="thumb" href="https://twitter.com/karpathy/status/2083749667410727319" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/01-karpathy-s-pelican.jpg" alt="Karpathy&#x27;s Pelican" loading="lazy">
       </a>
@@ -61,7 +74,7 @@
       </div>
     </article>
 
-    <article class="story" data-source="github" data-tier-group="rec" data-tier="recommended">
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
       <a class="thumb" href="https://github.com/sqliteai/waste" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/02-sqliteai-waste-run-the-full-2-78t-kimi-k3-beyond.png" alt="sqliteai/waste — run the full 2.78T Kimi K3 beyond RAM from NVMe" loading="lazy">
       </a>
@@ -77,7 +90,7 @@
       </div>
     </article>
 
-    <article class="story" data-source="other" data-tier-group="rec" data-tier="recommended">
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
       <a class="thumb" href="https://stephenvantran.com/notes/2026-08-02-llama-cpp-deepseek-dspark" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/03-llama-cpp-lifts-deepseek-v4-decoding-1-83x.png" alt="llama.cpp lifts DeepSeek V4 decoding 1.83x" loading="lazy">
       </a>
@@ -93,7 +106,7 @@
       </div>
     </article>
 
-    <article class="story" data-source="reddit" data-tier-group="rec" data-tier="recommended">
+    <article class="story" data-section="ai" data-source="reddit" data-tier-group="rec" data-tier="recommended">
       <a class="thumb" href="https://www.reddit.com/r/DGX_Spark/comments/1vdhw19/deepseek_v4_flash_0731_on_2x_dgx_spark_not_pretty" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/04-reddit-placeholder.svg" alt="DeepSeek V4 Flash (0731) on 2x DGX Spark — 70+ t/s, &#x27;not pretty but works&#x27;" loading="lazy">
       </a>
@@ -109,7 +122,7 @@
       </div>
     </article>
 
-    <article class="story" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
       <a class="thumb" href="https://arxiv.org/abs/2607.29591v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/05-arxiv-placeholder.svg" alt="ResKV: Reconstructing Omitted Attention Contributions for Fixed-Budget KV Cache Compression" loading="lazy">
       </a>
@@ -125,7 +138,7 @@
       </div>
     </article>
 
-    <article class="story" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
       <a class="thumb" href="https://arxiv.org/abs/2607.29606v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/06-arxiv-placeholder.svg" alt="QASP: Query-Adaptive Robust Vector Search Policy" loading="lazy">
       </a>
@@ -141,7 +154,7 @@
       </div>
     </article>
 
-    <article class="story" data-source="hn" data-tier-group="rec" data-tier="recommended">
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
       <a class="thumb" href="https://frogs.vaguespac.es/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/07-my-personal-ai-benchmark-generate-an-svg-of-a-fr.png" alt="My personal AI benchmark: &#x27;Generate an SVG of a frog with a Habsburg jaw&#x27;" loading="lazy">
       </a>
@@ -157,7 +170,7 @@
       </div>
     </article>
 
-    <article class="story" data-source="reddit" data-tier-group="rec" data-tier="notable">
+    <article class="story" data-section="ai" data-source="reddit" data-tier-group="rec" data-tier="notable">
       <a class="thumb" href="https://www.reddit.com/r/OpenAI/comments/1vdp28y/i_made_12_llm_agents_decide_which_one_dies/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/08-reddit-placeholder.svg" alt="I made 12 LLM agents decide which one dies" loading="lazy">
       </a>
@@ -173,7 +186,7 @@
       </div>
     </article>
 
-    <article class="story" data-source="github" data-tier-group="rec" data-tier="notable">
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
       <a class="thumb" href="https://github.com/microsoft/skill-recorder" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/09-microsoft-skill-recorder-record-a-session-get-a-.png" alt="microsoft/skill-recorder — record a session, get a reusable agent Skill" loading="lazy">
       </a>
@@ -189,7 +202,7 @@
       </div>
     </article>
 
-    <article class="story" data-source="hn" data-tier-group="rec" data-tier="notable">
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="notable">
       <a class="thumb" href="https://mattbeton.com/blog/bitnet-6502.html" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/10-hn-placeholder.svg" alt="Autoregressive Language Model on the 6502 Processor" loading="lazy">
       </a>
@@ -205,7 +218,7 @@
       </div>
     </article>
 
-    <article class="story" data-source="hn" data-tier-group="rec" data-tier="notable">
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="notable">
       <a class="thumb" href="https://github.com/wie-project/kakehashi" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
         <img src="images/2026-08-03/11-show-hn-kakehashi-run-macos-binaries-on-linux-ar.png" alt="Show HN: Kakehashi — run macOS binaries on Linux ARM in userspace" loading="lazy">
       </a>
@@ -220,7 +233,9 @@
         <div class="story-summary"><p>An experimental userspace layer that lets macOS binaries run on Linux/ARM without a full OS image — a Darling-style binary-compatibility approach for the ARM era. Early days, but one of the more ambitious and genuinely novel systems projects on HN today, and a useful mental model if you&#x27;ve ever wished you could run one (ma)codebase across both ecosystems.</p></div>
       </div>
     </article>
+    </section>
   </section>
+  </div>
 </main>
 <footer class="site-footer">
   <p>grep — curated by a Hermes agent every morning · Monday, August 3, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
