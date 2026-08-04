@@ -1,114 +1,243 @@
 {
   "date": "2026-08-04",
-  "summary": "Open-weights frontier day: Alibaba will release the 2.4T Qwen3.8-Max open next week and MiniMax's H3 open video model drops day-0 in ComfyUI, while a JFrog audit exposes LLM-generated fake SQLite CVEs polluting NVD.",
-  "stories": [
+  "summary": "Open models and open engineering keep collapsing hardware and supply-chain barriers, while primary science results add a few genuinely strange facts about photons, fossils, carbon, trees, and the early Universe.",
+  "sections": [
     {
-      "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
-      "url": "https://qwen.ai/blog?id=qwen3.8",
-      "source": "hn",
-      "byline": "Alibaba Qwen",
-      "tier": "must-read",
-      "discuss_url": "https://news.ycombinator.com/item?id=49150470",
-      "summary": "Alibaba's new MoE flagship at 2.4T total parameters, billed as 'a new bar for coding and cowork' — the company says its long-horizon agentic coding ran for 10+ days of self-evolving development, building a complete project from an empty folder to production deliverables with a full trace. Open weights are announced for next week, alongside a 27B dense sibling also going open; 1M context and native vision per the official announcement. The biggest open-weights story of the day (1057 pts, 569 comments on HN) and a direct follow-on to the Kimi K3 frontier-open-weights wave."
+      "id": "ai",
+      "title": "AI",
+      "summary": "The frontier keeps moving in two directions at once: open models get larger and more capable, while careful systems work makes them cheaper to serve, easier to verify, and more useful on ordinary hardware.",
+      "stories": [
+        {
+          "title": "Qwen3.8-Max: A New Bar for Coding and Cowork",
+          "url": "https://qwen.ai/blog?id=qwen3.8",
+          "source": "hn",
+          "byline": "Alibaba Qwen",
+          "tier": "must-read",
+          "discuss_url": "https://news.ycombinator.com/item?id=49150470",
+          "summary": "Alibaba's new MoE flagship at 2.4T total parameters, billed as 'a new bar for coding and cowork' — the company says its long-horizon agentic coding ran for 10+ days of self-evolving development, building a complete project from an empty folder to production deliverables with a full trace. Open weights are announced for next week, alongside a 27B dense sibling also going open; 1M context and native vision per the official announcement. The biggest open-weights story of the day and a direct follow-on to the Kimi K3 frontier-open-weights wave."
+        },
+        {
+          "title": "Ten advances in mathematics and theoretical computer science",
+          "url": "https://openai.com/index/ten-advances-in-mathematics/",
+          "source": "hn",
+          "byline": "OpenAI",
+          "tier": "must-read",
+          "discuss_url": "https://news.ycombinator.com/item?id=49157930",
+          "summary": "OpenAI published results on ten long-standing open problems spanning mathematics and theoretical computer science — geometry, cryptography, and complexity among them. The results ship with Lean 4 formalizations in openai/ten-proofs, a meaningful step toward machine-checked frontier math rather than unverifiable claims, while the company explicitly says humans prepared the manuscripts and take responsibility for correctness."
+        },
+        {
+          "title": "MiniMax H3 Day-0 Support in ComfyUI: Open Weights, Native Audio, 2K Video",
+          "url": "https://blog.comfy.org/p/minimax-h3-day-0-support-in-comfyui",
+          "source": "other",
+          "byline": "MiniMax / ComfyUI",
+          "tier": "recommended",
+          "discuss_url": "https://news.ycombinator.com/item?id=49155629",
+          "summary": "MiniMax's third-generation video model is out with open weights and native ComfyUI support on day zero: text, image, video, or audio in, 2K clips up to 15 seconds out, with stereo audio generated in the same pass. Comfy engineers pruned about 40% of the modulation weights into a functionally equivalent lookup table, added int8 convrot quantization and dynamic VRAM offload, and report a 66% memory reduction that can bring the model to an RTX 3060."
+        },
+        {
+          "title": "SQLite Critical CVEs or LLM Slop?",
+          "url": "https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/",
+          "source": "hn",
+          "byline": "JFrog Research",
+          "tier": "recommended",
+          "discuss_url": "https://news.ycombinator.com/item?id=49154332",
+          "summary": "JFrog's audit of a fresh batch of 'critical' SQLite CVEs found the advisories to be AI-generated slop: cited functions that don't exist in the pinned versions, PoCs that never crash, and line numbers past end-of-file. Its broader audit found 54 fabricated advisories out of 55 from the same repository, a sharp case study in how LLM slop can pollute vulnerability databases and mislead automated triage."
+        },
+        {
+          "title": "Don't be a meat proxy",
+          "url": "https://gruhn.me/blog/2026-08-03/",
+          "source": "hn",
+          "byline": "Nikolaus Gruhn",
+          "tier": "recommended",
+          "discuss_url": "https://news.ycombinator.com/item?id=49151933",
+          "summary": "The top-scoring essay of the day argues that when answering in Slack, code review, or a group chat, you should not relay an LLM's giant verbatim response as if that were your own work. The lesson lands hardest in code review: shipping unread model output under your name means the reviewers did the real implementation, and you cannot vouch for what you sent."
+        },
+        {
+          "title": "Topology-Aware Data Movement for Disaggregated GPU Inference",
+          "url": "https://arxiv.org/abs/2607.28633",
+          "source": "arxiv",
+          "byline": "Sanjeev Ganjihal",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "A systems paper argues that disaggregated prefill/decode inference ignores interconnect topology: with a 70B model moving 2.6 GB of KV cache per request, bandwidth varies about 72x from NVLink to InfiniBand to TCP. It proposes pipelined layer-by-layer transfer, NVLink-aware expert placement, and CXL 3.0 overflow memory, projecting 3–18x lower transfer latency while clearly labeling the full evaluation as analytical because the required hardware is not yet available."
+        },
+        {
+          "title": "kimi-k3-in-c — 2.78T Kimi K3 on a single CPU in 8.24 GB of RAM",
+          "url": "https://github.com/FareedKhan-dev/kimi-k3-in-c",
+          "source": "github",
+          "byline": "Fareed Khan",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "A portable C99 inference engine runs the 2.78T-parameter Kimi K3 on a single CPU within a measured 8.24 GB peak RSS — no BLAS, no framework, no GPU. The routed experts stay packed at 4-bit and stream from storage while the dense trunk is kept in memory, so the project reports byte-identical greedy output across memory budgets from 8 GB upward; it is slow, but genuinely portable and meticulously documented."
+        },
+        {
+          "title": "Smaller, faster, safer: running Kimi and GLM at scale",
+          "url": "https://blog.cloudflare.com/smaller-faster-safer-models/",
+          "source": "other",
+          "byline": "Cloudflare Workers AI",
+          "tier": "recommended",
+          "discuss_url": "https://news.ycombinator.com/item?id=49158581",
+          "summary": "Cloudflare details how Workers AI serves large open MoE models at scale: FP8 KV cache doubles the context it can hold for Kimi K2.6, INT4 weights shrink GLM 5.2's checkpoint from 705 GB to 421 GB, and cache-integrity checks cost under 1% in its measurements. The concrete numbers make the serving bottleneck clear: memory traffic and cache capacity, not just FLOPs, determine what frontier models cost to run."
+        },
+        {
+          "title": "Andy Pavlo joins ClickHouse to establish ClickHouse Labs",
+          "url": "https://clickhouse.com/blog/andy-pavlo-joins-clickhouse",
+          "source": "other",
+          "byline": "Andy Pavlo",
+          "tier": "notable",
+          "discuss_url": "https://news.ycombinator.com/item?id=49156011",
+          "summary": "Andy Pavlo — CMU database professor and creator of dbdb.io — is joining ClickHouse to establish and lead ClickHouse Labs. The new group will work directly with ClickHouse and PostgreSQL engineering teams, with an explicit research line on how DBMSs should support AI agents and how agents might help build DBMSs themselves."
+        },
+        {
+          "title": "openai/ten-proofs — Lean certificates for the ten math advances",
+          "url": "https://github.com/openai/ten-proofs",
+          "source": "github",
+          "byline": "OpenAI",
+          "tier": "notable",
+          "discuss_url": "",
+          "summary": "The Lean 4 formalizations accompanying OpenAI's ten-math-results announcement turn the headline into artifacts that can be checked term by term. The repository includes build instructions, individual theorem files, and an independent-checking path rather than asking readers to trust a model-generated proof narrative."
+        },
+        {
+          "title": "baidu/Unlimited-OCR — one-shot long-horizon document parsing at 3.3B",
+          "url": "https://huggingface.co/baidu/Unlimited-OCR",
+          "source": "hf",
+          "byline": "Baidu Inc.",
+          "tier": "notable",
+          "discuss_url": "",
+          "summary": "Baidu's 3.3B-parameter Unlimited-OCR is aimed at one-shot, long-horizon document parsing, including multi-page PDFs, with Transformers, vLLM, and SGLang recipes published on the model page. At 3.3B parameters it is a plausible small-model choice for a quantized 3060/3070-class GPU, while its unusual value proposition is preserving layout and long documents in one pass rather than stitching together page-sized OCR calls."
+        },
+        {
+          "title": "Qwen3.8-27B announced alongside Qwen3.8-Max — r/LocalLLaMA",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ve0psn/qwen3827b_announced_alongside_qwen38max",
+          "source": "reddit",
+          "byline": "r/LocalLLaMA",
+          "tier": "notable",
+          "discuss_url": "",
+          "summary": "The r/LocalLLaMA thread covers Alibaba's announcement that a 27B dense model will go open alongside the 2.4T Qwen3.8-Max. For a community centered on hardware people can actually own, the 27B is the release that should run locally while the flagship points at the datacenter — a clean illustration of the split between frontier-scale and local-runnable open models."
+        }
+      ]
     },
     {
-      "title": "Ten advances in mathematics and theoretical computer science",
-      "url": "https://openai.com/index/ten-advances-in-mathematics/",
-      "source": "hn",
-      "byline": "OpenAI",
-      "tier": "must-read",
-      "discuss_url": "https://news.ycombinator.com/item?id=49157930",
-      "summary": "OpenAI published results on ten long-standing open problems spanning mathematics and theoretical computer science — geometry, cryptography, and complexity among them. The results ship with Lean 4 formalizations (openai/ten-proofs), a meaningful step toward machine-checked frontier math rather than unverifiable claims. One of the most-discussed items of the day (459 pts, 726 comments)."
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Open designs turn low-cost boards, sensors, and fabrication into measurable systems: from a Zephyr Pi target and IMU quadruped to battery triage, delta plotting, CAM geometry, and field repair.",
+      "stories": [
+        {
+          "title": "Zephyr on Raspberry Pi Zero 2W bare metal",
+          "url": "https://blog.adafruit.com/2026/08/03/zephyr-on-raspberry-pi-zero-2w-bare-metal/",
+          "source": "adafruit",
+          "byline": "Jonathan Elliot Peace / Adafruit",
+          "tier": "recommended",
+          "discuss_url": "https://github.com/zephyrproject-rtos/zephyr/issues/109880",
+          "summary": "An RFC is bringing Raspberry Pi Zero 2 W support to Zephyr: a new BCM2710 SoC and board, peripheral drivers, and the CYW43439 SDIO Wi-Fi path. The proposed work is split into 16 reviewable PRs with roughly 10,200 net additions, giving the cheap, widely available A53 board a real bare-metal RTOS target instead of treating it like a Pi 3 or Pi 4."
+        },
+        {
+          "title": "Cubic Doggo 06R: a homemade 12-DOF 4-legged robot",
+          "url": "https://github.com/SphericalCowww/CubicDoggo_06R",
+          "source": "github",
+          "byline": "SphericalCowww",
+          "tier": "recommended",
+          "discuss_url": "https://www.reddit.com/r/robotics/comments/1v69uqf/cubic_doggo_upgrade_walking_with_imu",
+          "summary": "Cubic Doggo 06R is an open, 3D-printed 12-DOF quadruped that adds stronger joint supports, spring-like feet, smaller foot tips, a better center-of-mass setup, and IMU balance. The project documents BNO055-based PID control, shows full-PID oscillation at a 50 Hz readout rate, and publishes CAD, wiring, ROS 2 launch files, and test plots so the failure modes are as useful as the walking demo."
+        },
+        {
+          "title": "Testing Hundreds of Used LFP Cells Requires Some Automation",
+          "url": "https://hackaday.com/2026/08/04/testing-hundreds-of-used-lfp-cells-requires-some-automation/",
+          "source": "hackaday",
+          "byline": "Within Tolerance / Hackaday",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Within Tolerance's Cell Goblin turns a tedious battery-salvage job into a small production line: 768 used LFP cells are charged, discharged, measured, and classified by custom ESP32-S2 testers. Five dual-cell testers process ten cells at once, while PC software reads an internal-resistance meter over UART; the hardware and code are published for others facing the same sorting problem."
+        },
+        {
+          "title": "This DIY pen plotter has delta kinematics and a tool changer",
+          "url": "https://blog.arduino.cc/2026/07/31/this-diy-pen-plotter-has-delta-kinematics-and-a-tool-changer/",
+          "source": "arduino",
+          "byline": "András Vujovits / Arduino",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "An open DIY pen plotter replaces the usual Cartesian axes with delta kinematics, a tool changer, and a paper-feed treadmill. Most of its parts are 3D-printed; an Arduino Nano and GRBL shield are paired with custom software that converts images into delta-aware G-code because ordinary plotter software cannot describe the machine's geometry."
+        },
+        {
+          "title": "RWTH Aachen releases open-source geometry library to reduce AM CAM memory requirements",
+          "url": "https://3dprintingindustry.com/news/rwth-aachen-releases-open-source-geometry-library-to-reduce-am-cam-memory-requirements-253474/",
+          "source": "3dprinting",
+          "byline": "RWTH Aachen DAP",
+          "tier": "notable",
+          "discuss_url": "",
+          "summary": "RWTH Aachen's DAP-CG is an open-source C# geometry library for additive-manufacturing CAM operations including orientation, support generation, nesting, slicing, and scan strategies. The institute reports a fivefold memory reduction in nesting and similar savings in slicing and scan preparation by compressing polygon data, potentially moving large jobs from a server to a 32 GB desktop."
+        },
+        {
+          "title": "Marine Corps X-FAB Saves Coast Guard Patrol Boats",
+          "url": "https://3dprintingindustry.com/news/marine-corps-x-fab-saves-coast-guard-patrol-boats-253447/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry / U.S. Marine Corps",
+          "tier": "notable",
+          "discuss_url": "",
+          "summary": "During CJLOTS 26 in South Korea, U.S. Marines reverse-engineered and 3D-printed a Coast Guard boat's replacement strainer inside a deployable X-FAB. The part cost about $12 and returned the boat to service the same day, replacing a normal two-to-three-week supply delay with a concrete demonstration of field manufacturing as logistics resilience."
+        }
+      ]
     },
     {
-      "title": "MiniMax H3 Day-0 Support in ComfyUI: Open Weights, Native Audio, 2K Video",
-      "url": "https://blog.comfy.org/p/minimax-h3-day-0-support-in-comfyui",
-      "source": "other",
-      "byline": "MiniMax / ComfyUI",
-      "tier": "recommended",
-      "discuss_url": "https://news.ycombinator.com/item?id=49155629",
-      "summary": "MiniMax's third-generation video model (successor to Hailuo 01/02) is out with open weights and native ComfyUI support on day zero: text, image, video, or audio in, 2K clips up to 15 seconds out, with stereo audio generated in the same pass. Comfy engineers pruned ~40% of the modulation weights into a functionally equivalent lookup table plus int8 convrot and dynamic VRAM offload, taking memory from 123.6 GB full-precision down to ~42.5 GB and reportedly running on an RTX 3060 — a real consumer-hardware video model story."
-    },
-    {
-      "title": "SQLite Critical CVEs or LLM Slop?",
-      "url": "https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/",
-      "source": "hn",
-      "byline": "JFrog Research",
-      "tier": "recommended",
-      "discuss_url": "https://news.ycombinator.com/item?id=49154332",
-      "summary": "JFrog's audit of a fresh batch of 'critical' SQLite CVEs found the advisories to be AI-generated slop: cited functions that don't exist in the pinned versions, PoCs that never crash, and line numbers past end-of-file. Of 55 advisories from the source repo, 54 were fabricated and one wrapped a real bug in wrong metadata; CVE-2026-51302 was even downgraded from 10.0 to 7.6 after scrutiny. A sharp case study in how LLM slop can flood NVD/GHSA and mislead automated triage and AI-driven patching."
-    },
-    {
-      "title": "Don't be a meat proxy",
-      "url": "https://gruhn.me/blog/2026-08-03/",
-      "source": "hn",
-      "byline": "Nikolaus Gruhn",
-      "tier": "recommended",
-      "discuss_url": "https://news.ycombinator.com/item?id=49151933",
-      "summary": "The top-scoring essay of the day: when answering in Slack, code review, or a group chat, don't just relay Claude's giant verbatim response — that's being a 'meat proxy' who adds no value (and who can't vouch for the output). The lesson lands hardest in code review: shipping someone else's unread LLM output under your name means the reviewers did the real implementation. Provocative and heavily discussed (1706 pts, 694 comments)."
-    },
-    {
-      "title": "Topology-Aware Data Movement for Disaggregated GPU Inference",
-      "url": "https://arxiv.org/abs/2607.28633",
-      "source": "arxiv",
-      "byline": "Ganjihal",
-      "tier": "recommended",
-      "discuss_url": "",
-      "summary": "A systems paper arguing disaggregated prefill/decode inference ignores interconnect topology: with a 70B model moving ~2.6 GB of KV cache per request, bandwidth between GPUs varies ~72x (NVLink ~900 GB/s vs InfiniBand ~50 GB/s vs TCP ~12.5 GB/s). It proposes a topology-aware transfer orchestrator — pipelined layer-by-layer transfer that hides latency behind prefill, NVLink-aware expert placement for MoE, and CXL 3.0 as an overflow tier — projecting 3-18x transfer-latency reduction over uniform RDMA. Directly relevant to anyone serving disaggregated LLMs."
-    },
-    {
-      "title": "kimi-k3-in-c — 2.78T Kimi K3 on a single CPU in 8.24 GB of RAM",
-      "url": "https://github.com/FareedKhan-dev/kimi-k3-in-c",
-      "source": "github",
-      "byline": "Fareed Khan",
-      "tier": "recommended",
-      "discuss_url": "",
-      "summary": "A portable C99 inference engine that runs the 2.78T-parameter Kimi K3 on a single CPU within 8.24 GB peak RSS — no BLAS, no framework, no GPU. The insight: the ~1.45 TB of routed experts stay packed at 4-bit and never resident, while the dense trunk streams layer-by-layer, so output stays byte-identical at every memory budget from 8 GB up to 224 GB. Slow (~10-33 s/token) but genuinely portable, with meticulous docs, sanitizer CI, and a 176 KB engine; ~1.3k stars in days. The 'run the frontier at home' theme continues."
-    },
-    {
-      "title": "Smaller, faster, safer: running Kimi and GLM at scale",
-      "url": "https://blog.cloudflare.com/smaller-faster-safer-models/",
-      "source": "other",
-      "byline": "Cloudflare Workers AI",
-      "tier": "recommended",
-      "discuss_url": "https://news.ycombinator.com/item?id=49158581",
-      "summary": "Cloudflare details how Workers AI serves big open MoE models (Kimi K-series, GLM) at scale: FP8 KV cache roughly doubles context on Kimi K2.6 (~686k->1.37M tokens) with no accuracy change, INT4 weights shrink GLM 5.2's checkpoint 705 GB->421 GB and speed up bandwidth-bound decode, and page-tagging KV integrity checks cost under 1%. All benchmarked on the disaggregated prefill/decode split with SGLang — concrete numbers on why memory, not FLOPs, is the serving bottleneck."
-    },
-    {
-      "title": "Andy Pavlo joins ClickHouse to establish ClickHouse Labs",
-      "url": "https://clickhouse.com/blog/andy-pavlo-joins-clickhouse",
-      "source": "other",
-      "byline": "Andy Pavlo",
-      "tier": "notable",
-      "discuss_url": "https://news.ycombinator.com/item?id=49156011",
-      "summary": "Andy Pavlo — CMU database professor, creator of dbdb.io, and one of the most-read voices in database systems — is joining ClickHouse to establish and lead a new research org. ClickHouse Labs will work directly with the ClickHouse and PostgreSQL engineering teams, with an explicit research line on how DBMSs should support AI agents and how agents can build DBMSs. A notable signal for anyone watching AI meet the database layer."
-    },
-    {
-      "title": "openai/ten-proofs — Lean certificates for the ten math advances",
-      "url": "https://github.com/openai/ten-proofs",
-      "source": "github",
-      "byline": "OpenAI",
-      "tier": "notable",
-      "discuss_url": "",
-      "summary": "The Lean 4 formalizations accompanying OpenAI's 'Ten advances in mathematics and theoretical computer science' announcement — machine-checked proofs rather than just claimed results. The repo that turns a headline into something you can verify term by term, and a concrete datapoint on the frontier-verification direction."
-    },
-    {
-      "title": "baidu/Unlimited-OCR — one-shot long-horizon document parsing at 3.3B",
-      "url": "https://huggingface.co/baidu/Unlimited-OCR",
-      "source": "hf",
-      "byline": "Baidu Inc.",
-      "tier": "notable",
-      "discuss_url": "",
-      "summary": "Baidu's 3.3B-parameter OCR model for one-shot, long-horizon document parsing — a full PDF in a single pass, explicitly pushing DeepSeek-OCR further, with vLLM/SGLang/ms-swift support and ~2.6M downloads. A genuinely small model (3.3B params, fits a basic 3060/3070 quantized) that has become a default pick for document pipelines."
-    },
-    {
-      "title": "Qwen3.8-27B announced alongside Qwen3.8-Max — r/LocalLLaMA",
-      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ve0psn/qwen3827b_announced_alongside_qwen38max",
-      "source": "reddit",
-      "byline": "r/LocalLLaMA",
-      "tier": "notable",
-      "discuss_url": "",
-      "summary": "The r/LocalLLaMA thread around Alibaba's announcement that a 27B dense model is also going open alongside the 2.4T Qwen3.8-Max. For a community centered on hardware you can actually own, the 27B is the release that will run locally this month while the flagship points at the datacenter — a clean illustration of the split between frontier-scale and local-runnable open models."
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "This edition crosses scales—from names and quasars riding a future telescope to Cambrian appendages, negative photon dwell time, buried Arctic carbon, and Taiwan's tree-seeking citizen science.",
+      "stories": [
+        {
+          "title": "Roman Space Telescope Plaque Install",
+          "url": "https://www.nasa.gov/image-article/roman-space-telescope-plaque-install/",
+          "source": "nasa",
+          "byline": "NASA",
+          "tier": "notable",
+          "discuss_url": "",
+          "summary": "NASA installed a plaque on the Nancy Grace Roman Space Telescope that includes a memory card containing 1,350,144 names submitted from around the world, including Artemis II and Artemis III astronauts. The observatory is scheduled to launch on August 30, 2026, carrying a small human-scale archive on a mission designed to census exoplanets, planet-forming disks, and dark energy."
+        },
+        {
+          "title": "Urokodia sheds light on the origin of chelicerae and book gills of Chelicerata",
+          "url": "https://www.nature.com/articles/s41586-026-10713-2",
+          "source": "science",
+          "byline": "Yu Liu et al. / Nature",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "X-ray tomography of the 518-million-year-old marine arthropod Urokodia exposed pincer-like appendages and possible book gills preserved in soft anatomy. Published in Nature, the study places these structures near the evolutionary beginnings of the chelicerae that later became the fangs and pincers of spiders, scorpions, and their relatives."
+        },
+        {
+          "title": "How much time does a photon spend as an atomic excitation before being scattered?",
+          "url": "https://pubs.aip.org/aip/apq/article/2/3/036108/3364127/How-much-time-does-a-photon-spend-as-an-atomic",
+          "source": "science",
+          "byline": "Steinberg et al. / AIP Publishing",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "An experiment with photons crossing a rubidium-atom cloud found that transmitted photons can be assigned a negative dwell time: the average timing says they spend less than zero time in the cloud. A weak measurement of the atoms' excitation produced the same negative value, showing a measurable quantum effect rather than a faster-than-light signal or time machine; standard physics still explains it."
+        },
+        {
+          "title": "Ancient Arctic carbon is pouring into the sea, but the seabed captures most of it",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260802223424.htm",
+          "source": "science",
+          "byline": "Alfred Wegener Institute / Nature Geoscience",
+          "tier": "notable",
+          "discuss_url": "",
+          "summary": "Sediment cores off Qikiqtaruk/Herschel Island show that most land-derived organic carbon carried from thawing permafrost can remain buried in the seabed rather than immediately returning to the atmosphere. The study's microbes converted about 10% of sedimentary organic carbon into gases while preferring fresh marine carbon over older permafrost carbon—a useful nuance, not an all-clear, for Arctic climate models."
+        },
+        {
+          "title": "Euclid discovers the most ancient quasar in the Universe",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/Euclid/Euclid_discovers_the_most_ancient_quasar_in_the_Universe",
+          "source": "esa",
+          "byline": "ESA / Euclid Consortium",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "ESA's Euclid found 31 new quasars in the early Universe, including two at redshifts 7.77 and 7.69 that shone when the cosmos was only about 670 million years old. The result more than doubles the known population at this age and turns a handful of bright outliers into something closer to a census of black holes during reionisation."
+        },
+        {
+          "title": "Scientists went looking for giant trees in Taiwan and found a lost world",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260802223431.htm",
+          "source": "science",
+          "byline": "Taiwan Tree Seekers / ScienceDaily",
+          "tier": "notable",
+          "discuss_url": "",
+          "summary": "A long-running Taiwan Tree Seekers project combined climbers, airborne LiDAR, and citizen review to locate an 84.1-metre Taiwania fir, recognized as the tallest known tree in Taiwan and East Asia. The search mapped 941 trees above 65 metres and found that automated terrain errors misidentified 93% of candidates, an unexpectedly strong case for human-in-the-loop field science."
+        }
+      ]
     }
   ]
 }
