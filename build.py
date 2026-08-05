@@ -388,17 +388,10 @@ def _podcast_block(date_str: str, audio_rel: str | None) -> str:
     audio_html = H.escape(audio_rel, quote=True)
     return f"""
   <section class="podcast-player" aria-labelledby="podcast-heading">
-    <div class="podcast-kicker">audio edition</div>
-    <div class="podcast-heading-row">
-      <div>
-        <h2 id="podcast-heading">Listen to the grep podcast</h2>
-        <p>A narrated companion to this edition, with the day's strongest signals and deeper context.</p>
-      </div>
-      <a class="podcast-download" href="{audio_html}" download>Download MP3 ↓</a>
-    </div>
+    <h2 class="podcast-title" id="podcast-heading">The Grep Podcast</h2>
     <audio class="podcast-audio" controls preload="metadata" aria-label="grep podcast for {H.escape(date_str, quote=True)}">
       <source src="{audio_html}" type="audio/mpeg">
-      Your browser does not support the audio player. <a href="{audio_html}">Download the MP3</a>.
+      Your browser does not support the audio player.
     </audio>
   </section>"""
 
