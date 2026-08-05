@@ -25,6 +25,23 @@ The marker is intentionally separate from `content/YYYY-MM-DD.json`: it is only
 written when the deployed `gh-pages` worktree contains the dated page and the
 latest commit subject is `edition YYYY-MM-DD`.
 
+After rendering and validating an episode, publish its final MP3 to the tracked
+site source and rebuild the static site:
+
+```bash
+python3 podcast/publish.py --date YYYY-MM-DD
+python3 build.py
+git add podcast/episodes/YYYY-MM-DD.mp3
+git commit -m "podcast: publish YYYY-MM-DD audio"
+git push origin main
+```
+
+`publish.py` never renders audio; it only validates the existing episode and
+copies it from `podcast/runs/YYYY-MM-DD/episode.mp3` to the durable
+`podcast/episodes/YYYY-MM-DD.mp3` source artifact. `build.py` mirrors tracked
+episodes into `gh-pages/audio/YYYY-MM-DD/episode.mp3` and adds the player to
+the matching dated edition page.
+
 ## Script shape
 
 ```json

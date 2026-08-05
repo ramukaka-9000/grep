@@ -95,7 +95,10 @@ python3 build.py
 
 ```
 fetch_sources.py          # deterministic source collectors -> candidates/
-build.py                  # section-aware render + image cache + deploy
+build.py                  # section-aware render + image cache + podcast sync + deploy
+podcast/                  # gated narrated podcast pipeline
+  runs/                   # local render runs (gitignored)
+  episodes/               # tracked final MP3s used by the static site
 templates/                # edition.html, archive.html
 assets/                    # style.css, app.js, favicon.svg
 content/<YYYY-MM-DD>.json # curated sectioned edition (permanent archive)

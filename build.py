@@ -15,6 +15,7 @@ Pure stdlib. No third-party dependencies.
 from __future__ import annotations
 
 import concurrent.futures as cf
+import filecmp
 import html as H
 import json
 import os
@@ -29,6 +30,7 @@ BASE = Path(__file__).resolve().parent          # main-branch worktree (source)
 PAGES_DIR = BASE.parent / "grep-pages"          # gh-pages worktree (build target)
 TEMPLATES = BASE / "templates"
 CONTENT = BASE / "content"
+PODCAST_EPISODES = BASE / "podcast" / "episodes"
 
 SITE_URL = "https://grep.shantanugoel.com"
 SITE_NAME = "grep"
@@ -273,6 +275,40 @@ def load_editions() -> list[dict]:
     return eds
 
 
+def sync_podcast_audio() -> dict[str, str]:
+    """Mirror tracked podcast episodes into the gh-pages worktree."""
+    if not PODCAST_EPISODES.is_dir():
+        return {}
+
+    audio_rels: dict[str, str] = {}
+    for source in sorted(PODCAST_EPISODES.glob("*.mp3")):
+        if not source.is_file():
+            continue
+        date_str = source.stem
+        try:
+            from datetime import date as _date
+            _date.fromisoformat(date_str)
+        except ValueError:
+            print(f"[build] skip podcast with non-date filename: {source.name}", file=sys.stderr)
+            continue
+        if source.stat().st_size <= 0:
+            print(f"[build] skip empty podcast episode: {source}", file=sys.stderr)
+            continue
+
+        dest = PAGES_DIR / "audio" / date_str / "episode.mp3"
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if not dest.exists() or not filecmp.cmp(source, dest, shallow=False):
+            tmp = dest.with_name(dest.name + ".tmp")
+            try:
+                shutil.copy2(source, tmp)
+                os.replace(tmp, dest)
+            finally:
+                tmp.unlink(missing_ok=True)
+            print(f"[build] synced podcast audio for {date_str}")
+        audio_rels[date_str] = f"audio/{date_str}/episode.mp3"
+    return audio_rels
+
+
 # ----------------------------------------------------------------------------- rendering
 
 def render_story_card(story: dict, section_id: str, idx: int, img_rel: str) -> str:
@@ -346,6 +382,27 @@ def _section_nav(sections: list[dict]) -> str:
     return "\n".join(parts)
 
 
+def _podcast_block(date_str: str, audio_rel: str | None) -> str:
+    if not audio_rel:
+        return ""
+    audio_html = H.escape(audio_rel, quote=True)
+    return f"""
+  <section class="podcast-player" aria-labelledby="podcast-heading">
+    <div class="podcast-kicker">audio edition</div>
+    <div class="podcast-heading-row">
+      <div>
+        <h2 id="podcast-heading">Listen to the grep podcast</h2>
+        <p>A narrated companion to this edition, with the day's strongest signals and deeper context.</p>
+      </div>
+      <a class="podcast-download" href="{audio_html}" download>Download MP3 ↓</a>
+    </div>
+    <audio class="podcast-audio" controls preload="metadata" aria-label="grep podcast for {H.escape(date_str, quote=True)}">
+      <source src="{audio_html}" type="audio/mpeg">
+      Your browser does not support the audio player. <a href="{audio_html}">Download the MP3</a>.
+    </audio>
+  </section>"""
+
+
 def _section_block(section: dict, date_str: str, image_rels: dict[str, str]) -> str:
     sid = section["id"]
     sid_html = H.escape(sid, quote=True)
@@ -380,7 +437,8 @@ def _section_block(section: dict, date_str: str, image_rels: dict[str, str]) -> 
 
 
 def render_edition_page(edition: dict, section_nav: str, section_blocks: str,
-                        prev_href: str, next_href: str, target: Path) -> None:
+                        prev_href: str, next_href: str, podcast_block: str,
+                        target: Path) -> None:
     tpl = (TEMPLATES / "edition.html").read_text()
     date_iso = edition["date"]
     count = _story_count(edition)
@@ -391,6 +449,7 @@ def render_edition_page(edition: dict, section_nav: str, section_blocks: str,
         .replace("{{DATE_ISO}}", date_iso)
         .replace("{{DATE_DISPLAY}}", _fmt_date(date_iso))
         .replace("{{COUNT}}", str(count))
+        .replace("{{PODCAST_BLOCK}}", podcast_block)
         .replace("{{SECTION_NAV}}", section_nav)
         .replace("{{SECTION_BLOCKS}}", section_blocks)
         .replace("{{PREV_LINK}}", prev_href)
@@ -480,6 +539,8 @@ def main() -> None:
     for d in (PAGES_DIR / "assets", PAGES_DIR / "images"):
         d.mkdir(parents=True, exist_ok=True)
 
+    podcast_audio = sync_podcast_audio()
+
     # static assets live in main, mirrored into the build target
     for name in ("style.css", "app.js", "favicon.svg"):
         src = BASE / "assets" / name
@@ -516,7 +577,7 @@ def main() -> None:
         target = PAGES_DIR / f"{d}.html"
         render_edition_page(
             ed, _section_nav(ed["_sections"]), "\n".join(blocks),
-            prev_el, next_el, target,
+            prev_el, next_el, _podcast_block(d, podcast_audio.get(d)), target,
         )
         print(f"[build] rendered {d}.html ({_story_count(ed)} stories, "
               f"{len(ed['_sections'])} sections)")

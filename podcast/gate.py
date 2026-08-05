@@ -17,10 +17,24 @@ IST = ZoneInfo("Asia/Kolkata")
 BASE = Path(__file__).resolve().parent.parent
 RUNS = BASE / "podcast" / "runs"
 CONTENT = BASE / "content"
+EPISODES = BASE / "podcast" / "episodes"
+PAGES = BASE.parent / "grep-pages"
 
 
 def today() -> str:
     return dt.datetime.now(IST).date().isoformat()
+
+
+def site_audio_ready(date: str) -> bool:
+    """Return whether the rendered episode is present in the deployed worktree."""
+    source = EPISODES / f"{date}.mp3"
+    deployed = PAGES / "audio" / date / "episode.mp3"
+    page = PAGES / f"{date}.html"
+    if not source.is_file() or source.stat().st_size <= 0:
+        return False
+    if not deployed.is_file() or deployed.stat().st_size <= 0:
+        return False
+    return page.is_file() and f"audio/{date}/episode.mp3" in page.read_text(encoding="utf-8")
 
 
 def main() -> int:
@@ -33,8 +47,19 @@ def main() -> int:
     script = RUNS / date / "script.json"
     edition = CONTENT / f"{date}.json"
 
+    if done.is_file() and site_audio_ready(date):
+        print(json.dumps({"wakeAgent": False, "context": {"date": date, "reason": "podcast complete and site audio published"}}))
+        return 0
     if done.is_file():
-        print(json.dumps({"wakeAgent": False, "context": {"date": date, "reason": "podcast already complete"}}))
+        print(json.dumps({
+            "wakeAgent": True,
+            "context": {
+                "date": date,
+                "existing_episode": str(RUNS / date / "episode.mp3"),
+                "reason": "podcast rendered but site audio is not published",
+                "site_audio_ready": False,
+            },
+        }))
         return 0
     if not marker.is_file() or not edition.is_file():
         print(json.dumps({"wakeAgent": False, "context": {"date": date, "reason": "grep edition not ready"}}))
