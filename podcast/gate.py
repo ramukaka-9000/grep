@@ -10,8 +10,14 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import sys
 from pathlib import Path
 from zoneinfo import ZoneInfo
+
+try:
+    from .pipeline import validate_date_string
+except ImportError:  # pragma: no cover - direct script execution
+    from pipeline import validate_date_string
 
 IST = ZoneInfo("Asia/Kolkata")
 BASE = Path(__file__).resolve().parent.parent
@@ -41,7 +47,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=today())
     args = parser.parse_args()
-    date = args.date
+    try:
+        date = validate_date_string(args.date)
+    except RuntimeError as exc:
+        print(f"[podcast-gate] ERROR: {exc}", file=sys.stderr)
+        return 1
     marker = RUNS / date / "grep-success.json"
     done = RUNS / date / "done.json"
     script = RUNS / date / "script.json"

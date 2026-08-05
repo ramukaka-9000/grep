@@ -48,7 +48,11 @@ use the configured default of 0.32 seconds.
 
 It creates `episode.mp3`, `show-notes.md`, `manifest.json`, and `done.json`.
 The manifest records the estimated and actual duration, cache sources, turn
-beats, and the final ffprobe data.
+beats, script/edition/config identity hashes, per-artifact hashes, the final
+episode hash, and the final ffprobe data. A completion marker is accepted only
+when those identities, the current duration policy, and every numbered
+raw/WAV/pause artifact still validate. Preview runs may use a safe label such as
+`YYYY-MM-DD-preview`; path separators and traversal components are rejected.
 
 ## Gated handoff and publication
 
@@ -129,7 +133,7 @@ matching dated edition page.
 
 Allowed schema-v2 beats are `hook`, `setup`, `question`, `reaction`, `answer`,
 `challenge`, `counterpoint`, `qualification`, `implication`, `takeaway`,
-`transition`, `guest-perspective`, and `outro`.
+`comparison`, `transition`, `guest-perspective`, and `outro`.
 
 Editorial constraints for new scripts:
 
@@ -153,4 +157,11 @@ Editorial constraints for new scripts:
   quotations or impersonate its author.
 
 Legacy schema-v1 scripts remain readable for already-existing or partially
-rendered runs, but all new episodes should use schema v2.
+rendered runs, but all new episodes should use schema v2. Sidecar-less raw audio
+is reused only for explicitly recorded, unique segment indices when the v1 run
+manifest proves the matching script, edition, complete render-configuration
+identity (including TTS speed), per-turn cache key, path, and raw artifact hash.
+Unlisted or unverifiable legacy files are synthesized again. Older markers are
+rebuilt safely. Completion fast paths revalidate those identities, the final
+episode hash, all raw/WAV/pause artifacts, and the current duration policy before
+accepting `done.json`.
