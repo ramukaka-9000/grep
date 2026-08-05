@@ -8,5 +8,11 @@
   },
   "speed": 1.0,
   "pause_seconds": 0.32,
-  "bitrate": "64k"
+  "bitrate": "64k",
+  "tts_cache_dir": "/opt/data/cache/grep-podcast/tts",
+  "min_duration_seconds": 600,
+  "max_duration_seconds": 900,
+  "estimated_chars_per_second": 15.2,
+  "max_turn_characters": 720,
+  "max_pause_seconds": 2.0
 }

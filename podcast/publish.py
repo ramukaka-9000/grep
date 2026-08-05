@@ -18,9 +18,12 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent
 RUNS = BASE / "podcast" / "runs"
 EPISODES = BASE / "podcast" / "episodes"
+CONFIG = BASE / "podcast" / "config.json"
+DEFAULT_MIN_DURATION_SECONDS = 600.0
+DEFAULT_MAX_DURATION_SECONDS = 900.0
 
 
-def probe_episode(path: Path) -> tuple[float, int]:
+def probe_episode(path: Path, min_duration: float, max_duration: float) -> tuple[float, int]:
     try:
         result = subprocess.run(
             [
@@ -41,7 +44,24 @@ def probe_episode(path: Path) -> tuple[float, int]:
         raise RuntimeError(f"ffprobe could not validate {path}") from exc
     if "mp3" not in formats.split(",") or duration <= 0 or size <= 0:
         raise RuntimeError(f"episode is not a non-empty MP3 with positive duration: {path}")
+    if duration < min_duration or duration > max_duration:
+        raise RuntimeError(
+            f"episode duration is {duration / 60:.2f} minutes; "
+            f"it must be between {min_duration / 60:.0f} and {max_duration / 60:.0f} minutes: {path}"
+        )
     return duration, size
+
+
+def duration_policy() -> tuple[float, float]:
+    try:
+        cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
+        minimum = float(cfg.get("min_duration_seconds", DEFAULT_MIN_DURATION_SECONDS))
+        maximum = float(cfg.get("max_duration_seconds", DEFAULT_MAX_DURATION_SECONDS))
+    except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
+        raise RuntimeError(f"could not read podcast duration policy: {CONFIG}") from exc
+    if minimum <= 0 or maximum < minimum:
+        raise RuntimeError("podcast duration policy is invalid")
+    return minimum, maximum
 
 
 def publish(date_str: str) -> Path:
@@ -53,7 +73,8 @@ def publish(date_str: str) -> Path:
     source = RUNS / date_str / "episode.mp3"
     if not source.is_file():
         raise RuntimeError(f"rendered episode is missing: {source}")
-    duration, size = probe_episode(source)
+    min_duration, max_duration = duration_policy()
+    duration, size = probe_episode(source, min_duration, max_duration)
 
     EPISODES.mkdir(parents=True, exist_ok=True)
     dest = EPISODES / f"{date_str}.mp3"
