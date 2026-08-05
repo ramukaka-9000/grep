@@ -15,16 +15,27 @@ minutes**. New scripts should aim for roughly 11–14 minutes so the estimate an
 actual speech duration have some margin. The renderer rejects an episode outside
 that range and never writes `done.json` for it.
 
+The plan estimate uses `estimated_chars_per_second`, calibrated against real
+renders — the 2026-08-05 episode spoke 9,405 characters in 702 seconds of
+speech, so the rate is about 13.4. Every render records
+`measured_chars_per_second` in its manifest; retune the config from those
+values rather than guessing. An over-optimistic rate is expensive: it lets a
+script plan inside the budget and then blow the 15-minute ceiling after the
+whole episode has been synthesized.
+
 ## Plan before speech
 
 The plan command validates the script, checks the duration estimate, counts turns
-and characters, and reports shared-cache hits. It never contacts the TTS server
-and never writes audio:
+and characters, runs the editorial acceptance checks, and reports shared-cache
+hits. It never contacts the TTS server and never writes audio:
 
 ```bash
 python3 podcast/pipeline.py --plan --date YYYY-MM-DD \
   --script podcast/runs/YYYY-MM-DD/script.json
 ```
+
+A failing plan lists every problem at once, so revise the script and re-plan
+rather than fixing one line per run. Planning is free; a render is not.
 
 Only after the plan passes should the job render:
 
@@ -141,28 +152,89 @@ matching dated edition page.
 
 Allowed schema-v2 beats are `hook`, `setup`, `question`, `reaction`, `answer`,
 `challenge`, `counterpoint`, `qualification`, `implication`, `takeaway`,
-`comparison`, `transition`, `guest-perspective`, and `outro`.
+`comparison`, `transition`, `section-transition`, `guest-perspective`,
+`guest-intro`, `guest-thanks`, and `outro`.
 
-Editorial constraints for new scripts:
+## Speakers
+
+`podcast/personas.json` holds the show's stable identities: the same two hosts
+and the same recurring contributor every day, with their voice IDs and their
+areas of interest. Read it before writing a script. The names are not
+decoration — the hosts address each other, and `--plan` requires it.
+
+All three voices are synthetic. The outro says so; that disclosure is part of
+the episode, not just the show notes.
+
+## Editorial constraints for new scripts
+
+Structural rules, all enforced by `--plan`:
 
 - Select about 8–10 stories across all three sections, with 2–3 genuine deep
   dives; do not pad the episode with unsupported claims or repeated facts.
+  **Cutting a story is always better than padding one.**
 - Keep the final episode in the 10–15 minute range; aim for 11–14 minutes in the
-  plan estimate.
-- A quick story needs at least two turns and should move from setup to a host
-  reaction, question, comparison, or takeaway.
-- A deep dive needs at least four turns and should contain real exchange:
-  question, answer, qualification, implication, or substantive counterpoint.
-- Both recurring hosts must appear in every story. Use the guest only for
-  selected deep dives.
-- Keep individual turns short enough to sound conversational; the renderer caps
-  schema-v2 turns at 720 characters, with roughly 120–350 characters preferred.
+  plan estimate. Rough per-segment budget: intro ≤45s, quick story 40–70s, deep
+  dive 2.5–3.5 min, outro ≤30s.
+- A quick story needs at least two turns; a deep dive needs at least four, with
+  a real exchange rather than a recitation.
+- Both recurring hosts must appear in every story, and both must open a fair
+  share of the stories.
 - Do not let one speaker take more than two consecutive turns.
-- Repeat `story_title` on every turn belonging to that story so validation and
-  show-note auditing can group the conversation correctly.
+- Repeat `story_title` on every turn belonging to that story.
+
+Rules that exist because a structurally valid script can still sound generated:
+
+- **Vary the shape.** No two deep dives may open on the same three beats or use
+  the same set of beats, and the quick stories may not all share one beat shape
+  or all be the same length. The beat vocabulary is a validation label, not a
+  template to recite.
+- **Vary the length.** Turns run from about 45 to 720 characters. An episode
+  needs at least four genuine short reactions of 110 characters or less, and
+  enough spread overall that it does not read as alternating paragraphs. The
+  45-character floor is not stylistic: OmniVoice renders very short clips badly.
+- **Give the contributor an arc.** If the guest speaks at all, exactly one
+  `guest-intro` turn brings them in with a concrete reason before they speak, a
+  host questions or pushes back on them at least once, and one `guest-thanks`
+  turn closes the arc. The guest may not sit at the same position in every
+  story.
+- **Write for the ear.** No spoken URLs, domains, or arXiv identifiers — say it
+  in words and put the link in the show notes. Spell out model and version
+  strings the way a person would say them, and gloss an unfamiliar acronym the
+  first time.
+- **No production language and no cross-story thesis.** Ten unrelated stories do
+  not share a theme, and claiming they do in the intro or outro is the clearest
+  sign a model wrote it. Episode outlines, "let's get into it", and canned
+  "not X, it's Y" contrasts are rejected. So is a title that describes how the
+  episode was made rather than what is in it.
 - Keep factual claims bounded by the original story and the researched sources.
-  A guest may explain an article's argument in new words but must not fabricate
-  quotations or impersonate its author.
+  The guest may explain an argument in new words but must not fabricate
+  quotations or impersonate an author.
+
+### Expressive cues
+
+Documented OmniVoice cues are `[laughter]`, `[sigh]`, `[question-en]`,
+`[question-ah]`, and `[surprise-oh]`. Undocumented tags reach the TTS as literal
+bracketed text, so the set is closed and enforced. A cue makes one non-verbal
+sound; it does not set the speaker's emotion.
+
+- At most one cue per sentence, and at most eight in an episode (3–6 is better).
+- A cue must never be a turn on its own — OmniVoice handles a one-second clip
+  poorly, and the turn floor applies to the text with cues stripped out.
+- A cue must never trail a turn. Put it beside the words that trigger it:
+  `"Really [surprise-oh] — that tripled the yield strength?"`, not
+  `"That tripled the yield strength. [surprise-oh]"`.
+
+### Reference script
+
+`podcast/fixtures/humanized-example.json` is a complete schema-v2 script that
+satisfies every check, kept as proof the constraints are jointly satisfiable and
+as a shape to imitate. `podcast/fixtures/test_editorial_checks.py` asserts that
+each check fires on its own defect. Both run without contacting the TTS server:
+
+```bash
+python3 podcast/fixtures/build_humanized_example.py
+python3 podcast/fixtures/test_editorial_checks.py
+```
 
 Legacy schema-v1 scripts remain readable for already-existing or partially
 rendered runs, but all new episodes should use schema v2. Sidecar-less raw audio

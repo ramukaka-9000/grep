@@ -23,6 +23,7 @@ import math
 import os
 import re
 import shutil
+import statistics
 import subprocess
 import sys
 import tempfile
@@ -38,14 +39,23 @@ RUNS_DIR = PODCAST_DIR / "runs"
 CONTENT_DIR = BASE / "content"
 PAGES_DIR = BASE.parent / "grep-pages"
 CONFIG_PATH = PODCAST_DIR / "config.json"
+PERSONAS_PATH = PODCAST_DIR / "personas.json"
 IST = ZoneInfo("Asia/Kolkata")
 DEFAULT_TIMEOUT = 180
 DEFAULT_TTS_CACHE_DIR = BASE.parent / "cache" / "grep-podcast" / "tts"
 DEFAULT_MIN_DURATION_SECONDS = 600.0
 DEFAULT_MAX_DURATION_SECONDS = 900.0
-DEFAULT_ESTIMATED_CHARS_PER_SECOND = 15.2
+DEFAULT_ESTIMATED_CHARS_PER_SECOND = 13.4
 DEFAULT_MAX_TURN_CHARACTERS = 720
 DEFAULT_MAX_PAUSE_SECONDS = 2.0
+# OmniVoice degrades on very short clips, so a turn has a hard character floor
+# even though short reactions are exactly what makes the dialogue sound real.
+DEFAULT_MIN_TURN_CHARACTERS = 45
+# A turn at or below this length counts as a short reaction for variety checks.
+DEFAULT_SHORT_TURN_CHARACTERS = 110
+DEFAULT_MIN_SHORT_TURNS = 4
+DEFAULT_MIN_TURN_LENGTH_STDEV = 55.0
+DEFAULT_MAX_EXPRESSIVE_TAGS = 8
 PAUSE_DURATION_TOLERANCE_SECONDS = 0.005
 SCHEMA_V2_KINDS = {"intro", "quick", "deep-dive", "outro"}
 SCHEMA_V2_STORY_KINDS = {"quick", "deep-dive"}
@@ -53,11 +63,87 @@ SCHEMA_V2_BEATS = {
     "hook", "setup", "question", "reaction", "answer", "challenge",
     "counterpoint", "qualification", "implication", "takeaway",
     "comparison", "transition", "guest-perspective", "outro",
+    "guest-intro", "guest-thanks", "section-transition",
 }
 SCHEMA_V2_RESPONSE_BEATS = {
     "question", "reaction", "answer", "challenge", "counterpoint",
     "qualification", "implication", "takeaway", "comparison",
 }
+# Beats that frame the guest as a participant rather than a citation dispenser.
+SCHEMA_V2_GUEST_FRAME_BEATS = {"guest-intro", "guest-thanks"}
+# A host turn that actually engages with what the guest just said.
+SCHEMA_V2_GUEST_ENGAGEMENT_BEATS = {
+    "question", "challenge", "counterpoint", "qualification",
+}
+
+# Documented OmniVoice non-verbal cues. Anything else reaches the TTS request
+# as literal bracketed text, so the set is closed.
+EXPRESSIVE_TAGS = {
+    "laughter", "sigh", "question-en", "question-ah", "surprise-oh",
+}
+TAG_PATTERN = re.compile(r"\[([^\[\]]*)\]")
+SENTENCE_SPLIT_PATTERN = re.compile(r"(?<=[.!?])\s+")
+
+# Producer-facing dialogue and canned hooks. These are rejected outright: the
+# prose prohibitions in the cron prompt were followed and the output still used
+# the same moves in different words, so they are enforced here instead.
+BANNED_PHRASE_PATTERNS = [
+    (r"\blet'?s get into it\b", "producer-facing filler"),
+    (r"\blet'?s dive (?:in|into)\b", "producer-facing filler"),
+    (r"\bin today'?s (?:episode|show)\b", "episode outline in dialogue"),
+    (r"\b(?:we'?ll|we are going to|we're going to|we will) (?:cover|walk through|move from|start with|treat these)\b",
+     "episode outline in dialogue"),
+    (r"\bhere'?s what we(?:'| a)?(?:re|ll)?\b", "episode outline in dialogue"),
+    (r"\bcoming up (?:on|after)\b", "broadcast promo filler"),
+    (r"\bwithout further ado\b", "broadcast promo filler"),
+    (r"\bstay tuned\b", "broadcast promo filler"),
+    (r"\bmost items are quick hits\b", "format explanation in dialogue"),
+    (r"\bit'?s not (?:just )?[^,.;]{1,60}[,;]\s*it'?s\b", "canned contrast hook"),
+    (r"\bthis is'?nt [^,.;]{1,60}[,;]\s*it'?s\b", "canned contrast hook"),
+    (r"\bnot (?:just )?[^,.;]{1,60}, but (?:rather )?\b", "canned contrast hook"),
+]
+
+# Cross-story theme assertions. Ten unrelated stories do not share a thesis, and
+# claiming they do is the tell that a model wrote the intro and outro.
+THEME_ASSERTION_PATTERNS = [
+    (r"\bdifferent [a-z]+s?, same\b", "cross-story theme assertion"),
+    (r"\bsame (?:question|problem|story|idea|pattern)\b", "cross-story theme assertion"),
+    (r"\bwhat (?:they|these) (?:all )?have in common\b", "cross-story theme assertion"),
+    (r"\bthe (?:pattern|theme|thread|through-?line) (?:is|here|running)\b",
+     "cross-story theme assertion"),
+    (r"\b(?:common|connecting) thread\b", "cross-story theme assertion"),
+    (r"\bif there'?s a (?:theme|pattern|lesson)\b", "cross-story theme assertion"),
+    (r"\bhard to miss\b", "cross-story theme assertion"),
+    (r"\bput [^.]{1,60} beside [^.]{1,60} and\b", "cross-story theme assertion"),
+]
+
+# Meta-vocabulary that means the production instructions leaked into the artifact.
+TITLE_META_PATTERNS = [
+    r"\bhuman(?:ized|ised|-sounding)?\b",
+    r"\bconversation(?:al)?\b",
+    r"\bnatural\b",
+    r"\bscript\b",
+    r"\btwo[- ]host\b",
+]
+
+# Text that the TTS will mispronounce or read as characters.
+SPOKEN_TEXT_ERROR_PATTERNS = [
+    (r"https?://\S+", "a spoken URL"),
+    (r"\bwww\.\S+", "a spoken URL"),
+    (r"\b\d{4}\.\d{4,5}(?:v\d+)?\b", "a raw arXiv identifier"),
+    (r"\b[a-z0-9][a-z0-9-]*\.(?:com|org|net|io|ai|dev|edu|gov)\b", "a spoken domain name"),
+]
+# Acronyms every listener already hears as words; flagging them is pure noise.
+SPOKEN_ACRONYM_ALLOWLIST = {
+    "NASA", "ESA", "NOAA", "MIT", "USB", "HDMI", "JSON", "HTML", "HTTP", "HTTPS",
+    "JPEG", "MPEG", "LIDAR", "RADAR", "LASER", "SCUBA", "PDF", "SQL", "GPU", "CPU",
+    "RAM", "ROM", "SSD", "USA", "UK", "EU", "AI", "ML", "API", "CLI", "GUI", "TIL",
+}
+SPOKEN_TEXT_WARN_PATTERNS = [
+    (r"\b\w*\d+\.\d+\s?[A-Za-z]\b", "a model/version string that should be spelled out"),
+    (r"\b[A-Za-z]+\d[\w.]*-[\w.]*\d\w*\b", "a model/version string that should be spelled out"),
+    (r"\b[A-Z]{4,}\b", "an acronym that may need a gloss on first use"),
+]
 
 
 def now_ist() -> dt.datetime:
@@ -198,6 +284,11 @@ def load_config() -> dict:
     chars_per_second = os.environ.get("PODCAST_ESTIMATED_CHARS_PER_SECOND") if "PODCAST_ESTIMATED_CHARS_PER_SECOND" in os.environ else cfg.get("estimated_chars_per_second", DEFAULT_ESTIMATED_CHARS_PER_SECOND)
     max_turn_chars = os.environ.get("PODCAST_MAX_TURN_CHARACTERS") if "PODCAST_MAX_TURN_CHARACTERS" in os.environ else cfg.get("max_turn_characters", DEFAULT_MAX_TURN_CHARACTERS)
     max_pause = os.environ.get("PODCAST_MAX_PAUSE_SECONDS") if "PODCAST_MAX_PAUSE_SECONDS" in os.environ else cfg.get("max_pause_seconds", DEFAULT_MAX_PAUSE_SECONDS)
+    min_turn_chars = os.environ.get("PODCAST_MIN_TURN_CHARACTERS") if "PODCAST_MIN_TURN_CHARACTERS" in os.environ else cfg.get("min_turn_characters", DEFAULT_MIN_TURN_CHARACTERS)
+    short_turn_chars = os.environ.get("PODCAST_SHORT_TURN_CHARACTERS") if "PODCAST_SHORT_TURN_CHARACTERS" in os.environ else cfg.get("short_turn_characters", DEFAULT_SHORT_TURN_CHARACTERS)
+    min_short_turns_raw = os.environ.get("PODCAST_MIN_SHORT_TURNS") if "PODCAST_MIN_SHORT_TURNS" in os.environ else cfg.get("min_short_turns", DEFAULT_MIN_SHORT_TURNS)
+    min_stdev_raw = cfg.get("min_turn_length_stdev", DEFAULT_MIN_TURN_LENGTH_STDEV)
+    max_tags_raw = cfg.get("max_expressive_tags", DEFAULT_MAX_EXPRESSIVE_TAGS)
     omnivoice_num_steps_raw = cfg.get("omnivoice_num_steps", 32)
     omnivoice_postprocess_raw = cfg.get("omnivoice_postprocess_output", True)
     cfg["tts_provider"] = nonempty_string(provider_raw, "tts_provider")
@@ -221,6 +312,19 @@ def load_config() -> dict:
         raise ValueError("max_turn_characters must be a finite integer")
     cfg["max_turn_characters"] = int(max_turn_characters)
     cfg["max_pause_seconds"] = finite_float(max_pause, "max_pause_seconds")
+    for name, raw in (
+        ("min_turn_characters", min_turn_chars),
+        ("short_turn_characters", short_turn_chars),
+        ("min_short_turns", min_short_turns_raw),
+        ("max_expressive_tags", max_tags_raw),
+    ):
+        value = finite_float(raw, name)
+        if not value.is_integer() or value < 0:
+            raise ValueError(f"{name} must be a non-negative integer")
+        cfg[name] = int(value)
+    cfg["min_turn_length_stdev"] = finite_float(min_stdev_raw, "min_turn_length_stdev")
+    if cfg["min_turn_length_stdev"] < 0:
+        raise ValueError("min_turn_length_stdev must not be negative")
     if type(omnivoice_num_steps_raw) is not int or not 1 <= omnivoice_num_steps_raw <= 128:
         raise ValueError("omnivoice_num_steps must be an integer between 1 and 128")
     if type(omnivoice_postprocess_raw) is not bool:
@@ -237,6 +341,11 @@ def load_config() -> dict:
         raise ValueError("estimated_chars_per_second must be positive")
     if cfg["max_turn_characters"] < 2 or cfg["max_pause_seconds"] < 0:
         raise ValueError("podcast turn/pause limits are invalid")
+    if not 2 <= cfg["min_turn_characters"] <= cfg["short_turn_characters"] <= cfg["max_turn_characters"]:
+        raise ValueError(
+            "turn length bands must satisfy "
+            "2 <= min_turn_characters <= short_turn_characters <= max_turn_characters"
+        )
     raw_voices = cfg.get("voices", {})
     if not isinstance(raw_voices, dict):
         raise ValueError("voices must be a JSON object")
@@ -374,6 +483,346 @@ def script_metrics(script: dict, cfg: dict) -> dict:
     }
 
 
+def strip_expressive_tags(text: str) -> str:
+    """Return the words a listener actually hears, without the cue markers."""
+    return normalize_text(TAG_PATTERN.sub(" ", text))
+
+
+def check_expressive_tags(segments: list[dict], cfg: dict, errors: list[str]) -> int:
+    """Validate OmniVoice cue markers.
+
+    A cue is one non-verbal sound embedded in a sentence. It must never be a
+    turn on its own and must never trail a turn: OmniVoice renders very short
+    clips poorly, and a cue at the very end of a turn lands after the line it is
+    supposed to react to.
+    """
+    total = 0
+    for i, seg in enumerate(segments, start=1):
+        text = normalize_text(seg.get("text"))
+        matches = list(TAG_PATTERN.finditer(text))
+        total += len(matches)
+        for match in matches:
+            name = match.group(1).strip()
+            if name not in EXPRESSIVE_TAGS:
+                errors.append(
+                    f"segment {i} uses undocumented cue [{name}]; allowed cues are "
+                    + ", ".join(f"[{t}]" for t in sorted(EXPRESSIVE_TAGS))
+                )
+        if matches and not strip_expressive_tags(text):
+            errors.append(
+                f"segment {i} is only a cue marker; a cue must sit inside a spoken sentence"
+            )
+        for match in matches:
+            if not text[match.end():].strip(" .!?,;:—-"):
+                errors.append(
+                    f"segment {i} ends on the cue [{match.group(1).strip()}]; move it beside "
+                    "the words that trigger it so the sound does not trail the turn"
+                )
+        for sentence in SENTENCE_SPLIT_PATTERN.split(text):
+            if len(TAG_PATTERN.findall(sentence)) > 1:
+                errors.append(f"segment {i} stacks more than one cue in a single sentence")
+                break
+    if total > cfg["max_expressive_tags"]:
+        errors.append(
+            f"the script uses {total} expressive cues; keep it to at most "
+            f"{cfg['max_expressive_tags']} so they stay meaningful"
+        )
+    return total
+
+
+def check_turn_lengths(segments: list[dict], cfg: dict, errors: list[str]) -> dict:
+    """Enforce a spoken-length floor and require real variation in turn length.
+
+    Uniform paragraph-length turns are the strongest signal that an episode is
+    two readers rather than two people, so an episode must contain genuine short
+    reactions - but never shorter than OmniVoice renders cleanly.
+    """
+    lengths: list[int] = []
+    for i, seg in enumerate(segments, start=1):
+        spoken = strip_expressive_tags(seg.get("text"))
+        lengths.append(len(spoken))
+        if len(spoken) < cfg["min_turn_characters"]:
+            errors.append(
+                f"segment {i} has {len(spoken)} spoken characters; the floor is "
+                f"{cfg['min_turn_characters']} because OmniVoice renders very short clips poorly"
+            )
+    short_turns = [n for n in lengths if n <= cfg["short_turn_characters"]]
+    if len(short_turns) < cfg["min_short_turns"]:
+        errors.append(
+            f"only {len(short_turns)} turns are at or below {cfg['short_turn_characters']} "
+            f"characters; write at least {cfg['min_short_turns']} genuine short reactions "
+            "so the episode does not sound like alternating paragraphs"
+        )
+    stdev = statistics.pstdev(lengths) if len(lengths) > 1 else 0.0
+    if stdev < cfg["min_turn_length_stdev"]:
+        errors.append(
+            f"turn lengths vary too little (stdev {stdev:.1f} < {cfg['min_turn_length_stdev']:.0f}); "
+            "mix short reactions with longer explanations"
+        )
+    return {
+        "min": min(lengths) if lengths else 0,
+        "median": int(statistics.median(lengths)) if lengths else 0,
+        "max": max(lengths) if lengths else 0,
+        "stdev": round(stdev, 1),
+        "short_turns": len(short_turns),
+    }
+
+
+def story_signature(story_segments: list[dict]) -> tuple:
+    return tuple(
+        (normalize_text(seg.get("speaker")), normalize_text(seg.get("beat")))
+        for seg in story_segments
+    )
+
+
+def check_story_variety(
+    ordered_stories: list[tuple[str, list[dict]]], errors: list[str]
+) -> None:
+    """Reject scripts that walk the same skeleton through every story.
+
+    The beat vocabulary is a validation label, not a template to recite. Without
+    this check a script can satisfy every structural rule and still repeat one
+    identical exchange shape ten times.
+    """
+    deep_prefixes: dict[tuple, str] = {}
+    deep_multisets: dict[tuple, str] = {}
+    quick_beat_shapes: dict[tuple, int] = {}
+    quick_turn_counts: list[int] = []
+    openers: dict[str, int] = {}
+    for title, segs in ordered_stories:
+        kind = normalize_text(segs[0].get("kind"))
+        openers[normalize_text(segs[0].get("speaker"))] = (
+            openers.get(normalize_text(segs[0].get("speaker")), 0) + 1
+        )
+        beats = tuple(beat for _, beat in story_signature(segs))
+        if kind == "deep-dive":
+            # Two dives that open the same way and use the same beats are the
+            # same skeleton, even when a couple of middle beats are swapped.
+            prefix = beats[:3]
+            if prefix in deep_prefixes:
+                errors.append(
+                    f"deep dives '{deep_prefixes[prefix]}' and '{title}' open on the identical "
+                    f"beat sequence {' -> '.join(prefix)}; vary who opens and where the guest, "
+                    "question, and pushback land"
+                )
+            else:
+                deep_prefixes[prefix] = title
+            multiset = tuple(sorted(beats))
+            if multiset in deep_multisets:
+                errors.append(
+                    f"deep dives '{deep_multisets[multiset]}' and '{title}' use the identical "
+                    "set of beats; give one of them a different shape, not a reordering"
+                )
+            else:
+                deep_multisets[multiset] = title
+        elif kind == "quick":
+            quick_beat_shapes[beats] = quick_beat_shapes.get(beats, 0) + 1
+            quick_turn_counts.append(len(segs))
+    quick_total = sum(quick_beat_shapes.values())
+    if quick_total >= 3 and quick_beat_shapes:
+        most_common = max(quick_beat_shapes.values())
+        if most_common > max(2, round(quick_total * 0.6)):
+            errors.append(
+                f"{most_common} of {quick_total} quick stories use the same beat shape; "
+                "let some open with a reaction or a question, or run to a third turn"
+            )
+    if quick_total >= 5 and len(set(quick_turn_counts)) == 1:
+        errors.append(
+            f"all {quick_total} quick stories are exactly {quick_turn_counts[0]} turns; "
+            "give at least one of them a different length"
+        )
+    story_total = len(ordered_stories)
+    if story_total >= 4:
+        for host in ("host_female", "host_male"):
+            if openers.get(host, 0) < max(1, round(story_total * 0.25)):
+                errors.append(
+                    f"{host} opens only {openers.get(host, 0)} of {story_total} stories; "
+                    "both hosts should start a fair share"
+                )
+
+
+def check_guest_arc(segments: list[dict], errors: list[str]) -> None:
+    """Require the guest to be a participant with an entrance and an exit.
+
+    Without this the guest appears mid-episode with no framing, delivers one
+    sourced paragraph per deep dive, and vanishes - which reads as a third
+    narrator rather than a person in the conversation.
+    """
+    guest_indices = [
+        i for i, seg in enumerate(segments)
+        if normalize_text(seg.get("speaker")) == "guest"
+    ]
+    beats = [normalize_text(seg.get("beat")) for seg in segments]
+    intro_indices = [i for i, beat in enumerate(beats) if beat == "guest-intro"]
+    thanks_indices = [i for i, beat in enumerate(beats) if beat == "guest-thanks"]
+    if not guest_indices:
+        if intro_indices or thanks_indices:
+            errors.append("guest-intro/guest-thanks beats used without any guest turn")
+        return
+    first_guest, last_guest = guest_indices[0], guest_indices[-1]
+    if len(intro_indices) != 1:
+        errors.append(
+            "the script needs exactly one 'guest-intro' turn where a host brings the "
+            "guest in and says why they are here"
+        )
+    elif intro_indices[0] > first_guest:
+        errors.append("the 'guest-intro' turn must come before the guest first speaks")
+    if not thanks_indices:
+        errors.append("the script needs a 'guest-thanks' turn after the guest's last contribution")
+    elif thanks_indices[-1] < last_guest:
+        errors.append("the 'guest-thanks' turn must come after the guest's last contribution")
+    engaged = any(
+        normalize_text(segments[i + 1].get("beat")) in SCHEMA_V2_GUEST_ENGAGEMENT_BEATS
+        for i in guest_indices
+        if i + 1 < len(segments)
+        and normalize_text(segments[i + 1].get("speaker")) != "guest"
+    )
+    if not engaged:
+        errors.append(
+            "no host ever questions, qualifies, or pushes back on the guest; the guest "
+            "should be part of the exchange, not a source read aloud"
+        )
+    positions: set[int] = set()
+    for i in guest_indices:
+        title = normalize_text(segments[i].get("story_title"))
+        within = [
+            j for j, seg in enumerate(segments)
+            if normalize_text(seg.get("story_title")) == title
+        ]
+        positions.add(within.index(i))
+    if len(guest_indices) >= 2 and len(positions) == 1:
+        errors.append(
+            "every guest turn sits at the same position inside its story; let the guest "
+            "enter earlier or later in at least one deep dive"
+        )
+
+
+def check_beat_coherence(segments: list[dict], errors: list[str]) -> None:
+    """Keep beat labels honest so they stay useful as validation signal."""
+    for i, seg in enumerate(segments, start=1):
+        beat = normalize_text(seg.get("beat"))
+        kind = normalize_text(seg.get("kind"))
+        text = strip_expressive_tags(seg.get("text"))
+        if beat == "question" and "?" not in text:
+            errors.append(f"segment {i} is labelled beat 'question' but asks nothing")
+        if beat == "hook" and kind != "intro":
+            errors.append(f"segment {i} uses beat 'hook' outside the intro")
+        if beat == "outro" and kind != "outro":
+            errors.append(f"segment {i} uses beat 'outro' outside the outro")
+
+
+def check_prose(script: dict, segments: list[dict], errors: list[str], warnings: list[str]) -> None:
+    """Reject production language, cross-story theme claims, and unspeakable text."""
+    title = normalize_text(script.get("title"))
+    for pattern in TITLE_META_PATTERNS:
+        if re.search(pattern, title, re.IGNORECASE):
+            errors.append(
+                f"the title {title!r} describes how the episode was made; name the stories instead"
+            )
+            break
+    for i, seg in enumerate(segments, start=1):
+        text = strip_expressive_tags(seg.get("text"))
+        for pattern, label in BANNED_PHRASE_PATTERNS + THEME_ASSERTION_PATTERNS:
+            match = re.search(pattern, text, re.IGNORECASE)
+            if match:
+                errors.append(f"segment {i} contains {label}: {match.group(0)!r}")
+        for pattern, label in SPOKEN_TEXT_ERROR_PATTERNS:
+            match = re.search(pattern, text)
+            if match:
+                errors.append(
+                    f"segment {i} would have the host speak {label}: {match.group(0)!r}; "
+                    "say it in words and put the link in show notes"
+                )
+        for pattern, label in SPOKEN_TEXT_WARN_PATTERNS:
+            for match in re.finditer(pattern, text):
+                if match.group(0) in SPOKEN_ACRONYM_ALLOWLIST:
+                    continue
+                warnings.append(f"segment {i} contains {label}: {match.group(0)!r}")
+                break
+
+
+def load_personas() -> dict:
+    """Return the stable show personas, or an empty mapping when unconfigured."""
+    try:
+        data = json.loads(PERSONAS_PATH.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    speakers = data.get("speakers")
+    if not isinstance(speakers, dict):
+        return {}
+    names = {}
+    for speaker, entry in speakers.items():
+        if isinstance(entry, dict) and type(entry.get("name")) is str and entry["name"].strip():
+            names[speaker] = entry["name"].strip()
+    return names
+
+
+def check_direct_address(segments: list[dict], errors: list[str]) -> int:
+    """Require the hosts to talk to each other, not merely take turns.
+
+    Two unnamed voices that never address each other is the strongest remaining
+    signal that an episode is narration rather than conversation.
+    """
+    names = load_personas()
+    if not names:
+        return 0
+    uses = 0
+    for seg in segments:
+        speaker = normalize_text(seg.get("speaker"))
+        text = strip_expressive_tags(seg.get("text"))
+        for other, name in names.items():
+            if other == speaker:
+                continue
+            uses += len(re.findall(rf"\b{re.escape(name)}\b", text))
+    if uses < 2:
+        listed = ", ".join(sorted(names.values()))
+        errors.append(
+            f"the speakers address each other by name {uses} time(s); use the show's names "
+            f"({listed}) two to four times so the listener learns who is who"
+        )
+    return uses
+
+
+def check_editorial(script: dict, cfg: dict) -> dict:
+    """Run every schema-v2 editorial acceptance check and report all failures.
+
+    Failures are collected rather than raised one at a time so a single --plan
+    run tells the editor everything that needs rewriting.
+    """
+    segments = script["segments"]
+    errors: list[str] = []
+    warnings: list[str] = []
+    ordered_stories: list[tuple[str, list[dict]]] = []
+    seen: dict[str, list[dict]] = {}
+    for seg in segments:
+        title = normalize_text(seg.get("story_title"))
+        if not title:
+            continue
+        if title not in seen:
+            seen[title] = []
+            ordered_stories.append((title, seen[title]))
+        seen[title].append(seg)
+
+    tag_total = check_expressive_tags(segments, cfg, errors)
+    lengths = check_turn_lengths(segments, cfg, errors)
+    check_story_variety(ordered_stories, errors)
+    check_guest_arc(segments, errors)
+    check_beat_coherence(segments, errors)
+    check_prose(script, segments, errors, warnings)
+    direct_address = check_direct_address(segments, errors)
+
+    if errors:
+        raise RuntimeError(
+            "editorial checks failed:\n  - " + "\n  - ".join(errors)
+        )
+    return {
+        "turn_lengths": lengths,
+        "expressive_tags": tag_total,
+        "direct_address": direct_address,
+        "warnings": warnings,
+    }
+
+
 def validate_script(script: dict, date_str: str, cfg: dict) -> dict:
     if not isinstance(script, dict):
         raise RuntimeError("script must be a JSON object")
@@ -483,6 +932,8 @@ def validate_script(script: dict, date_str: str, cfg: dict) -> dict:
             if not any(normalize_text(segment.get("beat")) in SCHEMA_V2_RESPONSE_BEATS for segment in story_segments):
                 raise RuntimeError(f"story '{story_title}' needs a question, reaction, or qualification")
     metrics = script_metrics(script, cfg)
+    if schema_version >= 2:
+        metrics["editorial"] = check_editorial(script, cfg)
     estimated = metrics["estimated_duration_seconds"]
     if estimated < cfg["min_duration_seconds"] or estimated > cfg["max_duration_seconds"]:
         raise RuntimeError(
@@ -1262,6 +1713,11 @@ def plan(date_str: str, script_path: Path, allow_unready: bool) -> dict:
         "tts_cache_dir": cfg["tts_cache_dir"],
         "tts_contacted": False,
     }
+    editorial = metrics.get("editorial")
+    if editorial:
+        result["turn_lengths"] = editorial["turn_lengths"]
+        result["expressive_tags"] = editorial["expressive_tags"]
+        result["warnings"] = editorial["warnings"]
     print(json.dumps(result, indent=2, ensure_ascii=False))
     return result
 
@@ -1422,6 +1878,13 @@ def render(date_str: str, script_path: Path, allow_unready: bool, force: bool) -
         "estimated_duration_seconds": metrics["estimated_duration_seconds"],
         "actual_duration_seconds": duration,
         "characters": metrics["characters"],
+        # Recorded so estimated_chars_per_second can be retuned from real
+        # renders instead of guessed. Speech time excludes the inserted pauses.
+        "measured_chars_per_second": (
+            round(metrics["characters"] / (duration - metrics["pause_seconds"]), 2)
+            if duration > metrics["pause_seconds"]
+            else None
+        ),
         "cache_sources": cache_sources,
         "segments": manifest_segments,
         "segment_count": len(script["segments"]),

@@ -15,7 +15,12 @@
   "tts_cache_dir": "/opt/data/cache/grep-podcast/tts",
   "min_duration_seconds": 600,
   "max_duration_seconds": 900,
-  "estimated_chars_per_second": 15.2,
+  "estimated_chars_per_second": 13.4,
   "max_turn_characters": 720,
+  "min_turn_characters": 45,
+  "short_turn_characters": 110,
+  "min_short_turns": 4,
+  "min_turn_length_stdev": 55.0,
+  "max_expressive_tags": 8,
   "max_pause_seconds": 2.0
 }
