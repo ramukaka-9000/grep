@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Cheap pre-run gate for the daily grep podcast cron job.
 
-Hermes invokes this from /opt/data/grep-main. It emits the cron gate JSON
+Hermes invokes this from /workspace/grep-main. It emits the cron gate JSON
 format: wakeAgent=false when today's grep edition is not ready or the podcast
 is already complete; otherwise wakeAgent=true with compact context.
 """
