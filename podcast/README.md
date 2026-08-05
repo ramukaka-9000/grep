@@ -33,18 +33,26 @@ python3 podcast/pipeline.py --render --date YYYY-MM-DD \
   --script podcast/runs/YYYY-MM-DD/script.json
 ```
 
-Kokoro is the default renderer. It runs on the local speech service and is
-CPU-only, so the renderer uses a content-addressed cache outside the repository
-at `/opt/data/cache/grep-podcast/tts`. A cached turn is keyed by the exact text,
-voice, speed, model, and endpoint. This prevents duplicate TTS work on retries
-or script revisions and avoids reusing stale same-index audio. Voices can be
-overridden with environment variables such as
-`PODCAST_VOICE_HOST_FEMALE`.
+OmniVoice saved-prompt cloning is the default renderer. It runs on the local
+speech service through `/upstream/omnivoice/v1/audio/clone`; the configured
+voices are the server-side prompt IDs `bella`, `morgan-freeman`, and `cotenancy`.
+Each clone response is validated as WAV and converted to the pipeline's cached
+MP3, while the content-addressed cache remains outside the repository at
+`/opt/data/cache/grep-podcast/tts`. A cached turn is keyed by the exact text,
+voice prompt ID, clone settings, model/provider identity, speed, and endpoint.
+The legacy Kokoro-compatible JSON speech path remains available only when
+`tts_provider` is explicitly set to `kokoro`. Voice IDs can still be overridden
+with environment variables such as `PODCAST_VOICE_HOST_FEMALE`.
 
 The renderer also supports an optional `pause_after_seconds` on each turn. This
 lets the script use shorter handoff pauses for rapid exchanges and longer pauses
 around transitions without synthesizing extra speech. Turns without that field
-use the configured default of 0.32 seconds.
+use the configured default of 0.32 seconds. When using OmniVoice, scripts may
+insert documented non-verbal tags inline, such as `[laughter]`, `[sigh]`,
+`[question-en]`, `[question-ah]`, and `[surprise-oh]`. Use them sparingly—at
+most one tag per sentence, positioned where the reaction belongs. These tags
+make a specific sound; they do not set an overall emotion, so do not scatter
+them through every turn or use undocumented tags.
 
 It creates `episode.mp3`, `show-notes.md`, `manifest.json`, and `done.json`.
 The manifest records the estimated and actual duration, cache sources, turn

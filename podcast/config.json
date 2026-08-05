@@ -1,11 +1,14 @@
 {
-  "tts_base_url": "http://arachnoid:8080",
-  "tts_model": "kokoro",
+  "tts_provider": "omnivoice",
+  "tts_base_url": "http://arachnoid:8080/upstream/omnivoice",
+  "tts_model": "omnivoice",
   "voices": {
-    "host_female": "af_bella",
-    "host_male": "am_michael",
-    "guest": "bf_emma"
+    "host_female": "bella",
+    "host_male": "morgan-freeman",
+    "guest": "cotenancy"
   },
+  "omnivoice_num_steps": 32,
+  "omnivoice_postprocess_output": true,
   "speed": 1.0,
   "pause_seconds": 0.32,
   "bitrate": "64k",

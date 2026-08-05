@@ -28,6 +28,7 @@ import sys
 import tempfile
 import urllib.error
 import urllib.request
+import uuid
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -142,9 +143,12 @@ def nonempty_string(raw: object, name: str) -> str:
 
 def render_config_hash(cfg: dict) -> str:
     identity = {
+        "tts_provider": cfg["tts_provider"],
         "tts_base_url": cfg["tts_base_url"],
         "tts_model": cfg["tts_model"],
         "tts_cache_dir": cfg["tts_cache_dir"],
+        "omnivoice_num_steps": cfg["omnivoice_num_steps"],
+        "omnivoice_postprocess_output": cfg["omnivoice_postprocess_output"],
         "speed": cfg["speed"],
         "bitrate": cfg["bitrate"],
         "voices": cfg["voices"],
@@ -162,6 +166,11 @@ def load_config() -> dict:
     cfg = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     if not isinstance(cfg, dict):
         raise ValueError("podcast config must be a JSON object")
+    provider_raw = (
+        os.environ["PODCAST_TTS_PROVIDER"]
+        if "PODCAST_TTS_PROVIDER" in os.environ
+        else cfg.get("tts_provider", "kokoro")
+    )
     base_url_raw = (
         os.environ["PODCAST_TTS_BASE_URL"]
         if "PODCAST_TTS_BASE_URL" in os.environ
@@ -189,6 +198,11 @@ def load_config() -> dict:
     chars_per_second = os.environ.get("PODCAST_ESTIMATED_CHARS_PER_SECOND") if "PODCAST_ESTIMATED_CHARS_PER_SECOND" in os.environ else cfg.get("estimated_chars_per_second", DEFAULT_ESTIMATED_CHARS_PER_SECOND)
     max_turn_chars = os.environ.get("PODCAST_MAX_TURN_CHARACTERS") if "PODCAST_MAX_TURN_CHARACTERS" in os.environ else cfg.get("max_turn_characters", DEFAULT_MAX_TURN_CHARACTERS)
     max_pause = os.environ.get("PODCAST_MAX_PAUSE_SECONDS") if "PODCAST_MAX_PAUSE_SECONDS" in os.environ else cfg.get("max_pause_seconds", DEFAULT_MAX_PAUSE_SECONDS)
+    omnivoice_num_steps_raw = cfg.get("omnivoice_num_steps", 32)
+    omnivoice_postprocess_raw = cfg.get("omnivoice_postprocess_output", True)
+    cfg["tts_provider"] = nonempty_string(provider_raw, "tts_provider")
+    if cfg["tts_provider"] not in {"kokoro", "omnivoice"}:
+        raise ValueError("tts_provider must be kokoro or omnivoice")
     cfg["tts_base_url"] = nonempty_string(base_url_raw, "tts_base_url").rstrip("/")
     if not cfg["tts_base_url"]:
         raise ValueError("tts_base_url must be a non-empty string")
@@ -207,6 +221,12 @@ def load_config() -> dict:
         raise ValueError("max_turn_characters must be a finite integer")
     cfg["max_turn_characters"] = int(max_turn_characters)
     cfg["max_pause_seconds"] = finite_float(max_pause, "max_pause_seconds")
+    if type(omnivoice_num_steps_raw) is not int or not 1 <= omnivoice_num_steps_raw <= 128:
+        raise ValueError("omnivoice_num_steps must be an integer between 1 and 128")
+    if type(omnivoice_postprocess_raw) is not bool:
+        raise ValueError("omnivoice_postprocess_output must be boolean")
+    cfg["omnivoice_num_steps"] = omnivoice_num_steps_raw
+    cfg["omnivoice_postprocess_output"] = omnivoice_postprocess_raw
     if cfg["speed"] <= 0:
         raise ValueError("TTS speed must be positive")
     if cfg["pause_seconds"] < 0:
@@ -473,7 +493,69 @@ def validate_script(script: dict, date_str: str, cfg: dict) -> dict:
     return metrics
 
 
+def multipart_form(fields: dict[str, str]) -> tuple[bytes, str]:
+    boundary = "----HermesOmniVoice" + uuid.uuid4().hex
+    chunks: list[bytes] = []
+    for name, value in fields.items():
+        chunks.extend([
+            f"--{boundary}\r\n".encode("ascii"),
+            f'Content-Disposition: form-data; name="{name}"\r\n\r\n'.encode("ascii"),
+            str(value).encode("utf-8"),
+            b"\r\n",
+        ])
+    chunks.append(f"--{boundary}--\r\n".encode("ascii"))
+    return b"".join(chunks), f"multipart/form-data; boundary={boundary}"
+
+
+def request_omnivoice_clone(text: str, prompt_id: str, cfg: dict, dest: Path) -> None:
+    body, content_type = multipart_form({
+        "text": text,
+        "prompt_id": prompt_id,
+        "speed": str(cfg["speed"]),
+        "num_step": str(cfg["omnivoice_num_steps"]),
+        "preprocess_prompt": "true",
+        "postprocess_output": str(cfg["omnivoice_postprocess_output"]).lower(),
+        "response_format": "wav",
+    })
+    request = urllib.request.Request(
+        cfg["tts_base_url"] + "/v1/audio/clone",
+        data=body,
+        headers={"Content-Type": content_type, "Accept": "audio/wav"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=DEFAULT_TIMEOUT) as response:
+            data = response.read()
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode("utf-8", "replace")[:1000]
+        raise RuntimeError(f"OmniVoice clone HTTP {exc.code}: {body}") from exc
+    except urllib.error.URLError as exc:
+        raise RuntimeError(f"OmniVoice clone connection failed: {exc.reason}") from exc
+    if len(data) < 500:
+        raise RuntimeError(f"OmniVoice returned suspiciously small audio ({len(data)} bytes)")
+
+    fd, source_name = tempfile.mkstemp(
+        prefix=dest.name + ".", suffix=".clone.tmp.wav", dir=dest.parent
+    )
+    source = Path(source_name)
+    os.close(fd)
+    try:
+        source.write_bytes(data)
+        if not media_is_valid(source, "wav"):
+            raise RuntimeError(f"OmniVoice returned invalid WAV audio: {source}")
+        run([
+            "ffmpeg", "-y", "-v", "error", "-i", str(source),
+            "-ar", "44100", "-ac", "1", "-c:a", "libmp3lame",
+            "-b:a", cfg["bitrate"], str(dest),
+        ])
+    finally:
+        source.unlink(missing_ok=True)
+
+
 def request_tts(text: str, voice: str, cfg: dict, dest: Path) -> None:
+    if cfg["tts_provider"] == "omnivoice":
+        request_omnivoice_clone(text, voice, cfg, dest)
+        return
     payload = {
         "model": cfg["tts_model"],
         "input": text,
@@ -501,10 +583,13 @@ def request_tts(text: str, voice: str, cfg: dict, dest: Path) -> None:
 
 def tts_cache_key(text: str, voice: str, cfg: dict) -> str:
     material = {
+        "provider": cfg["tts_provider"],
         "base_url": cfg["tts_base_url"],
         "model": cfg["tts_model"],
         "voice": voice,
         "speed": cfg["speed"],
+        "omnivoice_num_steps": cfg["omnivoice_num_steps"],
+        "omnivoice_postprocess_output": cfg["omnivoice_postprocess_output"],
         "text": normalize_text(text),
     }
     encoded = json.dumps(material, sort_keys=True, separators=(",", ":")).encode("utf-8")
@@ -1319,9 +1404,12 @@ def render(date_str: str, script_path: Path, allow_unready: bool, force: bool) -
         "script_sha256": canonical_json_hash(script),
         "render_config_sha256": render_config_hash(cfg),
         "success_marker": str(marker) if marker else None,
+        "tts_provider": cfg["tts_provider"],
         "tts_base_url": cfg["tts_base_url"],
         "tts_model": cfg["tts_model"],
         "tts_cache_dir": cfg["tts_cache_dir"],
+        "omnivoice_num_steps": cfg["omnivoice_num_steps"],
+        "omnivoice_postprocess_output": cfg["omnivoice_postprocess_output"],
         "voices": voices,
         "tts_speed": cfg["speed"],
         "bitrate": cfg["bitrate"],
