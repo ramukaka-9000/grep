@@ -29,6 +29,21 @@
   </nav>
 </header>
 <main>
+  
+  <section class="podcast-player" aria-labelledby="podcast-heading">
+    <div class="podcast-kicker">audio edition</div>
+    <div class="podcast-heading-row">
+      <div>
+        <h2 id="podcast-heading">Listen to the grep podcast</h2>
+        <p>A narrated companion to this edition, with the day's strongest signals and deeper context.</p>
+      </div>
+      <a class="podcast-download" href="audio/2026-08-04/episode.mp3" download>Download MP3 ↓</a>
+    </div>
+    <audio class="podcast-audio" controls preload="metadata" aria-label="grep podcast for 2026-08-04">
+      <source src="audio/2026-08-04/episode.mp3" type="audio/mpeg">
+      Your browser does not support the audio player. <a href="audio/2026-08-04/episode.mp3">Download the MP3</a>.
+    </audio>
+  </section>
   <nav class="section-nav" aria-label="Sections">
     <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">12</span></a>
 <a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
