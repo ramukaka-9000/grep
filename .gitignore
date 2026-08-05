@@ -1,5 +1,6 @@
 content/candidates/
 seen-items.json
+podcast/runs/
 __pycache__/
 *.pyc
 .DS_Store

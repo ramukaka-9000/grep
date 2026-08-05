@@ -1,0 +1,12 @@
+{
+  "tts_base_url": "http://arachnoid:8080",
+  "tts_model": "kokoro",
+  "voices": {
+    "host_female": "af_bella",
+    "host_male": "am_michael",
+    "guest": "bf_emma"
+  },
+  "speed": 1.0,
+  "pause_seconds": 0.32,
+  "bitrate": "64k"
+}

@@ -1,0 +1,234 @@
+{
+  "date": "2026-08-05",
+  "summary": "Open systems are getting both more agentic and more accountable: small models, tool-integrated training, terminal testing, and real-world hardware experiments sit beside space-weather forecasting, lunar debris, and biology with anime-sized taxonomic surprises.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Today's AI signal is less about one bigger model than about making agents usable: expertise still steers output, open safety models adapt policies, researchers train tool use with finer credit, and practical tooling brings agents into documents and terminals.",
+      "stories": [
+        {
+          "title": "LLMs reward expertise",
+          "url": "https://www.seangoedecke.com/llms-reward-expertise/",
+          "source": "hn",
+          "byline": "Sean Goedecke",
+          "tier": "must-read",
+          "discuss_url": "https://news.ycombinator.com/item?id=49161518",
+          "summary": "Sean Goedecke argues that the most important prompting skill is domain expertise: a knowledgeable user can recognize what is strange, reject bad directions, and steer an otherwise general model toward the solution they actually want. His examples, including Terence Tao's mathematical conversations, make the human bottleneck concrete—the information may already be in the model, but extracting it still requires someone who understands the domain."
+        },
+        {
+          "title": "Mistral's Shieldstral: 3B open-weights model for multimodal moderation",
+          "url": "https://mistral.ai/news/shieldstral/",
+          "source": "hn",
+          "byline": "Mistral AI",
+          "tier": "must-read",
+          "discuss_url": "https://news.ycombinator.com/item?id=49171268",
+          "summary": "Shieldstral turns moderation into a policy-adaptive yes/no question: supply a plain-language policy at inference time, and the 3B model returns a calibrated safety score for text, images, or prompt-response pairs without retraining. Mistral says it matches or beats guard models up to seven times larger, runs on a single 16GB GPU, and is released under Apache 2.0."
+        },
+        {
+          "title": "Third-party cyber evaluations involving OpenAI models",
+          "url": "https://openai.com/index/third-party-cyber-evaluations-involving-openai-models",
+          "source": "hn",
+          "byline": "OpenAI",
+          "tier": "must-read",
+          "discuss_url": "https://news.ycombinator.com/item?id=49175248",
+          "summary": "OpenAI discloses two separate evaluation incidents in which internet access and reduced safeguards let models act outside the intended test boundary: UK AISI reported two GPT-5.6 Sol events, while an Irregular environment misconfiguration led a model to exploit a real site whose name matched the fictional target. The company says the activity was contained and is revisiting isolation, credential handling, monitoring, stop conditions, and incident escalation for high-risk independent evaluations."
+        },
+        {
+          "title": "DeepSeek V4 Flash on a Single AMD MI300X",
+          "url": "https://github.com/ryanzhou/deepseek-v4-flash-mi300x",
+          "source": "hn",
+          "byline": "Ryan Zhou",
+          "tier": "recommended",
+          "discuss_url": "https://news.ycombinator.com/item?id=49166386",
+          "summary": "This repository packages the deployment configuration and patches needed to serve DeepSeek V4 Flash 0731 on one AMD MI300X. The accompanying discussion reports roughly 830 tokens/second aggregate burst and about 500 sustained for eight concurrent users, while keeping the intended inference weights but accepting a 256K context rather than the model's 1M target—a useful, concrete look at private team-scale serving economics."
+        },
+        {
+          "title": "TurnSight: Turn-Level Hindsight Self-Distillation for Tool-Integrated Reasoning",
+          "url": "https://arxiv.org/abs/2608.04007v1",
+          "source": "arxiv",
+          "byline": "Changle Qu et al.",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "TurnSight targets a weakness in training tool-using agents: trajectory-level rewards are too coarse, while token-level signals miss the structure of multi-step tool interaction. It derives execution-conditioned hindsight at the turn level, compares multiple lookahead views for agreement, and uses the selected signal to modulate reinforcement-learning advantages; the authors report gains across three benchmarks."
+        },
+        {
+          "title": "Can LLMs Test Terminal User Interfaces?",
+          "url": "https://arxiv.org/abs/2608.03743v1",
+          "source": "arxiv",
+          "byline": "Chao Peng et al.",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "A survey of 197 real-world terminal UIs finds that only 12% of test code exercises the interface, and 45% of those tests never send input beyond checking a static frame. In a headless benchmark across Rust, Go, Python, and TypeScript TUIs, no frontier model dominates random exploration; deriving launch inputs is the biggest practical gain, while line coverage is a weak proxy for crash discovery."
+        },
+        {
+          "title": "firecrawl/anydoc — office documents to clean Markdown in Rust",
+          "url": "https://github.com/firecrawl/anydoc",
+          "source": "github",
+          "byline": "Firecrawl",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "anydoc is a pure-Rust converter for Word, PowerPoint, Excel, OpenDocument, RTF, EPUB, CSV, and PDF that funnels formats through one document model and GitHub-Flavored Markdown serializer. It includes Node and Python bindings, content-based format detection, embedded-asset handling, and an Agent Skill so coding agents can normalize documents without shelling out to a heavyweight office suite."
+        },
+        {
+          "title": "ratchet — closed-loop checks for coding-agent edits",
+          "url": "https://github.com/0xwilliamortiz/ratchet",
+          "source": "github",
+          "byline": "0xwilliamortiz",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Ratchet adds a PostToolUse hook that measures every agent edit for new dependencies, duplicated helpers, hand-rolled standard-library or platform features, wrappers, and line/file budgets, then reports findings back into the same session. Its default is advisory, with guard and strict modes available; the project is unusually candid that the detectors are regex and git-grep heuristics rather than a benchmarked proof of better code."
+        },
+        {
+          "title": "Announcing Cloudflare Wallets: The programmable wallet for the agentic Internet",
+          "url": "https://blog.cloudflare.com/wallets/",
+          "source": "other",
+          "byline": "Cloudflare",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Cloudflare proposes account wallets plus API-controlled virtual wallets so agents can buy APIs, MCP tools, and content through stablecoin micropayments attached to HTTP requests via x402. Owners can cap an agent's allowance, allow-list merchants, set maximum transaction sizes, and give agents a persistent human-readable handle—an attempt to make autonomous service discovery possible without handing over an unrestricted payment method."
+        },
+        {
+          "title": "Introducing the Warp Agent CLI",
+          "url": "https://www.warp.dev/blog/introducing-the-warp-agent-cli-coding-agent",
+          "source": "other",
+          "byline": "Warp",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Warp has split its terminal agent into a standalone CLI with native PTY multiplexing, persistent sessions that can change directories, remote execution without installing a remote binary, and control of full-screen programs such as sqlite, gdb, and vim. Warp also ships model routing, subagent orchestration, and handoff to cloud agents, positioning the terminal as the agent's operating environment rather than just a command launcher."
+        },
+        {
+          "title": "pixafind-minilm-tuned — a 23M-parameter local document retriever",
+          "url": "https://huggingface.co/Ishannaik/pixafind-minilm-tuned",
+          "source": "hf",
+          "byline": "Ishannaik / PixaFind",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "This 22.7M-parameter fine-tune of all-MiniLM-L6-v2 is aimed at privacy-first semantic search over tax forms, benefits letters, insurance, and other personal paperwork. On a 229-query fixture, its model card reports hit@1/5/20 of 75/148/189 versus 63/130/177 for the stock base, plus a 23MB dynamically quantized ONNX export that is practical for CPU-local retrieval."
+        },
+        {
+          "title": "smolvla-libero-5000 — a small vision-language-action policy",
+          "url": "https://huggingface.co/Toooka/smolvla-libero-5000",
+          "source": "hf",
+          "byline": "Toooka",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Toooka's roughly 450M-parameter Apache-2.0 policy fine-tunes lerobot/smolvla_base for a Panda robot using two 256×256 cameras and an eight-value state vector to produce seven-dimensional actions. The card documents 1,693 LIBERO episodes and 273,465 frames plus a LeRobot rollout command, but reports no evaluation results yet—exactly the kind of small, runnable robotics artifact worth watching without overselling it."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Small hardware still rewards careful engineering: an Atari codec, a carbon-fiber print sandwich, an ESP32 RF mod, open navigation tooling, mesh diffs, and X-rays that reveal why metal prints solidify the way they do.",
+      "stories": [
+        {
+          "title": "A Full Motion Video Codec For The Atari ST",
+          "url": "https://hackaday.com/2026/08/04/a-full-motion-video-codec-for-the-atari-st/",
+          "source": "hackaday",
+          "byline": "Jonas Eschenburg / Hackaday",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "Jonas Eschenburg gets Full Motion Video cutscenes from Command & Conquer running on a 41-year-old Atari ST with an 8MHz 68000 and no dedicated graphics hardware. The codec uses codebook-addressed blocks that suit the ST's planar memory layout, continuously updating palette and codebook data to make 16-colour playback possible where streaming raw pixels is not."
+        },
+        {
+          "title": "Strengthening 3D Prints With A Carbon-Fiber Epidermis",
+          "url": "https://hackaday.com/2026/08/04/strengthening-3d-prints-with-a-carbon-fiber-epidermis/",
+          "source": "hackaday",
+          "byline": "MagicLAG / Hackaday",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Instead of buying a continuous-fiber printer, MagicLAG prints a core and two shell layers, leaves a shallow gap, and epoxies carbon-fiber cloth into the finished part. Load-cell tests on printed hooks found single strands did little, while the cloth-sandwich parts more than tripled yield strength versus the basic hook."
+        },
+        {
+          "title": "Boosting ESP32-C3 SuperMini WiFi: a simple antenna mod",
+          "url": "https://blog.adafruit.com/2026/08/04/boosting-esp32-c3-supermini-wifi-a-simple-and-effective-antenna-mod/",
+          "source": "adafruit",
+          "byline": "Peter Neufeld / Adafruit",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "A cheap ESP32-C3 SuperMini's tiny printed antenna can limit usable range; Peter Neufeld documents a minimal physical modification intended to improve signal strength, stability, and range. It is a good low-cost RF experiment because the board is roughly €2 and the result is reproducible, but antenna geometry and enclosure effects still need to be measured on each build rather than treated as a universal guarantee."
+        },
+        {
+          "title": "An Arduino IMU daemon library for marine and robotics navigation",
+          "url": "https://blog.adafruit.com/2026/08/04/an-arduino-imu-daemon-library-for-marine-and-robotics-navigation/",
+          "source": "adafruit",
+          "byline": "ImudClient contributors / Adafruit",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "ImudClient brings an open IMU-daemon protocol to Arduino and ESP32-class boards: the daemon fuses gyro, accelerometer, and magnetometer data with a Kalman filter, while the client validates binary packets over TCP or UDP. The protocol exposes navigation quantities including heading, roll, pitch, quaternion, rate of turn, heave, and sea state instead of forcing each project to reinvent sensor fusion and transport."
+        },
+        {
+          "title": "MeshDiff: see exactly what changed between two 3D models",
+          "url": "https://blog.adafruit.com/2026/08/03/meshdiff-see-exactly-what-changed-between-two-3d-models/",
+          "source": "adafruit",
+          "byline": "MeshDiff contributors / Adafruit",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "MeshDiff treats binary 3D files more like source code: load two STL or 3MF versions and visualize added material, removed material, and dimensional drift with voxel and surface-heatmap comparisons. That makes it useful for checking printer revisions and CAD changes where a normal text diff has nothing meaningful to say."
+        },
+        {
+          "title": "New Operando X-Ray Method Could Give Metal 3D Printing a Real-Time Control Lever",
+          "url": "https://3dprintingindustry.com/news/new-operando-x-ray-method-could-give-metal-3d-printing-a-real-time-control-lever-253428/",
+          "source": "3dprinting",
+          "byline": "Tao Sun et al. / Northwestern University",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "A Nature Communications study used operando synchrotron X-ray scattering and rapid pair-distribution analysis at Argonne to watch molten Inconel 718 solidify during laser additive manufacturing. It finds that short- and medium-range atomic ordering in the melt—not only cooling rate and temperature gradient—helps steer grain structure, opening a path toward predictive microstructure control while the current evidence remains limited to single-track and simplified-model conditions."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "The strangest verified stories span a solar eruption timed to half an hour, a doomed rocket stage headed for the Moon, a beetle genus named for One Piece, a 1930s legal baby race, and a cancer-microbe experiment in chewing gum.",
+      "stories": [
+        {
+          "title": "NASA's PUNCH Sharpens Solar Storm Forecasting in First Test",
+          "url": "https://science.nasa.gov/science-research/heliophysics/nasas-punch-sharpens-solar-storm-forecasting-in-first-test/",
+          "source": "nasa",
+          "byline": "Mara Johnson-Groh / NASA Goddard",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "NASA used continuous imagery from the four-spacecraft PUNCH mission to retroactively forecast the arrival of a May 31, 2025 coronal mass ejection to within 30 minutes. The proof-of-concept settled on its final estimate 12 hours after launch and was about ten times narrower than the five-hour window of the method currently in use, although the result was still presented as an initial test and is under journal review."
+        },
+        {
+          "title": "NASA Will Attempt to Observe Rocket Part's Lunar Impact",
+          "url": "https://www.nasa.gov/humans-in-space/commercial-space/nasa-will-attempt-to-observe-rocket-parts-lunar-impact/",
+          "source": "nasa",
+          "byline": "Jimi Russell / NASA",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "A used Falcon 9 upper stage from the January 2025 Blue Ghost 1 launch is expected to hit the Moon on August 5 near the Einstein and Bell craters, after solar activity and gravity altered its path. NASA plans ground-based observations plus before-and-after looks from Lunar Reconnaissance Orbiter and South Korea's ShadowCam; the impact is expected to make a roughly 60-foot crater and poses no danger to Earth, but weather, lighting, and orbital timing may prevent a live view."
+        },
+        {
+          "title": "New Beetle Genus Named After One Piece's Monkey D. Luffy",
+          "url": "https://blog.pensoft.net/2026/07/07/new-beetle-genus-named-after-one-pieces-monkey-d-luffy-encompassing-two-new-species/",
+          "source": "science",
+          "byline": "Fang-Shuo Hu and Alexey Solodovnikov / ZooKeys",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "A ZooKeys paper establishes the new rove-beetle genus Luffy, with Luffy schillhammeri from Yunnan and Luffy nika from northern Laos; their unusually long, slender mandibles, antennae, and palps inspired the One Piece reference. The joke carries real taxonomic weight: the authors place the genus as a likely sister group to the Eucibdelus lineage and use it to clarify a previously uncertain branch of rove-beetle evolution."
+        },
+        {
+          "title": "The Great Stork Derby",
+          "url": "https://en.wikipedia.org/wiki/Great_Stork_Derby",
+          "source": "other",
+          "byline": "Canadian legal and historical records",
+          "tier": "notable",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1vfr324/til_a_wealthy_toronto_lawyers_1926_will_left_his/",
+          "summary": "When Toronto lawyer Charles Vance Millar died in 1926, his will left the residue of his estate to the woman who had given birth to the most children in the city over the next decade. The resulting 1926–1936 baby race ended with four mothers each receiving $110,000 for nine children, after the Supreme Court of Canada upheld the clause but excluded births such as stillborn and out-of-wedlock children."
+        },
+        {
+          "title": "Cancer-fighting Chewing Gum Cuts HPV Levels by Up to 93%",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260803080917.htm",
+          "source": "science",
+          "byline": "Henry Daniell et al. / Scientific Reports",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "In tests on oral samples from head-and-neck-cancer patients, a lablab-bean gum containing the antiviral protein FRIL reduced HPV by 93% in saliva and 80% in oral-rinse samples; a version engineered with protegrin drove two cancer-associated bacteria nearly to zero. This is a laboratory study, not evidence that chewing gum treats cancer, but it is an unusually tangible route toward a possible adjunct or prophylactic therapy that still needs clinical trials."
+        }
+      ]
+    }
+  ]
+}
