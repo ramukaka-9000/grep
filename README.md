@@ -55,9 +55,9 @@ The scheduled Hermes job runs daily at **08:30 Asia/Kolkata**.
    `index.html` + `archive.html`, and pushes the result to the `gh-pages`
    branch.
 
-The agent never hand-edits HTML or layout. Pages are produced from JSON by
-the templates in `templates/` and styles in `assets/`. To restyle the site,
-edit `assets/style.css` once.
+The agent never hand-edits HTML or layout. Pages are produced from JSON by the
+templates in `templates/` and styles in `assets/`. To restyle the site,
+edit `assets/style-v2.css` once.
 
 ## Content shape
 

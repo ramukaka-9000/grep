@@ -535,7 +535,7 @@ def main() -> None:
     podcast_audio = sync_podcast_audio()
 
     # static assets live in main, mirrored into the build target
-    for name in ("style.css", "app.js", "favicon.svg"):
+    for name in ("style-v2.css", "app.js", "favicon.svg"):
         src = BASE / "assets" / name
         if src.exists():
             shutil.copy2(src, PAGES_DIR / "assets" / name)
