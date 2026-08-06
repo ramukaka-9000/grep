@@ -5,7 +5,12 @@
   "voices": {
     "host_female": "bella",
     "host_male": "morgan-freeman",
-    "guest": "cotenancy"
+    "guest": "shweta"
+  },
+  "speed_by_speaker": {
+    "host_female": 1.0,
+    "host_male": 1.15,
+    "guest": 1.0
   },
   "omnivoice_num_steps": 32,
   "omnivoice_postprocess_output": true,

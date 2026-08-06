@@ -18,10 +18,12 @@ that range and never writes `done.json` for it.
 The plan estimate uses `estimated_chars_per_second`, calibrated against real
 renders — the 2026-08-05 episode spoke 9,405 characters in 702 seconds of
 speech, so the rate is about 13.4. Every render records
-`measured_chars_per_second` in its manifest; retune the config from those
-values rather than guessing. An over-optimistic rate is expensive: it lets a
-script plan inside the budget and then blow the 15-minute ceiling after the
-whole episode has been synthesized.
+`measured_chars_per_second` in its manifest; this is speed-normalized as
+`sum(characters / effective_speaker_speed) / speech_seconds`, so it remains safe
+to copy into the config when speakers use different speeds. Retune the config
+from those values rather than guessing. An over-optimistic rate is expensive:
+it lets a script plan inside the budget and then blow the 15-minute ceiling
+after the whole episode has been synthesized.
 
 ## Plan before speech
 
@@ -46,11 +48,14 @@ python3 podcast/pipeline.py --render --date YYYY-MM-DD \
 
 OmniVoice saved-prompt cloning is the default renderer. It runs on the local
 speech service through `/upstream/omnivoice/v1/audio/clone`; the configured
-voices are the server-side prompt IDs `bella`, `morgan-freeman`, and `cotenancy`.
-Each clone response is validated as WAV and converted to the pipeline's cached
-MP3, while the content-addressed cache remains outside the repository at
+voices are the server-side prompt IDs `bella` (Maya), `morgan-freeman` (Arjun),
+and `shweta` (Shweta). Per-speaker speed overrides live in `speed_by_speaker`;
+the current configuration keeps Maya and Shweta at `1.0` and renders Arjun at
+`1.15`. Each clone response is validated as WAV and converted to the pipeline's
+cached MP3, while the content-addressed cache remains outside the repository at
 `/opt/data/cache/grep-podcast/tts`. A cached turn is keyed by the exact text,
-voice prompt ID, clone settings, model/provider identity, speed, and endpoint.
+voice prompt ID, clone settings, model/provider identity, effective per-speaker
+speed, and endpoint.
 The legacy Kokoro-compatible JSON speech path remains available only when
 `tts_provider` is explicitly set to `kokoro`. Voice IDs can still be overridden
 with environment variables such as `PODCAST_VOICE_HOST_FEMALE`.
@@ -200,7 +205,9 @@ Rules that exist because a structurally valid script can still sound generated:
 - **Write for the ear.** No spoken URLs, domains, or arXiv identifiers — say it
   in words and put the link in the show notes. Spell out model and version
   strings the way a person would say them, and gloss an unfamiliar acronym the
-  first time.
+  first time. When directly addressing a person by name, use an exclamation mark
+  rather than a comma — write `Maya! Shweta read the release`, not
+  `Maya, Shweta read the release`; the comma makes TTS hear a list of names.
 - **No production language and no cross-story thesis.** Ten unrelated stories do
   not share a theme, and claiming they do in the intro or outro is the clearest
   sign a model wrote it. Episode outlines, "let's get into it", and canned

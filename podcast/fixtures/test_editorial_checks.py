@@ -11,6 +11,7 @@ from __future__ import annotations
 import copy
 import json
 import sys
+import tempfile
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
@@ -285,6 +286,11 @@ def set_generic_single_token_opener(script):
     seg["text"] = "One method is worth watching here."
 
 
+def set_clause_initial_comma_address(script):
+    seg = first_of(script, story_title="LLMs reward expertise", beat="setup")
+    seg["text"] = "Maya, Shweta read the technical report end to end this week."
+
+
 CASES = [
     (set_trailing_cue, "ends on the cue"),
     (set_standalone_cue, "only a cue marker"),
@@ -324,6 +330,7 @@ CASES = [
     (set_duplicate_section_note, "more than one entry"),
     (set_numeric_section, "needs a plain string section"),
     (set_generic_single_token_opener, "without naming the story's subject"),
+    (set_clause_initial_comma_address, "use '!'"),
 ]
 
 
@@ -420,6 +427,143 @@ def test_helpers() -> int:
         ),
         "transition teaser without subject rejected",
     )
+    ok(
+        cfg["voices"]["guest"] == "shweta",
+        "Shweta uses the saved voice prompt",
+    )
+    ok(
+        p.speaker_speed("host_male", cfg) == 1.15,
+        "Arjun uses the configured 1.15 speed",
+    )
+    ok(
+        p.speaker_speed("guest", cfg) == 1.0,
+        "Shweta keeps the default speed",
+    )
+    ok(
+        p.tts_cache_key("same words", "morgan-freeman", 1.0, cfg)
+        != p.tts_cache_key("same words", "morgan-freeman", 1.15, cfg),
+        "per-speaker speed joins the TTS cache key",
+    )
+    bitrate_cfg = dict(cfg)
+    bitrate_cfg["bitrate"] = "128k" if cfg["bitrate"] != "128k" else "64k"
+    ok(
+        p.tts_cache_key("same words", "bella", 1.0, cfg)
+        != p.tts_cache_key("same words", "bella", 1.0, bitrate_cfg),
+        "output bitrate joins the TTS cache key",
+    )
+    ok(
+        not p.strict_number_equal(10**10000, 1.0),
+        "strict manifest comparison rejects oversized integers without raising",
+    )
+    ok(
+        p.strict_json_number(600, "duration") == 600.0,
+        "strict marker parser accepts JSON integers",
+    )
+    for label, raw in (
+        ("string", "600.0"),
+        ("bool", True),
+        ("nan", float("nan")),
+        ("huge integer", 10**10000),
+    ):
+        try:
+            p.strict_json_number(raw, "duration")
+        except ValueError:
+            ok(True, f"strict marker parser rejects {label}")
+        else:
+            ok(False, f"strict marker parser rejects {label}")
+    errors: list[str] = []
+    p.check_vocative_address(
+        [{"speaker": "host_male", "text": "Maya, Shweta read the release end to end."}],
+        errors,
+    )
+    ok(
+        len(errors) == 1 and "use '!'" in errors[0],
+        "clause-initial comma address is flagged",
+    )
+    for label, text in (
+        ("case-variant address", "maya, Shweta read the release end to end."),
+        ("semicolon-bound address", "The release is out; Maya, Shweta read it."),
+        ("quoted address", "“Maya, Shweta read the release.”"),
+        ("parenthesized address", "(Maya, Shweta read the release.)"),
+    ):
+        errors.clear()
+        p.check_vocative_address([{"speaker": "host_male", "text": text}], errors)
+        ok(len(errors) == 1 and "use '!'" in errors[0], label + " is flagged")
+    errors.clear()
+    p.check_vocative_address(
+        [{"speaker": "host_male", "text": "Maya, Arjun, and Shweta host the show today."}],
+        errors,
+    )
+    ok(not errors, "name enumeration is not an address")
+    errors.clear()
+    p.check_vocative_address(
+        [{"speaker": "host_male", "text": "Maya, Arjun and Shweta host the show today."}],
+        errors,
+    )
+    ok(not errors, "name enumeration without an Oxford comma is not an address")
+    errors.clear()
+    p.check_vocative_address(
+        [{"speaker": "host_male", "text": "I would steal first, Maya."}],
+        errors,
+    )
+    ok(not errors, "comma before a name is not flagged")
+    errors.clear()
+    p.check_vocative_address(
+        [{"speaker": "host_male", "text": "Well, Maya, that is the important boundary."}],
+        errors,
+    )
+    ok(len(errors) == 1 and "use '!'" in errors[0], "filler-prefixed address is flagged")
+    ok(
+        p._opener_problems("Maya! It changes how users work.") == ["an unanchored pronoun"],
+        "exclamation vocative does not bypass the pronoun scan",
+    )
+    ok(
+        p._opener_problems("Maya! SciCode is meant to measure models.") == [],
+        "exclamation address with an anchored opener stays clean",
+    )
+    with tempfile.TemporaryDirectory() as td:
+        bad = {
+            "tts_provider": "omnivoice",
+            "tts_base_url": "http://127.0.0.1:9",
+            "tts_model": "omnivoice",
+            "speed_by_speaker": {"host_male ": 1.15},
+        }
+        cfg_path = Path(td) / "config.json"
+        cfg_path.write_text(json.dumps(bad), encoding="utf-8")
+        previous = p.CONFIG_PATH
+        p.CONFIG_PATH = cfg_path
+        try:
+            try:
+                p.load_config()
+            except ValueError as exc:
+                ok(
+                    "exact speaker names" in str(exc),
+                    "whitespace speed-map key is rejected",
+                )
+            else:
+                ok(False, "whitespace speed-map key is rejected")
+        finally:
+            p.CONFIG_PATH = previous
+    with tempfile.TemporaryDirectory() as td:
+        run_dir = Path(td)
+        raw_dir = run_dir / "audio" / "raw"
+        wav_dir = run_dir / "audio" / "wav"
+        raw_dir.mkdir(parents=True)
+        wav_dir.mkdir(parents=True)
+        (raw_dir / "001_host_male.mp3").touch()
+        (raw_dir / "001_host_male.key").touch()
+        (wav_dir / "001_host_male.wav").touch()
+        (wav_dir / "001_host_male.key").touch()
+        one_segment = {"segments": [{"speaker": "host_male", "pause_after_seconds": 0.0}]}
+        ok(
+            p.audio_directories_are_exact(run_dir, one_segment, cfg),
+            "completion artifact directories accept the exact expected set",
+        )
+        (raw_dir / "999_host_male.mp3").touch()
+        ok(
+            not p.audio_directories_are_exact(run_dir, one_segment, cfg),
+            "completion artifact directories reject unlisted raw files",
+        )
     return failed
 
 
@@ -438,7 +582,7 @@ def main() -> int:
             failed += 1
             print(f"FAIL {fn.__name__}: expected {expected!r}, got:\n{message or '(passed)'}")
     failed += test_helpers()
-    helper_checks = 16
+    helper_checks = 41
     total_checks = len(CASES) + 1 + helper_checks
     print(f"\n{total_checks - failed}/{total_checks} checks behaved as specified")
     return 1 if failed else 0

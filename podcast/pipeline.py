@@ -275,6 +275,43 @@ def nonempty_string(raw: object, name: str) -> str:
     return raw.strip()
 
 
+def speaker_speed(speaker: str, cfg: dict) -> float:
+    """Return the effective TTS speed for a speaker."""
+    return cfg.get("speed_by_speaker", {}).get(speaker, cfg["speed"])
+
+
+def strict_number_equal(raw: object, expected: float) -> bool:
+    """Compare a manifest number without accepting bool/string coercion."""
+    if isinstance(raw, bool) or not isinstance(raw, (int, float)):
+        return False
+    if isinstance(raw, float) and not math.isfinite(raw):
+        return False
+    try:
+        return raw == expected
+    except (OverflowError, TypeError, ValueError):
+        return False
+
+
+def strict_json_number(raw: object, name: str) -> float:
+    """Parse a JSON number from a marker without accepting string coercion."""
+    if isinstance(raw, bool) or not isinstance(raw, (int, float)):
+        raise ValueError(f"{name} must be a finite number")
+    try:
+        value = float(raw)
+    except (OverflowError, ValueError, TypeError) as exc:
+        raise ValueError(f"{name} must be a finite number") from exc
+    if not math.isfinite(value):
+        raise ValueError(f"{name} must be a finite number")
+    return value
+
+
+def strict_speed_map_equal(raw: object, expected: dict[str, float]) -> bool:
+    """Compare per-speaker speeds with strict JSON-number semantics."""
+    if not isinstance(raw, dict) or set(raw) != set(expected):
+        return False
+    return all(strict_number_equal(raw[speaker], speed) for speaker, speed in expected.items())
+
+
 def render_config_hash(cfg: dict) -> str:
     identity = {
         "tts_provider": cfg["tts_provider"],
@@ -284,6 +321,7 @@ def render_config_hash(cfg: dict) -> str:
         "omnivoice_num_steps": cfg["omnivoice_num_steps"],
         "omnivoice_postprocess_output": cfg["omnivoice_postprocess_output"],
         "speed": cfg["speed"],
+        "speed_by_speaker": cfg["speed_by_speaker"],
         "bitrate": cfg["bitrate"],
         "voices": cfg["voices"],
         "pause_seconds": cfg["pause_seconds"],
@@ -349,6 +387,40 @@ def load_config() -> dict:
         raise ValueError("tts_base_url must be a non-empty string")
     cfg["tts_model"] = nonempty_string(model_raw, "tts_model")
     cfg["speed"] = finite_float(speed_raw, "speed")
+    raw_speed_by_speaker = cfg.get("speed_by_speaker", {})
+    if not isinstance(raw_speed_by_speaker, dict):
+        raise ValueError("speed_by_speaker must be a JSON object")
+    speed_by_speaker: dict[str, float] = {}
+    allowed_speakers = ("host_female", "host_male", "guest")
+    for speaker, raw_speaker_speed in raw_speed_by_speaker.items():
+        if (
+            type(speaker) is not str
+            or not speaker
+            or speaker != speaker.strip()
+            or speaker not in allowed_speakers
+        ):
+            raise ValueError(
+                "speed_by_speaker keys must be exact speaker names from "
+                f"{', '.join(allowed_speakers)}"
+            )
+        value = finite_float(raw_speaker_speed, f"speed_by_speaker[{speaker}]")
+        if value <= 0:
+            raise ValueError(f"speed_by_speaker[{speaker}] must be positive")
+        speed_by_speaker[speaker] = value
+    if "PODCAST_TTS_SPEED" in os.environ:
+        # Preserve the legacy global override for every configured speaker;
+        # per-speaker environment overrides below remain more specific.
+        speed_by_speaker = {
+            speaker: cfg["speed"] for speaker in speed_by_speaker
+        }
+    for speaker in ("host_female", "host_male", "guest"):
+        env_name = "PODCAST_TTS_SPEED_" + speaker.upper()
+        if env_name in os.environ:
+            value = finite_float(os.environ[env_name], env_name)
+            if value <= 0:
+                raise ValueError(f"{env_name} must be positive")
+            speed_by_speaker[speaker] = value
+    cfg["speed_by_speaker"] = speed_by_speaker
     cfg["pause_seconds"] = finite_float(pause_raw, "pause_seconds")
     cfg["bitrate"] = nonempty_string(bitrate_raw, "bitrate")
     cfg["tts_cache_dir"] = nonempty_string(cache_dir_raw, "tts_cache_dir")
@@ -533,7 +605,12 @@ def script_metrics(script: dict, cfg: dict) -> dict:
         for index, segment in enumerate(segments)
         if index < len(segments) - 1
     )
-    speech_seconds = characters / cfg["estimated_chars_per_second"] / cfg["speed"]
+    speech_seconds = sum(
+        len(normalize_text(segment["text"]))
+        / cfg["estimated_chars_per_second"]
+        / speaker_speed(normalize_text(segment["speaker"]), cfg)
+        for segment in segments
+    )
     stories = {
         normalize_text(segment.get("story_title"))
         for segment in segments
@@ -832,7 +909,7 @@ def _opener_problems(text: str) -> list[str]:
     # Strip speech punctuation/parenthetical staging before testing the first
     # lexical token. This catches ``—it's...``, ``(It)...`` and ``…the...``
     # in addition to ordinary quoted openers.
-    stripped = first_sentence.strip().lstrip('"\'“”‘’«»—–…([{,;:-.')
+    stripped = first_sentence.strip().lstrip('"\'“”‘’«»—–…([{,;:-.!')
     lowered = stripped.lower()
     # Discourse markers and vocatives hide the real first token: "Well, it
     # changes." and "Arjun, it changes." must both flag "it". Strip at most a
@@ -845,13 +922,25 @@ def _opener_problems(text: str) -> list[str]:
         "actually", "basically", "anyway", "first", "next", "up", "last",
     }
     persona_names = {name.lower() for name in load_personas().values()}
+    # "Maya! It changes..." splits at the exclamation, isolating the vocative
+    # as its own sentence and hiding the pronoun from the scan. Rejoin a lone
+    # leading vocative with the next sentence so the same defect is caught
+    # whether the writer uses "Maya, " or the "!" address style.
+    if (
+        len(sentences) > 1
+        and re.fullmatch(r"\s*[a-zA-Z]+[!…]?\s*", sentences[0])
+        and sentences[0].strip().rstrip("!…").strip().lower() in persona_names
+    ):
+        sentences[0] = f"{sentences[0].strip()} {sentences[1].strip()}"
+        first_sentence = sentences[0]
+        lowered = first_sentence.strip().lower()
     for _ in range(3):
-        m = re.match(r"^([a-zA-Z]+)[,\s\-—–…]+", lowered)
+        m = re.match(r"^([a-zA-Z]+)[,\s\-—–…!]+", lowered)
         if not m:
             break
         word = m.group(1).lower()
         if word in discourse_markers or word in persona_names:
-            lowered = lowered[m.end():].lstrip('"\'“”‘’«»—–…([{,;:-.')
+            lowered = lowered[m.end():].lstrip('"\'“”‘’«»—–…([{,;:-.!')
         else:
             break
     for pattern, label in UNANCHORED_OPENING_PATTERNS:
@@ -1119,6 +1208,46 @@ def check_direct_address(segments: list[dict], errors: list[str]) -> int:
     return uses
 
 
+def check_vocative_address(segments: list[dict], errors: list[str]) -> None:
+    """Addresses must use '!' rather than ',' so TTS hears a name as an address.
+
+    ``Maya, Shweta read the release`` is synthesized as though the speaker were
+    reading a list of names; ``Maya! Shweta read the release`` is heard as an
+    exclamation of address. Only clause-initial vocatives are checked: a comma
+    before a name ("first, Maya") and genuine enumerations ("Maya, Arjun, and
+    Shweta") do not have the list-confusion problem.
+    """
+    names = load_personas()
+    if not names:
+        return
+    name_pattern = "|".join(re.escape(name) for name in names.values())
+    name_atom = rf"(?:{name_pattern})"
+    address_fillers = (
+        "well|hmm|hm|oh|uh|um|yeah|yep|yup|no|wait|okay|ok|right|look|"
+        "listen|hey|honestly|actually|basically|anyway|first|next|up|last"
+    )
+    opener = r"[\"'“”‘’«»(\[]*"
+    pattern = re.compile(
+        rf"(?:^|(?:[.!?…;:]\s*|(?:{address_fillers})[,;:]?\s+)){opener}\s*"
+        rf"({name_atom}),\s",
+        re.IGNORECASE,
+    )
+    enumeration = re.compile(
+        rf"^{name_atom}(?:(?:,\s+{name_atom})+|(?:,?\s+and\s+{name_atom}))\b",
+        re.IGNORECASE,
+    )
+    for index, segment in enumerate(segments, start=1):
+        text = strip_expressive_tags(segment.get("text") or "")
+        for match in pattern.finditer(text):
+            if enumeration.match(text[match.end():]):
+                continue
+            errors.append(
+                f"segment {index} addresses {match.group(1)} with a comma; "
+                f"use '!' (e.g. '{match.group(1)}!') so the name is heard as "
+                "an address rather than a list item"
+            )
+
+
 def check_show_notes(script: dict, errors: list[str]) -> None:
     """Show notes must be unambiguous enough for boundary decisions.
 
@@ -1176,6 +1305,7 @@ def check_editorial(script: dict, cfg: dict) -> dict:
     check_beat_coherence(segments, errors)
     check_prose(script, segments, errors, warnings)
     direct_address = check_direct_address(segments, errors)
+    check_vocative_address(segments, errors)
 
     if errors:
         raise RuntimeError(
@@ -1338,11 +1468,17 @@ def multipart_form(fields: dict[str, str]) -> tuple[bytes, str]:
     return b"".join(chunks), f"multipart/form-data; boundary={boundary}"
 
 
-def request_omnivoice_clone(text: str, prompt_id: str, cfg: dict, dest: Path) -> None:
+def request_omnivoice_clone(
+    text: str,
+    prompt_id: str,
+    cfg: dict,
+    dest: Path,
+    speed: float,
+) -> None:
     body, content_type = multipart_form({
         "text": text,
         "prompt_id": prompt_id,
-        "speed": str(cfg["speed"]),
+        "speed": str(speed),
         "num_step": str(cfg["omnivoice_num_steps"]),
         "preprocess_prompt": "true",
         "postprocess_output": str(cfg["omnivoice_postprocess_output"]).lower(),
@@ -1383,15 +1519,15 @@ def request_omnivoice_clone(text: str, prompt_id: str, cfg: dict, dest: Path) ->
         source.unlink(missing_ok=True)
 
 
-def request_tts(text: str, voice: str, cfg: dict, dest: Path) -> None:
+def request_tts(text: str, voice: str, cfg: dict, dest: Path, speed: float) -> None:
     if cfg["tts_provider"] == "omnivoice":
-        request_omnivoice_clone(text, voice, cfg, dest)
+        request_omnivoice_clone(text, voice, cfg, dest, speed)
         return
     payload = {
         "model": cfg["tts_model"],
         "input": text,
         "voice": voice,
-        "speed": cfg["speed"],
+        "speed": speed,
     }
     request = urllib.request.Request(
         cfg["tts_base_url"] + "/v1/audio/speech",
@@ -1412,15 +1548,16 @@ def request_tts(text: str, voice: str, cfg: dict, dest: Path) -> None:
     dest.write_bytes(data)
 
 
-def tts_cache_key(text: str, voice: str, cfg: dict) -> str:
+def tts_cache_key(text: str, voice: str, speed: float, cfg: dict) -> str:
     material = {
         "provider": cfg["tts_provider"],
         "base_url": cfg["tts_base_url"],
         "model": cfg["tts_model"],
         "voice": voice,
-        "speed": cfg["speed"],
+        "speed": speed,
         "omnivoice_num_steps": cfg["omnivoice_num_steps"],
         "omnivoice_postprocess_output": cfg["omnivoice_postprocess_output"],
+        "bitrate": cfg["bitrate"],
         "text": normalize_text(text),
     }
     encoded = json.dumps(material, sort_keys=True, separators=(",", ":")).encode("utf-8")
@@ -1504,6 +1641,7 @@ def copy_atomic(source: Path, destination: Path) -> None:
 def materialize_tts(
     text: str,
     voice: str,
+    speed: float,
     cfg: dict,
     raw: Path,
     cache_key: str,
@@ -1516,11 +1654,14 @@ def materialize_tts(
     legacy_raw_is_current = (
         allow_legacy_raw and media_is_valid(raw, "mp3") and key_sidecar_missing(raw)
     )
-    cache_is_current = media_is_valid(cache, "mp3")
+    cache_is_current = (
+        media_is_valid(cache, "mp3") and stored_key(cache) == cache_key
+    )
 
     if not force and raw_is_current:
         if not cache_is_current:
             copy_atomic(raw, cache)
+            atomic_write(key_path(cache), cache_key + "\n")
         return "run-cache"
     if not force and cache_is_current:
         copy_atomic(cache, raw)
@@ -1528,6 +1669,7 @@ def materialize_tts(
         return "shared-cache"
     if not force and legacy_raw_is_current:
         copy_atomic(raw, cache)
+        atomic_write(key_path(cache), cache_key + "\n")
         atomic_write(key_path(raw), cache_key + "\n")
         return "run-cache"
 
@@ -1541,10 +1683,11 @@ def materialize_tts(
     temporary = Path(tmp_name)
     os.close(fd)
     try:
-        request_tts(text, voice, cfg, temporary)
+        request_tts(text, voice, cfg, temporary, speed)
         if not media_is_valid(temporary, "mp3"):
             raise RuntimeError(f"TTS produced invalid MP3 audio: {temporary}")
         copy_atomic(temporary, cache)
+        atomic_write(key_path(cache), cache_key + "\n")
         os.replace(temporary, raw)
     finally:
         temporary.unlink(missing_ok=True)
@@ -1578,8 +1721,9 @@ def silence_file(wav_dir: Path, seconds: float, force: bool) -> Path | None:
     milliseconds = int(round(seconds * 1000))
     path = wav_dir / f"pause-{milliseconds:04d}.wav"
     silence_key = silence_cache_key(seconds)
-    # Silence is deterministic; reuse it when its actual media duration is valid,
-    # including legacy pause files that predate sidecars.
+    # Silence is deterministic, but existing bytes are trusted only when their
+    # exact content-identity sidecar is present. A missing or malformed sidecar
+    # must regenerate rather than relabeling arbitrary WAV bytes as silence.
     existing = try_probe_media(path)
     existing_duration = None
     if isinstance(existing, dict):
@@ -1589,12 +1733,11 @@ def silence_file(wav_dir: Path, seconds: float, force: bool) -> Path | None:
             existing_duration = None
     if (
         media_is_valid(path, "wav")
+        and stored_key(path) == silence_key
         and existing_duration is not None
         and math.isfinite(existing_duration)
         and math.isclose(existing_duration, seconds, abs_tol=PAUSE_DURATION_TOLERANCE_SECONDS)
     ):
-        if stored_key(path) != silence_key:
-            atomic_write(key_path(path), silence_key + "\n")
         return path
 
     wav_dir.mkdir(parents=True, exist_ok=True)
@@ -1805,8 +1948,10 @@ def legacy_raw_audio_compatible(
     if manifest.get("tts_model") != cfg["tts_model"]:
         return set()
     if (
-        isinstance(manifest.get("tts_speed"), bool)
-        or manifest.get("tts_speed") != cfg["speed"]
+        not strict_number_equal(manifest.get("tts_speed"), cfg["speed"])
+        or not strict_speed_map_equal(
+            manifest.get("speed_by_speaker"), cfg["speed_by_speaker"]
+        )
     ):
         return set()
     if manifest.get("voices") != cfg["voices"]:
@@ -1836,10 +1981,19 @@ def legacy_raw_audio_compatible(
         current = current_segments[index - 1]
         speaker = normalize_text(current.get("speaker"))
         voice = cfg["voices"].get(speaker)
-        expected_cache_key = tts_cache_key(normalize_text(current.get("text")), voice, cfg)
+        expected_cache_key = tts_cache_key(
+            normalize_text(current.get("text")),
+            voice,
+            speaker_speed(speaker, cfg),
+            cfg,
+        )
         if (
             recorded.get("speaker") != speaker
             or recorded.get("voice") != voice
+            or not strict_number_equal(
+                recorded.get("speed"),
+                speaker_speed(speaker, cfg),
+            )
             or recorded.get("kind") != (normalize_text(current.get("kind")) or "dialogue")
             or recorded.get("story_title") != normalize_text(current.get("story_title"))
             or recorded.get("characters") != len(normalize_text(current.get("text")))
@@ -1884,6 +2038,48 @@ def validate_episode(path: Path, cfg: dict) -> tuple[dict, float, int]:
             f"{cfg['max_duration_seconds'] / 60:.0f} minutes"
         )
     return ffprobe, duration, size
+
+
+def audio_directories_are_exact(
+    run_dir: Path,
+    script: dict,
+    cfg: dict,
+) -> bool:
+    """Reject completion claims with unlisted raw, WAV, pause, or temp files."""
+    expected_raw: set[str] = set()
+    expected_wav: set[str] = set()
+    expected_pause: set[str] = set()
+    for index, segment in enumerate(script["segments"], start=1):
+        speaker = normalize_text(segment["speaker"])
+        raw_name = f"{index:03d}_{speaker}.mp3"
+        wav_name = f"{index:03d}_{speaker}.wav"
+        expected_raw.update({raw_name, raw_name.removesuffix(".mp3") + ".key"})
+        expected_wav.update({wav_name, wav_name.removesuffix(".wav") + ".key"})
+        if index < len(script["segments"]):
+            pause_seconds = pause_after_seconds(segment, cfg)
+            if pause_seconds > 0:
+                pause_name = f"pause-{int(round(pause_seconds * 1000)):04d}.wav"
+                expected_pause.update({
+                    pause_name,
+                    pause_name.removesuffix(".wav") + ".key",
+                })
+
+    def names(path: Path) -> set[str] | None:
+        try:
+            if not path.is_dir():
+                return None
+            return {entry.name for entry in path.iterdir()}
+        except OSError:
+            return None
+
+    raw_names = names(run_dir / "audio" / "raw")
+    wav_names = names(run_dir / "audio" / "wav")
+    return (
+        raw_names is not None
+        and wav_names is not None
+        and raw_names <= expected_raw
+        and wav_names <= expected_wav | expected_pause
+    )
 
 
 def completed_render_is_valid(
@@ -1947,13 +2143,23 @@ def completed_render_is_valid(
         return False
     if manifest.get("edition") != str(content_path(date_str)):
         return False
+    if (
+        manifest.get("voices") != cfg["voices"]
+        or not strict_number_equal(manifest.get("tts_speed"), cfg["speed"])
+        or not strict_speed_map_equal(
+            manifest.get("speed_by_speaker"), cfg["speed_by_speaker"]
+        )
+    ):
+        return False
     show_notes = manifest.get("show_notes")
     if not isinstance(show_notes, str) or not Path(show_notes).is_file():
         return False
     try:
         _, duration, _ = validate_episode(episode, cfg)
-        done_duration = probe_float(done.get("duration_seconds", 0), "done duration")
-        manifest_duration = probe_float(
+        done_duration = strict_json_number(
+            done.get("duration_seconds", 0), "done duration"
+        )
+        manifest_duration = strict_json_number(
             manifest.get("actual_duration_seconds", 0), "manifest duration"
         )
     except (RuntimeError, TypeError, ValueError, OverflowError):
@@ -1970,13 +2176,20 @@ def completed_render_is_valid(
         return False
     wav_dir = run_dir / "audio" / "wav"
     raw_dir = run_dir / "audio" / "raw"
+    if not audio_directories_are_exact(run_dir, script, cfg):
+        return False
     for index, segment in enumerate(script["segments"], start=1):
         speaker = normalize_text(segment["speaker"])
         voice = cfg["voices"].get(speaker)
         if not voice:
             return False
         text = normalize_text(segment["text"])
-        expected_cache_key = tts_cache_key(text, voice, cfg)
+        expected_cache_key = tts_cache_key(
+            text,
+            voice,
+            speaker_speed(speaker, cfg),
+            cfg,
+        )
         raw = raw_dir / f"{index:03d}_{speaker}.mp3"
         wav = wav_dir / f"{index:03d}_{speaker}.wav"
         recorded = manifest_segments[index - 1]
@@ -1987,6 +2200,10 @@ def completed_render_is_valid(
             or recorded.get("index") != index
             or recorded.get("speaker") != speaker
             or recorded.get("voice") != voice
+            or not strict_number_equal(
+                recorded.get("speed"),
+                speaker_speed(speaker, cfg),
+            )
             or recorded.get("kind") != (normalize_text(segment.get("kind")) or "dialogue")
             or recorded.get("beat") != normalize_text(segment.get("beat"))
             or recorded.get("story_title") != normalize_text(segment.get("story_title"))
@@ -2012,7 +2229,7 @@ def completed_render_is_valid(
             pause_after_seconds(segment, cfg) if index < len(script["segments"]) else 0.0
         )
         try:
-            recorded_pause_seconds = finite_float(
+            recorded_pause_seconds = strict_json_number(
                 recorded.get("pause_after_seconds", -1),
                 "recorded pause_after_seconds",
             )
@@ -2062,11 +2279,19 @@ def plan(date_str: str, script_path: Path, allow_unready: bool) -> dict:
         if not voice:
             raise RuntimeError(f"no configured voice for {speaker}")
         text = normalize_text(segment["text"])
-        cache_key = tts_cache_key(text, voice, cfg)
+        cache_key = tts_cache_key(
+            text,
+            voice,
+            speaker_speed(speaker, cfg),
+            cfg,
+        )
         raw = run_dir / "audio" / "raw" / f"{index:03d}_{speaker}.mp3"
         if media_is_valid(raw, "mp3") and stored_key(raw) == cache_key:
             source = "run-cache"
-        elif media_is_valid(tts_cache_path(cache_key, cfg), "mp3"):
+        elif (
+            media_is_valid(tts_cache_path(cache_key, cfg), "mp3")
+            and stored_key(tts_cache_path(cache_key, cfg)) == cache_key
+        ):
             source = "shared-cache"
         else:
             source = "tts"
@@ -2155,12 +2380,18 @@ def render(date_str: str, script_path: Path, allow_unready: bool, force: bool) -
         voice = voices.get(speaker)
         if not voice:
             raise RuntimeError(f"no configured voice for {speaker}")
-        cache_key = tts_cache_key(text, voice, cfg)
+        cache_key = tts_cache_key(
+            text,
+            voice,
+            speaker_speed(speaker, cfg),
+            cfg,
+        )
         raw = raw_dir / f"{index:03d}_{speaker}.mp3"
         wav = wav_dir / f"{index:03d}_{speaker}.wav"
         source = materialize_tts(
             text,
             voice,
+            speaker_speed(speaker, cfg),
             cfg,
             raw,
             cache_key,
@@ -2180,6 +2411,7 @@ def render(date_str: str, script_path: Path, allow_unready: bool, force: bool) -
             "index": index,
             "speaker": speaker,
             "voice": voice,
+            "speed": speaker_speed(speaker, cfg),
             "kind": normalize_text(segment.get("kind")) or "dialogue",
             "beat": normalize_text(segment.get("beat")),
             "story_title": normalize_text(segment.get("story_title")),
@@ -2248,6 +2480,7 @@ def render(date_str: str, script_path: Path, allow_unready: bool, force: bool) -
         "omnivoice_postprocess_output": cfg["omnivoice_postprocess_output"],
         "voices": voices,
         "tts_speed": cfg["speed"],
+        "speed_by_speaker": cfg["speed_by_speaker"],
         "bitrate": cfg["bitrate"],
         "pause_seconds": cfg["pause_seconds"],
         "max_pause_seconds": cfg["max_pause_seconds"],
@@ -2260,8 +2493,19 @@ def render(date_str: str, script_path: Path, allow_unready: bool, force: bool) -
         "characters": metrics["characters"],
         # Recorded so estimated_chars_per_second can be retuned from real
         # renders instead of guessed. Speech time excludes the inserted pauses.
+        # The numerator is the speed-adjusted baseline (characters/speed), so
+        # the recorded rate can be copied straight into the config even though
+        # speakers now synthesize at different speeds.
         "measured_chars_per_second": (
-            round(metrics["characters"] / (duration - metrics["pause_seconds"]), 2)
+            round(
+                sum(
+                    len(normalize_text(segment["text"]))
+                    / speaker_speed(normalize_text(segment["speaker"]), cfg)
+                    for segment in script["segments"]
+                )
+                / (duration - metrics["pause_seconds"]),
+                2,
+            )
             if duration > metrics["pause_seconds"]
             else None
         ),
