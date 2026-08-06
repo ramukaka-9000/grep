@@ -17,7 +17,7 @@
       "kind": "intro",
       "beat": "reaction",
       "text": "Three billion parameters, and the policy lives in the request.",
-      "pause_after_seconds": 0.4
+      "pause_after_seconds": 0.55
     },
     {
       "speaker": "host_male",
@@ -41,7 +41,7 @@
       "beat": "answer",
       "text": "Right, and that's the gap he's poking at. The model supplies pieces of an answer; the expertise supplies the error signal. A specialist spots the missing assumption, rejects the plausible dead end, and notices when fluent prose has quietly gone off the rails - and none of that shows up in a benchmark score, because the benchmark never had a bad day in production.",
       "story_title": "LLMs reward expertise",
-      "pause_after_seconds": 0.45
+      "pause_after_seconds": 0.55
     },
     {
       "speaker": "host_female",
@@ -105,13 +105,13 @@
       "beat": "implication",
       "text": "So a screenshot looks perfect while focus, keybindings, resizing, and every error path stay untouched. An agent can help with the exploring, but it still needs a real way into the application - otherwise it's very diligently testing the blank terminal around the program.",
       "story_title": "Can LLMs Test Terminal User Interfaces?",
-      "pause_after_seconds": 0.5
+      "pause_after_seconds": 0.8
     },
     {
       "speaker": "host_male",
       "kind": "quick",
       "beat": "section-transition",
-      "text": "Speaking of machines doing more than they should - two hardware builds this week.",
+      "text": "Speaking of machines doing more than they should - the Atari ST finally has a full-motion video codec that runs in eight megahertz.",
       "story_title": "A Full Motion Video Codec For The Atari ST",
       "pause_after_seconds": 0.9
     },
@@ -129,14 +129,14 @@
       "beat": "reaction",
       "text": "The format follows the machine's memory layout, so the old hardware moves something it can actually handle.",
       "story_title": "A Full Motion Video Codec For The Atari ST",
-      "pause_after_seconds": 0.45
+      "pause_after_seconds": 0.55
     },
     {
       "speaker": "host_male",
       "kind": "quick",
       "beat": "setup",
       "text": "The carbon-fibre print goes the other way - physical, not clever. Print a core and shell, leave a shallow gap, epoxy carbon-fibre cloth into the finished part.",
-      "story_title": "Strengthening 3D Prints With A Carbon-Fibre Sandwich",
+      "story_title": "Strengthening 3D Prints With A Carbon-Fiber Epidermis",
       "pause_after_seconds": 0.2
     },
     {
@@ -144,7 +144,7 @@
       "kind": "quick",
       "beat": "reaction",
       "text": "And in the load-cell tests that more than tripled yield strength. [surprise-oh] The geometry is doing as much work as the material there.",
-      "story_title": "Strengthening 3D Prints With A Carbon-Fibre Sandwich",
+      "story_title": "Strengthening 3D Prints With A Carbon-Fiber Epidermis",
       "pause_after_seconds": 0.22
     },
     {
@@ -152,27 +152,35 @@
       "kind": "quick",
       "beat": "qualification",
       "text": "For that hook, anyway. The joint, the epoxy, and the load direction all decide whether it travels to another part.",
-      "story_title": "Strengthening 3D Prints With A Carbon-Fibre Sandwich",
-      "pause_after_seconds": 0.5
+      "story_title": "Strengthening 3D Prints With A Carbon-Fiber Epidermis",
+      "pause_after_seconds": 0.8
     },
     {
       "speaker": "host_male",
       "kind": "deep-dive",
-      "beat": "question",
-      "text": "When NASA says PUNCH narrowed the forecast window to about 30 minutes, is that warning time or arrival-time accuracy?",
+      "beat": "setup",
+      "text": "NASA's PUNCH mission narrowed a solar-storm forecast window to about 30 minutes in its first operational test. Four spacecraft in low Earth orbit keep the inner solar system under continuous three-dimensional observation, with a fresh image roughly every four minutes.",
       "story_title": "NASA's PUNCH Sharpens Solar Storm Forecasting in First Test",
       "pause_after_seconds": 0.25
     },
     {
       "speaker": "host_female",
       "kind": "deep-dive",
-      "beat": "answer",
-      "text": "Accuracy, and the distinction matters a lot. Four spacecraft in low Earth orbit making continuous three-dimensional observations of the inner solar system, with a fresh image roughly every four minutes. A coronal mass ejection stays visible much farther from the Sun than it used to, so the model gets a long track to work from rather than a departure point and a guess.",
+      "beat": "question",
+      "text": "So is that 30 minutes warning time, or arrival-time accuracy?",
       "story_title": "NASA's PUNCH Sharpens Solar Storm Forecasting in First Test",
       "pause_after_seconds": 0.28
     },
     {
       "speaker": "host_male",
+      "kind": "deep-dive",
+      "beat": "answer",
+      "text": "Accuracy, and the distinction matters a lot. A coronal mass ejection stays visible much farther from the Sun than it used to, so the model gets a long track to work from rather than a departure point and a guess.",
+      "story_title": "NASA's PUNCH Sharpens Solar Storm Forecasting in First Test",
+      "pause_after_seconds": 0.25
+    },
+    {
+      "speaker": "host_female",
       "kind": "deep-dive",
       "beat": "reaction",
       "text": "So the storm is already travelling by the time any of this helps.",
@@ -209,7 +217,7 @@
       "beat": "takeaway",
       "text": "The next test is repetition - forecasters will want to see it across many eruptions before they lean on it.",
       "story_title": "NASA's PUNCH Sharpens Solar Storm Forecasting in First Test",
-      "pause_after_seconds": 0.55
+      "pause_after_seconds": 0.8
     },
     {
       "speaker": "host_female",
@@ -257,14 +265,14 @@
       "beat": "takeaway",
       "text": "Clean principle, though: the unit of learning should look like the unit of interaction.",
       "story_title": "TurnSight: Turn-Level Hindsight Self-Distillation for Tool-Integrated Reasoning",
-      "pause_after_seconds": 0.55
+      "pause_after_seconds": 0.8
     },
     {
       "speaker": "host_male",
       "kind": "quick",
       "beat": "setup",
       "text": "A used Falcon 9 upper stage from the January 2025 Blue Ghost launch is expected to hit the Moon near the Einstein and Bell craters. NASA plans ground observations plus before-and-after views from Lunar Reconnaissance Orbiter and South Korea's ShadowCam. Call it a sixty-foot crater, and no danger to anything down here.",
-      "story_title": "NASA Will Attempt to Observe Rocket Part Hitting the Moon",
+      "story_title": "NASA Will Attempt to Observe Rocket Part's Lunar Impact",
       "pause_after_seconds": 0.2
     },
     {
@@ -272,7 +280,7 @@
       "kind": "quick",
       "beat": "reaction",
       "text": "A planned crash is oddly useful - a known event to check crater models against.",
-      "story_title": "NASA Will Attempt to Observe Rocket Part Hitting the Moon",
+      "story_title": "NASA Will Attempt to Observe Rocket Part's Lunar Impact",
       "pause_after_seconds": 0.22
     },
     {
@@ -280,15 +288,15 @@
       "kind": "quick",
       "beat": "qualification",
       "text": "The live view may well be underwhelming. Weather, lighting, and orbital timing could leave the follow-up science more interesting than the moment.",
-      "story_title": "NASA Will Attempt to Observe Rocket Part Hitting the Moon",
-      "pause_after_seconds": 0.45
+      "story_title": "NASA Will Attempt to Observe Rocket Part's Lunar Impact",
+      "pause_after_seconds": 0.55
     },
     {
       "speaker": "host_female",
       "kind": "quick",
-      "beat": "setup",
-      "text": "Taxonomists named a new rove-beetle genus Luffy, after the One Piece character. [laughter] Two species from Yunnan and northern Laos, with unusually long mandibles and palps.",
-      "story_title": "New Beetle Genus Named After One Piece's Luffy",
+      "beat": "reaction",
+      "text": "A rove beetle named after One Piece's Monkey D. Luffy - [laughter] that is a first. Two species from Yunnan and northern Laos, with unusually long mandibles and palps.",
+      "story_title": "New Beetle Genus Named After One Piece's Monkey D. Luffy",
       "pause_after_seconds": 0.2
     },
     {
@@ -296,15 +304,15 @@
       "kind": "quick",
       "beat": "implication",
       "text": "The name makes the specimen memorable and the anatomy still has to justify the genus. A joke opens the door; the classification carries the weight.",
-      "story_title": "New Beetle Genus Named After One Piece's Luffy",
-      "pause_after_seconds": 0.45
+      "story_title": "New Beetle Genus Named After One Piece's Monkey D. Luffy",
+      "pause_after_seconds": 0.8
     },
     {
       "speaker": "host_male",
       "kind": "quick",
       "beat": "setup",
       "text": "Last one, and it's a measurement story. Metal printing is usually described through temperature and cooling rate, because that's what you can instrument. This Nature Communications group used synchrotron X-ray scattering and rapid pair-distribution analysis to watch Inconel 718 form, tracking short- and medium-range atomic ordering while the laser was still working.",
-      "story_title": "New Operando X-Ray Method Could Give Metal Printing Better Feedback",
+      "story_title": "New Operando X-Ray Method Could Give Metal 3D Printing a Real-Time Control Lever",
       "pause_after_seconds": 0.2
     },
     {
@@ -312,7 +320,7 @@
       "kind": "quick",
       "beat": "reaction",
       "text": "Watching atomic ordering happen, not inferring it afterwards.",
-      "story_title": "New Operando X-Ray Method Could Give Metal Printing Better Feedback",
+      "story_title": "New Operando X-Ray Method Could Give Metal 3D Printing a Real-Time Control Lever",
       "pause_after_seconds": 0.22
     },
     {
@@ -320,7 +328,7 @@
       "kind": "quick",
       "beat": "implication",
       "text": "Which turns it into a feedback problem - adjust the laser before the defect sets. Single-track conditions so far, but that's a richer signal than another temperature reading.",
-      "story_title": "New Operando X-Ray Method Could Give Metal Printing Better Feedback",
+      "story_title": "New Operando X-Ray Method Could Give Metal 3D Printing a Real-Time Control Lever",
       "pause_after_seconds": 0.6
     },
     {

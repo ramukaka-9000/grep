@@ -47,7 +47,7 @@ def main() -> int:
             "scores against that rule instead of whatever was baked into the weights.",
             pause=0.25),
         seg("host_male", "intro", "reaction",
-            "Three billion parameters, and the policy lives in the request.", pause=0.4),
+            "Three billion parameters, and the policy lives in the request.", pause=0.55),
 
         # Quick story: opens on a reaction, three turns, host_male first.
         seg("host_male", "quick", "setup",
@@ -65,7 +65,7 @@ def main() -> int:
             "assumption, rejects the plausible dead end, and notices when fluent prose has "
             "quietly gone off the rails - and none of that shows up in a benchmark score, "
             "because the benchmark never had a bad day in production.",
-            story="LLMs reward expertise", pause=0.45),
+            story="LLMs reward expertise", pause=0.55),
 
         # Deep dive 1: guest introduced, guest enters at position 3.
         seg("host_female", "deep-dive", "setup",
@@ -113,11 +113,12 @@ def main() -> int:
             "path stay untouched. An agent can help with the exploring, but it still needs a "
             "real way into the application - otherwise it's very diligently testing the blank "
             "terminal around the program.",
-            story="Can LLMs Test Terminal User Interfaces?", pause=0.5),
+            story="Can LLMs Test Terminal User Interfaces?", pause=0.8),
 
         # Section transition into Electronics.
         seg("host_male", "quick", "section-transition",
-            "Speaking of machines doing more than they should - two hardware builds this week.",
+            "Speaking of machines doing more than they should - the Atari ST finally has a "
+            "full-motion video codec that runs in eight megahertz.",
             story="A Full Motion Video Codec For The Atari ST", pause=0.9),
         seg("host_female", "quick", "setup",
             "The Atari ST had an eight-megahertz sixty-eight-thousand, planar graphics, and "
@@ -129,34 +130,37 @@ def main() -> int:
         seg("host_male", "quick", "reaction",
             "The format follows the machine's memory layout, so the old hardware moves "
             "something it can actually handle.",
-            story="A Full Motion Video Codec For The Atari ST", pause=0.45),
+            story="A Full Motion Video Codec For The Atari ST", pause=0.55),
 
         seg("host_male", "quick", "setup",
             "The carbon-fibre print goes the other way - physical, not clever. Print a core and "
             "shell, leave a shallow gap, epoxy carbon-fibre cloth into the finished part.",
-            story="Strengthening 3D Prints With A Carbon-Fibre Sandwich", pause=0.2),
+            story="Strengthening 3D Prints With A Carbon-Fiber Epidermis", pause=0.2),
         seg("host_female", "quick", "reaction",
             "And in the load-cell tests that more than tripled yield strength. [surprise-oh] "
             "The geometry is doing as much work as the material there.",
-            story="Strengthening 3D Prints With A Carbon-Fibre Sandwich", pause=0.22),
+            story="Strengthening 3D Prints With A Carbon-Fiber Epidermis", pause=0.22),
         seg("host_male", "quick", "qualification",
             "For that hook, anyway. The joint, the epoxy, and the load direction all decide "
             "whether it travels to another part.",
-            story="Strengthening 3D Prints With A Carbon-Fibre Sandwich", pause=0.5),
+            story="Strengthening 3D Prints With A Carbon-Fiber Epidermis", pause=0.8),
 
         # Deep dive 2: different opening beats, guest enters at position 4.
-        seg("host_male", "deep-dive", "question",
-            "When NASA says PUNCH narrowed the forecast window to about 30 minutes, is that "
-            "warning time or arrival-time accuracy?",
+        seg("host_male", "deep-dive", "setup",
+            "NASA's PUNCH mission narrowed a solar-storm forecast window to about 30 minutes "
+            "in its first operational test. Four spacecraft in low Earth orbit keep the inner "
+            "solar system under continuous three-dimensional observation, with a fresh image "
+            "roughly every four minutes.",
             story=PUNCH, pause=0.25),
-        seg("host_female", "deep-dive", "answer",
-            "Accuracy, and the distinction matters a lot. Four spacecraft in low Earth orbit "
-            "making continuous three-dimensional observations of the inner solar system, with "
-            "a fresh image roughly every four minutes. A coronal mass ejection stays visible "
-            "much farther from the Sun than it used to, so the model gets a long track to work "
-            "from rather than a departure point and a guess.",
+        seg("host_female", "deep-dive", "question",
+            "So is that 30 minutes warning time, or arrival-time accuracy?",
             story=PUNCH, pause=0.28),
-        seg("host_male", "deep-dive", "reaction",
+        seg("host_male", "deep-dive", "answer",
+            "Accuracy, and the distinction matters a lot. A coronal mass ejection stays "
+            "visible much farther from the Sun than it used to, so the model gets a long "
+            "track to work from rather than a departure point and a guess.",
+            story=PUNCH, pause=0.25),
+        seg("host_female", "deep-dive", "reaction",
             "So the storm is already travelling by the time any of this helps.",
             story=PUNCH, pause=0.25),
         seg("guest", "deep-dive", "guest-perspective",
@@ -178,7 +182,7 @@ def main() -> int:
         seg("host_female", "deep-dive", "takeaway",
             "The next test is repetition - forecasters will want to see it across many "
             "eruptions before they lean on it.",
-            story=PUNCH, pause=0.55),
+            story=PUNCH, pause=0.8),
 
         # Deep dive 3: no guest, distinct shape.
         seg("host_female", "deep-dive", "setup",
@@ -208,7 +212,7 @@ def main() -> int:
         seg("host_male", "deep-dive", "takeaway",
             "Clean principle, though: the unit of learning should look like the unit of "
             "interaction.",
-            story=TURN, pause=0.55),
+            story=TURN, pause=0.8),
 
         # Interesting News block.
         seg("host_male", "quick", "setup",
@@ -216,24 +220,24 @@ def main() -> int:
             "hit the Moon near the Einstein and Bell craters. NASA plans ground observations "
             "plus before-and-after views from Lunar Reconnaissance Orbiter and South Korea's "
             "ShadowCam. Call it a sixty-foot crater, and no danger to anything down here.",
-            story="NASA Will Attempt to Observe Rocket Part Hitting the Moon", pause=0.2),
+            story="NASA Will Attempt to Observe Rocket Part's Lunar Impact", pause=0.2),
         seg("host_female", "quick", "reaction",
             "A planned crash is oddly useful - a known event to check crater models against.",
-            story="NASA Will Attempt to Observe Rocket Part Hitting the Moon", pause=0.22),
+            story="NASA Will Attempt to Observe Rocket Part's Lunar Impact", pause=0.22),
         seg("host_male", "quick", "qualification",
             "The live view may well be underwhelming. Weather, lighting, and orbital timing "
             "could leave the follow-up science more interesting than the moment.",
-            story="NASA Will Attempt to Observe Rocket Part Hitting the Moon", pause=0.45),
+            story="NASA Will Attempt to Observe Rocket Part's Lunar Impact", pause=0.55),
 
-        seg("host_female", "quick", "setup",
-            "Taxonomists named a new rove-beetle genus Luffy, after the One Piece character. "
-            "[laughter] Two species from Yunnan and northern Laos, with unusually long "
-            "mandibles and palps.",
-            story="New Beetle Genus Named After One Piece's Luffy", pause=0.2),
+        seg("host_female", "quick", "reaction",
+            "A rove beetle named after One Piece's Monkey D. Luffy - [laughter] that is a "
+            "first. Two species from Yunnan and northern Laos, with unusually long mandibles "
+            "and palps.",
+            story="New Beetle Genus Named After One Piece's Monkey D. Luffy", pause=0.2),
         seg("host_male", "quick", "implication",
             "The name makes the specimen memorable and the anatomy still has to justify the "
             "genus. A joke opens the door; the classification carries the weight.",
-            story="New Beetle Genus Named After One Piece's Luffy", pause=0.45),
+            story="New Beetle Genus Named After One Piece's Monkey D. Luffy", pause=0.8),
 
         seg("host_male", "quick", "setup",
             "Last one, and it's a measurement story. Metal printing is usually described "
@@ -241,17 +245,17 @@ def main() -> int:
             "This Nature Communications group used synchrotron X-ray scattering and rapid "
             "pair-distribution analysis to watch Inconel 718 form, tracking short- and "
             "medium-range atomic ordering while the laser was still working.",
-            story="New Operando X-Ray Method Could Give Metal Printing Better Feedback",
+            story="New Operando X-Ray Method Could Give Metal 3D Printing a Real-Time Control Lever",
             pause=0.2),
         seg("host_female", "quick", "reaction",
             "Watching atomic ordering happen, not inferring it afterwards.",
-            story="New Operando X-Ray Method Could Give Metal Printing Better Feedback",
+            story="New Operando X-Ray Method Could Give Metal 3D Printing a Real-Time Control Lever",
             pause=0.22),
         seg("host_male", "quick", "implication",
             "Which turns it into a feedback problem - adjust the laser before the defect sets. "
             "Single-track conditions so far, but that's a richer signal than another "
             "temperature reading.",
-            story="New Operando X-Ray Method Could Give Metal Printing Better Feedback",
+            story="New Operando X-Ray Method Could Give Metal 3D Printing a Real-Time Control Lever",
             pause=0.6),
 
         # Guest exit, then a sign-off that claims nothing about a theme.

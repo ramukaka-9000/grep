@@ -15,8 +15,13 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
 sys.path.insert(0, str(BASE.parent))
+sys.path.insert(0, str(BASE))
 
 import pipeline as p  # noqa: E402
+import build_humanized_example as builder  # noqa: E402
+
+# Rebuild the reference script from source so builder and fixture cannot drift.
+builder.main()
 
 GOOD = json.loads((BASE / "humanized-example.json").read_text(encoding="utf-8"))
 
@@ -148,6 +153,77 @@ def set_arxiv_id(script):
     seg["text"] = "The paper is arXiv 2508.14321 if you want to check the benchmark tables."
 
 
+def set_short_story_pause(script):
+    seg = first_of(script, story_title="LLMs reward expertise", beat="answer")
+    seg["pause_after_seconds"] = 0.2
+
+
+def set_short_first_story_pause(script):
+    script["segments"][1]["pause_after_seconds"] = 0.2
+
+
+def set_short_section_pause(script):
+    seg = first_of(script, story_title="Can LLMs Test Terminal User Interfaces?", beat="implication")
+    seg["pause_after_seconds"] = 0.3
+
+
+def set_question_opener(script):
+    first_of(script, story_title="LLMs reward expertise", beat="setup")["beat"] = "question"
+
+
+def set_unanchored_opener(script):
+    seg = first_of(script, story_title="LLMs reward expertise", beat="setup")
+    seg["text"] = "The report claims expertise is what makes the model useful, Arjun."
+
+
+def set_continuation_opener(script):
+    seg = first_of(script, story_title="LLMs reward expertise", beat="setup")
+    seg["text"] = "So, the report claims expertise is what makes the model useful."
+
+
+def set_subjectless_pivot_opener(script):
+    seg = first_of(script, story_title="Strengthening 3D Prints With A Carbon-Fiber Epidermis", beat="setup")
+    seg["beat"] = "reaction"
+    seg["text"] = "The geometry is doing more work than the material in that test."
+
+
+def set_interstitial_bypass(script):
+    for i, seg in enumerate(script["segments"]):
+        if seg.get("story_title") == "LLMs reward expertise" and seg.get("beat") == "answer":
+            script["segments"].insert(i + 1, {
+                "speaker": "host_female", "kind": "intro", "beat": "hook",
+                "text": "Quick pause for context.", "pause_after_seconds": 0.0,
+            })
+            return
+    raise AssertionError("no LLMs answer turn found")
+
+
+def set_section_gap(script):
+    for note in script["show_notes"]:
+        if note.get("title") == "A Full Motion Video Codec For The Atari ST":
+            note.pop("section", None)
+            break
+    seg = first_of(script, story_title="Can LLMs Test Terminal User Interfaces?", beat="implication")
+    seg["pause_after_seconds"] = 0.6
+
+
+def set_transition_opener_subjectless(script):
+    seg = first_of(script, story_title="Strengthening 3D Prints With A Carbon-Fiber Epidermis", beat="setup")
+    seg["beat"] = "section-transition"
+    seg["text"] = "Speaking of hardware builds this week."
+
+
+def set_quoted_pronoun_opener(script):
+    seg = first_of(script, story_title="LLMs reward expertise", beat="setup")
+    seg["text"] = "\u201cIt changes how users work with these models,\u201d Goedecke writes."
+
+
+def set_generic_single_token_opener(script):
+    seg = first_of(script, story_title="New Operando X-Ray Method Could Give Metal 3D Printing a Real-Time Control Lever", beat="setup")
+    seg["beat"] = "reaction"
+    seg["text"] = "One method is worth watching here."
+
+
 CASES = [
     (set_trailing_cue, "ends on the cue"),
     (set_standalone_cue, "only a cue marker"),
@@ -166,7 +242,77 @@ CASES = [
     (set_producer_dialogue, "episode outline in dialogue"),
     (set_spoken_url, "spoken domain name"),
     (set_arxiv_id, "raw arXiv identifier"),
+    (set_short_story_pause, "a story boundary"),
+    (set_short_first_story_pause, "before the first story"),
+    (set_short_section_pause, "a section boundary"),
+    (set_question_opener, "cannot start on 'question'"),
+    (set_unanchored_opener, "unanchored definite reference"),
+    (set_continuation_opener, "continuation conjunction"),
+    (set_subjectless_pivot_opener, "without naming the story's subject"),
+    (set_interstitial_bypass, "at a story boundary"),
+    (set_section_gap, "a section boundary"),
+    (set_transition_opener_subjectless, "without naming the story's subject"),
+    (set_quoted_pronoun_opener, "unanchored pronoun"),
+    (set_generic_single_token_opener, "without naming the story's subject"),
 ]
+
+
+def test_helpers() -> int:
+    failed = 0
+
+    def ok(cond, label):
+        nonlocal failed
+        if cond:
+            print(f"ok   {label}")
+        else:
+            failed += 1
+            print(f"FAIL {label}")
+
+    cfg = p.load_config()
+    ok(
+        cfg["min_story_boundary_pause"] == 0.55 and cfg["min_section_boundary_pause"] == 0.8,
+        "boundary thresholds load",
+    )
+    cfg2 = dict(cfg)
+    cfg2["min_section_boundary_pause"] = 1.0
+    ok(
+        p.render_config_hash(cfg) != p.render_config_hash(cfg2),
+        "thresholds join the render config hash",
+    )
+    ok(
+        p._story_subject_mentioned(
+            "Strengthening 3D Prints With A Carbon-Fiber Epidermis",
+            "one printed shell of a different shape",
+        ),
+        "morphology match: printed matches Prints",
+    )
+    ok(
+        not p._story_subject_mentioned(
+            "New Operando X-Ray Method Could Give Metal 3D Printing a Real-Time Control Lever",
+            "one method is worth watching",
+        ),
+        "single generic title token is not a subject",
+    )
+    ok(
+        p._opener_problems("\u201cIt changes how users work.\u201d") == ["an unanchored pronoun"],
+        "quoted pronoun opener flagged",
+    )
+    ok(
+        p._opener_problems("\u2014It changes how users work.") == ["an unanchored pronoun"],
+        "leading speech punctuation does not bypass pronoun scan",
+    )
+    ok(
+        p._opener_problems("Maya, Perseverance caught Earth as a pixel behind Phobos.") == [],
+        "vocative opener stays clean",
+    )
+    ok(
+        not p._story_subject_mentioned(
+            "A Full Motion Video Codec For The Atari ST",
+            "Speaking of machines doing more than they should - two hardware builds this week.",
+        ),
+        "transition teaser without subject rejected",
+    )
+    return failed
 
 
 def main() -> int:
@@ -183,7 +329,10 @@ def main() -> int:
         else:
             failed += 1
             print(f"FAIL {fn.__name__}: expected {expected!r}, got:\n{message or '(passed)'}")
-    print(f"\n{len(CASES) + 1 - failed}/{len(CASES) + 1} checks behaved as specified")
+    failed += test_helpers()
+    helper_checks = 8
+    total_checks = len(CASES) + 1 + helper_checks
+    print(f"\n{total_checks - failed}/{total_checks} checks behaved as specified")
     return 1 if failed else 0
 
 

@@ -22,5 +22,7 @@
   "min_short_turns": 4,
   "min_turn_length_stdev": 55.0,
   "max_expressive_tags": 8,
-  "max_pause_seconds": 2.0
+  "max_pause_seconds": 2.0,
+  "min_story_boundary_pause": 0.55,
+  "min_section_boundary_pause": 0.8
 }

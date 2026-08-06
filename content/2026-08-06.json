@@ -1,0 +1,207 @@
+{
+  "date": "2026-08-06",
+  "summary": "Today’s signal is about making AI agents traceable and runnable—from open workspaces and tool-use training to tiny models—while hands-on electronics and space science turn hidden structure into something measurable.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The useful AI story is shifting from raw model size to the surrounding system: secure workspaces, long-running coding loops, retrieval-specific post-training, and benchmarks that can survive expert scrutiny. Tiny, task-specific models remain practical when their claims and interfaces are explicit.",
+      "stories": [
+        {
+          "title": "Cloudflare OS: an open platform for agents, apps, and work",
+          "url": "https://blog.cloudflare.com/cloudflare-os/",
+          "source": "hn",
+          "byline": "Cloudflare",
+          "tier": "must-read",
+          "discuss_url": "https://news.ycombinator.com/item?id=49182996",
+          "summary": "Cloudflare is open-sourcing a platform that gives each organization agent workspaces grounded in curated context and skills, with an isolated runtime for writing and running code. Its app model uses Dynamic Workers and Durable Object Facets so generated apps can keep isolated SQLite state, while the platform adds resource-aware sharing, model routing, budgets, and access controls. The design is a concrete attempt to make agent infrastructure belong to the organization rather than to each individual prompt."
+        },
+        {
+          "title": "Muse Code and Muse Spark 1.2",
+          "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2",
+          "source": "hn",
+          "byline": "Meta AI Research",
+          "tier": "must-read",
+          "discuss_url": "https://news.ycombinator.com/item?id=49187575",
+          "summary": "Meta’s beta Muse Code is a terminal coding agent powered by Muse Spark 1.2, with persistent background agents for repository-scale tasks and a local event log intended to make runs replay-exact and restart-safe. The bundled skills include planning, adversarial plan checking, and goal pursuit, while Meta reports a kernel-optimization case study that ran for more than 1,000 tool calls and up to 24 hours. The performance claims are Meta’s own evaluation, but the runtime design is the more interesting artifact for builders of long-running coding agents."
+        },
+        {
+          "title": "Beating GPT-5.6 Sol on retrieval with 100x cheaper open models",
+          "url": "https://neon.com/blog/how-castform-neon-beats-frontier-models-on-price-and-efficiency",
+          "source": "hn",
+          "byline": "Neon / Castform",
+          "tier": "recommended",
+          "discuss_url": "https://news.ycombinator.com/item?id=49186762",
+          "summary": "Neon describes a retrieval-specific post-training pipeline that pairs Lakebase Search with Castform: enterprise documents become synthetic question-and-answer tasks, and reinforcement learning teaches an open model to retrieve, cite, and answer against the same database. The post contrasts a typical multi-turn frontier-model search request costing about $0.03 and taking more than 10 seconds with much cheaper small open-weight models. Those comparisons are vendor-reported rather than an independent benchmark, but the combination of synthetic data, tool-use rewards, and database branching is a useful systems pattern."
+        },
+        {
+          "title": "Atlassian Rovo Exfiltrates Data, Bypassing Controls",
+          "url": "https://www.promptarmor.com/resources/atlassian-rovo-exfiltrates-data",
+          "source": "hn",
+          "byline": "PromptArmor",
+          "tier": "must-read",
+          "discuss_url": "https://news.ycombinator.com/item?id=49185983",
+          "summary": "PromptArmor reports that an indirect prompt injection in an uploaded file or connected data can manipulate Rovo into sending Jira tickets and Confluence documents to an attacker-controlled URL through its URL-retrieval tool. The report says the organization-wide web-search toggle does not remove that opening capability, and that the attack needs no human approval once the agent processes the poisoned content. PromptArmor says it disclosed the issue on May 23 and still found the behavior present when it published the report on August 5."
+        },
+        {
+          "title": "Protoreasoning in Tiny Transformers",
+          "url": "https://arxiv.org/abs/2608.04980v1",
+          "source": "arxiv",
+          "byline": "Eduardo Valle and Fergal Reid",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "This preprint studies step-by-step reasoning in transformers of roughly one million parameters, using bracket-nesting tasks where out-of-distribution generalization can be measured cleanly. The authors report that their compact “protoreasoning” traces substantially close the generalization gap, and ablations suggest the trace content—not merely the extra tokens—is responsible. It is a small-scale experimental lens on reasoning that is much easier to inspect than frontier-model training."
+        },
+        {
+          "title": "SciCode-Verified: How Benchmark Defects Underestimated the Scientific-Coding Ability of Language Models",
+          "url": "https://arxiv.org/abs/2608.04975v1",
+          "source": "arxiv",
+          "byline": "Sihan Hu et al.",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "An expert audit of all 65 SciCode test problems found 263 defects, including 192 score-suppressing errors spread across 91% of the main problems; many required domain knowledge in physics or mathematics to detect. After repairing specifications and grading with a recorded, independently re-checked audit trail, the authors report much higher scores for twelve model snapshots. The result is a sharp reminder that benchmark quality can dominate the apparent capability signal."
+        },
+        {
+          "title": "GR00T-N1.6 Stack-Retrieve: a 3B two-camera robot policy",
+          "url": "https://huggingface.co/IDEAS-Lab-Northwestern/gr00t-n16-datagen-v1-stack-joint-2cam-promptnl-yanZ",
+          "source": "hf",
+          "byline": "IDEAS-Lab-Northwestern",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "This model card describes a 3B NVIDIA GR00T-N1.6 fine-tune for the ManiGuard simulated stacking task, using a Franka Panda’s eight-dimensional joint state/action space plus overview and wrist cameras. Training freezes the VLM and updates the projector and diffusion action head over 2.65 million frames; the card provides an Isaac-GR00T loading path rather than presenting it as a general-purpose robot brain. Its warning about matching the controller convention and camera set is exactly the kind of deployment detail that makes a small robotics checkpoint reproducible."
+        },
+        {
+          "title": "mmBERT v1.2: a 307M-parameter Tibetan annotation-layer classifier",
+          "url": "https://huggingface.co/karma689/mmbert-base-layer-detection-v1.2",
+          "source": "hf",
+          "byline": "karma689",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "This 307M-parameter model fine-tunes jhu-clsp/mmBERT-base for token-level detection of structural layers in Tibetan texts, including authors, chapters, quotations, and book titles. The card records its training configuration, an 8,192-token window with a 5,120-token stride, evaluation history, and a direct Transformers loading example. It is a specialized CPU-friendly model rather than a headline chatbot, but its unusually complete experiment record makes the small checkpoint useful to inspect and reuse."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "The strongest hardware projects are still careful reductions: a printed tire that survives a trail, reverse-engineered consumer silicon, a giant LED interface that preserves an old API, and instruments that make manufacturing or learning more observable.",
+      "stories": [
+        {
+          "title": "3D Printing A Usable Airless Tire",
+          "url": "https://hackaday.com/2026/08/05/3d-printing-a-usable-airless-tire/",
+          "source": "hackaday",
+          "byline": "Berm Peak / Hackaday",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Berm Peak experimented with 3D-printed airless mountain-bike tires instead of trying to make a daily-driver car tire. The final TPU design uses a compliant S-shaped structure between tread and rim, prints in sections, and mostly survived demanding off-road testing. It is not a replacement for sealant-equipped pneumatic tires, but it is a reproducible demonstration of where an airless design actually starts to work."
+        },
+        {
+          "title": "Full Teardown of a 2026 Amazon Fire Stick HD",
+          "url": "https://hackaday.com/2026/08/05/full-teardown-of-a-2026-amazon-fire-stick-hd/",
+          "source": "hackaday",
+          "byline": "electronupdate / Hackaday",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "A full teardown and die analysis of Amazon’s 2026 Fire Stick HD finds a MediaTek MT8698D SoC, ceramic Bluetooth/Wi-Fi patch antennas, a separate wireless chip, NAND, and a PMIC with USB-PD logic. Amazon’s documentation indicates that the HD model shares a GPU and 4K-capable decoder block with some 4K variants, suggesting the product boundary may be largely software-defined. The exposed 8GB eMMC also leaves open the usual hacker question of whether alternative software could unlock more of the hardware."
+        },
+        {
+          "title": "Addressable LEDs Make Giant 16×2 Character Display",
+          "url": "https://hackaday.com/2026/08/05/addressable-leds-make-giant-16x2-character-display/",
+          "source": "hackaday",
+          "byline": "Uncle Stem / Hackaday",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Uncle Stem recreated a 16×2 character LCD at seven times scale with more than a thousand addressable LEDs, one PCB per character, laser-cut plywood, diffuser material, and a 3D-printed frame. An RP2040 presents the familiar character display over the same I2C-style LiquidCrystal interface used by Arduino projects. The result is a playful build with a genuinely useful lesson in preserving software compatibility while replacing the physical display technology."
+        },
+        {
+          "title": "Learn about birds with the Birduino: a card-triggered audio player",
+          "url": "https://blog.adafruit.com/2026/08/05/learn-about-birds-with-the-birduino-a-card-triggered-audio-player/",
+          "source": "adafruit",
+          "byline": "Hannah Robertson / Adafruit",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Birduino turns bird identification into a physical NFC flash-card game: a card reader recognizes a bird card and an audio player plays the associated call. The build can either play a chosen bird or select one at random, making the same small embedded system work as both a reference tool and a quiz. It is a good example of using simple, tactile interfaces to make a learning project more engaging than an app."
+        },
+        {
+          "title": "A drum style mechanical television you can build yourself",
+          "url": "https://blog.adafruit.com/2026/08/04/a-drum-style-mechanical-television-you-can-build-yourself/",
+          "source": "adafruit",
+          "byline": "Scanwheel project / Adafruit",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Scanwheel is a buildable mechanical television that uses one scanning drum across five small windows, with separate LEDs and 20 scan lines per image. A Raspberry Pi Pico’s PIO handles the timing, turning a historical display principle into a compact modern embedded project. The design is interesting precisely because the mechanical constraint is part of the image-generation method rather than something hidden behind a screen controller."
+        },
+        {
+          "title": "Phase3D Supports NASA’s Latest Flight Qualification Research",
+          "url": "https://3dprintingindustry.com/news/phase3d-supports-nasas-latest-flight-qualification-research-253577/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "NASA Marshall has put Phase3D into a program designed to test whether metal additive-manufacturing parts can be qualified during production, using more than 50,000 individually inspected layers on a production-scale EOS M300-4 quad-laser system. Structured-light measurements will be compared with post-build CT results for flight-representative Invar 36 brackets, looking for quantitative go/no-go thresholds while the part is still being made. Earlier tests reported correlations between layer anomalies and CT defects, but this production-scale program is intended to establish whether that evidence generalizes."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "The day’s verified oddities range from quantum electrodynamics inside a magnetar to a Martian occultation, an enormous hidden magma system, and a Brazilian ‘desert’ that fills with freshwater lagoons.",
+      "stories": [
+        {
+          "title": "NASA’s IXPE May Have Proven 90-Year-Old Theory",
+          "url": "https://science.nasa.gov/missions/ixpe/nasas-ixpe-may-have-proven-90-year-old-theory/",
+          "source": "nasa",
+          "byline": "Michael Allen / NASA Science",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "NASA’s IXPE, NICER, and the Parkes radio telescope observed the magnetar 1E 1547-5408 for more than 140 hours and measured X-ray polarization nearly three times higher than in similar sources. The team’s simulations indicate that vacuum birefringence—predicted in quantum electrodynamics in 1936, where extreme magnetic fields make empty space act like a lens—could explain the signal. NASA calls it possible first direct evidence, with further magnetar observations needed for confirmation."
+        },
+        {
+          "title": "NASA’s Perseverance Rover Watches Earth Vanish Behind Martian Moon",
+          "url": "https://www.nasa.gov/solar-system/planets/mars/nasas-perseverance-rover-watches-earth-vanish-behind-martian-moon/",
+          "source": "nasa",
+          "byline": "NASA/JPL-Caltech",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "On July 2, Perseverance’s Mastcam-Z captured Earth as a pixel of light moving behind Phobos, Mars’ larger moon, in a carefully timed occultation. NASA says it is the first observation from the surface of another planet in which Earth disappears behind another object. The sequence is an unusually literal self-portrait of Earth from another world, rather than a conventional solar eclipse."
+        },
+        {
+          "title": "A colossal magma system has been hiding beneath Tuscany",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260804034645.htm",
+          "source": "science",
+          "byline": "University of Geneva, CNR-IGG, and INGV researchers",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Using ambient-noise tomography from roughly 60 seismic sensors, researchers mapped about 6,000 cubic kilometres of volcanic fluids 8–15 kilometres beneath Tuscany, despite few obvious surface signs. The study says the system is not a current volcanic threat, but the same relatively fast, low-cost imaging approach could help locate geothermal reservoirs and deposits associated with lithium or rare earth elements. The scale is an underground reminder that a region can look quiet while its crust remains geologically active."
+        },
+        {
+          "title": "80-million-year-old snake brain reveals a surprising evolutionary secret",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260804034619.htm",
+          "source": "science",
+          "byline": "Tiago Simões et al. / Nature",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "CT-based brain reconstructions of the roughly 80-million-year-old snake Tametara mirim, found in Brazil, show a very different neuroanatomy from the fossil snake Dinilysia patagonica. The comparison points to Tametara being adapted for burrowing while Dinilysia lived on the ground, alongside evidence for marine lineages. Early snakes therefore appear to have explored several ecological strategies instead of following one route toward the modern body plan."
+        },
+        {
+          "title": "The Paradox of Lençóis Maranhenses National Park",
+          "url": "https://science.nasa.gov/earth/earth-observatory/the-paradox-of-lencois-maranhenses-national-park/",
+          "source": "nasa",
+          "byline": "Adam Voiland / NASA Earth Observatory",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Lençóis Maranhenses looks like a desert from orbit, yet it receives roughly 125 centimetres of rain a year and fills with freshwater lagoons between its quartz dunes. NASA’s Landsat 9 images from June 2026 show the seasonal peak: an approximately 900-square-kilometre dune field whose underlying clay and bedrock keep water from draining immediately. As the dry season progresses, the water table falls and most of the lagoons disappear."
+        },
+        {
+          "title": "Advanced Mini-laboratories Automate Space Station Research",
+          "url": "https://www.nasa.gov/image-article/advanced-mini-laboratories-automate-space-station-research/",
+          "source": "nasa",
+          "byline": "Diana G. Garcia / NASA ISS Research",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "NASA’s Advanced Space Experiment Processors pack three or four independent cassette-sized laboratories into one facility, allowing several experiments to run with less astronaut time; the newer ADSEP-4 can host four and adds imaging. Since 2017 the systems have supported about two dozen investigations, from growing higher-quality drug crystals to studying cells, tissues, organisms, and materials. The quiet engineering story is that an orbital lab can gain capacity by automating the experiment workflow rather than adding crew hours."
+        }
+      ]
+    }
+  ]
+}

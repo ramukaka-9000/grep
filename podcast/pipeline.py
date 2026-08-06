@@ -48,6 +48,10 @@ DEFAULT_MAX_DURATION_SECONDS = 900.0
 DEFAULT_ESTIMATED_CHARS_PER_SECOND = 13.4
 DEFAULT_MAX_TURN_CHARACTERS = 720
 DEFAULT_MAX_PAUSE_SECONDS = 2.0
+# A story change must be audible: enough silence closing one story before the
+# next story's first turn, and a longer one when the section changes too.
+DEFAULT_MIN_STORY_BOUNDARY_PAUSE_SECONDS = 0.55
+DEFAULT_MIN_SECTION_BOUNDARY_PAUSE_SECONDS = 0.8
 # OmniVoice degrades on very short clips, so a turn has a hard character floor
 # even though short reactions are exactly what makes the dialogue sound real.
 DEFAULT_MIN_TURN_CHARACTERS = 45
@@ -69,6 +73,13 @@ SCHEMA_V2_RESPONSE_BEATS = {
     "question", "reaction", "answer", "challenge", "counterpoint",
     "qualification", "implication", "takeaway", "comparison",
 }
+# Beats that can open a fresh story: they frame a subject instead of continuing
+# a conversation the listener never heard. Transition and pivot beats are
+# allowed as openers only when the turn names the story's subject (and, for
+# pivots, starts cleanly too).
+SCHEMA_V2_OPENING_BEATS = {"setup", "guest-intro"}
+SCHEMA_V2_TRANSITION_OPENING_BEATS = {"transition", "section-transition"}
+SCHEMA_V2_OPENING_PIVOT_BEATS = {"reaction", "comparison", "implication"}
 # Beats that frame the guest as a participant rather than a citation dispenser.
 SCHEMA_V2_GUEST_FRAME_BEATS = {"guest-intro", "guest-thanks"}
 # A host turn that actually engages with what the guest just said.
@@ -116,6 +127,42 @@ THEME_ASSERTION_PATTERNS = [
     (r"\bhard to miss\b", "cross-story theme assertion"),
     (r"\bput [^.]{1,60} beside [^.]{1,60} and\b", "cross-story theme assertion"),
 ]
+
+# Sentence-initial words that make a fresh story sound like a continuation.
+# A story's first turn must not assume context the listener never heard, so
+# these are flagged when they open a sentence in that turn. The definite
+# reference list is deliberately narrow to avoid false positives.
+UNANCHORED_OPENING_PATTERNS = [
+    (r"^(?:it|that|this|those|these|they|he|she)\b", "an unanchored pronoun"),
+    (r"^(?:but|and|so|also|meanwhile|then|because)\b", "a continuation conjunction"),
+    (r"^the (?:audit|report|study|paper|article|team|researchers?|company|project|release|listing|finding|result|model|system|method|experiment|data|announcement)\b",
+     "an unanchored definite reference"),
+]
+
+# Title words too generic to identify a story's subject in speech.
+STORY_TITLE_STOPWORDS = frozenset({
+    "the", "a", "an", "and", "or", "of", "to", "in", "on", "at", "for", "with",
+    "from", "into", "by", "as", "is", "are", "was", "were", "has", "have", "had",
+    "its", "their", "his", "her", "this", "that", "these", "those", "how", "why",
+    "what", "when", "where", "who", "whom", "new", "latest", "first", "last",
+    "next", "over", "under", "after", "before", "between", "about", "against",
+    "across", "through", "during", "via", "per", "but", "not", "no", "so", "if",
+    "then", "than", "too", "very", "just", "can", "could", "will", "would",
+    "should", "may", "might", "must", "do", "does", "did", "get", "gets", "got",
+    "make", "makes", "made", "use", "uses", "used", "using", "say", "says",
+    "said", "see", "sees", "seen", "look", "looks", "looking", "up", "down",
+    "out", "off", "onto", "more", "most", "much", "many", "some", "any", "all",
+    "both", "each", "few", "other", "another", "same", "such", "being", "been",
+    "method", "result", "finding", "model", "system", "study", "report",
+    "project", "release", "article", "paper", "research", "data", "work",
+    "story", "week", "year", "time", "way", "part", "thing", "stuff", "number",
+    "numbers", "news", "test", "tests", "testing", "build", "builds", "built",
+    "building", "give", "gives", "given", "show", "shows", "shown", "help",
+    "helps", "need", "needs", "want", "wants", "take", "takes", "taken", "full",
+    "open", "real", "best", "top", "big", "small", "high", "low", "old", "free",
+    "fast", "slow", "back", "still", "even", "just", "like", "well", "good",
+    "great", "really", "actually", "finally", "already", "today", "now", "also",
+})
 
 # Meta-vocabulary that means the production instructions leaked into the artifact.
 TITLE_META_PATTERNS = [
@@ -244,6 +291,8 @@ def render_config_hash(cfg: dict) -> str:
         "estimated_chars_per_second": cfg["estimated_chars_per_second"],
         "max_turn_characters": cfg["max_turn_characters"],
         "max_pause_seconds": cfg["max_pause_seconds"],
+        "min_story_boundary_pause": cfg["min_story_boundary_pause"],
+        "min_section_boundary_pause": cfg["min_section_boundary_pause"],
     }
     return canonical_json_hash(identity)
 
@@ -312,6 +361,18 @@ def load_config() -> dict:
         raise ValueError("max_turn_characters must be a finite integer")
     cfg["max_turn_characters"] = int(max_turn_characters)
     cfg["max_pause_seconds"] = finite_float(max_pause, "max_pause_seconds")
+    min_story_pause_raw = cfg.get(
+        "min_story_boundary_pause", DEFAULT_MIN_STORY_BOUNDARY_PAUSE_SECONDS
+    )
+    min_section_pause_raw = cfg.get(
+        "min_section_boundary_pause", DEFAULT_MIN_SECTION_BOUNDARY_PAUSE_SECONDS
+    )
+    cfg["min_story_boundary_pause"] = finite_float(
+        min_story_pause_raw, "min_story_boundary_pause"
+    )
+    cfg["min_section_boundary_pause"] = finite_float(
+        min_section_pause_raw, "min_section_boundary_pause"
+    )
     for name, raw in (
         ("min_turn_characters", min_turn_chars),
         ("short_turn_characters", short_turn_chars),
@@ -341,6 +402,11 @@ def load_config() -> dict:
         raise ValueError("estimated_chars_per_second must be positive")
     if cfg["max_turn_characters"] < 2 or cfg["max_pause_seconds"] < 0:
         raise ValueError("podcast turn/pause limits are invalid")
+    if not 0 <= cfg["min_story_boundary_pause"] <= cfg["min_section_boundary_pause"] <= cfg["max_pause_seconds"]:
+        raise ValueError(
+            "boundary pauses must satisfy "
+            "0 <= min_story_boundary_pause <= min_section_boundary_pause <= max_pause_seconds"
+        )
     if not 2 <= cfg["min_turn_characters"] <= cfg["short_turn_characters"] <= cfg["max_turn_characters"]:
         raise ValueError(
             "turn length bands must satisfy "
@@ -641,6 +707,200 @@ def check_story_variety(
                 )
 
 
+def _story_sections(script: dict) -> dict[str, str]:
+    """Map each normalized story title to its edition section from show notes."""
+    sections: dict[str, str] = {}
+    notes = script.get("show_notes")
+    if not isinstance(notes, list):
+        return sections
+    for note in notes:
+        if not isinstance(note, dict):
+            continue
+        title = normalize_text(note.get("title"))
+        section = normalize_text(note.get("section"))
+        if title and section:
+            sections[title] = section
+    return sections
+
+
+def _check_boundary_pauses(
+    segments: list[dict], sections: dict[str, str], cfg: dict, errors: list[str]
+) -> None:
+    """A new story must be heard arriving: enough silence before its first turn.
+
+    The pause that counts is the one on whichever segment immediately precedes
+    a new story's first turn, so an untagged interstitial between two stories
+    cannot smuggle the boundary past the check. When a section is unknown the
+    check fails closed toward the longer section pause.
+    """
+    last_story_title: str | None = None
+    for i, seg in enumerate(segments):
+        title = normalize_text(seg.get("story_title"))
+        if not title:
+            continue
+        if last_story_title is None:
+            if i > 0:
+                pause = pause_after_seconds(segments[i - 1], cfg)
+                required = cfg["min_story_boundary_pause"]
+                if pause < required:
+                    errors.append(
+                        f"segment {i} precedes the first story '{title}' with only a "
+                        f"{pause:.2f}s pause; leave at least {required:.2f}s before "
+                        "the first story so its arrival is audible"
+                    )
+        elif title != last_story_title:
+            prev = segments[i - 1]
+            pause = pause_after_seconds(prev, cfg)
+            prev_section = sections.get(last_story_title)
+            next_section = sections.get(title)
+            if prev_section and next_section and prev_section != next_section:
+                required = cfg["min_section_boundary_pause"]
+                boundary = "a section boundary"
+            elif not prev_section or not next_section:
+                # Fail closed: an unknown section must not silently weaken the
+                # boundary into the shorter story pause.
+                required = cfg["min_section_boundary_pause"]
+                boundary = "a section boundary"
+            else:
+                required = cfg["min_story_boundary_pause"]
+                boundary = "a story boundary"
+            if pause < required:
+                errors.append(
+                    f"segment {i} closes story '{last_story_title}' with only a "
+                    f"{pause:.2f}s pause before '{title}'; leave at least "
+                    f"{required:.2f}s at {boundary} so the move is audible"
+                )
+        last_story_title = title
+
+
+def _stem(token: str) -> str:
+    """A few surface forms of a word, so 'printing' and 'printed' both stem."""
+    for suffix in ("ing", "ed", "es", "s", "ly", "er", "est"):
+        if token.endswith(suffix) and len(token) - len(suffix) >= 4:
+            return token[: -len(suffix)]
+    return token
+
+
+def _subject_tokens(title: str) -> set[str]:
+    """Stems of the distinctive words in a story title."""
+    tokens: set[str] = set()
+    for token in re.findall(r"\w+", normalize_text(title).lower()):
+        if len(token) < 4 or token in STORY_TITLE_STOPWORDS:
+            continue
+        tokens.add(_stem(token))
+    return tokens
+
+
+def _story_subject_mentioned(title: str, opener_text: str) -> bool:
+    """True when the opener names the story's subject in speech.
+
+    Any distinct title word that also appears in the opener counts, stemmed on
+    both sides ('printed' matches a title containing 'Prints'). Generic words
+    never count because STORY_TITLE_STOPWORDS removes them from the title side,
+    so 'one method is worth watching' cannot stand in for a story whose title
+    happens to contain the word Method.
+    """
+    title_stems = _subject_tokens(title)
+    if not title_stems:
+        return True
+    opener_stems = {_stem(t) for t in re.findall(r"\w+", opener_text.lower())}
+    return bool(title_stems & opener_stems)
+
+
+def _opener_problems(text: str) -> list[str]:
+    """Return unanchored-opener labels, or [] when the opener stands alone.
+
+    Only the first sentence of a story's first turn is examined. A pronoun or
+    conjunction that opens a later sentence is ordinary dialogue, and the turn
+    can establish its own antecedent; but the very first thing a listener hears
+    from a new story must not assume context they never got.
+    """
+    problems: list[str] = []
+    sentences = SENTENCE_SPLIT_PATTERN.split(strip_expressive_tags(text))
+    if not sentences:
+        return problems
+    first_sentence = sentences[0]
+    # Strip speech punctuation/parenthetical staging before testing the first
+    # lexical token. This catches ``—it's...``, ``(It)...`` and ``…the...``
+    # in addition to ordinary quoted openers.
+    stripped = first_sentence.strip().lstrip('"\'“”‘’«»—–…([{,;:')
+    lowered = stripped.lower()
+    for pattern, label in UNANCHORED_OPENING_PATTERNS:
+        if re.match(pattern, lowered):
+            problems.append(label)
+            break
+    return problems
+
+
+def check_story_openers(
+    segments: list[dict], script: dict, cfg: dict, errors: list[str]
+) -> None:
+    """Every story must announce itself in speech, not only in metadata.
+
+    The listener cannot see story_title, so the first turn of a story has to
+    sound like a beginning, and the pause before it has to be long enough to
+    register as a boundary. Three rules:
+
+    A. The turn that closes a story leaves a boundary pause before the next
+       story's first turn; longer when the section changes, and unknown
+       sections fail closed toward the longer pause.
+    B. A story may not open on a beat that implies a prior conversation
+       (question, answer, challenge, counterpoint, qualification, takeaway).
+       Transition beats (transition, section-transition) and pivot beats
+       (reaction, comparison, implication) are allowed only when the opener
+       names the story's subject; pivots must also start cleanly.
+    C. No opener may start with an unanchored pronoun, a continuation
+       conjunction, or an unanchored definite reference.
+    """
+    sections = _story_sections(script)
+    _check_boundary_pauses(segments, sections, cfg, errors)
+    first_of_story: dict[str, int] = {}
+    for i, seg in enumerate(segments):
+        title = normalize_text(seg.get("story_title"))
+        if title and title not in first_of_story:
+            first_of_story[title] = i
+    for title, i in first_of_story.items():
+        first = segments[i]
+        beat = normalize_text(first.get("beat"))
+        text = strip_expressive_tags(first.get("text"))
+        problems = _opener_problems(text)
+        if beat in SCHEMA_V2_OPENING_BEATS:
+            if problems:
+                errors.append(
+                    f"story '{title}' opens on beat '{beat}' but starts with "
+                    f"{problems[0]}; open with a line that identifies the subject "
+                    f"without assuming context the listener never heard"
+                )
+            elif beat == "guest-intro" and not _story_subject_mentioned(title, text):
+                errors.append(
+                    f"story '{title}' opens on beat 'guest-intro' without naming the "
+                    "story's subject; identify the topic before introducing the guest"
+                )
+        elif (
+            beat in SCHEMA_V2_TRANSITION_OPENING_BEATS
+            or beat in SCHEMA_V2_OPENING_PIVOT_BEATS
+        ):
+            if problems:
+                errors.append(
+                    f"story '{title}' opens on beat '{beat}' but starts with "
+                    f"{problems[0]}; make the opener self-contained or open with "
+                    f"a 'setup' that names the subject"
+                )
+            elif not _story_subject_mentioned(title, text):
+                errors.append(
+                    f"story '{title}' opens on beat '{beat}' without naming the "
+                    f"story's subject; open with a 'setup' that names it, or "
+                    f"mention it in the first line"
+                )
+        else:
+            errors.append(
+                f"story '{title}' opens on beat '{beat}'; a fresh story cannot "
+                f"start on '{beat}' because it implies a conversation the "
+                f"listener never heard - open with a 'setup' that names the "
+                f"subject and move the '{beat}' to a later turn"
+            )
+
+
 def check_guest_arc(segments: list[dict], errors: list[str]) -> None:
     """Require the guest to be a participant with an entrance and an exit.
 
@@ -806,6 +1066,7 @@ def check_editorial(script: dict, cfg: dict) -> dict:
     tag_total = check_expressive_tags(segments, cfg, errors)
     lengths = check_turn_lengths(segments, cfg, errors)
     check_story_variety(ordered_stories, errors)
+    check_story_openers(segments, script, cfg, errors)
     check_guest_arc(segments, errors)
     check_beat_coherence(segments, errors)
     check_prose(script, segments, errors, warnings)
@@ -931,6 +1192,20 @@ def validate_script(script: dict, date_str: str, cfg: dict) -> dict:
                 raise RuntimeError(f"deep-dive story '{story_title}' needs at least four conversational turns")
             if not any(normalize_text(segment.get("beat")) in SCHEMA_V2_RESPONSE_BEATS for segment in story_segments):
                 raise RuntimeError(f"story '{story_title}' needs a question, reaction, or qualification")
+        notes_by_title = {
+            normalize_text(note.get("title")): note
+            for note in notes
+            if isinstance(note, dict)
+        }
+        for story_title in story_groups:
+            note = notes_by_title.get(story_title)
+            if note is None:
+                raise RuntimeError(f"story '{story_title}' has no show_notes entry")
+            if not normalize_text(note.get("section")):
+                raise RuntimeError(
+                    f"show_notes entry for story '{story_title}' needs a section "
+                    "so story-boundary pauses can tell a section change"
+                )
     metrics = script_metrics(script, cfg)
     if schema_version >= 2:
         metrics["editorial"] = check_editorial(script, cfg)
