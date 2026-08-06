@@ -20,10 +20,13 @@ sys.path.insert(0, str(BASE))
 import pipeline as p  # noqa: E402
 import build_humanized_example as builder  # noqa: E402
 
-# Rebuild the reference script from source so builder and fixture cannot drift.
-builder.main()
-
-GOOD = json.loads((BASE / "humanized-example.json").read_text(encoding="utf-8"))
+# Build the reference script in memory (no writes) so the harness is read-only.
+GOOD = builder.build()
+# Drift guard: the checked-in fixture must match the builder's output exactly.
+CHECKED_IN = json.loads((BASE / "humanized-example.json").read_text(encoding="utf-8"))
+if p.canonical_json_hash(GOOD) != p.canonical_json_hash(CHECKED_IN):
+    print("FAIL: checked-in humanized-example.json is stale; run the builder to regenerate it")
+    raise SystemExit(1)
 
 
 def failure(script: dict) -> str:
@@ -187,6 +190,64 @@ def set_subjectless_pivot_opener(script):
     seg["text"] = "The geometry is doing more work than the material in that test."
 
 
+def set_subjectless_setup_opener(script):
+    seg = first_of(script, story_title="LLMs reward expertise", beat="setup")
+    seg["text"] = ("Sean Goedecke has an uncomfortable observation about who these models "
+                   "actually help. They are most useful when the person at the keyboard "
+                   "already knows enough to doubt them.")
+
+
+def set_no_speaker_intro(script):
+    intro = script["segments"][0]
+    intro["text"] = "Welcome back to grep. Today we have a packed show."
+
+
+def set_no_topic_lineup(script):
+    intro = script["segments"][0]
+    intro["text"] = ("Welcome back to grep. It's your hosts Maya and Arjun again, with "
+                     "Shweta here for the deep dives. Today we are going to talk about "
+                     "Mistral's Shieldstral guard model.")
+
+
+def set_ascii_dash_pronoun(script):
+    seg = first_of(script, story_title="LLMs reward expertise", beat="setup")
+    seg["text"] = "-It changes how users work with these models."
+
+
+def set_vocative_pronoun(script):
+    seg = first_of(script, story_title="LLMs reward expertise", beat="setup")
+    seg["text"] = "Arjun, it changes how users work."
+
+
+def set_discourse_pronoun(script):
+    seg = first_of(script, story_title="LLMs reward expertise", beat="setup")
+    seg["text"] = "Well, it changes how users work."
+
+
+def set_intro_after_story(script):
+    intro = [s for s in script["segments"] if s.get("kind") == "intro"]
+    script["segments"] = [s for s in script["segments"] if s.get("kind") != "intro"] + intro
+
+
+def set_duplicate_section_note(script):
+    for note in script["show_notes"]:
+        if note.get("title") == "A Full Motion Video Codec For The Atari ST":
+            break
+    else:
+        raise AssertionError("no Atari note")
+    script["show_notes"].append({"title": note["title"], "url": note["url"], "section": "AI"})
+    seg = first_of(script, story_title="Can LLMs Test Terminal User Interfaces?", beat="implication")
+    seg["pause_after_seconds"] = 0.6
+
+
+def set_numeric_section(script):
+    for note in script["show_notes"]:
+        if note.get("title") == "A Full Motion Video Codec For The Atari ST":
+            note["section"] = 0.8
+            return
+    raise AssertionError("no Atari note")
+
+
 def set_interstitial_bypass(script):
     for i, seg in enumerate(script["segments"]):
         if seg.get("story_title") == "LLMs reward expertise" and seg.get("beat") == "answer":
@@ -249,10 +310,19 @@ CASES = [
     (set_unanchored_opener, "unanchored definite reference"),
     (set_continuation_opener, "continuation conjunction"),
     (set_subjectless_pivot_opener, "without naming the story's subject"),
+    (set_subjectless_setup_opener, "without naming the story's subject"),
+    (set_no_speaker_intro, "does not introduce every speaker"),
+    (set_no_topic_lineup, "does not line up the topics"),
     (set_interstitial_bypass, "at a story boundary"),
     (set_section_gap, "a section boundary"),
     (set_transition_opener_subjectless, "without naming the story's subject"),
     (set_quoted_pronoun_opener, "unanchored pronoun"),
+    (set_ascii_dash_pronoun, "unanchored pronoun"),
+    (set_vocative_pronoun, "unanchored pronoun"),
+    (set_discourse_pronoun, "unanchored pronoun"),
+    (set_intro_after_story, "intro turns must come before the first story"),
+    (set_duplicate_section_note, "more than one entry"),
+    (set_numeric_section, "needs a plain string section"),
     (set_generic_single_token_opener, "without naming the story's subject"),
 ]
 
@@ -294,6 +364,13 @@ def test_helpers() -> int:
         "single generic title token is not a subject",
     )
     ok(
+        p._story_subject_mentioned(
+            "Muse Code and Muse Spark 1.2",
+            "First up, we have the Muse Code release.",
+        ),
+        "explicit lead-in names the story",
+    )
+    ok(
         p._opener_problems("\u201cIt changes how users work.\u201d") == ["an unanchored pronoun"],
         "quoted pronoun opener flagged",
     )
@@ -304,6 +381,37 @@ def test_helpers() -> int:
     ok(
         p._opener_problems("Maya, Perseverance caught Earth as a pixel behind Phobos.") == [],
         "vocative opener stays clean",
+    )
+    ok(
+        p._opener_problems("-It changes how users work.") == ["an unanchored pronoun"],
+        "ASCII dash does not bypass pronoun scan",
+    )
+    ok(
+        p._opener_problems("...It changes how users work.") == ["an unanchored pronoun"],
+        "ASCII ellipsis does not bypass pronoun scan",
+    )
+    ok(
+        p._opener_problems("Well, it changes how users work.") == ["an unanchored pronoun"],
+        "discourse marker does not bypass pronoun scan",
+    )
+    ok(
+        p._opener_problems("Arjun, it changes how users work.") == ["an unanchored pronoun"],
+        "vocative does not bypass pronoun scan",
+    )
+    ok(
+        p._opener_problems("So, the report claims expertise is what makes the model useful.")
+        == ["a continuation conjunction"],
+        "conjunction stays detectable behind a filler",
+    )
+    ok(
+        p._opener_problems("After that, we have TurnSight.") == [],
+        "transition anchor stays clean",
+    )
+    ok(
+        not p._story_subject_mentioned(
+            "New Methods for Safety", "One method is worth watching."
+        ),
+        "plural generic title word is not a subject",
     )
     ok(
         not p._story_subject_mentioned(
@@ -330,7 +438,7 @@ def main() -> int:
             failed += 1
             print(f"FAIL {fn.__name__}: expected {expected!r}, got:\n{message or '(passed)'}")
     failed += test_helpers()
-    helper_checks = 8
+    helper_checks = 16
     total_checks = len(CASES) + 1 + helper_checks
     print(f"\n{total_checks - failed}/{total_checks} checks behaved as specified")
     return 1 if failed else 0

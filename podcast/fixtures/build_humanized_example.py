@@ -27,7 +27,7 @@ def seg(speaker, kind, beat, text, story=None, pause=None):
     return out
 
 
-def main() -> int:
+def build() -> dict:
     script = json.loads(SOURCE.read_text(encoding="utf-8"))
     old = script["segments"]
 
@@ -40,19 +40,21 @@ def main() -> int:
     PUNCH = "NASA's PUNCH Sharpens Solar Storm Forecasting in First Test"
 
     segments = [
-        # Concrete hook, no cross-story thesis, no lineup.
+        # Concrete hook, then speakers and a lineup; no cross-story thesis.
         seg("host_female", "intro", "hook",
-            "Welcome back to grep. Mistral shipped a moderation model you argue with in "
-            "plain English - you hand it the rule you care about at inference time, and it "
-            "scores against that rule instead of whatever was baked into the weights.",
+            "Welcome back to grep. It's your hosts Maya and Arjun again, with Shweta "
+            "here for the deep dives. Today we are going to talk about what LLMs "
+            "actually reward, Mistral's Shieldstral guard model, NASA's PUNCH "
+            "solar-storm forecast, and a beetle named after One Piece's Luffy - and "
+            "more.",
             pause=0.25),
         seg("host_male", "intro", "reaction",
             "Three billion parameters, and the policy lives in the request.", pause=0.55),
 
-        # Quick story: opens on a reaction, three turns, host_male first.
+        # Quick story: opens on a setup that names the story, three turns.
         seg("host_male", "quick", "setup",
-            "Sean Goedecke has an uncomfortable observation about who these models actually "
-            "help. They are most useful when the person at the keyboard already knows enough "
+            "First up, we have Sean Goedecke's piece on who LLMs actually help. They "
+            "are most useful when the person at the keyboard already knows enough "
             "to doubt them.",
             story="LLMs reward expertise", pause=0.2),
         seg("host_female", "quick", "challenge",
@@ -69,14 +71,15 @@ def main() -> int:
 
         # Deep dive 1: guest introduced, guest enters at position 3.
         seg("host_female", "deep-dive", "setup",
-            "Back to Shieldstral, because the mechanism is stranger than the headline. The "
+            "Next up, we have Mistral's Shieldstral guard model - and the mechanism is "
+            "stranger than the headline. The "
             "request carries three things: an instruction, a yes-or-no query, and the document "
             "being judged - text, an image, or a whole prompt-and-response pair. So one "
             "checkpoint can police violence for a games product, privacy for a health app, and "
             "something much narrower for a classroom tool, without anyone fine-tuning it.",
             story=SHIELD, pause=0.28),
         seg("host_male", "deep-dive", "guest-intro",
-            "Ravi read the technical report end to end this week, so let's get the part that "
+            "Shweta read the technical report end to end this week, so let's get the part that "
             "isn't in the announcement.",
             story=SHIELD, pause=0.35),
         seg("guest", "deep-dive", "guest-perspective",
@@ -103,7 +106,8 @@ def main() -> int:
 
         # Quick pair, two turns, female opens.
         seg("host_female", "quick", "setup",
-            "A survey of 197 real terminal user interfaces found only 12 percent of test code "
+            "Next up, we have the terminal-user-interface testing survey. A survey of 197 real "
+            "terminal user interfaces found only 12 percent of test code "
             "actually exercises the interface, and 45 percent of those tests never send input "
             "beyond a static frame. In the benchmark, finding the right launch inputs mattered "
             "more than exploring harder once you were inside.",
@@ -117,8 +121,8 @@ def main() -> int:
 
         # Section transition into Electronics.
         seg("host_male", "quick", "section-transition",
-            "Speaking of machines doing more than they should - the Atari ST finally has a "
-            "full-motion video codec that runs in eight megahertz.",
+            "Speaking of machines doing more than they should - next up, the Atari ST "
+            "finally has a full-motion video codec that runs in eight megahertz.",
             story="A Full Motion Video Codec For The Atari ST", pause=0.9),
         seg("host_female", "quick", "setup",
             "The Atari ST had an eight-megahertz sixty-eight-thousand, planar graphics, and "
@@ -133,7 +137,8 @@ def main() -> int:
             story="A Full Motion Video Codec For The Atari ST", pause=0.55),
 
         seg("host_male", "quick", "setup",
-            "The carbon-fibre print goes the other way - physical, not clever. Print a core and "
+            "Next up, the carbon-fiber print reinforcement goes the other way - physical, not "
+            "clever. Print a core and "
             "shell, leave a shallow gap, epoxy carbon-fibre cloth into the finished part.",
             story="Strengthening 3D Prints With A Carbon-Fiber Epidermis", pause=0.2),
         seg("host_female", "quick", "reaction",
@@ -147,7 +152,8 @@ def main() -> int:
 
         # Deep dive 2: different opening beats, guest enters at position 4.
         seg("host_male", "deep-dive", "setup",
-            "NASA's PUNCH mission narrowed a solar-storm forecast window to about 30 minutes "
+            "Next up, NASA's PUNCH solar-storm forecast. The mission narrowed a forecast "
+            "window to about 30 minutes "
             "in its first operational test. Four spacecraft in low Earth orbit keep the inner "
             "solar system under continuous three-dimensional observation, with a fresh image "
             "roughly every four minutes.",
@@ -186,8 +192,9 @@ def main() -> int:
 
         # Deep dive 3: no guest, distinct shape.
         seg("host_female", "deep-dive", "setup",
-            "TurnSight is about a training problem that shows up the moment an agent uses "
-            "tools. One run contains a dozen decisions, and the reward arrives once, at the end.",
+            "After that, we have TurnSight - a training problem that shows up the moment an "
+            "agent uses tools. One run contains a dozen decisions, and the reward arrives "
+            "once, at the end.",
             story=TURN, pause=0.28),
         seg("host_male", "deep-dive", "comparison",
             "Token-level feedback doesn't fix that either - a tool call is a decision followed "
@@ -216,7 +223,8 @@ def main() -> int:
 
         # Interesting News block.
         seg("host_male", "quick", "setup",
-            "A used Falcon 9 upper stage from the January 2025 Blue Ghost launch is expected to "
+            "We are also going to look at a planned lunar impact. A used Falcon 9 upper stage "
+            "from the January 2025 Blue Ghost launch is expected to "
             "hit the Moon near the Einstein and Bell craters. NASA plans ground observations "
             "plus before-and-after views from Lunar Reconnaissance Orbiter and South Korea's "
             "ShadowCam. Call it a sixty-foot crater, and no danger to anything down here.",
@@ -230,7 +238,8 @@ def main() -> int:
             story="NASA Will Attempt to Observe Rocket Part's Lunar Impact", pause=0.55),
 
         seg("host_female", "quick", "reaction",
-            "A rove beetle named after One Piece's Monkey D. Luffy - [laughter] that is a "
+            "Up next, a rove beetle named after One Piece's Monkey D. Luffy - [laughter] that "
+            "is a "
             "first. Two species from Yunnan and northern Laos, with unusually long mandibles "
             "and palps.",
             story="New Beetle Genus Named After One Piece's Monkey D. Luffy", pause=0.2),
@@ -240,7 +249,8 @@ def main() -> int:
             story="New Beetle Genus Named After One Piece's Monkey D. Luffy", pause=0.8),
 
         seg("host_male", "quick", "setup",
-            "Last one, and it's a measurement story. Metal printing is usually described "
+            "Last up, the operando X-ray method for metal printing - it's a measurement story. "
+            "Metal printing is usually described "
             "through temperature and cooling rate, because that's what you can instrument. "
             "This Nature Communications group used synchrotron X-ray scattering and rapid "
             "pair-distribution analysis to watch Inconel 718 form, tracking short- and "
@@ -260,8 +270,8 @@ def main() -> int:
 
         # Guest exit, then a sign-off that claims nothing about a theme.
         seg("host_female", "outro", "guest-thanks",
-            "Thanks Ravi - the Shieldstral report and the PUNCH numbers were the two we'd have "
-            "got wrong on our own.",
+            "Thanks Shweta - the Shieldstral report and the PUNCH numbers were the two we'd "
+            "have got wrong on our own.",
             pause=0.4),
         seg("host_male", "outro", "outro",
             "That's grep for today. Every source and the extra reading are in the show notes, "
@@ -276,10 +286,15 @@ def main() -> int:
         "Shieldstral and PUNCH deep dives."
     )
     script["segments"] = segments
+    return script
+
+
+def main() -> int:
+    script = build()
     TARGET.write_text(
         json.dumps(script, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
-    print(f"wrote {TARGET} ({len(segments)} segments)")
+    print(f"wrote {TARGET} ({len(script['segments'])} segments)")
     return 0
 
 

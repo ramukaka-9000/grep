@@ -74,12 +74,13 @@ SCHEMA_V2_RESPONSE_BEATS = {
     "qualification", "implication", "takeaway", "comparison",
 }
 # Beats that can open a fresh story: they frame a subject instead of continuing
-# a conversation the listener never heard. Transition and pivot beats are
-# allowed as openers only when the turn names the story's subject (and, for
-# pivots, starts cleanly too).
-SCHEMA_V2_OPENING_BEATS = {"setup", "guest-intro"}
-SCHEMA_V2_TRANSITION_OPENING_BEATS = {"transition", "section-transition"}
-SCHEMA_V2_OPENING_PIVOT_BEATS = {"reaction", "comparison", "implication"}
+# Beats that can open a fresh story. Every one of them must name the story's
+# subject in speech and start cleanly (no unanchored pronoun, conjunction, or
+# definite reference), so the listener always hears what the new story is.
+SCHEMA_V2_OPENING_BEATS = {
+    "setup", "guest-intro", "transition", "section-transition",
+    "reaction", "comparison", "implication",
+}
 # Beats that frame the guest as a participant rather than a citation dispenser.
 SCHEMA_V2_GUEST_FRAME_BEATS = {"guest-intro", "guest-thanks"}
 # A host turn that actually engages with what the guest just said.
@@ -782,12 +783,20 @@ def _stem(token: str) -> str:
 
 
 def _subject_tokens(title: str) -> set[str]:
-    """Stems of the distinctive words in a story title."""
+    """Stems of the distinctive words in a story title.
+
+    Generic words are filtered on their stem, so plural forms cannot smuggle a
+    generic word past the stopword list ('Methods' stems to 'method' and is
+    dropped like the singular).
+    """
     tokens: set[str] = set()
     for token in re.findall(r"\w+", normalize_text(title).lower()):
-        if len(token) < 4 or token in STORY_TITLE_STOPWORDS:
+        if len(token) < 4:
             continue
-        tokens.add(_stem(token))
+        stemmed = _stem(token)
+        if stemmed in STORY_TITLE_STOPWORDS:
+            continue
+        tokens.add(stemmed)
     return tokens
 
 
@@ -823,8 +832,28 @@ def _opener_problems(text: str) -> list[str]:
     # Strip speech punctuation/parenthetical staging before testing the first
     # lexical token. This catches ``—it's...``, ``(It)...`` and ``…the...``
     # in addition to ordinary quoted openers.
-    stripped = first_sentence.strip().lstrip('"\'“”‘’«»—–…([{,;:')
+    stripped = first_sentence.strip().lstrip('"\'“”‘’«»—–…([{,;:-.')
     lowered = stripped.lower()
+    # Discourse markers and vocatives hide the real first token: "Well, it
+    # changes." and "Arjun, it changes." must both flag "it". Strip at most a
+    # few leading discourse fillers or capitalized vocative names; stop at the
+    # first word that is neither, so a phrase like "Speaking of machines doing
+    # more than they should" keeps its anchored pronoun out of the scan.
+    discourse_markers = {
+        "well", "hmm", "hm", "oh", "uh", "um", "yeah", "yep", "yup",
+        "no", "wait", "okay", "ok", "right", "look", "listen", "hey", "honestly",
+        "actually", "basically", "anyway", "first", "next", "up", "last",
+    }
+    persona_names = {name.lower() for name in load_personas().values()}
+    for _ in range(3):
+        m = re.match(r"^([a-zA-Z]+)[,\s\-—–…]+", lowered)
+        if not m:
+            break
+        word = m.group(1).lower()
+        if word in discourse_markers or word in persona_names:
+            lowered = lowered[m.end():].lstrip('"\'“”‘’«»—–…([{,;:-.')
+        else:
+            break
     for pattern, label in UNANCHORED_OPENING_PATTERNS:
         if re.match(pattern, lowered):
             problems.append(label)
@@ -846,9 +875,9 @@ def check_story_openers(
        sections fail closed toward the longer pause.
     B. A story may not open on a beat that implies a prior conversation
        (question, answer, challenge, counterpoint, qualification, takeaway).
-       Transition beats (transition, section-transition) and pivot beats
-       (reaction, comparison, implication) are allowed only when the opener
-       names the story's subject; pivots must also start cleanly.
+       Every allowed opener beat -- setup, guest-intro, transition,
+       section-transition, reaction, comparison, implication -- must name the
+       story's subject in speech.
     C. No opener may start with an unanchored pronoun, a continuation
        conjunction, or an unanchored definite reference.
     """
@@ -868,29 +897,14 @@ def check_story_openers(
             if problems:
                 errors.append(
                     f"story '{title}' opens on beat '{beat}' but starts with "
-                    f"{problems[0]}; open with a line that identifies the subject "
-                    f"without assuming context the listener never heard"
-                )
-            elif beat == "guest-intro" and not _story_subject_mentioned(title, text):
-                errors.append(
-                    f"story '{title}' opens on beat 'guest-intro' without naming the "
-                    "story's subject; identify the topic before introducing the guest"
-                )
-        elif (
-            beat in SCHEMA_V2_TRANSITION_OPENING_BEATS
-            or beat in SCHEMA_V2_OPENING_PIVOT_BEATS
-        ):
-            if problems:
-                errors.append(
-                    f"story '{title}' opens on beat '{beat}' but starts with "
-                    f"{problems[0]}; make the opener self-contained or open with "
-                    f"a 'setup' that names the subject"
+                    f"{problems[0]}; make the opener self-contained and name "
+                    f"the subject, e.g. 'Next up, we have <story>'"
                 )
             elif not _story_subject_mentioned(title, text):
                 errors.append(
                     f"story '{title}' opens on beat '{beat}' without naming the "
-                    f"story's subject; open with a 'setup' that names it, or "
-                    f"mention it in the first line"
+                    f"story's subject; open with a line that names it, e.g. "
+                    f"'Next up, we have <story>'"
                 )
         else:
             errors.append(
@@ -899,6 +913,68 @@ def check_story_openers(
                 f"listener never heard - open with a 'setup' that names the "
                 f"subject and move the '{beat}' to a later turn"
             )
+
+
+def check_intro_introduces(
+    segments: list[dict], story_titles: list[str], errors: list[str]
+) -> None:
+    """The episode must not start inside the first story.
+
+    The intro turns have to identify the speakers (both hosts, plus the guest
+    when one appears) and line up a few of the stories coming up, so the
+    listener knows who is talking and what to expect.
+    """
+    intro = [seg for seg in segments if normalize_text(seg.get("kind")) == "intro"]
+    if not intro:
+        errors.append("the script needs an intro turn before the first story")
+        return
+    first_story_index = next(
+        (i for i, seg in enumerate(segments) if normalize_text(seg.get("story_title"))),
+        None,
+    )
+    misplaced = [
+        i + 1 for i, seg in enumerate(segments)
+        if normalize_text(seg.get("kind")) == "intro"
+        and first_story_index is not None
+        and i >= first_story_index
+    ]
+    if misplaced:
+        errors.append(
+            "intro turns must come before the first story; intro segments at "
+            f"positions {', '.join(map(str, misplaced))} appear inside or after the stories"
+        )
+    spoken = " ".join(
+        strip_expressive_tags(seg.get("text") or "") for seg in intro
+    )
+    names = load_personas()
+    if names:
+        guest_present = any(
+            normalize_text(seg.get("speaker")) == "guest" for seg in segments
+        )
+        required = {
+            speaker: name
+            for speaker, name in names.items()
+            if speaker != "guest" or guest_present
+        }
+        missing = [
+            name for name in required.values()
+            if re.search(rf"\b{re.escape(name)}\b", spoken) is None
+        ]
+        if missing:
+            errors.append(
+                "the intro does not introduce every speaker; name "
+                + ", ".join(missing)
+                + " in the opening turns so the listener knows who is talking"
+            )
+    lined_up = {
+        title for title in story_titles
+        if _story_subject_mentioned(title, spoken)
+    }
+    if len(lined_up) < 2:
+        errors.append(
+            "the intro does not line up the topics; name at least two of the "
+            "episode's stories before the first one starts"
+        )
 
 
 def check_guest_arc(segments: list[dict], errors: list[str]) -> None:
@@ -1043,6 +1119,33 @@ def check_direct_address(segments: list[dict], errors: list[str]) -> int:
     return uses
 
 
+def check_show_notes(script: dict, errors: list[str]) -> None:
+    """Show notes must be unambiguous enough for boundary decisions.
+
+    A story's section decides whether a boundary needs the longer pause, so a
+    section that is not a plain non-empty string, or a duplicate note that can
+    silently relabel a story, must be rejected rather than silently used.
+    """
+    notes = script.get("show_notes", [])
+    if not isinstance(notes, list):
+        return
+    seen: set[str] = set()
+    for note in notes:
+        if not isinstance(note, dict):
+            continue
+        title = normalize_text(note.get("title"))
+        if not title:
+            continue
+        if title in seen:
+            errors.append(f"show_notes has more than one entry for '{title}'")
+        seen.add(title)
+        section = note.get("section")
+        if not isinstance(section, str) or not normalize_text(section):
+            errors.append(
+                f"show_notes entry for '{title}' needs a plain string section"
+            )
+
+
 def check_editorial(script: dict, cfg: dict) -> dict:
     """Run every schema-v2 editorial acceptance check and report all failures.
 
@@ -1067,6 +1170,8 @@ def check_editorial(script: dict, cfg: dict) -> dict:
     lengths = check_turn_lengths(segments, cfg, errors)
     check_story_variety(ordered_stories, errors)
     check_story_openers(segments, script, cfg, errors)
+    check_intro_introduces(segments, [t for t, _ in ordered_stories], errors)
+    check_show_notes(script, errors)
     check_guest_arc(segments, errors)
     check_beat_coherence(segments, errors)
     check_prose(script, segments, errors, warnings)

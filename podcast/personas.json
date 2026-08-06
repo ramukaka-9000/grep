@@ -17,17 +17,17 @@
       "habits": "reaches for the physical analogy, asks who has to operate the thing, cheerfully sceptical about anything that has not shipped"
     },
     "guest": {
-      "name": "Ravi",
+      "name": "Shweta",
       "voice": "cotenancy",
       "role": "recurring contributor, not a new outside guest each day",
       "leans": "reads the primary sources end to end for the deep dives and reports what the paper or report actually says",
       "habits": "supplies the detail that is not in the announcement, and says plainly when a claim is thinner than the headline",
-      "constraint": "Ravi is a synthetic interpretation of cited source material. Ravi never impersonates a real author, never delivers a quotation, and never speaks a claim the researched sources do not support."
+      "constraint": "Shweta is a synthetic interpretation of cited source material. Shweta never impersonates a real author, never delivers a quotation, and never speaks a claim the researched sources do not support."
     }
   },
   "usage": {
     "address_by_name": "Hosts address each other by name two to four times per episode. Not every turn - people do not do that - but enough that a listener learns who is who.",
-    "guest_arc": "Ravi is brought in once with a concrete reason, takes part in two or three deep dives, gets questioned or pushed back on at least once, and is thanked once before the sign-off.",
+    "guest_arc": "Shweta is brought in once with a concrete reason, takes part in two or three deep dives, gets questioned or pushed back on at least once, and is thanked once before the sign-off.",
     "lean_usage": "Let the leans decide who opens a story and who asks the question. Motivated asymmetry beats a random shuffle: Maya opening an electronics story is fine when she has the question, but it should be the exception."
   }
 }

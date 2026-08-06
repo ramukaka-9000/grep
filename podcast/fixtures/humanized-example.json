@@ -9,7 +9,7 @@
       "speaker": "host_female",
       "kind": "intro",
       "beat": "hook",
-      "text": "Welcome back to grep. Mistral shipped a moderation model you argue with in plain English - you hand it the rule you care about at inference time, and it scores against that rule instead of whatever was baked into the weights.",
+      "text": "Welcome back to grep. It's your hosts Maya and Arjun again, with Shweta here for the deep dives. Today we are going to talk about what LLMs actually reward, Mistral's Shieldstral guard model, NASA's PUNCH solar-storm forecast, and a beetle named after One Piece's Luffy - and more.",
       "pause_after_seconds": 0.25
     },
     {
@@ -23,7 +23,7 @@
       "speaker": "host_male",
       "kind": "quick",
       "beat": "setup",
-      "text": "Sean Goedecke has an uncomfortable observation about who these models actually help. They are most useful when the person at the keyboard already knows enough to doubt them.",
+      "text": "First up, we have Sean Goedecke's piece on who LLMs actually help. They are most useful when the person at the keyboard already knows enough to doubt them.",
       "story_title": "LLMs reward expertise",
       "pause_after_seconds": 0.2
     },
@@ -47,7 +47,7 @@
       "speaker": "host_female",
       "kind": "deep-dive",
       "beat": "setup",
-      "text": "Back to Shieldstral, because the mechanism is stranger than the headline. The request carries three things: an instruction, a yes-or-no query, and the document being judged - text, an image, or a whole prompt-and-response pair. So one checkpoint can police violence for a games product, privacy for a health app, and something much narrower for a classroom tool, without anyone fine-tuning it.",
+      "text": "Next up, we have Mistral's Shieldstral guard model - and the mechanism is stranger than the headline. The request carries three things: an instruction, a yes-or-no query, and the document being judged - text, an image, or a whole prompt-and-response pair. So one checkpoint can police violence for a games product, privacy for a health app, and something much narrower for a classroom tool, without anyone fine-tuning it.",
       "story_title": "Mistral's Shieldstral: 3B open-weights model for multimodal moderation",
       "pause_after_seconds": 0.28
     },
@@ -55,7 +55,7 @@
       "speaker": "host_male",
       "kind": "deep-dive",
       "beat": "guest-intro",
-      "text": "Ravi read the technical report end to end this week, so let's get the part that isn't in the announcement.",
+      "text": "Shweta read the technical report end to end this week, so let's get the part that isn't in the announcement.",
       "story_title": "Mistral's Shieldstral: 3B open-weights model for multimodal moderation",
       "pause_after_seconds": 0.35
     },
@@ -95,7 +95,7 @@
       "speaker": "host_female",
       "kind": "quick",
       "beat": "setup",
-      "text": "A survey of 197 real terminal user interfaces found only 12 percent of test code actually exercises the interface, and 45 percent of those tests never send input beyond a static frame. In the benchmark, finding the right launch inputs mattered more than exploring harder once you were inside.",
+      "text": "Next up, we have the terminal-user-interface testing survey. A survey of 197 real terminal user interfaces found only 12 percent of test code actually exercises the interface, and 45 percent of those tests never send input beyond a static frame. In the benchmark, finding the right launch inputs mattered more than exploring harder once you were inside.",
       "story_title": "Can LLMs Test Terminal User Interfaces?",
       "pause_after_seconds": 0.2
     },
@@ -111,7 +111,7 @@
       "speaker": "host_male",
       "kind": "quick",
       "beat": "section-transition",
-      "text": "Speaking of machines doing more than they should - the Atari ST finally has a full-motion video codec that runs in eight megahertz.",
+      "text": "Speaking of machines doing more than they should - next up, the Atari ST finally has a full-motion video codec that runs in eight megahertz.",
       "story_title": "A Full Motion Video Codec For The Atari ST",
       "pause_after_seconds": 0.9
     },
@@ -135,7 +135,7 @@
       "speaker": "host_male",
       "kind": "quick",
       "beat": "setup",
-      "text": "The carbon-fibre print goes the other way - physical, not clever. Print a core and shell, leave a shallow gap, epoxy carbon-fibre cloth into the finished part.",
+      "text": "Next up, the carbon-fiber print reinforcement goes the other way - physical, not clever. Print a core and shell, leave a shallow gap, epoxy carbon-fibre cloth into the finished part.",
       "story_title": "Strengthening 3D Prints With A Carbon-Fiber Epidermis",
       "pause_after_seconds": 0.2
     },
@@ -159,7 +159,7 @@
       "speaker": "host_male",
       "kind": "deep-dive",
       "beat": "setup",
-      "text": "NASA's PUNCH mission narrowed a solar-storm forecast window to about 30 minutes in its first operational test. Four spacecraft in low Earth orbit keep the inner solar system under continuous three-dimensional observation, with a fresh image roughly every four minutes.",
+      "text": "Next up, NASA's PUNCH solar-storm forecast. The mission narrowed a forecast window to about 30 minutes in its first operational test. Four spacecraft in low Earth orbit keep the inner solar system under continuous three-dimensional observation, with a fresh image roughly every four minutes.",
       "story_title": "NASA's PUNCH Sharpens Solar Storm Forecasting in First Test",
       "pause_after_seconds": 0.25
     },
@@ -223,7 +223,7 @@
       "speaker": "host_female",
       "kind": "deep-dive",
       "beat": "setup",
-      "text": "TurnSight is about a training problem that shows up the moment an agent uses tools. One run contains a dozen decisions, and the reward arrives once, at the end.",
+      "text": "After that, we have TurnSight - a training problem that shows up the moment an agent uses tools. One run contains a dozen decisions, and the reward arrives once, at the end.",
       "story_title": "TurnSight: Turn-Level Hindsight Self-Distillation for Tool-Integrated Reasoning",
       "pause_after_seconds": 0.28
     },
@@ -271,7 +271,7 @@
       "speaker": "host_male",
       "kind": "quick",
       "beat": "setup",
-      "text": "A used Falcon 9 upper stage from the January 2025 Blue Ghost launch is expected to hit the Moon near the Einstein and Bell craters. NASA plans ground observations plus before-and-after views from Lunar Reconnaissance Orbiter and South Korea's ShadowCam. Call it a sixty-foot crater, and no danger to anything down here.",
+      "text": "We are also going to look at a planned lunar impact. A used Falcon 9 upper stage from the January 2025 Blue Ghost launch is expected to hit the Moon near the Einstein and Bell craters. NASA plans ground observations plus before-and-after views from Lunar Reconnaissance Orbiter and South Korea's ShadowCam. Call it a sixty-foot crater, and no danger to anything down here.",
       "story_title": "NASA Will Attempt to Observe Rocket Part's Lunar Impact",
       "pause_after_seconds": 0.2
     },
@@ -295,7 +295,7 @@
       "speaker": "host_female",
       "kind": "quick",
       "beat": "reaction",
-      "text": "A rove beetle named after One Piece's Monkey D. Luffy - [laughter] that is a first. Two species from Yunnan and northern Laos, with unusually long mandibles and palps.",
+      "text": "Up next, a rove beetle named after One Piece's Monkey D. Luffy - [laughter] that is a first. Two species from Yunnan and northern Laos, with unusually long mandibles and palps.",
       "story_title": "New Beetle Genus Named After One Piece's Monkey D. Luffy",
       "pause_after_seconds": 0.2
     },
@@ -311,7 +311,7 @@
       "speaker": "host_male",
       "kind": "quick",
       "beat": "setup",
-      "text": "Last one, and it's a measurement story. Metal printing is usually described through temperature and cooling rate, because that's what you can instrument. This Nature Communications group used synchrotron X-ray scattering and rapid pair-distribution analysis to watch Inconel 718 form, tracking short- and medium-range atomic ordering while the laser was still working.",
+      "text": "Last up, the operando X-ray method for metal printing - it's a measurement story. Metal printing is usually described through temperature and cooling rate, because that's what you can instrument. This Nature Communications group used synchrotron X-ray scattering and rapid pair-distribution analysis to watch Inconel 718 form, tracking short- and medium-range atomic ordering while the laser was still working.",
       "story_title": "New Operando X-Ray Method Could Give Metal 3D Printing a Real-Time Control Lever",
       "pause_after_seconds": 0.2
     },
@@ -335,7 +335,7 @@
       "speaker": "host_female",
       "kind": "outro",
       "beat": "guest-thanks",
-      "text": "Thanks Ravi - the Shieldstral report and the PUNCH numbers were the two we'd have got wrong on our own.",
+      "text": "Thanks Shweta - the Shieldstral report and the PUNCH numbers were the two we'd have got wrong on our own.",
       "pause_after_seconds": 0.4
     },
     {
