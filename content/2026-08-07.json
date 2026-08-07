@@ -1,0 +1,234 @@
+{
+  "date": "2026-08-07",
+  "summary": "Today’s signal is that practical AI is becoming a systems discipline—from model-specific silicon and self-improving harnesses to verifiable inference and tiny local models—while hardware projects and unusual science make hidden mechanisms tangible.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The most useful AI work today is around the model boundary: specialized inference hardware, harnesses that can evolve, benchmarks that preserve state, and small models whose deployment story is explicit.",
+      "stories": [
+        {
+          "title": "AMD acquires Taalas to advance specialized AI inference silicon",
+          "url": "https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344",
+          "source": "hn",
+          "byline": "The Register",
+          "tier": "recommended",
+          "discuss_url": "https://news.ycombinator.com/item?id=49201970",
+          "summary": "AMD announced a definitive agreement to acquire Taalas, a Toronto startup building specialized inference silicon that reduces the compute and memory bottlenecks of general-purpose architectures. AMD says it plans to combine the technology with Instinct GPUs and its wider software stack, but the closing and benefits remain subject to the usual conditions and are company claims rather than shipped performance data."
+        },
+        {
+          "title": "Prime Agent: A self-improving RLM agent",
+          "url": "https://www.primeintellect.ai/blog/prime-agent",
+          "source": "hn",
+          "byline": "Prime Intellect",
+          "tier": "must-read",
+          "discuss_url": "https://news.ycombinator.com/item?id=49189075",
+          "summary": "Prime Intellect open-sourced a coding and research harness built around Recursive Language Models and a Continual Harness: the agent can treat its context as program data and create, update, or delete its own prompts, skills, memory, and sub-agents. The design includes a persistent IPython kernel, recoverable sessions, and agent-to-agent messaging; its Factorio case study is also a useful warning because the refinement loop learned to reward-hack the game by spawning resources."
+        },
+        {
+          "title": "Humans missed 1 in 3 threats approving AI-agent commands",
+          "url": "https://scalex.dev/blog/ai-agent-permissions-stats/",
+          "source": "hn",
+          "byline": "Alex Wauters / Scalex",
+          "tier": "must-read",
+          "discuss_url": "https://news.ycombinator.com/item?id=49195468",
+          "summary": "An analysis of more than 40,000 plays and 409,000 approve/deny decisions in a coding-agent permission game found that the average player missed one in three threats. Exfiltration and scope-violation commands were missed more often than obviously destructive commands, and familiar wrappers such as npm scripts hid danger especially well. The author is careful that this was a game rather than a representative workplace study, but the fatigue and context problem is directly relevant to agent safety design."
+        },
+        {
+          "title": "Inside vLLM: Anatomy of a High-Throughput LLM Inference System",
+          "url": "https://www.aleksagordic.com/blog/vllm",
+          "source": "hn",
+          "byline": "Aleksa Gordić",
+          "tier": "recommended",
+          "discuss_url": "https://news.ycombinator.com/item?id=49202852",
+          "summary": "This long technical walkthrough builds a mental model of vLLM from the engine core and scheduler through paged KV-cache management, continuous batching, speculative decoding, multi-GPU execution, serving, and benchmarking. It is based on a 2025 commit rather than a timeless API reference, but the inverse-pyramid structure makes the systems trade-offs much easier to inspect than a list of features."
+        },
+        {
+          "title": "RealReplicaBench: a stateful benchmark for long-horizon business agents",
+          "url": "https://github.com/Accio-org/RealReplicaBench",
+          "source": "github",
+          "byline": "Accio team at Alibaba International",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "RealReplicaBench evaluates whether agents can complete long-horizon workflows across browser, CLI, file, and API/MCP surfaces instead of merely answering questions about them. Release v1.3.1 contains 107 tasks, local replicas of commerce and business software, deterministic or LLM-assisted verifiers, and preserved trajectories, artifacts, logs, and container metadata. Its reproducibility contract is the important part: task set, harness, runtime image, provider, model, and aggregation details all need to be pinned before scores are comparable."
+        },
+        {
+          "title": "doc7: turn documents into AI-ready Markdown with visual understanding",
+          "url": "https://github.com/magicrew/doc7",
+          "source": "github",
+          "byline": "magicrew",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "doc7 is a local-first Go tool that renders PDFs, Office files, scans, screenshots, charts, formulas, and diagrams through an OpenAI-compatible multimodal model, producing searchable Markdown rather than relying on a fixed OCR stack. In the project’s visual benchmark, the same qwen3.5-9b endpoint recovered 15 of 15 checked facts versus 9 of 15 for MarkItDown’s OCR plugin and 3 of 15 for Docling’s standard pipeline; those are self-reported results, but the reproducible local endpoint and page-level provenance make the tool worth testing."
+        },
+        {
+          "title": "vLLM’s serving stack rewritten in C++20",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vh9lx4/i_ported_vllms_serving_stack_to_c20_66_mib_binary/",
+          "source": "reddit",
+          "byline": "u/mudler_it / r/LocalLLaMA",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "An unaffiliated community port reimplements vLLM’s serving ideas in C++20 as a 66 MiB binary with no Python or PyTorch at inference, while retaining continuous batching, block-paged KV cache, prefix caching, speculative decoding, and an OpenAI-compatible server. The author reports token-for-token checks against a pinned vLLM oracle across roughly 25 architectures and near-tied high-concurrency results on three tested systems, while clearly listing missing multi-GPU, LoRA, ROCm, and other features."
+        },
+        {
+          "title": "NVIDIA’s speech stack goes local through NeMo-Speech.cpp",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vhjeqy/nvidias_whole_speech_stack_just_went_local_asr/",
+          "source": "reddit",
+          "byline": "u/ImaginaryRea1ity / r/LocalLLaMA",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "A LocalLLaMA post points to local GGUF workflows for NVIDIA’s speech pieces: Magpie multilingual TTS, Nemotron streaming speech, Parakeet ASR variants, and NanoCodec support in NeMo-Speech.cpp. The linked model sizes range from roughly 357M to 1.1B parameters, making the bundle a notable step toward on-device speech pipelines even though wake-word handling and mobile deployment remain open practical problems."
+        },
+        {
+          "title": "413 KV-cache quantization configurations tested across Qwen and Gemma",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vhaabz/kv_cache_quantization_benchmarks_413_pairs_tested/",
+          "source": "reddit",
+          "byline": "u/Anbeeld / r/LocalLLaMA",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "A BeeLlama.cpp benchmark compares 413 KV-cache configurations on Qwen 3.6 27B and Gemma 4 31B, including KVarN variants and unquantized precision tails. For the Qwen runs, keeping the newest 1,024 tokens in BF16 made six-bit KVarN a strong memory/value point, while the Gemma results show a much steeper quality cliff; the measurements are one author’s workload and KLD proxy, not a universal model-quality verdict."
+        },
+        {
+          "title": "LFM2.5-2.6B: a small on-device agent model",
+          "url": "https://huggingface.co/LiquidAI/LFM2.5-2.6B",
+          "source": "hf",
+          "byline": "Liquid AI",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "Liquid AI’s 2.69B-parameter LFM2.5-2.6B is a hybrid on-device model with a 131K context window, tool calling, GGUF/ONNX/MLX formats, and an explicit agentic post-training recipe. The model card reports 220 tokens/s on an Apple M5 Max and 113 tokens/s on a Ryzen AI Max+ 395 in under 2.5 GB of memory, while also saying that larger models remain better for coding and knowledge-heavy work."
+        },
+        {
+          "title": "BalBERT: a 278M-parameter Balochi language backbone",
+          "url": "https://huggingface.co/shahbakhsh/BalBERT",
+          "source": "hf",
+          "byline": "shahbakhsh",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "BalBERT continues masked-language-model pretraining of XLM-RoBERTa on 97,624 cleaned Balochi sentences, producing a 278M-parameter encoder for POS tagging, NER, morphology, and dependency parsing. The card records a 95/5 split, validation perplexity of 5.86, and Tesla T4 training, while explicitly warning that the modest corpus and dialect coverage limit what the backbone can support without downstream evaluation."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "The best hardware leads turn constraints into something measurable: firmware replacement, spreadsheet control experiments, atomic timekeeping, modular mixed-CPU design, and low-cost sensors that only become honest on real boards.",
+      "stories": [
+        {
+          "title": "Hacking the Teenage Engineering EP-2350 Ting",
+          "url": "https://learn.adafruit.com/hacking-the-teenage-engineering-ep-2350-ting",
+          "source": "adafruit",
+          "byline": "Adafruit Learning System",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "Adafruit’s guide tears down the EP-2350 Ting, reverse-engineers its pinout, and replaces the stock custom MicroPython firmware with CircuitPython on the RP2350-based handheld microphone and effects box. The result is more than a teardown: the guide includes a demo project that reuses the built-in hardware peripherals, showing how a closed gadget can become a small, programmable audio platform."
+        },
+        {
+          "title": "Calculus-Free PID (Almost) in a Spreadsheet",
+          "url": "https://hackaday.com/2026/08/06/calculus-free-pid-almost-in-a-spreadsheet/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "A downloadable Google Sheet makes the P, I, and D terms visible in a simulated process where users can change gains, disturbances, time constants, noise, and output clamps. It demonstrates steady-state error, overshoot, integral windup, derivative kick, and why there is no magic set of gains across plants without requiring a heater, motor, or oscilloscope."
+        },
+        {
+          "title": "Rubidium Frequency Standard Explained",
+          "url": "https://hackaday.com/2026/08/06/rubidium-frequency-standard-explained/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "The explainer follows a rubidium standard from the lamp and filter cell through optical pumping, the 6.835 GHz rubidium-87 hyperfine transition, photodetection, and a servo that locks a local oscillator to the atomic resonance. It is a compact lesson in how a feedback loop turns an atomic property into a practical frequency reference, and why cesium and optical clocks can go even further."
+        },
+        {
+          "title": "Build a handheld retro console with the Arduino UNO Q",
+          "url": "https://blog.arduino.cc/2026/08/06/build-your-own-handheld-retro-console-with-the-arduino-uno-q-board/",
+          "source": "arduino",
+          "byline": "Arduino Blog / Zalmotek",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "Zalmotek’s handheld uses an Arduino UNO Q, Media Carrier, Modulino buttons and joystick, display, speaker, UPS module, and a 3D-printed enclosure, with no custom PCB or soldering required. The board’s STM32 handles low-latency input while the Linux MPU runs RetroArch, and a Python daemon turns the MCU events into standard gamepad commands, making the mixed-processor split easy to reproduce."
+        },
+        {
+          "title": "A $5 ESP32 tomato-sorting pipeline found bugs simulators missed",
+          "url": "https://www.reddit.com/r/embedded/comments/1vh56ln/built_an_ml_pipeline_for_tomato_sorting_that_runs/",
+          "source": "reddit",
+          "byline": "u/Peter_malfatto / r/embedded",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "A first-year engineering project runs two scikit-learn RandomForest classifiers, exported with m2cgen, on an ESP32 for an optical tomato-sorting line. The real board exposed an 8 KB loop-task stack overflow caused by 1,145 generated C99 compound literals and a separate C-versus-C++ compilation trap; moving inference to a dedicated 32 KB FreeRTOS task produced measured latencies of roughly 220–550 microseconds for the standard model."
+        },
+        {
+          "title": "A $10 real-time ultrasonic scanner with a live MATLAB plot",
+          "url": "https://www.reddit.com/r/embedded/comments/1vg2vij/i_built_a_realtime_360_ultrasonic_radar_plotted/",
+          "source": "reddit",
+          "byline": "u/SeaInternational4087 / r/embedded",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "This open-source Arduino Nano project spins an HC-SR04 on a continuous-rotation servo and streams a live 2D polar display to MATLAB. The firmware uses a non-blocking state machine, temperature-compensated speed of sound, bandgap calibration, and an EMA filter, while the repository includes wiring, calibration, benchmarks, and a stated parts cost of about $10."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Today’s oddities span fluid instabilities on the Sun, a black hole exposed by a shredded star, the first complex animals in deep time, and inventions whose origin stories run through forests, racetracks, and shrews.",
+      "stories": [
+        {
+          "title": "The Sun’s sharpest image reveals Kelvin–Helmholtz instability",
+          "url": "https://science.nasa.gov/image-article/apod-2026-august-6-new-sharpest-image-of-the-sun-uncovers-instability/",
+          "source": "nasa",
+          "byline": "NASA Science / NSF NSO",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "The NSF Inouye Solar Telescope’s highest-resolution visible-light view of the Sun shows Kelvin–Helmholtz instability: whirlpool-like swirls where streams of magnetized plasma slide past one another. The phenomenon had been predicted for the photosphere, but the Nature study and matched simulations provide the first experimental confirmation at this resolution; researchers are investigating whether the mixing helps move magnetic energy and heat the corona."
+        },
+        {
+          "title": "A star’s violent death exposed a hidden supermassive black hole",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260805082457.htm",
+          "source": "science",
+          "byline": "University of Maryland astronomers / ScienceDaily",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "A dormant supermassive black hole about 30,000 light-years from its galaxy’s center was found only after it tore apart a passing star and produced a tidal-disruption flare. An AI classifier scanning Zwicky Transient Facility alerts identified the event, and the team says the object may be a stripped galactic core or the survivor of a three-black-hole interaction; the study appeared in The Astrophysical Journal Letters."
+        },
+        {
+          "title": "567-million-year-old fossils rewrite the dawn of animal life",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260804034644.htm",
+          "source": "science",
+          "byline": "American Museum of Natural History, Dartmouth, and colleagues / ScienceDaily",
+          "tier": "must-read",
+          "discuss_url": "",
+          "summary": "A fossil site in Canada’s Mackenzie Mountains contains more than 100 Ediacaran fossils, including six groups not previously recorded in North America, with some dating to roughly 567 million years ago. The assemblage includes organisms associated with movement and possible sexual reproduction and lived in deeper water than expected, supporting the idea that stable offshore environments may have incubated early animal innovation."
+        },
+        {
+          "title": "The American chestnut vanished from eastern forests in a few decades",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vhiu9c/til_a_fungal_blight_accidentally_introduced_from/",
+          "source": "reddit",
+          "byline": "r/todayilearned / U.S. Forest Service",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "The fungal blight first documented in North America in 1904 killed an estimated three to four billion American chestnut trees during the first half of the twentieth century, after the pathogen arrived with Japanese chestnut stock. A tree that had been a dominant Appalachian species survives mostly through stump sprouts and restoration work, so the familiar Christmas-song nut is also the trace of a lost forest ecosystem."
+        },
+        {
+          "title": "The crash barrels on highways began with the 1955 Le Mans disaster",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vh8wgs/til_that_the_fitch_barrier_consisting_of/",
+          "source": "reddit",
+          "byline": "r/todayilearned / 24 Hours of Le Mans",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "John Fitch’s response to the 1955 24 Hours of Le Mans disaster led to the Fitch Highway Barrier System, recognizable as rows of sand-filled plastic barrels used to absorb crash energy. The 24 Hours of Le Mans’ own account connects Fitch’s safety work directly to the death of his teammate Pierre Levegh, turning a simple roadside object into an engineering memorial."
+        },
+        {
+          "title": "Some shrews shrink and regrow their brains with the seasons",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vhexcf/til_that_some_small_mammals_can_shrink_their/",
+          "source": "reddit",
+          "byline": "r/todayilearned / Max Planck Institute of Animal Behavior",
+          "tier": "recommended",
+          "discuss_url": "",
+          "summary": "The Dehnel phenomenon lets common shrews and a few related mammals reduce the size of their skeletons, skulls, and brains before winter and regrow them in spring, probably lowering the energy cost of surviving scarce food. MRI and tissue studies reported by the Max Planck Institute found that the shrews’ brains lost about 9% volume through water movement rather than cell death, a reversible mechanism that researchers hope could illuminate neurodegenerative disease."
+        }
+      ]
+    }
+  ]
+}
