@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="418"
+  viewBox="0 0 560 418" role="img" aria-label="TIL NASA sold Voyager to Nixon with a Thomas Jefferson planetary-alignment pitch">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101418"/>
+      <stop offset="1" stop-color="#ff4500"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="418" fill="url(#g)"/>
+  <text x="28" y="60" font-family="ui-monospace,monospace" font-size="22"
+    fill="#ff4500" font-weight="700">r/ · grep</text>
+  <text x="28" y="300" font-family="ui-monospace,monospace" font-size="30"
+    fill="#f2f4f8" font-weight="600">TIL NASA sold Voyager …</text>
+  <text x="28" y="382" font-family="ui-monospace,monospace" font-size="15"
+    fill="rgba(242,244,248,.5)">REDDIT · no preview image</text>
+</svg>
