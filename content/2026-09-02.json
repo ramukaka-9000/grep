@@ -1,0 +1,207 @@
+{
+  "date": "2026-09-02",
+  "summary": "Anthropic ships Claude Fable 5.1 with cheaper cache reads; electronics turns an ESP32-S3 into a Bus Pirate workbench and puts HDMI on a Color Computer 2; interesting news covers Roman's launch, why snake embryos coil clockwise, and a metre-long Devonian scorpion.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Claude Fable 5.1 and Claude Mythos 5.1",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+          "source": "hn",
+          "byline": "denysvitali / Anthropic, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49525378",
+          "tier": "must-read",
+          "summary": "Anthropic released Claude Fable 5.1 and Claude Mythos 5.1 as the same model with different safeguards. Fable 5.1 is generally available as claude-fable-5-1; Mythos is limited to trusted cyber and life-sciences programs. Cache reads drop 75% to $0.25 per million tokens, which Anthropic says cuts typical billed cost about 25% and highly agentic work up to about 45%. The post reports Terminal-Bench 4.0 at 55.8% for Fable 5.1 and 60.9% for Mythos, and a customer-controlled Enterprise Frontier Safeguards path later this fall."
+        },
+        {
+          "title": "The ChatGPT/Codex app bundles a full copy of LibreOffice",
+          "url": "https://simonwillison.net/2026/Sep/1/codex-libreoffice/",
+          "source": "hn",
+          "byline": "timpera / Simon Willison, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49527396",
+          "tier": "recommended",
+          "summary": "Simon Willison found that the ChatGPT desktop app, formerly Codex, caches a 1.7 GB primary runtime with Python, Node, Poppler, git, and a headless LibreOffice. Skills under the documents plugin tell the agent how to find those binaries. LibreOffice itself is about 430 MB of the native tree. Agent desktops now ship whole office stacks instead of calling out to the host."
+        },
+        {
+          "title": "The efficient frontier of LLM inference",
+          "url": "https://www.baseten.co/blog/the-efficient-frontier-of-llm-inference/",
+          "source": "hn",
+          "byline": "philipkiely / Baseten, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49529898",
+          "tier": "recommended",
+          "summary": "Philip Kiely at Baseten splits inference work into techniques that slide along a latency-throughput frontier and techniques that push the whole frontier out. Batch size, tensor versus expert parallelism, and attention data parallelism are the knobs; kernel work, EAGLE-3-class speculation, and prefill/decode disaggregation move the curve. The post assumes a large MoE coding model with KV reuse and KV-aware routing. A free Inference Engineering book is the longer treatment."
+        },
+        {
+          "title": "B200 attention kernel from scratch to near-SOTA in 60 diagrams",
+          "url": "https://iaroslavelistratov.github.io/b200-attention/",
+          "source": "hn",
+          "byline": "magoghm / Iaroslav Elistratov, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49535281",
+          "tier": "recommended",
+          "summary": "Iaroslav Elistratov walks a dense Blackwell B200 attention kernel from a naive CUDA baseline to 94.4% of FlashAttention-4 on the 4K, 8K, and 16K shapes in the FA4 paper. Fourteen kernels add one idea at a time — TMEM, swizzling, warp specialization, pipelines, approximations, persistent launch — with 60 diagrams and a video-generation capstone. Code is at github.com/IaroslavElistratov/b200-attention. You do not need a B200 to follow the write-up."
+        },
+        {
+          "title": "CordisBench: lifecycle reasoning in dynamic agent harnesses",
+          "url": "https://arxiv.org/abs/2609.01600v1",
+          "source": "arxiv",
+          "byline": "Sileo, Kachler",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Sileo and Kachler introduce CordisBench, 1,200 questions about plugin dependencies and teardown order in dynamic agent harnesses. Models handle small systems, then fail as more interactions matter, especially predicting final state across teardown orders. Extra inference effort helps some models; GPT-5.6 Luna used nearly 3,000 reasoning tokens per question on a 16-interaction subset at medium effort. A finite reference semantics matched Cordis execution on all 528 executable scoring observations."
+        },
+        {
+          "title": "Quantization damage is diffuse: spend the next bit globally",
+          "url": "https://arxiv.org/abs/2609.01587v1",
+          "source": "arxiv",
+          "byline": "Hu, Ramachandran",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Hu and Ramachandran raise each layer to 8-bit in turn across nine open-weight models and find quantization damage is usually diffuse, not sitting in task circuits or weight statistics. Recovering 75% of the gap took about half the layers for eight of nine models; only Qwen3-8B was concentrated. At a matched extra-precision budget, finer global granularity beat repairing the most recoverable layers by 21-52 points. Eight-bit was near-lossless in their RTN, GPTQ, and AWQ evaluation."
+        },
+        {
+          "title": "tokentab — local cost totals for Claude Code, Codex, and Gemini CLI",
+          "url": "https://github.com/damejan80/tokentab",
+          "source": "github",
+          "byline": "damejan80 / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "tokentab reads the session logs Claude Code, Codex, and Gemini CLI already leave on disk and totals tokens and cost by model, project, day, and kind of work. Nothing leaves the machine; there is no account and no API key. Cursor support is a stub. Install is a local pip from the repo."
+        },
+        {
+          "title": "ABot-Recon: streaming 3D reconstruction from a 12-frame window",
+          "url": "https://github.com/amap-cvlab/ABot-Recon",
+          "source": "github",
+          "byline": "amap-cvlab / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "ABot-Recon reconstructs long video streams from a fixed 12-frame local context instead of learned long-range memory. Each step predicts a current-frame point map and an adjacent relative pose, then composes them into a global reconstruction. An interactive Hugging Face demo went up 31 August 2026. It is a streaming 3D paper and code drop, not a general VLM."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "HDMI for the Color Computer 2",
+          "url": "https://hackaday.com/2026/09/02/hdmi-for-the-color-computer-2/",
+          "source": "hackaday",
+          "byline": "Hackaday / Scott Baker",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Scott Baker snoops the digital signals into a TRS-80 Color Computer 2's MC6847 and rebuilds them as HDMI on a Tang Nano Gowin FPGA. An ADC also rides the analog audio onto the same cable. CoCoVGA and CoCoDV never came off the waitlist, so he published his own board. The primary walkthrough is at smbaker.com."
+        },
+        {
+          "title": "ESP32 Bit Pirate: a multi-protocol workbench on an S3",
+          "url": "https://developer.espressif.com/blog/2026/08/esp32-bit-pirate",
+          "source": "other",
+          "byline": "Espressif Developer Portal / geo-tp",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "ESP32 Bit Pirate turns an ESP32-S3 DevKit into a scriptable Bus Pirate-style tool with more than twenty modes, from I2C, SPI, UART, JTAG, SWD, and CAN to Wi-Fi, BLE, and RFID. You drive it from serial, a browser CLI, or a Cardputer; Python recipes capture the session. An open dock adds 1.8/3.3/5 V translation and Bus Pirate probes, and an ESP32-C5 adapter adds dual-band radio over three UART wires. Firmware is geo-tp's; the dock is CERN-OHL-W-2.0."
+        },
+        {
+          "title": "CrossPoint: open-source e-reader firmware on ESP32-C3",
+          "url": "https://github.com/crosspoint-reader/crosspoint-reader",
+          "source": "other",
+          "byline": "crosspoint-reader / GitHub",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "CrossPoint is replacement firmware for cheap ESP32-C3 e-ink readers, currently the Xteink X3 and X4. It renders EPUB with hyphenation, bookmarks, OPDS, Calibre wireless, WebDAV, and OTA, while caching layout to the SD card because the C3 has only about 380 KB of usable RAM. A web flasher installs it; some AliExpress units need an unlocker first, and flashing unofficial images can brick a locked device. Community forks already cover CJK, FB2, and a Paper S3 port."
+        },
+        {
+          "title": "Cobalt: a signed app platform for Kobo e-readers",
+          "url": "https://github.com/BandarLabs/Cobalt",
+          "source": "other",
+          "byline": "BandarLabs / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Cobalt is an AGPLv3 launcher, signed app store, and Rust SDK for Kobo, with apps in separate unprivileged processes and capability checks for network, storage, audio, and frontlight. After one USB install, signed apps come and go over Wi-Fi without a platform bump. Hardware-tested models include Clara BW, Clara HD, Clara Colour, Libra 2, Libra Colour, and Elipsa 2E. It does not replace Kobo's boot chain; a reboot returns to the stock reader."
+        },
+        {
+          "title": "How gold plastic syndrome is killing toys and DS shells",
+          "url": "https://hackaday.com/2026/09/01/how-gold-plastic-syndrome-is-killing-toys-and-game-consoles/",
+          "source": "hackaday",
+          "byline": "Hackaday / Sqwerks",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Sqwerks's teardown of original Nintendo DS shells shows a metallic coating that yellows ABS, embrittles hinges, and leaves a powdery residue — the same failure Transformers collectors call Gold Plastic Syndrome. The chemistry is still unsettled; it is not the same as PVC plasticizer migrating into ABS. Third-party DS shells are still a practical fix. For toys where the plastic is the object, there is still no reversal."
+        },
+        {
+          "title": "Refurbishing a Tektronix TDS7104",
+          "url": "https://tomverbeure.github.io/2026/08/23/Tektronix-TDS7104-Refurbishing.html",
+          "source": "hn",
+          "byline": "jwise0 / Tom Verbeure, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49527232",
+          "tier": "notable",
+          "summary": "Tom Verbeure bought a 1 GHz TDS7104 at the Silicon Valley flea market for $300, then chased a dead CMOS battery and a dying disk through Windows 2000, NLX, and a PowerPC VxWorks board. The write-up covers imaging the drive, why not all TEAC CD-224E units are alike, and how the license key encodes serial, model, and an option bitmask. Common failures on this generation are the two backup batteries, the hard drive, and leaking PSU caps. It is a measured repair log, not a buyer's guide."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "NASA's Roman Space Telescope launches toward L2",
+          "url": "https://www.nasa.gov/news-release/nasas-dark-universe-seeking-nancy-grace-roman-space-telescope-launches",
+          "source": "nasa",
+          "byline": "NASA Headquarters / Goddard",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "NASA's Nancy Grace Roman Space Telescope lifted off at 7:26 am Eastern on 30 August 2026 aboard a Falcon Heavy from Kennedy LC-39A. Telemetry arrived seven minutes later; the observatory separated at 31 minutes and is on a three-month trip to Sun-Earth L2. Solar panels and the lower instrument sun shade deployed 83 minutes after launch. First images are expected by early 2027 from a 300-megapixel Wide Field Instrument designed to survey about a thousand times faster than Hubble."
+        },
+        {
+          "title": "A Petermann ice island survives a hit on Joe Island",
+          "url": "https://science.nasa.gov/earth/earth-observatory/iceberg-from-petermann-glacier-speeds-away/",
+          "source": "nasa",
+          "byline": "NASA Earth Observatory / Kathryn Hansen",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "In August 2026 Petermann Glacier in northwest Greenland calved a tabular iceberg of just over 76 square kilometres, the largest Arctic glacier calving since 2020. Landsat 9 caught it ramming Joe Island at the fjord mouth on 23–24 August and, unusually for these thin ice islands, it did not split. Adam Garbo's Ottawa team had expected a larger break along a different rift; two more rifts of about 94 and 84 square kilometres remain. The berg was under 150 metres thick and is now drifting southwest through Nares Strait."
+        },
+        {
+          "title": "Snake embryos coil clockwise because the gut cannot keep up",
+          "url": "https://www.cell.com/current-biology/fulltext/S0960-9822(26)01009-2",
+          "source": "science",
+          "byline": "Weber, Miyashita et al. / Current Biology",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Weber, Miyashita, and colleagues report in Current Biology (31 August 2026) that early snake embryos coil right-handed because the axial body lengthens faster than a physically decoupled gut, buckling away from a yolk that sits on the left. They scored more than 900 embryos from 39 limbless squamate species and used CT to show a gut pillar through the spiral. Near hatching, muscles work and handedness randomizes. Coiling is framed as a packing trick that makes an extreme body plan possible inside the egg."
+        },
+        {
+          "title": "Praearcturus gigas is a metre-long Early Devonian scorpion",
+          "url": "https://www.nhm.ac.uk/discover/news/2026/june/worlds-largest-scorpion-revealed-415-million-year-old-fossils.html",
+          "source": "science",
+          "byline": "Howard, Edgecombe et al. / Natural History Museum and Palaeontology",
+          "discuss_url": "https://news.ycombinator.com/item?id=49522194",
+          "tier": "recommended",
+          "summary": "A Palaeontology revision of Praearcturus gigas, covered by the Natural History Museum, treats the Lochkovian Old Red Sandstone fossils as a scorpion rather than a giant isopod. NHM quotes 16-centimetre pincers and an estimated length over a metre, among the first large predators on land about 415 million years ago. The sternum matches the mid-Silurian scorpion Eramoscorpius; flap-like epimera suggest time in water as well as on land. Brontoscorpio and Bennettarthra are treated as junior synonyms."
+        },
+        {
+          "title": "Pisces III: still the deepest successful submarine rescue",
+          "url": "https://en.wikipedia.org/wiki/Rescue_of_Roger_Mallinson_and_Roger_Chapman",
+          "source": "reddit",
+          "byline": "Wikipedia / BBC, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1w4nz9e/til_in_1973_a_2man_submarine_laying_cables_became/",
+          "tier": "notable",
+          "summary": "On 29 August 1973, Roger Mallinson and Roger Chapman were trapped in Vickers Oceanics' Pisces III at 1,575 feet (480 metres) in the Celtic Sea while laying transatlantic cable. A 76-hour multinational rescue on 1 September remains the deepest successful submarine rescue. The aft sphere flooded after a towline entanglement during recovery; they were about 150 miles southwest of Cork. Wikipedia's account is the synthesis; Chapman's 1975 memoir is the crew narrative."
+        },
+        {
+          "title": "The CIA and India lost a plutonium spy generator on Nanda Devi",
+          "url": "https://en.wikipedia.org/wiki/India%E2%80%93United_States_espionage_on_Nanda_Devi",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1w4gl2e/til_that_in_1965_the_cia_and_indias_intelligence/",
+          "tier": "notable",
+          "summary": "In October 1965 the CIA and India's Intelligence Bureau tried to plant a SNAP-19C plutonium-238 RTG and antenna on Nanda Devi to listen to Chinese missile tests at Lop Nur. A blizzard aborted the climb; the generator was cached and later lost, and three recovery attempts failed. Prime Minister Morarji Desai confirmed the lost gear to the Lok Sabha in 1978. Later Himalayan RTGs had mixed results; reconnaissance satellites soon made the idea obsolete."
+        }
+      ]
+    }
+  ]
+}

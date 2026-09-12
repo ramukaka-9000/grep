@@ -1,0 +1,225 @@
+{
+  "date": "2026-08-16",
+  "summary": "Qwen revives the dense local-model race with a 27B that impresses and guzzles VRAM, DeepSeek ships its own plugin-driven agent harness, agent-evaluation work shows matched scores lie about command failures, and the Wow! signal turns 49 with its mystery intact.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "A dense 27B local release, DeepSeek's official agent harness, and agent-evaluation work proving that matched scores conceal real failures.",
+      "stories": [
+        {
+          "title": "Qwen 3.8 27B",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-27B-FP8",
+          "source": "hn",
+          "byline": "Qwen / Hugging Face, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49299605",
+          "tier": "must-read",
+          "summary": "Qwen's new dense 27B flagship — FP8 checkpoint on Hugging Face — was the day's biggest HN story at 1,361 points, and the release includes multi-token-prediction support for speculative decoding. Early community testing finds it the second local model (after Gemma 4) to reason through a private hard benchmark, though it is memory-hungry: 32K of context costs ~2.5GB of KV-cache VRAM and quantization hurts it noticeably. The thread is largely a practical running guide for consumer cards, which is exactly the audience this matters for."
+        },
+        {
+          "title": "DeepSeek Harness: everything is a plugin",
+          "url": "https://github.com/deepseek-ai/deepseek-harness",
+          "source": "github",
+          "byline": "DeepSeek AI / GitHub",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "DeepSeek's official open-source agent harness (dsh) exploded to 117k stars within days on an 'everything is a plugin' architecture powered by Cordis — the very meta-framework from the cordiverse/paper preprint that appeared in yesterday's edition. It runs with a single npx command, ships a web UI, is MIT-licensed, and is explicitly a fast-moving developer preview with breaking changes expected. The ecosystem forming around it — desktop apps, a TUI, routing suites, plugin indexes — shows how quickly a popular harness can grow a plugin economy."
+        },
+        {
+          "title": "Auto-research with codex: how I achieved a 232x faster kernel",
+          "url": "https://sankalp.bearblog.dev/autoresearch/",
+          "source": "hn",
+          "byline": "Sankalp / bearblog.dev, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49309549",
+          "tier": "recommended",
+          "summary": "A first-time contestant placed 12th of 183 in GPU Mode's auto-research competition — batched Householder QR factorization — with a 232x speedup over baseline, made over 1,500 submissions in 14 days, and wrote the whole loop up. The post is a practical handbook for agentic kernel research: keep a beam of candidate ideas, kill beams only with evidence, convert unknown unknowns into known unknowns before prompting, and run sub-agents on different approaches rather than parameter sweeps. It is refreshingly honest about the misses (no tcgen05 use, PyTorch-round-trip overhead), which makes it more instructive than most winner writeups."
+        },
+        {
+          "title": "AI has access to a vastly larger working memory than the human brain",
+          "url": "https://davidepiffer.com/p/ai-isnt-outthinking-mathematicians",
+          "source": "hn",
+          "byline": "Davide Piffer / Substack, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49312845",
+          "tier": "recommended",
+          "summary": "Argues that much of AI's apparent mathematical superiority is memory rather than intelligence: models hold entire problem statements, hundreds of intermediate equations and abandoned approaches inside a context window, while limited human working memory is the binding constraint on reasoning. The von Neumann-versus-Einstein framing — machine-amplified speed and symbolic memory versus the ability to reconceptualize a problem — predicts AI wins on constraint-heavy, bookkeeping-heavy problems and loses on single conceptual leaps. A thoughtful piece, and one of the strongest essays of the day by engagement."
+        },
+        {
+          "title": "Validation-centric AI-assisted GPU porting of a 250,000-line legacy weather code",
+          "url": "https://arxiv.org/abs/2608.13122",
+          "source": "hn",
+          "byline": "Tetsuya Hoshino et al. / arXiv 2608.13122, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49314967",
+          "tier": "recommended",
+          "summary": "A team ported CReSS, a 250,000-line Fortran weather simulation, to GPU with an AI agent that extracts OpenMP regions, generates dump-based kernel benchmarks from physically meaningful states, applies OpenACC, and validates element-wise against reference data. The workflow produced numerically validated GPU implementations for 162 target kernels with a 5.1x application-level speedup — and caught five kernels with floating-point discrepancies (threshold-sensitive branch divergence, cancellation) that were fed back to the application authors. The lesson: AI-assisted GPU porting is a validation-workflow problem, not just a code-generation one."
+        },
+        {
+          "title": "QuoteBench: how matched scores can hide command-path failures",
+          "url": "https://arxiv.org/abs/2608.13547v1",
+          "source": "arxiv",
+          "byline": "Shangao Li et al. / arXiv 2608.13547",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "LLM coding agents issue Bash commands through interfaces that serialize, wrap and reparse model output, so matched execution scores cannot distinguish command-generation errors from failures introduced after generation. QuoteBench crosses the generation contract with the execution transport around one deliberately unescaped parser: replaying the same reply through it lowers success by 55.4–73.2 points across 56 one-shot tasks from 14 incident-derived families, and GPT-5.6-sol's matched gap of -3.6 points hides -64.3 points of damage plus +60.7 points of compensation. The paper's prescription — report model configuration, generation contract, execution path and final-state validator instead of a bare matched score — is the right kind of benchmark hygiene for the agent era."
+        },
+        {
+          "title": "Measuring task-agnostic training data influence across LLM pretraining",
+          "url": "https://arxiv.org/abs/2608.13515v1",
+          "source": "arxiv",
+          "byline": "Yuto Nishida et al. / arXiv 2608.13515",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Defines an influence measure that needs no downstream task or validation set: an example's influence is how much its gradient update reduces the squared distance to the final pretraining parameters, estimated from intermediate checkpoints without retraining. Applied to 18 configurations from the Pythia and PolyPythia suites, it reveals a systematic temporal crossover — literature-related data align with the trajectory toward final parameters early in training, while STEM data take over later. A tractable trajectory-level view of which data actually steer a pretraining run."
+        },
+        {
+          "title": "eve software factory template: Foreman",
+          "url": "https://github.com/vercel-labs/eve-software-factory-template",
+          "source": "github",
+          "byline": "Vercel Labs / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Vercel Labs' template for a four-station software factory: a classifier triages tasks from GitHub and Linear, an analyst turns each into a plan with acceptance criteria from a live checkout, an implementer executes in its own sandbox and verifies with the repo's own checks, and a reviewer judges the real diff with evidence — ending in a draft PR a human reviews and merges. A persistent 'factory brain' of notes about the repository carries context between runs, and local runs stay untrusted until you approve GitHub changes in the TUI."
+        },
+        {
+          "title": "Whisper-tiny Myanmar ASR (phase 1)",
+          "url": "https://huggingface.co/thantzinphyo/whisper-tiny-myanmar-phase1",
+          "source": "hf",
+          "byline": "thantzinphyo / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A 37.8M-parameter fine-tune of openai/whisper-tiny on the OpenSLR-80 crowdsourced Burmese speech corpus, with numbers that make the claim easy to verify: the best checkpoint reaches 19.60% character error rate versus the base model's 230% hallucination-ridden baseline. Phase-1 partial encoder freezing keeps it small and CPU-runnable, and the full 1,500-step training and evaluation table is published. A small, honest, checkable contribution to low-resource speech recognition."
+        },
+        {
+          "title": "Aurora-Proelia-Thinking: a 207M reasoning variant",
+          "url": "https://huggingface.co/North-ML1/Aurora-Proelia-Thinking",
+          "source": "hf",
+          "byline": "North ML / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A compact 207M-parameter English model fine-tuned on 500 verified OpenR1-Math reasoning traces, with a small replay set of ordinary conversations to preserve its chat persona; held-out loss improved from 2.648 to 2.309. The model card is refreshingly honest — a research fine-tune, not a claim of frontier reasoning, answers should be checked, and it is not a calculator. A genuinely tiny reasoning model that runs comfortably on CPU for local experiments."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Through-wall presence sensing with an ESP32 and a Raspberry Pi, a Y2K-clear ESP32 sequencer, an agent that writes your Arduino apps, and a hard-nosed look at RISC-V.",
+      "stories": [
+        {
+          "title": "Scanning for lifesigns with ESP32 and Raspberry Pi",
+          "url": "https://hackaday.com/2026/08/15/scanning-for-lifesigns-with-esp32-and-raspberry-pi-now-open-source/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The Masked Bear's open-source wifisense-pi turns an ESP32-S3 sampling the 2.4 GHz radio channel 100 times per second and a Raspberry Pi 4 doing the signal processing into a presence detector sensitive enough to pick out a perfectly still human by their breathing. It works purely off WiFi disturbances — no radar, no camera — and therefore through walls. It cannot localize or count people, but as an 'is there a large breathing animal in this room' sensor it is hard to beat at this price."
+        },
+        {
+          "title": "ESP32 music sequencer is nailing the Y2K aesthetic",
+          "url": "https://hackaday.com/2026/08/15/esp32-music-sequencer-is-clearly-nailing-the-y2k-aesthetic/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "3DSage's Clear Retro Music Sequencer pairs an ESP32-S3 module with a custom fiber-laser-cut PCB, a rotary encoder, and a stylophone-style brass-rod keyboard, all inside a 3D-printed PETG case tuned for translucency. The details carry it: a phono jack with automatic headphone/speaker switching, a 666 mWh lithium cell disguised as an AAA battery, and a slap-bracelet wristband cold-worked from measuring tape. The transparent-PETG printing technique alone is worth the read."
+        },
+        {
+          "title": "Arduino App Lab 0.10: meet Agentic Mode",
+          "url": "https://blog.arduino.cc/2026/08/12/arduino-app-lab-0-10-meet-agentic-mode/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Arduino App Lab 0.10 adds an MCP-powered Agentic Mode that operates on your project rather than just chatting about it: it understands the workspace, creates and edits files, runs the app, and interprets errors as they happen, on a bring-your-own-key basis with Claude supported first. The release also adds language-server support (autocomplete, go-to-definition across sketches and scripts) and one-click UNO Q registration with Arduino Cloud from Settings."
+        },
+        {
+          "title": "RISC-V: They Should Have Known Better",
+          "url": "https://dmitry.gr/?r=06.%20Thoughts&proj=12.%20RV",
+          "source": "hn",
+          "byline": "Dmitry Grinberg / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49298035",
+          "tier": "recommended",
+          "summary": "Dmitry Grinberg's long-promised full-length brief against RISC-V's ISA decisions: interrupt entry/exit on small cores costs 44+ cycles versus 27 for a Cortex-M0, code density is weak for ROM-bound microcontrollers, and extension sprawl with scattered encodings stranded vendors that missed the RVA23 cut. It ends with a fair prediction regardless: RISC-V will still own the cheap microcontroller space, the same way the 8051 did — because the price is right, not because the design is good."
+        },
+        {
+          "title": "A smart solar panel system you can 3D-print, build, and learn from",
+          "url": "https://blog.arduino.cc/2026/07/21/a-smart-solar-panel-system-you-can-3d-print-build-and-learn-from-with-the-arduino-uno-q-board/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A fully open-source teaching build from a Qualcomm field engineer: two servo motors steer a small panel toward the sun based on a sky scan run by the Linux side of an Arduino UNO Q, with a live browser dashboard showing orientation, a solar heatmap, IR levels and weather. It protects itself too — tilting away from overheating, moving vertical before storms, resting in darkness, and vibrating itself clean of dust like a Mars rover. Full 3D files, code and tutorial are on Arduino Project Hub."
+        },
+        {
+          "title": "Radio Shack toy returns to life",
+          "url": "https://hackaday.com/2026/08/15/radio-shack-toy-returns-to-life/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The Modern Rogue found his childhood 200-in-1 electronic kit in a closet, repaired the corroded battery contacts with Josh Nass, and put it through its paces — ending with a working code-practice oscillator. A warm reminder of the spring-terminal breadboarding era, with pointers to modern equivalents (and a 65-in-1 you can build yourself) if you want the same magic."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "The Wow! signal turns 49 unexplained, JWST may have caught a 'black hole star', and a mosasaur premaxilla sat hidden in museum rock for 30 years.",
+      "stories": [
+        {
+          "title": "The Wow! signal: 49 years on, still unexplained",
+          "url": "https://en.wikipedia.org/wiki/Wow!_signal",
+          "source": "hn",
+          "byline": "Wikipedia / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49314596",
+          "tier": "must-read",
+          "summary": "Forty-nine years ago today, on August 15, 1977, Ohio State's Big Ear radio telescope recorded a 72-second narrowband burst at the hydrogen-line frequency of 1420 MHz, coming from the direction of Sagittarius. Volunteer Jerry Ehman circled the intensity reading '6EQUJ5' on the printout and wrote 'Wow!' beside it. The signal has never recurred, and despite hypotheses ranging from comet hydrogen clouds to interstellar scintillation, no terrestrial or natural explanation has been confirmed — it remains the strongest candidate SETI signal ever recorded."
+        },
+        {
+          "title": "JWST spots a bizarre 'black hole star' 100 billion times brighter than a star",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260813045538.htm",
+          "source": "science",
+          "byline": "MIT / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "An MIT-led team using JWST found MoM-BH*-1, a deeply red source in the early universe that produces roughly 100 billion times more energy than any star could, with the deepest Balmer break ever observed and almost no metals in its light. Their best-fit model, published in Nature on August 12, is a genuinely new kind of object: a black hole of about 100,000 solar masses wrapped in an enormous, dense hydrogen envelope that mimics a stellar atmosphere — a 'black hole star'. If right, these objects could explain the mysterious little red dots that appear in nearly every deep JWST field."
+        },
+        {
+          "title": "A 30-year-old fossil was hiding bones from a mysterious ancient sea monster",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260813045555.htm",
+          "source": "science",
+          "byline": "Okayama University of Science / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Re-examining unprepared rock from a mosasaur collection gathered in Osaka between 1990 and 1992, researchers found four bones that had gone unrecognized for three decades — including the first premaxilla, the bone at the front of the upper jaw, ever confirmed in a Japanese mosasaur. The basisphenoid's horn-like projections and missing ventral groove match no previously described species, raising the possibility the animal is new to science. A reminder that museum collections can still hold surprises."
+        },
+        {
+          "title": "A 60-year-old theory about ants, bees and wasps may be wrong",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260813045552.htm",
+          "source": "science",
+          "byline": "Arizona State University / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The textbook haplodiploidy theory — that sisters' unusual genetic relatedness drove the evolution of eusociality in ants, bees and wasps — fails a large-scale phylogenetic test. Analyzing social behavior and genetics across nearly 69,000 insect species on two of the largest insect family trees, Arizona State researchers found almost the entire signal traces to one lineage, the aculeate Hymenoptera (stinging wasps, bees and ants); outside it, haplodiploid insects evolve eusociality at rates similar to diploid ones. Published in Current Biology, the study shifts the explanation toward traits like stingers and nesting behavior."
+        },
+        {
+          "title": "A spectre is haunting Unicode",
+          "url": "https://www.dampfkraft.com/ghost-characters.html",
+          "source": "hn",
+          "byline": "Dampfkraft / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49310926",
+          "tier": "notable",
+          "summary": "Japan's 1978 JIS X 0208 standard accidentally invented characters: cataloging errors — like pasting 山 over 女 on a sheet and mistaking the photocopy seam for a stroke — produced 'ghost characters' (幽霊文字) with no real source or reading. A 1997 investigation traced nearly all of them to specific mishaps, but one, 彁, remains unexplained. Those ghosts then migrated into Unicode during CJK unification, so a character born from a copying mistake is now, at least potentially, on every computer on Earth."
+        },
+        {
+          "title": "TIL: bees pick up a positive charge flying, flowers hold a negative one grounded",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vpfeyr/til_that_bees_get_a_positive_charge_from_flying/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Friction with the air gives flying bees a positive electrostatic charge, while grounded flowers carry a slight negative charge — and the attraction does real work: pollen grains leap across the gap onto a bee's positively charged body, and bees can even sense a flower's electric field, including whether a previous visitor has just discharged it. Electrostatic pollination has been documented since the 1970s across sources including AskNature, National Geographic and the Journal of Comparative Physiology — a classic TIL that holds up."
+        }
+      ]
+    }
+  ]
+}

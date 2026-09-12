@@ -1,0 +1,234 @@
+{
+  "date": "2026-08-15",
+  "summary": "GLM-5.3 shows what pure post-training can do for coding, a contract-grade verifier finds most 'accepted' LLM-generated GPU kernels are secretly broken, and the day's quieter signal runs from a 150M-param ARC-AGI model to a $5 ESP32 that senses breathing through walls.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "A frontier coding release, hard evidence that kernel-generation correctness numbers are overstated, and small models doing outsized things.",
+      "stories": [
+        {
+          "title": "GLM-5.3: Frontier coding with emergent cyber capabilities",
+          "url": "https://z.ai/blog/glm-5.3",
+          "source": "hn",
+          "byline": "Z.ai / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49294997",
+          "tier": "must-read",
+          "summary": "Z.ai shipped GLM-5.3 on August 14 without retraining the base model: it keeps GLM-5.2's 743B base and derives every gain from scaled-up post-training. The headline numbers are coding-focused — DeepSWE 66.9%, more than twenty points above GLM-5.2, plus long-horizon tool use — and Z.ai positions the release as its strongest open-weights system yet, 'built to code, ready for cyber defense.' The cyber angle reportedly emerged during training rather than being explicitly taught, which is drawing most of the discussion."
+        },
+        {
+          "title": "A Contract-Grade Verifier for LLM-Generated GPU Kernels",
+          "url": "https://arxiv.org/abs/2608.12700",
+          "source": "hn",
+          "byline": "arXiv 2608.12700 / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49301417",
+          "tier": "recommended",
+          "summary": "The standard test for machine-generated GPU kernels — one loose run against a reference — accepts kernels that are silently wrong in twelve different ways: NaNs where answers should be finite, run-to-run nondeterminism, shape-dependent breakage, fp16 accumulation drift. This paper builds a contract-grade verifier with tolerance-free adversarial gates and audits 2,638 kernels a public system already accepted: 39.5% are broken beyond any tolerance argument, and 62.1% violate at least one contract — while the field's standard test accepts 1,487 kernels the verifier rejects. It also verifies a native Blackwell training backward for gated-linear-recurrence models, the first of its kind."
+        },
+        {
+          "title": "Introducing Toast 1",
+          "url": "https://www.mixedbread.com/blog/toast-1",
+          "source": "hn",
+          "byline": "Mixedbread / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49299746",
+          "tier": "recommended",
+          "summary": "Mixedbread's Toast 1 is a specialized search agent that matches or beats frontier models like Claude Opus 5 and GPT-5.6 Sol on deep-retrieval benchmarks at roughly 7–11× lower cost and a fraction of the latency (median ~8 seconds per query). It takes over the whole search loop — subquery decomposition, evidence gathering, source inspection — so a generalist agent can spend its context on reasoning. On Databricks' OfficeQA Pro V2, GPT-5.6 Sol with Toast 1 as a subagent hit 70% correctness at about $1.20 per task, the highest score among systems Databricks evaluated."
+        },
+        {
+          "title": "Google is making private AI practical with homomorphic encryption",
+          "url": "https://blog.google/security/how-google-is-making-private-ai-practical-with-homomorphic-encryption/",
+          "source": "hn",
+          "byline": "Google Security Blog / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49300314",
+          "tier": "recommended",
+          "summary": "Google's HEIR compiler (Homomorphic Encryption Intermediate Representation) converts pre-trained AI models that run on plaintext into models that run directly on encrypted inputs, keeping the server blind to user data while still providing features like recommendations or fraud detection. The post shares four compiled applications — a deep-learning recommendation model, credit-card fraud detection, network-threat anomaly detection, and a hotword detector — with single-threaded CPU latency numbers. HEIR is open source and already has hardware-accelerator partners (Belfort, Niobium, Cornami, Optalysys) plus four peer-reviewed publications built on it."
+        },
+        {
+          "title": "AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design",
+          "url": "https://arxiv.org/abs/2608.13560v1",
+          "source": "arxiv",
+          "byline": "Yaxin Luo et al. / arXiv 2608.13560",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "AutoDesign frames multimodal content production as a long-horizon agentic loop where a meta-harness optimizer tells a code agent how to recursively improve its own harness from rollout feedback. On PosterBench (paper-to-poster generation), it scores 78.32 vs 70.87 for the closed-source Claude Design, and integrating the learned DesignHarness raises average scores from 54.99 to 67.39 across seven agent configurations. A fully autonomous run executes 253 tool calls in 40 minutes for under $3 at conference-poster quality."
+        },
+        {
+          "title": "Vero: Can AI Agents Build Formally Verified Software Repositories?",
+          "url": "https://arxiv.org/abs/2608.13522v1",
+          "source": "arxiv",
+          "byline": "Zhe Ye et al. / arXiv 2608.13522",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Vero is the first benchmark to test joint implementation-and-proof synthesis at repository scale: 43 multi-module Lean 4 repositories with predetermined API interfaces, formal specifications, and reference implementations across Python, Dafny, Verus, and Coq. The strongest frontier coding agent fully solves only 27 of 43 instances and closes no specifications on the hardest repositories, so the paper is a sobering testbed for verified AI-generated software. It also ships an audit mechanism that lets agents formally prove a spec unsatisfiable or the reference code wrong."
+        },
+        {
+          "title": "cordiverse/paper: a programming paradigm for spatiotemporal composability",
+          "url": "https://github.com/cordiverse/paper",
+          "source": "github",
+          "byline": "cordiverse / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A preprint that lifts classical effect and coeffect concepts to runtime mechanisms: 'revertible effects' (every context transformation carries an inverse the runtime tracks) and 'reactive coeffects' (context changes notify a component against its contract), unified into a single context type. The accompanying Cordis meta-framework implements it with effect tracking, coeffect resolution, and a declarative component loader with config reconciliation and hot module replacement — squarely aimed at plugin systems and self-evolving agent harnesses."
+        },
+        {
+          "title": "anti-slop: Oxlint rules that reject low-evidence TypeScript",
+          "url": "https://github.com/dmmulroy/anti-slop",
+          "source": "github",
+          "byline": "dmmulroy / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "An opinionated Oxlint ruleset that bans the low-evidence patterns LLMs overproduce in TypeScript and JavaScript: chained type assertions, unknown-typed function contracts, dictionary types built on any/unknown, runtime typeof narrowing instead of boundary parsing, and mock-heavy tests. Rules are meant to be vendored into a repo and customized, and a bundled agent skill handles install and configuration."
+        },
+        {
+          "title": "MiniMax-Music3: a 2.4B open music-generation model",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-Music3",
+          "source": "hf",
+          "byline": "MiniMaxAI / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A 2.43B-parameter text-to-audio model that generates music and is small enough for a consumer GPU — checkpoints are diffusers/sglang-omni compatible and it already has 660+ likes within a week of release. That puts genuine open music generation in reach of a 3060/3070 class card, which is the whole point of this channel."
+        },
+        {
+          "title": "Anima-2.9B-preview: a small open anime/illustration image model",
+          "url": "https://huggingface.co/Gazingstars123/Anima-2.9B",
+          "source": "hf",
+          "byline": "Gazingstars123 / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Anima-2.9B is a layer-expanded fine-tune (28 to 40 transformer layers, ~2.9B params) of circlestone-labs/Anima trained on 1.7M anime/illustration samples with a July 2026 knowledge cutoff — one of the most current small image models at release. It runs in ComfyUI and Forge-Neo with LoRA training support, and spot-checks put it on consumer GPUs. Non-commercial license, training still in progress."
+        },
+        {
+          "title": "A 150M-param recurrent model scores 29.5% on ARC-AGI-1 at $0.0007 per task",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1voh6tx/a_150m_param_recurrent_model_scores_295_on/",
+          "source": "reddit",
+          "byline": "r/LocalLLaMA",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Pathway's BDH-CQ, a 150M-parameter recurrent model (per arXiv 2608.09888), reaches 29.5% pass@2 on the public ARC-AGI-1 evaluation set at a computed inference cost of $0.0007 per task — roughly 11× cheaper per task than a frontier model at low reasoning effort. Instead of emitting chain-of-thought, it iterates in a high-dimensional latent workspace and updates recurrent memory from demonstrations, making it a compelling data point for post-transformer, non-verbal reasoning."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Reverse engineering the water meter on your pipe, sensing breathing through walls with $5 of ESP32, and a containerized factory printing drones at sea.",
+      "stories": [
+        {
+          "title": "Snooping Flume water monitor data on the wire",
+          "url": "https://hackaday.com/2026/08/14/snooping-flume-water-monitor-data-on-the-wire/",
+          "source": "hackaday",
+          "byline": "Hackaday / Stephen",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A homeowner reverse-engineered his Flume water monitor, which reports usage to Flume's servers, and built a MITM relay that decrypts the traffic in transit and logs it locally. The trick chain is lovely: corrupting the stored public key makes the bridge talk plaintext, and digging into the LibHydrogen implementation revealed the device authenticates with a static device secret harvestable from flash rather than session keys. Caveat: the interception can block future firmware updates, and the tool is open on GitHub (stevecrozz/flumewatch)."
+        },
+        {
+          "title": "Open-source DSP pipeline: a $5 ESP32 detects human breathing through walls via WiFi CSI",
+          "url": "https://www.reddit.com/r/raspberry_pi/comments/1vod16q/i_opensourced_a_dsp_pipeline_that_uses_a_5_esp32/",
+          "source": "reddit",
+          "byline": "r/raspberry_pi",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A fully open-sourced DSP pipeline that turns an ESP32's WiFi Channel State Information into through-wall breathing detection — the classic Wi-Fi sensing trick that normally lives in research labs or expensive commercial platforms. The author claims a $5 ESP32 suffices, with the signal chain (channel sweeping, subcarrier extraction, filtering, spectrogram, vital-sign estimation) all in code you can run yourself. It's the kind of reproducible, measured embedded project this section is for."
+        },
+        {
+          "title": "Automatic naptime with a BabyBjorn bouncing servo",
+          "url": "https://hackaday.com/2026/08/14/automatic-naptime-with-babybjorn-bouncing-servo/",
+          "source": "hackaday",
+          "byline": "Hackaday / Ceyhun Karataş",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A father-freeing hack in the best tradition: an Arduino Nano, a Futaba S3003 servo in a 3D-printed case, and a string turn a spring-loaded BabyBjorn rocker into an automatic bouncer. Two potentiometers independently control bounce speed and amplitude, the baby's own spring does the return stroke, and the design keeps the safety caveat that a child should never be left unattended. Everything needed to replicate it is on Thingiverse."
+        },
+        {
+          "title": "This DIY pen plotter has delta kinematics and a tool changer",
+          "url": "https://blog.arduino.cc/2026/07/31/this-diy-pen-plotter-has-delta-kinematics-and-a-tool-changer/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "András Vujovits built a pen plotter that abandons the standard two-axis Cartesian layout for delta kinematics — two parallel arm linkages on rails position a pen anywhere in the work envelope, which takes real inverse-kinematics math. It also has a tool changer for swapping pens and tools, and a treadmill-style paper feed that pulls fresh stock across the bed. Mostly 3D-printed with off-the-shelf rails and belts, it runs an Arduino Nano on a GRBL shield, and the author wrote custom software that turns images into delta-aware G-code."
+        },
+        {
+          "title": "Arduino Core on Zephyr 0.90.0 is officially stable",
+          "url": "https://blog.arduino.cc/2026/07/29/arduino-core-on-zephyr-0-90-0-is-officially-stable-and-leaving-beta/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Arduino's Zephyr-based core exits beta at 0.90.0, becoming the primary framework for its advanced boards — with the legacy mbedOS cores beginning deprecation now that mbedOS has hit end of life. The release adds the Nano RP2040 Connect to the lineup, native SD card support for Portenta H7/C33, official PDM library support on Nano 33 BLE, and automatic loader sync on every sketch upload. If you run Arduino on an UNO Q, Opta, GIGA R1, or Nicla, this is the core that will carry you forward."
+        },
+        {
+          "title": "Firestorm Labs 3D-prints 1,000 parts and 12 flight-ready drones at sea",
+          "url": "https://3dprintingindustry.com/news/firestorm-labs-3d-prints-1000-parts-and-12-flight-ready-drones-at-sea-253795/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Aboard the USS Essex en route to RIMPAC 2026, Firestorm's containerized xCell factory printed more than 1,000 parts including twelve flight-ready Squall FPV quadcopters, in sea states peaking at 5 with 12-foot waves. The most striking part: a printed polymer droop stop that let Apaches keep rotors mounted on a Navy deck — protecting a $500,000 rotor assembly with a part costing a rounding error. Flight-ready UAS, repair parts, and a Starlink mount all came off the same two-container production line, a concrete answer to contested-logistics supply chains."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "A reactor's ghostly antineutrino afterglow, Neptune's clay-covered moon wreckage, and a 236-million-year-old clue that mammals gave birth far earlier than anyone thought.",
+      "stories": [
+        {
+          "title": "Scientists detect a nuclear reactor's ghostly afterglow for the first time",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260814011036.htm",
+          "source": "science",
+          "byline": "Max-Planck-Institut für Kernphysik / ScienceDaily",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The Double Chooz collaboration has measured the faint antineutrino stream that lingers from a nuclear reactor after shutdown — long-lived fission products keep decaying for months or years, and the detector caught ~100 candidate events over 17.2 days with both Chooz units fully off. The signal closely matches simulations of the remaining fuel inventory and spent-fuel pools, providing the first published benchmark for 'reactor-off' antineutrino monitoring. That could become an independent, physics-based way to confirm reactor status and track spent fuel, published in Physical Review Letters."
+        },
+        {
+          "title": "Neptune's tiny moons may be the wreckage of shattered ancient worlds",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260813045545.htm",
+          "source": "science",
+          "byline": "Caltech / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "JWST spectra of Neptune's small inner moons Larissa, Galatea, and the rings show magnesium-rich phyllosilicates — clay minerals that only form with liquid water, never before seen beyond Jupiter — with no water ice in sight. The Caltech team's explanation is catastrophic: when Triton was captured, Neptune's original moon system was destroyed, and these moons are reaccreted debris from deep inside larger icy bodies, 'turned inside out' by the wreck. Published in Science Advances, it's the only place we can directly see the deep interior composition of a large icy world."
+        },
+        {
+          "title": "A 236-million-year-old fossil could rewrite the story of mammalian birth",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260813045534.htm",
+          "source": "science",
+          "byline": "CONICET / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A microscopic neonatal line — a growth ring formed at birth — in the femur of Chiniquodon theotonicus, a cynodont from 236 million years ago in Argentina, is the first evidence of live birth in a mammalian ancestor. Body-mass estimates put the newborn at ~1.7kg, about 14% of adult mass, a ratio that groups it with modern placental mammals rather than egg-laying reptiles; that pushes viviparity in our lineage back some 90–95 million years earlier than thought. Published in Frontiers in Mammal Science, with the caveat that more fossils are needed to confirm it wasn't an isolated case."
+        },
+        {
+          "title": "Scientists find evidence for two origins of life on Earth",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260811011134.htm",
+          "source": "science",
+          "byline": "Heinrich Heine University Düsseldorf / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "By tracing the enzymes of the 420-reaction network at the origin of metabolism, Düsseldorf researchers found the bacteria and archaea lineages reached the free-living state independently: LUCA had enzymes for only about half of metabolism, with metals from hydrothermal vents catalyzing the rest. They also identified a pre-ATP energy source — phosphite reacting with organic compounds in the presence of palladium performs metabolic phosphorylation in water overnight. 'One origin of the genetic code, two origins of life,' as senior author William Martin puts it, in Science Advances."
+        },
+        {
+          "title": "TIL: Nebraska's 'Admiral of the Great Navy' commands all tadpoles and goldfish",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vol84z/til_the_title_admiral_of_the_great_navy_of/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Nebraska, the most landlocked US state (triple-landlocked, per the standard definition), bestows a tongue-in-cheek honorary title: Admiral of the Great Navy of the State of Nebraska, granted personally by the Governor. The commission document is the joke — it places 'all officers, seamen, tadpoles and goldfish under your command.' Recipients have included Queen Elizabeth II, and a Nebraska Admirals Association exists to promote education and tourism."
+        },
+        {
+          "title": "Every exterior shot in The Taking of Pelham 123",
+          "url": "https://iafisher.com/2026/07/pelham-123",
+          "source": "hn",
+          "byline": "iafisher.com / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49303957",
+          "tier": "notable",
+          "summary": "Fifty years on, almost every exterior location in the 1974 subway-hijacking classic can still be found in contemporary New York: this essay locates all ~40 Manhattan exterior shots with timestamps, Street View links, and notes on the few continuity breaks. The filmmakers matched action to real geography carefully — police field command filmed at 28th Street and Park Avenue because the train stops near the 28th Street station — which is why the whole route still checks out. A lovely data-driven exercise in film geography."
+        }
+      ]
+    }
+  ]
+}

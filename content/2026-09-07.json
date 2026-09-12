@@ -1,0 +1,207 @@
+{
+  "date": "2026-09-07",
+  "summary": "OpenAI’s chief scientist warns that no lab is ready to keep scaling, while the lab’s own metrics show coding agents already outrunning human research hours; electronics covers charged-drop corrosion, turmeric micro-SLA, and foam-filled titanium that floats; interesting news has Isar Aerospace’s second-flight orbit from Andøya, eight-letter DNA transcription, and a Thai devil flower.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "An Alien Mind",
+          "url": "https://openai.com/index/an-alien-mind/",
+          "source": "hn",
+          "byline": "tosh / Jakub Pachocki, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49588080",
+          "tier": "must-read",
+          "summary": "OpenAI chief scientist Jakub Pachocki published “An Alien Mind” on 6 September 2026, arguing that no lab has solved alignment and monitoring well enough to keep scaling at maximum speed. He traces today’s reasoning models to the 2023 RLSlow work, says internal results make recursive self-improvement a live path, and splits the problem into goal alignment versus value alignment. Chain-of-thought monitoring and the Preparedness Framework are treated as partial tools, not a solved safety case. He wants shared safety bars, third-party auditors, and voluntary slowdowns until those bars exist."
+        },
+        {
+          "title": "Research acceleration: The view inside OpenAI",
+          "url": "https://openai.com/index/research-acceleration-view-inside-openai",
+          "source": "hn",
+          "byline": "iamsyr / OpenAI, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49587217",
+          "tier": "must-read",
+          "summary": "OpenAI says it has reached last fall’s public goal of an automated research intern by September 2026: a system that can carry out well-defined tasks that would take a skilled researcher a few days, with an automated AI researcher still targeted for March 2028. By mid-August the median researcher was spending more than $600 per day of inference at API prices, and the 90th percentile more than $7,000; total agent runtime in the research org has exceeded human labor since June. After the Hugging Face incident the lab paused RL on latest deployment models, shut the training-container service on 20 July, and on 7 August cut Astra-class GPU allocation 59.2% after a Preparedness finding of possible critical cyber capabilities. People still set priorities and decide whether to scale, pause, or deploy."
+        },
+        {
+          "title": "AI, tools and transformation",
+          "url": "https://www.ben-evans.com/benedictevans/2026/9/3/ai-tools-and-transformation",
+          "source": "hn",
+          "byline": "firexcy / Benedict Evans, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49582656",
+          "tier": "recommended",
+          "summary": "Benedict Evans argues that giving everyone a chatbot will not transform a company the way Copilot pitches imply, because most work is already institutionalized in SAP, Excel, and 18-month purchase cycles. He treats AI as another platform shift that first automates existing tasks, then creates new ones, with the hard part remaining problem definition and getting 50–500 people onto one workflow. Copilot-style rollouts look to him like handing every employee Lotus 1-2-3 in 1983: a few people use it heavily, most do not, and invoice processing still needs a dedicated system. Forward-deployed engineers and lab “deploycos” are the change-management layer, not a replacement for buying software."
+        },
+        {
+          "title": "Is there I/O after death? io_uring when a process dies",
+          "url": "https://blog.ydb.tech/is-there-i-o-after-death-what-happens-to-io-uring-when-a-process-dies-92c65354873f",
+          "source": "hn",
+          "byline": "porridgeraisin / Evgenii Ivanov, YDB, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49542471",
+          "tier": "recommended",
+          "summary": "Evgenii Ivanov of YDB shows that on Linux 6.6.79, ordinary io_uring writes can complete after the writer is SIGKILL’d and waitpid() has returned. With dm-delay and again under native NVMe queue pressure, generation counters advanced at hundreds of 4 KiB positions after the process was reaped; SQPOLL and native AIO instead stretched teardown so waitpid() waited out the I/O. Outstanding requests keep the dead task’s struct file, so an exclusive flock on a separately opened descriptor is a practical barrier. The post is a recovery-protocol warning, not a claim about every filesystem or kernel."
+        },
+        {
+          "title": "Molecular Déjà Vu: digit-level retrieval of published values",
+          "url": "https://arxiv.org/abs/2609.05381v1",
+          "source": "arxiv",
+          "byline": "Busch, Tacke, Lamaka, Zheludkevich, Cyron, Aydin",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Busch and colleagues audit 22 frontier models on 12 molecular-property regression benchmarks and find digit-level retrieval of published values is widespread but dataset-specific: on five datasets more than 50% of the models retrieve verbatim numbers. The same molecules and prompt are flagged 89% more often at a higher reasoning setting than at the lowest one. Interrupting retrieval in the worst cases still leaves the strongest models able to recognize transformed SMILES paired with original labels. Suppressing retrieval pulls the models’ errors closer together, so spread on the leaderboard is not the same as general predictive skill."
+        },
+        {
+          "title": "Does your agent’s memory survive a model upgrade?",
+          "url": "https://arxiv.org/abs/2609.05339v1",
+          "source": "arxiv",
+          "byline": "Goyal, Ray",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Goyal and Ray keep the same 48 synthetic histories and swap the model, comparing long-context raw notes, RAG chunks, compressed NOTES, and a fixed-schema knowledge graph on two open-weight models under 10 billion parameters. KG-fixed accuracy moves only +0.0004 ± 0.0020 after a writer swap, while NOTES jump +9.91 or −13.28 points depending on direction. A 50/50 mixed embedding index captures only 4.96 of the 11.90-point gain from full re-embedding. Store-only repair of NOTES never hits 90% recovery in 48 cases; keeping the raw history recovers 34 of 48 in one direction."
+        },
+        {
+          "title": "commerce-agents: shopping and merchant agents on Claude",
+          "url": "https://github.com/anthropics/commerce-agents",
+          "source": "github",
+          "byline": "Anthropic / GitHub",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Anthropic published a reference blueprint for a shopping agent a business embeds for customers and a merchant agent staff use in the back office, both defined once and run on the Messages API, Agent SDK, or Managed Agents. Four fictional ACME verticals — retail, travel, telecom, entertainment — share libraries; checkout only renders a cart for the host, and every merchant write is staged until a person approves it. Safety fencing, provenance gates, and caps sit in the tool path on all three runtimes. The repo is Apache-2.0, labeled a reference implementation that is not maintained and does not accept contributions."
+        },
+        {
+          "title": "okf-agent-memory: git-native OKF v0.2 for coding agents",
+          "url": "https://github.com/okf-memory/okf-agent-memory",
+          "source": "github",
+          "byline": "okf-memory / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "okf-agent-memory stores agent memory as Git-native Markdown with YAML frontmatter under knowledge/, following Google’s Open Knowledge Format v0.2, with a zero-dependency Go CLI and stdio MCP server. The README reports in-memory BM25 search under 300 µs, about 4 ms graph validation, and under 15 MB RSS, versus embedding-API vector stores. Progressive disclosure via index.md is meant to cut token bloat; search-before-write is a stated convention. It is a local lexical memory layer, not a vector database."
+        },
+        {
+          "title": "TimesFM 3.0: 330M multivariate time-series foundation model",
+          "url": "https://huggingface.co/google/timesfm-3.0-pytorch",
+          "source": "hf",
+          "byline": "Google Research / Hugging Face",
+          "discuss_url": "https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting",
+          "tier": "recommended",
+          "summary": "The model card and Google Research blog describe TimesFM-3.0 as a 330-million-parameter PyTorch time-series foundation model pretrained on more than a trillion time points for native multivariate forecasting. A 20-layer mixing transformer (dim 1280, 16 heads) with contiguous patch masking fills the horizon in one forward pass and emits nine quantiles. Google reports it as the top-ranked pretrained model on Gift-Eval, FEV-Bench, and TIME for point and probabilistic metrics, including in univariate mode. Weights are on Hugging Face under the TimesFM Non-Commercial License v1.0; BigQuery integration is described as coming."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Spontaneously charged water drops induce corrosion",
+          "url": "https://www.nature.com/articles/s41586-026-10941-6",
+          "source": "hackaday",
+          "byline": "Ni, Li, Ratschow et al. / Nature, via Hackaday",
+          "discuss_url": "https://hackaday.com/2026/09/06/how-charged-water-drops-induce-corrosion/",
+          "tier": "recommended",
+          "summary": "Zhongyuan Ni and colleagues report in Nature that water drops sliding on insulators can charge to more than 1 kV and then punch through protective coatings by dielectric breakdown. In their setup, NaCl-doped drops charged on an insulator, then hit Teflon-coated metal and gradually exposed the substrate. The authors treat this as a third corrosion path besides abrasion and acid rain, including drops charged in clouds and industrial spray. Hackaday’s 6 September write-up is the hardware-angled account of doi:10.1038/s41586-026-10941-6, published 26 August 2026."
+        },
+        {
+          "title": "Printing micron-scale Benchies with resin and turmeric",
+          "url": "https://hackaday.com/2026/09/06/printing-micron-scale-benchies-with-resin-and-turmeric/",
+          "source": "hackaday",
+          "byline": "Hackaday / Diffraction Limited",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Diffraction Limited printed 150 µm Benchies and a Stanford bunny smaller than a human hair by curing 405 nm resin from a 3-micron fiber core on an open-source micro-manipulator. Early resin was too transparent, so curcumin extracted from turmeric limited UV penetration and left the parts slightly fluorescent. Toolpaths came from a standard FDM slicer. It is a DIY two-photon-adjacent trick, not a commercial micro-SLA machine."
+        },
+        {
+          "title": "A DIY handheld thermal camera on UNO R4",
+          "url": "https://blog.arduino.cc/2026/09/03/building-a-diy-thermal-camera-for-work-and-play/",
+          "source": "arduino",
+          "byline": "Arduino Blog / Katie Dumont, element14",
+          "discuss_url": "https://community.element14.com/challenges-projects/element14-presents/project-videos/w/documents/72105/building-a-customisable-handheld-arduino-thermal-imaging-camera",
+          "tier": "recommended",
+          "summary": "Katie Dumont’s element14 build reads a Seeed MLX90640 32×24 thermopile array over I2C on an Arduino UNO R4 Minima and draws the image on a DFRobot Fermion capacitive TFT. Physical buttons set range; the enclosure is FreeCAD and 3D-printed. The camera is a workbench IR peek, not a FLIR substitute."
+        },
+        {
+          "title": "RMIT 3D-prints titanium that floats after damage",
+          "url": "https://www.rmit.edu.au/news/all-news/2026/sep/floating-titanium",
+          "source": "3dprinting",
+          "byline": "Michael Quin / RMIT Centre for Additive Manufacturing",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "RMIT’s Jordan Noronha and colleagues 3D-printed a titanium lattice whose hollow struts are filled with polyurethane foam so water can flow through while the skeleton stays buoyant. In Advanced Materials they report 70% higher strength than stainless steel or HDPE at the same overall density, 0.15% mass loss and under 1% strength drop after two weeks in Port Phillip Bay seawater, and freshwater float for more than two months. A printed buoy stayed stable in a tank rotated to 45 degrees without a sealed shell. It sank only after severe crushing; long-term deep-sea tests are next."
+        },
+        {
+          "title": "A batteryless NFC card that lights Charizard’s tail",
+          "url": "https://www.kevin.md/the-business-card-that-lights-up.md",
+          "source": "adafruit",
+          "byline": "Kevin Tang, via Adafruit",
+          "discuss_url": "https://news.ycombinator.com/item?id=49527967",
+          "tier": "notable",
+          "summary": "Kevin Tang’s credit-card PCB is an NXP NTAG I²C Plus with a seven-turn 13.56 MHz antenna and a batteryless LED in a Charizard tail that harvests the phone’s field (about 5 mA at 2 V in NXP’s test). KiCad Python generated the board; JLCPCB assembled ten copies for about $75. Consumer iPhone NFC apps refused the blank chip, so he wrote about 60 lines of Core NFC to send native write commands. Each tap opens kevintang.xyz and lights the LED."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Isar Aerospace reaches orbit on its second Spectrum flight",
+          "url": "https://isaraerospace.com/press/history-for-european-spaceflight-isar-aerospace-reaches-orbit-and-deploys-payloads-on-second-flight",
+          "source": "hn",
+          "byline": "mpweiher / Isar Aerospace, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49584083",
+          "tier": "must-read",
+          "summary": "Isar Aerospace’s Spectrum lifted off from Andøya Space at 10:12 pm CEST on 5 September 2026 and, on only the company’s second flight, reached orbit and deployed payloads. The Munich firm says this is the first commercial European company to deliver satellites to orbit and the first successful orbital flight from Northern Europe. Payloads came from DLR’s Microlauncher Competition funded through ESA Boost!; vehicles 3–7 are already in production, with a 40,000 m² plant aimed at up to 40 rockets a year. Satellite status was still being confirmed with customers."
+        },
+        {
+          "title": "E. coli RNA polymerase transcribes an eight-letter DNA alphabet",
+          "url": "https://today.ucsd.edu/story/breakthrough-helps-expand-genetic-alphabet",
+          "source": "science",
+          "byline": "Dong Wang / UC San Diego",
+          "discuss_url": "https://www.nature.com/articles/s41467-026-76668-0",
+          "tier": "recommended",
+          "summary": "UC San Diego’s Dong Wang reports in Nature Communications on 2 September 2026 that Escherichia coli RNA polymerase can transcribe the Hachimoji eight-letter DNA alphabet, with cryo-EM showing the enzyme recognizing synthetic base pairs by the same structural cues as natural letters. A related 12 August PNAS paper from the same lab covers a hydrophobic unnatural pair that does not use hydrogen bonds. The work is in vitro transcription evidence, not a living eight-letter organism. Earlier expanded alphabets have been used to tag liver-cancer cells; this paper is the polymerase structure."
+        },
+        {
+          "title": "Thismia daemona, a devil flower from western Thailand",
+          "url": "https://phytokeys.pensoft.net/article/202868/",
+          "source": "science",
+          "byline": "Chantanaorrapint et al. / PhytoKeys",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Chantanaorrapint and colleagues describe Thismia daemona in PhytoKeys 278 as a chlorophyll-free fairy lantern from Thong Pha Phum National Park in western Thailand, at nearly 1,000 m in seasonal montane forest. The black flower’s horned miter and reddish-orange patches give the “devil flower” name; it lives on fungal carbon under leaf litter. The find extends section Geomitra north of Peninsular Malaysia, Borneo, and Sumatra, and brings Thailand’s Thismia count to 16. ScienceDaily quotes a single population of fewer than 50 plants; the authors provisionally call it Critically Endangered."
+        },
+        {
+          "title": "Reason’s 2004 issue put 40,000 homes on the cover",
+          "url": "https://en.wikipedia.org/wiki/Reason_(magazine)",
+          "source": "reddit",
+          "byline": "Wikipedia / Nick Gillespie, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1w9dm4o/til_that_in_2004_reason_magazine_sent_out_their/",
+          "tier": "notable",
+          "summary": "In June 2004, Reason mailed about 40,000 subscribers a cover with their name and a satellite photo of their house or workplace, plus neighborhood stats inside, to illustrate public databases and Xeikon custom printing. Nick Gillespie told NPR the point was “database nation”; David Carr’s New York Times piece called it customized publishing. Wikipedia and the 5 April 2004 Times story are the sources. It was a privacy stunt, not a leak."
+        },
+        {
+          "title": "Babylonian lamb stew with beets, from Yale’s culinary tablets",
+          "url": "https://babylonian-collection.yale.edu/about/babylonian-cooking",
+          "source": "hn",
+          "byline": "yubblegum / Yale Babylonian Collection, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49554622",
+          "tier": "notable",
+          "summary": "Yale’s Babylonian Collection publishes a reconstructed lamb-and-beet stew from the culinary tablets, three of which Wikipedia dates to around 1730 BCE as the oldest known recipes. YBC 4644 lists 25 stews; the Tuh’u recipe uses leg meat, beer, arugula, cumin, and red beet. Gojko Barjamovic and Nawal Nasrallah wrote the modern kitchen version with seared lamb, beer, and a cilantro-kurrat paste. The HN link is the Collection’s cooking page, not a new excavation."
+        },
+        {
+          "title": "Hermann Buhl’s solo first ascent of Nanga Parbat",
+          "url": "https://en.wikipedia.org/wiki/1953_German%E2%80%93Austrian_Nanga_Parbat_expedition",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1w8xrg8/til_austrian_climber_hermann_buhl_made_the_first/",
+          "tier": "notable",
+          "summary": "Wikipedia records that Hermann Buhl reached Nanga Parbat’s 8,126 m summit alone at 19:00 on 3 July 1953, the only first ascent of an 8,000 m peak by a solo climber. His partner turned back; Buhl crawled the last stretch, bivouacked on a ledge without a tent after losing an ice axe, and returned to camp 41 hours after leaving. Expedition leader Karl Herrligkoffer later called the solo a breach of the group plan. Buhl died on Chogolisa in 1957."
+        }
+      ]
+    }
+  ]
+}

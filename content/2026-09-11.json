@@ -1,0 +1,225 @@
+{
+  "date": "2026-09-11",
+  "summary": "Cognition’s SWE-2 and DeepSeek V4.1-Flash land on the same day, PlanetScale shards Postgres, and Hubble is watching a new decagon grow at Saturn’s south pole.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Cognition’s SWE-2: Kimi K3 post-trained on a cost Pareto",
+          "url": "https://cognition.com/blog/swe-2",
+          "source": "hn",
+          "byline": "seelos / Cognition, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49645443",
+          "tier": "must-read",
+          "summary": "Cognition’s 10 September 2026 post introduces SWE-2, a coding model post-trained from Kimi K3’s 2.8 trillion-parameter weights. The company reports 50.0 percent on FrontierCode 1.1 Main, within a point of Fable 5.1 at 64 percent lower cost, plus 92.8 percent on Terminal-Bench 2.1. Training uses one RL run across reasoning-effort levels with linear cost penalties, NVFP4/FP8 kernels, and a tripled environment set. Those scores are Cognition’s; the model is rolling out in Devin Desktop and CLI."
+        },
+        {
+          "title": "DeepSeek V4.1-Flash: CED MoE with 890-byte KV",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "source": "hn",
+          "byline": "Liwink / DeepSeek, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49639090",
+          "tier": "must-read",
+          "summary": "DeepSeek released V4.1-Flash on 10 September 2026 as a 552 billion-parameter multimodal MoE with a Causal Encoder-Decoder that activates 8 billion parameters in prefill and 16 billion in decode. The model card reports Compressed Sparse Attention 2 and FP4 main KV caching that cut the global KV footprint to 890 bytes per token, about a quarter of V4-Flash, plus a 1 million-token context. Hugging Face evals on the card list 90.9 on GPQA Diamond and 90.6 on Terminal-Bench 2.1 under DeepSeek Harness Minimal mode. Those figures are author-reported, not an independent bake-off."
+        },
+        {
+          "title": "OpenAI Agents API: Codex as a managed harness",
+          "url": "https://developers.openai.com/api/docs/guides/agents-api/overview",
+          "source": "hn",
+          "byline": "aquir / OpenAI, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49649213",
+          "tier": "recommended",
+          "summary": "OpenAI’s Agents API documentation exposes the Codex harness as a managed service: OpenAI runs sessions, compaction, and recovery while the app supplies tools and an environment. Core objects are agent, environment, session, and events; hosted sandboxes can execute code, edit files, and talk to MCP servers. Model usage is billed at ordinary API rates, with separate container rates for hosted sandboxes. It is an API product, not a new base model."
+        },
+        {
+          "title": "Anthropic’s September 2026 misuse report",
+          "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+          "source": "hn",
+          "byline": "garo-pro / Anthropic, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49647300",
+          "tier": "recommended",
+          "summary": "Anthropic’s September 2026 threat-intelligence report covers operations disrupted between December 2025 and August 2026 across cyber, influence, surveillance, scams, biological misuse, conventional weapons, and illicit distillation. The company says Claude Haiku, Sonnet, and Opus were involved, and that Fable and Mythos-class models appeared in only one distillation case. Cases include fake dating-app fraud networks and spyware-style dissident monitoring; Anthropic says it cut off the activity and shared intelligence with partners. These are the vendor’s selected notable cases, not a prevalence study."
+        },
+        {
+          "title": "ZipCodec: 6.25 Hz streaming speech at 0.80 kbps",
+          "url": "https://arxiv.org/abs/2609.11642v1",
+          "source": "arxiv",
+          "byline": "Della Libera, Subakan, Ravanelli",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Luca Della Libera, Cem Subakan, and Mirco Ravanelli present ZipCodec, a streaming neural speech codec at 6.25 Hz and 0.80 kbps with a theoretical 160 ms latency. The 10 September 2026 preprint combines WavLM distillation with low-frame-rate coding aimed at speech generation systems that still need reconstruction quality. It is a codec paper, not a full TTS model."
+        },
+        {
+          "title": "edge0: SSD MoE offload on Apple Silicon",
+          "url": "https://github.com/Edge0-AI/Edge0",
+          "source": "github",
+          "byline": "Edge0-AI / GitHub",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Edge0-AI/Edge0 is an open-source streaming MoE inference stack that pairs SSD expert offload, Recover-LoRA, and a prerouter that predicts routing one step ahead. The README reports up to 59 percent higher decode throughput from prerouting and about 2.9 GB peak active memory for a 4-bit 35B-A3B preview on Apple Silicon MLX. CUDA is listed as a reserved backend, not shipping. Those memory and throughput figures are the project’s own short-context measurements."
+        },
+        {
+          "title": "Neki: sharded Postgres without a new storage engine",
+          "url": "https://planetscale.com/blog/introducing-neki",
+          "source": "other",
+          "byline": "Nick Van Wiggeren / PlanetScale, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49645686",
+          "tier": "recommended",
+          "summary": "PlanetScale’s 10 September 2026 preview of Neki is sharded Postgres that keeps a real Postgres primary-plus-replicas cluster on every shard. Applications speak the ordinary Postgres wire protocol to a router; shard keys and table grouping are a JSON topology, with online resharding, failovers, and schema changes as built-in workflows. You can start as a single primary and reshard later. It is a platform preview, not a claim that every extension already works across shards."
+        },
+        {
+          "title": "SoL-Pi: make the Pi harness cheaper, not lazier",
+          "url": "https://github.com/NVlabs/sol-pi",
+          "source": "reddit",
+          "byline": "Thrumpwart / NVIDIA Labs, via r/LocalLLaMA",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wcujgg/pi_agent_users_nvidia_released_solpi_a/",
+          "tier": "recommended",
+          "summary": "NVIDIA Labs released SoL-Pi, a MIT-licensed opt-in extension for the Pi coding agent that packages four harness tricks found in auto-research loops: Action Fusion, ObservationPack, an evidence-preserving log reducer, and online context compact. The README says it does not patch Pi, leaves every mechanism off by default, and keeps original observations on disk when reduction fails. It is a harness experiment for one agent runtime, not a new model."
+        },
+        {
+          "title": "Bartowski’s per-tensor GGUF layout maps",
+          "url": "https://huggingface.co/blog/bartowski/per-tensor-layout-maps-for-gguf-quantization",
+          "source": "reddit",
+          "byline": "noneabove1182 / Bartowski, via r/LocalLLaMA",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wcsj6v/new_tensor_type_layouts_for_my_gguf_uploads/",
+          "tier": "recommended",
+          "summary": "On 10 September 2026, quantizer Bartowski described per-tensor layout maps for GGUF, learned from long quantization experiments instead of llama-quant.cpp’s model-agnostic bit assignments. The Hugging Face post says the new shapes beat his prior layouts in the tests he ran, including a canary check, without claiming a Pareto frontier. It is one packager’s method, not an upstream llama.cpp change."
+        },
+        {
+          "title": "YuE2-3B: score-then-audio music on a 24 GB GPU",
+          "url": "https://huggingface.co/m-a-p/YuE2-3B",
+          "source": "hf",
+          "byline": "Multimodal Art Projection / Hugging Face",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wd19c7/new_music_model_yue23b_released/",
+          "tier": "recommended",
+          "summary": "m-a-p/YuE2-3B is a 3.63 billion-parameter music model, dated 9 September 2026, that writes an editable ABC-style score then synthesizes 48 kHz stereo audio. The model card reports a WildSongBench SongBench average of 6.9632 for best-of-8 versus 6.8721 for Suno v5, and 11.18 GiB peak VRAM to make a 3.6-minute song in 71 seconds on an RTX 4090. The documented local target is a 24 GB GPU without quantization, so this is small but not 3060-class. License is CC BY-NC 4.0; the scores are the authors’."
+        },
+        {
+          "title": "Audio8 TTS Preview 0.1B: 170M zero-shot speech",
+          "url": "https://huggingface.co/Audio8/Audio8-TTS-Preview-0.1b",
+          "source": "hf",
+          "byline": "Audio8 / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Audio8 TTS Preview 0.1B is a zero-shot cloning stack whose card puts the main generative model at about 170 million parameters plus a separate roughly 120 million-parameter codec decoder. It uses a Falcon H1 slow/fast AR design, with Chinese and English as primary languages and several others listed as experimental. The authors present it as compact multilingual TTS, not as matching larger systems on every language. The canonical card is Audio8/Audio8-TTS-Preview-0.1b."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "SLS-printed nozzles vs FDM flowrate",
+          "url": "https://hackaday.com/2026/09/10/changing-nozzle-internal-geometry-to-increase-fdm-flowrate/",
+          "source": "hackaday",
+          "byline": "Maya Posch / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Thomas Sanladerer SLS-printed tool-steel nozzles with triple-path and high-surface internals, then lathe-finished a 0.4 mm orifice and ran them on a Prusa CORE One. A pressure rig plus print-quality tests compared high-flow geometries; Hackaday says the Fuge design did best, with the caveat that MS1 tool steel is a poor production nozzle alloy. It is a measured nozzle study, not a drop-in brass replacement."
+        },
+        {
+          "title": "VolAnti: ESP32-S3 acoustic drone detector",
+          "url": "https://hackaday.com/2026/09/10/open-source-acoustic-drone-detection/",
+          "source": "hackaday",
+          "byline": "Zoe Skyforest / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Agam Rossen’s VolAnti is an open-source multi-rotor detector built around a four-microphone I2S array summed into an ESP32-S3. A 2048-point FFT every 32 ms scores blade rates from 70 Hz to 2000 Hz, and four detectors run in parallel so an adaptive noise floor cannot swallow a hovering craft. The write-up flags fiber-optic drones that emit no RF as the reason acoustics still matter. It is a detection project, not a tracker with a bearing."
+        },
+        {
+          "title": "3D views from a Pi camera with no lens",
+          "url": "https://hackaday.com/2026/09/10/3d-imaging-without-a-lens/",
+          "source": "hackaday",
+          "byline": "Zoe Skyforest / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "okooptics covers a Raspberry Pi camera with Scotch tape instead of a lens and recovers a 2D image by deconvolution, then biases the point-spread function to synthesize small viewpoint shifts. The Hackaday write-up of 10 September 2026 treats the 3D result as a directional-PSF trick with documented limits, not a stereo camera. The math is heavy; the hardware is a taped sensor."
+        },
+        {
+          "title": "Puppet-controlled arm, redesigned for print",
+          "url": "https://blog.arduino.cc/2026/09/10/redesigning-a-popular-robotic-arm/",
+          "source": "arduino",
+          "byline": "Arduino Team / Kelton Serra",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Kelton Serra’s updated puppet-style arm uses an Arduino Nano ESP32 to copy potentiometer joint angles onto servos, with a belt-driven wrist and a rack-and-pinion gripper. The 10 September 2026 Arduino blog says the CAD was rebuilt so parts print and assemble more cheaply than the original replica-controller arm. Files are on Printables. It is a mechanical redesign, not a new inverse-kinematics stack."
+        },
+        {
+          "title": "OpenChoker: RP2350 AMOLED necklace",
+          "url": "https://hackaday.com/2026/09/10/custom-amoled-wearable-makes-great-icebreaker/",
+          "source": "hackaday",
+          "byline": "Donald Papp / Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Sophie D’s OpenChoker is a DEF CON wearable: a Hello Lighting HL020E21-02 2.14-inch AMOLED, RGB LED strips, an RP2350 with microSD, and an 18650 at the nape. One cell still read 3.7 V after 16 hours; capacitive touch worked on a bench and failed once the choker was isolated. The useful artifact is the display interface footprint, since no vendor reference existed."
+        },
+        {
+          "title": "PrusaSlicer 3.0 preview: UI rewrite and plugins",
+          "url": "https://blog.prusa3d.com/prusaslicer-3-0-preview-built-for-the-future-of-3d-printing_137672",
+          "source": "other",
+          "byline": "Josef Průša / Prusa Research",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Prusa released the first public PrusaSlicer 3.0 preview on 1 September 2026, 15 years after the first Slic3r commit. Josef Průša’s post describes a from-scratch UI, per-bed configs in one project, parallel slicing, multi-project tabs with crash backups, a profile model for mixed-nozzle tool changers, and a safe plugin system heading toward a community marketplace. It is a preview, not a stable replacement for 2.9."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Hubble watches a new decagon at Saturn’s south pole",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/Hubble_tracks_new_decagon_encircling_Saturn_s_south_pole",
+          "source": "esa",
+          "byline": "ESA / NASA Hubble OPAL",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "ESA’s 2 September 2026 note, based on Hubble OPAL imaging, reports a 10-sided atmospheric wave around Saturn’s south pole, the first large regular-sided southern jet pattern. Lead author Agustín Sánchez-Lavega and co-author Amy Simon say ground-based hints from 2024–2025 and Hubble frames back to 2023 show a feature that is still strengthening, unlike the 40-year northern hexagon; Cassini saw no long-lived southern counterpart. The wave sits in a jet and appears at several altitudes. Results are in Science Advances."
+        },
+        {
+          "title": "BepiColombo’s transfer module lets go at Mercury",
+          "url": "https://www.esa.int/Enabling_Support/Operations/BepiColombo_begins_Mercury_arrival_with_MTM_separation_success",
+          "source": "esa",
+          "byline": "ESA Operations",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "On 3 September 2026 at 15:49 CEST, ESOC confirmed that BepiColombo’s Mercury Transfer Module had separated from the stack after a 9.9 billion-kilometre cruise and nine flybys. Doppler data at 14:20 CEST was the first hint; the remaining stack entered safe mode before talking from about 200 million kilometres. ESA says this starts the arrival sequence that should put two spacecraft into Mercury orbit in December 2026. MTM’s solar-electric job is done."
+        },
+        {
+          "title": "King James I rode Drebbel’s Thames submarine",
+          "url": "https://en.wikipedia.org/wiki/Cornelis_Drebbel",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wclrf3/til_more_than_400_years_ago_dutch_inventor/",
+          "tier": "recommended",
+          "summary": "Dutch inventor Cornelis Drebbel (1572–1633) built the first operational submarine in 1620 while under James I’s patronage in England. Wikipedia records a later model with six oars and room for 16 passengers, demonstrated to the king and London crowds, running about 12 to 15 feet under the Thames. The same page says Drebbel took James aboard, making him the first monarch to travel underwater. The Admiralty never put it into combat."
+        },
+        {
+          "title": "Gotham was a Nottinghamshire village of “fools”",
+          "url": "https://en.wikipedia.org/wiki/Gotham,_Nottinghamshire",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wct79e/til_that_gotham_actually_dates_back_to_medieval/",
+          "tier": "recommended",
+          "summary": "Gotham is a Rushcliffe village in Nottinghamshire, population 1,567 in the 2021 census, famed for the Wise Men of Gotham tales of feigned stupidity. Wikipedia says the stories likely started as a ruse to keep King John’s highway out of the parish, including the cuckoo-bush legend that names a local pub. Washington Irving borrowed the name mockingly for New York in the 1807 Salmagundi Papers, and Bill Finger later used it for Batman’s city. The village is real; Gotham City is not."
+        },
+        {
+          "title": "Stabiae died with Pompeii, then was reburied",
+          "url": "https://en.wikipedia.org/wiki/Stabiae",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wd3c47/til_that_pompeii_wasnt_the_only_city_destroyed_in/",
+          "tier": "notable",
+          "summary": "Stabiae was a Roman resort on the Bay of Naples, about 4.5 km southwest of Pompeii, buried by the 79 CE eruption of Vesuvius. Pliny the Elder died there; the site was dug in the Bourbon years, then backfilled around 1782 after objects were removed, and only later reopened as an archaeological park. Wikipedia lists luxury villas such as Villa San Marco and Villa Arianna. Pompeii was not Vesuvius’s only victim."
+        }
+      ]
+    }
+  ]
+}

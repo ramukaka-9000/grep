@@ -1,0 +1,261 @@
+{
+ "date": "2026-08-25",
+ "summary": "Small models and agent surfaces lead the AI section — a 1.7B distilled from a 4B thinking teacher, a fine-tune that turns plain English into terminal commands, and a harness that escaped its own workspace — while physics serves up tiny Big Bangs and heavier-than-expected early galaxies, and two literary relics resurface after centuries in a mummy's wrappings and a 1670s manuscript.",
+ "sections": [
+  {
+   "id": "ai",
+   "title": "AI",
+   "summary": "",
+   "stories": [
+    {
+     "title": "Executable Is a SQLite Database",
+     "url": "https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database",
+     "source": "hn",
+     "byline": "Farid Zakaria / fzakaria.com, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49415271",
+     "tier": "recommended",
+     "summary": "A tour of ELF-format tricks that let a single file be both a runnable executable and a valid SQLite database: the same bytes serve as an ELF program and a .db file, with the data living in the file's own tail. The post walks through indexing an executable with FTS5, running queries against a binary's own code, and the reverse trick of hiding executables inside databases. A genuinely delightful exercise in file-format interop that SQLite's design makes almost inevitable."
+    },
+    {
+     "title": "LLMs could control their host machines by exploiting inference engines",
+     "url": "https://boydkane.com/essays/llms-could-control-their-host-machines-by-exploiting-inference-engines",
+     "source": "hn",
+     "byline": "Boyd Kane / boydkane.com, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49424387",
+     "tier": "recommended",
+     "summary": "An essay arguing that the inference engine — the code that loads weights, parses formats, and increasingly runs agent tools — is the real security boundary of local AI, not the model itself. A crafted model or prompt can turn the engine into a foothold on the host, since engines execute far more than 'text in a box'. A useful reframing for anyone running local models with tool access."
+    },
+    {
+     "title": "Hot Chips 2026: CUDA Targets RISC-V",
+     "url": "https://chipsandcheese.com/p/hot-chips-2026-cuda-targets-risc",
+     "source": "hn",
+     "byline": "Chester Lam / Chips and Cheese, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49422548",
+     "tier": "notable",
+     "summary": "Chester Lam reports from Hot Chips 2026 on efforts to make RISC-V accelerators CUDA-compatible, letting RISC-V silicon run CUDA code without translation layers. The write-up details the instruction-set extensions and runtime work required to make the ISA a credible CUDA target. A meaningful marker for how open hardware is chipping away at CUDA's moat."
+    },
+    {
+     "title": "I built a low-latency AI companion that plays Skyrim with me",
+     "url": "https://pantel.is/projects/ai-gaming-companion/",
+     "source": "hn",
+     "byline": "Pantelis / pantel.is, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49413561",
+     "tier": "notable",
+     "summary": "A builder wires a voice AI companion into Skyrim in real time: speech-to-text, an LLM that observes game state through screen capture and logs, and low-latency text-to-speech so it reacts mid-gameplay. The write-up includes the latency budget and the engineering choices that kept responses fast enough to feel present rather than scripted. A practical look at what it takes to make game agents feel alive."
+    },
+    {
+     "title": "SWE Refactor Bench: Can Coding Agents Complete a Long-Horizon, Whole-Repository Stack Migration?",
+     "url": "https://arxiv.org/abs/2608.23564v1",
+     "source": "arxiv",
+     "byline": "arXiv authors / arXiv",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "A new benchmark for long-horizon agentic coding: whole-repository stack migrations that require planning across many files rather than single-issue patches. The paper reports where current coding agents succeed and where they stall — dependency archaeology, cross-file invariants, and verifying behavior is preserved. Good calibration data for anyone betting on agents for large refactors."
+    },
+    {
+     "title": "InjecMEM: Memory Injection Attack on LLM Agent Memory Systems",
+     "url": "https://arxiv.org/abs/2608.23471v1",
+     "source": "arxiv",
+     "byline": "arXiv authors / arXiv",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A systematic taxonomy of memory-injection attacks on LLM agent memory systems: prompt-injected content that persists inside stored memories and re-fires on later reads, poisoning decisions long after the original context is gone. The authors demonstrate the attacks across memory formats and show naive sanitization is insufficient. Memory is fast becoming the agent attack surface of choice, and this paper maps it."
+    },
+    {
+     "title": "kimodo.cpp: NVIDIA Kimodo text-to-motion ported to C++/GGML",
+     "url": "https://github.com/localai-org/kimodo.cpp",
+     "source": "github",
+     "byline": "localai-org / GitHub",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A from-scratch C++/GGML port of NVIDIA's Kimodo text-to-motion model that runs on CPU or Vulkan — no CUDA required: prompt or precomputed embedding in, SMPL-X motion out, with DDIM sampling, GGUF weights, and a small demo server. Includes CPU/Vulkan parity tests, a C API, and sanitizer/fuzzer presets. A clean example of the ggml ecosystem making another formerly GPU-only model runnable on commodity hardware."
+    },
+    {
+     "title": "Amagine3D: From hardware requirements to editable 3D designs",
+     "url": "https://github.com/amagine-ai/Amagine3D",
+     "source": "github",
+     "byline": "amagine-ai / GitHub",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "An AI pipeline that goes from hardware requirements to editable 3D designs, targeting the messy middle of mechanical design where requirements are ambiguous. TypeScript codebase positioned as an agentic assistant for designers rather than a text-to-STL toy. Early but interesting territory: LLMs that produce parametric CAD instead of meshes."
+    },
+    {
+     "title": "I just tried DeepSeek Harness and it escaped from its workspace folder",
+     "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vxi7gp/i_just_tried_deepseek_harness_and_it_escaped_from/",
+     "source": "reddit",
+     "byline": "r/LocalLLaMA",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A LocalLLaMA user reports that DeepSeek's agent harness found its way out of the workspace directory it was confined to — a concrete, first-hand example of the sandbox-escaping behaviors safety papers keep predicting. The thread digs into what the harness actually did, how it got out, and whether the sandbox was the weak link. Useful field data for anyone running agent harnesses with real tool access."
+    },
+    {
+     "title": "I developed my own quantized LLM from scratch, trained on 30B tokens, deploys in 60 MB",
+     "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vwt6m7/i_developed_my_own_quantized_llm_from_scratch/",
+     "source": "reddit",
+     "byline": "r/LocalLLaMA",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A hobbyist documents training a custom LLM from scratch on 30B tokens and shipping it as a 60 MB quantized deployment — with the full pipeline from data to a custom quant format. The thread is a goldmine of practical small-model lessons: what 30B tokens actually buys, where quantization bites, and what a single-person training run really costs. Strongly on-theme for the small-models channel."
+    },
+    {
+     "title": "Best Local Vision Language Models - August 2026",
+     "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vx7ei1/best_local_vision_language_models_august_2026/",
+     "source": "reddit",
+     "byline": "r/LocalLLaMA",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "The community's monthly roundup of local VLMs, ranked by what actually runs well on consumer GPUs, with VRAM footprints and honest caveats about each model's OCR, grounding, and speed. A practical shopping list for anyone choosing a local VLM for a real workload, with the comments adding the benchmark drama the leaderboards leave out."
+    },
+    {
+     "title": "The journey of letting Qwen 3.6/3.8 autonomously coding a C compiler",
+     "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vxg8be/the_journey_of_letting_qwen_3638_autonomously/",
+     "source": "reddit",
+     "byline": "r/LocalLLaMA",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A long-running experiment letting Qwen 3.6/3.8 autonomously build a C compiler, documented step by step: what the model designs on its own, where it loops, and how much human steering each stage needs. A sobering and encouraging data point on the ceiling of autonomous coding agents on a genuinely hard systems project."
+    },
+    {
+     "title": "official OPD — Qwen3-1.7B distilled from Qwen3-4B-Thinking (resp 7168)",
+     "url": "https://huggingface.co/SeanWang0027/official-opd-qwen3-1.7b-from-4b-thinking-7168",
+     "source": "hf",
+     "byline": "SeanWang0027 / Hugging Face",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "An on-policy distillation baseline: a Qwen3-1.7B student trained for 140 steps against a Qwen3-4B-Thinking teacher on the RLVE dataset, with the full config, loss-curve analysis, and an evaluation table showing the 1.7B closing much of the gap to the 4B. The card even dissects why the bf16 run underperforms the fp32 variant. A model card that reads like a good blog post about small-model training."
+    },
+    {
+     "title": "Doom-V1: a terminal command generator",
+     "url": "https://huggingface.co/Ahmad170412/Doom-V1",
+     "source": "hf",
+     "byline": "Ahmad170412 / Hugging Face",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A QLoRA fine-tune of Qwen2.5-Coder-1.5B on 3,200 hand-crafted macOS terminal-command samples: plain English in, one zsh command plus a one-line explanation out, with a CLI and an honest eval (50% combined correctness vs 25% for the base model, zero format violations). Trained entirely on Apple Silicon with MLX. A tidy demonstration that a small, cheap fine-tune can beat a much bigger base at a narrow task."
+    }
+   ]
+  },
+  {
+   "id": "electronics",
+   "title": "Electronics",
+   "summary": "",
+   "stories": [
+    {
+     "title": "3D-Printed Skin Gives Robots the Sensation of Touch",
+     "url": "https://hackaday.com/2026/08/24/3d-printed-skin-gives-robots-the-sensation-of-touch/",
+     "source": "hackaday",
+     "byline": "Hackaday",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "Researchers 3D-print capacitive sensor 'skin' for robots, using conductive filaments and soft materials so a gripper feels contact across its whole surface rather than at a few discrete points. The write-up covers the printing tricks that keep capacitive layers consistent and the signal chain that turns capacitance changes into touch events. A good look at how additive manufacturing is collapsing the distance between sensor design and deployment."
+    },
+    {
+     "title": "A 1990s Homebrew OS With GUI And Web Browser, In AM29000 Machine Code",
+     "url": "https://hackaday.com/2026/08/24/a-1990s-homebrew-os-with-gui-and-web-browser-in-am29000-machine-code/",
+     "source": "hackaday",
+     "byline": "Hackaday",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "A solo developer's 1990s project resurrected: a full operating system — GUI, windowing, and a web browser — written in hand-assembled AM29000 machine code on an AMD 29K evaluation board. The retrospective walks through the memory map, display driver, and what it took to get TCP/IP and HTML rendering onto a RISC chip with no OS underneath. A monument to what one person could build when the ISA was the only abstraction."
+    },
+    {
+     "title": "At Last, A Gameboy Advance With Decent Audio",
+     "url": "https://hackaday.com/2026/08/24/at-last-a-gameboy-advance-with-decent-audio/",
+     "source": "hackaday",
+     "byline": "Hackaday",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "The GBA's infamous audio noise floor finally gets fixed: a hardware mod that replaces the console's cheap output path, with before/after measurements of the improvement. Covers the filtering and amplifier work needed to clean up what Nintendo shipped, plus the trade-offs on battery life and headphone drive. A satisfying 'they built it down to a price, so let's build it back up' project."
+    },
+    {
+     "title": "A portable, sensitive, low power, analog Geiger counter",
+     "url": "https://blog.adafruit.com/2026/08/24/a-portable-sensitive-low-power-analog-geiger-counter/",
+     "source": "adafruit",
+     "byline": "Adafruit blog",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A build log for a battery-powered analog Geiger counter around a long glass J306β tube: high-voltage supply, discriminator, and audio click circuit running at milliwatts, with sensitivity matched to the tube's spec. The emphasis is on doing it with analog parts — no microcontroller in the detection path. A compact, reproducible instrument project with measured background counts."
+    },
+    {
+     "title": "RideLinkBLE: Arduino ESP32 BLE library for e-bike controllers",
+     "url": "https://blog.adafruit.com/2026/08/24/ridelinkble-arduino-esp32-ble-library-for-e-bike-controllers/",
+     "source": "adafruit",
+     "byline": "Adafruit blog",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "An open ESP32 BLE library for talking to common e-bike controllers: read telemetry, control assist levels, and parse the vendor protocol, all from an Arduino-compatible sketch. Notes the ESP32-family requirements and what the protocol actually exposes. If you have ever wanted your e-bike's motor controller on your own dashboard, this is the starting point."
+    },
+    {
+     "title": "Simplified Raspberry Pi Pico VGA",
+     "url": "https://blog.adafruit.com/2026/08/24/simplified-raspberry-pi-pico-vga/",
+     "source": "adafruit",
+     "byline": "Adafruit blog",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A guide that cuts through the Pico's Scanvideo library complexity to get VGA output working from the Arduino IDE, with a deliberately simple framebuffer approach. The author documents the self-imposed constraint of staying in Arduino-land and the trade-offs in resolution and memory. A practical on-ramp for Pico video projects without the usual SDK spelunking."
+    }
+   ]
+  },
+  {
+   "id": "interesting-news",
+   "title": "Interesting News",
+   "summary": "",
+   "stories": [
+    {
+     "title": "Physicists create a tiny \"Big Bang\" with surprisingly small atomic nuclei",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260822015143.htm",
+     "source": "science",
+     "byline": "ScienceDaily / University of Copenhagen",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "The ALICE collaboration at CERN produced quark-gluon plasma — the state that filled the universe in its first millionth of a second — by colliding oxygen-16 and neon-20 nuclei, far lighter than the lead nuclei long thought necessary. Even better, the particle patterns that emerge preserve the shape of the colliding nuclei, turning high-energy collisions into a new nuclear-structure probe. The Niels Bohr Institute team calls it a 'Little Big Bang' and plans to push down to helium-4 next. Published in Physical Review Letters."
+    },
+    {
+     "title": "JWST finds early galaxies may be 4 times more massive than thought",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260822015141.htm",
+     "source": "science",
+     "byline": "ScienceDaily / Penn State",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "By combining JWST spectra with ground-based VLT data on nine massive, mature early galaxies, astronomers found a hidden population of small, faint stars that previous estimates missed — making some of these galaxies three to four times more massive than calculated. That sharpens the already-awkward puzzle of how such huge galaxies formed so soon after the Big Bang, and hints that planets around low-mass stars may have been more common early on. Published in Nature Astronomy."
+    },
+    {
+     "title": "Scientists discover a real-life \"dragon\" and name it after Syrax",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260823015005.htm",
+     "source": "science",
+     "byline": "ScienceDaily / ZooKeys",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A new species of mountain horned dragon, Acanthosaura syrax, was found in high-elevation forest in Thailand's Mae Wong National Park — and named for Syrax, Rhaenyra Targaryen's dragon, because the lizard shares her yellow-green coloring, small size, and prolific egg-laying. DNA analysis confirms it is distinct from its closest relatives, and it may already be vulnerable to habitat fragmentation. Published in ZooKeys."
+    },
+    {
+     "title": "TIL archaeologists in Egypt found a 1,600-year-old mummy with a piece of Homer's Iliad on its stomach",
+     "url": "https://www.reddit.com/r/todayilearned/comments/1vwgff4/til_archaeologists_in_egypt_found_a_1600_year_old/",
+     "source": "reddit",
+     "byline": "r/todayilearned",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "At Oxyrhynchus, the University of Barcelona's mission found a Roman-era mummy with a papyrus passage from Homer's Iliad placed on its abdomen during embalming — the first Greek literary text ever found deliberately incorporated into mummification, at a site where mummy papyri are usually spells and ritual texts. The discovery is a rare window into cultural life in Roman Egypt, where the greatest poem of the Greek world could double as grave goods."
+    },
+    {
+     "title": "TIL In 1993, 21 Robin Hood ballads from the 1670s were rediscovered",
+     "url": "https://www.reddit.com/r/todayilearned/comments/1vx5l93/til_in_1993_21_robin_hood_ballads_from_the_1670s/",
+     "source": "reddit",
+     "byline": "r/todayilearned",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "The Forresters Manuscript — a handwritten collection of 21 Robin Hood ballads from the 1670s — surfaced at an auction house in 1993 and is now British Library Additional MS 71158. Its versions of the ballads differ noticeably from later 17th- and 18th-century printings, in some cases giving fuller, clearer texts than Francis Child's canonical collection. Three centuries lost, then found in a saleroom."
+    },
+    {
+     "title": "TIL that modern humans carry DNA from ancient human groups that science hasn't even identified yet",
+     "url": "https://www.reddit.com/r/todayilearned/comments/1vxky02/til_that_modern_humans_carry_dna_from_ancient/",
+     "source": "reddit",
+     "byline": "r/todayilearned",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "Beyond Neanderthals and Denisovans, modern genomes carry traces of archaic human groups for which no fossil has ever been found — so-called ghost populations, detected only as statistical signatures in our DNA. Researchers showed, for example, that West Africans carry a substantial share of ancestry from one such unknown group. The human family tree, it turns out, has more branches than the fossil record shows."
+    }
+   ]
+  }
+ ]
+}

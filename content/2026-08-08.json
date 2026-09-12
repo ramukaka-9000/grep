@@ -1,0 +1,225 @@
+{
+  "date": "2026-08-08",
+  "summary": "Today’s signal is that useful AI is becoming a systems problem—from agent browsers, tool protocols, and skill evolution to tiny specialist models—while open hardware and new telescope data expose the mechanisms underneath familiar products and worlds.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The strongest AI work today is unusually concrete: benchmarked model behavior, database execution, agent-native browsers, scientific open weights, evolving skills, and small models with explicit limitations.",
+      "stories": [
+        {
+          "title": "DeepSeek V4 Flash 0731 clears a new ARC-AGI evaluation bar",
+          "url": "https://arcprize.org/results/deepseek-v4-flash-0731",
+          "source": "hn",
+          "byline": "ARC Prize",
+          "discuss_url": "https://news.ycombinator.com/item?id=49214008",
+          "tier": "must-read",
+          "summary": "ARC Prize’s results page reports DeepSeek V4 Flash 0731 at 89.0% on ARC-AGI-1 Semi-Private and 61.4% on ARC-AGI-2 Semi-Private at maximum effort, with reported costs of $0.02 and $0.04 per task respectively. Those figures are evaluation results rather than a general capability guarantee, but they make the model’s reasoning-versus-cost trade-off unusually easy to inspect."
+        },
+        {
+          "title": "Rebuilding Postgres for 300x faster analytics: batching, operator fusion, and SIMD",
+          "url": "https://malisper.me/how-we-made-postgres-hundreds-of-times-faster-the-query-engine/",
+          "source": "hn",
+          "byline": "Malisper / pgrust",
+          "discuss_url": "https://news.ycombinator.com/item?id=49208535",
+          "tier": "must-read",
+          "summary": "The pgrust project reports 30% faster OLTP than Postgres and 300x faster ClickBench analytics, then uses a miniature query engine to show where the speed comes from. Batching cuts a toy aggregation from 1.3 seconds to about 480 ms, operator fusion reaches 358 ms, and SIMD reaches 135 ms on the stated Graviton4 benchmark; the headline is a project result, but the explanation is a useful lesson in executor overhead and memory bandwidth."
+        },
+        {
+          "title": "Kitesurf: an agent-first browser in V8 isolates",
+          "url": "https://blog.cloudflare.com/kitesurf/",
+          "source": "hn",
+          "byline": "Cloudflare",
+          "discuss_url": "https://news.ycombinator.com/item?id=49208393",
+          "tier": "must-read",
+          "summary": "Cloudflare introduced Kitesurf, a beta browser engine built on Workers and V8 isolates rather than Chromium, aimed at the structured HTML, DOM, network, and screenshot work agents actually need. Its disposable, stateless design is intended to make one browser per agent affordable and retryable, though video, WebGL, bot-challenge handshakes, and long-lived authenticated sessions still require the Chromium-backed option."
+        },
+        {
+          "title": "Genesis Open Models: DOE launches a scientific open-weight program",
+          "url": "https://genesisopenmodels.anl.gov",
+          "source": "hn",
+          "byline": "U.S. Department of Energy / Genesis Mission",
+          "discuss_url": "https://news.ycombinator.com/item?id=49216946",
+          "tier": "recommended",
+          "summary": "The Department of Energy has launched the Genesis Open Models initiative with Arcee and announced Genesis-Science-1 as its first open-weight model for scientific research. The program is soliciting transparent models, scientific data, evaluations, workflow environments, and fine-tuning contributions, with the first foundation-data applications due August 14, 2026."
+        },
+        {
+          "title": "The Bitter Lesson of Tool Calling",
+          "url": "https://arxiv.org/abs/2608.06370v1",
+          "source": "arxiv",
+          "byline": "Ishan Patel, Sahil Sen, Elias Lumer & Vamse Kumar Subbiah",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "This paper compares programmatic tool calling—typed Python stubs that let a model chain and parallelize tools in one turn—with native JSON tool calling across 14 models on BFCL v4. Programmatic calling matches or beats JSON in 11 of 14 models, improves the GPT-5.6 family’s baseline by 10.6%, and remains stable under context-rot tests where the baseline degrades, suggesting that the tool protocol can matter as much as the model."
+        },
+        {
+          "title": "Learning Globally Reusable Skills for Coding Agents",
+          "url": "https://arxiv.org/abs/2608.06153v1",
+          "source": "arxiv",
+          "byline": "Chen Yang et al.",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "GSE treats an evolving agent skill bank as a system rather than a pile of local prompt patches: a Skill Relation Graph tracks compatibility, cluster consolidation extracts reusable capabilities, and replay verification guards against regressions. On test generation and false-positive bug filtering with OpenHands and mini-SWE-agent, the paper reports consistent gains across precision, recall, and F1, including a 61.4% F1 improvement on an internal industrial agent."
+        },
+        {
+          "title": "JoyAI-Video-Edit: real-time open-ended video editing with autoregressive diffusion",
+          "url": "https://github.com/jd-opensource/JoyAI-Video-Edit",
+          "source": "github",
+          "byline": "JD Open Source",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "JoyAI-Video-Edit edits a live camera stream or uploaded video causally as frames arrive, without waiting for the whole sequence or knowing its final length. The released code combines an MLLM condition encoder, causal video VAE, and 16B-parameter diffusion transformer, with the project reporting 30.19 FPS at 720×1280; consumer-GPU optimization and full training/data pipelines remain unfinished."
+        },
+        {
+          "title": "Super Simple Software Factory",
+          "url": "https://github.com/disler/super-simple-software-factory",
+          "source": "github",
+          "byline": "disler",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This installable skill moves the control plane of agentic software work out of the prompt and into deterministic Python: code owns sequencing, retries, and acceptance while agents operate inside bounded phases. Typed JSON envelopes carry context across seams and every event is written to a SQLite trace, making runs inspectable and repeatable; the author explicitly leaves sandboxing, branch/merge isolation, and real project-specific quality gates for the adopter to add."
+        },
+        {
+          "title": "JarvisLM-350M: a from-scratch small model with modern attention",
+          "url": "https://huggingface.co/CreatorJarvis/JarvisLM-350M",
+          "source": "hf",
+          "byline": "CreatorJarvis",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "JarvisLM-350M is a 315.8M-parameter decoder-only base model trained from scratch with grouped-query attention, differential attention, QK normalization, and EMA weights. The card reports 5.505B scheduled FineWeb-Edu tokens and a 4.5% lower validation perplexity than the project’s larger MHA baseline, while warning that it is not instruction-tuned and makes unreliable factual or coding claims; its small size makes local experimentation practical even though training used an H200."
+        },
+        {
+          "title": "Emhotob-MT-50M: a tiny English-to-Egyptian Arabic translator that keeps MSA",
+          "url": "https://huggingface.co/oddadmix/Emhotob-MT-50M-tat-en2egy-msa",
+          "source": "hf",
+          "byline": "oddadmix",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This 49M-parameter MarianMT model translates English into Egyptian Arabic while retaining a Modern Standard Arabic mode through replayed MSA data. On the card’s 319 held-out pairs it reports 49.53 chrF++ and 29.45 BLEU, roughly competitive with a 241M-parameter model at one-fifth the size; the result is narrow and one-directional, but it is an unusually concrete example of a useful CPU-friendly specialist model."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "This week’s hardware leads are all about exposing constraints: direct liquid cooling, a liberated vending machine, archival media, Zephyr firmware, solar tracking, and a four-axis foam cutter.",
+      "stories": [
+        {
+          "title": "Block, Shmock — Just Pump Water Over The Chip",
+          "url": "https://hackaday.com/2026/08/07/block-shmock-just-pump-water-over-the-chip/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A direct-cooling experiment epoxied a 3D-printed pipe fitting onto bare GPU and CPU packages and pumped coolant directly across the silicon. The GPU outperformed a professional system by a useful margin, while the same approach failed on the CPU and leaked badly, making the project a cautionary measurement about package construction as much as a cooling hack."
+        },
+        {
+          "title": "Hacking a $6000 Cotton Candy Machine to Fully Control It",
+          "url": "https://hackaday.com/2026/08/07/hacking-a-6000-cotton-candy-machine-to-fully-control-it/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "After the manufacturer stopped helping with a used vending machine’s account, the owner reached its Android-based industrial controller through ADB and inspected the product database. Editing the database did not work, but modifying the Chinese control app produced an offline settings menu for prices and restored owner control, with an LLM helping bridge the app-development gap."
+        },
+        {
+          "title": "Music Is Back on Optical Disk in This Plex Server",
+          "url": "https://hackaday.com/2026/08/07/music-is-back-on-optical-disk-in-this-plex-server/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A Plex music library was moved onto high-density BDXL and archival M-Disc media as hard-drive and flash prices rise. Once Plex has indexed a disc, it can stream lossless music without noticeable lag, while the write-once medium also gives an AI agent far fewer ways to erase the archive; the trade-off is the load time and the need to swap physical discs."
+        },
+        {
+          "title": "Arduino Core on Zephyr 0.90.0 is officially stable and leaving beta",
+          "url": "https://blog.arduino.cc/2026/07/29/arduino-core-on-zephyr-0-90-0-is-officially-stable-and-leaving-beta/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Arduino’s Zephyr-based core 0.90.0 is now marked stable, adds the Nano RP2040 Connect, and brings SD support to Portenta boards plus PDM support for the Nano 33 BLE. Automatic loader-and-sketch synchronization handles the transition from older mbedOS cores, giving existing sketches a less painful path into a real-time operating-system-based stack."
+        },
+        {
+          "title": "A smart solar panel system you can 3D print, build, and learn from with Arduino UNO Q",
+          "url": "https://blog.arduino.cc/2026/07/21/a-smart-solar-panel-system-you-can-3d-print-build-and-learn-from-with-the-arduino-uno-q-board/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "This open-source classroom build uses an Arduino UNO Q, two servos, light and environmental sensors, and 3D-printed parts to track the sun and expose its measurements in a local dashboard. The Linux side handles the UI, weather, and higher-level decisions while the real-time microcontroller drives the hardware; storm protection, over-temperature positioning, and a vibration-based dust-cleaning mode make it more than a simple sun tracker."
+        },
+        {
+          "title": "This CNC hot wire cutter was created specifically for making airplane wings",
+          "url": "https://blog.arduino.cc/2026/07/16/this-cnc-hot-wire-cutter-was-created-specifically-for-making-airplane-wings/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A four-axis CNC hot-wire cutter automates foam-airfoil production for RC aircraft, moving both ends of a nichrome wire independently to create straight or angled cuts. Its controller is familiar maker hardware—Arduino Mega 2560, RAMPS 1.4, and TMC2209 drivers—while a tensioning pulley and adjustable power supply keep the wire usable across changing shapes."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "The day’s most satisfying surprises are visual and physical: young stars inside a cosmic chest, frost-bright dunes on Mars, hidden black-hole growth, invisible polar heat, lunar dust, and a half-million-galaxy view.",
+      "stories": [
+        {
+          "title": "Webb opens a Treasure Chest filled with stars",
+          "url": "https://www.esa.int/ESA_Multimedia/Images/2026/08/Webb_opens_a_Treasure_Chest_filled_with_stars",
+          "source": "esa",
+          "byline": "ESA / NASA / CSA James Webb Space Telescope",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Webb’s Near-Infrared Camera resolved a cometary globule in the Carina Nebula whose dense head and tail look like an open wooden chest. ESA says the embedded cluster contains about 70 young stars, including an O-type star roughly 19 times the Sun’s mass, and is only about 1.3 million years old."
+        },
+        {
+          "title": "Metallic waves on ancient Mars",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/Mars_Express/Metallic_waves_on_ancient_Mars",
+          "source": "esa",
+          "byline": "ESA Mars Express / DLR",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Mars Express photographed dark, shiny wave patterns across Kaiser Crater in the ancient Noachis Terra highlands. They are not metal: the ridges are dunes more than 100 metres tall whose south-facing slopes carry bright frost, while basaltic sand and prevailing winds shape a mixed field of barchan and transverse dunes."
+        },
+        {
+          "title": "SDSS-V’s black-hole mapper expands the all-sky view of cosmic growth",
+          "url": "https://www.sdss.org/black-hole-mapper-release-20/",
+          "source": "hn",
+          "byline": "Sloan Digital Sky Survey",
+          "discuss_url": "https://news.ycombinator.com/item?id=49211921",
+          "tier": "must-read",
+          "summary": "SDSS Data Release 20 adds the first southern-hemisphere BOSS spectra and more than 3.3 million optical spectra across 500,000 galaxies and 1.5 million stars. Its Black Hole Mapper pairs optical spectra with eROSITA X-ray data for roughly 200,000 targets, mostly actively accreting supermassive black holes, revealing how much black-hole growth is hidden behind dust or X-ray-quiet phases."
+        },
+        {
+          "title": "Sensing the Poles’ Hidden Heat",
+          "url": "https://science.nasa.gov/earth/earth-observatory/sensing-the-poles-hidden-heat/",
+          "source": "nasa",
+          "byline": "NASA Earth Observatory / PREFIRE",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "NASA’s PREFIRE twin CubeSats have now captured two complete seasonal cycles of infrared temperature swings at the Arctic and Antarctic. The mission directly measures far-infrared energy—nearly 60% of Earth’s heat loss to space but historically poorly observed at global scale—so the data can improve models of weather, ice stability, and the polar energy budget."
+        },
+        {
+          "title": "NASA’s Lunar Development and Test Facility prepares Artemis hardware for the Moon",
+          "url": "https://www.nasa.gov/centers-and-facilities/johnson/nasas-lunar-development-and-test-facility-prepares-artemis-hardware-for-moon/",
+          "source": "nasa",
+          "byline": "NASA Johnson Space Center",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Before Artemis hardware reaches the Moon, NASA’s Lunar Development and Test Facility puts it through vacuum, thermal, and abrasive lunar-regolith-simulant tests. The facility is designed around a problem that looks mundane until it destroys a mission—sharp dust that clings to suits, damages joints, and threatens equipment—and also supports experiments on extracting oxygen and propellant from regolith."
+        },
+        {
+          "title": "Rubin’s COSMOS field contains more than half a million galaxies in one view",
+          "url": "https://science.nasa.gov/image-article/apod-2026-august-6-rubins-cosmos-field/",
+          "source": "nasa",
+          "byline": "NASA Science / NSF–DOE Vera C. Rubin Observatory",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "An early Rubin Observatory data preview shows more than half a million galaxies packed into the COSMOS field, a patch of sky several times wider than the full Moon. Because Rubin will revisit the field every few days during its ten-year survey, the image is not just a deep still: it is the beginning of a time-lapse view of galaxies and transients across billions of years of look-back time."
+        }
+      ]
+    }
+  ]
+}

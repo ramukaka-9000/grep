@@ -1,0 +1,225 @@
+{
+  "date": "2026-08-11",
+  "summary": "Today’s signal is that useful AI is becoming more local and more accountable—from 30B agent models and 45M edge tool callers to graph-backed RAG, executable security tests, and sandboxes—while hands-on builds expose the hardware trade-offs beneath the abstractions.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The AI layer is splitting into two practical problems: making agents run safely for long horizons and shrinking task-specific intelligence until it fits on a phone, robot, or microcontroller.",
+      "stories": [
+        {
+          "title": "Muse Glimmer: Meta open-sources a 30B model for always-on local agents",
+          "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+          "source": "hn",
+          "byline": "Meta Superintelligence Labs",
+          "discuss_url": "https://news.ycombinator.com/item?id=49241679",
+          "tier": "must-read",
+          "summary": "Meta has open-sourced Muse Glimmer, a 30B-parameter Apache-2.0 model tuned for always-on local agents, tool calling, coding, multimodal input, and failure recovery. Meta says its K-Quant-17GB variant is intended for 24–32 GB devices and that a DFlash drafter raised decode speed up to 3.1× on RTX 5090; the hardware target is a high-end consumer GPU, not a 6 GB card."
+        },
+        {
+          "title": "Docker Sandboxes: disposable isolation for AI agents",
+          "url": "https://www.docker.com/products/docker-sandboxes/",
+          "source": "hn",
+          "byline": "Docker",
+          "discuss_url": "https://news.ycombinator.com/item?id=49239751",
+          "tier": "must-read",
+          "summary": "Docker Sandboxes packages disposable, isolated environments for running AI agents, with the option to apply network restrictions, filesystem policies, and centralized admin controls through Docker AI Governance. The important design choice is operational rather than model-level: let an agent work freely inside a throwaway boundary while policy controls the edges."
+        },
+        {
+          "title": "Tl;dv: a security researcher reports 181,874 meeting records left exposed",
+          "url": "https://bobdahacker.com/blog/tldv-hack",
+          "source": "hn",
+          "byline": "Cole Santiago / Bob Da Hacker",
+          "discuss_url": "https://news.ycombinator.com/item?id=49242739",
+          "tier": "must-read",
+          "summary": "Security researcher Bob Da Hacker reports that tl;dv’s Firestore `meetings` collection lacked tenant isolation: any authenticated user could enumerate meeting metadata and, for recordings in progress, obtain conference IDs. His January-to-July 2026 disclosure timeline says he saw 181,874 records tied to 84,312 users and claims the issue remained open six months later; treat the scale and remediation status as the researcher’s report, not an independently audited incident."
+        },
+        {
+          "title": "Needle 2: a 45M-parameter tool-calling model for edge devices",
+          "url": "https://cactuscompute.com/needle",
+          "source": "hn",
+          "byline": "Cactus Compute",
+          "discuss_url": "https://news.ycombinator.com/item?id=49246804",
+          "tier": "must-read",
+          "summary": "Cactus Compute’s Needle 2 is a 45M-parameter tool-calling model shipped as a 14MB CQ2-bit binary with a claimed 28MB session-RAM ceiling. The vendor reports 500+ tok/s decode on Raspberry Pi 5 and MCU-oriented builds, with schema-constrained calls, confidence/empty-call escalation, and a dependency-free C++ engine; its benchmark comparison is deliberately narrow to device actions rather than general chat."
+        },
+        {
+          "title": "KGCaRe adds symbolic graph traversal to neural RAG",
+          "url": "https://arxiv.org/abs/2608.09779v1",
+          "source": "arxiv",
+          "byline": "Ghanshyam Verma et al.",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "KGCaRe combines neural retrieval over document embeddings with symbolic traversal over LLM-generated knowledge graphs, iteratively pruning triples and adding clue entities when the first path is insufficient. The authors report wins over vanilla RAG and other baselines across two complex conditional-QA datasets and multiple models, while releasing the pipeline—an interesting blueprint for RAG that needs explanations and relational joins, not just nearest-neighbor chunks."
+        },
+        {
+          "title": "SecTDD tests whether executable security specifications actually transfer",
+          "url": "https://arxiv.org/abs/2608.09740v1",
+          "source": "arxiv",
+          "byline": "Yunhao Liang et al.",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "SecTDD studies security tests as executable specifications both before code generation and during repair, separating test visibility, feedback-triggered revision, and failure representation. Across 2,705 trajectories, the authors report that showing visible tests upfront raised hidden functional-and-security joint success by 19.3 percentage points on average, but also found model/task-dependent regressions and persistent hidden failures after visible tests passed."
+        },
+        {
+          "title": "calldiff makes call-flow changes visible to agentic code review",
+          "url": "https://github.com/tanishqkancharla/calldiff",
+          "source": "github",
+          "byline": "Tanishq Kancharla",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "`calldiff` is an AST-based call-tree diff for 22 languages: instead of showing only changed lines, it shows which callees appeared, disappeared, or moved under an entry point. Its machine-readable JSON/YAML/Markdown modes and `skills add`/MCP hooks make it particularly suited to agentic code review where the risk is a changed execution path buried inside a large patch."
+        },
+        {
+          "title": "h3.c brings native MiniMax H3 video/audio inference to Apple Silicon",
+          "url": "https://github.com/antirez/h3.c",
+          "source": "github",
+          "byline": "antirez",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "`antirez/h3.c` is a native Metal inference engine for MiniMax H3 on Apple Silicon, with prompt-to-video/audio and first/last-frame or ordered reference conditioning working end to end. The repository documents BF16 and int8 memory/performance paths and reports substantial M5 Max speedups, making it a useful case study in co-designing a large multimodal generator around unified memory rather than pretending it is a generic CPU model."
+        },
+        {
+          "title": "Ling-3.0-tiny: a 4.2GB MLX conversion with 1.3B active parameters",
+          "url": "https://huggingface.co/rapid-mlx/Ling-3.0-tiny-MLX-4bit",
+          "source": "hf",
+          "byline": "rapid-mlx",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "rapid-mlx’s Ling-3.0-tiny conversion is a 7.9B-total/1.3B-active sparse-MoE reasoner in a 4.2GB 4-bit MLX checkpoint, with 131K context and MIT licensing inherited from the base model. Its model card reports OpenAI-compatible serving, tool-calling/reasoning support, and parity checks for the custom `bailing_hybrid` implementation on an M2 Pro; it is a small-footprint Apple-Silicon deployment, not a generic CUDA drop-in."
+        },
+        {
+          "title": "A 450M SmolVLA policy fine-tuned for an OMX follower",
+          "url": "https://huggingface.co/peter1111aaaa/my_smolVLA_v1",
+          "source": "hf",
+          "byline": "peter1111aaaa",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "`my_smolVLA_v1` is a 450M-parameter LeRobot SmolVLA policy fine-tuned for an OMX follower with front and wrist camera inputs and six-dimensional actions. It was trained on 98 episodes and 59,882 frames for simple pick-and-place tasks and can be rolled out with the documented LeRobot CLI on consumer hardware; the card provides no evaluation results, so this is a runnable small-policy example rather than a validated benchmark winner."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "This week’s practical hardware is a mix of compact instruments, honest failed mechanisms, embedded audio, and manufacturing details that remain important after the CAD file is done.",
+      "stories": [
+        {
+          "title": "PiShot is a pocket camera built from a Pi Zero 2 W",
+          "url": "https://hackaday.com/2026/08/10/the-pishot-is-ready-for-your-snaps/",
+          "source": "hackaday",
+          "byline": "Irtaza2009 / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "PiShot is a compact DIY camera built around a Pi Zero 2 W and Camera Module 3, with a 3D-printed case, ST7789 SPI display, tactile GPIO buttons, 18650 battery, and power-management board. The project is refreshingly complete as a hardware recipe, while the author notes the real open question is whether Python delivers enough responsiveness for a camera."
+        },
+        {
+          "title": "A teardown shows how the Oxford Nanopore MinION miniaturizes sequencing",
+          "url": "https://hackaday.com/2026/08/10/teardown-of-an-oxford-nanopore-minion-dna-sequencer/",
+          "source": "hackaday",
+          "byline": "Mike’s Electric Stuff / Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "A teardown of Oxford Nanopore’s MinION shows how portable DNA/RNA sequencing fits a Spartan-6 FPGA and microfluidics into a small instrument, with the nanopore chip in a replaceable consumable. The unit was about $2,000 at launch, but the consumables were roughly £690 and usable only a few times—an instructive reminder that miniaturized lab hardware often shifts cost into the cartridge."
+        },
+        {
+          "title": "Printed cotton makes a lightweight composite RV countertop",
+          "url": "https://hackaday.com/2026/08/10/cotton-fiberglass-composite-makes-lightweight-rv-countertops/",
+          "source": "hackaday",
+          "byline": "Whitburn Studio / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Whitburn Studio uses printed Japanese cotton, epoxy, a thin-ply/XPS sandwich, and a protective fiberglass layer to make decorative composite RV countertops. The larger sink-cutout counter weighs 2.4 kg including the insert; the build is a nice example of using a cheap core for stiffness while reserving stronger fibers for abuse and finish."
+        },
+        {
+          "title": "A home-built bicycle dropper post becomes an engineering postmortem",
+          "url": "https://hackaday.com/2026/08/10/building-a-bicycle-dropper-seat-post/",
+          "source": "hackaday",
+          "byline": "Kane Components / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Kane Components’ home-built bicycle dropper post uses angled plates that bind against an internal rail, a cable-actuated cam to release them, and an air spring for return, reusing the lower post and bushings from a broken unit. It ultimately failed to hold rider weight consistently, but the documented jamming, cable-clearance, thread-milling, and press-fit problems make it valuable as an engineering postmortem rather than a polished success story."
+        },
+        {
+          "title": "SoundEngine plays non-blocking WAV effects from an ESP32",
+          "url": "https://blog.adafruit.com/2026/08/10/play-wav-sound-effects-on-an-esp32-via-i2s/",
+          "source": "adafruit",
+          "byline": "Adafruit Learning System",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Adafruit’s SoundEngine keeps short WAV clips in ESP32 flash as byte arrays, mixes multiple clips, and streams them through an I2S DAC from a background task so `play()` does not block the sketch. It is a small but useful embedded pattern for sound effects: bounded local assets, non-blocking playback, and an external DAC instead of a heavyweight audio stack."
+        },
+        {
+          "title": "UCL Rocket’s printed cooling channels meet the realities of post-processing",
+          "url": "https://3dprintingindustry.com/news/eplus3d-supports-ucl-rocket-in-first-cryogenic-lox-ipa-engine-hot-fire-test-253690/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "UCL Rocket’s first hot-fire test of a 7 kN LOX/IPA engine used a metal-powder-bed-fused CuCrZr chamber with 57 internal cooling channels, but inspection found about one-third of the active channel area blocked by machining swarf. The team throttled to 50% and added a PDMS fuel additive, and the chamber survived; the story’s strongest lesson is that cleaning, inspection, and post-machining can determine whether a printed internal geometry is usable."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "The most surprising discoveries range from an artificial eclipse made by two spacecraft to microbes that immobilize uranium, with ancient trade and co-evolution filling in the human-scale stories.",
+      "stories": [
+        {
+          "title": "ESA is rehearsing the 2026 total solar eclipse with an artificial eclipse in space",
+          "url": "https://www.esa.int/Enabling_Support/Space_Engineering_Technology/How_ESA_mimics_and_models_the_2026_total_solar_eclipse",
+          "source": "esa",
+          "byline": "European Space Agency",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Before the 12 August 2026 total solar eclipse, ESA is comparing observations and models using Proba-3’s artificial eclipses and Solar Orbiter’s off-angle magnetic maps. Proba-3’s two spacecraft fly 150 metres apart to occult the Sun for hours, letting researchers inspect the inner corona and test forecasts that matter for space-weather risks to satellites and power systems."
+        },
+        {
+          "title": "Silver nanocatalysts switch reaction sites between power and hydrogen modes",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260810015714.htm",
+          "source": "science",
+          "byline": "Seoul National University and collaborators / ScienceDaily",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Seoul National University and KAIST researchers report that the same silver nanocatalyst works at different reaction sites depending on whether a solid-oxide cell is generating electricity or making hydrogen. In oxygen reduction, the key activity tracked the silver–electrode boundary; in oxygen evolution, it tracked the nanoparticle surface, suggesting reversible fuel cells need mode-specific catalyst design rather than a single notion of ‘active area’."
+        },
+        {
+          "title": "For 15,000 years, humans and dogs have been changing each other",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260810015700.htm",
+          "source": "science",
+          "byline": "Peter Mitchell / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Archaeologist Peter Mitchell’s synthesis of the dog-human record argues that domestication was a long, joint adaptation rather than a one-time wolf-to-dog switch. Evidence ranges from Arctic sled-dog skeletons and shared marine diets to high-altitude genetic adaptations, rainforest hunting dogs, and wool-producing dogs—showing culture and climate shaping canine biology together."
+        },
+        {
+          "title": "A 240-million-year-old Brazilian reptile fills a gap before dinosaurs and crocodiles",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260808234956.htm",
+          "source": "science",
+          "byline": "Federal University of Santa Maria and collaborators / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Researchers describe Silescelida acristata, a small archosauriform from Brazil’s Middle Triassic, about 240 million years ago, recovered after a missing fossil fragment was rediscovered in a university collection. Its semi-erect limb anatomy and possible relationship to Euparkeriidae extend the known geography of close dinosaur-and-crocodile relatives and illuminate ecosystems recovering after the Permian–Triassic extinction."
+        },
+        {
+          "title": "Bacteria may lock dissolved uranium into a stable compound",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260807035149.htm",
+          "source": "science",
+          "byline": "HZDR and collaborators / ScienceDaily",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "HZDR and collaborators found that bacteria supplied with glycerol removed about 95% of dissolved uranium from flooded mine-water samples over 130 days, accumulating it in their cell walls. Spectroscopy identified a stable iron–oxygen pentavalent uranium compound, FeU(V)O4, which had been considered rare or transient; the result is a remediation lead, not yet a field-ready cleanup method."
+        },
+        {
+          "title": "The Berenike Buddha makes ancient Indo-Roman trade tangible",
+          "url": "https://www.smithsonianmag.com/smart-news/buddha-statue-found-berenike-egypt-180982075",
+          "source": "smithsonian",
+          "byline": "Smithsonian / Berenike Project",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1vkrezg/til_of_the_berenike_buddha_a_statue_of_buddha/",
+          "tier": "must-read",
+          "summary": "The Berenike Buddha—a roughly 71-centimetre marble statue dated to around the second century CE—was found in the forecourt of a Roman-period temple to Isis at an Egyptian Red Sea port. Together with Sanskrit and Greek inscriptions and evidence of Indian trade, the find makes ancient globalization tangible: Buddhist objects and people reached a Roman Egyptian entrepôt far west of Afghanistan."
+        }
+      ]
+    }
+  ]
+}

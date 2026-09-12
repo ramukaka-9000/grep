@@ -1,0 +1,225 @@
+{
+ "date": "2026-08-26",
+ "summary": "OpenAI's Jalapeño silicon claim and a collapse law for pretraining learning rates anchor an AI section about compute and tiny models; electronics serves up a Linux BSP for the ESP32-S31 and e-paper builds; interesting news spans three kings erased from Assyrian history, a molecule's imaged wavefunction, and microbes that could survive on the Moon.",
+ "sections": [
+  {
+   "id": "ai",
+   "title": "AI",
+   "summary": "",
+   "stories": [
+    {
+     "title": "OpenAI Jalapeño: Better than Nvidia Blackwell",
+     "url": "https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia",
+     "source": "hn",
+     "byline": "bmulholland / SemiAnalysis, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49434378",
+     "tier": "must-read",
+     "summary": "SemiAnalysis reports on OpenAI's Jalapeño accelerator, arguing it beats Nvidia's Blackwell on key metrics — the latest salvo in OpenAI's push to build its own silicon rather than buy it. The piece walks through the chip's architecture, its compute-per-dollar positioning, and what it means for the AI hardware landscape. A useful read for anyone tracking where inference economics are headed."
+    },
+    {
+     "title": "Show HN: LatticeDB — Like SQLite but for graph databases",
+     "url": "https://github.com/jeffhajewski/latticedb",
+     "source": "hn",
+     "byline": "smiths1999 / GitHub, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49437049",
+     "tier": "recommended",
+     "summary": "LatticeDB brings the single-file, embeddable, zero-config ethos of SQLite to graph databases, with a lattice-based storage design underneath. The Show HN thread covers how it handles graph traversal, transactions, and durability compared to heavier graph engines. A promising fit for AI builders who want local, portable graph storage alongside their embeddings."
+    },
+    {
+     "title": "Training AI to Paint with Code",
+     "url": "https://surya.website/rling-qwen-to-paint-with-code",
+     "source": "hn",
+     "byline": "Tiberium / surya.website, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49411800",
+     "tier": "notable",
+     "summary": "A hands-on account of reinforcement-learning a Qwen model to generate code that paints images — treating the canvas as an environment and brush strokes as actions. The write-up covers reward design, the action space, and what emerged from training. A compact, concrete example of RL-for-code that goes beyond toy text tasks."
+    },
+    {
+     "title": "Qwen 3.8-Flash-Next releasing tomorrow (125B a6B)",
+     "url": "https://modelscope.cn/models/Qwen/Qwen3.8-Flash-Next",
+     "source": "hn",
+     "byline": "Alibaba Qwen / ModelScope, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49432317",
+     "tier": "notable",
+     "summary": "Qwen teases Qwen 3.8-Flash-Next, a 125B-parameter MoE with only 6B active parameters, promising flagship-level quality at a fraction of the inference cost. The sparse-activation design keeps the model interesting for local and edge serving. Model card is live on ModelScope ahead of release."
+    },
+    {
+     "title": "Effective Learning Rate Governs Loss Dynamics in Language Model Pretraining",
+     "url": "https://arxiv.org/abs/2608.24814v1",
+     "source": "arxiv",
+     "byline": "arXiv authors / arXiv",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "The paper uncovers ELR collapse in LM pretraining: loss trajectories collapse onto each other when the ratio of learning rate to parameter norm (the effective learning rate) is matched across runs. That makes ELR a single control knob that predicts training dynamics, with practical implications for tuning large pretraining runs. A genuinely useful result for anyone training or scaling language models."
+    },
+    {
+     "title": "BrowserForge: Scaling Web Episode via Parallel Browser Sandboxes",
+     "url": "https://arxiv.org/abs/2608.24848v1",
+     "source": "arxiv",
+     "byline": "arXiv authors / arXiv",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "Web agents that act from rendered pixels avoid HTML parsing fragility, but need large amounts of interaction data. BrowserForge scales collection of web episodes with parallel browser sandboxes, generating the kind of trajectory data pixel-based web agents train on. A practical data-engineering answer to one of the bottlenecks in agent training."
+    },
+    {
+     "title": "backpass — You don't write AGENTS.md. You train it with gradient descent.",
+     "url": "https://github.com/kunchenguid/backpass",
+     "source": "github",
+     "byline": "kunchenguid / GitHub",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "backpass inverts the usual agent-instructions workflow: instead of hand-writing AGENTS.md files, you train the instructions with gradient descent. The repo is early but the idea — instructions as learnable parameters rather than prose — is a striking take on steering agent behavior. Worth watching for how agent configuration evolves."
+    },
+    {
+     "title": "FrontierAgent — open-sourced agent framework",
+     "url": "https://github.com/ApodexAI/FrontierAgent",
+     "source": "github",
+     "byline": "ApodexAI / GitHub",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "ApodexAI open-sourced FrontierAgent, its agent framework: a native command-line TUI with ReAct and Agent Team modes, one-command setup on macOS and Linux. The release gives a look at what a production agent stack looks like outside the big labs. Reasonable starting point for builders who want a batteries-included agent harness."
+    },
+    {
+     "title": "khmer-ASR-v2-30000 — 0.8B Qwen3-ASR fine-tune for Khmer speech recognition",
+     "url": "https://huggingface.co/phonsobon/khmer-ASR-v2-30000",
+     "source": "hf",
+     "byline": "phonsobon / Hugging Face",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A 0.8B-parameter Qwen3-ASR fine-tune for Khmer, a language underserved by mainstream speech recognition. At BF16 it fits comfortably on a 3060-class GPU once quantized, making genuinely local Khmer ASR feasible. Niche but exactly the kind of small-model use-case the channel exists for."
+    },
+    {
+     "title": "FoodExtract — gemma-3-270m fine-tune for extracting structured food data",
+     "url": "https://huggingface.co/ahmedyasser006/FoodExtract-gemma-3-270m-fine-tune",
+     "source": "hf",
+     "byline": "ahmedyasser006 / Hugging Face",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "An SFT of google/gemma-3-270m-it (268M params) trained with TRL to extract structured food information from text. Small enough to run performantly on CPU or a basic GPU, it demonstrates the pattern of distilling a narrow extraction task into a tiny model. The model card is thin, but the checkpoint is verified small and real."
+    }
+   ]
+  },
+  {
+   "id": "electronics",
+   "title": "Electronics",
+   "summary": "",
+   "stories": [
+    {
+     "title": "How Europe is killing makers and micro-entrepreneurs",
+     "url": "https://lectronz.com/u/lectronz/articles/how-europe-is-killing-makers-and-micro-entrepreneurs",
+     "source": "hn",
+     "byline": "l-one-lone / Lectronz, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49419237",
+     "tier": "recommended",
+     "summary": "The top story on Hacker News today: a broadside from Lectronz, an electronics marketplace for small makers, arguing the EU's new packaging and compliance rules are strangling micro-entrepreneurs who sell small-batch hardware. It details how per-unit compliance costs that big firms absorb are existential for one-person operations. A timely, numbers-backed look at regulation hitting the maker economy — worth reading alongside the 1,600-point discussion."
+    },
+    {
+     "title": "Native SMB3 Client Brings Modern NAS Access To 20-Year-Old PowerPC Macs",
+     "url": "https://hackaday.com/2026/08/25/native-smb3-client-brings-modern-nas-access-to-20-year-old-powerpc-macs/",
+     "source": "hackaday",
+     "byline": "Hackaday",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A native SMB3 client lets twenty-year-old PowerPC Macs talk to modern NAS boxes, bypassing the ancient SMB1 support that modern servers refuse to speak. The write-up covers the reverse-engineering and implementation work behind the client. A lovely example of keeping genuinely old hardware useful on today's networks."
+    },
+    {
+     "title": "Quest VR Headset Becomes Unlocked Hardware",
+     "url": "https://hackaday.com/2026/08/25/quest-vr-headset-becomes-unlocked-hardware/",
+     "source": "hackaday",
+     "byline": "Hackaday",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "QuestStack, a tool that chains a privilege-escalation exploit into a fully unlocked bootloader, turns the Quest VR headset into open hardware owners actually control. The hack gives stable privileged access for homebrew and research. A significant milestone in the ongoing fight to own consumer VR hardware."
+    },
+    {
+     "title": "WeatherPaper: a smart weather station using an e-paper display",
+     "url": "https://blog.adafruit.com/2026/08/25/weatherpaper-a-smart-weather-station-using-an-e-paper-display/",
+     "source": "adafruit",
+     "byline": "Adafruit blog",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "WeatherPaper is a health- and comfort-focused weather station built around a 4.2-inch e-paper display and a custom PCB, with battery life over a year and a half on a single charge. It tracks indoor comfort plus local weather on a low-power custom build. A clean, reproducible example of what a well-designed e-paper IoT device can do."
+    },
+    {
+     "title": "Espressif posts a Linux BSP for the ESP32-S31",
+     "url": "https://blog.adafruit.com/2026/08/25/espressif-posts-a-linux-bsp-for-the-esp32-s31/",
+     "source": "adafruit",
+     "byline": "Adafruit blog",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "The dual-core RISC-V ESP32-S31 — unveiled in March, with dev boards in May and mass production announced recently — now has a Linux BSP from Espressif. That opens the door to running real Linux workloads on a $-class Espressif part. A meaningful step for the ESP32 ecosystem beyond bare-metal and RTOS."
+    },
+    {
+     "title": "Hacking with Claude on a $27 Smart Watch",
+     "url": "https://blog.adafruit.com/2026/08/25/hacking-with-claude-on-a-27-smart-watch/",
+     "source": "adafruit",
+     "byline": "Adafruit blog",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "Mike Kasberg pulls a $27 PineTime — an open-firmware ESP32 smart watch — out of a drawer and uses Claude to hack on it, from toolchain setup to firmware experiments. The piece is a practical demo of agent-assisted embedded development on genuinely cheap hardware. A good look at how AI assistants are changing the entry barrier to embedded tinkering."
+    }
+   ]
+  },
+  {
+   "id": "interesting-news",
+   "title": "Interesting News",
+   "summary": "",
+   "stories": [
+    {
+     "title": "Three forgotten kings could rewrite the history of ancient Assyria",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260824065549.htm",
+     "source": "science",
+     "byline": "ScienceDaily / Journal of Cuneiform Studies",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "A new study in the Journal of Cuneiform Studies argues the canonical Assyrian King List quietly erased at least three rulers: a rival Tiglath-pileser who seized power after a 763 BCE solar eclipse, a Shalmaneser who preceded Tiglath-pileser III, and an Aššur-uballiṭ who reigned around 913-912 BCE. The evidence comes from a British Museum clay tablet, an 1894 stela, and a damaged statue. The authors suggest the King List was less an impartial record than a legitimizing canon that periodically removed short-lived or parallel rulers."
+    },
+    {
+     "title": "Scientists just imaged the hidden quantum shape of a molecule",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260822015213.htm",
+     "source": "science",
+     "byline": "ScienceDaily / University of Göttingen",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "A Göttingen team has produced the first complete 3D image of an organic molecule's wavefunction — the quantum object that governs how molecules absorb light and react — using lab-based photoelectron spectroscopy plus a redesigned reconstruction algorithm. The new approach needs far less data and no synchrotron, and the authors say it could lead to femtosecond-resolution 3D 'movies' of molecules changing state. Wavefunctions remain unmeasurable directly, but this makes their shape practical to visualize."
+    },
+    {
+     "title": "NASA finds Earth microbes could survive on the Moon",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260823094142.htm",
+     "source": "science",
+     "byline": "ScienceDaily / NASA Goddard",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A NASA-led study in Science Advances modeled conditions at three lunar South Pole sites and found that hardy Earth microbes — including the common fungus Aspergillus niger — could survive for at least a day in cold, shadowed niches as small as a boot print. Astronaut contamination could muddy future searches for pristine lunar chemistry, and the same logic applies to Mars sample return. The team argues the Moon could double as a natural lab for testing microbial survival limits."
+    },
+    {
+     "title": "Forces deep inside Earth helped Antarctica freeze before the Arctic",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260823094154.htm",
+     "source": "science",
+     "byline": "ScienceDaily / University of Southampton",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "New modeling in Science suggests slow-moving mantle waves — triggered when Africa and Antarctica rifted apart — lifted East Antarctica's plateau and Gamburtsev Mountains above ~2 km, letting ice take hold around 34 million years ago even while the planet was ~5°C warmer. Arctic landmasses stayed lower and didn't glaciate for another 30 million years, explaining the long-standing asymmetry between the poles. The work recasts deep-Earth geology as a preconditioner for ice ages."
+    },
+    {
+     "title": "Newton's 300-year-old law just passed its biggest test yet",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260823015019.htm",
+     "source": "science",
+     "byline": "ScienceDaily / University of Pennsylvania",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "Using Atacama Cosmology Telescope observations of hundreds of thousands of galaxy clusters, a team led by Penn's Patricio Gallardo tested gravity on the largest scale yet — and found the inverse-square law holding almost exactly as Newton and Einstein predicted. The result constrains modified-gravity theories like MOND and strengthens the case that dark matter, not altered physics, explains the missing mass. Published in Physical Review Letters."
+    },
+    {
+     "title": "A hidden \"on switch\" in human DNA has finally been decoded",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260823014943.htm",
+     "source": "science",
+     "byline": "ScienceDaily / UC San Diego",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "UCSD researchers measured gene expression across ~500,000 engineered versions of the 'initiator' DNA element, then trained machine-learning models that decoded its sequence signature — and found roughly 60% of human genes contain it. The models can predict how initiator mutations affect gene activity, which could aid synthetic promoter design and disease research. A concrete case of AI decoding the human gene-expression code."
+    }
+   ]
+  }
+ ]
+}

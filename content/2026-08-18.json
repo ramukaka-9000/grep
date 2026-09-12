@@ -1,0 +1,207 @@
+{
+  "date": "2026-08-18",
+  "summary": "DuckDB previews its v2.0 server era, Qwen 3.8 27B proves excellent but over-thinks by default, BESIII reports its strongest glueball evidence yet, and a 3D-printed retro monitor takes every input you own.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "DuckDB v2.0 goes client/server, Qwen 3.8 27B is a superb local model with a terrible default reasoning setting, AlphaEvolve tightens the matrix-multiplication exponent, and a 4-bit QAT Gemma 4 12B squeezes into 2GB.",
+      "stories": [
+        {
+          "title": "A Preview of DuckDB v2.0",
+          "url": "https://duckdb.org/2026/08/17/duckdb-20-highlights",
+          "source": "hn",
+          "byline": "DuckDB, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49330781",
+          "tier": "must-read",
+          "summary": "DuckDB v2.0, codenamed Cyanoptera, lands this fall and finally turns the in-process database into a server: the quack extension plus a new CONNECT statement let any DuckDB serve databases over the network, with SQL pushdown straight to Postgres and MySQL. Also previewed are VARIANT as a first-class type with shredded storage and execution, triggers, asynchronous I/O, a new SQL parser and default storage format, a stable C API, and signed third-party extension repositories. The release builds on over 10,000 commits since v1.5."
+        },
+        {
+          "title": "Qwen 3.8 27B is excellent, but it defaults to overthinking things",
+          "url": "https://simonwillison.net/2026/Aug/16/qwen-38-27b/",
+          "source": "hn",
+          "byline": "Simon Willison, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49324985",
+          "tier": "recommended",
+          "summary": "Qwen 3.8 27B is an Apache-2.0, vision-capable model that runs from a 17GB Q4_K_M file on a laptop, and Simon Willison found it genuinely good at code, tool calling and image annotation. Its default reasoning_effort of xhigh is the catch: one pelican-SVG prompt burned 22,276 reasoning tokens and 21 minutes, while the same prompt with reasoning off took two minutes. He recommends ignoring the default and notes that llama.cpp's MTP speculative decoding gave a ~72% speedup."
+        },
+        {
+          "title": "AI-Generated GitHub Copilot \u201cAutofix\u201d Allowed Compromise of Snowflake's Jira",
+          "url": "https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug",
+          "source": "hn",
+          "byline": "Wiz Research, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49331423",
+          "tier": "notable",
+          "summary": "Wiz's autonomous 'Red Agent' found a script-injection vulnerability in a Snowflake GitHub Actions workflow — and the injection vector was introduced by a PR co-authored by GitHub Copilot Autofix, which replaced a safe env:+jq pattern with direct template interpolation. Opening a GitHub issue with a crafted title executed arbitrary commands on a runner; Red Agent recovered from a syntax error, adapted its payload, and exfiltrated a Jira token within seconds. Snowflake patched the same day it was disclosed, but the case shows AI-assisted code regressing security while autonomous agents collapse discovery windows to days."
+        },
+        {
+          "title": "How to ship a database every day",
+          "url": "https://turbopuffer.com/blog/control-plane",
+          "source": "hn",
+          "byline": "turbopuffer, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49330978",
+          "tier": "notable",
+          "summary": "turbopuffer deploys dozens of database upgrades a day across 100+ clusters — including BYOC clusters its engineers hold no credentials for — by expressing every operation as a single Kubernetes CRD driven by a local cluster-agent state machine. A keyboard-driven Remix dashboard and a fleet controller with wave gates and monitor checks keep rollouts safe, with status streamed into Slack. A clean case study in operating a fleet you can't touch."
+        },
+        {
+          "title": "Improving the matrix multiplication exponent with modern optimization and AlphaEvolve",
+          "url": "https://arxiv.org/abs/2608.16884v1",
+          "source": "arxiv",
+          "byline": "arXiv",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A new arXiv paper uses modern optimization and AlphaEvolve to improve the best-known bound on \u03c9, the matrix multiplication exponent, building on the combination-loss analysis of the laser method behind recent progress by Duan et al., Williams et al. and Alman et al. It is the latest sign of machine-discovered optimization pushing forward one of theoretical computer science's oldest open problems."
+        },
+        {
+          "title": "Model Hypnosis: Strong control of AI via additive subliminal effects",
+          "url": "https://arxiv.org/abs/2608.16834v1",
+          "source": "arxiv",
+          "byline": "arXiv",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The authors demonstrate 'model hypnosis': individually weak, seemingly irrelevant prompt cues can be systematically combined to strongly control model behavior, an additive, subliminal-style attack surface. The work adds to the growing evidence that prompt-level control over LLMs is far more robust — and harder to defend against — than commonly assumed."
+        },
+        {
+          "title": "cumora: open-source team chat where AI agents are first-class teammates",
+          "url": "https://github.com/yetone/cumora",
+          "source": "github",
+          "byline": "yetone / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Cumora is a cross-platform team chat in which AI agents are first-class participants: same roster, DMs, group chats, Kanban board and calendar, with agents that hold personas, claim work, and coordinate without colliding via a seen-cursor freshness gate. Agents run either on Cumora's cloud or 'bring your own agent' — pairing the app with your own local Claude Code or Codex CLI so the server never sees your provider keys."
+        },
+        {
+          "title": "gemma-4-12B-it-qat-oQ4e-mtp: a ~2B-parameter 4-bit QAT Gemma 4 12B for MLX",
+          "url": "https://huggingface.co/bambocher/gemma-4-12B-it-qat-oQ4e-mtp",
+          "source": "hf",
+          "byline": "bambocher / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A quantization-aware-trained 4-bit build of Gemma 4 12B (group size 64, MLX safetensors, with multi-token prediction support) that weighs in at roughly 2B parameters — small enough to run on Apple Silicon via MLX or performantly on CPU. Quantization-aware training rather than post-hoc quantization makes this an interesting small-model artifact for local inference."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "A 3D-printed Amiga-inspired monitor that accepts every input, Sierra's AGI engine finally runs on the C64, and Espressif's esp32pin.com tells you which pins will bite.",
+      "stories": [
+        {
+          "title": "One Man's Perfect Retro-Style Monitor Takes All Inputs",
+          "url": "https://hackaday.com/2026/08/17/one-mans-perfect-retro-style-monitor-takes-all-inputs/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "[RetroBuiltGames] built the 'PixelVision AV1000 MKII', a retro-style monitor around a 9.7-inch 2K iPad display with a RetroTink-clone PCB living in a bulge on the back — a space that could just as easily house an SBC for an all-in-one emulation station. The Amiga-1000-inspired case was designed for FDM printing with the visible surface flat on the bed, and STEP files and PCBs are on GitHub. He even made packaging and filmed an unboxing video for a product he built himself."
+        },
+        {
+          "title": "AGI-64 Brings Sierra Adventures to the Commodore 64",
+          "url": "https://meanhamster.com/news/agi-64-brings-sierra-adventures-to-the-commodore-64",
+          "source": "adafruit",
+          "byline": "Adafruit Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "After decades of waiting, Sierra On-Line's AGI adventure-game engine runs on the Commodore 64: Mean Hamster Software's AGI-64 interpreter is about 75% complete for Space Quest 1, which is already fully playable. A tool compiles your own .vol/.obj game files into a 1MB EasyFlash-compatible CRT, saves work on real or SD-card 1541 drives, and custom background pre-processing keeps original artwork looking right on the 1MHz machine. It will be a free download."
+        },
+        {
+          "title": "esp32pin.com: a pinout reference that knows which pins will bite you",
+          "url": "https://developer.espressif.com/blog/2026/08/esp32pin-pinout-reference/",
+          "source": "espressif",
+          "byline": "Espressif Developer Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "esp32pin.com is a free interactive pinout reference for the ESP32 family that flags each pin's real-world constraints — strapping pins, ADC-only inputs, and the ones that will bite you during bring-up. The data is generated from Espressif's official KiCad libraries and cross-validated against the esp-gpio-tool dataset, and new dev boards can be proposed right in the browser. A genuinely useful tool for anyone wiring ESP32 boards."
+        },
+        {
+          "title": "Edison Motors Offering All-Mechanical Trucks, At Least To Start",
+          "url": "https://hackaday.com/2026/08/17/edison-motors-offering-all-mechanical-trucks-at-least-to-start/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Canadian startup Edison Motors is shipping its BDE-series truck first with a conventional Cummins diesel and 16-speed transmission — the 'Big D' — before the series-hybrid powertrain (a 500kW Scania diesel generator driving 1,800kW of electric motors) arrives. The staged rollout lets the company generate revenue and prove its engineering while jumping regulatory hurdles, without risking the kind of recall that sank Nikola. Edison still plans to offer its hybrid drive as a kit for smaller trucks."
+        },
+        {
+          "title": "OLEDs Have Gained Brightness, Not Burn-In Resistance",
+          "url": "https://hackaday.com/2026/08/17/oleds-have-gained-brightness-not-burn-in-resistance/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "RTings' long-term comparison of OLED TVs from 2017 to 2023 shows burn-in resistance has barely improved: after a 10,000-hour stress test simulating roughly ten years at maximum SDR brightness, static elements like a news banner burned into even the newest panels with all prevention features enabled. What did improve is brightness — which ironically buys back panel lifespan if you run displays dimmer, and keeping pixel-refresh cycles enabled remains essential."
+        },
+        {
+          "title": "Toy Computer Restored: the 1963 Digi-Comp 1",
+          "url": "https://hackaday.com/2026/08/17/looking-at-an-old-toy-computer/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "[Chris Staecker] restored a remarkably well-preserved Digi-Comp 1, the 1963 E.S.R. educational toy that computes with purely mechanical logic gates — programs are entered by placing soda-straw-like tubes on sliding rails that trip spring-loaded levers. With some rubber bands and 3D-printed parts it works like new: a non-Turing-complete binary state machine with up to 16,777,216 possible states that captures exactly where home computing stood in 1963."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "BESIII makes its strongest case yet for glueballs, animals have been eating nature's bioplastic for eons, and only five people have ever seen the impossible color 'olo'.",
+      "stories": [
+        {
+          "title": "A particle made of force: physicists say they've found mysterious 'glueball'",
+          "url": "https://www.nature.com/articles/d41586-026-02498-1",
+          "source": "hn",
+          "byline": "Nature, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49272891",
+          "tier": "recommended",
+          "summary": "Physicists at the BESIII experiment in Beijing presented the strongest evidence yet that X(2370) — a particle first seen in 2011 — is mostly a glueball, a cluster of the force-carrying gluons that bind quarks. After studying nearly ten billion J/\u03c8 decays, the collaboration pinned down its spin-parity as 0\u207b\u207a in 2024, matching predictions for the lightest glueball, and independent physicists call the cumulative case 'quite persuasive'. Confirming glueballs would prove that gluons interact with each other, a key prediction of quantum chromodynamics, and help explain the origin of mass."
+        },
+        {
+          "title": "Animals have been eating nature's original bioplastic for millions of years",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260815064759.htm",
+          "source": "science",
+          "byline": "Max Planck Institute for Marine Microbiology / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Microbes have stored carbon as PHA — nature's biodegradable plastic — for hundreds of millions of years, and scientists assumed only microorganisms could break it down. New research in Nature Ecology & Evolution shows animals can too: the discovery began with Olavius algarvensis, a gutless marine worm that digests its symbiotic bacteria, and enzyme surveys found the ability in more than 66 species across nine phyla, including sponges, earthworms and springtails. It reveals a previously unrecognized pathway for carbon to move from microbes into animal food webs."
+        },
+        {
+          "title": "Olo: the impossible color only five people have seen",
+          "url": "https://en.wikipedia.org/wiki/Olo_(color)",
+          "source": "hn",
+          "byline": "Wikipedia, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49270194",
+          "tier": "notable",
+          "summary": "Olo is an imaginary color that only the five subjects of a UC Berkeley experiment (Science Advances, April 2025) have ever seen: researchers used lasers to stimulate individual M cone cells in the retina, producing a hue outside the human visible gamut described as a 'blue-green of unprecedented saturation'. It is named after its LMS color-space coordinates (0,1,0) in leetspeak, and its closest sRGB approximation is #00FFCC. Some vision scientists dispute that it is genuinely a new color; the team is exploring whether the technique could aid color-blind people."
+        },
+        {
+          "title": "Quake Shareware, a CD-ROM just a little too full",
+          "url": "https://fabiensanglard.net/quake_shareware_cd/index.html",
+          "source": "hn",
+          "byline": "Fabien Sanglard, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49338328",
+          "tier": "notable",
+          "summary": "The 1996 Quake shareware CD-ROM carried far more than the 22MB shareware game: it hid denatured, encrypted copies of id's entire catalogue — DOOM, HEXEN, HERETIC — unlockable by calling an 800 number and paying over the phone. Fabien Sanglard's deep dive shows the TestDrive Corp protection was pure security by obscurity: the SERIAL from the phone agent contained no secret, so hacker group GNOMON's QCRACK.EXE, released just 39 days after launch, generated valid unlocks locally. A typo even made Final DOOM permanently un-unlockable for paying customers."
+        },
+        {
+          "title": "TIL: Sedlec Ossuary's chapel holds 40,000+ human skeletons, arranged into a chandelier",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vr58k3/til_there_is_a_catholic_chapel_that_contains_the/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The Sedlec Ossuary in Kutn\u00e1 Hora, Czech Republic — the 'Church of Bones' — contains the artistically arranged skeletons of an estimated 40,000 to 70,000 people, whose remains were gathered after plagues and the Hussite Wars. In 1870 woodcarver Franti\u0161ek Rint arranged the bones into garlands, four bell-shaped mounds, and a chandelier said to include at least one of every bone in the human body. The chapel draws more than 200,000 visitors a year."
+        },
+        {
+          "title": "TIL about 'Satan's Storm': the freak heat burst that hit Kopperl, Texas in 1960",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vr11k1/til_about_a_freak_heat_burst_storm_phenomenon/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "On June 15, 1960, the small town of Kopperl, Texas was hit in the middle of the night by one of the most intense heat bursts ever recorded — a sudden, dry, superheated wind that locals still call 'Satan's Storm'. The reported 140\u00b0F temperature spike has never been verified by meteorologists, but rapid 20-degree surges are characteristic of heat bursts, which form when rain-cooled downdrafts evaporate and compress as they hit the ground."
+        }
+      ]
+    }
+  ]
+}

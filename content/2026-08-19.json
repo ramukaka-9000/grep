@@ -1,0 +1,216 @@
+{
+  "date": "2026-08-19",
+  "summary": "AI;DR captures the mood on Hacker News, Cursor launches its own GitHub alternative, a RISC-V chip runs a 27B model natively, and NASA photographs the Falcon 9's crater on the Moon.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The week's AI signal: AI;DR against unedited AI slop tops HN, Cursor builds its own GitHub, a TurboQuant vector index beats FAISS in 4 GB, RISC-V runs 27B natively, and two genuinely novel small models ship.",
+      "stories": [
+        {
+          "title": "AI;DR (AI; Didn't Read)",
+          "url": "https://www.rickmanelius.com/p/aidr-ai-didnt-read",
+          "source": "hn",
+          "byline": "Rick Manelius, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49336573",
+          "tier": "recommended",
+          "summary": "Rick Manelius proposes a new policy for the age of AI writing: if a colleague or writer isn't bothered enough to review and edit their AI output, he won't bother reading it. The essay argues that unedited LLM prose reads as a different message than intended — the same way TL;DR solved social-media noise, \"AI;DR\" is the filter for AI slop. It hit #1 on Hacker News with more than 600 comments, clearly touching a nerve across the industry."
+        },
+        {
+          "title": "Cursor launches Origin, a GitHub alternative",
+          "url": "https://cursor.com/changelog/origin-code-hosting",
+          "source": "hn",
+          "byline": "Cursor, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49334209",
+          "tier": "recommended",
+          "summary": "Cursor is now a code host: Origin, in early beta on all paid plans, hosts repos, pull requests, code browsing, and two-way GitHub sync, plus PR preview deployments via Vercel and CI via Depot or Buildkite. Synced GitHub repos update in real time with comments and reviews flowing both ways, and agents live in every repo — ask Cursor about code, make changes, or push branches from the same place. The move puts an AI company in direct competition with GitHub for the agent-native development workflow."
+        },
+        {
+          "title": "turbovec: Google's TurboQuant, packaged as a Rust vector index",
+          "url": "https://github.com/RyanCodrai/turbovec",
+          "source": "hn",
+          "byline": "Ryan Codrai, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49349898",
+          "tier": "recommended",
+          "summary": "turbovec is a Rust vector index with Python bindings implementing Google Research's TurboQuant — a data-oblivious, training-free quantizer with near-optimal distortion. A 10-million-document corpus that takes 31 GB as float32 fits in 4 GB, and hand-written SIMD kernels (AVX-512 VNNI, NEON) beat FAISS IndexPQFastScan in every measured config, averaging 3.4x faster at 4-bit. It offers online ingest with no rebuild, incremental crash-safe syncs, filter-at-search-time, and drop-in integrations for LangChain, LlamaIndex, and Haystack, plus an optional calibration and Lloyd-Max codebook pass for extra recall."
+        },
+        {
+          "title": "Alibaba's RISC-V XuanTie C950 runs Qwen-3.8 27B at 30 tps",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vs0wsl/alibabas_riscv_cpu_xuantie_c950_runs_qwen38_27b/",
+          "source": "reddit",
+          "byline": "r/LocalLLaMA",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Alibaba's 5nm, 3.2 GHz XuanTie C950 — the fastest single-threaded RISC-V core yet, launched in April and now shipping in servers — runs Qwen-3.8 27B natively at 30 tokens/second with a 1.9-second time-to-first-token and no emulation layer. The C950 supports the RVA23 profile with vector extensions and pairs with AI accelerators, and Alibaba flags Qwen and DeepSeek inference as headline workloads. It is the strongest sign yet that RISC-V is becoming a credible platform for on-prem LLM inference."
+        },
+        {
+          "title": "StagedWorkspace: a versioned workspace for knowledge-work agents",
+          "url": "https://arxiv.org/abs/2608.18050v1",
+          "source": "arxiv",
+          "byline": "arXiv",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Agents doing knowledge work — code, documents, spreadsheets, slides, notebooks — routinely search parsed views, edit native files, review diffs, and submit artifacts that refer to different versions of the same work product. This paper formalizes that as a 'workspace-state contract': every view an agent consumes should be explicitly tied to a version of the evolving workspace, as git does for code. The work extends the repo-style contract that coding agents enjoy to PDFs, spreadsheets, and mixed-format project folders."
+        },
+        {
+          "title": "On the Fragility of Self-Improving Agents",
+          "url": "https://arxiv.org/abs/2608.18066v1",
+          "source": "arxiv",
+          "byline": "arXiv",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A re-evaluation of memory-based self-improving agents — models that learn online by maintaining a textual memory bank — finds the headline results fragile. Running each agent multiple times shows evaluation is inherently noisy in complex environments, and randomly shuffling task order changes outcomes, exposing two failure modes that single-run evaluations miss. The paper is a timely caution for everyone building agents that are supposed to get better the longer they run."
+        },
+        {
+          "title": "Running DeepSeek V4 Flash Q4_K_XL at ~100 tok/s prompt processing on 4x RTX 3060",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vrqf4f/running_deepseek_v4_flash_q4_k_xl_at_100_toks/",
+          "source": "reddit",
+          "byline": "r/LocalLLaMA",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "DeepSeek-V4-Flash is DeepSeek's open small/large-hybrid attention model (CSA plus heavily compressed HCA for long contexts), and this r/LocalLLaMA post details running the Q4_K_XL quant across four RTX 3060 12 GB cards at roughly 100 tok/s of prompt processing. The thread is a useful data point on what a big open model needs from modest consumer hardware, and how hybrid-attention changes the memory picture."
+        },
+        {
+          "title": "open-reason-xl: a 443M-parameter reasoner trained from scratch on a CPU",
+          "url": "https://huggingface.co/theworker02/open-reason-xl",
+          "source": "hf",
+          "byline": "theworker02 / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A GPT-2-style causal LM trained from scratch on just 3,175 Open Reason SFT rows — 443,719,680 parameters, 22 layers, built on an AMD Ryzen 9 9950X with torch CPU-only, no CUDA, in 120 steps. The card is refreshingly honest: it claims no held-out benchmark scores and explicitly disclaims being a 1B model. It is a crowd-funded experiment in exactly how far 'train a small reasoner on a desktop CPU' can go, Apache-2.0."
+        },
+        {
+          "title": "claimtrace-qwen3-1.7b: a Qwen-3 1.7B tuned to keep a claim-provenance ledger",
+          "url": "https://huggingface.co/troysaved/claimtrace-qwen3-1.7b",
+          "source": "hf",
+          "byline": "troysaved / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A 1.72B-parameter Qwen-3.1.7B finetune (fused from LoRA adapters, MLX format) whose behavior spec is a 'claim-provenance ledger': an item may be recorded as KNOWN only after the learner demonstrates it in its own work during the conversation — self-reports about background, experience, or ability must stay CLAIMED, no matter how plausible. It is a small, spec-driven experiment in making models distinguish what they have actually verified from what they merely assert, and it runs comfortably in ~4 GB quantized or on CPU."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "A $20-tool rescue of a bricked Framework laptop calls out the right-to-repair gap, a grill gets open firmware, a DIN-rail box modernizes legacy machines, and an ESP32 flasher is rebuilt for CI and coding agents.",
+      "stories": [
+        {
+          "title": "Fixing a bricked AMD 7040-series Framework 13-inch laptop with $20 tools",
+          "url": "https://quantum5.ca/2026/08/16/fixing-bricked-amd-7040-series-framework-13-laptop-with-20-tools/",
+          "source": "hn",
+          "byline": "quantum5.ca, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49345220",
+          "tier": "recommended",
+          "summary": "After a BIOS 3.20 update bricked his AMD 7040-series Framework 13 during the flash, the author was told by support to buy a new CA$500+ motherboard — out of warranty. Instead he recovered it with about $20 of tools: a CH347 programmer and pogo pins on the soldered WSON flash chip, an extracted BIOS image, and a flash that took under five minutes. The write-up documents every step and is also a sharp critique of Framework's repairability claims, covering a missing recovery path, an absent flash header, and a separate data-sharing incident with a business-intelligence provider."
+        },
+        {
+          "title": "Reverse Engineered Grill Controller Gets Open Firmware",
+          "url": "https://hackaday.com/2026/08/18/reverse-engineered-grill-controller-gets-open-firmware/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "What started as a wire fix inside [PRBS23]'s Gravity 800 grill became a full firmware liberation: the controller turned out to contain an ESP32 with a neatly labeled programming header, so the original image was dumped with espflash and reverse engineered. The replacement open firmware, FreeFall 800, adds over-the-air updates, PID temperature control, and a real-time web interface, and the reverse engineering notes cover a baffling ADC correction in the original code. It is the latest example of freeing an IoT gadget from proprietary firmware."
+        },
+        {
+          "title": "Edge Link is a DIY solution to upgrade old industrial equipment",
+          "url": "https://blog.arduino.cc/2026/08/19/edge-link-is-a-diy-solution-to-upgrade-old-industrial-equipment/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Mukesh Sankhla's Edge Link is a DIN-rail box that speaks Modbus and RS-485 to legacy machines, logging data over MQTT into a structured UNS namespace so facilities can monitor and control decades-old equipment without risky modifications. Inside is an Arduino UNO Q board running Edge Impulse ML models for on-device predictive maintenance — it can, for example, shut down machine B if it detects a fault developing in machine A, with no cloud dependency. A bundled PLC simulator with a Siemens S7-300 digital twin lets anyone test the setup against a virtual plant."
+        },
+        {
+          "title": "esparagus: ESP32 flashing with structured output for CI and coding agents",
+          "url": "https://developer.espressif.com/blog/2026/08/esparagus-esp32-flashing-for-ci-and-agents/",
+          "source": "espressif",
+          "byline": "Espressif Developer Blog",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "esparagus is a Rust ESP32-family flasher that is a behavioral port of esptool's protocol, sync, reset, and stub-loader paths — but with an observability layer built for machines: NDJSON events, a structured report with stable failure classes and a next_actions diagnostic hint, and exit codes that categorize panic, watchdog, brownout, and reboot-loop failures. Its flash-monitor command flashes, boots, and watches for an expected boot marker with built-in crash detection, closing a flash-test-fix loop that CI jobs and LLM coding agents can branch on. Integration comes three ways: direct CLI, an Agent Skill, and an MCP server."
+        },
+        {
+          "title": "MeltCalc: a hot end and material database for 3D printing",
+          "url": "https://hackaday.com/2026/08/18/a-hot-end-and-material-database-for-3d-printing/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "[Robert Samples]' MeltCalc database models 64 hot ends and 36 polymers with thermodynamic calculations rather than slicer defaults, estimating realistic maximum flow rates, print speeds, and heater requirements — including modern CHT-style nozzles. It was built by a chemist who works with polymers specifically to counter the often-optimistic marketing flow numbers, and the code is open source on GitHub. If you are wondering whether a given hot end can actually push a given filament at the rate you want, this is the place to start."
+        },
+        {
+          "title": "Compress links for optimal QR codes",
+          "url": "https://hackaday.com/2026/08/18/compress-links-for-optimal-qr-codes/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "[PortalRunner]'s ha.mr (pronounced 'hammer') skips URL shorteners entirely: instead of storing a code in a third-party database, it compresses the URL itself with open-source, self-hostable encoding. Because QR codes encode alphanumeric characters far more densely than arbitrary UTF-8, the compressed links also produce denser, easier-to-scan QR codes at the same size. It has a 'why isn't everyone doing this' quality, and the source is on GitHub if you want to run your own."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "NASA photographs the Falcon 9's crater on the Moon, a suitcase-sized satellite will listen to the cosmic dark ages from behind the Moon, RAM prices have gone vertical, and cheese microbiology turns out to matter for your gut.",
+      "stories": [
+        {
+          "title": "NASA's LRO images the Falcon 9 crater on the Moon, learns new details",
+          "url": "https://science.nasa.gov/solar-system/moon/nasas-lro-images-falcon-9-crater-on-moon-learns-new-details/",
+          "source": "nasa",
+          "byline": "NASA Science",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "On August 5, 2026, the upper stage of the Falcon 9 that launched Firefly's Blue Ghost 1 mission in January 2025 crashed into the Moon — and NASA's Lunar Reconnaissance Orbiter, carefully tilted for each pass, photographed the resulting crater six days later. The impact dug a crater about 60 feet wide and less than 10 feet deep, sending out rays of fresh subsurface material against darker space-weathered regolith. Independent astronomers tracked the trajectory first, NASA's CNEOS refined the prediction to about 0.6 miles, and Korea's Danuri orbiter confirmed the impact site — a full exercise in planetary-defense-style targeting."
+        },
+        {
+          "title": "Tiny satellite will use the dark side of the Moon to eavesdrop on whispers from the early universe",
+          "url": "https://www.cam.ac.uk/research/news/tiny-satellite-will-use-the-dark-side-of-the-moon-to-eavesdrop-on-whispers-from-the-early-universe",
+          "source": "hn",
+          "byline": "University of Cambridge, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49355232",
+          "tier": "recommended",
+          "summary": "CosmoCube, a UK satellite about the size of a carry-on suitcase, will use the Moon to block Earth's radio noise and listen for the 21-centimeter hydrogen line from the cosmic dark ages — the period between the Big Bang and the first stars, which has never been directly observed. In each two-hour orbit around the far side, Earth is shielded for roughly 40 minutes; over a two-year mission that builds up 1,000 hours of data with a compact RFSoC-based radiometer. The mission is described in Nature Astronomy and could launch within five years, a low-cost window into one of cosmology's last unexplored eras."
+        },
+        {
+          "title": "Using the railway network as a flatbed scanner",
+          "url": "https://philo.gay/linecam/",
+          "source": "hn",
+          "byline": "philo.gay, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49344825",
+          "tier": "notable",
+          "summary": "[FlamingSpork] pointed an industrial linear scanning camera out of trains and ferries and turned the world's motion into enormous images — a 56,894 x 2,048 pixel panorama from a San Francisco-Oakland ferry crossing, viewable in an OpenSeadragon gallery. The hard part was speed: accelerometer data proved useless, so the pipeline (github.com/FlamingSpork/grindstone) compensates for motion, deals with RGB line-separation fringes, and even does infrared captures. He presented the project at EMFcamp 2026, and the write-up is the rare hack that makes you re-see ordinary commutes."
+        },
+        {
+          "title": "The bacteria that make cheese taste so good may also benefit your gut",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260816044847.htm",
+          "source": "science",
+          "byline": "University of Reading / ScienceDaily",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Tracking the microbial communities of three artisan Oxfordshire cheeses as they matured, University of Reading researchers found that the bacteria behind each cheese's flavor are also a plausible probiotic delivery system: the fat-and-protein matrix of cheese may protect them through the digestive tract. Propionibacterium freudenreichii, which produces propionic acid linked to anti-inflammatory and appetite-regulating effects, was present in the washed-rind and hay-aged cheeses, and the mature hard cheese held nearly four times more bacterial species than early in aging. Lactose was almost entirely gone from all three by the time they were ready to eat."
+        },
+        {
+          "title": "How does IKEA come up with names for its products?",
+          "url": "https://www.ikea.com/se/en/customer-service/knowledge/articles/6f564c4d-2ccc-46de-b643-545a3948dc79.html",
+          "source": "hn",
+          "byline": "IKEA, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49349984",
+          "tier": "notable",
+          "summary": "IKEA's official answer: founder Ingvar Kamprad hated memorizing numbers, so product names were invented as a practical alternative — and they are real Swedish words following a strict categorization system. Sofas get Swedish place names, bookshelves get men's names, and children's products get animals and nature; every name must be a real word of 4-12 letters, preferably containing an A-with-ring, A-diaeresis, or O-diaeresis, and must never be trademarked or a surname. Roughly 2,000-3,000 new products are named every year, each checked to avoid unfortunate meanings in other languages."
+        },
+        {
+          "title": "Memory prices climb 500% in 12 months — 128GB of DDR5 now $3,399",
+          "url": "https://www.tomshardware.com/pc-components/ram/memory-prices-climb-500-percent-in-12-months-up-to-10x-the-lowest-ever-tracked-prices-128gb-of-ddr5-now-usd3-399",
+          "source": "hn",
+          "byline": "Tom's Hardware, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49334960",
+          "tier": "notable",
+          "summary": "A year after the AI-driven memory crunch began, DDR5 kit prices are up 355-485% year over year — a 64GB DDR5-5600 kit that averaged $191 last August now averages $1,118, and 128GB DDR5-6400 costs $3,399, ten times its lowest-ever tracked price. DDR4 is up 120-180% as builders flee to older platforms, and hyperscalers have reportedly booked almost all 2027 DRAM production capacity with advance deposits. SK Hynix's CEO warns 2027 will be the worst supply year in the industry's history, and ADATA's chairman thinks the crunch could last a decade; DRAM now costs more per kilogram than half the price of gold."
+        }
+      ]
+    }
+  ]
+}

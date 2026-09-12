@@ -1,0 +1,225 @@
+{
+  "date": "2026-09-08",
+  "summary": "DeepMind’s WeatherNext 3 goes hourly at 5 km, Anthropic posts a Lean 4 Fermat proof, and MiniCPM5-2B lands as a 2.5B on-device dense model; electronics covers an ESP32-P4 video alarm, a home-scale tube computer, and 3D-printed flow-battery lattices; interesting news has printed bacterial transistors, 80-ka microliths from Obi-Rakhmat, and the Ig Nobels’ first Zurich night.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "WeatherNext 3: hourly global weather from live satellites",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3",
+          "source": "hn",
+          "byline": "matthieu_bl / Google DeepMind and Google Research, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49552299",
+          "tier": "must-read",
+          "summary": "Google DeepMind and Google Research introduced WeatherNext 3 on 3 September 2026 as an hourly global weather model that trains on live geostationary satellite mosaics instead of six-hour NWP analyses. The blog says 2-meter temperature and moisture are visualized at 5 km, other surface variables at 10 km, and atmospheric fields at 25 km, versus WeatherNext 2’s 25 km grid and 6-hour steps. It reports CRPS gains of up to 60% against IMERG, 30% for MRMS, and 10% against rain gauges at early lead times, plus 100-meter wind and surface radiation for energy. Independent live rankings are attributed to Brightband; official warnings still belong to national weather services."
+        },
+        {
+          "title": "Speculative decoding in vLLM on AMD GPUs",
+          "url": "https://vllm.ai/blog/2026-08-23-speculative-decoding-amd-gpus",
+          "source": "hn",
+          "byline": "ankitg12 / vLLM and AMD, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49596054",
+          "tier": "recommended",
+          "summary": "vLLM’s 23 August 2026 post measures speculative decoding on AMD Instinct MI300X and MI355X with ROCm, keeping the original model as the verifier. Five draft methods are compared—native MTP, Gemma 4 MTP, EAGLE-3, DFlash, and DSpark—on Qwen3.5/3.6, Kimi-K2.5, and MiniMax-M3. The authors report that output-token throughput varied with drafting method, proposal length, model family, and acceptance. The listed stack is vLLM 0.23.1rc1.dev1120 on ROCm 7.2; results are configuration-specific."
+        },
+        {
+          "title": "The Dataflow Model revisited",
+          "url": "https://www.vldb.org/pvldb/volumes/19/paper/The%20Dataflow%20Model%20Revisited",
+          "source": "hn",
+          "byline": "scott_s / Akidau, Fernández-Moctezuma, Lax, Mills, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49589190",
+          "tier": "must-read",
+          "summary": "Tyler Akidau and colleagues revisit the 2015 Dataflow Model in VLDB as a Test of Time paper. They still back event time, the futility of waiting for completeness, and strong consistency, but call triggers over-engineered and say streams and tables are one object with different access semantics. Completeness split into watermarks, where streams stay visible, and snapshot-consistent refresh, which reached more users by asking less of them. They argue the batch-versus-streaming fight was mostly semantic."
+        },
+        {
+          "title": "coop: disposable VMs for Claude Code and Codex",
+          "url": "https://github.com/trailofbits/coop",
+          "source": "hn",
+          "byline": "aggrrrh / Trail of Bits, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49593842",
+          "tier": "recommended",
+          "summary": "Trail of Bits published coop, a Rust CLI that runs Claude Code and Codex inside disposable VMs with Docker, git, compilers, and package managers. Linux uses Firecracker plus a guest kernel; macOS uses Lima, tested on macOS arm64 and Linux x86_64. `coop up` then `coop claude` or `coop codex` starts an isolated instance for the current project. The repo documents a trust model; it is a VM sandbox, not a container-only jail."
+        },
+        {
+          "title": "Necessary or sufficient? LLM explanations vs behaviour",
+          "url": "https://arxiv.org/abs/2609.05385v1",
+          "source": "arxiv",
+          "byline": "Pawar, Ramanayake, Kemal, Kandath, O’Neill, Bourgeon, Chatbri",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Pawar and colleagues test whether named factors in LLM explanations actually drive the model’s decisions. Necessity means changing a factor would change the output; sufficiency means keeping it while dropping other changeable information would preserve the output. They evaluate those readings on two synthetic agent tasks, including recommending advisors to clients. The point is that operators who monitor named factors are assuming an agreement that the paper treats as an empirical claim."
+        },
+        {
+          "title": "ROBORMBENCH: paraphrase fragility in VLM robot rewards",
+          "url": "https://arxiv.org/abs/2609.05401v1",
+          "source": "arxiv",
+          "byline": "Jeung, Yoon, Hong, Cho, Jeon, Kim, Oh, Yu, No",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Jeung and colleagues show vision-language robot reward models often fail paraphrase invariance: the same trajectory can get a different progress score, or a flipped success label, when only the goal wording changes. ROBORMBENCH has 2,390 real-robot trajectories, ground-truth progress labels, and 21,673 verified paraphrases spanning lexical, syntactic, and action-goal rewrites. The paper treats this as a property of using VLMs as rewards, not as a claim about every VLM."
+        },
+        {
+          "title": "Fermat’s Last Theorem, machine-checked in Lean 4",
+          "url": "https://github.com/anthropics/fermats-last-theorem",
+          "source": "github",
+          "byline": "Anthropic / GitHub",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Anthropic released a Lean 4 formalization of Fermat’s Last Theorem along the Frey–Serre–Ribet–Wiles–Taylor–Wiles route, on Lean 4.33.1 and Mathlib v4.33.0. The theorem is `a^n + b^n ≠ c^n` for n ≥ 3 and positive naturals, and `#print axioms` is guarded to Lean’s three standard axioms with no `sorry`. They report a from-scratch `lake build` of 60,475 modules, leanprover/comparator’s “Your solution is okay!”, and nanoda checking 1,052,234 declarations. The Lean was produced by AI agents on human-written sources; the Apache-2.0 repo is a research artifact that is not maintained."
+        },
+        {
+          "title": "polyledger: Polymarket fills in one DuckDB file",
+          "url": "https://github.com/nahrek/polyledger",
+          "source": "github",
+          "byline": "nahrek / GitHub",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "PolyLedger indexes Polymarket CLOB metadata and Polygon `OrderFilled` logs into one DuckDB file, committing rows and the block cursor in a single transaction. It decodes V2 contracts (live since the April 2026 migration) and the older V1 layout, and needs an Envio HyperSync token. A README example reports 14,231 markets and 1,204,773 fills on a five-day slice. Filled trades only are on chain; the indexer stays 64 blocks behind the head rather than reconciling reorgs."
+        },
+        {
+          "title": "MiniCPM5-2B: 2.52B dense on-device Llama",
+          "url": "https://huggingface.co/openbmb/MiniCPM5-2B",
+          "source": "hf",
+          "byline": "OpenBMB / Hugging Face",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1w9skjz/minicpm52b_release_day",
+          "tier": "recommended",
+          "summary": "OpenBMB’s MiniCPM5-2B is a dense `LlamaForCausalLM` with 2,516,756,480 parameters, 42 layers, GQA 16/2, and 131,072 context, released under Apache-2.0. The card lists a BF16 checkpoint plus GGUF, MLX, and GPTQ 4-bit builds aimed at local assistants. It reports a 53.9 average in a 2B-class set against LFM2.5-2.6B, Qwen3.5-2B, and Gemma-4-E2B-it, above the largest listed comparison model at 51.1. Those scores are author-reported; quantized 4-bit weights are the 3060-class path."
+        },
+        {
+          "title": "LucaCell-v1.0: 3.15B single-cell foundation model",
+          "url": "https://huggingface.co/LucaGroup/LucaCell-v1.0-step6.4M",
+          "source": "hf",
+          "byline": "LucaGroup / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "LucaGroup’s LucaCell-v1.0-step6.4M is a ~3.15-billion-parameter, 40-layer cell encoder (hidden 2560, 40 heads) that bins gene expression and uses LucaOne nucleic-acid vectors. The card documents bf16 at about 6.3 GB and float32 inference, with a 56-token expression vocabulary that uses `[E_NON]` for zeros. Pretraining is masked language modeling on expression tokens at `mlm_probability = 0.5`. It is a specialist scRNA-seq encoder, not a chat model; writing `\"0\"` for non-expression silently maps to `[E_UNK]`."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "An ESP32-P4 video alarm clock",
+          "url": "https://hackaday.com/2026/09/07/esp32-p4-powers-video-alarm-clock/",
+          "source": "hackaday",
+          "byline": "Hackaday / brunokeymolen",
+          "discuss_url": "https://github.com/brunokeymolen/videoalarmclock",
+          "tier": "recommended",
+          "summary": "Bruno Keymolen’s Video Alarm Clock is a Waveshare ESP32-P4 module with a 720-pixel square display and a 3D-printed stand. The board’s RTC keeps time; clips live on the SD card as 720×720 MJPEG in AVI with 44.1 kHz PCM stereo, under 8.3 FAT names. Hardware work is the stand; the rest is software. The Waveshare kit was out of stock when Hackaday wrote it up on 7 September 2026."
+        },
+        {
+          "title": "A vacuum-tube computer for the home",
+          "url": "https://hackaday.com/2026/09/07/a-vacuum-tube-computer-for-the-home/",
+          "source": "hackaday",
+          "byline": "Hackaday / Mike",
+          "discuss_url": "https://www.thetubecomputer.com",
+          "tier": "recommended",
+          "summary": "Mike’s wall-mounted machine is an 8-bit von Neumann computer with 16 instructions, built from former Eastern Bloc double-triodes and NOR logic in the Apollo style. I/O uses more modern parts; a British Rail flip-digit display and a control panel run a simple airship simulator. Hackaday’s 7 September write-up points at thetubecomputer.com and hackaday.io/project/206568. It is a compact home-scale tube CPU, not a room-filling replica of ENIAC."
+        },
+        {
+          "title": "PETG versus PCTG, from the same spool maker",
+          "url": "https://hackaday.com/2026/09/07/comparing-petg-and-pctg-filaments/",
+          "source": "hackaday",
+          "byline": "Hackaday / Igor Gaspar, My Tech Fun",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Igor Gaspar compared transparent PETG and PCTG from one manufacturer. PETG replaces less than half of the glycol with CHDM; PCTG replaces more than half, which Hackaday says makes it more ductile, more impact-resistant, and more heat-tolerant, at print temperatures closer to ASA. The tests treat PCTG as a candidate for springs and compliant parts. It is a filament comparison, not a claim that PCTG replaces ASA in every enclosure."
+        },
+        {
+          "title": "A 1995 GPS time server, restomodded with a Pi 5",
+          "url": "https://www.jeffgeerling.com/blog/2026/truetime-xl-gps-time-server-restomod/",
+          "source": "adafruit",
+          "byline": "Jeff Geerling",
+          "discuss_url": "https://news.ycombinator.com/item?id=49577422",
+          "tier": "recommended",
+          "summary": "Jeff Geerling dropped a Raspberry Pi 5 and Jimmy Paputto L1 GNSS HAT into a 1995 TrueTime XL-AK chassis to run Chrony as a stratum-1 NTP server with PPS. He pins PPS IRQs, force-turbos the SoC, and drives the original Densitron 16×2 LCD over wire-wrapped GPIO, plus RFC 867/868 and a netatalk Timelord for vintage Macs. The immediate job is VCF Midwest; a 3D-printed bracket lets the original hardware go back in. It is a restomod, not a claim that the 1995 oscillator is still the clock."
+        },
+        {
+          "title": "Diamond TPMS electrodes for redox flow batteries",
+          "url": "https://3dprintingindustry.com/news/study-reveals-better-electrode-geometry-for-flow-batteries-254444/",
+          "source": "3dprinting",
+          "byline": "van der Heijden, Barzegari, Aarts, Liu, Forner-Cuenca / TU Eindhoven and Waterloo",
+          "discuss_url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6135697",
+          "tier": "recommended",
+          "summary": "Maxime van der Heijden and colleagues 3D-printed four 70%-porous, 1 mm-cell carbon electrodes on a $350 printer and pyrolyzed them at 1,000°C. The diamond TPMS lattice had the evenest flow (coefficient of variation 1.01 versus 1.43 for cubic), 1.47× the cubic surface area, and 14–80 kPa/m pressure drop at 10 cm/s versus 745 kPa/m for commercial felt. A vanadium cell reached 76% voltage efficiency and 71% coulombic efficiency at 50 mA/cm². Felt still had about 10× more surface area per volume; the preprint is on SSRN."
+        },
+        {
+          "title": "Analog FM audio from a CC1101",
+          "url": "https://blog.adafruit.com/2026/09/07/transmit-unsigned-8-bit-audio-samples-as-analog-fm-using-a-cc1101-module/",
+          "source": "adafruit",
+          "byline": "ktauchathuranga, via Adafruit",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "ktauchathuranga’s cc1101-analogfm library sends unsigned 8-bit audio as analog FM on a CC1101. `stream()` reads an Arduino Stream and treats 0 as the negative peak, 128 as the carrier center, and 255 as the positive peak. It is a sub-GHz analog path, not packet radio. Adafruit’s 7 September note is the lead; the library is the artifact."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Printed bacterial transistors on a Petri dish",
+          "url": "https://news.mit.edu/2026/mit-engineers-connect-bacteria-to-create-living-transistors-0817",
+          "source": "science",
+          "byline": "Hamid Doosthosseini, Christopher Voigt / MIT",
+          "discuss_url": "https://www.nature.com/articles/s41589-026-02300-3",
+          "tier": "must-read",
+          "summary": "MIT’s Hamid Doosthosseini and Christopher Voigt engineered Pantoea agglomerans colonies that act as transistors switched by the molecule OC-6, with relays that carry OHC-14 to the next colony. Five strains are the kit; the largest demonstrated circuit adds two inputs with 24 printed colonies about 5 mm apart on agar, and each step takes about eight hours. The intended use is sensing on plant roots, not replacing silicon. Nature Chemical Biology published the paper (doi:10.1038/s41589-026-02300-3); MIT News is dated 17 August 2026."
+        },
+        {
+          "title": "Microliths from Obi-Rakhmat, ~80,000 years ago",
+          "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0328390",
+          "source": "science",
+          "byline": "Plisson, Kharevich et al. / PLOS One",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/09/260903064233.htm",
+          "tier": "recommended",
+          "summary": "Hugues Plisson and colleagues report unretouched triangular micropoints from the oldest layers of Obi-Rakhmat in Uzbekistan, dated around 80 ka, with impact traces they compare to experimental projectile damage. They argue the points are too narrow for anything but arrow-like shafts and resemble armatures from Mandrin in the Rhône Valley about 25,000 years later. Three armature types appear in a selection of 20 pieces; the paper’s title keeps a question mark. PLOS One published it on 11 August 2025 (doi:10.1371/journal.pone.0328390); ScienceDaily recirculated it on 3 September 2026."
+        },
+        {
+          "title": "The 2026 Ig Nobels, first night in Zurich",
+          "url": "https://cen.acs.org/education/science-communication/2026-ig-nobel-prizes-improbable-research-zurich/104/web/2026/09",
+          "source": "science",
+          "byline": "Chemical & Engineering News / Annals of Improbable Research",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The 36th Ig Nobel ceremony ran in Zurich on 3 September 2026, the first time outside the US; Marc Abrahams cited travel-safety concerns. Physics went to Zhao Pan’s group at Waterloo for a splash-free Nautilus urinal (PNAS Nexus 2025); soil science went to a citizen project that buried 1,000 pairs of underpants in more than 25 countries (Science 2025). Technology reused mosquito proboscides as 3D-printing nozzles (Science Advances 2025). The Biology prize cited a since-retracted snake-stepping paper; C&EN records the retraction."
+        },
+        {
+          "title": "Chrysler’s secret spire in the 1929 height race",
+          "url": "https://en.wikipedia.org/wiki/Chrysler_Building",
+          "source": "reddit",
+          "byline": "Wikipedia / William Van Alen, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wa47x8/til_during_a_1929_race_to_build_new_yorks_tallest/",
+          "tier": "notable",
+          "summary": "Wikipedia records that William Van Alen had the Chrysler Building’s stainless-steel spire assembled inside the frame so rival architect Craig Severance would not know the final height. The Art Deco tower at 42nd and Lexington topped out on 23 October 1929 and opened on 27 May 1930 at 1,046 feet (319 m), then the world’s tallest until the Empire State Building on 1 May 1931. Roof height is 925 feet. Popular retellings add a 90-minute hoist and a 27-ton needle; those figures are not in the infobox used here."
+        },
+        {
+          "title": "Bette Nesmith Graham and Liquid Paper",
+          "url": "https://en.wikipedia.org/wiki/Bette_Nesmith_Graham",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wa9yth/til_that_bette_nesmith_graham_invented_correction/",
+          "tier": "notable",
+          "summary": "Bette Nesmith Graham, executive secretary at Texas Bank and Trust, mixed tempera to match stationery and painted over IBM electric-typewriter errors after holiday window-painting taught her to cover a mistake. She bottled Mistake Out from a kitchen blender in 1956, founded Liquid Paper in 1958, and sold the company to Gillette in 1979. Wikipedia notes sale-price figures of $47.5 million and $48.5 million. She was the mother of Michael Nesmith of the Monkees."
+        },
+        {
+          "title": "Voltaire’s Micromégas, a 1752 Sirius visitor",
+          "url": "https://en.wikipedia.org/wiki/Microm%C3%A9gas",
+          "source": "reddit",
+          "byline": "Wikipedia / Voltaire, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1w9sbtk/til_voltaire_wrote_a_scifi_novella_where_a_giant/",
+          "tier": "notable",
+          "summary": "Voltaire’s 1752 novella Micromégas sends a 120,000-royal-foot (38.9 km) being from a planet around Sirius, plus a 6,000-foot Saturnian companion, to comment on Earth. The accepted first publication is 1752, with disputed earlier printings. Critics treat it as early science fiction that inverts the usual Earth-traveller premise. The name literally means small-large."
+        }
+      ]
+    }
+  ]
+}

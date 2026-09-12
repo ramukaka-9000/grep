@@ -1,0 +1,234 @@
+{
+  "date": "2026-09-09",
+  "summary": "OpenAI posts a Lean-checked Navier–Stokes blowup, DeepMind ships AlphaGenome Atlas for 9 billion DNA variants, and Inception’s Mercury 2.5 hits 1,107 tok/s; electronics covers copperhead’s KiCad agent, ESP32 Wi-Fi Aware to iPhone, and 3D-printed infant MRI coils; interesting news has Hubble–Webb TNOs that keep their colors, the 1896 Crash at Crush, and a UN vote for Equal Earth maps.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "OpenAI’s Navier–Stokes blowup, with Lean",
+          "url": "https://openai.com/index/navier-stokes-solution/",
+          "source": "hn",
+          "byline": "tedsanders / OpenAI, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49613262",
+          "tier": "essential",
+          "summary": "OpenAI says an internal model, described as more capable than GPT-6 Astra, produced an analytical proof that smooth 3D incompressible Navier–Stokes flow can form a finite-time singularity under a smooth external force with finite energy, Clay statements C and D. Agents reached the result on 5 September 2026 after about 88 hours; Lean formalization took another 17 hours via GPT-6 Astra. A related unforced Euler blowup is in the same release. The lab does not claim the Millennium Prize and notes concurrent forced-Euler work by Levent Alpöge and Tristan Buckmaster."
+        },
+        {
+          "title": "AlphaGenome Atlas: 9 billion DNA letter changes",
+          "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+          "source": "hn",
+          "byline": "utiiiD / Google DeepMind, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49611251",
+          "tier": "must-read",
+          "summary": "Google DeepMind introduced AlphaGenome Atlas on 8 September 2026 as precomputed molecular-effect predictions for about 9 billion single-nucleotide variants, about 1 petabyte and more than 30 times the AlphaFold Database. An AVI score folds AlphaGenome with AlphaMissense for coding and non-coding ranking. Exeter’s Gareth Hawkes reports 22% more non-coding associations in 54,000 UK Biobank genomes when rare variants are grouped by predicted effect. Access is a website and API for non-commercial use; commercial Cloud access is listed as coming."
+        },
+        {
+          "title": "Mercury 2.5: a production diffusion LLM at 1,107 tok/s",
+          "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-2-5",
+          "source": "hn",
+          "byline": "Topfi / Inception Labs, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49616354",
+          "tier": "recommended",
+          "summary": "Inception Labs released Mercury 2.5 as its largest production diffusion language model, claiming a 40% intelligence gain over Mercury 2 and 1,107 tokens per second on widely available NVIDIA GPUs. The post lists 260K context, $0.20 per million input and $0.75 per million output, plus launch discounts. OpenCall reports median model latency near 170 ms; Augment Code reports context-compaction latency falling from about 150 s to 27 s. Those numbers are vendor and customer reports, not an independent bake-off."
+        },
+        {
+          "title": "Qwen3.8 27B quants: 4-bit holds, 1-bit collapses",
+          "url": "https://quesma.com/blog/qwen38-27b-quantizations-benchmarked/",
+          "source": "hn",
+          "byline": "stared / Quesma, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49611128",
+          "tier": "recommended",
+          "summary": "Quesma ran Unsloth GGUFs of Qwen3.8 27B on llama.cpp (16 August 2026 build) across GPQA Diamond, IFBench, and Terminal-Bench 2.1. BF16 is 55 GB; Q4_K_M at 17 GB matched BF16 on Terminal-Bench 2.1 and sat on a 24 GB card with about 64k context. UD-Q2_K_XL at 10.7 GB dropped some coding score; UD-IQ1_S at 6.2 GB sat near random on GPQA, and longer thinking made it worse. The author spent about $3,000 on Modal GPUs; Unsloth replaced some v2 files on 19 August 2026."
+        },
+        {
+          "title": "Kalman Delta Networks for linear-attention memory",
+          "url": "https://arxiv.org/abs/2609.07816v1",
+          "source": "arxiv",
+          "byline": "Bui, Huang, Ying",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Ngoc Bui, Tinglin Huang, and Rex Ying recast recurrent associative memory as a linear-Gaussian state-space model so a Kalman gain can weight each delta-rule write by accumulated uncertainty. Exact covariance tracking is a dense Riccati recursion, so they give scan-friendly Diagonal and Isotropic KDN approximations whose uncertainty maps are Möbius and therefore associative. Delta-style updates appear as the special case that drops covariance tracking. Controlled pretraining at 750M and 1.3B parameters is reported to beat listed linear-attention baselines on perplexity and mean downstream accuracy."
+        },
+        {
+          "title": "CodeTD: attention topology vs code hallucinations",
+          "url": "https://arxiv.org/abs/2609.07779v1",
+          "source": "arxiv",
+          "byline": "Voronkova, Trofimov, Dmitriev, Tulchinskii, Burnaev, Barannikov",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Daria Voronkova and colleagues score code-LLM generations before execution by running topological data analysis on attention maps, treating prompt–generation mismatch as a topological pattern. They evaluate HumanEval, MBPP, BigCodeBench, and MultiPL-E across five languages and ten models up to 34B parameters. The paper reports that CodeTD beats recent baselines and transfers between coding benchmarks. It is a pre-execution filter, not a proof that the generated program is correct."
+        },
+        {
+          "title": "Lean certificates for Navier–Stokes and Euler blowup",
+          "url": "https://github.com/openai/NavierStokesAndEuler",
+          "source": "github",
+          "byline": "OpenAI / GitHub",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "openai/NavierStokesAndEuler holds Lean 4.34.0-rc2 formalizations matching OpenAI’s Navier–Stokes and Euler write-ups. For every positive viscosity it proves a whole-space R³ result with bounded kinetic energy and a periodic-torus result, Clay (C) and (D). The Euler side constructs smooth compactly supported divergence-free data whose unforced incompressible Euler solution blows up. `lake exe cache get` then `lake build` machine-checks this development; Comparator is documented separately, and none of that is Clay Institute certification."
+        },
+        {
+          "title": "deltafin: Kimi K3 at 1 tok/s from four SSDs",
+          "url": "https://github.com/argonautlabsai/deltafin",
+          "source": "github",
+          "byline": "argonautlabsai / GitHub",
+          "discuss_url": "https://news.ycombinator.com/item?id=49616257",
+          "tier": "recommended",
+          "summary": "This ARGODRIVE fork of gavamedia/deltafin streams full 2.8T Kimi K3 experts from four SSDs on an M5 Max MacBook Pro with 128 GB. A 8 September 2026 cold-run log reports 1.0015 tok/s steady decode over 512 generated tokens with the drafter on, and about 375 s to first token on a 512-token prompt. One drive is about 52% of four-drive speed, two 73%, three 90%. Prefill still re-reads each layer’s experts 8×; the authors call that the honest limit, with a fix planned."
+        },
+        {
+          "title": "Muse: Meta’s personal agent in a Secure VM",
+          "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+          "source": "other",
+          "byline": "Meta",
+          "discuss_url": "https://news.ycombinator.com/item?id=49615537",
+          "tier": "recommended",
+          "summary": "Meta launched Muse on 8 September 2026 as a personal agent on Muse Spark, talking in the Muse app or WhatsApp. Each user gets a dedicated Muse Secure VM; a separate Sentinel process gates outbound traffic, and Muse is not shown passwords or card numbers. Checkout uses Stripe Link one-time cards; Confidential VM encryption that Meta cannot read is listed for later this year. It is rolling out in the US on iOS, Android, and muse.ai, free for most use with paid plans for heavier work."
+        },
+        {
+          "title": "Canopy-258M R3, browser-verified",
+          "url": "https://huggingface.co/psikosen/canopy-258m-r3-browser-verified",
+          "source": "hf",
+          "byline": "psikosen / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "psikosen’s canopy-258m-r3-browser-verified is a 296M-parameter (card: 258M-class) bfloat16 browser-action scorer plus a Chromium executor. The 8 September 2026 card reports 16/16 matched DOM mutation checks versus 5/16 before, and 37/37 on two explicit-label sets whose literal commands bypass the network. The learned pairwise scorer previously scored 108/144 and 110/144 on synthetic sets and 25/37 and 21/37 in browser sets. The card disclaims general autonomous browsing, Shadow DOM, and atomic page transactions."
+        },
+        {
+          "title": "PP-DocLayoutV3 on MLX, 33M",
+          "url": "https://huggingface.co/HashNuke/pp-doclayout-v3-mlx",
+          "source": "hf",
+          "byline": "HashNuke / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "HashNuke’s pp-doclayout-v3-mlx is an MLX port of PaddlePaddle’s PP-DocLayoutV3, an RT-DETR-style layout detector with 25 classes and a reading-order head at 33,282,557 float32 parameters. The card shows `mlx_vlm` load plus `model.detect(\"page.png\", conf=0.5)` and notes use as a Falcon-OCR-style layout backend. Original weights are Apache-2.0; conversion is `python -m mlx_vlm.models.pp_doclayout_v3.convert --dtype float32`. It is a layout head, not a full OCR stack."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "copperhead: an agent that edits real KiCad files",
+          "url": "https://copperhead.sh/",
+          "source": "hn",
+          "byline": "animeshchouhan / copperhead, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49610059",
+          "tier": "must-read",
+          "summary": "copperhead is an Apache-2.0 CLI that takes a `brief.md` and runs eight gated stages from spec through KiCad schematic, layout, gerbers, firmware, and a bring-up plan, stopping if ERC/DRC or an on-disk artifact gate fails. The authors’ Open Telegraph is a pocket ESP32-S3 Morse key designed in this flow, with the KiCad tree public. Install is `npm i -g copperhead` plus Node 20, `kicad-cli`, and a model key. Hosted Cloud/Team tiers start at $49 per user per month; the CLI stays free."
+        },
+        {
+          "title": "ESP32 to iPhone over Wi-Fi Aware, no SoftAP",
+          "url": "https://developer.espressif.com/blog/2026/08/wifi-aware-esp-to-iphone",
+          "source": "other",
+          "byline": "Espressif Developer Portal",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Espressif’s 25 August 2026 note walks ESP-IDF v6.1 and the `wifi_aware` component through NAN pairing with iOS 26 on iPhone 12 and later. Apple requires DNS-SD names, a six-digit PIN, and Network.framework sockets; the iPhone keeps its AP Wi-Fi while the datapath runs. The `udp_server` example uses `--preset ios` on ESP32-C5; pairing credentials can persist in NVS. Wi-Fi Aware is a managed iOS entitlement, so the demo app needs Apple’s approval before signing."
+        },
+        {
+          "title": "Custom infant MRI coils, 3D-printed in under 10 minutes",
+          "url": "https://3dprintingindustry.com/news/usc-team-3d-prints-custom-mri-sensors-for-infants-in-under-10-minutes-254504/",
+          "source": "3dprinting",
+          "byline": "Yasser Khan, Krishna Nayak, John Wood / USC, via 3D Printing Industry",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Yasser Khan’s USC lab prints conductive silver ink on a thermoplastic elastomer to make stretchable MRI receive coils sized to an infant in under 10 minutes for about $30. 3D Printing Industry reports roughly four times the image contrast of standard commercial coils in testing, with 5–10% stretch. Krishna Nayak’s Dynamic Imaging Science Center and CHLA cardiologist John Wood are named collaborators. It is a lab process for pediatric coils, not a cleared clinical product."
+        },
+        {
+          "title": "Desktop PC-ABS versus a Stratasys Fortus 450mc",
+          "url": "https://hackaday.com/2026/09/08/are-desktop-pc-abs-prints-outperformed-by-industrial-fdm-not-really/",
+          "source": "hackaday",
+          "byline": "Hackaday / Igor, My Tech Fun",
+          "discuss_url": "https://www.youtube.com/watch?v=orRpDW-_Ehk",
+          "tier": "recommended",
+          "summary": "Igor of My Tech Fun compared Polymaker PC-ABS on a Prusa Core One L and a Bambu H2D (280°C, 60–65°C chamber) with Stratasys PC-ABS on a Fortus 450mc (325°C, 95°C chamber). Industrial parts won dimensional accuracy; home prints looked better, and destructive tests were close, not always favoring Stratasys. The industrial job also took more than twice as long. It is one filament pair and one industrial machine, not a verdict on every PC-ABS."
+        },
+        {
+          "title": "A 1990s LEGO train regulator, one KA317 later",
+          "url": "https://hackaday.com/2026/09/08/fixing-a-1990s-lego-electric-train-speed-regulator/",
+          "source": "hackaday",
+          "byline": "Hackaday / Nonsense Wars",
+          "discuss_url": "https://www.youtube.com/watch?v=80r2D24WwWI",
+          "tier": "notable",
+          "summary": "Nonsense Wars opened a LEGO 2868b Electric Train Speed Regulator, the 9–12 VAC metal-rail box that predates battery locomotives. A resistor bank sets the LM317-class regulator’s target and polarity; the failed TO-220 on the heatsink was a Fairchild KA317. One swap restored 1995 behavior. Compared with 2026 smart bricks, the board is almost all passives plus that one regulator."
+        },
+        {
+          "title": "Reverse-engineering a Sky130 ASIC into Star Battle",
+          "url": "https://kjartanvandriel.github.io/asic/",
+          "source": "hn",
+          "byline": "Kjartan van Driel and Leander Post, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49599825",
+          "tier": "recommended",
+          "summary": "Kjartan van Driel and Leander Post walk Jane Street’s GDS reverse-engineering puzzle from KLayout polygons to a working netlist. Cell names starting `sky130_fd_sc_hd__` identify the SkyWater 130 nm library, so PDK layers and standard cells can be read instead of guessed from metal. The recovered machine is an 11×11 Star Battle validator: two stars per row, column, and patch, none touching, 22 in all. The page is a solution write-up, including the output-writer block the puzzle said you could ignore."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Tiny TNOs that still remember how they formed",
+          "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-webb-find-far-out-solar-system-objects-remember-past/",
+          "source": "nasa",
+          "byline": "Anastasia Morgan, Marielle Eduardo / NASA, ESA, STScI",
+          "discuss_url": "https://doi.org/10.3847/1538-3881/ae907f",
+          "tier": "must-read",
+          "summary": "Hubble (visible) and Webb (infrared) jointly characterized 27 newly found trans-Neptunian objects, some of the faintest directly seen, in two Astronomical Journal papers. Colors of the smallest bodies match their larger siblings in both dynamically cold and hot populations, so collisions have not obviously reset surfaces. Size distributions of the two populations are similar; there are fewer very small bodies than some formation models expected. The smallest measured object is about 5 km across, roughly five times below the best ground-based limit."
+        },
+        {
+          "title": "The UN encourages Equal Earth maps",
+          "url": "https://en.wikipedia.org/wiki/Equal_Earth_projection",
+          "source": "other",
+          "byline": "Šavrič, Jenny, Patterson / Wikipedia",
+          "discuss_url": "https://www.aljazeera.com/news/2026/9/4/un-votes-to-adopt-new-world-map-that-reflects-africas-true-size",
+          "tier": "recommended",
+          "summary": "Wikipedia records that the UN General Assembly voted in September 2026 to encourage equal-area world maps and specifically noted the 2018 Equal Earth projection of Bojan Šavrič, Bernhard Jenny, and Tom Patterson. Al Jazeera and AFP date the vote 4 September 2026; the US and EU posted explanations of vote. Equal Earth keeps relative area, unlike Mercator, while remaining less polar-stretched than Gall–Peters. It is a cartographic recommendation, not a legally binding replacement of every UN map."
+        },
+        {
+          "title": "The Crash at Crush, 15 September 1896",
+          "url": "https://en.wikipedia.org/wiki/Crash_at_Crush",
+          "source": "reddit",
+          "byline": "Wikipedia / Missouri–Kansas–Texas Railroad, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wb63jq/til_40000_people_showed_up_to_a_place_in_the/",
+          "tier": "recommended",
+          "summary": "On 15 September 1896 the Katy railroad staged a head-on crash of two uncrewed locomotives at a pop-up town called Crush, 14 miles north of Waco, to use obsolete 30-ton engines. About 40,000 people came on $3.50 excursion fares; no gate fee was charged. Both boilers exploded and flying debris killed two spectators and injured at least six. Scott Joplin’s Great Crush Collision March followed the same year."
+        },
+        {
+          "title": "Barlaam and Josaphat, the Buddha as Christian saints",
+          "url": "https://en.wikipedia.org/wiki/Barlaam_and_Josaphat",
+          "source": "hn",
+          "byline": "Wikipedia, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49611051",
+          "tier": "recommended",
+          "summary": "Barlaam and Josaphat are Christian saints whose legend is a Christianized life of Siddhartha Gautama. The path runs from a 2nd–4th century Sanskrit Mahayana text through a Manichaean version and the 8th-century Arabic Kitāb Bilawhar wa-Būd̠āsaf into Georgian and then Greek and Latin. Josaphat’s name tracks Bodhisattva via Arabic Būd̠āsaf. Greek Orthodox feast 26 August; Slavic Orthodox 19 November; Catholic 27 November."
+        },
+        {
+          "title": "A NASA stretch algorithm that found Angkor Wat murals",
+          "url": "https://www.nasa.gov/technology/tech-transfer-spinoffs/nasa-technique-for-manipulating-satellite-photos-now-reveals-ancient-images/",
+          "source": "nasa",
+          "byline": "Mike DiCicco / NASA",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Decorrelation stretch, documented at JPL in 1996 by Ronald Alley for ASTER on Terra, exaggerates color contrast in digital images. Rock-art hobbyist Jon Harman, a medical-imaging engineer, read that paper around 2005 and shipped a DStretch plugin for NIH ImageJ, plus later phone apps. An archaeologist used it between 2010 and 2012 to recover about 200 faded paintings at Angkor Wat, including riders and musicians in the central tower. Harman says he still fills about 200 DStretch requests a year."
+        },
+        {
+          "title": "The American “cheetah” was a fish-eating puma cousin",
+          "url": "https://en.wikipedia.org/wiki/Miracinonyx",
+          "source": "science",
+          "byline": "Cassatt-Johnstone, Shapiro et al. / UC Santa Cruz, via ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/09/260907201558.htm",
+          "tier": "recommended",
+          "summary": "Wikipedia already treats Miracinonyx as a Pliocene–Pleistocene North American felid closer to the cougar than to true cheetahs, with cheetah-like limbs as convergence. ScienceDaily, covering a 4 September 2026 Current Biology paper (doi:10.1016/j.cub.2026.07.072) led by Molly Cassatt-Johnstone and Beth Shapiro, reports nuclear paleogenomes and isotopes from 23–31 ka Yukon fossils. Northern animals look like fish specialists, while Wyoming and Florida animals look like grassland generalists, extending the range about 20 degrees of latitude. Those dietary claims are the paper’s, not the older genus page."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "date": "2026-08-20",
+  "summary": "OpenLogi's local-first HID++ tool tops HN, Unsloth ships Dynamic 3.0 quants, Hubble and Gaia pin down the Milky Way's oldest merger, and a Pyongyang museum claims to have sunk a ship that was mothballed.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "A 1,500-point Rust HID++ tool tops HN, Unsloth claims +10% accuracy at the same size with Dynamic 3.0, Ornith-1.5 closes a full self-improvement loop, and a Qwen3.8-27B draft model lands on Hugging Face.",
+      "stories": [
+        {
+          "title": "OpenLogi — your Logitech mouse, finally local",
+          "url": "https://openlogi.org/en",
+          "source": "hn",
+          "byline": "OpenLogi, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49355606",
+          "tier": "recommended",
+          "summary": "OpenLogi is a local-first, Rust alternative to Logitech Options+ that drives Logitech mice directly over the HID++ protocol — remapping buttons, DPI presets, and SmartShift with no account, no telemetry, and no cloud. Bindings live in a plain TOML file you own, and it reaches devices over Bolt, Unifying, Lightspeed, Bluetooth, or USB across macOS, Linux, and Windows. It took the top HN slot of the day with over 1,500 points, a rare case of a niche reverse-engineering tool hitting the front page."
+        },
+        {
+          "title": "Unsloth Dynamic 3.0 GGUFs",
+          "url": "https://unsloth.ai/docs/basics/dynamic-3.0-ggufs",
+          "source": "hn",
+          "byline": "Unsloth, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49365443",
+          "tier": "recommended",
+          "summary": "Unsloth's Dynamic v3.0 quantization release targets Qwen3.8-27B, claiming more than 10% better top-1% accuracy at the same disk size than other providers' quants, backed by a new imatrix calibration set tuned for agentic coding, chat, and multilingual use. Everything is pure post-training quantization — no QAT, no QAD — and the imatrix is released for community reuse. Headline numbers include a 6.2GB UD-IQ1_S that keeps ~72% of top-1% accuracy while being 89% smaller, and the quants work in llama.cpp and Unsloth Desktop."
+        },
+        {
+          "title": "PostgreSQL for Everything",
+          "url": "https://www.raphaelbauer.com/posts/postgresql-everything/",
+          "source": "hn",
+          "byline": "Raphael Bauer, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49361279",
+          "tier": "recommended",
+          "summary": "Raphael Bauer's essay argues that PostgreSQL quietly replaces Solr/Elasticsearch (full-text), MongoDB (jsonb), Kafka/RabbitMQ (SKIP LOCKED queues), ClickHouse (TimescaleDB), Redis (unlogged tables), the filesystem, graph databases (ltree), and even microservice middleware — with pgvector and pgai covering AI retrieval workflows. The message for builders: before adding shiny technology X, ask whether Postgres can already do it. It is a practical consolidation argument for the one-database era."
+        },
+        {
+          "title": "Ornith-1.5: From Self-Scaffolding to Self-Improvement",
+          "url": "https://ornith.ai/ornith_1_5.html",
+          "source": "hn",
+          "byline": "Ornith, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49362401",
+          "tier": "notable",
+          "summary": "Ornith-1.5 extends the self-scaffolding idea into a closed self-improvement loop: the model proposes new tasks, generates task-specific scaffolds, and produces solution rollouts, with GRPO rewards flowing back into all three stages. Task reward is the product of validity, frontier difficulty (targeting ~20% success rate), and novelty against previously generated tasks, so the curriculum automatically gets harder as the model improves. It ships at three scales — 397B MoE, 35B MoE (3B active), and a 9B mobile-tier dense model — with the 397B scoring 86.1 on Terminal-Bench 2.1, on par with Claude Opus 4.8."
+        },
+        {
+          "title": "What is Missing from AI Post-Training AI: An Empirical Analysis",
+          "url": "https://arxiv.org/abs/2608.19072v1",
+          "source": "arxiv",
+          "byline": "arXiv",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "As LLM agents learn to post-train LLMs end-to-end — writing code, launching training, evaluating checkpoints — this paper argues the field conflates two distinct capabilities: execution-level iteration within a chosen strategy, and strategy-level revision as evidence accumulates. Analyzing a large corpus of publicly released post-training trajectories, the authors find agents lock in their training strategy at the very start and spend the entire remaining budget on local adjustments. It is a sharp empirical caution for anyone building self-improving training pipelines."
+        },
+        {
+          "title": "Metrics That Write Themselves: Evolving an Evaluator from Its Own Blind Spots",
+          "url": "https://arxiv.org/abs/2608.18744v1",
+          "source": "arxiv",
+          "byline": "arXiv",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "For domains where nobody knows how to score output — report generation being the poster child — EvalCEGAR evolves a metric as a pool of small Python operators that each flag one named defect and vote, borrowing counterexample-guided abstraction refinement from program verification. Asking a model for operators directly fails (183 candidates collapsed into 96 behaviors from one narrow region of the space), but iteratively refining on the evaluator's own blind spots works. The result is an automatic metric that improves exactly where it is weakest."
+        },
+        {
+          "title": "apex-inference-chip: an LLM inference chip on FPGA, bit-exact against a golden model",
+          "url": "https://github.com/SigmanticAI/apex-inference-chip",
+          "source": "github",
+          "byline": "SigmanticAI / GitHub",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This repo implements one transformer decoder layer in RTL for Qwen2.5-0.5B and runs the real model on an FPGA at a measured 0.56 tok/s — every silicon value bit-exact against a golden software reference, with a claimed 140x speedup over the initial naive version. The full evidence trail (waveforms, bit-exact checks, power numbers) is in the repo, making it an unusually honest hardware deep-dive. It is the rare open project that shows an actual LLM executing on custom silicon rather than just a simulator."
+        },
+        {
+          "title": "desktop-fly: a fruit fly on your desktop, driven by the real FlyWire connectome",
+          "url": "https://github.com/DenisSergeevitch/desktop-fly",
+          "source": "github",
+          "byline": "Denis Sergeevitch / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A 3D fruit fly that lives on your macOS desktop, driven by a live spiking simulation of the actual FlyWire connectome — the complete wiring diagram of a Drosophila brain. The fly's behavior emerges from neural activity rather than scripted animation, making it a fun, tangible demo of whole-brain simulation. Swift-based and open source, it is a delightful collision of neuroscience and desktop whimsy."
+        },
+        {
+          "title": "Qwen3.8-27B-DSpark-Agentic: a 1.36B draft model for speculative decoding",
+          "url": "https://huggingface.co/Avifenesh/Qwen3.8-27B-DSpark-Agentic",
+          "source": "hf",
+          "byline": "Avifenesh / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A 1.36B-parameter DSpark speculative-decoding drafter for Qwen3.8-27B, trained on real agentic coding and assistant sessions rather than generic text. The model card reports a mean acceptance length of 2.88-2.92 on held-out agentic turns and 4.61 on GSM8K at DSpark block size 7, with 693 tokens/s aggregate decode on a single RTX PRO 6000 Blackwell. It is Apache-2.0, SGLang-compatible, and small enough to run comfortably on consumer hardware."
+        },
+        {
+          "title": "legal-ko-v7: a 568M Korean legal sentence embedding model",
+          "url": "https://huggingface.co/ysmeta/legal-ko-v7",
+          "source": "hf",
+          "byline": "ysmeta / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A 568M-parameter Korean legal embedding model fine-tuned from BGE-m3-ko on 152k legal sentence pairs with multiple-negatives ranking losses, MIT-licensed and TEI-compatible. The widget examples show it handling dense statutory and case-law text, which makes it a practical, CPU-runnable building block for Korean legal RAG and retrieval. It is the v7 iteration of an ongoing legal-domain fine-tune series."
+        },
+        {
+          "title": "NVFP4 on Volta: running Qwen 3.8's Blackwell-era format on four 2017 V100s",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vsq3zg/nvfp4_on_volta_despite_being_built_for_blackwell/",
+          "source": "reddit",
+          "byline": "r/LocalLLaMA",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A r/LocalLLaMA post claims to run Qwen 3.8 in NVFP4 — a format built for Blackwell hardware — natively on four 2017-era V100s, reportedly matching the author's $6,000 RTX 5090. If the numbers hold up, it is a striking example of extracting frontier-era quantization from ancient hardware. Community threads like this are a good sanity-check on what the 4-bit format war actually costs in practice."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "A Casio calculator hosts a telnet BBS, an STM32 becomes a DIY oscilloscope, a locked Cricut gets unlocked, and PicoCamera brings esp32-camera APIs to the RP2040/RP2350.",
+      "stories": [
+        {
+          "title": "A true telnet BBS hosted on a Casio calculator",
+          "url": "https://blog.adafruit.com/2026/08/19/a-true-telnet-bbs-hosted-on-a-casio-calculator/",
+          "source": "adafruit",
+          "byline": "Adafruit Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Ian hosted a genuine telnet bulletin board system on a Casio VX-4 calculator — a device with no network stack and no OS to speak of, which he admits held zero appeal to him eight weeks earlier. The write-up covers the serial and network plumbing needed to squeeze a BBS onto calculator hardware. It is the kind of impossible-sounding build that makes you re-examine what 'embedded' means."
+        },
+        {
+          "title": "Simple DIY STM32 Oscilloscope Project",
+          "url": "https://hackaday.com/2026/08/19/simple-diy-stm32-oscilloscope-project/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Part one of [BTTLab]'s series on building an STM32-based oscilloscope uses the STM32F207's built-in ADC to capture waveforms, demonstrating the fundamentals of sampling, triggering, and USB transfer on a cheap dev board. It is explicitly designed as a series that builds from a minimal capture loop toward a usable instrument. A good starting point for anyone who wants to understand scopes by building one."
+        },
+        {
+          "title": "Unlocking a locked/deactivated e-waste Cricut Maker",
+          "url": "https://sprocketfox.io/xssfox/2026/07/01/cricut-unlock/",
+          "source": "hn",
+          "byline": "xssfox, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49365841",
+          "tier": "recommended",
+          "summary": "xssfox documents unlocking a Cricut Maker that had been deactivated and locked by its manufacturer, turning e-waste back into a working machine. The post walks through the firmware, the lock mechanism, and the exploit chain that regains full control. It is a clean demonstration of the right-to-repair fight playing out at the firmware level."
+        },
+        {
+          "title": "Smarting Up a Doorbell with Zigbee",
+          "url": "https://hackaday.com/2026/08/19/smarting-up-a-doorbell-with-zigbee/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A classic dumb doorbell — button, transformer, and bell — gets upgraded with a Zigbee module so presses show up in your home-automation stack without replacing the whole doorbell. The build shows how to wire the low-voltage side safely and bridge it to a smart hub. A tidy, reproducible retrofit for smart-home builders."
+        },
+        {
+          "title": "PicoCamera: an Arduino-compatible camera library for the RP2040/RP2350",
+          "url": "https://blog.adafruit.com/2026/08/19/picocamera-an-arduino-compatible-camera-library-for-the-rp2040-rp2350/",
+          "source": "adafruit",
+          "byline": "Adafruit Blog",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "PicoCamera brings an esp32-camera-aligned API to the RP2040/RP2350, with PIO + DMA capture and support for common sensors like the OV2640, OV3660, and OV7670. The esp_ prefix becomes pico_, so code written for the ESP32 camera stack ports over with minimal changes. A useful bridge for anyone who wants camera projects without the ESP32's WiFi baggage."
+        },
+        {
+          "title": "Live TfL bus arrivals + weather departure board on a Pimoroni Badger 2350",
+          "url": "https://blog.adafruit.com/2026/08/19/live-tfl-bus-arrivals-weather-departure-board-on-a-pimoroni-badger-2350-e-ink-badge/",
+          "source": "adafruit",
+          "byline": "Adafruit Blog",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Marcio Lopes turned a £30 Pimoroni Badger 2350 e-ink badge into a live departures board: a MicroPython app that pulls bus arrivals from Transport for London's open API and adds the weather, hanging by the door so you know whether to run for the bus. E-ink means it sips power and stays readable in sunlight. A compact example of a genuinely useful ambient display."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Hubble and Gaia push the Milky Way's merger history back 1.8 billion years, human microbes may survive on the Moon, a joke domain became a radiosonde war asset, and a museum claims to have sunk a ship that never left Bremerton.",
+      "stories": [
+        {
+          "title": "How a joke domain purchase turned into geopolitical warfare",
+          "url": "https://sprocketfox.io/xssfox/2026/08/19/sondehub-and-war/",
+          "source": "hn",
+          "byline": "xssfox, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49360015",
+          "tier": "recommended",
+          "summary": "SondeHub began in 2018 as a joke — a domain that just redirected to the amateur high-altitude balloon tracker Habhub — and grew into the community network that tracks weather-balloon radiosondes worldwide. Running wind models backwards to find launch sites accidentally mapped military installations, drew requests from the US military and the FAA, and landed the site in the Washington Post during the 2023 balloon saga. After the full-scale invasion, Ukrainian drone operations reportedly leaned on it and the API came under suspected Russian DDoS — a wild ride from party trick to war infrastructure."
+        },
+        {
+          "title": "Hubble & Gaia solve our galaxy's merger mystery",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/Hubble_Gaia_solve_our_galaxy_s_merger_mystery",
+          "source": "esa",
+          "byline": "ESA",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "New Hubble data, combined with Gaia's precision astrometry, show definitive evidence of a dwarf galaxy — named LKH — merging with the young Milky Way about 12 billion years ago. The finding pushes the known history of our galaxy 1.8 billion years further back and pins down one of the earliest building blocks of the Milky Way. The result is published in Nature Astronomy."
+        },
+        {
+          "title": "Human-related microbes may survive the Moon's South Pole, NASA finds",
+          "url": "https://science.nasa.gov/humans-in-space/human-related-microbes-may-survive-moons-south-pole-nasa-finds/",
+          "source": "nasa",
+          "byline": "NASA",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A study published in Science Advances on August 19 finds that some Earth microbes that would hitch a ride with human explorers could survive in the shaded nooks and crannies of the Moon's South Pole region. The cold, permanently shadowed environments that preserve water ice may also preserve hardy microbes, raising both science and planetary-protection questions. It is a timely result as Artemis prepares to land humans near the pole."
+        },
+        {
+          "title": "16 mummies and a dog reveal a hidden order inside an ancient Egyptian tomb",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260819041218.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A tomb in Egypt's Theban Necropolis tells a surprisingly organized story of burial and reuse spanning hundreds of years: 16 mummified people, the remains of at least four more, and a mummified dog, from wealthy burials with amulets and imported goods to later bodies carefully stacked as space ran out. The layout reveals how funerary practices and beliefs shifted across generations. Archaeology that reads almost like a detective story."
+        },
+        {
+          "title": "TIL: Pyongyang's war museum claims it sank the USS Baltimore — which was mothballed the whole time",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vsbg5u/til_the_victorious_war_museum_in_pyongyang_north/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The Victorious War Museum in Pyongyang exhibits a poster and the 'actual' torpedo boat said to have sunk the cruiser USS Baltimore during the Battle of Chumonchin Chan. The only problem: the Baltimore sat decommissioned and mothballed in Bremerton, Washington from 1946 to 1951, and was sold for scrap in 1972. A perfect example of propaganda meeting Wikipedia."
+        },
+        {
+          "title": "TIL: 31,000 years ago, someone in Borneo performed a successful surgical amputation",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vrycgl/til_that_31000_years_ago_someone_in_borneo/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A child in Borneo survived a lower-leg amputation roughly 31,000 years ago and then lived another 6-9 years — the earliest known surgical amputation by tens of thousands of years. The healed bone shows the surgery predates agriculture and settled life, forcing a rethink of prehistoric medical knowledge. The find was published in Nature."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "date": "2026-08-29",
+  "summary": "Z.ai open-weights GLM-5.3 and OpenAI winds down Cursor after SpaceX; electronics casts engine parts from PLA and recovers a shorted SD card; interesting news covers an 11.8-billion-year Milky Way merger, light-activated eye drops, and soil scored with buried underwear.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "GLM-5.3 is now open-weight",
+          "url": "https://huggingface.co/zai-org/GLM-5.3",
+          "source": "hn",
+          "byline": "jeudesprits / Z.ai, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49479878",
+          "tier": "must-read",
+          "summary": "Z.ai published GLM-5.3 as open weights on Hugging Face, using the same base as GLM-5.2 so every claimed gain is post-training. The card reports a 50% jump over GLM-5.2 on Z.ai's in-house Code Bench and open-source SOTA on Terminal Bench 3.0 (28.3 versus 4.6) and Agents' Last Exam. It also reports CyberGym 84.5 for vulnerability discovery, with exploitation scores more than doubling GLM-5.2. Those are the authors' numbers; SGLang, vLLM, Transformers, and Unsloth recipes are linked from the card."
+        },
+        {
+          "title": "OpenAI will pull models from Cursor after the SpaceX acquisition",
+          "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/",
+          "source": "hn",
+          "byline": "meetpateltech / OpenAI, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49486172",
+          "tier": "must-read",
+          "summary": "OpenAI told SpaceX it will wind down the contract that supplies OpenAI models to Cursor, with a proposed shutoff of November 12, 2026 — the maximum notice in the agreement. The post cites a change-of-control window plus prior terms-of-service breaches after Musk acquired Twitter and, under oath this year, xAI's admission that it distilled OpenAI data. OpenAI says it will not provide future models, including Astra, to Cursor. Developers who rely on GPT inside Cursor have until mid-November."
+        },
+        {
+          "title": "Run Qwen3.8 27B locally: real numbers from a Mac Studio",
+          "url": "https://terminalbytes.com/run-qwen-3-8-27b-locally/",
+          "source": "hn",
+          "byline": "speckx / terminalbytes, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49479951",
+          "tier": "recommended",
+          "summary": "On a Mac Studio M3 Ultra, Ollama's Q4_K_M Qwen3.8-27B (17 GB) generates about 14 tokens/s versus 28.6 for Qwen3.6-27B on the same box. The newer model answers in roughly a third the tokens, so wall-clock per finished answer is close to a tie. A 1-bit 6.7 GB llama.cpp build hits 27 tokens/s and gets facts right but will not commit to an answer. You need a recent llama.cpp — older builds fail on architecture tag qwen35 — and about 32 GB RAM for Q4, 16 GB for Q2."
+        },
+        {
+          "title": "I accidentally turned LLM memory into program analysis",
+          "url": "https://pwning.systems/posts/llm-memory-program-analysis/",
+          "source": "hn",
+          "byline": "matt_d / Jordy Zomer, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49485416",
+          "tier": "recommended",
+          "summary": "Jordy Zomer wanted an LLM that maintains what is currently known during long vulnerability-research sessions, not a pile of retrieved chat snippets. When a later debugger observation falsifies an earlier pointer, embedding memory still surfaces both the old conclusion and the retraction. Lemmalog stores facts and derivation rules like a program analysis, so invalidating a premise automatically drops dependent conclusions. The post reports it is competitive with dedicated LLM memory systems on some tasks while showing the reader only a tiny fraction of the history; source is at github.com/JordyZomer/lemmalog."
+        },
+        {
+          "title": "WikiSkill: compile agent experience into a persistent wiki",
+          "url": "https://arxiv.org/abs/2608.27454v1",
+          "source": "arxiv",
+          "byline": "Tang, Rashtchian, Ferng, Tomkins, Juan, Vu / Google Research, Virginia Tech",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "WikiSkill sits a persistent wiki between raw agent traces and executable skills, so skill updates compile experience instead of scattering it across optimization histories. Across the authors' benchmarks it beats EvoSkill and SkillOpt, and smaller models with evolved skills can outperform larger models without them. Evolved skills also transfer across model families, sometimes beating a model's self-evolved skills. Ablations say the wiki layer is the part that matters."
+        },
+        {
+          "title": "SWE-Prime: fewer trajectories, better SWE-agent SFT",
+          "url": "https://arxiv.org/abs/2608.27449v1",
+          "source": "arxiv",
+          "byline": "Zheng, Ye, Wang et al. / Sun Yat-sen, Huawei Cloud, Chongqing University",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "SWE-Prime argues that a successful SWE-agent trajectory is not automatically good SFT data: it can still contain redundant steps, failed tool calls, or git-history cheating. A two-stage filter first keeps high-quality trajectories, then scores semantic segments, keeping the full sequence for context but applying loss only on selected spans. Training on the selected 10% of resolved trajectories beat training on the full set, with relative gains of up to 12.2% on SWE-Bench Pro and 24.2% on SWE-Bench Verified. Those are the paper's reported numbers."
+        },
+        {
+          "title": "walgit — a Git server that is one binary in front of object storage",
+          "url": "https://github.com/tobi/walgit",
+          "source": "github",
+          "byline": "tobi / GitHub",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "walgit is a single Rust binary that hosts Git against S3 or GCS with no database, no leader, and no local state that matters. A write-ahead log in the bucket is the source of truth; disk is a cache, and a compare-and-swap on a tiny manifest is the only consensus. It implements the architecture Cursor described as Continuity, plus remote readers and bundle-uri so clones can be larger than the machine. MIT-licensed, with smart HTTP, LFS, a web UI, and a fault-injection test suite."
+        },
+        {
+          "title": "Praxist — an autonomous R&D loop for measurable research",
+          "url": "https://github.com/sapientinc/PRAXIST",
+          "source": "github",
+          "byline": "sapientinc / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Praxist treats a measurable, computer-executable research project as a persistent process: parallel research peers, task-owned evaluation, durable evidence, and generation-to-generation synthesis. Install is a pip extra plus an interactive setup that covers the Fair Source license; commercial use is free under $1M annual revenue. The accompanying paper is arXiv:2608.25955. Generated outputs need product-name attribution if published externally."
+        },
+        {
+          "title": "ReasonShield: a 3B policy-adaptive multimodal safety classifier",
+          "url": "https://huggingface.co/ProCreations/ReasonShield",
+          "source": "hf",
+          "byline": "ProCreations / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "ReasonShield is a 3B multimodal safety classifier fine-tuned from Shieldstral 1.0 3B, small enough to run on a 3060-class GPU once quantized. It writes a short visible decision summary inside think tags, then a lowercase yes or no, with a one-token Shieldstral-compatible scoring mode. The card reports mixed held-out results: plus 13 ArabSafe recall and plus 12.3 MultilingualSafety F1 in adaptive mode, but HarmBench recall drops to 83.75 from 98.44 and ToxicChat F1 falls. BF16 weights plus GGUF; the author is explicit that a plausible rationale can still be wrong."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Casting engine parts from 3D prints",
+          "url": "https://hackaday.com/2026/08/28/casting-engine-parts-from-3d-prints/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Camden Bowen moved from milling engine parts out of billet aluminum to lost-PLA casting after watching the scrap pile grow. He built a cement-and-perlite kiln, melted alloy wheels into ingots, printed the part in PLA, invested it in plaster of Paris mixed with sand, then burned out the plastic. After a lot of incomplete burnout he cast a usable engine cylinder with only a few imperfections. The YouTube build is the primary walkthrough."
+        },
+        {
+          "title": "Reviving an SD card with shorted capacitors",
+          "url": "https://hackaday.com/2026/08/28/reviving-an-sd-card-with-shorted-capacitors/",
+          "source": "hackaday",
+          "byline": "Hackaday / Aeson Labs",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Yevgeniy Kapishon at Aeson Labs recovered a customer's 32 GB SD card that showed a hard short from supply to ground. The card was a monolithic package, so X-ray plus a thermal camera located two minuscule capacitors near the edge; removing them cleared the short and the card booted. Shorted MLCCs are a common failure even when the NAND and controller are fine. The write-up is a hands-on case study, not a general repair guide."
+        },
+        {
+          "title": "A headless Game Boy emulator on an ESP32-S3",
+          "url": "https://hackaday.com/2026/08/28/building-a-headless-game-boy-emulator/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Artificial-Age put a Game Boy emulator on an ESP32-S3 with no screen and no buttons. The board hosts a Wi-Fi access point; a browser streams video and audio while the keyboard or touchscreen sends inputs, and ROMs live in flash via the same web UI. Sharing is the point: guests join the AP instead of installing an emulator. The code is on GitHub as ESP32Gameboy."
+        },
+        {
+          "title": "An Arduino rotary table that keeps the MIG torch still",
+          "url": "https://blog.arduino.cc/2026/08/28/this-custom-motorized-turntable-makes-welding-easier/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Greenhill Forge built an Arduino UNO Rev3 rotary welding table so a MIG torch can stay still while a round workpiece turns. A stepper with a gear reducer drives a lazy-Susan top; a rotary encoder and OLED set and show speed. A ground strap on the motor shaft keeps welding current off the electronics. The structural frame is mild steel a beginner could weld in an afternoon."
+        },
+        {
+          "title": "DOOM's opening track played on 555 timers",
+          "url": "https://hackaday.com/2026/08/28/doom-played-on-series-of-555-timers/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Nick did not recreate DOOM in hardware; he played the opening track with 555 timers. A clock of just over 7 Hz, a binary counter, a 15-position decoder, and a diode matrix pick among six pitches that program another 555's resistor network. Any microcontroller could do the chiptune; the point is discrete logic. The project is on Hackaday.io."
+        },
+        {
+          "title": "UMaine will print up to nine BioHome3D houses",
+          "url": "https://3dprintingindustry.com/news/umaine-to-build-up-to-nine-3d-printed-homes-as-it-scales-biohome3d-technology-254215/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry / University of Maine",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The University of Maine's Advanced Structures and Composites Center is partnering with nonprofit Penquis to produce up to nine 3D-printed homes in Greater Bangor. It is the first scale-up of BioHome3D, the university's bio-based printed housing stack, rather than a one-off pavilion. Nine units is still a demonstration neighborhood, not mass housing."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Hubble and Gaia pin a dwarf-galaxy merger 11.8 billion years ago",
+          "url": "https://science.nasa.gov/missions/hubble/hubble-solves-merger-mystery-from-milky-ways-early-years/",
+          "source": "nasa",
+          "byline": "NASA Science / ESA Hubble",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Hubble plus Gaia measurements of 39 inner globular clusters show a third population that is older than Gaia-Sausage-Enceladus debris but younger than clusters born in the Milky Way. Massari and colleagues in Nature Astronomy (17 August) interpret that as the LKH dwarf — Low-energy-Kraken-Heracles — merging about 11.8 billion years ago with roughly 500 million solar masses in stars. That pushes a confirmed merger 1.8 billion years farther back. The paper is Nature Astronomy 10.1038/s41550-026-02931-5."
+        },
+        {
+          "title": "Light-activated eye drops restore visually guided behavior in blind mice",
+          "url": "https://ibecbarcelona.eu/ibec-led-consortium-develops-light-activated-drugs-that-restore-sight-in-blind-mice",
+          "source": "science",
+          "byline": "IBEC / Journal of the American Chemical Society",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "An IBEC-led consortium reports prosthe6, photoswitchable small molecules that target mGlu6 on ON-bipolar cells so surviving retinal circuitry can respond to ordinary white light. Sortino and colleagues in JACS (DOI 10.1021/jacs.5c18611) restored optokinetic saccades in blinded zebrafish and innate light-avoidance in mouse models of AMD and retinitis pigmentosa, including after eye drops of prosthe6-12 and prosthe6-15. The molecules do not regrow photoreceptors and are not a human therapy. The authors are explicit that this is animal-model photopharmacology, now patented, with a spin-off in formation."
+        },
+        {
+          "title": "A thousand Swiss volunteers buried underwear to map soil life",
+          "url": "https://www.news.uzh.ch/en/articles/media/2026/buried-underwear.html",
+          "source": "science",
+          "byline": "University of Zurich / Agroscope",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "In 2021, 1,000 volunteers across Switzerland buried more than 2,000 pairs of cotton underwear and 12,000 tea bags for two months. Bender and colleagues in Plants, People, Planet (24 August 2026, DOI 10.1002/ppp3.70259) find land use — garden, meadow, field, lawn — predicts decomposition better than most soil chemistry. Gardens were fastest; lawns slowest. Rapid decay can mean fertility or nutrient oversupply; the authors propose an underwear index, not a claim that faster is always better."
+        },
+        {
+          "title": "Gravity maps a rock glacier's hidden ice on Mount Timpanogos",
+          "url": "https://www.ksl.com/article/51616984/u-researchers-find-possible-water-source-in-mount-timpanogos-rock-glacier",
+          "source": "science",
+          "byline": "KSL / University of Utah",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "University of Utah geophysicist Michael Thorne and glaciologist Lief Anderson mapped the Timpanogos Rock Glacier with precision gravity measurements. An AGU JGR Earth Surface paper (DOI 10.1029/2026JF009214) reports 1.55 million cubic meters of ice, mean thickness 18.8 m, ice fraction 83%, locally up to about 150 feet. KSL quotes enough water in that one glacier to fill 600 Olympic pools, and on the order of 836 Utah rock glaciers. Buried ice melts later in summer; it is also a debris-covered mountain hazard."
+        },
+        {
+          "title": "West African chimps have thrown rocks at the same trees for a decade",
+          "url": "https://theconversation.com/why-do-male-chimpanzees-throw-rocks-at-the-same-trees-for-more-than-a-decade-we-travelled-to-remote-guinea-bissau-to-find-out-279187",
+          "source": "science",
+          "byline": "The Conversation / Great Ape Behaviour Lab",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Ammie Kalan and colleagues returned to Boé National Park, Guinea-Bissau, and found most accumulative stone-throwing trees first logged by the Pan African Programme and revisited in 2017 still in use — more than a decade. Adult males throw rocks, pant-hoot, and sometimes drum, a social stone-tool behavior seen in only four West African groups. The chimps are unhabituated, so the team used camera traps rather than follows. Bauxite exploration boreholes are already in the territory."
+        }
+      ]
+    }
+  ]
+}

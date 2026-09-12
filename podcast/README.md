@@ -53,7 +53,7 @@ and `shweta` (Shweta). Per-speaker speed overrides live in `speed_by_speaker`;
 the current configuration keeps Maya and Shweta at `1.0` and renders Arjun at
 `1.15`. Each clone response is validated as WAV and converted to the pipeline's
 cached MP3, while the content-addressed cache remains outside the repository at
-`/opt/data/cache/grep-podcast/tts`. A cached turn is keyed by the exact text,
+`/home/hermes/.hermes/cache/grep-podcast/tts`. A cached turn is keyed by the exact text,
 voice prompt ID, clone settings, model/provider identity, effective per-speaker
 speed, and endpoint.
 The legacy Kokoro-compatible JSON speech path remains available only when

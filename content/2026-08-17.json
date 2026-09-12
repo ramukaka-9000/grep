@@ -1,0 +1,207 @@
+{
+ "date": "2026-08-17",
+ "summary": "Anthropic publishes Claude's system prompts, DuckDB gets asynchronous I/O for remote data, tiny sub-10M-parameter models keep shrinking, and a 737's ARINC 429 avionics prove hackable with a 30-second ESP32 tap.",
+ "sections": [
+  {
+   "id": "ai",
+   "title": "AI",
+   "summary": "Claude's system prompts go public, DuckDB plans async I/O for data lakes, models get dumber on purpose, and the tiny-model scene delivers an 8M-parameter instruct model.",
+   "stories": [
+    {
+     "title": "Claude: System Prompts",
+     "url": "https://platform.claude.com/docs/en/release-notes/system-prompts",
+     "source": "hn",
+     "byline": "Anthropic / Claude Platform Docs, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49319556",
+     "tier": "recommended",
+     "summary": "Anthropic documents the system prompts that Claude's web and mobile apps inject at the start of every conversation — dynamic context such as the current date plus behavioral guidance — and tracks revisions in its release notes. The day's second-highest HN story (561 points, 234 comments), it gives users unusual visibility into the instructions behind a commercial model. Builders get a rare public reference for how a frontier lab structures production system prompts."
+    },
+    {
+     "title": "Models Are Getting Dumber on Purpose",
+     "url": "https://w4g1.dev/blog/models-are-getting-dumber-on-purpose",
+     "source": "hn",
+     "byline": "w4g1.dev, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49322695",
+     "tier": "recommended",
+     "summary": "An essay arguing that labs are deliberately trading world knowledge for reasoning: per-token active parameters keep dropping while math benchmarks climb, but SimpleQA recall stays stuck around 53% and small models hallucinate 80%+ of facts. Facts rot between training runs while procedures don't, so the argument goes — the harness (retrieval, tools, docs) should carry knowledge at runtime. It closes with the prediction of frontier-quality reasoning in 20-40B models stripped of fact storage, running on a consumer GPU."
+    },
+    {
+     "title": "Asynchronous I/O in DuckDB: Work, Thread, Work",
+     "url": "https://duckdb.org/2026/07/31/asynchronous-io",
+     "source": "hn",
+     "byline": "DuckDB, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49243061",
+     "tier": "recommended",
+     "summary": "DuckDB v2.0 (fall 2026) adds asynchronous reads of Parquet and CSV over a dedicated ASYNC thread pool, so worker threads decode while fetch tasks stay in flight instead of blocking on remote reads. Benchmarks on S3 show four concurrent TPC-H queries finishing in 15.6s vs 35.8s on v1.5.5 and a ~20x speedup on a remote CSV scan (878s to 45s). Read-ahead depth is memory-governed, and JSON plus native-format async reads are next on the roadmap."
+    },
+    {
+     "title": "Does anyone run Postgres without PgBouncer?",
+     "url": "https://brandur.org/fragments/postgres-without-pgbouncer",
+     "source": "hn",
+     "byline": "Brandur Leach, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49277952",
+     "tier": "notable",
+     "summary": "Brandur surveys every managed Postgres provider with household notoriety and finds all of them bundle a pooler — PgBouncer or a proprietary equivalent like RDS Proxy or Supavisor. He argues the decade-old status quo means every provider and user pays homegrown configuration costs for what should be a core capability, pointing out MySQL and MongoDB never needed an aftermarket part. A compact, well-argued case that connection pooling belongs in Postgres proper."
+    },
+    {
+     "title": "Rollplex: Cross-Phase GPU Spatial Sharing for Vision Language Model Post-Training",
+     "url": "https://arxiv.org/abs/2608.14498v1",
+     "source": "arxiv",
+     "byline": "arXiv",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "On-policy RL post-training for VLMs runs rollout, reference scoring, and actor training in strict serial phases, leaving GPUs idle between phases. Rollplex overlaps those phases on the same GPUs with spatial sharing instead of partitioning the cluster, cutting the waste that phase-granular execution causes. Directly relevant to anyone doing RL fine-tuning on limited GPU budgets."
+    },
+    {
+     "title": "Handover of In-Context Learning State Across Session Boundaries",
+     "url": "https://arxiv.org/abs/2608.14528v1",
+     "source": "arxiv",
+     "byline": "arXiv",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A study of what happens when an LLM task continues in a new session — context limit hit, app restart, or another agent taking over — and which information from the earlier session actually needs to be passed on. Formalizes a problem every agent builder hits in production. Useful groundwork for context-management tooling and agent handoff design."
+    },
+    {
+     "title": "squeal_ai_8m-instruct: an ~8M-parameter Russian instruct model",
+     "url": "https://huggingface.co/Squeal-Studio/squeal_ai_8m-instruct",
+     "source": "hf",
+     "byline": "Squeal Studio / Hugging Face",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A Qwen2.5-style transformer with just ~8M parameters (192 hidden, 8 layers, GQA), SFT-tuned for instruction following on Russian data with a custom 24k-token BPE and 1,536-token context. Runs comfortably on CPU and fits anywhere, continuing the sub-10M-parameter model trend. Performance is honestly caveated as research/educational, but it is a fully documented, verifiable tiny-model artifact."
+    },
+    {
+     "title": "Efficient-DRAgent: domain-trained EAGLE-3 draft model for Qwen3-32B",
+     "url": "https://huggingface.co/julyanghar/Efficient-DRAgent",
+     "source": "hf",
+     "byline": "julyanghar / Hugging Face",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A 1.4GB EAGLE-3 draft head domain-trained on deep-research summary data for speculative decoding against Qwen3-32B, with training data, held-out eval sets, and a locked-topic benchmark methodology included for reproduction. A practical inference-engineering artifact: small enough to run anywhere, and the included data makes the training claims checkable."
+    }
+   ]
+  },
+  {
+   "id": "electronics",
+   "title": "Electronics",
+   "summary": "A 1988 Famicom modem revived over a phone-line simulator, ESP32-based attacks on Boeing 737 avionics, laser-assisted isotropic 3D prints, and an offline translator on a Pi 5.",
+   "stories": [
+    {
+     "title": "Researchers Hack an Airline Analog",
+     "url": "https://hackaday.com/2026/08/16/how-to-hack-an-airliner/",
+     "source": "hackaday",
+     "byline": "Hackaday",
+     "discuss_url": "",
+     "tier": "must-read",
+     "summary": "Security researchers demonstrate ARINC 429 bus attacks on real Boeing 737 avionics — a flight management computer, MCDU and IFSAU wired as in the aircraft. Because ARINC 429 transmitters sit behind 37.5-ohm resistors, a tap on the line can override a legitimate transmitter, letting an attacker freeze or overwrite the pilot's display or even reprogram the autopilot to a new waypoint. The proof-of-concept device is a tiny ESP32 board that plugs into an open maintenance port in the electronics bay in 30-60 seconds and operates over WiFi."
+    },
+    {
+     "title": "Using the Famicom Network System in 2026",
+     "url": "https://hackaday.com/2026/08/16/using-the-famicom-network-system-in-2026/",
+     "source": "hackaday",
+     "byline": "Hackaday",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "Nintendo's 1988 Family Computer Network System — a modem add-on for the Famicom offering stock brokering, banking and Super Mario Club services — is revived in 2026 by [Throaty Mumbo] after five months of work. The hard part was the undocumented NTT DDX-TP dial protocol, which required reverse-engineering from nesdev forums and a DIY flashable access card. The payoff includes a working SMC server simulator and a patched Super Mario Bros. that supports network two-player."
+    },
+    {
+     "title": "Laser Layers for (Almost) Isotropically Strong Prints",
+     "url": "https://hackaday.com/2026/08/16/laser-layers-for-almost-isotropicly-strong-prints/",
+     "source": "hackaday",
+     "byline": "Hackaday",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "[I Changed a thing] strapped lasers to his 3D printer to pre-melt the last-laid layer just under the nozzle, so molten plastic meets molten plastic instead of a cold layer. Measured results: z-axis breaking strain reaches 94% of x-direction strength in ABS (up from 60%) and 77.9% in PLA (up from 41%). The added mass could slow fast coreXY machines, but the data makes a strong case for laser-assisted layer bonding."
+    },
+    {
+     "title": "Gemma Translator — live translating offline on a Raspberry Pi 5",
+     "url": "https://blog.adafruit.com/2026/08/14/gemma-translator-live-translating-offline-on-a-raspberry-pi-5-piday-raspberrypi/",
+     "source": "adafruit",
+     "byline": "Adafruit Blog",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "A Google team's open-source experiment builds a fully offline live translator from off-the-shelf parts around a Raspberry Pi 5. No cloud calls, no subscription — just on-device speech recognition and translation hardware put together in a reproducible build. A clean demonstration of how far small-language-model inference has come on single-board computers."
+    },
+    {
+     "title": "PixelTiles — modular smart LED wall panels with WLED",
+     "url": "https://blog.adafruit.com/2026/08/13/pixeltiles-modular-smart-led-wall-panels-with-wled-3dthursday-3dprinting/",
+     "source": "adafruit",
+     "byline": "Adafruit Blog",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "Misfitwrx's modular 8x8 LED wall panels run WLED on an ESP32 and can be arranged in any horizontal/vertical configuration, with up to 15 panels (960 LEDs) documented. A genuinely reproducible project for ambient displays, art walls or status dashboards, complete with 3D-printable frames and open firmware. Exactly the kind of ESP32 build that's easy to copy and hard to outgrow."
+    },
+    {
+     "title": "BirdCalls: how an old payphone became a decade-long lesson in what technology is for",
+     "url": "https://blog.arduino.cc/2026/07/22/birdcalls-how-an-old-payphone-became-a-decade-long-lesson-in-what-technology-is-for/",
+     "source": "arduino",
+     "byline": "Arduino Blog",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "A yellow payphone in Takoma Park, Maryland plays birdsong from the Cornell Lab's Macaulay Library instead of a dial tone, running on Arduino UNO/Nano boards with no cloud, no app and no WiFi — audio lives on a local SD card. The project has spread to a school in Culver City, California and another opening this fall in North Carolina. A decade-long reminder that a microcontroller's best use is sometimes the least technically ambitious one."
+    }
+   ]
+  },
+  {
+   "id": "interesting-news",
+   "title": "Interesting News",
+   "summary": "Protons may hide a Y-shaped gluon junction carrying baryon number, a black hole shredded a 'super sun' and something survived, and the two-day weekend turns 100.",
+   "stories": [
+    {
+     "title": "Physicists discover a hidden gluon structure inside protons that could rewrite textbooks",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260815064805.htm",
+     "source": "science",
+     "byline": "Brookhaven National Laboratory / ScienceDaily",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "New STAR detector results from RHIC, published in Science, suggest that baryon number — the property that makes protons stable and conserves matter-antimatter balance since the Big Bang — may be carried by a Y-shaped 'junction' of gluons connecting a proton's three valence quarks, not by the quarks themselves. The team compared baryon output with electric-charge redistribution in collisions and found roughly twice as many baryons as stopped quarks could explain. If confirmed, it overturns a textbook picture that has stood for decades."
+    },
+    {
+     "title": "A black hole shredded a 'super sun' — but something strange may have survived",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260814235849.htm",
+     "source": "science",
+     "byline": "Liverpool John Moores University / ScienceDaily",
+     "discuss_url": "",
+     "tier": "recommended",
+     "summary": "The transient AT2024wpp ('the Whippet'), caught by the Zwicky Transient Facility and presented at the AAS conference, is the most energetic tidal disruption event ever recorded — briefly releasing ~400 billion times the Sun's output as a black hole shredded a massive companion star. Its shock wave raced through surrounding gas at one-fifth light speed before fizzling at the edge of a bubble the star had expelled. Late helium signals traveling at 6,000 km/s hint that a dense bound structure survived the blast."
+    },
+    {
+     "title": "A new Ice Age species was hiding in La Brea tar pits fossils for decades",
+     "url": "https://www.sciencedaily.com/releases/2026/08/260814235837.htm",
+     "source": "science",
+     "byline": "La Brea Tar Pits / ScienceDaily",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "Researchers identified Spea labreae, a previously unknown extinct spadefoot toad, from La Brea Tar Pits fossils collected in the 1950s — the first new extinct amphibian species found at the site and only the second Pleistocene amphibian ever discovered in North America. The same review turned up the first record of the Mexican burrowing toad in the southwestern US, nearly 2,500 km from its closest living population. Delicate amphibian bones are rare in the fossil record, making the find a striking reminder of what still hides in museum drawers."
+    },
+    {
+     "title": "Whiskey is a legitimate cure for antifreeze poisoning",
+     "url": "https://www.reddit.com/r/todayilearned/comments/1vq74x7/til_whiskey_is_a_legitimate_cure_for_antifreeze/",
+     "source": "reddit",
+     "byline": "r/todayilearned",
+     "discuss_url": "",
+     "tier": "notable",
+     "summary": "Ethanol is the standard medical antidote for ethylene glycol (antifreeze) poisoning: both compete for the same enzyme, alcohol dehydrogenase, so the whiskey binds the enzyme and lets the unmetabolized antifreeze be excreted before it becomes oxalic acid. The same mechanism is why ethanol infusion is also used for methanol poisoning. A classic TIL that is genuinely true — though hospitals administer pharmaceutical ethanol, not bourbon."
+    },
+    {
+     "title": "The weekend is 100 years old",
+     "url": "https://www.theguardian.com/money/2026/aug/16/the-weekend-is-100-years-old-skiveday-fridays-and-hybrid-working-ruined-it",
+     "source": "hn",
+     "byline": "The Guardian, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49320984",
+     "tier": "notable",
+     "summary": "The two-day weekend as we know it turns 100: in 1926 Henry Ford switched his factories to five eight-hour days with no pay cut, formalizing a century of union and religious campaigning into the modern week. The Guardian's history also recalls the Soviet experiment of 1929-1940, which abolished weekends entirely — workers got one day off in seven at random, and the demoralized workforce forced its abandonment. A reminder that collective rest is a recent, fragile invention."
+    },
+    {
+     "title": "Guiding ships with Moire patterns",
+     "url": "https://tinkerings.org/2018/03/28/guiding-ships-with-moire-patterns/",
+     "source": "hn",
+     "byline": "Tinkerings, via Hacker News",
+     "discuss_url": "https://news.ycombinator.com/item?id=49315995",
+     "tier": "notable",
+     "summary": "Inogon lights guide ships through narrow channels using nothing but two overlapping gratings: viewed head-on the moire fringes converge on a line, and any deviation off the beam makes them diverge — a zero-electronics navigation aid patented in the 1980s. The author lasercut his own from the patent claims (1.5-1.8 pitch ratio, ~40% duty cycle) and confirmed the effect works exactly as described. A beautiful collision of optics, math and marine navigation."
+    }
+   ]
+  }
+ ]
+}

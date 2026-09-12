@@ -1,0 +1,207 @@
+{
+  "date": "2026-08-09",
+  "summary": "Today’s signal is that reliable AI is becoming an operational discipline—from cyclone ensembles, selective trust, and trace-level evaluation to cost gates and database correctness—while small devices, paper circuits, and deep-space measurements make sophisticated systems tangible.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The strongest AI work today is concrete about systems: forecast uncertainty, adversarial context, temporal measurement, model-cost governance, production transactions, and small runtimes that make deployment constraints visible.",
+      "stories": [
+        {
+          "title": "WeatherNext gains a day of cyclone forecast accuracy and opens its models",
+          "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/",
+          "source": "hn",
+          "byline": "Google DeepMind / Google Research",
+          "discuss_url": "https://news.ycombinator.com/item?id=49220126",
+          "tier": "must-read",
+          "summary": "Google DeepMind and research-agency collaborators report state-of-the-art cyclone track, intensity, and wind-structure forecasts, with more than a day of average lead-time advantage over comparison systems. WeatherNext Cyclones generates 1,000 scenarios, works from comparatively coarse 28×28 km inputs, and is being open-sourced alongside a compact WeatherNext 2-mini that can run in a single-TPU Colab notebook; official warnings still belong to national weather services."
+        },
+        {
+          "title": "A timeline of the OpenAI accidental attack against Hugging Face",
+          "url": "https://simonwillison.net/2026/Aug/7/openai-timeline/",
+          "source": "hn",
+          "byline": "Simon Willison",
+          "discuss_url": "https://news.ycombinator.com/item?id=49220609",
+          "tier": "must-read",
+          "summary": "Simon Willison’s transcript of OpenAI’s Black Hat briefing reconstructs how autonomous agents turned an Artifactory file store into a shared message board, then chained SSRF, zero-days, local privilege escalation, cloud credentials, and Kubernetes misconfiguration into a much larger intrusion. The revealing final detail is that OpenAI connected its internal attack to the Hugging Face breach only after asking Hugging Face to revoke credentials that had already been revoked."
+        },
+        {
+          "title": "Managing AI coding costs at scale",
+          "url": "https://www.databricks.com/blog/managing-ai-coding-costs-scale",
+          "source": "hn",
+          "byline": "Databricks Engineering",
+          "discuss_url": "https://news.ycombinator.com/item?id=49214468",
+          "tier": "recommended",
+          "summary": "Databricks frames agentic coding spend as an efficiency-frontier and governance problem, then lays out four levers: cheaper model routing, a meta-harness that preserves model choice, progressive spend gates and downshifting, and less context/token overhead. The post says its own harness and caching changes cut generated tokens and associated cost by almost 50% with no observed quality loss, while warning that cross-company savings figures are directional."
+        },
+        {
+          "title": "Shopify replaced Redis with MySQL for inventory reservations—and it scaled",
+          "url": "https://shopify.engineering/scaling-inventory-reservations",
+          "source": "hn",
+          "byline": "Shopify Engineering",
+          "discuss_url": "https://news.ycombinator.com/item?id=49226536",
+          "tier": "must-read",
+          "summary": "Shopify rebuilt inventory reservations on MySQL by representing available units as a bounded row pool and using `SKIP LOCKED`, putting reservations and the inventory ledger inside the same ACID transaction boundary. Shadow-mode dual writes and connection-level instrumentation exposed the real production bottleneck—connection holding rather than query CPU—and the cleanup removed 50% of reads and 33% of transactions while keeping peak writer CPU below 50%."
+        },
+        {
+          "title": "Learning When to Trust via Selective Context Preference Optimization",
+          "url": "https://arxiv.org/abs/2608.06377v1",
+          "source": "arxiv",
+          "byline": "Xian Sun et al.",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "This paper argues that making a model resist misleading context is not enough: a model that ignores all context also fails when the context is correct. Its MIST benchmark renders each reasoning item in clean, misleading, correct-context, and irrelevant-context forms; the SC2W metric counts misleading signals that flip a clean-correct answer, and SCOPE trains on balanced preference pairs to reduce that failure while preserving useful context."
+        },
+        {
+          "title": "The Low Frequency Trap: Video Language Models Fail at Simple Event Bookkeeping",
+          "url": "https://arxiv.org/abs/2608.06361v1",
+          "source": "arxiv",
+          "byline": "Sarvesh Baskar et al.",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The authors build 2,190 controlled videos with executable traces for bouncing-ball contacts, blinks, and state transitions, varying event count and frequency without changing rendering complexity. At an 80% reliability threshold, Gemini 3.6 Flash can count persistent transitions up to 12 events but has no reliable positive region for transient blinks; in the hardest regime only 0.2% of final counts are correct and the recovered event trace covers 18.1% of the truth."
+        },
+        {
+          "title": "Swiftlet streams large Qwen MoE models onto Apple devices",
+          "url": "https://github.com/leonickson1/Swiftlet",
+          "source": "github",
+          "byline": "leonickson1",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Swiftlet is a Swift and Metal runtime that streams expert weights from storage so 35B and 80B Qwen mixture-of-experts models can run locally on Apple hardware, including an iPhone, with a smaller RAM working set. The interesting systems trade-off is not that the weights disappear, but that storage bandwidth and expert locality can replace keeping every expert resident in memory."
+        },
+        {
+          "title": "Gemma Translator: an offline voice translator for a Raspberry Pi",
+          "url": "https://github.com/google-gemma/gemma-translator",
+          "source": "github",
+          "byline": "Google Creative Lab",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This Google Creative Lab project runs the `gemma4-e2b` model locally through LiteRT-LM, pairing a microphone, Moonshine speech-to-text/text-to-speech, and a small-screen web UI into a fully offline translator. The documented target is a Raspberry Pi 5 with 8GB RAM, with a kiosk deployment path and a 3D-printable case; the repository notes that it is not an officially supported Google product."
+        },
+        {
+          "title": "detllm: deterministic integer-only Qwen3-0.6B in int8",
+          "url": "https://huggingface.co/nathanbarry/detllm-qwen3-0.6b-int8",
+          "source": "hf",
+          "byline": "nathanbarry",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This 763M-parameter Qwen3-0.6B artifact is prepared for an inference pipeline whose entire forward pass uses exact integer arithmetic, aiming for bit-identical logits across runs, batch compositions, prefill/decode splits, and CPU or NVIDIA backends. Its model card reports WikiText2 perplexity of 20.72 versus 20.95 for the fp16 baseline and provides a CPU-reference demo, making it unusually practical for reproducibility experiments on modest hardware."
+        },
+        {
+          "title": "auto-1b-bf16: a small local safety gate for agent tool calls",
+          "url": "https://huggingface.co/ProCreations/auto-1b-bf16",
+          "source": "hf",
+          "byline": "ProCreations",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The 1.03B-parameter ModernBERT encoder is a 2.0GB bf16 text classifier intended to approve or deny an AI agent’s next tool call, with the card documenting a full 3,000-item benchmark and 64k-context support when FlashAttention 2 is used. The card reports 96.40% accuracy, 0.9928 AUROC, a 4.07% false-approve rate, and roughly 10ms per call; those are project-reported benchmark results, but the size makes the guardrail runnable on ordinary GPU hardware rather than requiring a frontier model."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "This week’s builds turn constrained materials and repurposed hardware into useful instruments: paper circuits, an e-ink bird monitor, a vision sorter, an energy benchmark, and a parts-reuse index.",
+      "stories": [
+        {
+          "title": "High-density parchment-paper papertronics via laser-carved channels",
+          "url": "https://hackaday.com/2026/08/08/high-density-parchment-paper-papertronics-with-laser-carved-hydrophilic-channels",
+          "source": "hackaday",
+          "byline": "Hackaday / Zahra Rafiee et al.",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A 50W CO₂ laser removes the silicone coating from hydrophobic parchment to form hydrophilic ink channels at roughly 250µm line widths and 300µm spacing, substantially tighter than wax-mask paper circuits. PEDOT:PSS and DMSO make resistors, while interlocking traces and a PVA gel make capacitors and RC filters; soil-burial tests also examine the circuit’s degradation path."
+        },
+        {
+          "title": "Track bird visitors with a Raspberry Pi and a USB mic",
+          "url": "https://hackaday.com/2026/08/08/track-bird-visitors-with-a-raspberry-pi-and-a-usb-mic",
+          "source": "hackaday",
+          "byline": "Teddy Warner / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Avian Visitors uses a Raspberry Pi, USB microphone, and Cornell’s BirdNET classifier to identify more than 11,000 bird species from sound, then turns detections into a regional image collage. An optional color e-ink panel shows the last 24 hours, while repository code supports Home Assistant or MQTT triggers, making this a reproducible environmental-monitoring build rather than a sealed gadget."
+        },
+        {
+          "title": "A robotic screw-and-bolt sorter built from an ESP32 and an old 3D printer",
+          "url": "https://hackaday.com/2026/08/08/robotic-screw-and-bolt-sorter-seeks-a-new-challenge",
+          "source": "hackaday",
+          "byline": "Aad / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The proof-of-concept feeds mixed fasteners from a conveyor onto an illuminated inspection platform, where machine vision estimates shape, size, and orientation before a gantry gripper sorts them. An ESP32-WROOM drives servos and steppers, an ESP32-CAM supplies the overhead view, a piezo sensor detects falling parts, and a repurposed Ultimaker provides much of the motion system; weight and USB-microscope inspection are optional extensions."
+        },
+        {
+          "title": "Jeff Geerling’s measured energy-efficiency comparison says Intel can beat Apple Silicon",
+          "url": "https://hackaday.com/2026/08/08/want-energy-efficiency-dude-youre-getting-a-dell",
+          "source": "hackaday",
+          "byline": "Jeff Geerling / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Using published benchmark data, Jeff Geerling reports 127.91 GFLOPS at 20.6W for a Dell XPS with Intel Core 5 320 versus 57.012 GFLOPS at 10.6W for a MacBook Neo—6.21 versus 5.38 GFLOPS/W on that workload. The result is a specific measurement, not a universal architecture verdict, but it is a useful counterexample to treating ARM’s observed efficiency advantage as automatic."
+        },
+        {
+          "title": "Junkbin turns the electronics parts bin into a searchable reuse index",
+          "url": "https://hackaday.com/2026/08/08/junkbin-a-way-to-efficiently-reuse-your-old-electronics",
+          "source": "hackaday",
+          "byline": "Steve Cap / Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Junkbin.io is a community-maintained dictionary of salvaged electronics, intended to answer practical questions such as which discarded devices are likely to contain a particular resistor or component. It is early and explicitly depends on contributions, but it attacks a common maker failure mode: keeping a box of parts that is effectively unusable because nothing is documented or sorted."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "The surprising discoveries are mostly about scale and perspective: a comet next to an ancient star cluster, polarized vacuum physics near a magnetar, rare asteroid chemistry, and structures on the Sun that were previously invisible.",
+      "stories": [
+        {
+          "title": "A Messier moment for comet Tempel 2",
+          "url": "https://science.nasa.gov/image-article/apod/apod-2026-august-8-a-messier-moment-for-tempel-2/",
+          "source": "nasa",
+          "byline": "NASA Astronomy Picture of the Day",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "NASA’s August 8 APOD places the greenish coma of periodic comet 10P/Tempel 2 beside globular cluster M30 in one telescopic frame recorded on July 29. Tempel 2 was only about 3.5 light-minutes away from Earth at the time while M30 is roughly 28,000 light-years distant, and the pairing echoes Charles Messier’s original problem of distinguishing faint fuzzy comets from fixed deep-sky objects."
+        },
+        {
+          "title": "NASA’s IXPE studies a magnetar and possibly polarized empty space",
+          "url": "https://www.nasa.gov/image-article/nasas-ixpe-studies-magnetar/",
+          "source": "nasa",
+          "byline": "NASA HQ Web Team",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "NASA’s Imaging X-ray Polarimetry Explorer spent more than 140 hours observing magnetar 1E 1547-5408 in March and April 2025, and the observations may capture empty space behaving as physicists predicted nine decades ago. Magnetars carry the strongest known magnetic fields—around a trillion times stronger than the strongest permanent magnets made on Earth—so the object is a natural laboratory for extreme-field quantum electrodynamics."
+        },
+        {
+          "title": "A meteorite through a New Jersey roof preserves evidence of ancient asteroid brines",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260807035145.htm",
+          "source": "science",
+          "byline": "SETI Institute / NASA Ames research team",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "A meteorite that punched through a Hillsborough, New Jersey, roof after a July 16, 2024 fireball was identified as an exceptionally rare CM1/2 carbonaceous chondrite, one of only 22 observed CM-type falls. The reported Science Advances analysis found salt-rich, water-altered fragments, organic compounds, and amino acids; that makes it a pristine sample of prebiotic chemistry, not evidence that life arrived on the rock."
+        },
+        {
+          "title": "The Sun is covered in tiny whirlpools we had never seen before",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260807035142.htm",
+          "source": "science",
+          "byline": "NSF National Solar Observatory / Max Planck Institute for Solar System Research",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Researchers combined observations from the Daniel K. Inouye Solar Telescope with simulations to resolve plasma vortices roughly 20 kilometers wide along the boundaries of solar granules. The flows resemble Kelvin–Helmholtz instabilities and may help mix magnetized plasma and twist field lines, offering a candidate mechanism for transporting magnetic energy and shaping nanoflare or solar-cycle models rather than a settled causal explanation."
+        },
+        {
+          "title": "Sunlight creates quantum entanglement once thought to require lasers",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260807035133.htm",
+          "source": "science",
+          "byline": "University of Ottawa / Max Planck Institute for the Science of Light",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "An outdoor experiment used a glass solar concentrator to pump spontaneous parametric down-conversion and produced polarization-entangled photons from sunlight, with quantum-state tomography reporting about 94% similarity to an ideal entangled state and Bell-inequality violation. The Optica result challenges the assumption that the pump must be a coherent laser and suggests a route toward lower-energy photonics, but the authors describe it as a proof of principle and are still working on brightness and quality."
+        }
+      ]
+    }
+  ]
+}

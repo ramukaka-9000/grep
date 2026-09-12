@@ -1,0 +1,243 @@
+{
+  "date": "2026-08-14",
+  "summary": "Google's Gemini 3.7 Flash and DeepSeek's plugin-architecture Harness lead a release-heavy AI day, a Black Hat DRAM-scrambling attack cracks hardware trust assumptions, and the rest of the signal runs from tiny language models to a 77% link-rot census and the mushroom finally named for its 'tiny people' hallucinations.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Gemini 3.7 Flash and DeepSeek's plugin-based Harness headline a release-heavy day; a Black Hat DRAM-scrambling talk shows hardware trust assumptions cracking; and the small-model wave keeps delivering — Danish state of the art at 1B, Japanese VLMs, Nepali ASR, and a shell-command model that runs on a laptop CPU.",
+      "stories": [
+        {
+          "title": "Gemini 3.7 Flash: Google's workhorse model for coding and agents",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+          "source": "hn",
+          "byline": "Google DeepMind / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49289112",
+          "tier": "must-read",
+          "summary": "Three weeks after 3.6 Flash, Google ships 3.7 Flash with gains aimed squarely at coding and agentic workflows: FrontierCode 1.1 Main up to 43.6% from 34.4%, DeepSWE v1.1 up to 65.3% from 49.0%, and WebDev Arena Elo 1588 vs 1538. It also reads knowledge-dense documents far better (GDP.pdf 34.0% vs 22.0%) and is priced at an introductory $0.75/$3.75 per million input/output tokens — half the original 3.6 Flash cost. The release also powers Gemini Spark, Google's 24/7 personal agent in the Gemini app."
+        },
+        {
+          "title": "Spaghettifying DRAM: rewiring memory to unlock everything on the CPU",
+          "url": "https://github.com/xoreaxeaxeax/skitter-creek-bath-salts",
+          "source": "github",
+          "byline": "Christopher Domas (xoreaxeaxeax)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49286341",
+          "tier": "must-read",
+          "summary": "Christopher Domas's Black Hat 2026 research pokes the DRAM controller so that an address lands wherever you want in physical memory, exposing protected carveouts invisible even to the kernel — the platform security processor, System Management Mode, and the C6-stashed CPU microcode all become readable and writable on AMD Family 16h. The toolchain exploits the documented-but-unlockable address-translation registers, and the same channel/rank/bank interleave and bit-swizzle pipeline exists across AMD, Intel, ARM, and RISC-V. A stark reminder that every security primitive sitting in DRAM rests on undocumented translation logic that 'can't be locked.'"
+        },
+        {
+          "title": "DeepSeek Harness developer preview: everything is a plugin",
+          "url": "https://deepseek.com/harness/en/",
+          "source": "hn",
+          "byline": "DeepSeek / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49285244",
+          "tier": "must-read",
+          "summary": "DeepSeek frames the agent as Model + Harness: a Cordis kernel mounts every capability — models, tools, skills, sessions, sandboxes, storage, loops, scheduling, and UI — as plugins, so developers compose an agent entirely in configuration without touching source. The TypeScript repo already carries ~62k stars and launches via `npx @deepseek-ai/dsh web`. It is a strong signal that the agent-runtime layer is becoming a pluggable platform rather than a vendor feature."
+        },
+        {
+          "title": "Mistral OCR 4.1 adds paragraph-level boxes and confidence scores",
+          "url": "https://docs.mistral.ai/models/ocr-4-1",
+          "source": "hn",
+          "byline": "Mistral AI / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49288889",
+          "tier": "recommended",
+          "summary": "Mistral's OCR service moves to v4.1 in public preview, adding native paragraph-level bounding-box extraction, structural block labels, and block-level confidence scores to its Document AI stack. Pricing is €3.5 per 1,000 pages (€4.38 annotated). For AI builders it is a cheap, structured OCR input layer for PDF-heavy RAG and document pipelines."
+        },
+        {
+          "title": "Understanding is the new bottleneck",
+          "url": "https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck",
+          "source": "hn",
+          "byline": "Geoffrey Litt / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49290299",
+          "tier": "recommended",
+          "summary": "Geoffrey Litt argues that as models get cheaper and faster, the limiting factor in AI-assisted work becomes human understanding — the ability to verify, steer, and take responsibility for outputs. A useful lens for anyone building agentic workflows where the failure mode is trust, not tokens."
+        },
+        {
+          "title": "DFM Mimir v1: frontier-competitive results at 1B parameters on permissible data",
+          "url": "https://arxiv.org/abs/2608.13517v1",
+          "source": "arxiv",
+          "byline": "Danish Foundation Models / arXiv 2608.13517",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A 1-billion-parameter Hierarchical Reasoning Model trained from scratch on 161 datasets using only permissible post-training data sets a new Danish state of the art and competes with Qwen 3.5 4B and Gemma 4 E2B across 20 English, math, code, and Danish benchmarks. A concrete proof that small, ethically-sourced models can hold their own against far larger ones, especially for non-English languages."
+        },
+        {
+          "title": "DARTree: speculative diffusion decoding with autoregressive draft trees",
+          "url": "https://arxiv.org/abs/2608.13524v1",
+          "source": "arxiv",
+          "byline": "arXiv 2608.13524",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "DARTree is a training-free speculative-decoding method that extends a pretrained autoregressive correction head from a single draft chain to a fixed-width candidate tree, then best-first prunes the verification tree. Across seven math, code, and chat benchmarks it accepts up to 12.97 tokens per verification round — ~99% more than DFlash and ~28% more than Domino — reaching up to 9.73x lossless speedup over autoregressive decoding."
+        },
+        {
+          "title": "book-to-skill: turn a technical book PDF into a Claude Code skill",
+          "url": "https://github.com/Leutenegger/book-to-skill",
+          "source": "github",
+          "byline": "Leutenegger / GitHub",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A Python tool that converts any technical book PDF into a Claude Code skill you can study, reference, and use while working — effectively distilling a whole book into an on-demand agent capability. A tidy example of the skill-as-interface trend for agent workflows."
+        },
+        {
+          "title": "llava-1.5-llm-jp-3.1-1.8b: a ~2.2B Japanese vision-language model",
+          "url": "https://huggingface.co/Onely7/llava-1.5-llm-jp-3.1-1.8b-instruct4",
+          "source": "hf",
+          "byline": "Onely7 / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A ~2.18B Japanese VLM built in the LLaVA 1.5 two-stage recipe: a CLIP ViT-L/14-336 vision encoder and the llm-jp-3.1-1.8b LLM joined by a 2-layer MLP adapter, with LLaVA-Instruct-150K machine-translated into Japanese for instruction tuning. It answers image questions in Japanese from plain transformers (BF16), and the model card doubles as a clean tutorial for building small VLMs."
+        },
+        {
+          "title": "Whisper-medium Nepali: a 10.9% WER ASR fine-tune for a low-resource language",
+          "url": "https://huggingface.co/milanakdj/whisper-medium-nepali-final",
+          "source": "hf",
+          "byline": "milanakdj / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A Nepali transcription fine-tune of OpenAI's Whisper-medium that reaches 10.86% test WER after ~26.5k steps on a 177k-row studio-audio corpus. The model card honestly flags that accuracy drops on noisy real-world audio with background noise or strong accents; still, it makes Nepali ASR practical on modest hardware."
+        },
+        {
+          "title": "Doom running on an LLM — every weight computed, none learned",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vnjtyh/doom_running_on_an_llm_hugging_face_checkpoint/",
+          "source": "reddit",
+          "byline": "/u/notforrob (r/LocalLLaMA)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "physicsrob compiled Doom's actual rendering algorithm into transformer weights with a custom compiler (torchwright), so a stock Phi-3 architecture emits drawing commands from a prompt carrying level geometry and player position. The 320x200 checkpoint is 21B params / 85.9GB and takes ~40 minutes a frame on a B200; an 80x50 variant downloads at 34GB. A wild proof that LLM weight space can encode classical algorithms deterministically — no training involved."
+        },
+        {
+          "title": "nl2sh: a 1.5B model that writes shell commands, on a laptop CPU",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vnl0um/trained_a_15b_to_write_shell_commands_so_id_stop/",
+          "source": "reddit",
+          "byline": "/u/PicassoOnPause (r/LocalLLaMA)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A Qwen2.5-Coder-1.5B fine-tuned on 125k natural-language/command pairs and quantized to Q4_K_M (941MB) answers 'extract this tarball' with working shell commands at 31.9 tok/s on a laptop CPU — 0.59s median per query. It scores 0.620 on InterCode-ALFA, beating an untuned Qwen2.5-Coder-7B (0.613) and approaching GPT-4o (0.73), and ships with a static safety checker because it will happily write rm -rf commands if asked."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "From magnetic MXene flakes that scrub microplastics out of soil to a pen-plotter hologram and an ESP32-C6 e-paper dashboard, a week of clever, reproducible builds — plus a caliper teardown that finally explains why cheap tools always die in the drawer.",
+      "stories": [
+        {
+          "title": "Removing microplastics from soil with tumbling magnetic flakes",
+          "url": "https://hackaday.com/2026/08/13/removing-microplastics-from-soil-with-tumbling-magnetic-flakes/",
+          "source": "hackaday",
+          "byline": "Hackaday / Jeonghyo Kim et al.",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Researchers built Ti3C2Tx MXene flakes decorated with ferromagnetic nickel nanoparticles that can be tumbled through contaminated soil by an external magnetic field, grabbing microplastics on the way; lab tests removed ~81% of polystyrene and ~72% of PET particles, and a strong magnet then recovers the flakes. It is early-stage, but a genuinely clever non-invasive answer to the soil-microplastic problem, published in npg Asia Materials."
+        },
+        {
+          "title": "Tearing down a cheap digital caliper",
+          "url": "https://hackaday.com/2026/08/13/tearing-down-a-cheap-digital-caliper/",
+          "source": "hackaday",
+          "byline": "Hackaday / DiodeGoneWild",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "DiodeGoneWild takes apart a bargain plastic caliper: the ruler hides an etched copper strip of repetitive T-shaped sections, and the carriage's capacitive plates measure relative position as capacitance changes — with zeroing left to the user. The teardown also explains why these calipers are always dead in the drawer: no hard off switch, so the motion-activated display keeps drawing current in storage."
+        },
+        {
+          "title": "Bridging older Tasmota hardware into Apple Home",
+          "url": "https://hackaday.com/2026/08/13/bridging-older-tasmota-hardware-into-apple-home/",
+          "source": "hackaday",
+          "byline": "Hackaday / Christof Müller",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Tasmoshelf is a small app that brings Tasmota-flashed devices into Apple Home without a Home Assistant server, MQTT broker, or other workarounds: ESP32s running Tasmota 13+ speak Matter natively and can even act as a bridge for older ESP8266 boards that can't. It scans the network to tell you which devices can connect directly and which need bridging; a one-off purchase applies beyond three devices."
+        },
+        {
+          "title": "Holograms, from your plotter",
+          "url": "https://hackaday.com/2026/08/13/holograms-from-your-plotter/",
+          "source": "hackaday",
+          "byline": "Hackaday / Jordan Matelsky",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Jordan Matelsky shows that real holograms can be scribed with a humble pen plotter — no lasers or optics lab — by drawing fine interference patterns into the polycarbonate of a CD case. After some material false starts he lands working images, and the write-up walks through the thin-film interference theory that makes it possible."
+        },
+        {
+          "title": "Troubleshooting video delay on the Raspberry Pi: it was time, not frames",
+          "url": "https://hackaday.com/2026/08/13/troubleshooting-video-delay-on-the-raspberry-pi/",
+          "source": "hackaday",
+          "byline": "Hackaday / MattKC",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "While cloning the Wii U gamepad, MattKC chased a stubborn 3-frame video latency on a Pi Zero 2W and found it wasn't frame-based at all: the decoder's first frame took ~50ms versus ~5ms for later frames, and his polling code wasn't grabbing finished frames promptly. Fixing the polling loop let the Pi Zero 2W process and display the Wii U feed as fast as the original gamepad."
+        },
+        {
+          "title": "Smart e-paper desk dashboard: ESP32-C6 SuperMini + 7.5-inch display",
+          "url": "https://blog.adafruit.com/2026/08/13/smart-e-paper-desk-dashboard-esp32-c6-supermini-7-5-display-3dthursday-3dprinting/",
+          "source": "adafruit",
+          "byline": "Adafruit / VoIP",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "An always-on, ultra-low-power desk dashboard built around the ESP32-C6 SuperMini and a 7.5-inch e-paper panel: clock, weather, 3D-printer status, Proxmox monitor, calendar events, shipments, stock tickers, and Zigbee widgets, with partial-refresh optimization for responsive dashboard-style updates. Files on MakerWorld plus a full GitHub repo with sample code make it a reproducible weekend build with minimal soldering."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "A link-rot census finds 77% of a 2010s shortener's links are gone, DNA sequencing fingers Lanmaoa asiatica for 'tiny people' hallucinations, and neuroscience shows logical reasoning works without language.",
+      "stories": [
+        {
+          "title": "Where did the old web go? We followed 657,607 links to find out",
+          "url": "https://0.mk/blog/link-rot",
+          "source": "hn",
+          "byline": "0.mk team / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49289532",
+          "tier": "must-read",
+          "summary": "The team behind the revived Macedonian URL shortener 0.mk restored a 2009–2014 database of 657,607 links and followed every destination this month: 76.7% of crawlable records no longer load, and only 21.3% of unique URLs still respond. Giants like YouTube and Wikipedia mostly survived while personal blogs, forums, and local news died — and 4,478 links pointed at other shorteners, many now chains with a missing goo.gl middle. A poignant, data-rich walk through the graveyard of the 2010s web."
+        },
+        {
+          "title": "Mushroom behind 'tiny people' hallucinations identified",
+          "url": "https://phys.org/news/2026-08-qa-mushroom-tiny-people-hallucinations.html",
+          "source": "hn",
+          "byline": "University of Utah / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49218040",
+          "tier": "recommended",
+          "summary": "University of Utah researchers sequenced DNA from Lanmaoa asiatica — a popular edible bolete sold in Yunnan that locals call 'turns blue in the hand' — confirming it as the species behind Lilliputian 'tiny people' hallucinations when undercooked. Specimens from southwest China and a remote region of the Philippines matched, tying long-standing folklore to a verifiable organism."
+        },
+        {
+          "title": "TIL: a dead salmon 'responded' to social photos in an fMRI scanner",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vnj6kn/til_that_in_2009_a_dead_fish_was_placed_in_an/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "In 2009, Craig Bennett's lab put a dead Atlantic salmon in an fMRI scanner, showed it photographs of humans in social situations, and — with uncorrected multiple comparisons — detected 'significant' brain activity. The stunt became one of neuroimaging's most famous cautionary tales about statistical rigor, and a standard joke about cluster-correction gone wrong."
+        },
+        {
+          "title": "TIL: the Oxford Electric Bell has rung since 1840 on a dry battery",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vn9bj1/til_that_a_battery_invented_in_1825_by_an_italian/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The Oxford Electric Bell at the Clarendon Laboratory has been ringing almost continuously since 1840, powered by Zamboni piles — 'dry' electrostatic batteries invented by Italian priest-physicist Giuseppe Zamboni in the early 1800s. Nobody knows exactly how much charge remains, which makes it the world's longest-running battery experiment."
+        },
+        {
+          "title": "MIT: the brain can reason logically without language",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260811011140.htm",
+          "source": "science",
+          "byline": "MIT McGovern Institute / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "MIT's Fedorenko lab tested two people with severe stroke-induced language impairment on logic puzzles built from numbers and visual patterns: they performed as well as controls and could gesture or sketch the rules they found. Brain imaging of healthy adults confirmed the language system stays quiet during both inductive and deductive reasoning — strong evidence that logic runs on a separate system, with pointed implications for how we compare human thought to LLMs."
+        },
+        {
+          "title": "Black holes older than the Big Bang could explain dark matter",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260811011146.htm",
+          "source": "science",
+          "byline": "University of Portsmouth / ScienceDaily",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Portsmouth cosmologists model a 'cosmic bounce' — an earlier contracting universe that reverses instead of hitting a singularity — and show compact objects larger than ~90 meters could survive the transition as 'cosmic fossils.' If enough such black holes were produced they could account for a substantial share, perhaps all, of dark matter, and explain Webb's surprisingly massive early galaxies; relic gravitational waves and CMB patterns could test the idea."
+        }
+      ]
+    }
+  ]
+}

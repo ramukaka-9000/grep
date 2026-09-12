@@ -1,0 +1,243 @@
+{
+  "date": "2026-09-10",
+  "summary": "Raschka unpacks GPT-6 Astra’s rumored looped transformers, Cognition’s Devins factor RSA-260 on GPUs, and Desert Ant ships 18 on-device models; electronics covers a V20 microcode dump, GNU Radio in the browser, and a Pi Zero biped; interesting news has Devil’s Arrows provenance, Bain’s 1843 fax, and Eleonora’s falcon larders.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "GPT-6 Astra, looped transformers, and hidden reasoning",
+          "url": "https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and",
+          "source": "hn",
+          "byline": "ModelForge / Sebastian Raschka, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49627370",
+          "tier": "must-read",
+          "summary": "Sebastian Raschka’s 9 September 2026 essay treats GPT-6 Astra as the strongest model he has used, especially on 3D rendering and animation, while independent Artificial Analysis coding-agent numbers still leave it only modestly ahead of the prior frontier. He reports Astra at 99.9 percent on ARC-AGI-3 versus 7.8 percent for GPT-5.6 Sol, then walks through looped transformers, also called recurrent depth, as the rumored architecture. His main claim is that shorter traces are a capability effect, not a design that hides chain of thought. The rest surveys recent looping papers and cost trade-offs rather than an official OpenAI architecture disclosure."
+        },
+        {
+          "title": "Desert Ant Labs: 18 on-device models, no token bill",
+          "url": "https://desertant.com/blog/introducing-desert-ant-labs/",
+          "source": "hn",
+          "byline": "willwhitedc / Desert Ant Labs, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49624823",
+          "tier": "recommended",
+          "summary": "Desert Ant Labs launched on 8 September 2026 as a European on-device lab with 18 task-specific models, 12 stable and six in beta, behind one Swift, Kotlin, and JavaScript SDK. The post’s Voz transcribes 10 minutes of iPhone audio in two seconds, 4.7 times Whisper; Clear is a 9 MB enhancer; Tongue is a 2 MB 84-language ID model scoring 0.933 against a 293 MB detector at 0.887; Redact is 12 MB and catches 88.8 percent of personal data versus 91.1 percent for 2.3 GB GLiNER-PII. Every model is free up to 100,000 monthly active devices, with no tokens or logins. Those figures are the company’s own product benchmarks."
+        },
+        {
+          "title": "Cognition’s Devins factor RSA-260 on GPUs",
+          "url": "https://cognition.com/blog/factoring-rsa-260",
+          "source": "hn",
+          "byline": "samyok / Cognition, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49633534",
+          "tier": "must-read",
+          "summary": "Cognition’s research team, driving Devin agents, reports a factorization of RSA-260, a 260-digit RSA Factoring Challenge number, beating the February 2020 RSA-250 record. They describe a GPU lattice siever on a modified CADO-NFS general number field sieve, claiming about 10 times lower cost than the previous public state of the art, with no claimed algorithmic advance beyond GPU lattice sieving and sparse linear algebra. The post estimates that hyperscalers could factor RSA-1024 on the order of $30 million per modulus while RSA-2048 remains roughly a billion times harder. The two 130-digit factors are printed in the article; this is classical GNFS, not a quantum computer."
+        },
+        {
+          "title": "GPT-5.6 Sol on a six-qubit MIT fridge",
+          "url": "https://openai.com/index/codex-quantum-computing-experiments/",
+          "source": "hn",
+          "byline": "theanonymousone / OpenAI, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49622561",
+          "tier": "recommended",
+          "summary": "OpenAI’s 8 September 2026 case study follows MIT EQuS graduate student Beatriz Yankelevich connecting GPT-5.6 Sol, via Codex, to laboratory software that runs superconducting-qubit measurements. She tested the agent on an uncalibrated six-qubit chip of a type the group uses to benchmark fabrication, giving Codex measurement skills for how to run and score each experiment. The lab says the model often completed routine calibration workflows without constant supervision, freeing her for experiment design and analysis. It is one student’s workflow on one chip, not a claim that the agent designed new qubit physics."
+        },
+        {
+          "title": "ConvMem: long context as a convolutional tree",
+          "url": "https://arxiv.org/abs/2609.10441v1",
+          "source": "arxiv",
+          "byline": "Zhang, Gu, Bai, Hao, Zhang, Wang, Tang, Wang, Xu",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Hongming Zhang and colleagues recast long-context reasoning as a hierarchical convolution: an LLM prompted with a query acts as a kernel that summarizes segments in a logarithmic tree instead of MemAgent’s sequential memory writes. ConvMem is training-free, adds configurable strides, skip connections, and multi-kernel channels, and parallelizes across segments. They evaluate on RULER-HotpotQA and RULER-2WikiMultiHopQA and report gains over training-free baselines without RL overfitting to parametric priors. It is a prompting and scheduling framework, not a new pretrained memory model."
+        },
+        {
+          "title": "IBIB: score the serving route, not the model name",
+          "url": "https://arxiv.org/abs/2609.10494v1",
+          "source": "arxiv",
+          "byline": "Stenstrom, Vasantharajan, Sathianathan",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Blake Stenstrom, Charangan Vasantharajan, and Brian Sathianathan argue that the 18 enterprise benchmarks they audited score advertised model identifiers while usable capability depends on weights, serving route, precision, output contract, and harness. Their IB2 protocol adds a gold-blind capability-binding preflight, reliability-inclusive first-pass scoring, and score-blind adjudication, with a sealed 128-task, 987-assertion reference set. Across eleven systems, two complete single-route runs on identical weights later failed distinct binding-gate predicates, and changing the serving arm moved one declared revision from 77.38 to 82.54. They report interval-backed resolution groups rather than ranks."
+        },
+        {
+          "title": "OpenWAM: a modular world–action pretraining stack",
+          "url": "https://github.com/OpenWAM-Official/OpenWAM",
+          "source": "github",
+          "byline": "OpenWAM-Official / GitHub",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "OpenWAM-Official/OpenWAM is the code for an open World-Action Model stack with Infra, Study, and a pretrained OpenWAM-α. The README and arXiv:2609.07398 say α was trained on 518.5 million frames, about 6,400 hours of egocentric human and robot data, with modular video, action, and VLM backbones and eval clients for RoboTwin, LIBERO, and RoboCasa. The paper’s distilled principles are a capable generative backbone plus a compact latent, dedicated action capacity with world-to-action flow, and one-stage co-training for out-of-domain generalization. It is a research stack, not a shipping robot product."
+        },
+        {
+          "title": "Qwen3.8-Flash-Next on 2×3090: prefill 2.2–2.5×",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wc6fsk/qwen38flashnext_on_2x3090_ddr4_part_4_2225x/",
+          "source": "reddit",
+          "byline": "Extension-Bid-639 / r/LocalLLaMA",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wc6fsk/qwen38flashnext_on_2x3090_ddr4_part_4_2225x/",
+          "tier": "recommended",
+          "summary": "Part 4 of a llama.cpp 2×RTX 3090 plus DDR4 host-RAM expert-cache series reports kicking the expert cache off the GPUs during prefill so micro-batches can be 2048 tokens while decode still starts with -ub 512. On six DIMMs, an 8k greedy prompt went from 99.9 to 223.7 prefill tok/s and 82 s to 37 s to first token; a ~119k prompt went from 81.3 to 206.5 prefill tok/s and 1461 s to 575 s TTFT, with decode essentially unchanged. The author quotes about 2.8 s of release-and-restore overhead per prompt and a screening of 240 paired questions. It is one box, one quant, and a screening rather than a bake-off."
+        },
+        {
+          "title": "GLM 5.3 Flash Q4: 40 tok/s and 550 prefill on M3 Ultra",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wbkpnw/glm_53_flash_q4_60tps_550tps_on_m3_ultra/",
+          "source": "reddit",
+          "byline": "IngeniousIdiocy / r/LocalLLaMA",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wbkpnw/glm_53_flash_q4_60tps_550tps_on_m3_ultra/",
+          "tier": "recommended",
+          "summary": "The ds4 branch for GLM-5.3-Flash Q4 on M3 Ultra reports fusing small Metal kernels and replacing large-history candidate sorts with parallel scans, moving short-context decode from 29 to 40 tok/s and 62k prefill from 366 to 550 tok/s. At 300k context the same work is 21.6 to 37.4 tok/s; cold 62k processing dropped from about 170 s to 113 s. A 100-prompt QA set scored 0.300766 average NLL versus 0.300804 stock against an FP8 reference, with 90/100 first-token matches. The author says the branch is M3 Ultra only because the kernel work is measured against that chip."
+        },
+        {
+          "title": "Qwen3.8 27B IQ3_XXS on an RTX 3060",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wc2cs2/running_qwen_38_27b_iq3_xxs_on_rtx_3060/",
+          "source": "reddit",
+          "byline": "SummarizedAnu / r/LocalLLaMA",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wc2cs2/running_qwen_38_27b_iq3_xxs_on_rtx_3060/",
+          "tier": "notable",
+          "summary": "A llama.cpp CUDA log for Qwen3.8-27B GSQ-RCO-IQ3_XXS with MTP on a single RTX 3060 reports about 334 prompt tok/s and 11.4 generation tok/s with reasoning off, 64k context, and more than 1 GB VRAM left after weights and KV. The poster quotes 10–20 tok/s in interactive use and points at kadenball/qwen38-27b-rtx3060-dcfr for a write-up. Draft acceptance in the pasted run is 0.41250 (132/320). It is one quant and one log, not a claim that 27B is comfortable at IQ3 for every task."
+        },
+        {
+          "title": "ko-embed-v0: 149M Korean embeddings, English-only train",
+          "url": "https://huggingface.co/NGA-KR/ko-embed-v0",
+          "source": "hf",
+          "byline": "NGA-KR / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "NGA-KR/ko-embed-v0 is a 148,731,648-parameter BF16 sentence-transformers embedding model fine-tuned from skt/A.X-Encoder-base. The 10 September 2026 card says training used only public English retrieval sets (MSMARCO, NQ, HotpotQA, GooAQ), so MTEB(kor) v1 and v2 are declared zero-shot. Contrastive CachedMultipleNegativesRankingLoss ran one epoch at batch 2048, lr 2e-5, max length 512, Apache-2.0. Per-task Korean scores are deferred to the MTEB leaderboard entry; the card does not reprint them."
+        },
+        {
+          "title": "ModernBERT that names which LLM wrote the answer",
+          "url": "https://huggingface.co/tildahh/modernbert-base-llm-author-attribution",
+          "source": "hf",
+          "byline": "tildahh / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "tildahh/modernbert-base-llm-author-attribution is a 149.6M ModernBERT-base classifier for short English Q&A into five classes: human, Claude Haiku 4.5, GPT-5 mini, Gemini 2.5 Flash, and Kimi K2. The card, from a 2026 UC Berkeley MIDS paper, reports 98.0 percent accuracy on a held-out n=150 sample for PyTorch weights and 98.7 percent for a 151 MB int8 ONNX, with a Transformers.js Space that runs in the browser. Training extends HC3 with 5,306 questions split at the question level. The authors warn it is not a general AI detector and that the signal can invert off-domain."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Decoding the NEC V20 microcode ROM",
+          "url": "https://hackaday.com/2026/09/09/decoding-the-nec-v20-microcode-rom/",
+          "source": "hackaday",
+          "byline": "Hackaday / GloriousCow",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "GloriousCow needed cycle-accurate V20 microcode for an emulator, so they extracted 29,928 bits from a die shot. MaskRomTool could locate bits but not classify them at the available contrast, yielding 42×42 crops; a CNN trained on 1,000 hand labels, plus eyeballs on the leftovers, produced a ROM image now matched against the V20’s internal architecture. A GitHub repo tracks the still-unfinished decode. The same microcode was once the subject of the Intel–NEC compatibility lawsuits."
+        },
+        {
+          "title": "Reverse-engineering the Philips PM5139",
+          "url": "https://hackaday.com/2026/09/09/reverse-engineering-the-philips-pm5139/",
+          "source": "hackaday",
+          "byline": "Hackaday / doctormord",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "doctormord reverse-engineered a 1990s Philips PM5139 function generator whose only circulating service manual is for the lesser PM5138A. Two EPROM dumps plus an 8051 emulator were enough to understand the stock firmware and ship a custom V2.0 that adds six arbitrary waveforms and simple music playback. The project is a firmware graft on the original hardware, not a from-scratch clone."
+        },
+        {
+          "title": "GNU Radio Companion in the browser",
+          "url": "https://gnuradioworld.com/",
+          "source": "hn",
+          "byline": "kristianpaul / Marc Lichtman, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49628576",
+          "tier": "recommended",
+          "summary": "Marc Lichtman, of pysdr.org, put GNU Radio Companion in the browser at gnuradioworld.com with example flowgraphs, RTL-SDR support, a sound-card path, and recorded off-air captures. Hackaday’s 9 September 2026 write-up says it matches the familiar desktop companion for ordinary local SDRs and explicitly will not talk to a networked SDR. Native GNU Radio remains the full stack; this is a lower-friction companion, not a replacement for every GR block."
+        },
+        {
+          "title": "Microduck: a 3D-printed RL biped on Pi Zero 2 W",
+          "url": "https://github.com/AI-FanGe/Microduck-build-tutorial",
+          "source": "github",
+          "byline": "AI-FanGe / GitHub",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "AI-FanGe/Microduck-build-tutorial is a BOM-to-image build for a compact biped: Raspberry Pi Zero 2 W, ROBOTIS OpenRB-150, 14 Dynamixel XL330-M288-T servos, a BNO08x IMU, a 6 V pack, and PLA prints, running an ONNX walk policy trained in MuJoCo/MjLab. A prebuilt Raspberry Pi OS Lite image ships hostname microduck, a venv, walk.onnx, and a headless gamepad service. The authors credit Rhoban/microban and pollen-robotics/microduck. Current walking code uses 14 servos; a mouth servo can be ID 15 but is unused by the policy."
+        },
+        {
+          "title": "Hunting Munich’s geothermal vibrotrucks",
+          "url": "https://hackaday.com/2026/09/09/hunting-the-wild-vibrotruck/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A Hackaday field report follows Munich’s GIGA-M seismic survey: orange geophones at about 20 m along north–south lines 300 m apart, with vibrotrucks shaking east–west every 20 m to map Jurassic water around 3 km down, near 100 °C. The campaign is described as covering about 1,000 km² with more than 120,000 sample locations and 86,000 excitations, aiming at extended-reach geothermal plants. Gradient is given as roughly 30 °C per kilometre. It is a field report on a city survey, not a DIY geophone build."
+        },
+        {
+          "title": "A Nesso N1 boxing band that scores punches",
+          "url": "https://blog.arduino.cc/2026/09/09/this-smart-boxing-band-takes-advantage-of-the-new-arduino-nesso-n1/",
+          "source": "arduino",
+          "byline": "Arduino Team / Manivannan",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Manivannan’s Smart AI Boxing Band is an Arduino Nesso N1 wearable plus a pulse sensor. Edge Impulse on the board’s IMU is trained to tell hooks, jabs, and uppercuts apart, while the color display tracks heart rate without breaking rhythm. The write-up says the classifier was reliable on those punch classes and logs punch type against biometrics for later review. It is a documented Nesso N1 project, not a commercial fight wearable."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Devil’s Arrows came from Brimham Rocks",
+          "url": "https://en.wikipedia.org/wiki/Devil%27s_Arrows",
+          "source": "science",
+          "byline": "Curtin University and University of York / Wikipedia",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/09/260909005152.htm",
+          "tier": "recommended",
+          "summary": "The Devil’s Arrows are three Millstone Grit menhirs west of Boroughbridge, North Yorkshire; the tallest is 6.85 m, second in the UK after Rudston. Wikipedia now records a 2026 isotopic fingerprinting study by Curtin University and the University of York that places the source at Brimham Rocks, about 11 miles (18 km) west, not the older Plumpton Rocks guess of about eight miles south. The same fingerprint matches the Battle Cross at Aldborough, supporting it as a reused fourth stone. Camden already described four stones; one was pulled down in a treasure hunt."
+        },
+        {
+          "title": "Alexander Bain’s 1843 electric printing telegraph",
+          "url": "https://en.wikipedia.org/wiki/Alexander_Bain_(inventor)",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wbsd6m/til_that_in_1843_alexander_bain_patented_a/",
+          "tier": "recommended",
+          "summary": "Scottish clockmaker Alexander Bain (1810–1877) received British patent 9745 on 27 May 1843 for an “Electric Printing Telegraph,” the first fax patent. Wikipedia’s fax history notes laboratory reproduction of graphic signs in 1846 and a later US patent 5,957 (5 December 1848); Frederick Bakewell then demonstrated an improved telefax. Bain also fought Wheatstone over electric clocks and was paid £10,000 when the Electric Telegraph Company was chartered. The 1843 patent is the copying-telegraph claim, not a Group-3 office fax."
+        },
+        {
+          "title": "Eleonora’s falcon keeps live birds as larders",
+          "url": "https://en.wikipedia.org/wiki/Eleonora%27s_falcon",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wc0dsq/til_theres_a_group_of_falcons_that_imprison_live/",
+          "tier": "recommended",
+          "summary": "Eleonora’s falcon (Falco eleonorae) is a Mediterranean island breeder, named for Eleanor of Arborea, that times nesting to autumn bird migration. Wikipedia records that some birds have been observed catching small migrants, stripping flight feathers, and holding them to feed chicks days later, a larder behavior described as unique among birds, with an IFLScience 8 January 2016 cite. Two-thirds of the world population breeds in Greece; Tilos alone holds about 650 pairs in a Hellenic Ornithological Society / EU LIFE count. The species winters in Madagascar."
+        },
+        {
+          "title": "Song Ci’s 1247 coroner’s handbook",
+          "url": "https://en.wikipedia.org/wiki/Collected_Cases_of_Injustice_Rectified",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wblvu7/til_the_first_book_on_forensic_science_was/",
+          "tier": "recommended",
+          "summary": "Collected Cases of Injustice Rectified (Xiyuan Jilu), written by Song Ci in 1247, is a Song-dynasty handbook for coroners that mixes historical cases with the author’s practice. The earliest surviving Yuan edition has fifty-three chapters in five volumes, covering inspection decrees, postmortem method, and appearances of death. The Library of Congress record cited on Wikipedia calls it the first written book of forensic science. Later officials translated it into English, German, Japanese, and French."
+        },
+        {
+          "title": "The US Navy’s reactors in Idaho",
+          "url": "https://en.wikipedia.org/wiki/Naval_Reactors_Facility",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wbqhxd/til_that_the_us_navy_has_submarines_in_idaho/",
+          "tier": "notable",
+          "summary": "The Naval Reactors Facility sits 52 miles (84 km) northwest of Idaho Falls on what is now Idaho National Laboratory. From the early 1950s to the mid-1990s it ran the A1W, S1W, and S5G propulsion prototypes, processed spent naval fuel, and trained nearly 40,000 Navy personnel. The remaining active plant is the Expended Core Facility / Dry Storage Facility for spent naval fuel. There are no ocean-going submarines in Idaho; the TIL is about land-based prototype plants."
+        },
+        {
+          "title": "Planet Labs’ open satellite ephemerides",
+          "url": "https://tech.marksblogg.com/planet-labs-open-satellite-feed.html",
+          "source": "hn",
+          "byline": "marklit / Mark Litwintschik, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49628429",
+          "tier": "notable",
+          "summary": "Mark Litwintschik’s 8 September 2026 note walks Planet Labs’ public TLE feed at ephemerides.planet-labs.com and joins it to GCAT, listing 97 Planet satellites still in orbit and daily landmass imaging from four historical constellations. Pelican-11, bound for the Tanager constellation, rode SpaceX Transporter 17 on 7 July. The post is a data-join tutorial, not a Planet product announcement. LinkedIn is quoted at 1,751 associated members."
+        }
+      ]
+    }
+  ]
+}

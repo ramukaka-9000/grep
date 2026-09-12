@@ -1,0 +1,216 @@
+{
+  "date": "2026-08-23",
+  "summary": "Performance work gets so cheap an agent does it from a prompt, MCP plans for long-running tasks and agent identity, a pre-auth cPanel bypass burns fast — and one Uzbekistan data row unwinds a flagship Nature paper while DESI keeps hinting dark energy fades.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Agent-era engineering leads the day: optimization that used to need rare specialists now takes a few sentences, a Rust LSP that fits in 100 MB, MCP's roadmap toward tasks and agent identity, and studies of how agents actually read code, docs, and traces.",
+      "stories": [
+        {
+          "title": "There's no reason for software to be slow anymore",
+          "url": "https://danluu.com/perf-opt/",
+          "source": "hn",
+          "byline": "Dan Luu / danluu.com, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49395628",
+          "tier": "must-read",
+          "summary": "Dan Luu extends his agent-built regex-engine experiment: performance work that once required rare specialists is now so cheap that workload-specific software fitted to one machine's actual queries becomes routine. He had an agent add AOT native-code compilation to FRE in minutes of typing, netting about 7% on holdout ripgrep queries, and argues JITs, indexes, and custom-fitted builds are now worth attempting far more broadly. The bottleneck shifts from skill scarcity to deciding what is worth optimizing."
+        },
+        {
+          "title": "Rust Glancer: a Rust LSP using 100x less RAM",
+          "url": "https://rust-glancer.github.io/blog/hello-world/",
+          "source": "hn",
+          "byline": "rust-glancer.github.io, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49393052",
+          "tier": "recommended",
+          "summary": "A four-month alternative to rust-analyzer targets under 100 MB of RAM by rejecting incrementality: workspace analysis is frozen to the filesystem, loaded on demand per query, and reused instantly after an editor restart. The trade is shallower analysis between saves, but it makes large Rust workspaces usable on an 8 GB MacBook, with chalk wired in for trait solving. The author also candidly documents building most of it with LLMs under per-PR human review."
+        },
+        {
+          "title": "Why your local LLM feels dumber than it is",
+          "url": "https://forum.level1techs.com/t/why-your-local-llm-feels-dumber-than-it-is/253917",
+          "source": "hn",
+          "byline": "thr3e / Level1Techs forums, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49402232",
+          "tier": "recommended",
+          "summary": "A hands-on series of experiments argues that 'same weights, different answers' starts with implementation-specific hazards: mixed GPU generations, differing instruction sets, quantization, and serving stacks all nudge logits before prompting even begins. The prescription is measuring your own stack with long-context tool-calling benchmarks instead of judging a model from three temp-0 test prompts. Required reading before blaming the model for your llama.cpp config."
+        },
+        {
+          "title": "The new MCP roadmap: tasks, transports, and agent identity",
+          "url": "https://blog.modelcontextprotocol.io/posts/mcp-roadmap/",
+          "source": "hn",
+          "byline": "Model Context Protocol blog, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49399591",
+          "tier": "notable",
+          "summary": "MCP maintainers published an updated roadmap with five priorities: server-initiated events plus maturing the Tasks extension for long-running agent loops, unifying on HTTP-native transports including Streamable HTTP over stdio locally, standardized agent identity built on DPoP and workload identity federation rather than pasted API keys, a single contract for tool results alongside progressive tool discovery, and SDK ergonomics. SEPs in these areas get expedited review."
+        },
+        {
+          "title": "From agent behaviour to agent-friendly documentation",
+          "url": "https://arxiv.org/abs/2608.20195v1",
+          "source": "arxiv",
+          "byline": "Zhijun Gao, Jing Chen / arXiv",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "An empirical study of which documents coding agents actually consult, when they read them, and what changes follow — evidence for treating AGENTS.md-style docs as first-class interfaces instead of afterthoughts written for humans. As an increasing share of software change is authored autonomously, documentation optimized for human onboarding increasingly misses its largest reader."
+        },
+        {
+          "title": "Inducing task models from computer-use traces",
+          "url": "https://arxiv.org/abs/2608.20319v1",
+          "source": "arxiv",
+          "byline": "Yucheng Jiang et al. / arXiv",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Passively recorded screenshots and mouse or keyboard actions are mined into symbolic, auditable models of how everyday computer work actually flows. The payoff is reusable task models you can inspect and verify — a counterweight to opaque end-to-end policies — plus a data path for teaching agents real office procedures."
+        },
+        {
+          "title": "Sprix SAGE Router: state-aware matching for open A2A networks",
+          "url": "https://github.com/wang2122/sprix-sage-router",
+          "source": "github",
+          "byline": "wang2122 / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "An MIT-licensed research preview that routes work across agent-to-agent networks through explicit states: continue alone, recruit complementary collaborators, or hand off, then assign task-DAG roles and schedule dependencies. Making the coordination policy inspectable instead of emergent is the interesting part, and 1.2k stars in days signals real appetite for structured multi-agent orchestration."
+        },
+        {
+          "title": "CVE-2026-41940: a pre-auth cPanel/WHM bypass with a public PoC",
+          "url": "https://github.com/lanicer/cve-2026-41940-PoC",
+          "source": "github",
+          "byline": "lanicer / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A pre-authentication remote auth bypass in cPanel and WHM abuses session handling to promote an unauthenticated attacker to admin-level control; it is NVD-listed and was reportedly exploited within 24 hours of disclosure to deploy ransomware. With a working proof-of-concept now trending on GitHub, internet-exposed management planes need immediate patch verification and edge restriction."
+        },
+        {
+          "title": "r/LocalLLaMA on Qwen3.8-27B: 'the highest level of agency I've ever seen in a local model'",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vt78xd/qwen3827b_has_the_highest_level_of_agency_ive/",
+          "source": "reddit",
+          "byline": "r/LocalLLaMA",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The subreddit's running verdict on Alibaba's Qwen3.8-27B keeps converging on agentic initiative: posters report it planning multi-step terminal work with unusually few nudges, and commenters express amazement that it runs locally at all, even at 3-bit quants. Useful field data if you are picking a local brain for coding agents."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Radio hacks and honest instruments: an open ExpressLRS receiver, a 555 beat-frequency oscillator, an analog Geiger counter, a resurrected e-waste Cricut, a printed camera shutter, and an e-bike wearing a solenoid display.",
+      "stories": [
+        {
+          "title": "Open-source ExpressLRS receiver reaches for range",
+          "url": "https://hackaday.com/2026/08/22/open-source-expresslrs-receiver-reaches-for-range/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Drone control links do remarkable things with at most one watt of transmit power, and ExpressLRS squeezes kilometer-scale range out of tiny packets by trading throughput for time diversity. This open-hardware receiver build walks through the RF chain and design choices that stretch link budget without sacrificing control latency, with everything reproducible from published files."
+        },
+        {
+          "title": "Building an analog Geiger counter",
+          "url": "https://hackaday.com/2026/08/22/building-an-analog-geiger-counter/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Most DIY radiation detectors bolt a tube to a microcontroller and print counts on a screen; this build goes fully analog with no firmware between tube and ear. Working through the pulse-shaping stages teaches more detection fundamentals than any dev board does, and the result reproduces easily on perfboard."
+        },
+        {
+          "title": "555 makes a useful beat frequency oscillator",
+          "url": "https://hackaday.com/2026/08/22/555-makes-a-useful-beat-frequency-oscillator/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A cheap ham rig cannot receive CW or SSB out of the box because it lacks a beat frequency oscillator — enter the humble 555. Injecting a stable BFO makes Morse and sideband intelligible on budget receivers, a classic reminder that the 555 still has tricks left after five decades."
+        },
+        {
+          "title": "Unlocking a locked, deactivated e-waste Cricut Maker",
+          "url": "https://blog.adafruit.com/2026/08/21/unlocking-a-locked-deactivated-e-waste-cricut-maker/",
+          "source": "adafruit",
+          "byline": "xssfox, via Adafruit",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Rescued from an Australian curbside pile, a locked and 'deactivated' Cricut Maker turned out to be merely software-bricked. xssfox documented walking around the vendor kill-switch to bring the cutting machine back to life — a satisfying hack and a small manifesto against planned obsolescence."
+        },
+        {
+          "title": "The shutter makes this 3D printed camera special",
+          "url": "https://hackaday.com/2026/08/22/the-shutter-makes-this-3d-printed-camera-special/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Anyone can print a pinhole body; the hard part of a DIY film camera is a real shutter with consistent timing. This build engineers a proper printed shutter mechanism, turning a novelty print into a camera whose exposures are predictable enough to trust with actual film."
+        },
+        {
+          "title": "Sleeper e-bike has a solenoid display",
+          "url": "https://hackaday.com/2026/08/22/sleeper-e-bike-has-solenoid-display/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A grandfather's road bike becomes a sleeper e-bike whose only visible concession is an electromechanical solenoid flip-display standing in for modern telemetry. Battery and motor hide inside the vintage livery while solenoids deliver status feedback with satisfying mechanical clatter — measured electromechanics over another app screen."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "One Uzbekistan data row unwinds a flagship Nature climate paper, DESI keeps hinting dark energy weakens, the biggest-ever sky map opens to everyone, early-life stress leaves a measurable epigenetic scar — and spiders survive tides by coma.",
+      "stories": [
+        {
+          "title": "One night in Uzbekistan: one data point breaks a flagship climate paper",
+          "url": "https://statmodeling.stat.columbia.edu/2026/08/20/we-couldnt-reproduce-their-findings-and-realized-that-it-was-all-driven-by-weird-data-from-uzbekistan/",
+          "source": "hn",
+          "byline": "Andrew Gelman / Statistical Modeling, Causal Inference blog, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49392536",
+          "tier": "must-read",
+          "summary": "A Nature comment by Bearpark, Hogan, and Hsiang triggered the retraction of Kotz et al.'s heavily cited climate-damages paper: drop one country and the headline result collapses. Uzbekistan's 1995–1999 economic figures turned out to be implausible, and removing them cut projected end-of-century global output losses from 62% to about 23%. Gelman digs into why no influence diagnostic flagged that a single medium-sized country steered everything — and which checks should ship by default."
+        },
+        {
+          "title": "Dynamical dark energy and the week that broke cosmology",
+          "url": "https://perimeterinstitute.ca/news/dynamical-dark-energy-and-week-broke-cosmology",
+          "source": "hn",
+          "byline": "Katie Mack / Perimeter Institute, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49381991",
+          "tier": "must-read",
+          "summary": "Katie Mack recounts why cosmologists call recent DESI releases 'the week that broke cosmology': the data keep preferring a dark energy that weakens over time rather than Einstein's cosmological constant, tentatively crossing into phantom territory where general relativity strains. Combined significance with the Dark Energy Survey sits near 3.2 sigma — suggestive, not decisive — and Rubin's supernova survey could reach 5 sigma within a year of starting if the effect is real. A clear tour of exactly what breaks if ΛCDM falls."
+        },
+        {
+          "title": "Early-life stress leaves a molecular 'scar' inside brain cells",
+          "url": "https://medicine.washu.edu/news/how-early-life-stress-leaves-a-scar-inside-brain-cells/",
+          "source": "hn",
+          "byline": "WashU Medicine, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49380303",
+          "tier": "recommended",
+          "summary": "A WashU Medicine and Princeton study published Aug 7 in Neuron shows how childhood stress leaves a physical mark: early adversity raises the enzyme SETD7 in dopamine neurons, which lays H3K4me1 tags that hold the DNA 'slinky' stretched open and keeps stress-response genes hypereasy to trigger. Artificially boosting SETD7 in unstressed mice reproduced the adult vulnerability, while blocking it after stress kept mice as resilient as never-stressed controls. A concrete epigenetic target where there was previously no treatment picture."
+        },
+        {
+          "title": "Scientists release the biggest-ever 2D map of the universe",
+          "url": "https://newscenter.lbl.gov/2026/08/10/scientists-release-biggest-2d-map-of-the-universe/",
+          "source": "hn",
+          "byline": "Lawrence Berkeley National Laboratory, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49392200",
+          "tier": "notable",
+          "summary": "The DESI Legacy Imaging Surveys released the largest 2D color map of the universe ever made: 5.6 trillion pixels cataloguing nearly 4 billion objects across roughly 75% of the sky, stitched from 263,407 exposures on the Perlmutter supercomputer. It is free to explore in the Legacy Survey Sky Viewer and serves as the target-selection backbone for DESI's dark-energy 3D survey."
+        },
+        {
+          "title": "TIL salt-marsh spiders survive being submerged for over a day by entering a hypoxic coma",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vvsllu/til_that_some_saltmarsh_spiders_can_survive_being/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Salt-marsh wolf spiders ride out tidal flooding by dropping into a hypoxic coma: Arctosa fulvolineata stays underwater, unresponsive but revivable, with mortality only setting in near 36 hours of full submersion. Pétillon et al.'s Royal Society Biology Letters study confirmed the coma as a genuine physiological adaptation to regularly inundated habitat — the spiders effectively hold their breath metabolically until the tide leaves."
+        },
+        {
+          "title": "TIL Tasmania produces over half the world's legal opium supply",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vvhaus/til_tasmania_is_the_worlds_largest_producer_of/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The world's biggest producer of licit opiate raw material is not the Golden Triangle but Tasmania, which grows roughly half the world's legal poppy straw for morphine, codeine, and oxycodone under licensing that dates to 1966. Confirmed by the Tasmanian government's industry pages, with Extractas Bioscience (formerly Tasmanian Alkaloids) the largest corporate grower."
+        }
+      ]
+    }
+  ]
+}

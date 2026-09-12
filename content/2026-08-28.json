@@ -1,0 +1,216 @@
+{
+  "date": "2026-08-28",
+  "summary": "Anthropic previews a hardware standard for lab agents while Google ships Omni 1.1 Flash and 3.5 Transcribe; electronics runs multiple Linux kernels without a hypervisor and sound-powered micro-robots; interesting news covers BepiColombo's Mercury split, a candidate companion to Betelgeuse, and Atacama snow reaching the Pacific.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Anthropic previews the Model Hardware Standard for agents in the lab",
+          "url": "https://www.anthropic.com/news/model-hardware-standard-research-preview",
+          "source": "hn",
+          "byline": "surprisetalk / Anthropic, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49468834",
+          "tier": "must-read",
+          "summary": "Anthropic opened a research preview of the Model Hardware Standard, a shared driver so AI agents can discover and operate lab and factory instruments — microscopes, liquid handlers, robot arms — through MCP, CLI, or APIs. It started as a collaboration with HHMI Janelia to collapse weeks of bespoke integrations; early partners include AWS Strands Robots, Universal Robots, Tecan, Raspberry Pi, and Hugging Face LeRobot. The spec is model-agnostic and not yet open source: the preview exists to build physical-safety evaluations first. Claude still needs expert oversight on spatial failures, which the announcement is explicit about."
+        },
+        {
+          "title": "Gemini 3.5 Transcribe: streaming STT with 2.6% offline WER",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/",
+          "source": "hn",
+          "byline": "k9294 / Google, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49468818",
+          "tier": "recommended",
+          "summary": "Google released Gemini 3.5 Transcribe for the Gemini API, with a live streaming path (gemini-3.5-transcribe-live) and a batch Interactions path that adds speaker labels and word-level timestamps. The company reports Artificial Analysis WER of 4.0% streaming and 2.6% offline, 70% faster time-to-final versus Chirp 3, and FLEURS multilingual WER around 5%. It auto-detects 85+ languages, handles self-corrections and filler words, and is in public preview in AI Studio and Gemini Enterprise Agent Platform."
+        },
+        {
+          "title": "Small Models Have Arrived",
+          "url": "https://calv.info/small-models-have-arrived",
+          "source": "hn",
+          "byline": "tosh / Calvin French-Owen, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49466917",
+          "tier": "recommended",
+          "summary": "Calvin French-Owen argues the interesting story is not another frontier model but cheap, fast ones: gpt-5.6-luna ripping through code and email at ~100 tps for tens of cents, with GLM 5.3 sitting on a new Pareto frontier. He maps consumer-AI's missing wave to token cost — a personalized daily-news toy that used to cost ~$1 on Sonnet-class models now lands around $0.10 on luna. Most company work, in his telling, is responsive 'token spewer' labor, so demand for good-enough small models is about to take off even as frontier spend keeps compounding."
+        },
+        {
+          "title": "Gemini Omni 1.1 Flash: scene extension, 4K upscaling, 360p drafts",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/",
+          "source": "hn",
+          "byline": "saretup / Google, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49467922",
+          "tier": "notable",
+          "summary": "Gemini Omni 1.1 Flash is on the Gemini API with production-oriented video controls: scene extension that uses up to 10 seconds of prior context and can grow a clip in 10-second steps to 40 seconds, first-and-last-frame interpolation, 360p drafts claimed ~60% faster and a third the cost of 720p, and 1080p/4K upscaling. Developers can also feed up to three seconds of video as a visual reference. It is live in AI Studio, Gemini Enterprise Agent Platform, and Google Flow for AI Plus, Pro, and Ultra subscribers."
+        },
+        {
+          "title": "Puro-2B: pretrain a 2B model on RTX 5090s for under $6.9K",
+          "url": "https://arxiv.org/abs/2608.27370v1",
+          "source": "arxiv",
+          "byline": "Luo, Cui, Chen et al. / arXiv",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A Tsinghua-affiliated team publishes an open pretraining recipe that trains Puro-2B models from scratch on up to 1.4 trillion tokens in FP8 on consumer RTX 5090s. Their best run costs under $6.9K and, under their protocol, approaches Qwen2.5-1.5B; a fitted cost scaling law suggests about $4.4K is enough to match Qwen2-1.5B. Data, code, and weights are Apache-2.0 on Hugging Face — a rare full-pipeline recipe rather than weights alone."
+        },
+        {
+          "title": "When Context Gets Root: privilege escalation in LLM harnesses",
+          "url": "https://arxiv.org/abs/2608.27299v1",
+          "source": "arxiv",
+          "byline": "He et al. / arXiv",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This paper names instruction privilege escalation: agent harnesses assemble context in ways that can promote low-privilege content into a higher instruction tier, so the model follows attacker text it would have ignored at the original level. Across 13 attack objectives on six coding-agent harnesses, unrestricted execution hit every objective on every harness, and automatic permission review did not save the three harnesses that offer it. The authors also reproduce the issue with harness-provided persistent goals and scheduled tasks."
+        },
+        {
+          "title": "WeMM-Embedding — Tencent's open multimodal embedding family",
+          "url": "https://github.com/Tencent/WeMM-Embedding",
+          "source": "github",
+          "byline": "Tencent WeChat Vision / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Tencent's WeChat Vision team open-sourced WeMM-Embedding, universal multimodal embedding models at 2B, 4B, and 9B that handle text, images, video, visual documents, and interleaved inputs, with Matryoshka dimensions down to 64. On MMEB-v2 the 2B checkpoint reports 77.9 average, ahead of Qwen3-VL-Embedding 2B at 73.2, and the 2B model at 256 dimensions keeps 98.7% of full-dim image/video performance. Audio is not supported; vLLM and SGLang serving recipes are in the repo. Those scores are the authors' reported numbers."
+        },
+        {
+          "title": "Experiential — open gateway that trains a router from your traffic",
+          "url": "https://github.com/experientiallabs/experiential",
+          "source": "github",
+          "byline": "experientiallabs / GitHub",
+          "discuss_url": "https://news.ycombinator.com/item?id=49471407",
+          "tier": "notable",
+          "summary": "Experiential is an open-source OpenAI-compatible gateway that sits across hosted, BYOK, and local models, then turns production traces into a fitted router or a fine-tuned model. A local `exp` wizard issues a key and a public alias; you can also load a project router as an official OpenAI client. The closed loop is the point: collect OTLP traces, `exp build`, then `exp optimize model` via Tinker — an OpenRouter-shaped control plane that actually trains on your traffic."
+        },
+        {
+          "title": "spark-13m-instruct: a 13.2M English decoder, honest about chance",
+          "url": "https://huggingface.co/ifx-pse-sys-ml/spark-13m-instruct",
+          "source": "hf",
+          "byline": "ifx-pse-sys-ml / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "spark-13m-instruct is a 13.2M-parameter Llama-style English decoder — hidden 384, 6 layers, GQA, 1024 context — instruction-tuned on 200k SmolTalk conversations after ~17B-token pretraining. The card reports lm-eval-harness averages of 33.5 versus 38.7 for SmolLM-135M-Instruct, with real signal mainly on PIQA and ARC-Easy and near-chance MMLU. It is a research toy and a possible tiny VLM backbone via `inputs_embeds`, not a knowledge model, and it will run on CPU."
+        },
+        {
+          "title": "Nawah-Math-Reasoning: 52M Arabic CoT math that runs on CPU",
+          "url": "https://huggingface.co/oddadmix/Nawah-Math-Reasoning",
+          "source": "hf",
+          "byline": "Ahmed Wasfy / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Nawah-Math-Reasoning is a 51.8M-parameter Arabic chain-of-thought math model that writes a `<think>` trace then an answer, small enough for CPU. The card reports 79.0% number-agreement on a pinned GSM8K-ar split and a +18.2 point jump to 52.2% on synthetic relational problems that previous mixes failed. The author is explicit that GSM8K-ar is machine-translated from few templates, synthetic rows are arithmetic-checked not sense-checked, and this is a proof of concept — score numbers, not strings."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Running multiple Linux kernels without a hypervisor",
+          "url": "https://hackaday.com/2026/08/27/running-multiple-linux-kernels-without-hypervisor/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Hackaday covers Cong Wang's mklinux v7.0-mk2: multiple independent Linux kernels on bare metal, no hypervisor. A host kernel carves CPUs, memory, and PCI devices and boots spawn kernels via kexec_file_load(); LWN and the multikernel.io guide describe native performance versus KVM plus kerf, Lazy CMA, and DAXFS. Isolation is a separate kernel, not a VM. The name collides with 1990s MkLinux, which this is not."
+        },
+        {
+          "title": "Analog optical feedback generates 4K fractals with no computer",
+          "url": "https://hackaday.com/2026/08/27/analog-optical-feedback-generates-4k-fractals-with-no-computer/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The Light Herder's latest video-feedback sculpture pushes analog optical fractals to 4K: a camera stares at its own display, but hue, saturation, brightness, and contrast knobs now talk to a Teensy that drives the LCD boards over RS-232. Earlier God Machine pieces topped out at HD because 4K panels almost never expose those analog controls. The 'no computer' tag is tongue-in-cheek — the loop is optical — and the demo has to be seen."
+        },
+        {
+          "title": "All the best computers boot to BASIC",
+          "url": "https://hackaday.com/2026/08/27/all-the-best-computers-boot-to-basic/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Thoreau BASIC is a bootable, largely GW-BASIC-compatible interpreter that runs bare-metal on x86 UEFI, so a modern PC can still drop you into a prompt the way an 8-bit home computer did. Tarjan's build adds whatever RAM the firmware reports, 24-bit high-res graphics, bitmap loading, and multiple text windows. It is nostalgia with a usable graphics path, not a daily driver."
+        },
+        {
+          "title": "A mini inventory box for electronic components",
+          "url": "https://blog.arduino.cc/2026/08/26/a-mini-inventory-management-system-perfect-your-electronic-components/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Akashdeep Singh built a pocket inventory box around an Arduino UNO Q, a TFT, and a Modulino Knob: pick a part from a predefined list, read or bump the quantity, get a beep. The 3D-printed enclosure is iPod-sized so it lives on the bench instead of in a spreadsheet. Commercial inventory software is overkill for hobby stock; this is the opposite."
+        },
+        {
+          "title": "EPFL powers micro-robots with sound, not motors",
+          "url": "https://3dprintingindustry.com/news/epfl-engineers-use-sound-resonance-to-power-microscale-robots-254146/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry / EPFL",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "EPFL researchers (Hwang et al., Science Advances) 3D-print Helmholtz resonators that turn a sound field into a directional air jet, so micro-robots can produce thrust without an onboard motor. Centimeter boats with three differently tuned resonators traced an infinity path (5.7 mm mean error); a 184-microgram 2PP flyer with Gurney-flap rotors hovered near 6,500 rpm under an ultrasonic phased array. Thrust scaled about 44 µN per extra cubic centimeter of cavity. Airborne designs still need a focused external sound field; that is the honest limit."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "BepiColombo's Mercury arrival begins 3 September",
+          "url": "https://www.esa.int/Enabling_Support/Operations/Watch_live_BepiColombo_begins_its_arrival_at_Mercury",
+          "source": "esa",
+          "byline": "ESA Operations",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "On 3 September 2026, ESA's Mercury Transfer Module will separate from BepiColombo's two science orbiters — ESA's MPO and JAXA's Mio — after eight years stacked together, the first step of Mercury arrival. ESA will livestream from ESOC from 13:45 CEST, with separation around 14:00 and earliest signal acquisition about 15:53 CEST. The pair enter Mercury orbit in November and split in December; science starts April 2027. It is Europe and Japan's first Mercury orbiter mission, and only the second ever to orbit the planet."
+        },
+        {
+          "title": "VLT/SPHERE images a candidate companion to Betelgeuse",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260827010514.htm",
+          "source": "science",
+          "byline": "ScienceDaily / Observatoire de Paris, ESO VLT",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "ScienceDaily reports Miguel Montargès and colleagues used ESO's VLT/SPHERE to image a candidate companion, Betelgeuse B, near greatest apparent separation in December 2024, with a paper to appear in Astronomy & Astrophysics. The companion looks more massive than the earlier ~1 solar-mass prediction — about two to three solar masses — which is why they could see it. Wikipedia independently lists a 2026 A&A note on VLT/SPHERE imaging of the candidate. The team says one more epoch a year later is still needed before the case is closed."
+        },
+        {
+          "title": "A 324-million-year-old stem insect still had swimming paddles",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260827010455.htm",
+          "source": "science",
+          "byline": "ScienceDaily / NIGPAS, University of Cambridge",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A Nature paper (26 August) led by Chenyang Cai (NIGPAS) and Erik Tihelka (Cambridge) describes Chosha praecursor, a ~324-million-year-old stem insect from Texas's Tesnus Formation, with paddle-like abdominal appendages no living insect has. Together with re-studied Devonian and Mazon Creek fossils, the authors argue insects spent a long amphibious phase rather than jumping straight onto land, helping fill an ~80-million-year hexapod gap. Wikipedia's insect-evolution page now cites the 2026 Chosha discovery from the Late Mississippian Tesnus Formation."
+        },
+        {
+          "title": "Rare, widespread snow reaches the Atacama's Pacific edge",
+          "url": "https://science.nasa.gov/earth/earth-observatory/rare-widespread-snow-in-the-atacama-desert/",
+          "source": "nasa",
+          "byline": "NASA Earth Observatory",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "NASA Earth Observatory documents rare, widespread August 2026 snowfall across Chile's Atacama, from the Andes to near the Pacific south of Antofagasta, in Landsat 8/9 and Terra MODIS imagery. ALMA on the Chajnantor plateau went into survival mode; Taltal saw ~40 mm of rain in three days, about ten times its annual mean, and SENAPRED reported flooding damage. Atmospheric scientist René Garreaud ties the cutoff low to a huge trough plus a strengthening El Niño. Snow in the Atacama is not unheard of (2011, 2025), but this one's coastal reach is the story."
+        },
+        {
+          "title": "A magnetar may show empty space twisting light",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260826055445.htm",
+          "source": "science",
+          "byline": "ScienceDaily / Nature, Parkes, IXPE",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A Nature study led by Rachael E. Stewart, as summarized by ScienceDaily, reports radio (Parkes/Murriyang) plus IXPE and NICER X-ray polarimetry of magnetar 1E 1547.0-5408 that the authors interpret as possible vacuum birefringence — Heisenberg's 1930s prediction that a huge magnetic field can make empty space rotate the polarization of light. The object's nearly aligned magnetic and spin axes, viewed nearly pole-on, are unusually favorable. The same write-up is clear that confirmation needs more observations and simulations; this is a candidate detection, not a closed case."
+        },
+        {
+          "title": "NASA's Starling navigated without GPS using other satellites as landmarks",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260826055450.htm",
+          "source": "science",
+          "byline": "ScienceDaily / NASA Ames, EraDrive",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "NASA's Starling mission flew FALCON, joint work with Stanford spinout EraDrive, using star-tracker cameras to identify other satellites and debris against a public catalog and then fix Starling's own orbit without GPS. In three days it also tightened the known orbits of more than 200 objects onboard. ScienceDaily quotes Ames program manager Roger Hunter; later this year the four Starling craft are slated to share tracks with one another."
+        }
+      ]
+    }
+  ]
+}

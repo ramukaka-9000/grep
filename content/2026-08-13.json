@@ -1,0 +1,234 @@
+{
+  "date": "2026-08-13",
+  "summary": "A model-release day: DeepSeek V4 Pro went GA and Qwen open-sourced a Max-class 2.4T MoE, while a 16-year-old SQLite bug, small multilingual models, and verified science and history oddities fill out the rest of the signal.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Open-weight models closed more of the agentic-coding gap (DeepSeek V4 Pro GA, Qwen3.8-2.4T open release), a deep SQLite corruption postmortem rewards reading, and small models keep getting more capable and more specialized.",
+      "stories": [
+        {
+          "title": "Tailscale traces database corruption to a 16-year-old SQLite WAL-reset bug",
+          "url": "https://tailscale.com/blog/sqlite-wal-reset-bug",
+          "source": "hn",
+          "byline": "Tailscale engineering / via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49272832",
+          "tier": "must-read",
+          "summary": "Nineteen database-corruption incidents over six months turned out to share one root cause: a data race between a write transaction and SQLite's WAL reset that had lurked in the codebase for 16 years. The SQLite developers fixed it in 3.51.3 after withdrawing 3.52.0, which introduced a separate stale-expression-index false positive, and Tailscale funded an open-source VFS shim plus a production warning that later proved the race really was firing. Beyond the forensic detail, it is a sharp reminder that running boring technology in a non-standard way is itself a risk."
+        },
+        {
+          "title": "DeepSeek V4 Pro 0813 goes GA in a silent API swap",
+          "url": "https://openrouter.ai/deepseek/deepseek-v4-pro-0813",
+          "source": "hn",
+          "byline": "DeepSeek / OpenRouter",
+          "discuss_url": "https://news.ycombinator.com/item?id=49274600",
+          "tier": "must-read",
+          "summary": "DeepSeek shipped the general-availability build of its 1.6T-parameter MoE flagship (about 49B active) on August 12 with no blog post or tweet — the official deepseek-v4-pro endpoint simply started serving it. The company's reported post-training jump is the story: DeepSWE from 12.8 to 62.7 and Terminal Bench 2.1 from 72.1 to 87.9 versus the preview, at $0.435/$0.87 per million tokens with a 1M context. It is text-only (no vision), MIT-licensed open weights, and DeepSeek has announced a significant price increase is coming; treat the benchmark figures as vendor-reported."
+        },
+        {
+          "title": "Qwen3.8-2.4T-A95B: a Max-class model arrives as open weights",
+          "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+          "source": "hn",
+          "byline": "Qwen Team",
+          "discuss_url": "https://news.ycombinator.com/item?id=49273478",
+          "tier": "must-read",
+          "summary": "Qwen released the open-weights version of its 3.8 generation: a 2.4T-parameter, 95B-active mixture-of-experts model with 512 experts, a 262K native context extensible to about 1M tokens, and always-on thinking (text-only input). It is the first Qwen-Max-class model in open release, with vLLM, SGLang, and TokenSpeed recipes ready, and reasoning depth controllable via reasoning_effort. Qwen3.8-Max, the API version with vision and tools, builds on this same checkpoint."
+        },
+        {
+          "title": "What sort of maths are LLMs good at?",
+          "url": "https://gowers.wordpress.com/2026/08/12/what-sort-of-maths-are-llms-good-at/",
+          "source": "hn",
+          "byline": "Timothy Gowers",
+          "discuss_url": "https://news.ycombinator.com/item?id=49270022",
+          "tier": "recommended",
+          "summary": "Fields medalist Tim Gowers reflects on the pattern behind recent LLM mathematical wins: the famous results are mostly counterexamples and constructions rather than deep proofs, and that may reflect LLM strengths (broad knowledge, cheap wide search) rather than a magic affinity for existential statements. He argues the scarce human skill is a \"nose\" for pruning deep, heavily branching proof-search trees, and proposes concrete tests — including shielding smaller models from the literature — for whether that nose is something scaling will produce. A clear-headed read on where machine mathematics actually stands in August 2026."
+        },
+        {
+          "title": "Information Abundance Paradox: long-context training undermines parametric knowledge",
+          "url": "https://arxiv.org/abs/2608.12218v1",
+          "source": "arxiv",
+          "byline": "Arda Uzunoglu et al.",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This paper challenges the assumption that longer training contexts can only help: abundant in-context information can reduce the model's incentive to encode knowledge parametrically, shifting reliance onto the context. Pretraining with long documents improves language modeling and closed-book QA only up to an intermediate optimum before declining, and fine-tuning with rich train-time context reduces robustness when context is absent or misleading at test time. Mechanistically, informative context shifts gradient pressure from feed-forward networks toward attention, suggesting near-infinite context is not simply a matter of feeding more data."
+        },
+        {
+          "title": "RealisticTritonBench: Triton-kernel generation judged on real-world PRs",
+          "url": "https://arxiv.org/abs/2608.12004v1",
+          "source": "arxiv",
+          "byline": "Jinjun Huang et al.",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Existing benchmarks for LLM-generated Triton kernels restrict tasks to PyTorch-to-Triton translation, score individual kernels instead of end-to-end performance, and rely on hand-written evaluation scripts that models can game. RealisticTritonBench instead derives generation tasks from real pull requests that modified Triton kernels in popular AI frameworks, integrates generated kernels back into their original frameworks, and evaluates with end-to-end tests. Leading LLMs still struggle on the benchmark, making it a more honest yardstick for automated GPU-kernel engineering."
+        },
+        {
+          "title": "ComfyUI-H3-Motion-Context chains MiniMax H3 clips without visible seams",
+          "url": "https://github.com/NikoDemon80/ComfyUI-H3-Motion-Context",
+          "source": "github",
+          "byline": "NikoDemon80",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This ComfyUI extension lifts the restriction that only first/last frames can be pinned, so a generated MiniMax H3 clip's final video and audio latent can be fed into the next generation as true context — motion, speed, and sound continue across the cut. The patches install at runtime, self-test their assumptions against the live ComfyUI code on every startup, and refuse to run on incompatible updates; a seam-probe node measures the join in-graph. The author's own 16-clip test render reports a median seam level step of 0.905 without audio carryover dropping to 0.16 with it."
+        },
+        {
+          "title": "watermarks-remover: an agent skill that strips AI provenance marks",
+          "url": "https://github.com/guillaumemeyer/watermarks-remover",
+          "source": "github",
+          "byline": "Guillaume Meyer",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A trending 2.6k-star toolkit, distributed as an agent skill plus stdlib Python scripts, that removes multi-vendor AI provenance marks: invisible-Unicode text hygiene (Layer A), statistical rewrites against token-sampling watermarks like SynthID-Text (Layer B), and C2PA/EXIF/XMP metadata from PNG, JPEG, SVG, PDF, DOCX, HTML, and Markdown. It is framed for privacy and hygiene on content you own, and it doubles as a vivid demonstration of how fragile current text-provenance schemes are — pixel watermarks and training backdoors are explicitly out of scope. A reminder for anyone shipping AI content that provenance claims need to survive motivated adversaries."
+        },
+        {
+          "title": "North-Micro-Vision-Instruct: a 2.4B open VLM from Cohere",
+          "url": "https://huggingface.co/CohereLabs/North-Micro-Vision-Instruct",
+          "source": "hf",
+          "byline": "Team Cohere",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Cohere's compact open vision-language model pairs a custom-trained 400M native-resolution vision encoder (starting from SigLIP 2 SO400M) with a 2B language backbone, Apache-2.0 licensed. It handles VQA, captioning, grounding, OCR, charts, and documents at native resolution with a 128K-token LM context (multimodal prompts validated to 8K), and has MLX weights plus NVIDIA AutoModel fine-tuning recipes. At 2.4B total parameters it fits the small-model envelope for prototyping and task-specific fine-tuning."
+        },
+        {
+          "title": "EVE-Rerank-1.0-Legal: a small reranker for Korean legal precedents",
+          "url": "https://huggingface.co/ysmeta/EVE-Rerank-1.0-Legal",
+          "source": "hf",
+          "byline": "ysmeta",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A 567M-parameter Korean cross-encoder reranker (fine-tuned from bge-reranker-v2-m3-ko, Apache-2.0) that reorders the top-20 candidates of the EVE-Embed-1.1-Legal retriever, putting a genuinely relevant precedent first for 93.6% of 5,998 practitioner-style queries. Its training note is the interesting part: treating every judged-relevant candidate as a positive (instead of discarding them as hard negatives) was worth six times the margin of the alternative recipe. The authors flag that relevance labels are LLM-generated, not lawyer-reviewed, and that benchmark scores partly reflect trace-matching."
+        },
+        {
+          "title": "LFM2.5-VL-3B recognizes Minecraft's Steve on an iPhone 17",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1vmp9gj/lfm25vl3b_recognizes_steve_from_minecraft_running/",
+          "source": "reddit",
+          "byline": "/u/Fun-Meaning-6474 (r/LocalLLaMA)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A r/LocalLLaMA thread shows Liquid AI's LFM2.5-VL-3B — a 3.1B vision-language model built on the LFM2.5-2.6B backbone with a SigLIP2 NaFlex encoder — running fully on-device on an iPhone 17. Liquid AI reports 228 tok/s on an Apple M5 Max and about 3 GB memory use, with GGUF, ONNX, and MLX exports for CPU, edge, and Apple-Silicon deployment; the thread's demo of local visual grounding is a concrete sign of how far sub-4B VLMs have come."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "The strongest builds today are reproducible: an ESP32-S3 reads a racing wheel, two RP2040s turn a laptop keyboard into a USB keyboard, Pokémon Emerald runs native on a $6 microcontroller, and resin printing gets an honest re-evaluation.",
+      "stories": [
+        {
+          "title": "Read a USB Logitech Racing Wheel on an ESP32-S3",
+          "url": "https://hackaday.com/2026/08/12/read-a-usb-logitech-racing-wheel-on-an-esp32-s3/",
+          "source": "hackaday",
+          "byline": "Joel Kometz / Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The LogiWheelHost single-header library for the ESP32-S3's USB host mode reads Logitech wheels (G29, G923, G920, G27, G25, DFGT, Driving Force Pro) that normally boot into a restricted mode streaming only neutral or combined-axis data. Sending a HID output report switches the wheel into its native mode, unlocking separate pedals, all buttons, and the gear shifter, and the library then exposes the full state through a simple API. It builds on the EspUsbHost project and should port to other ESP32 MCUs with host USB."
+        },
+        {
+          "title": "Your laptop keyboard, on another device",
+          "url": "https://hackaday.com/2026/08/12/your-laptop-keyboard-on-another-device/",
+          "source": "hackaday",
+          "byline": "Henk / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "When a headless Raspberry Pi needs a keyboard for first-time setup, Henk's hack uses two RP2040 boards: one implements a USB-to-serial terminal on the laptop side, and the other converts serial back into a USB HID keyboard on the target side. Keystrokes on the laptop appear as if typed locally on the Pi, the code is provided, and the same trick works for any machine that needs an emergency keyboard."
+        },
+        {
+          "title": "Pokémon Emerald runs natively on a Raspberry Pi RP2350B",
+          "url": "https://blog.adafruit.com/2026/08/12/pokemon-emerald-running-natively-on-a-raspberry-pi-rp2350b/",
+          "source": "adafruit",
+          "byline": "Adafruit Blog",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "pokeemerald-rp2350 runs the full Pokémon Emerald on a roughly $6 RP2350B microcontroller at 60 fps, with HDMI video out, real buttons, and saves that survive power cycles — no emulator involved. The pret decompilation is recompiled from ARMv4T to Cortex-M33, and the Game Boy Advance's video hardware is reimplemented in software on the chip's second core. A remarkable demonstration of what modern dual-core MCUs can do."
+        },
+        {
+          "title": "Getting back into resin printing: first results",
+          "url": "https://hackaday.com/2026/08/12/getting-back-into-resin-printing-first-results/",
+          "source": "hackaday",
+          "byline": "Maya Posch / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Maya Posch returns to SLA printing after six years, comparing a Uniformation GK3 Ultra resin printer against her Elegoo Neptune 4 FDM machine with side-by-side prints of figurines and LEGO-Technic-compatible parts. The measured takeaway: FDM is fine for large low-detail parts, while SLA's fine details, tiny support marks, and crisp dimensional fits are in another league — with rants about auto-feed resin systems, slicer support spam, and the industry's drift toward cloud-tethered closed workflows."
+        },
+        {
+          "title": "BABAI: a DIY interactive desktop robot built from scratch",
+          "url": "https://blog.adafruit.com/2026/08/10/babai-diy-interactive-desktop-robot-inspired-by-dasai-mochi/",
+          "source": "adafruit",
+          "byline": "Gi_motion / Adafruit Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Ukrainian maker Gi_motion designed and built BABAI, a fully custom interactive desktop companion, from scratch: 3D modeling, electronics around a Seeed Studio XIAO ESP32-S3 and an OLED display, firmware, animations, and enclosure all original. It is a compact, complete example of an ESP32-based interactive build that anyone with a printer and basic soldering can replicate."
+        },
+        {
+          "title": "TeddyCloud: self-host the server for your Toniebox",
+          "url": "https://blog.adafruit.com/2026/08/10/teddycloud-is-an-alternative-server-for-your-toniebox/",
+          "source": "adafruit",
+          "byline": "Adafruit Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "teddyCloud is an open-source alternative server for the Toniebox audio-toy ecosystem that hosts the cloud services locally, so you control which data leaves your home and can serve your own figurine audio files from a NAS or any other server. It offers an easy web interface for managing content and users, turning a proprietary toy into a self-hostable platform."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Verified oddities today span a Starlink-built atmospheric scanner, wool that grows bone, a crystal made of electrons, 3,500-year-old skeletons, and two century-spanning history lessons.",
+      "stories": [
+        {
+          "title": "Starlink becomes a giant scanner for Earth's upper atmosphere",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260812015212.htm",
+          "source": "science",
+          "byline": "Mamoru Yamamoto et al., Kyoto University, via ScienceDaily",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Researchers at Kyoto University turned publicly available orbital data from about 1,200 Starlink satellites at 482 km altitude into a tomographic scan of thermospheric density — the neutral gas between roughly 100 and 1,000 km that is otherwise very hard to observe. Applying medical-imaging-style tomography to the satellites' gradual orbital decay produced what the team says is the first two-dimensional latitude-longitude density map at about 500 km, consistent with ESA's SWARM satellite measurements. Better thermospheric density maps mean better collision-avoidance forecasts as low Earth orbit gets more crowded."
+        },
+        {
+          "title": "Sheep's wool becomes a scaffold that helps regrow bone",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260812015210.htm",
+          "source": "science",
+          "byline": "Sherif Elsharkawy et al., King's College London, via ScienceDaily",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "King's College London researchers extracted keratin from wool — a material farmers often discard as waste — and made membranes that supported bone regeneration in rats with skull defects too large to heal on their own. The keratin scaffolds produced bone that was more organized, with better-aligned fibers and closer to natural healthy bone, though collagen made more bone overall; the keratin membranes also stayed stable and integrated cleanly during healing. It is the first wool-derived material tested in a living animal for bone repair, positioning keratin as a potential challenger to collagen's long reign as the regenerative scaffold."
+        },
+        {
+          "title": "A crystal made of electrons just revealed its hidden motion",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260812015156.htm",
+          "source": "science",
+          "byline": "Tomasz Smoleński et al., University of Basel & TU Munich, via ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Physicists in Basel and Munich used light to probe a Wigner crystal — a sheet of electrons in a single atomic layer of tungsten diselenide that spontaneously arranges into a crystal pattern at a few degrees above zero. The reflected light revealed new optical signatures from hybrid quasiparticles called Wigner crystal polarons, which act as sensitive probes of how the electrons move collectively inside the crystal. The Nature Physics result turns light from a mere detector of the exotic state into a window on its internal dynamics."
+        },
+        {
+          "title": "3,500-year-old skeletons challenge a key syphilis assumption",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260811011143.htm",
+          "source": "science",
+          "byline": "Melandri Vlok et al., Charles Sturt University, via ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Analyzing 309 skeletons from 16 archaeological sites across Vietnam, an international team found three children dating back at least 3,500 years with clear signs of congenital treponematosis — infection passed from mother to child. But the population-wide pattern points to yaws, a nonvenereal skin-contact disease, not venereal syphilis, undermining the long-standing archaeological rule that congenital infection implies syphilis. The finding complicates the pre-Columbian syphilis debate and argues for reinterpreting skeletal evidence that was previously labeled congenital syphilis."
+        },
+        {
+          "title": "TIL: Euler's backlog kept the Academy printing for nearly 50 years after his death",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vmonup/til_that_leonhard_euler_was_so_insanely_prolific/",
+          "source": "reddit",
+          "byline": "/u/ItsChopin (r/todayilearned)",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "When Leonhard Euler died in 1783, he left such a massive backlog of unpublished papers that the Saint Petersburg Academy of Sciences kept printing new Euler works for nearly 50 years — a fact that helps explain why the man who founded graph theory and popularized the notation for π and e still published \"new\" mathematics well into the 1830s. It is a widely documented measure of the most prolific mathematician in history: roughly 900 papers, many of them appearing posthumously."
+        },
+        {
+          "title": "TIL: Robert Smalls sailed a Confederate ship past the forts to freedom",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vlx713/til_in_1862_an_enslaved_man_named_robert_smalls/",
+          "source": "reddit",
+          "byline": "/u/whereiseuvii (r/todayilearned)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "In May 1862, the enslaved pilot Robert Smalls commandeered the CSS Planter, an armed Confederate transport in Charleston Harbor, donned the captain's hat as a disguise, and sailed past the Confederate forts using the correct whistle signals before surrendering the ship to the Union blockade — freeing himself, his crew, and their families. He went on to pilot Union vessels, helped persuade Lincoln to accept Black soldiers, and later served five terms in the U.S. House of Representatives."
+        }
+      ]
+    }
+  ]
+}

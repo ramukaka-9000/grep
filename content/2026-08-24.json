@@ -1,0 +1,225 @@
+{
+  "date": "2026-08-24",
+  "summary": "Agents move from writing code to owning hardware — rooting a tablet and driving a live debugger — while agent memory turns up as both an efficiency lever and an attack surface, home chip fabrication emits real photons, and astrophysicists explain stars that survive repeated black-hole flybys.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "I spent $266 and four AI models to own my tablet. GLM-5.3 finished it in a day",
+          "url": "https://ericpardee.github.io/fire-hd-ownership/",
+          "source": "hn",
+          "byline": "Eric Pardee / ericpardee.github.io, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49409073",
+          "tier": "recommended",
+          "summary": "Amazon's protected packages kept force-shutting down a Fire HD 10 kiosk, and with no public root method Claude Code spent five months on diagnosis until its safeguards cut the author off. Kimi K3 then pulled the actual kernel out of Amazon's OTA image, matched the still-unpatched Mali use-after-free CVE-2022-38181 against it, and ground out a working exploit over roughly 30 hours and $164; GLM-5.2 caught its fatal bugs and GLM-5.3 finished root in a single day. Less a rooting guide than a data point on what frontier agentic models will and won't do — and who really owns the hardware they bought."
+        },
+        {
+          "title": "What Is a Harness?",
+          "url": "https://earendil.com/posts/what-is-a-harness/",
+          "source": "hn",
+          "byline": "Earendil / earendil.com, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49409092",
+          "tier": "notable",
+          "summary": "A plain-language explainer of the agent harness: the software wrapper that supplies a model's system prompt, tools, the agentic loop, and a translation layer that lets one harness drive many different models. The authors argue harnesses — unlike models — are something users can own, extend, and run locally, which is where user agency over AI actually lives. Useful shared vocabulary even if you never touch their Pi harness."
+        },
+        {
+          "title": "My agent.md to improve LLM-assisted code quality",
+          "url": "https://fabiensanglard.net/agent.md/index.html",
+          "source": "hn",
+          "byline": "Fabien Sanglard / fabiensanglard.net, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49410932",
+          "tier": "recommended",
+          "summary": "Sanglard distills months of repeating himself at an \"infinitely patient junior developer\" into a checked-in agent.md: no magic numbers, early returns over arrow anti-patterns, enums instead of boolean flags, strict layer boundaries, test-first bug fixes, and seven commit-message rules. He also documents two working counters to context dilution — short per-feature sessions and explicitly asking the harness to reload the file mid-drift. A small file with a big lever; good template to steal from."
+        },
+        {
+          "title": "JIT Compiling Code in 5μs",
+          "url": "https://malisper.me/jit-compiling-code-in-5-us/",
+          "source": "hn",
+          "byline": "Malis / malisper.me, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49406387",
+          "tier": "recommended",
+          "summary": "The pgrust author walks through building a copy-and-patch JIT that emits ARM64 stencils into mmap'd executable memory and compiles in about five microseconds — fast enough to JIT every SQL query rather than a hot subset. A toy regex engine built this way lands neck-and-neck with handwritten code and 10-20x ahead of an interpreter. His broader thesis: LLMs removed the assembly-writing black art that kept JIT compilers rare, which changes how ambitious new databases can be."
+        },
+        {
+          "title": "Utility Under Attack: Agent Memory Poisoning and the Limits of Content Screening and Provenance Ranking",
+          "url": "https://arxiv.org/abs/2608.21230v1",
+          "source": "arxiv",
+          "byline": "arXiv authors / arXiv",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Persistent agent memory turns any stored falsehood into a durable liability: once planted, a plainly worded false assertion keeps being retrieved into matching future sessions. The paper measures the utility attackers gain from single-pass memory poisoning and finds that content screening and provenance ranking — the obvious defenses — don't close the hole. Directly relevant to anyone shipping long-lived agents with memory."
+        },
+        {
+          "title": "Memory Augmentation Unlocks Efficient Chain-of-Thought Reasoning",
+          "url": "https://arxiv.org/abs/2608.21265v1",
+          "source": "arxiv",
+          "byline": "arXiv authors / arXiv",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Verbose chain-of-thought traces dominate inference cost, but aggressive CoT compression tends to break logical coherence mid-chain. This work offloads intermediate reasoning state into an external memory module so the model can generate shorter chains without losing the thread, trimming inference overhead while keeping accuracy. An efficiency direction worth watching for anyone serving small models on modest hardware."
+        },
+        {
+          "title": "x64dbg-MCP Server: an MCP plugin that gives agents a real debugger",
+          "url": "https://github.com/duty1g/x64dbg-mcp-server",
+          "source": "github",
+          "byline": "duty1g / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A native MCP plugin for x64dbg that exposes the debugger's full functionality — breakpoints, stepping, memory reads and writes — over HTTP so coding agents can drive live reverse-engineering sessions themselves. With models already finishing RE jobs end-to-end, tool access to a professional debugger closes the last manual gap between the model and the binary. Written in Zig and closing in on a thousand stars within days."
+        },
+        {
+          "title": "gpt2.cmake: GPT-2 inference implemented in pure CMake",
+          "url": "https://github.com/AlpinDale/gpt2.cmake",
+          "source": "github",
+          "byline": "AlpinDale / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "GPT-2 implemented entirely in CMake — no C or C++ sources — turning the build system's macro language into a tensor runtime that runs transformer inference. Absurd on its face, but it forces you to understand both attention arithmetic and just how far CMake can be bent. The week's most entertaining way to learn what a build tool actually is."
+        },
+        {
+          "title": "Moonshine Streaming Small — Japanese: official streaming ASR at 113M params",
+          "url": "https://huggingface.co/moonshine-ai/moonshine-streaming-small-ja",
+          "source": "hf",
+          "byline": "moonshine-ai / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Moonshine's official Japanese streaming ASR checkpoint: 112.9M parameters, a 50 Hz time-domain audio frontend feeding a sliding-window Transformer encoder, and a purpose-built 12,288-entry Japanese tokenizer, MIT licensed and integrated into transformers as MoonshineStreamingForConditionalGeneration. It transcribes incrementally instead of waiting for utterance ends and targets edge-class hardware; a quarter-size tiny variant trades about 2.5 CER for speed. Comfortably CPU-class, and a serious option for always-on local voice interfaces."
+        },
+        {
+          "title": "octen-embedding-8b-static-1024: an 8B embedder distilled to static vectors",
+          "url": "https://huggingface.co/jeadie/octen-embedding-8b-static-1024",
+          "source": "hf",
+          "byline": "jeadie / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A Model2Vec distillation of Octen's 8B multilingual embedding model down to static embeddings — roughly 155M parameters that embed text orders of magnitude faster than the teacher and run happily on CPU. Loads through model2vec or sentence-transformers with zero fuss. Not the 8B's quality, but a pragmatic drop-in for cheap semantic search, dedup, and retrieval filters."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Making LEDs in the Home Fab",
+          "url": "https://hackaday.com/2026/08/23/making-leds-in-the-home-fab/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Most amateur semiconductor efforts stop at demonstration structures, but this home-lab effort aims at diodes that actually emit light as usable LEDs. It's a rare entry in the garage-fab genre where the process stack has to work end-to-end, not just photograph well under a microscope. Garage-scale chipmaking keeps getting closer to functional devices."
+        },
+        {
+          "title": "Using the Basic SNES Hardware to Play Minecraft",
+          "url": "https://hackaday.com/2026/08/23/using-the-basic-snes-hardware-to-play-minecraft/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "After squeezing a minimal Minecraft onto Game Boy Color, [Tobi] ported the same idea to stock Super Nintendo hardware. No modern accelerator cartridge doing the heavy lifting — the console's own CPU and PPU carry a blocky voxel world. Constraint-driven engine design at its most instructive."
+        },
+        {
+          "title": "Bluetooth Shock Collar Keeps Wearer On Task",
+          "url": "https://hackaday.com/2026/08/23/bluetooth-shock-collar-keeps-wearer-on-task/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Unwilling to quit social media cold turkey but tired of doomscrolling, [Liam Kloppers] built a wearable collar that delivers a mild corrective shock over Bluetooth when focus drifts. The writeup covers the design tradeoffs of putting deliberate aversive feedback on your own neck, from trigger logic to safety margins. Habit-hacking hardware taken to its logical extreme."
+        },
+        {
+          "title": "3D Printing a Railway Pump Car",
+          "url": "https://hackaday.com/2026/08/23/3d-printing-a-railway-pump-car/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The seesawing handcar from every old railway film, rebuilt as a working printed model. Reproducing the pump-trolley mechanism means getting beam linkage, gearing, and catch geometry to actually move — printed parts carrying real mechanical loads. A nice showcase of FDM earning its keep beyond brackets and enclosures."
+        },
+        {
+          "title": "Amiga-Inspired AROS Goes Bare Metal on Raspberry Pi",
+          "url": "https://hackaday.com/2026/08/23/amiga-inspired-aros-goes-bare-metal-on-raspberry-pi/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "AROS, the open-source AmigaOS-compatible operating system, now boots directly on Raspberry Pi hardware without Linux underneath. Bare-metal ARM brings the classic Amiga execution model much closer to real hardware and puts retro computing on cheap, available boards. The Amiga platform refuses to die, and keeps finding new bodies."
+        },
+        {
+          "title": "SYZMIK's X7C+ cuts concussion risk 77% with 3D printed lattice padding",
+          "url": "https://3dprintingindustry.com/news/syzmiks-x7c-cuts-concussion-risk-77-with-3d-printed-lattice-padding-253942/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A sports-protective headband has commercialized 3D printed lattice structures as its impact-absorbing layer, claiming a 77% reduction in concussion risk. Whether the marketing figure survives independent scrutiny is an open question, but it marks a real step for printed lattices from prototyping into certified protective equipment. One to watch for measured, third-party data."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "This shark can live 400 years. Its eyes barely seem to age",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260821012232.htm",
+          "source": "science",
+          "byline": "ScienceDaily / UC Irvine",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Greenland sharks are the longest-lived vertebrates known — some around 400 years old — yet dissection of century-old eyes found no retinal cell death, active blue-tuned rhodopsin, and hints of a DNA repair mechanism preserving sight for centuries. The team was tipped off by footage of sharks visibly tracking light despite parasite-covered eyeballs long assumed blind. Understanding the trick could feed research on macular degeneration and human retinal aging."
+        },
+        {
+          "title": "Black holes keep tearing these stars apart, but they survive",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260822015119.htm",
+          "source": "science",
+          "byline": "ScienceDaily / Syracuse University",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Astronomers know of roughly ten stars that repeatedly skim supermassive black holes, shed material each pass, and return months or years later for another flare. Simulations couldn't explain why four of these repeating partial tidal disruption events fade steadily — until Syracuse astrophysicists added one ingredient: the star must have been spinning fast before its first encounter, likely tidally locked inside a tight binary torn apart by the Hills capture mechanism. The same physics may explain odd stellar orbits around our own Sagittarius A*."
+        },
+        {
+          "title": "A lost mega-cliff may explain the Grand Canyon's missing billion years",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260820202828.htm",
+          "source": "science",
+          "byline": "ScienceDaily / University of Southampton",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Southampton-led geologists propose that when the supercontinent Rodinia broke apart about 800 million years ago, it raised a 'great escarpment' up to a kilometer high along western North America — akin to South Africa's Great Escarpment today. Erosion of this cliff line stripped as much as eight kilometers of rock, exposing the Grand Canyon's ancient basement rocks nearly a billion years before the Colorado River arrived. If it holds up, the mysterious billion-year gap called the Great Unconformity finally gets a mechanism."
+        },
+        {
+          "title": "2,200-year-old Roman shipwreck reveals ancient waterproofing secrets",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260820202907.htm",
+          "source": "science",
+          "byline": "ScienceDaily / Aix-Marseille University",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Mass spectrometry and pollen analysis of the Roman Republic wreck Ilovik-Paržine 1, sunk off Croatia around 200 BC, show hull coatings of pine tar plus one patch of tar-and-beeswax — the mixture Greek shipbuilders called zopissa for flexibility. Pollen trapped in the sticky pitch let researchers distinguish four to five separate coating batches, tracing repairs across the Adriatic from Brundisium to the Dalmatian coast. Ancient hull waterproofing turns out to have been tuned, regional craft knowledge, not one-size-fits-all pitch."
+        },
+        {
+          "title": "TIL Norwegian dairy goats are naturally born without prion protein — and immune to prion disease",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vwqkaz/til_norwegian_dairy_goats_naturally_developed_a/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A natural mutation in Norwegian dairy goats truncates the PRNP gene so homozygous animals synthesize no cellular prion protein at all — the only known non-transgenic mammals born devoid of it. Challenge trials reported in Veterinary Research showed PRNP-null goats resist scrapie infection outright, confirming what the mutation hinted. A gene knockout that nature shipped first, and that labs have since tried to replicate with CRISPR in other herds."
+        },
+        {
+          "title": "TIL NASA sold Voyager to Nixon with a Thomas Jefferson planetary-alignment pitch",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vwoh6l/til_that_nasa_helped_sell_the_voyager_space_probe/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "JPL's Gary Flandro realized in 1964 that Jupiter, Saturn, Uranus, and Neptune would line up in the late 1970s in a once-every-175-years geometry enabling a single four-planet gravity-assist tour. Mission scientist Tom Krimigis recalls NASA administrator Tom Paine selling the mission to President Nixon by noting the last such alignment came when Thomas Jefferson was president — 'and he blew it!' The alignment made the Voyager Grand Tour physically possible; the pitch helped get it funded."
+        }
+      ]
+    }
+  ]
+}

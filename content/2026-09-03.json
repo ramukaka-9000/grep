@@ -1,0 +1,216 @@
+{
+  "date": "2026-09-03",
+  "summary": "Google ships Gemini 3.8 Flash and Nvidia agrees to buy Hugging Face; electronics covers an RP2040 HF radio, a Zephyr Arduino core, and a 30-foot printed boat; interesting news has Hubble's Saturn decagon, LZ's one unexplained event, and BepiColombo dropping its transfer module.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Gemini 3.8 Flash and 3.8 Flash Cyber",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+          "source": "hn",
+          "byline": "bratao / Google DeepMind, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49537553",
+          "tier": "must-read",
+          "summary": "Google DeepMind released Gemini 3.8 Flash as the third Flash drop in six weeks, at the same $0.75 / $3.75 per million input/output tokens as 3.7 Flash. The post reports 54.9% on HLE-Verified and stronger DeepSWE v1.1, Vals Finance Agent V2, and Harvey legal-agent scores than 3.7, with extra reasoning and tool loops on hard tasks. Gemini 3.8 Flash Cyber is the same core with a more permissive cyber stack, limited to trusted defenders in the Fairwind Program; Google cites CyberGym, a 20-language internal vuln benchmark above 70%, and CWE-Bench pass@1 of 47.2%. It is in Antigravity, AI Studio, Gemini Enterprise, and Gemini app for Pro/Ultra, with 3.7 Flash kept for efficiency-first work."
+        },
+        {
+          "title": "NVIDIA to acquire Hugging Face",
+          "url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
+          "source": "hn",
+          "byline": "tosh / Jensen Huang, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49548952",
+          "tier": "must-read",
+          "summary": "Jensen Huang says NVIDIA has agreed to acquire Hugging Face for $12,930,300,000. The post credits Clem, Julien, Thomas, and the team with a platform used by more than 18 million developers, 3 million models, 500,000 datasets, 1 million apps, and 200,000 companies. Hugging Face is to stay an open, multi-cloud, multi-accelerator host; NVIDIA compute is not required to build or deploy through it. NVIDIA already lists more than 500 models and 250 datasets on the hub and frames the deal as scale for that open-weight commons, not a lock-in."
+        },
+        {
+          "title": "Three sites made 215,128 “best software” pages for AI. Perplexity cites them",
+          "url": "https://trellner.com/reports/manufactured-sources-behind-ai-recommendations/",
+          "source": "hn",
+          "byline": "jakobgreenfeld / Trellner, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49536375",
+          "tier": "recommended",
+          "summary": "On 2 September 2026 Trellner asked Perplexity sonar and sonar-pro for top-five products in 380 software categories and kept every retrieved URL. Of 7,534 citations, 59.8% pointed at Tranco ranks worse than 100,000 and 23.4% at domains not in the top million; Wikipedia was cited three times. Three Namecheap/Cloudflare sites with the same template — wifitalents.com, worldmetrics.org, gitnux.org — host 215,128 generated /best/…-software/ pages, and two of them title their homepages “Facts & Grounding Page.” The measurement is Perplexity only; the dataset and method are published CC BY 4.0."
+        },
+        {
+          "title": "Muse Spark 1.3",
+          "url": "https://research.meta.ai/blog/introducing-muse-spark-1-3",
+          "source": "hn",
+          "byline": "bvaldivielso / Meta, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49541256",
+          "tier": "recommended",
+          "summary": "Meta released Muse Spark 1.3 in Muse Code and the Meta Model API, with max-reasoning still in extra safety testing. Relative to 1.2, Meta engineers report about 20% fewer tool calls and 25% fewer tokens, less verbosity, and better long-horizon coding and instruction following. The model is trained to ask clarifying questions, confirm irreversible actions, and map interruptions in a messy single thread. An open-weights Muse Spark drop is on the posted roadmap, not in this release."
+        },
+        {
+          "title": "UE5M3 FP4 block scaling for stable pretraining",
+          "url": "https://arxiv.org/abs/2609.02846v1",
+          "source": "arxiv",
+          "byline": "Hu, Luschi, Balanca",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Hu, Luschi, and Balanca pair E2M1 FP4 payloads with unsigned E5M3 block scales so periodic tensor scaling can replace NVIDIA Transformer Engine NVFP4's current-tensor scaling, randomized Hadamard transform, and BF16 final layers. They pretrain Nemotron-H 8B for nearly 190 billion tokens and report lower final-window training loss and lower held-out NLL than the NV recipe under each side's quantized-inference policy. A native NV ablation that drops RHT and the BF16 exemption raises measured model-body token throughput 21.2%. The paper is a software-emulated recipe that argues for native UE5M3 block-scale support."
+        },
+        {
+          "title": "EarlyEval: cheaper agent evaluation via early outcome prediction",
+          "url": "https://arxiv.org/abs/2609.02783v1",
+          "source": "arxiv",
+          "byline": "Shi, Sun, Dong, Wan, Lo, Gu",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Shi and colleagues train LightGBM success and failure classifiers on behavioral, textual, and reference-solution features and halt an agent run once either crosses a calibrated threshold. Across SWE-bench Verified, TerminalBench, and Toolathlon they cut 13–26% of agent steps and up to 44.1% input tokens and 29.4% output tokens at 89–97% prediction accuracy. Per-agent resolve rates move only one to two points on average. The point is to cheapen each retained task rather than distill the benchmark down to fewer tasks."
+        },
+        {
+          "title": "reverify: AI reverse engineering judged by the binary",
+          "url": "https://github.com/2akouwu/reverify",
+          "source": "github",
+          "byline": "2akouwu / GitHub",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "reverify is an MIT CLI and MCP server that lets a model propose claims about a PE, ELF, or Mach-O binary and has a deterministic toolkit return VERIFIED, REFUTED, or INCONCLUSIVE with the bytes it actually read. v0.5.0 adds behavior_equiv: run the original function and a reconstruction on shared inputs and return a counterexample on mismatch. A reconstruction counts as grounded only when nothing is refuted and verified weight clears --min-information, so restating MZ and .text does not pass. The README reports a 19-DLL prologue-prior test where the textbook prior was wrong every time and the verifier accepted none of those errors."
+        },
+        {
+          "title": "fable51-worlds: explorable cities generated as Three.js",
+          "url": "https://github.com/PhiloLabs/fable51-worlds",
+          "source": "github",
+          "byline": "PhiloLabs / GitHub",
+          "discuss_url": "https://news.ycombinator.com/item?id=49541458",
+          "tier": "notable",
+          "summary": "PhiloLabs ships two browser-native reconstructions researched and modelled by Claude Fable 5.1 agent swarms, then assembled as plain Three.js — Union Square, San Francisco, and a 2.3 km Higashiyama walk in Kyoto. Union Square lists 453 OSM footprints, 129 named storefronts, and 34 camera-matched viewpoints against photographs; Kyoto is drawn as a cel-shaded anime background with no binary assets, and a GSI LiDAR survey overturns several tourist-guide measurements. The pipeline — OSM/USGS recon, Blender kits, runtime JSON, Playwright camera-match QA — is in the repo under MIT. It is a world-from-code drop, not a general 3D engine."
+        },
+        {
+          "title": "Loom Weave 2 Flash: 19.9M parameters trained two hours on a 2013 CPU",
+          "url": "https://huggingface.co/textilelabs/Loom-Weave-2-Flash",
+          "source": "hf",
+          "byline": "Textile Labs / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The model card reports Loom Weave 2 Flash as 19.9 million parameters and 512 context, trained from scratch for two hours on a 2013 desktop CPU — the same architecture as Loom Spark 2 with twice the optimiser steps. A 40 MB f16 GGUF is in the repo; Ollama can run hf.co/textilelabs/Loom-Weave-2-Flash. Compared with the one-hour control, validation loss falls from 2.69 to 2.25, but “says the result doesn't contain it” stays 0/4 despite 30,000 SQuAD 2.0 absence examples. The authors treat that as a 20M-parameter limit: if you feed a <result>, validate the answer yourself."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "An RP2040 minimalist HF transceiver on one USB cable",
+          "url": "https://www.riyas.org/2026/06/the-rp2040-minimalist-hf-transceiver.html",
+          "source": "hackaday",
+          "byline": "Riyas / Hackaday",
+          "discuss_url": "https://hackaday.com/2026/09/03/a-thoroughly-modern-minimalist-transceiver/",
+          "tier": "recommended",
+          "summary": "Riyas's LB7UG prototype pairs an RP2040 with an Si5351 VFO and Si4732 receiver so WSJT-X or FT8CN sees one USB cable for UAC2 audio and Kenwood TS-480 CAT, with no extra sound card. Core 1 owns DMA capture; core 0 runs OLED, encoder, beacon, and USB. Firmware adds a headless FT8/WSPR beacon and a type-to-talk CW terminal. Schematics, Gerbers, and alpha UF2 are on GitHub; it is a sandbox, not a QMX substitute, and the author lists missing LPF/PA routing and a 52–54% efficient IRF510."
+        },
+        {
+          "title": "A DIY pack for a McMurdo personal locator beacon",
+          "url": "https://hackaday.com/2026/09/03/rescuing-a-rescue-device-with-a-diy-battery-pack/",
+          "source": "hackaday",
+          "byline": "Hackaday / Steve Jernigan",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Steve Jernigan reverse-engineered a McMurdo PLB after finding official battery service expensive, then built a pack from a small PCB, two off-the-shelf 6 V lithium manganese dioxide cells, and a 3D-printed shell potted against the weather. The write-up and Hackaday.io project 206191 show assembly. He labels it a backup experiment, not a substitute for a certified cell if the beacon is actually your rescue path. Life-safety gear with a homemade pack is the warning, not the pitch."
+        },
+        {
+          "title": "A 40% working Leslie cabinet for guitar",
+          "url": "https://hackaday.com/2026/09/03/miniaturized-working-replica-of-vintage-leslie-speaker/",
+          "source": "hackaday",
+          "byline": "Hackaday / Eric",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Eric CNC-cut a 40% Leslie enclosure, then drove a rotating horn (one dummy counterweight) and a 3D-printed bass drum with brushless motors instead of the original organ motors. The physical Doppler is the point; DSP recreations still miss the moving air. Wiring is retuned for guitar rather than Hammond, and the cabinet is light enough to take to a jam. It is a measured replica, not a plugin."
+        },
+        {
+          "title": "Arduino Core on Zephyr hits 1.0.0",
+          "url": "https://blog.arduino.cc/2026/09/03/arduino-core-on-zephyr-1-0-0-is-here/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "ArduinoCore-zephyr 1.0.0 leaves the 0.90.0 stability milestone, rebases on Zephyr 4.4.1, and adds the STM32H5F5 side of VENTUNO Q plus camera support on Nicla Vision. Board Manager install is the “zephyr” core; a loader-flash guide is linked. The supported list now includes UNO Q, VENTUNO Q, Portenta H7 and C33, Opta, GIGA R1 WiFi, Nano Matter, Nano RP2040 Connect, Nano 33 BLE, Nicla Sense ME, and Nicla Vision. GitHub release 1.0.0 has the fix list."
+        },
+        {
+          "title": "P.A.R.: a plotter that flips 3D-printed squisks",
+          "url": "https://blog.arduino.cc/2026/08/31/p-a-r-is-a-flip-squisk-display-that-draws-your-pixel-art/",
+          "source": "arduino",
+          "byline": "Arduino Blog / Zimm",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Zimm's Pixel Art Robot is a 37×18 grid of two-tone 3D-printed square discs. Instead of a solenoid per cell, an Arduino Nano ESP32 drives a vertical plotter with a servo pin and a colour sensor that reads the current face, then physically flips each squisk. The bill of materials scales with size rather than with a magnet per pixel; the cost is speed. Visitors submit 1-bit art at par.zimmzimm.com; firmware is on GitHub as Z-Coder672/P.A.R."
+        },
+        {
+          "title": "UMaine launches 3Dirigo X, a 30-foot printed boat",
+          "url": "https://3dprintingindustry.com/news/umaine-launches-3dirigo-x-a-3d-printed-30-foot-boat-254357/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry / University of Maine ASCC",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The University of Maine Advanced Structures and Composites Center launched 3Dirigo X, a 30-foot additively manufactured vessel designed for about 40 knots and offshore work, building on the 2019 3Dirigo record boat. Director Habib Dagher says print rate rose from about 20 lb/h at the start of the research to about 500 lb/h, with a 55,000-square-foot Factory of the Future aiming at 1,000 lb/h. Digital hulls skip a new mold per design; OSD ManTech's Keith DeVries called the launch the start of sea trials, not a finish line. The program sits under the federally funded Accelerated Rapid Prototyping initiative."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Hubble tracks a new decagon around Saturn's south pole",
+          "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-tracks-new-decagon-encircling-saturns-south-pole",
+          "source": "nasa",
+          "byline": "NASA Science / Sánchez-Lavega, Simon, Wong",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Hubble OPAL images, published Wednesday in Science Advances, show a giant 10-sided atmospheric wave around Saturn's south pole — the first large regular-sided jet pattern seen in that hemisphere. Ground observers including Trevor Barry and Jean-Paul Oger flagged an undulating band in 2024; Hubble traces it back to 2023. Cassini (2004–2017) showed no long-lived southern counterpart to the 40-year northern hexagon, and the new wave sits in a jet through multiple altitudes. Amy Simon says it appears to be strengthening; whether it settles like the hexagon is still open."
+        },
+        {
+          "title": "LZ records one unexplained event in a dark-matter search",
+          "url": "https://newscenter.lbl.gov/2026/09/01/lz-sees-surprising-result-in-search-for-dark-matter/",
+          "source": "science",
+          "byline": "Lawrence Berkeley National Laboratory / LZ Collaboration",
+          "discuss_url": "https://news.ycombinator.com/item?id=49536079",
+          "tier": "recommended",
+          "summary": "LUX-ZEPLIN, 10 tonnes of xenon a mile under SURF, found one particle interaction in 220 live days (March 2023–April 2024) that is hard to explain with known backgrounds. Spokesperson Rick Gaitskell is not claiming a dark-matter detection; the result is 2.6 sigma, about a 0.5% chance of a known-background fluctuation, far from 5 sigma. If it were a WIMP it would likely be at least 200 GeV/c² with a non-minimal interaction, in a higher-energy window than earlier LZ searches. The talk was at TeVPA 2026; a paper is headed to arXiv and Physical Review Letters, and more livetime is already on disk."
+        },
+        {
+          "title": "BepiColombo jettisons its Mercury Transfer Module",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Latest_updates_BepiColombo_s_arrival_at_Mercury",
+          "source": "esa",
+          "byline": "ESA Operations / ESOC",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "On 3 September 2026 ESA confirmed MTM separation from the BepiColombo stack more than 200 million kilometres from Earth. A Doppler shift at 13:41 BST was followed at 14:52 BST by Estrack Cebreros and Malargüe locks showing MPO solar arrays charging; telemetry is nominal. ESA's MPO now powers the composite until JAXA's Mio separates on 9–10 December, with Mercury orbit insertion planned for 21 November 2026 and science in April 2027. The cruise from the 20 October 2018 Ariane 5 launch ran about eight years."
+        },
+        {
+          "title": "An in-plane Hall effect in a 2D heterostructure",
+          "url": "https://www.cmu.edu/news/stories/archives/2026/august/cmu-physicists-take-hall-effect-in-a-new-direction",
+          "source": "science",
+          "byline": "Amy Pavlak Laird / Carnegie Mellon University",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Singh, Katoch, Chatterjee and colleagues at CMU report in Nature Materials an in-plane anomalous Hall signal in few-layer TaIrTe4 proximity-coupled to ferromagnetic Cr2Ge2Te6. The Hall effect has been treated as needing a field perpendicular to the film; here the same ultrathin device also responds to in-plane magnetization. The authors frame a possible single-chip vector magnetometer, but the CGT ferromagnetism is at low temperature and they are still checking room-temperature behaviour. The 28 August 2026 CMU note is the institutional account of doi:10.1038/s41563-026-02611-9."
+        },
+        {
+          "title": "Norway banned skateboards from 1978 to 1989",
+          "url": "https://en.wikipedia.org/wiki/Skateboarding_ban_in_Norway",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1w675pk/til_that_skateboarding_was_banned_in_norway_from/",
+          "tier": "notable",
+          "summary": "Wikipedia records a nationwide Norwegian ban on using, importing, selling, or advertising skateboards from 15 March 1978 until 8 May 1989, administered as product control by the Environment Ministry rather than as a street ordinance. Norway was the only country with an all-out ban; skaters built boards, smuggled parts, and hid ramps in forests that police still raided, with a slight loosening for organized skating from 1984. The statutory order FOR-1978-09-07-9022 is on Lovdata. The article treats it as risk-management bureaucracy and moral panic, not a traffic rule."
+        },
+        {
+          "title": "The Order of the Occult Hand",
+          "url": "https://en.wikipedia.org/wiki/Order_of_the_Occult_Hand",
+          "source": "reddit",
+          "byline": "Wikipedia, via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1w66nrb/til_that_a_secret_society_of_american_journalists/",
+          "tier": "notable",
+          "summary": "American newspaper writers have for decades smuggled the clause “It was as if some occult hand had…” into print as a membership badge. Joseph Flanders of The Charlotte News coined it in an August 1965 shooting story; colleagues formed an order to repeat it, and the phrase later appeared in the Times, the Globe, and elsewhere until James Janega's 2004 Chicago Tribune investigation. Paul Greenberg later wrote that a new secret phrase was chosen in 2006. Wikipedia is the synthesis; Flanders's original clip is linked from the page."
+        }
+      ]
+    }
+  ]
+}

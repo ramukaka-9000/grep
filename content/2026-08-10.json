@@ -1,0 +1,198 @@
+{
+  "date": "2026-08-10",
+  "summary": "Today’s signal is that AI is moving from isolated model calls toward auditable, long-running systems—from context-aware caches and self-evolving skills to provenance and durable execution—while tiny robotics policies and repairable hardware keep the frontier buildable.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The strongest AI work today is about the machinery around models: persistent agent workspaces, history-based authorship, transactional data paths, long-context cache reuse, and skills that can be tested and consolidated instead of merely appended.",
+      "stories": [
+        {
+          "title": "OpenChamber turns agentic coding into a persistent, multi-surface workspace",
+          "url": "https://openchamber.dev/",
+          "source": "hn",
+          "byline": "OpenChamber",
+          "discuss_url": "https://news.ycombinator.com/item?id=49233448",
+          "tier": "recommended",
+          "summary": "OpenChamber is an open-source agentic development environment with session goals that keep an agent working toward a finish line, multi-run and fusion across up to five models, grouped diff walkthroughs, issue-to-pull-request flows, and scheduled work. It runs on the OpenCode SDK across desktop, browser, and mobile surfaces, with a password-gated UI and private relay for remote access rather than requiring exposed ports."
+        },
+        {
+          "title": "How I use LLMs to learn complex topics",
+          "url": "https://laurentiugabriel.github.io/blog/articles/how-i-use-llms-to-learn/",
+          "source": "hn",
+          "byline": "Laurentiu Raducu",
+          "discuss_url": "https://news.ycombinator.com/item?id=49234675",
+          "tier": "recommended",
+          "summary": "Laurentiu Raducu describes a learning loop in which an agent first builds and reviews a knowledge base, then turns it into an interactive low-poly simulation before publishing the result. His chip-fabrication example, alongside simulations of rockets, LLMs, F1 engines, and EUV lithography, is a useful reminder that visual, executable explanations can be a better personal learning aid than an unstructured model-generated summary; the accuracy claim remains the author’s own assessment."
+        },
+        {
+          "title": "Human vs. AI — diff-based line-level provenance for text under agentic editing",
+          "url": "https://github.com/eighttrigrams/us-vs-them",
+          "source": "hn",
+          "byline": "eighttrigrams",
+          "discuss_url": "https://news.ycombinator.com/item?id=49232300",
+          "tier": "recommended",
+          "summary": "Us vs. Them derives authorship ranges from a text’s Git history, treating revisions by named humans and agents as evidence for how each coherent region was produced. Its CLI reports scores such as fully human, fully agent-authored, or partially modified ranges without requiring markup in the document, giving agent workflows a way to protect human-written passages while acknowledging that history-based provenance is not a proof of semantic origin."
+        },
+        {
+          "title": "How we pushed CDC into Postgres, and turned replication into clockwork",
+          "url": "https://www.snowflake.com/en/blog/engineering/postgres-to-snowflake-replication-mirroring/",
+          "source": "hn",
+          "byline": "Snowflake Engineering",
+          "discuss_url": "https://news.ycombinator.com/item?id=49238050",
+          "tier": "must-read",
+          "summary": "Snowflake’s data-mirroring design moves change-data capture into a Postgres extension that writes transactional batches and schema changes into Iceberg change logs, then applies them in Snowflake at Postgres transaction boundaries. The post’s central systems argument is that producer-side knowledge of snapshots, DDL, WAL timelines, and retries can replace a fragile collection of external connectors, while live views keep lag low without forcing constant full applies."
+        },
+        {
+          "title": "CoinRAG: contextualized information-nugget KV-cache reuse for long-context RAG",
+          "url": "https://arxiv.org/abs/2608.07458v1",
+          "source": "arxiv",
+          "byline": "Gyuwan Kim et al.",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "CoinRAG replaces coarse chunk-level reuse with fine-grained, query-relevant information nuggets whose precomputed key-value representations are assembled with chunk context at inference time. On LongBench multi-hop question answering, the authors report a new accuracy/latency Pareto frontier and a 5.3% relative F1 improvement under a standard fast-prefill budget, directly targeting the cost of repeatedly encoding long retrieved contexts."
+        },
+        {
+          "title": "SkillProx: self-evolving agent skills via proximal textual gradient descent",
+          "url": "https://arxiv.org/abs/2608.07449v1",
+          "source": "arxiv",
+          "byline": "Mingxuan Zheng et al.",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "SkillProx treats an agent skill as a maintained artifact: a forward stage re-executes diagnosis-driven edits and rolls back regressions, while a backward stage audits individual knowledge units and can consolidate, demote, or remove them. Across in-distribution and out-of-distribution benchmarks, the authors report a 3.0-percentage-point average accuracy gain over their strongest gradient-based baseline, with explicit outcome feedback rather than blind accumulation of instructions."
+        },
+        {
+          "title": "LongHorizon-Harness preserves and audits progress across long-running computer-use tasks",
+          "url": "https://github.com/AMAP-ML/LongHorizon-Harness",
+          "source": "github",
+          "byline": "AMAP-ML / Ziyu Ma et al.",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "LongHorizon-Harness puts planning, execution, and independent auditing around agents such as Claude Code and Codex, storing verified state, event streams, role trajectories, and recoverable run records so work can continue across fresh contexts. Its repository includes reproduction suites for 114 WeaveBench tasks and 108 OSWorld-V2 tasks, making the project notable as an execution-and-verification layer rather than another model wrapper."
+        },
+        {
+          "title": "phone-harness drives a real iPhone through macOS iPhone Mirroring",
+          "url": "https://github.com/ShawnPana/phone-harness",
+          "source": "github",
+          "byline": "Shawn Pana",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "phone-harness connects an LLM to an iPhone by treating the macOS iPhone Mirroring window as the transport: screenshots and Apple Vision OCR provide the eyes, while HID-level CGEvents provide taps, typing, drags, and flicks. The small, editable Python harness avoids jailbreaks, Xcode, and WebDriverAgent, but is deliberately constrained to one mirrored phone session and still needs macOS Accessibility and Screen Recording permissions."
+        },
+        {
+          "title": "gfm-cubes-22c1: a 75M-parameter gaze-flow robotics policy",
+          "url": "https://huggingface.co/fecasado/gfm-cubes-22c1",
+          "source": "hf",
+          "byline": "fecasado",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This newly published 75-million-parameter gaze-flow-matching checkpoint is a tiny LeRobot robotics policy tagged with the `Ncubes-to-Nbaskets-320x240` dataset and an Apache-2.0 license. Its model card supplies the standard train-and-evaluate path rather than headline benchmark numbers, but the size makes it a plausible CPU or modest-GPU experiment for builders who want to inspect a complete small policy instead of downloading a frontier model."
+        },
+        {
+          "title": "Roast Bot: a 1.5B Qwen fine-tune that stops before memorization",
+          "url": "https://huggingface.co/Xx-Vexento-xX/roast-bot-qwen-1b-epoch2",
+          "source": "hf",
+          "byline": "Xx-Vexento-xX",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This Qwen2.5-1.5B-Instruct LoRA was trained on 90 hand-written conversation pairs and published at epoch two rather than the end of the run. The model card reports that the earlier checkpoint generated original replies on six test prompts while the later checkpoint sometimes replayed training examples, making this a compact, runnable case study in the trade-off between style fidelity, overfitting, and small-model deployment through Ollama."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Today’s builds are hands-on and unusually varied: a weather-beaten CRT repair, visible-light video transmission, pneumatic 3D printing, repairable smart glasses, and a hospital-owned implant manufacturing workflow.",
+      "stories": [
+        {
+          "title": "The stages of grief in repairing a Trinitron found in the trash",
+          "url": "https://hackaday.com/2026/08/09/the-stages-of-grief-in-repairing-a-trinitron-found-in-the-trash/",
+          "source": "hackaday",
+          "byline": "Happychoice / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A rescued 32-inch Sony Trinitron had reportedly spent at least six years outside, yet its CRT and much of its circuit boards survived in reasonable condition. The repair moved from cleaning and replacing suspect resistors to tracing a triple-blink power fault on the control and supply side—a candid reminder that restoration is often a slow diagnostic process rather than a single clever fix."
+        },
+        {
+          "title": "Transmitting analog video via frikkin’ laser beams",
+          "url": "https://hackaday.com/2026/08/09/transmitting-analog-video-via-frikkin-laser-beams/",
+          "source": "hackaday",
+          "byline": "Daniel / milar111 / Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The LYME 101 project sends composite video through free space by modulating a red laser diode from a Raspberry Pi, then recovers it with a reverse-biased BPW34 photodiode and LM318N op-amp. It is a reproducible analog experiment built from a 2N2222 transistor, passives, a CRT, and paired 9-volt batteries for a quiet dual supply, with a terminator resistor and bias adjustment needed for a USB capture card."
+        },
+        {
+          "title": "Continuously extruding 3D-printed tubes with compressed air",
+          "url": "https://hackaday.com/2026/08/09/continously-extruding-3d-printed-tubes-with-compressed-air/",
+          "source": "hackaday",
+          "byline": "Jan / Roetz 4.0 / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A modified dual-material extruder forms a plastic shell around a compressed-air line, producing continuous hollow structures instead of ordinary solid filament paths. Pressure-only control caused ballooning and bursts, while metered air from a peristaltic pump and TPU filament improved consistency and adhesion, though leaks and cooling-related solidification remain open engineering problems."
+        },
+        {
+          "title": "A teardown shows that Chinese smart glasses can be repairable",
+          "url": "https://hackaday.com/2026/08/09/the-chinese-smart-glasses-proving-that-smart-glasses-can-be-repairable/",
+          "source": "hackaday",
+          "byline": "iFixit / Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "An iFixit teardown found that two Chinese smart-glasses designs use a clip-on external battery in addition to an internal cell, but differ sharply in serviceability. The Rokid glasses use light adhesive and a more accessible internal layout, while the Quark glasses require destructive heat and prying, making the comparison a concrete design argument for replaceable batteries in compact waterproof wearables."
+        },
+        {
+          "title": "Walter Reed’s 3D-printed titanium cranial plate clears the FDA for point-of-care production",
+          "url": "https://3dprintingindustry.com/news/walter-reeds-3d-printed-titanium-cranial-plate-becomes-first-implant-cleared-by-the-fda-for-a-point-of-care-institution-253587/",
+          "source": "3dprintingindustry",
+          "byline": "3D Printing Industry / Walter Reed 3D MAC",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The FDA granted premarket clearance K253116 to Walter Reed’s 3D Medical Applications Center for a titanium cranial-plate system, reported as the first implant cleared for a point-of-care institution itself rather than only through an outside manufacturer. The design integrates fixation bars into the patient-specific plate, and the clearance gives the military hospital a regulated manufacturing path that could be extended to other approved treatment facilities."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "The day’s stranger discoveries range from geometric planning on 60,000-year-old eggshells to a dodo’s sensory anatomy, social pressure in Antarctic isolation, and a planned fleet of radar-equipped Mars helicopters.",
+      "stories": [
+        {
+          "title": "60,000-year-old ostrich eggshell engravings show early geometric planning",
+          "url": "https://doi.org/10.1371/journal.pone.0338509",
+          "source": "science",
+          "byline": "Decembrini et al. / PLOS ONE",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "A PLOS ONE study published on February 11, 2026 quantitatively analyzed 112 engraved ostrich-eggshell fragments from Howiesons Poort sites in South Africa and Namibia. Repeated parallelism, intersections, rotations, and nested layouts suggest rule-based visual organization by Homo sapiens more than 60,000 years ago, although the work identifies structured graphic behavior rather than deciphering a symbolic writing system."
+        },
+        {
+          "title": "CT scans reveal a dodo’s hidden sensory world",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260807035143.htm",
+          "source": "science",
+          "byline": "University of Copenhagen / University of Lethbridge",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Researchers used high-resolution CT data from three dodo skulls, including the only two complete specimens known, to reconstruct the spaces once occupied by the birds’ brains. Comparisons with pigeons and doves suggest the dodo may have been active around dawn and dusk and relied more on smell and tactile information from its large beak, while the authors caution that skull anatomy cannot fully determine behavior."
+        },
+        {
+          "title": "In Antarctic isolation, more contact did not always mean better teamwork",
+          "url": "https://www.news.uzh.ch/en/articles/media/2026/teams-in-isolation.html",
+          "source": "science",
+          "byline": "University of Zurich and University of Bern / PNAS",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "During a ten-month Concordia Station overwintering mission, 12 crew members completed repeated questionnaires while wearable sensors recorded proximity and contact patterns. The University of Zurich and University of Bern study found that more frequent physical contact correlated with more conflict, mistrust, and lower perceived performance, and that language- or nationality-based subgroups grew over time; the authors explicitly note that these are correlations, not proof of causation."
+        },
+        {
+          "title": "NASA’s planned SkyFall fleet will map Mars from the air and below ground",
+          "url": "https://science.nasa.gov/mission/skyfall/",
+          "source": "nasa",
+          "byline": "NASA / JPL-Caltech",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "NASA’s planned SkyFall mission will deploy three Ingenuity-derived helicopters during descent to Mars, each carrying visible and near-infrared cameras, weather sensors, radiation monitoring, and ground-penetrating radar designed to probe roughly 0.5 to 3 meters below the surface. The mission is scheduled for a late-2028 launch and a 2030 landing sequence, with the helicopters intended to map possible ice, hazards, and future landing sites while communicating through Mars orbiters rather than a rover relay."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "date": "2026-08-27",
+  "summary": "AWS absorbs DuckDB's maker while Nvidia circles a >$13B Hugging Face deal, and flash-class MoE releases from Alibaba and Zhipu land back-to-back; electronics serves measured ESP32 deep-sleep currents and Claude Sonnet playing DOOM on an ESP32-P4; interesting news spans an 11,000-year-old leopard-rider sculpture, a pangolin species revived from 190-year-old DNA, and NASA's Roman telescope one step from launch.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "AWS acquires DuckLabs — DuckDB stays MIT and open",
+          "url": "https://ducklabs.com/news/2026/08/26/ducklabs-to-join-aws",
+          "source": "hn",
+          "byline": "onderkalaci / DuckLabs, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49448321",
+          "tier": "must-read",
+          "summary": "The bootstrapped Amsterdam company behind DuckDB — one million downloads a day — is joining Amazon Web Services, effective early September, with the team staying together in Amsterdam. Crucially for the data/AI ecosystem, DuckDB, DuckLake, and Quack remain free and MIT-licensed, the nonprofit DuckDB Foundation keeps stewardship, and the extension stack is set to open so third parties can sign and ship extensions. AWS quotes read like a commitment letter, but the open-source terms written into the announcement are what builders will hold onto."
+        },
+        {
+          "title": "Nvidia in talks to acquire Hugging Face for more than $13B",
+          "url": "https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8",
+          "source": "hn",
+          "byline": "mfiguiere / Business Insider, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49458161",
+          "tier": "must-read",
+          "summary": "Business Insider reports Nvidia has spent recent weeks in acquisition talks with Hugging Face that would value the platform at over $13 billion — talks that have not yet produced a deal and could fall apart. Nvidia already holds a stake from the platform's $235M funding round (then a $4.5B valuation) and was famously turned down for a $500M investment last year. Owning the hub for millions of open models would deepen Nvidia's developer moat, though it risks the neutrality that made Hugging Face the industry's broker."
+        },
+        {
+          "title": "Qwen3.8-Flash-Next is out: 125B-parameter ultra-sparse MoE, ~6B active",
+          "url": "https://qwen.ai/blog?id=qwen3.8-flash-next",
+          "source": "hn",
+          "byline": "tosh / Alibaba Qwen, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49448210",
+          "tier": "recommended",
+          "summary": "The model teased yesterday is now officially released: Qwen 3.8-Flash-Next is a multimodal, ultra-sparse MoE with 125B total parameters and only around 6B active, whose structure was upgraded along four axes — attention, residual, embedding, and beyond. For local runners that sparse-activation architecture keeps inference cheap relative to the flagship quality on offer, which is why vLLM ship had a recipe up within hours. The Qwen model collection and HF hub page are live today."
+        },
+        {
+          "title": "GLM-5.3-Flash: Zhipu's 320B-A18B sparse-attention model",
+          "url": "https://z.ai/blog/glm-5.3-flash",
+          "source": "hn",
+          "byline": "Philpax / Zhipu Z.ai, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49449507",
+          "tier": "notable",
+          "summary": "Zhipu's new flash-tier release is the stealth 'Ox Alpha' model: a 320B-parameter MoE with ~18B active, marshaling hybrid sparse and linear attention to cut long-context serving costs, with Manifold-Constrained Hyper-Connections used to improve scaling. It's natively multimodal and carries a 1M-token context, per supporting docs. Unsloth had day-zero support, and r/LocalLLaMA's megathread was already quants-deep within hours."
+        },
+        {
+          "title": "How Much Rank Does LoRA Need? Rank-error bounds for Transformer attention",
+          "url": "https://arxiv.org/abs/2608.26052v1",
+          "source": "arxiv",
+          "byline": "arXiv authors / arXiv",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A task-dependent theory of LoRA rank selection: the paper bounds the minimal KL error achievable by a rank-r query LoRA update for a given pretrained attention head, target function, and downstream input distribution. The spectral bounds it derives — and the construction showing softmax saturation can let a smaller rank match attention than would match logits — give fine-tuners something concrete instead of folklore when picking rank. Includes analysis of fused multi-head LoRA and shared query/key constraints."
+        },
+        {
+          "title": "Prefix Sliding: drop stale reasoning tokens to scale test-time compute 3x",
+          "url": "https://arxiv.org/abs/2608.26070v1",
+          "source": "arxiv",
+          "byline": "Muennighoff et al. / arXiv",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Long reasoning traces are the memory bottleneck of test-time scaling, but this work shows most intermediate reasoning tokens stop mattering as the model continues — so Prefix Sliding just discards them, keeping only the instruction prefix and the latest window. Without retraining, existing models run roughly 3x faster at test time at equal performance, and RL training with Prefix Sliding enables reasoning traces beyond 100k tokens. Ablations beat both summarizing intermediate tokens and vanilla sliding window; code is on GitHub."
+        },
+        {
+          "title": "threeui — open-source ThreeJS/WebGL component catalog",
+          "url": "https://github.com/MengTo/threeui",
+          "source": "github",
+          "byline": "MengTo / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A 4.2k-star community catalog of Three.js / WebGL UI components with live interactive previews and complete source: React plus shaders, threejs, and webgl topics all in one place. For AI builders shipping 3D-heavy interfaces — model viewers, spatial dashboards, agent-coworker UIs — it's a useful shortcut instead of rolling every shader from scratch."
+        },
+        {
+          "title": "doop — open-source design canvas for humans and AI agents",
+          "url": "https://github.com/kgoedecke/doop",
+          "source": "github",
+          "byline": "kgoedecke / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Positioned as the open-source answer to Paper.design, doop is a multiplayer design canvas where humans and AI agents design together live, with an MCP server built in so tools like Claude Code can participate in the design session natively. The TypeScript codebase is young but the direction — agent-participant design tools, not agent-one-shot generation — is a live experiment worth watching."
+        },
+        {
+          "title": "Qwen3.8-27B MTP drafter for MLX (110M) — speculative decoding sidekick",
+          "url": "https://huggingface.co/caslca/Qwen3.8-27B-mlx-uniform-4bit-mtp-drafter",
+          "source": "hf",
+          "byline": "caslca / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A 110M-parameter multi-token-prediction drafter for Qwen3.8-27B, set up for MLX uniform-4-bit inference — exactly the small satellite model that makes speculative decoding work: the main model takes the easy tokens from the drafter and only verifies. Uploaded the same day the Qwen3.8-27B family landed, it's a concrete recipe for cutting latency on Apple Silicon without fighting the big checkpoint."
+        },
+        {
+          "title": "granite-4.2-3b in NVIDIA's new NVFP4 format, quantized for MLX",
+          "url": "https://huggingface.co/salohcin714/granite-4.2-3b-nvfp4-mlx",
+          "source": "hf",
+          "byline": "salohcin714 / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Granite 4.2 3.8B quantized to touch-new NVFP4 (NVIDIA's 4-bit floating point) today in MLX, weighing in around 0.9B stored params — one of a small family of MXFP4/MXFP8 siblings on the same repo. For anyone running 3B-class models on a Mac or a modest GPU, the value here is watching the bleeding edge of 4-bit formats converge from a genuine fresh upload."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "ESP32 deep sleep power: S3 vs C3 vs C6, measured",
+          "url": "https://blog.adafruit.com/2026/08/26/esp32-deep-sleep-power-s3-vs-c3-vs-c6-measured/",
+          "source": "adafruit",
+          "byline": "Adafruit blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Qoitech puts three ESP32-family boards on the bench — dual-core Xtensa S3, RISC-V C3, and 802.15.4-capable C6 — and measures the minimum current each actually draws in deep sleep, the figure that decides battery life in sleepy IoT builds. They aren't interchangeable parts (different cores, memory, and radios), which makes the head-to-head table genuinely useful. Measured results, exactly the kind of hard data a power-constrained design needs."
+        },
+        {
+          "title": "An ESP32-S31 GameCube emulator does hardware MJPEG decoding",
+          "url": "https://blog.adafruit.com/2026/08/26/an-esp32-s31-gamecube-emulator-does-hardware-mjpeg-decoding/",
+          "source": "adafruit",
+          "byline": "Adafruit blog",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Laser Bear Industries' LCDJewel project posts a big milestone: a new MCU — the ESP32-S31 — carrying double-buffered 60 fps, hardware MJPEG video playback, and working GameID in a GameCube-style hand-held emulator. The remaining gate is ESP32-S31's mass production. A concrete demonstration of what the new chip's hardware decoding blocks unlock for portable emulators."
+        },
+        {
+          "title": "Claude Sonnet plays DOOM on an ESP32-P4",
+          "url": "https://blog.adafruit.com/2026/08/26/claude-sonnet-plays-doom-on-an-esp32-p4/",
+          "source": "adafruit",
+          "byline": "Adafruit blog",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Andrea Ricci ported DOOM to the SCINTIX P4 — an ESP32-P4 plus ESP32-C6 module in a Raspberry Pi CM4/CM5 form factor — running on a 1024x600 MIPI-DSI panel hardware-scaled to 30 fps, and then let Claude Sonnet play it through a small WebSocket lockstep API and an MCP server. An agent playing a game on a $20-class MCU is the fun end, but the pattern — MCP bridge into embedded hardware — is genuinely interesting for ESP32 builders."
+        },
+        {
+          "title": "Emulating the iPod",
+          "url": "https://hackaday.com/2026/08/26/emulating-the-ipod/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The click wheel finally has an emulator: 'clicky' by daniel5151 boots the actual RetailOS firmware you'd have gotten on a factory iPod, and can also run Rockbox and iPodLinux. It's early — no audio or USB support yet, Apple's diagnostics ROM not reachable — but you can already play a little Brick Breaker on an emulated nano. Reverse-engineering a closed-source, poorly documented player is a nice piece of systems work."
+        },
+        {
+          "title": "Making an Air Powered Dot Display",
+          "url": "https://blog.adafruit.com/2026/08/26/making-an-air-powered-dot-display/",
+          "source": "adafruit",
+          "byline": "Adafruit blog",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A delightfully tactile air-powered 8x8 dot matrix: each cell flips via air pressure instead of solenoids or motors, and the build video shows exactly how the piston-like matrix was made. It's the kind of mechanical-over-electronics project that sits nicely in a weekly read — pneumatic displays as interactive output are rare, and this one is fully visual."
+        },
+        {
+          "title": "Full V8 engine block printed as a single piece",
+          "url": "https://3dprintingindustry.com/news/full-v8-engine-block-printed-as-single-piece-on-nikon-slms-nxg-xii-600-254020/",
+          "source": "3dprintingindustry",
+          "byline": "3D Printing Industry",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Bosch Industry Consulting and Nikon SLM Solutions produced a complete V8 engine block as a single aluminum (AlSi10Mg) print on the NXG XII 600 metal system at Bosch's Additive Solution Center in Nuremberg. Single-piece structural prints this large are where LPBF stops being a prototyping trick and starts being a manufacturing argument. A demonstration of how far large-format metal AM has come."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "An 11,000-year-old sculpture of a man riding a leopard found in Turkey",
+          "url": "https://www.thehistoryblog.com/archives/76809",
+          "source": "hn",
+          "byline": "speckx / The History Blog, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49448665",
+          "tier": "recommended",
+          "summary": "Archaeologists at Karahan Tepe near Şanlıurfa in southeastern Turkey, part of the Göbekli Tepe stone-age ritual culture, unearthed a 70-centimeter statue of a human seated on the back of a leopard — a composition never seen before in Neolithic art. It was found where it had stood 11,000 years ago on a stone platform against the wall of a circular structure. Live Science and Anatolian Archaeology corroborate the find; the composition is exceptional for a culture we thought we had catalogued."
+        },
+        {
+          "title": "190-year-old DNA reveals a hidden Asian pangolin species",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260826055500.htm",
+          "source": "science",
+          "byline": "ScienceDaily / Field Museum, University of Toronto",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "DNA sequenced from an 1836 museum type specimen in the Natural History Museum, London confirms that Himalayan pangolins in Nepal and northern India are their own species, Manis aurita — resolving 2025's mis-naming and restoring the older name. The study sharpens conservation forensics: authorities seizing trafficked scales can now identify which species came from where, which directly targets poaching hotspots. Published in Communications Biology."
+        },
+        {
+          "title": "NASA's Roman Space Telescope is packed and launch is August 30",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260826055448.htm",
+          "source": "science",
+          "byline": "ScienceDaily / NASA Goddard",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Teams at Kennedy Space Center encapsulated the Nancy Grace Roman Space Telescope inside its Falcon Heavy fairing, with liftoff targeting no earlier than Aug 30 at 7:26 a.m. EDT. From Sun-Earth L2 the observatory is expected to discover thousands of exoplanets and attack dark-matter and dark-energy survey questions at a scale Hubble never reached. The most capable space telescope launched in decades — and just days from the pad."
+        },
+        {
+          "title": "One asteroid strike may explain two mysteries of Mars' moon Deimos",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260824065516.htm",
+          "source": "science",
+          "byline": "ScienceDaily / University of Bern",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Using first science from ESA's Hera flyby plus SPH impact simulations, a University of Bern-led team finds a single ~320-meter asteroid hitting at a 45-degree angle can explain both Deimos' southern depression and its blanket of smooth regolith — including deposits over 200 meters deep. It implies the moon is a weak surface on a highly porous, rubble-pile interior, giving JAXA's MMX mission concrete predictions. Published in Nature Astronomy."
+        },
+        {
+          "title": "A Manhattan-sized ice island breaks off Greenland's Petermann Glacier",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260826055503.htm",
+          "source": "science",
+          "byline": "ScienceDaily / University of Ottawa",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "On Aug 4 an ice island of ~76.4 km² — roughly Manhattan-sized and up to 150 meters thick — calved from Petermann's floating tongue, the glacier's largest loss since 2012 and the Arctic's biggest calving since 2020. Two further sections (~94 and ~84 km²) are expected to follow, together removing ~22% of the tongue, and Canadian Ice Service is tracking the drifting island as a shipping hazard. The event was caught by a glaciologist PhD student on routine Sentinel-1 imagery."
+        },
+        {
+          "title": "Dolly Parton made $10M in royalties from Whitney Houston's cover — without singing a note",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vz2f7f/til_that_in_the_1990s_dolly_parton_made_10/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The late Dolly Parton wrote 'I Will Always Love You' — one of two songs she composed in a single day — and Whitney Houston's cover of it, the best-selling single ever by a woman, reportedly earned Parton around $10 million in royalties. Parton has said she used that windfall to buy her Nashville office complex. The fact resurfaced as obituaries confirmed she died Tuesday at 80 after a brief battle with cancer — a neat, verified piece of pop-music economics."
+        }
+      ]
+    }
+  ]
+}

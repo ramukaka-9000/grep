@@ -1,0 +1,225 @@
+{
+  "date": "2026-08-22",
+  "summary": "Engineers trace a GPU load down to the DRAM row, push speech latency under 50 ms, give Cassandra real ACID transactions (and find a bug doing it), while tiny models ship honest evaluations and hospitals print metamaterial bone.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Systems work leads the day: a GPU memory read traced end to end, sub-50 ms TTS serving, Cassandra's road to ACID, DuckDB's parser rewrite, mid-training for tool use, audited self-improvement claims, and small models with unusually honest model cards.",
+      "stories": [
+        {
+          "title": "What happens when a GPU reads memory",
+          "url": "https://blog.doubleword.ai/what-happens-when-a-gpu-reads-memory",
+          "source": "hn",
+          "byline": "Fergus Finn / Doubleword, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49390308",
+          "tier": "must-read",
+          "summary": "This follow-up to a kernel-launch deep dive tracks a single LDG.E global load on an RTX 4090 from the warp scheduler through the operand collector, coalescer, virtually tagged 4-way L1, physically tagged L2, per-SM TLB, slice hash, and memory controller down to a DRAM row activation — recovering undocumented details purely from timing experiments. The measured payoff: an in-row read costs about 3.4 ns while opening a fresh row costs roughly 15x that. A rare, reproducible account of why GPU memory behavior defies intuition."
+        },
+        {
+          "title": "How we made a text-to-speech model respond in sub-50 ms",
+          "url": "https://nari-labs.com/blog/qwen3-tts-speed-cost-frontier/",
+          "source": "hn",
+          "byline": "Nari Labs, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49389952",
+          "tier": "recommended",
+          "summary": "Nari Labs open-sources a serving implementation for Qwen3-TTS CustomVoice 1.7B that holds sub-50 ms p95 time-to-first-audio at 10 requests per second on a single H100, staying under 100 ms even at 20 RPS. The keys are scheduling all three modules — Talker, Code Predictor, Codec — on one shared surface, capturing the Code Predictor's fixed 15-step loop as CUDA graphs, and state-caching the codec so it never replays prior frames. At full utilization that is about $2 per million characters versus $49-$100 for commercial APIs. Implementation and benchmark harness are both public."
+        },
+        {
+          "title": "The road to ACID transactions in Cassandra 6",
+          "url": "https://theconsensus.dev/p/2026/08/16/transactions-in-cassandra.html",
+          "source": "hn",
+          "byline": "Phil Eaton / the consensus, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49386877",
+          "tier": "must-read",
+          "summary": "A hands-on tour of a three-node Cassandra 6 pre-release cluster through four transactional regimes — plain writes, atomic batches, Paxos-backed lightweight transactions, and the new Accord-based strictly serializable cross-partition transactions — driven by a concurrent accounting workload. Accord finally gives the eventually-consistent database real ACID semantics, but concurrent readers intermittently observed balances that did not sum even though final results stayed correct. Apple's C. Scott Andreas confirmed the anomaly is a genuine isolation bug in unreleased Cassandra, making this early field testing worth reading before adopting 6.0."
+        },
+        {
+          "title": "DuckDB v2.0 replaces its SQL parser with a PEG grammar",
+          "url": "https://duckdb.org/2026/08/20/duckdb-20-peg-parser",
+          "source": "hn",
+          "byline": "DuckDB Labs, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49387349",
+          "tier": "recommended",
+          "summary": "DuckDB v2.0 quietly swaps the PostgreSQL-derived Bison grammar it has carried since its first 2018 commit for a PEG-based parser and rewritten grammar producing the same DuckSQL dialect. The motivation is extensibility: LALR(1) shift/reduce conflicts made every dialect addition harder, while PEG rules expose named extension points where extensions can register new syntax and reuse DuckDB's existing transformer functions instead of re-implementing SQL. A Pipe SQL extension demonstrates adding clauses without touching the rest of the language."
+        },
+        {
+          "title": "MidTool: mid-training data synthesis for agentic tool use",
+          "url": "https://arxiv.org/abs/2608.20314v1",
+          "source": "arxiv",
+          "byline": "Fengqing Jiang et al. / arXiv",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "MidTool is an open corpus-construction pipeline for teaching general tool use during mid-training, combining web, PDF, and code data with synthesized supervision drawn from real tool APIs, MCP skills, and document-grounded workflows. Mid-training Qwen3-4B-Base and Qwen3-8B-Base on MidTool-Mix consistently improves downstream BFCL, tau2-Bench, and MCP Universe scores after both SFT and RL compared with skipping that stage. The result argues tool affordances, argument grounding, and workflow composition deserve dedicated mid-training rather than being left entirely to post-training."
+        },
+        {
+          "title": "Phantom Gains: auditing self-improvement against a measured null",
+          "url": "https://arxiv.org/abs/2608.20290v1",
+          "source": "arxiv",
+          "byline": "Cheng Xu et al. / arXiv",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Auditing three rounds of LoRA self-training on Qwen3-8B against a frozen control pushed through the identical pipeline, this paper identifies seven measurement failures, each of which inverts a reported finding once the control is removed. A single greedy decode manufactures apparent capability changes largely through inference batching artifacts, and the popular acquisition-versus-sharpening expansion statistic assigns an untrained model a rate of 0.280. Under proper per-problem exact tests with false-discovery-rate control, external distillation improves problems the base model rarely reaches while three forms of self-training do not — and self-training corrupts problems solved at baseline. Required reading before trusting any 'the model improved itself' claim."
+        },
+        {
+          "title": "NorthCinder: buyer-run, ad-neutral shopping-agent infrastructure",
+          "url": "https://github.com/cinderline/northcinder",
+          "source": "github",
+          "byline": "cinderline / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "NorthCinder is an open-source MCP server for agentic shopping in which ranking is deterministic, buyer criteria are the only input, sponsored offers stay labeled below every organic result, and stores it could not search are reported as missing rather than ignored. Automated checkout requires a signed single-use purchase mandate bound to the exact offer and spending cap, and every recommendation, approval, and attempt lands in a local audit trail. The docs are unusually precise about what the client can and cannot verify about upstream catalogs — a thoughtful reference architecture for trustworthy agentic commerce."
+        },
+        {
+          "title": "herdrm: a native macOS console for your coding-agent fleet",
+          "url": "https://github.com/missuo/herdrm",
+          "source": "github",
+          "byline": "missuo / GitHub",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "herdrm is a SwiftUI console for herdr, a daemon that owns coding agents' PTYs locally and over SSH, so Claude Code, Codex, Gemini, Grok, and OpenCode sessions across every machine appear in one sidebar sorted by urgency. It attaches to real terminals at full TUI fidelity rather than summarizing into a chat wrapper, forwards pasted files and images into agent panes over SSH, and raises system notifications when an agent blocks or finishes. Early-stage, but a clean example of agent-fleet UX built natively instead of as another Electron chat shell."
+        },
+        {
+          "title": "Kodama: streaming Japanese ASR fine-tuned on 35,000 hours",
+          "url": "https://huggingface.co/ayousanz/kodama-ja-streaming-small",
+          "source": "hf",
+          "byline": "ayousanz / Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Kodama is a 140-million-parameter Japanese streaming ASR model — a full fine-tune of MIT-licensed Moonshine streaming-small on all 35,000 hours of ReazonSpeech v2 — shipping ONNX/ORT deployment graphs (~320 MB) built for low-latency CPU inference. Paired-bootstrap evaluation beats Vosk's small Japanese model by 34-38% relative on all six test sets and produces its first partial transcript about 5.3x sooner. Just as valuable is the honesty of the model card: noise robustness, short utterances, and a stubborn 0.10 hallucination rate are documented as known weaknesses rather than buried."
+        },
+        {
+          "title": "welmia-2.0: a 103M GPT pretrained and instruct-tuned from scratch",
+          "url": "https://huggingface.co/Welmia/welmia-2.0-103m-instruct",
+          "source": "hf",
+          "byline": "Welmia / Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Welmia 2.0 is a 103-million-parameter GPT trained completely from scratch on about 5 billion OpenWebText tokens and then instruction-tuned on Alpaca, using RoPE, RMSNorm, SwiGLU, tied embeddings, and a custom 24k-vocab BPE tokenizer rather than a GPT-2 derivative. The card is candid about limits — no KV cache, single-turn only, 512-token context — which makes it a tidy educational artifact for tracing an entire pretrain-plus-instruct pipeline at toy scale on CPU."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Grid-scale harmonic filters meet a fully printable thermoacoustic Stirling engine, a discrete-transistor 75-baud modem, Pico-driven iPhone bootROM exploits, PINE64's memory-shortage halt, and a hospital-printed metamaterial implant.",
+      "stories": [
+        {
+          "title": "How the grid's harmonic filters keep the power clean",
+          "url": "https://hackaday.com/2026/08/21/how-the-grids-harmonic-filters-keep-the-power-clean/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "[The Electric Brit] tours the harmonic filters of a UK line-commutated HVDC converter station, explaining why converting DC back to grid AC injects harmonics that must be scrubbed with LC filters built at staggering physical scale. The same giant capacitor and inductor banks double as reactive-power sources that help damp oscillations across the grid. A good mental-model builder: the national grid really is just a very large circuit with very large consequences."
+        },
+        {
+          "title": "Thermoacoustic Stirling engine is now fully 3D printable",
+          "url": "https://hackaday.com/2026/08/21/thermoacoustic-sterling-engine-is-now-fully-3d-printable/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "[my engines]' open-source thermoacoustic Stirling engine is now printable end to end, including an integrated biogas burner inside an SLA metal-printed hot end whose heat-exchange geometry would be very hard to manufacture any other way. The design has a single moving part at the output end and runs off a homescale biogas plant, with plans, data, forums, and Discord hosted at OwnEnergy.org. A rare energy project that is genuinely reproducible rather than aspirational."
+        },
+        {
+          "title": "Building a discrete-component 75 baud modem",
+          "url": "https://hackaday.com/2026/08/21/building-a-discrete-component-75-baud-modem/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "[sv3ora] built a working 75-baud modem for the CB2 Micro entirely from BC547 transistors, diodes, resistors, and capacitors — no ICs — modulating serial data into audio tones and back for phone lines, ham radio links, or cassette storage. The demo of saving a program to tape and loading it back later shows the whole chain working. At these speeds analog fundamentals really are enough, which is exactly what makes the build instructive."
+        },
+        {
+          "title": "PINE64 halts its Linux hardware line as the AI bubble bites",
+          "url": "https://blog.adafruit.com/2026/08/20/pine64-is-halting-its-linux-hardware-line-and-the-ai-bubble-is-to-blame/",
+          "source": "adafruit",
+          "byline": "Adafruit Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "PINE64 announced it has no plans to produce additional Linux devices in the near future, blaming the DRAM and eMMC shortages that AI datacenter demand has inflated, with any restart contingent on component pricing after mid-2027. Existing PineNote, PineTab 2, and similar stock will sell through and not be replenished soon. It is the clearest consumer-visible sign yet of the memory crunch squeezing open-hardware makers."
+        },
+        {
+          "title": "Why people are suddenly putting Lightning cables on Raspberry Pi Pico 2 boards",
+          "url": "https://blog.adafruit.com/2026/08/20/why-are-people-suddenly-adding-apple-lightning-cables-to-raspberry-pi-pico-2-boards/",
+          "source": "adafruit",
+          "byline": "Adafruit Blog",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Maker forums have filled with Raspberry Pi Pico 2 boards wearing Lightning cables because Paradigm Shift's usbliter8 BootROM exploit extends checkm8-style, permanently unpatchable code execution to Apple A12 and A13 chips over DFU — and a Pico emulating the right USB gadget can deliver it. stacksmashing confirmed he already has the setup running on his desk. Expect a wave of A12/A13 jailbreak and forensics work as the tooling matures."
+        },
+        {
+          "title": "World's first personalized metamaterial bone prosthesis implanted in Madrid",
+          "url": "https://3dprintingindustry.com/news/gregorio-maranon-hospital-implants-worlds-first-personalized-metamaterial-bone-prosthesis-253969/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Madrid's Gregorio Marañón Hospital designed, 3D printed in-house, and implanted the world's first personalized titanium metamaterial bone prosthesis, built for a 38-year-old sarcoma patient whose tibia could not carry a conventional implant. Millimeter-scale lattice rods mimic bone's load-bearing behavior — the 300 g part withstands over 500 kg — and a cancellous-bone graft woven through the structure aided integration; a year on, the patient walks largely without crutches. Hospital-based certified additive manufacturing is graduating from prototypes to standard of care."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "A 450-million-year-old soft-tissue fossil, little red dots hiding whole galaxies, electrons refreezing like ice, light-driven robots herding bacteria, Hubble's radiation damage running out of phase with the Sun, and pop music's most famous uncredited hook.",
+      "stories": [
+        {
+          "title": "One-in-a-million fossil preserves soft tissue for 450 million years",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260820002450.htm",
+          "source": "science",
+          "byline": "ScienceDaily / University of Oklahoma",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "University of Oklahoma paleontologists identified only the second crinoid fossil ever found with preserved soft tissue — delicate tube feet in a 450-million-year-old Dendrocrinus simcoensis from one of Earth's earliest reef ecosystems, more than 200 million years older than the first dinosaurs. Because tube feet do the feeding, their structure works like mammal teeth for reconstructing lifestyle, and comparisons with living crinoids reveal strikingly different anatomy. The specimen sat unrecognized for years in a small Montreal museum's donation-funded collection."
+        },
+        {
+          "title": "Webb's little red dots may be hiding entire galaxies",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260815064808.htm",
+          "source": "science",
+          "byline": "ScienceDaily / NASA",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A team led by Pierluigi Rinaldi studied the 'Saguaro', a redshift-2 spiral galaxy whose compact red nucleus matches Webb's mysterious high-redshift little red dots almost perfectly. When the researchers digitally shifted the galaxy to early-universe distances, its spiral host faded below detectability and only the dot remained — evidence that many LRDs may be obscured active nuclei inside galaxies we simply cannot see yet. Weak Chandra X-ray emission supports the reading and suggests LRDs are a temporary phase of supermassive black hole growth rather than a separate class of object."
+        },
+        {
+          "title": "MIT physicists watch electrons rebuild like ice inside a quantum material",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260819041231.htm",
+          "source": "science",
+          "byline": "ScienceDaily / MIT",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "MIT's Gedik lab shattered the two coexisting charge density waves in atomically thin erbium tritelluride with a laser pulse and filmed how each recovered using time-delayed photoemission probes. The dominant wave returned smoothly everywhere, textbook second-order behavior, while the second re-emerged in scattered pockets that grew outward like ice crystals in water — resolving a long-debated first-order mechanism. The pump-probe technique offers a template for studying how competing phases interact in superconductors."
+        },
+        {
+          "title": "Tiny light-powered robots can hunt down and collect bacteria",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260816044850.htm",
+          "source": "science",
+          "byline": "ScienceDaily / Universität Würzburg",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Researchers at Julius-Maximilians-Universität Würzburg shrank their light-driven microdrones below one micrometer by steering with nanoscale antenna wires that align to the polarization of incoming light, while photon recoil supplies thrust. The robots — about 50 times thinner than a human hair — execute fast 90-degree turns, sweep sample areas systematically, and can collect, transport, and release batches of bacteria at chosen locations. It is a striking step from passively observing the microbial world to actively manipulating it."
+        },
+        {
+          "title": "Hubble's radiation damage runs years out of phase with the solar cycle",
+          "url": "https://arxiv.org/abs/2608.18214",
+          "source": "hn",
+          "byline": "Gavin Leroy et al. / arXiv, via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=49387856",
+          "tier": "recommended",
+          "summary": "Hubble's CCDs have spent over 24 years doubling as unplanned radiation dosimeters in low Earth orbit, and a new arXiv study shows their accumulated damage rate varies with the solar cycle several years out of phase with sunspots and coronal mass ejections. Empirically fitted curves correct more than 99.5% of the damage's effect on image quality, but the best fits demand physically absurd parameter values — a humbling reminder that orbital radiation environments resist tidy modeling and argue for continued monitoring of operational spacecraft."
+        },
+        {
+          "title": "TIL Michael Jackson sang the hook on 'Somebody's Watching Me' — uncredited",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1vuxk1u/til_that_michael_jackson_sung_the_hook_for/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Rockwell's 1983 paranoid-pop classic 'Somebody's Watching Me' carries its famous chorus on uncredited guest vocals from Michael Jackson, with Jermaine Jackson on backing vocals — confirmed by Motown's own release history and Wikipedia. Rockwell was Berry Gordy's son recording under a pseudonym partly to dodge nepotism charges, and MJ's ghost hook powered his only major hit. Pop's most famous uncredited feature still sounds uncanny forty-plus years later."
+        }
+      ]
+    }
+  ]
+}

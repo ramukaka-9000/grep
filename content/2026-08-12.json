@@ -1,0 +1,207 @@
+{
+  "date": "2026-08-12",
+  "summary": "Today's signal is that AI systems are becoming more inspectable and more deployable: reasoning traces can leak, agent instructions accumulate, tiny models take on real workflows, and physical systems still reward careful repair and measurement.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The useful frontier is shifting from a single giant chatbot toward auditable agent systems, model routers, compact specialist models, and tools that make execution paths visible.",
+      "stories": [
+        {
+          "title": "Encrypted reasoning traces can be replayed into weaker models",
+          "url": "https://stolen-thoughts.com/",
+          "source": "hn",
+          "byline": "Alexander Panfilov et al. / MATS, ELLIS and MPI-IS",
+          "discuss_url": "https://news.ycombinator.com/item?id=49257876",
+          "tier": "must-read",
+          "summary": "A research team reports that encrypted or signed reasoning blocks returned by Anthropic, OpenAI, and Google APIs can be replayed into a weaker sibling model and recovered as plaintext, without attacking the original model directly. Their scan of 6,708 public agent trajectories yielded 315,320 reconstructed blocks and 704 privacy artifacts, including credentials and personal data; the scale and remediation status are the researchers' report, not an independently audited incident."
+        },
+        {
+          "title": "Mojo 1.0 gives Modular's systems language a stable foundation",
+          "url": "https://www.modular.com/blog/modular-26-5-mojo-1-0-is-here",
+          "source": "hn",
+          "byline": "Modular",
+          "discuss_url": "https://news.ycombinator.com/item?id=49261128",
+          "tier": "must-read",
+          "summary": "Modular has declared Mojo 1.0, turning the Python-adjacent, accelerator-oriented language into a stable base for long-lived projects after rapid changes since its 2023 debut. The release converges syntax and types, improves the LSP, adds memory-safety diagnostics, and keeps the compiler/toolchain open-source roadmap pointed at 2026 while MAX gains new hybrid model families."
+        },
+        {
+          "title": "Nemotron 3.5 Lightning pairs a 30B MoE with model routing",
+          "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
+          "source": "hn",
+          "byline": "NVIDIA",
+          "discuss_url": "https://news.ycombinator.com/item?id=49263340",
+          "tier": "recommended",
+          "summary": "NVIDIA's Nemotron 3.5 Lightning is a 30-billion-parameter mixture-of-experts model intended for high-volume specialist work inside larger agent systems, while NeMo Switchyard routes each step to a suitable model across local, open, and proprietary deployments. NVIDIA claims up to 4× faster output and 30% faster agentic task completion versus models in its class; those performance and cost figures are vendor benchmarks, but the system-of-models design is the useful architectural idea."
+        },
+        {
+          "title": "pg_clickhouse 0.10 pushes correlated subqueries into ClickHouse",
+          "url": "https://clickhouse.com/blog/pg_clickhouse-whats-new-july-2026",
+          "source": "hn",
+          "byline": "ClickHouse",
+          "discuss_url": "https://news.ycombinator.com/item?id=49265031",
+          "tier": "recommended",
+          "summary": "The PostgreSQL foreign-data wrapper pg_clickhouse 0.10 now fully pushes down 16 of 22 TPC-H queries, including correlated subqueries and anti/semi-joins that previously forced row-by-row local work. ClickHouse reports one Q17 case falling from 32.7 seconds in an older extension build to 37 milliseconds after pushdown, alongside a plain-C native driver, shared binary encoding, compression/TLS controls, and fixes for NULL semantics and concurrent scans."
+        },
+        {
+          "title": "Long-Horizon AI Research for the Grothendieck Constant",
+          "url": "https://arxiv.org/abs/2608.11195v1",
+          "source": "arxiv",
+          "byline": "Alan Li, Rahul Saha et al.",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "This case study describes how an AI research system helped mathematicians tighten known bounds on the Grothendieck constant, a problem connecting combinatorial and continuous relaxations. The authors focus less on a magic benchmark score than on the conditions that let a system generate ideas judged novel by domain experts, and on where human guidance, iteration, and verification remain essential."
+        },
+        {
+          "title": "Why Does CLAUDE.md Keep Growing? Catastrophic Remembering in Agentic Coding",
+          "url": "https://arxiv.org/abs/2608.11095v1",
+          "source": "arxiv",
+          "byline": "Kushal Chakrabarti",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Analyzing 247,694 instruction lifetimes across 1,867 repositories, this paper argues that agentic coding instructions grow because appending is cheap while deleting forgotten rationale risks a regression. The authors report a 226% increase over prompt lifetimes, then show that comments encoding rationale removed 99.3% of excess growth in an inverted IFEval setting and improved real-world instruction following by up to 23.1%—a strong argument for treating agent guidance like maintained code rather than an append-only scrapbook."
+        },
+        {
+          "title": "Dalaran is a robotics-first observability stack for multimodal time-series",
+          "url": "https://github.com/Flaminis/Dalaran",
+          "source": "github",
+          "byline": "Flaminis",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Dalaran is an Apache-2.0 robotics visualization and data stack for ROS 2 topics, LiDAR, cameras, IMU data, and TF transforms on one synchronized timeline. Its Arrow-backed chunk store, Python/Rust/C++ bindings, `.dlr` recordings, rosbag2/MCAP ingestion, and dataframe access make it useful both for looking at a robot run and computing over the same data; it is an active Rerun fork with explicitly partial blueprint compatibility."
+        },
+        {
+          "title": "pi-from-scratch teaches a 600-line TypeScript coding agent",
+          "url": "https://github.com/SaladDay/pi-from-scratch",
+          "source": "github",
+          "byline": "SaladDay",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This Chinese-language project turns a compact TypeScript implementation into an interactive lesson for building a coding agent from zero: read files, edit code, run commands, and follow the core agent loop. The companion site progressively fills in the implementation and shows execution traces, so it is more useful as a transparent teaching artifact than as another opaque agent framework; local use requires Node.js 22+ and an OpenAI-compatible API."
+        },
+        {
+          "title": "VoiceTut-TTS brings Egyptian Arabic and code-switching to a small TTS model",
+          "url": "https://huggingface.co/Dido599999/VoiceTut-TTS",
+          "source": "hf",
+          "byline": "Mohammed Aly / VoiceTut-TTS",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "VoiceTut-TTS is a roughly 613M-parameter OmniVoice derivative fine-tuned on about 380 hours of Egyptian podcast speech, with Arabic–English code-switching, 17 built-in voices, zero-shot cloning, normalization, and streaming synthesis. Its model card reports 2.93 GB peak VRAM in fp16 on a single T4, 24 kHz output, and 1.13× mean real-time factor, putting this specialized speech model well inside the small-model envelope while leaving the usual consent and anti-impersonation caveats for cloning."
+        },
+        {
+          "title": "LFM2.5-350M CURSOR edits meeting notes as a stream",
+          "url": "https://huggingface.co/Luigi/lfm2.5-350m-cursor-en",
+          "source": "hf",
+          "byline": "Luigi",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This 350M-parameter Liquid LFM2.5 fine-tune implements CURSOR, a stateful meeting-notes protocol that emits ADD, UPDATE, DELETE, NOP, and TITLE operations as transcript chunks arrive instead of summarizing each window independently. The card includes a roughly 215 MB Q4_K_M GGUF, a 4k working context, and a deterministic llama.cpp launch path, making it an unusually concrete example of a sub-billion-parameter model learning a structured editing job."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "The strongest builds this morning are practical and honest: a battery repaired with a thermistor, a bearing modified for measured backlash, printed optics and rocket cooling channels, and a firmware postmortem.",
+      "stories": [
+        {
+          "title": "A dead Makita battery was a 20-cent thermistor failure",
+          "url": "https://hackaday.com/2026/08/11/fixing-a-dead-makita-battery-with-a-20-cent-part/",
+          "source": "hackaday",
+          "byline": "The Repair Forge / Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Using the open-source PocketOBI tool to query Makita's battery protocol, The Repair Forge found an NTC thermistor reporting −30°C while its partner read 28°C, which made the charger refuse to start. A temporary resistor confirmed the diagnosis and a replacement thermistor fixed the pack; the repair took about ten minutes and shows why protocol reverse-engineering can turn a disposable battery into a repairable one."
+        },
+        {
+          "title": "Splitting a ball bearing cuts milling-machine backlash to 30–40 microns",
+          "url": "https://hackaday.com/2026/08/11/splitting-a-ball-bearing-to-cut-out-backlash/",
+          "source": "hackaday",
+          "byline": "Chronova Engineering / Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Chronova Engineering disassembled a ball bearing, cut its outer race around the circumference, and reassembled it so the two halves could be pressed together as a self-contained preload. Replacing a milling-machine feed-screw bearing reduced measured backlash from 0.1–0.2 mm to 30–40 µm; the idea resembles a four-point-contact bearing, but the build makes the mechanism and the measurable benefit easy to reproduce."
+        },
+        {
+          "title": "The Coldcard postmortem exposes the embedded-runtime side of a wallet exploit",
+          "url": "https://blog.adafruit.com/2026/08/11/the-coldcard-postmortem-from-micropythons-perspective/",
+          "source": "adafruit",
+          "byline": "Damien George / MicroPython discussion, via Adafruit",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Adafruit's lead on a postmortem by MicroPython creator Damien George says Coldcard, a Bitcoin wallet whose firmware uses MicroPython, was exploited in an incident reported to involve more than $100M in stolen funds. The value here is the embedded-systems perspective: a security failure in a device is shaped not only by the application but also by its interpreter, firmware integration, and update boundaries; follow the linked discussion for the technical chronology."
+        },
+        {
+          "title": "ShiftLens prints an object that changes its own appearance—without electronics",
+          "url": "https://3dprintingindustry.com/news/mits-shiftlens-3d-prints-objects-that-change-their-appearance-when-you-use-them-without-electronics-253675/",
+          "source": "3dprinting",
+          "byline": "Yunyi Zhu et al. / MIT, reported by 3D Printing Industry",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "MIT's ShiftLens combines a printed lenticular lens layer with an interleaved image backplane, so pressing, sliding, or turning the object changes what it displays without sensors, circuits, or a screen. A companion design tool generates print-ready geometry for curved objects such as a bottle that visually signals whether its cap is tight; the constraint is that some physical actuation must move the optical layers relative to one another."
+        },
+        {
+          "title": "A three-person student team hot-fired a 3D-printed regenerative rocket engine",
+          "url": "https://3dprintingindustry.com/news/university-of-melbourne-and-csiro-win-race2space-lox-bipropellant-category-253678/",
+          "source": "3dprinting",
+          "byline": "University of Melbourne ARES and CSIRO, reported by 3D Printing Industry",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The University of Melbourne's ARES capstone team and CSIRO built and hot-fired Slinky, a roughly 6 kg copper-alloy LOX/IPA engine with cooling channels printed into the chamber wall. It completed five stable fires, including throttling runs, and reached 5.4 kN of thrust; the notable engineering story is not just the headline number but how additive manufacturing made professional-style regenerative cooling accessible to a three-person student team."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Today's verified oddities span the Moon, the Galactic Centre, planetary magnetospheres, human evolution, and a nebula that now looks even more like a lion.",
+      "stories": [
+        {
+          "title": "NASA completes LEMS, an astronaut-deployed lunar seismometer for Artemis",
+          "url": "https://science.nasa.gov/missions/artemis/nasa-completes-astronaut-deployed-science-instrument-for-lunar-surface/",
+          "source": "nasa",
+          "byline": "NASA",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "NASA says it has completed hardware development and testing for the Lunar Environment Monitoring Station, the first finished payload designed for Artemis astronauts to deploy on the Moon. The suitcase-sized station carries sensitive seismometers intended to record moonquakes and meteorite impacts near the lunar South Pole, extending Apollo-era seismic observations into the region where future crews will work."
+        },
+        {
+          "title": "Webb finds dust and water surviving close to the Milky Way's black hole",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/Webb/Dust_and_water_spotted_close_to_giant_black_hole",
+          "source": "esa",
+          "byline": "European Space Agency",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Using the NASA/ESA/CSA James Webb Space Telescope, astronomers found evidence that dust and water can form and persist surprisingly close to Sagittarius A*, the supermassive black hole at the centre of our Galaxy. The material appears to come from the evolved star IRS 3, showing that stellar ejecta can enrich its surroundings even inside an intense radiation environment where such molecules might seem impossible."
+        },
+        {
+          "title": "Potato farming may have selected extra starch-digestion gene copies in the Andes",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260808235005.htm",
+          "source": "science",
+          "byline": "UCLA and University at Buffalo researchers, via ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A population-genetics study reports that Indigenous Andean populations carry unusually high copy numbers of AMY1, the salivary-amylase gene that helps break down starch, and links the shift to the period when potatoes became a staple roughly 6,000–10,000 years ago. The result is suggestive rather than a simple “potatoes changed humans” proof, but it is a striking example of a domesticated crop potentially leaving a detectable mark on human evolution."
+        },
+        {
+          "title": "Cassini data put Saturn's magnetic opening on the afternoon side",
+          "url": "https://www.sciencedaily.com/releases/2026/08/260807035153.htm",
+          "source": "science",
+          "byline": "Researchers, via ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A reanalysis of Cassini observations suggests Saturn's magnetospheric cusp is displaced far toward the afternoon side instead of sitting near local noon as Earth's does. The proposed explanation is that Saturn's rapid rotation and plasma supplied by moons such as Enceladus can dominate the geometry of its magnetic shield, a reminder that the familiar terrestrial picture does not scale cleanly to giant planets."
+        },
+        {
+          "title": "Webb's new Lion Nebula view reveals fine structure around NGC 2392",
+          "url": "https://www.nasa.gov/image-article/lion-nebula-roars-in-webbs-sights/",
+          "source": "nasa",
+          "byline": "NASA, ESA and CSA",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The James Webb Space Telescope has released a new high-resolution view of NGC 2392, the planetary nebula nicknamed the Lion Nebula because its glowing shells resemble a face and mane. The infrared image builds on Hubble's earlier visible-light view and makes the comet-shaped structures and layered gas around the dying star easier to study, turning a familiar “pretty picture” into a comparison across instruments and wavelengths."
+        }
+      ]
+    }
+  ]
+}
