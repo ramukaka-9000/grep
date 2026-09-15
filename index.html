@@ -185,6 +185,7 @@
       <button class="chip active" data-filter-source="all">All</button>
 <button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
 <button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
+<button class="chip" data-filter-source="arduino" style="--c:#00979d">Arduino</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
@@ -256,19 +257,19 @@
       </div>
     </article>
 
-    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://blog.adafruit.com/2026/09/14/volanti-an-esp32-s3-acoustic-drone-detector-drone-droneday/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-09-15/electronics-05-adafruit-placeholder.svg" alt="VolAnti: an ESP32-S3 acoustic drone detector" loading="lazy">
+    <article class="story" data-section="electronics" data-source="arduino" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://blog.arduino.cc/2026/09/14/turn-arduino-uno-q-into-your-local-3d-printing-watchdog/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-09-15/electronics-05-adafruit-placeholder.svg" alt="Turn Arduino UNO Q into a local 3D-printing watchdog" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">Ben / Adafruit</span>
-          <a class="orig" href="https://blog.adafruit.com/2026/09/14/volanti-an-esp32-s3-acoustic-drone-detector-drone-droneday/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="src-tag" style="--c:#00979d">Ar</span>
+          <span class="by">Arduino Team</span>
+          <a class="orig" href="https://blog.arduino.cc/2026/09/14/turn-arduino-uno-q-into-your-local-3d-printing-watchdog/" target="_blank" rel="noopener">Arduino ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/09/14/volanti-an-esp32-s3-acoustic-drone-detector-drone-droneday/" target="_blank" rel="noopener">VolAnti: an ESP32-S3 acoustic drone detector</a></h2>
-        <div class="story-summary"><p>VolAnti uses four MEMS microphones and an ESP32-S3 to detect a drone’s propeller harmonics instead of relying on radio emissions, which misses fibre-optic FPV drones. The open design runs a 2,048-point FFT every 32 ms, parallel detectors, e-paper status, and LoRa alerts between units. Its author reports detecting a hovering quad at 104 m on a busy street with no false alarms in that test, a useful result that still needs broader field validation.</p></div>
+        <h2 class="story-title"><a href="https://blog.arduino.cc/2026/09/14/turn-arduino-uno-q-into-your-local-3d-printing-watchdog/" target="_blank" rel="noopener">Turn Arduino UNO Q into a local 3D-printing watchdog</a></h2>
+        <div class="story-summary"><p>Philipp Schweizer’s local print watchdog uses an Arduino UNO Q, an IMX219 camera, and Edge Impulse’s FOMO-AD anomaly model to learn what a normal print looks like instead of enumerating every possible failure. It pauses a Klipper job through Moonraker only when at least three of the last four frames look abnormal, and it can publish MQTT notifications to Home Assistant. The 632×480 pipeline runs entirely on the local network, making this a concrete privacy-preserving edge-AI build for older printers.</p></div>
       </div>
     </article>
 
