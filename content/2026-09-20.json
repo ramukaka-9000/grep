@@ -1,0 +1,225 @@
+{
+  "date": "2026-09-20",
+  "summary": "A tiny-model arms race in typed decisions, a $250k laser against the 'unhackable' RP2350, and a geophysics case for chambers beyond Tutankhamun.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Non-autoregressive decision models are the story of the day — a 421M challenger to Jev and a 1.88B one you can run on a Mac — plus Postgres full-text search, agent-security papers, and two essays on writing with LLMs.",
+      "stories": [
+        {
+          "title": "Android 17 is the first since 3.x to add new APIs without releasing to the AOSP",
+          "url": "https://grapheneos.social/@GrapheneOS/117282080803799576",
+          "source": "hn",
+          "byline": "GrapheneOS (via HN)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49758736",
+          "tier": "essential",
+          "summary": "GrapheneOS points out that Android 17 introduces new platform APIs that are not landing in the Android Open Source Project — the first time that has happened since Android 3.x. That quietly breaks the premise that AOSP is a complete reference for the platform, which matters for every downstream OS (GrapheneOS, LineageOS, /e/) and for anyone auditing what runs on their phone. The HN thread is 667 comments of the ecosystem reacting to the precedent, not just the release."
+        },
+        {
+          "title": "AI-generated posters don't have to be horrible",
+          "url": "https://john.hartnup.uk/2026-06-07/ai-event-posters.html",
+          "source": "hn",
+          "byline": "John Hartnup",
+          "discuss_url": "https://news.ycombinator.com/item?id=49764791",
+          "tier": "recommended",
+          "summary": "The identikit AI poster problem is style collapse, not quality: once you have seen the same dreamy-fayre look twenty times it reads as output. Hartnup shows that simply specifying a different style gets a genuinely varied poster out of ChatGPT, and goes further — Claude and Gemini can emit HTML/PNG/PDF where the text is real text and layers are editable. He distilled the method into a catalogue of one hundred poster styles with ready-to-paste prompts. The top HN story of the day at 1,400+ points, and a practical prompt-design lesson well beyond posters."
+        },
+        {
+          "title": "How to Write with an LLM",
+          "url": "https://sockpuppet.org/blog/2026-09-17/how-to-write-with-an-llm/",
+          "source": "hn",
+          "byline": "Nick Farrell (A Final Ward)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49747070",
+          "tier": "must-read",
+          "summary": "Two rules that keep LLM assistance from pasteurizing your prose: never use a single word the model suggests, and use it as a copyeditor finding flaws, never as a ghostwriter. The argument is that readers detect LLM phrasing at parts-per-trillion no matter how much you scuff it up, so the only safe line is structural feedback — not substitution. A tight counterweight to both the 'write everything yourself' and 'let the model draft' camps, and useful even if you only ever use LLMs for code comments."
+        },
+        {
+          "title": "Tin: full-text search for Postgres",
+          "url": "https://planetscale.com/blog/introducing-tin",
+          "source": "hn",
+          "byline": "PlanetScale (Eric Ridge, Patrick Reynolds)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49766611",
+          "tier": "recommended",
+          "summary": "PlanetScale shipped TIN, a GA full-text search extension for Postgres that supports boolean/phrase/span queries, fuzzy and regex term matching, accent folding, and BM25-scored top-k — all while keeping joins, visibility, replication, and backups working like ordinary Postgres. The design bet is storing each posting's ctid natively in the index, which they claim makes it at least 8x faster in every benchmark. If you have been fighting Postgres FTS or bolting on OpenSearch for a RAG ingest pipeline, this is the write-up to read before your next search decision."
+        },
+        {
+          "title": "Inference-Engine Fingerprinting Attacks are Practical",
+          "url": "https://arxiv.org/abs/2609.20614v1",
+          "source": "arxiv",
+          "byline": "Radway, Cheng, Reddi, Mickens (Harvard)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Harvard researchers show that a model served behind an API can infer properties of the inference engine and its environment — discovery, exploitation, and escape — turning the serving stack itself into attack surface. It lands right after the reported sandbox escapes at OpenAI and Anthropic and reframes sandboxing debates: the threat is not just tool misuse but model-driven environmental probing through ordinary inference. Anyone deploying self-hosted models on shared hardware should read this before assuming the engine is a passive component."
+        },
+        {
+          "title": "dQwen3.5: Hybrid-Attention Diffusion Language Models",
+          "url": "https://arxiv.org/abs/2609.20751v1",
+          "source": "arxiv",
+          "byline": "Xue, Rout, Akella, Klivans, Sanghavi, Shakkottai (UT Austin)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Adapting pretrained autoregressive models into diffusion language models has so far assumed full attention, but frontier AR models increasingly interleave attention with RNN-style layers. This paper tackles converting hybrid-attention checkpoints — a Qwen3.5-derived hybrid — into diffusion LMs, bridging two of the most active architecture directions. If diffusion LLMs are the bet you are watching, the conversion recipe for hybrid backbones is the missing piece this addresses."
+        },
+        {
+          "title": "kev: a tiny Jev-like decision model you can train and run on a MacBook",
+          "url": "https://github.com/jaredpalmer/kev",
+          "source": "github",
+          "byline": "Jared Palmer",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The Jev wave keeps cascading downward: Palmer built a typed-decision model on top of Qwen2.5-0.5B that you can train end-to-end and run on a laptop, with v7/v8 results and kev-4b/8b previews pushed to the Hub today. It is the most approachable reproduction of the System-One decision-model pattern — small enough to experiment with the calibration and routing ideas the hosted services charge per decision for. A good weekend codebase if you want to understand what a non-generating 'decider' actually is under the hood."
+        },
+        {
+          "title": "typesafe-computer-use: computer use for about $0.0002 a step",
+          "url": "https://github.com/awlevin/typesafe-computer-use",
+          "source": "github",
+          "byline": "awlevin",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Instead of sending screenshots to a frontier VLM every step, this macOS agent OCRs the screen and classifies the next action with a small TypeSafe decision model before clicking — bringing the cost to roughly two hundredths of a cent per step. It is a concrete demonstration that the OCR-then-decide pipeline can replace vision-model loops for routine GUI automation. Worth stealing the architecture from even if you never run the repo."
+        },
+        {
+          "title": "Laya: a 421M non-autoregressive decision model with calibrated probabilities",
+          "url": "https://huggingface.co/convaiinnovations/laya",
+          "source": "hf",
+          "byline": "Convai Innovations",
+          "discuss_url": "https://news.ycombinator.com/item?id=49765348",
+          "tier": "must-read",
+          "summary": "The author's claim from a year ago — that non-autoregressive typed-decision models were the missing System-One layer — now ships as three checkpoints: a 421M ModernBERT-large English model, a 322M mmBERT multilingual variant covering 100+ languages, and a typed-decisions checkpoint, all answering typed questions with calibrated probabilities in a single ~33 ms forward pass. Trained with RL against strictly proper scoring rules (RLCD), it never generates text, so there is nothing to parse or hallucinate; the card benchmarks against Jev across 51 languages. At 0.4B params it fits comfortably in a few GB of VRAM or runs on CPU — exactly the class of model this channel exists for."
+        },
+        {
+          "title": "this-that-model-1.0: a 1.88B typed decision model that decides in ~31 ms",
+          "url": "https://huggingface.co/flock-io/this-that-model-1.0",
+          "source": "hf",
+          "byline": "FLock.io / University of Oxford",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A Qwen3.5-style hybrid (18 of 24 layers DeltaNet linear attention) that reads its answer from the hidden state scored against your declared options — so an answer outside the option list is unrepresentable, not merely improbable, and malformed output is impossible. The card shows a reproducible benchmark against hosted decision services and frontier models on a third-party-recorded cohort, including honest low-confidence outputs off-distribution, and loads in fp16 on Apple Silicon or CPU. At 1.88B it runs quantized well inside 5-6 GB, making calibrated per-decision inference genuinely local."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "A laser attack on the RP2350's secure debug, coreboot's blob-free Bay Trail milestone, memory-model pain in emulators, and a 3D-printed miniature Swiss avalanche.",
+      "stories": [
+        {
+          "title": "Laser Your Way Into Debug Mode On The RP2350",
+          "url": "https://hackaday.com/2026-09-19/laser-your-way-into-debug-mode-on-the-rp2350/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The RP2350 has secure boot, TrustZone, a permanently-disable-debug fuse, and even glitch detection — so Ledger's Donjon security team went the other way: a slowly-approaching laser beam to fault-inject their way back into debug mode. The write-up of the ~$250,000 bench setup is a rare look at the physical-security end of a chip most of us treat as a $4 microcontroller. Useful calibration for anyone designing secure-boot products on RP2350: the guarantees are against software attackers, not someone with a laser."
+        },
+        {
+          "title": "Coreboot Hikes The Bay Trail To DRAM Initialization",
+          "url": "https://hackaday.com/2026-09-19/coreboot-hikes-the-bay-trail-to-dram-initialization/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "DRAM init is the last proprietary blob on most x86 platforms — you have no usable memory until it runs — and coreboot can now do it open-source on Intel Bay Trail SoCs. Mate Kukri's OSFC talk walks through the reverse-engineering method: bus sleuthing with the SerialICE debugger plus the Unicorn CPU emulator to decode what the vendor blob was doing. The technique matters more than the decade-old SoC: it is a repeatable recipe for removing blobs from other platforms."
+        },
+        {
+          "title": "Emulating Memory Access: How Hard Can It Be?",
+          "url": "https://hackaday.com/2026-09-19/emulating-memory-access-how-hard-can-it-be/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The FEX-Emu team explains why 'write a value, read it back' stops being simple once you cross memory models: x86's Total Store Ordering promises visibility ordering that ARM deliberately relaxes for speed. Translating every load/store into acquire/release is expensive; ARM's LRCPC extensions help, and Apple Silicon went so far as to add a hardware TSO mode for exactly this translation. A clear, concrete explanation of memory models that pays off whenever you touch concurrency, emulation, or cross-arch performance."
+        },
+        {
+          "title": "Digitize analog gauge readings with edge AI",
+          "url": "https://blog.arduino.cc/2026-09-18/digitize-analog-gauge-readings-with-edge-ai/",
+          "source": "arduino",
+          "byline": "Arduino Blog",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Michael Bryan Ross wanted digital readings from analog gauges on old industrial equipment where plant managers will never approve splicing into the machine. His answer is a camera and edge AI that simply looks at the dial — no downtime, no modification to the equipment, no serviceability risk. A genuinely reusable pattern for retrofitting the installed base of analog machinery, with the vision pipeline documented in the Hackster build log."
+        },
+        {
+          "title": "A miniature Blatten: 3D printed terrain tests how rock avalanches move",
+          "url": "https://3dprintingindustry.com/news/a-miniature-blatten-3d-printed-terrain-recreates-a-deadly-avalanche-254777/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Researchers at the WSL Institute for Snow and Avalanche Research and ETH Zurich 3D-printed a 1:577 physical replica of the valley around Blatten, the Swiss village nearly destroyed by a rock avalanche in 2025. They trigger miniature avalanches of rock-ice-water mixtures on the model under controlled conditions to validate the computer models that set hazard zones for real settlements. 3D printing as an instrument of natural-hazard science is a far more interesting use of the technology than another printed desk toy."
+        },
+        {
+          "title": "Jury awards Stratasys $27.6 million as Bambu Lab found to infringe four 3D printing patents",
+          "url": "https://3dprintingindustry.com/news/new-update-in-stratasys-v-bambu-lab-patent-infringement-action-254833",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A Texas jury found Bambu Lab's defendants infringed four valid Stratasys patents — purge towers, extrusion-based deposition, and two force-detection patents — awarding roughly $27.6 million in past damages. Bambu Lab plans to appeal and points to a European Unified Patent Court dismissal of a related Stratasys claim, and this was only the first of two lawsuits. The verdict could shape whether purge towers and force sensing stay universal features of desktop printers."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Geophysics revives the Nefertiti chambers question, Earth may be a purely inner-Solar-System planet, Roman's fuel luck buys 22 years, and the 1993 Yinhe GPS blackout that seeded Beidou.",
+      "stories": [
+        {
+          "title": "New evidence for hidden chambers beyond Tutankhamun's tomb",
+          "url": "https://www.nature.com/articles/d41586-026-02621-2",
+          "source": "science",
+          "byline": "Nature",
+          "discuss_url": "https://news.ycombinator.com/item?id=49742697",
+          "tier": "must-read",
+          "summary": "A team led by former Egyptian antiquities minister Mamdouh Eldamaty says combined geophysical surveys — including the first gravitational density probing around KV62 plus ground-penetrating radar from inside the tomb — point to a pre-dating 'hidden complex' of corridors and rooms, possibly holding Nefertiti. The paper went online 17 September in the Occasional Papers of the Amarna Royal Tombs Project, and Egypt's Supreme Council of Antiquities holds the decision on whether camera-equipped miniature tractors get to drill as early as November. Nature itself flags that confirmation would rank among the most transformative archaeological finds of the modern era — and radar claims here have burned before, so the drill decision is the real test."
+        },
+        {
+          "title": "Earth formed almost entirely from inner Solar System material, challenging its origin story",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260915232132.htm",
+          "source": "science",
+          "byline": "ETH Zurich",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The standard picture has 6-40% of Earth's building blocks arriving as water-rich material from beyond Jupiter. An ETH Zurich-led study now suggests our planet formed almost entirely from inner Solar System material — which would mean water was present much closer to the young Sun than assumed. If it holds, it reshapes not just Earth's origin but how habitable-zone planets acquire water in every other system too."
+        },
+        {
+          "title": "NASA's Roman Space Telescope could last more than twice as long as planned",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260918024802.htm",
+          "source": "science",
+          "byline": "NASA (via ScienceDaily)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The Nancy Grace Roman Space Telescope, launched 30 August on a Falcon Heavy, may now have fuel for at least 22 years of science — more than double its 10-year design life. The windfall comes from an exceptionally precise first mid-course correction, extra fuel carried at launch, and additional expected savings along the way to L2. A dark-energy survey that runs two decades means measurably sharper cosmology than anyone budgeted for."
+        },
+        {
+          "title": "TIL the 1993 Yinhe GPS blackout helped trigger China's Beidou navigation system",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wklzsy/til_in_1993_the_us_forced_chinese_container_ship/",
+          "source": "reddit",
+          "byline": "r/todayilearned (verified via Wikipedia: Yinhe incident)",
+          "discuss_url": "https://en.wikipedia.org/wiki/Yinhe_incident",
+          "tier": "recommended",
+          "summary": "In 1993 the US Navy suspected the Chinese container ship Yinhe of carrying precursor chemicals for a Saudi weapons plant, switched off GPS over the Indian Ocean, and pressured ports along the route to refuse it — leaving the ship stranded at sea for weeks while the suspicion proved false. The incident is documented on Wikipedia with congressional testimony cited, and is widely credited inside China as the catalyst for building Beidou, now a global rival to GPS. A clean example of a single perceived humiliation redirecting a superpower's technology policy."
+        },
+        {
+          "title": "XRISM sees a pulsar gathering its companion star's 'wind'",
+          "url": "https://science.nasa.gov/missions/xrism/xrism-sees-pulsar-gathering-companions-wind/",
+          "source": "nasa",
+          "byline": "NASA / JAXA",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Using the Japan-led XRISM X-ray observatory, astronomers directly observed a giant star's stellar wind being captured by its compact companion — pinpointing the power source behind strong X-ray flares in that system. Direct observation of wind capture in an X-ray binary is exactly the kind of process astrophysicists have modeled for decades without seeing it resolved. XRISM keeps quietly turning out some of the best X-ray science of the year."
+        },
+        {
+          "title": "Restoring a brain protein reversed signs of aging in mice",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260918000437.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Declining levels of the brain protein Menin appear to help drive whole-body aging: low Menin in mice tracked with inflammation, cognitive decline, weaker bones, and thinner skin. Restoring the Menin pathway partially reversed several of those age-related changes, and the amino acid D-serine separately improved cognition — pointing at a brain-originated aging control rather than per-tissue decline. Mouse aging results deserve their usual heavy discount, but a brain-to-body aging lever is a genuinely different target than the usual senolytics crowd."
+        }
+      ]
+    }
+  ]
+}
