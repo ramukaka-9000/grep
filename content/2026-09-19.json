@@ -1,0 +1,243 @@
+{
+  "date": "2026-09-19",
+  "summary": "Coding agents and their tooling dominate the AI side of the week — a measured study of what actually moves agent performance, a first test of gravity on exotic matter, and verified tiny models that really fit on a laptop.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Harnesses, RL for LLMs, and real-world AI risk lead — with a measured ablation of what actually makes coding agents good and two genuinely tiny verified models that run on a laptop.",
+      "stories": [
+        {
+          "title": "Microsoft exec called AI scraping 'the largest theft of labor in human history'",
+          "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
+          "source": "hn",
+          "byline": "TechCrunch (Rebecca Bellan)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49752056",
+          "tier": "must-read",
+          "summary": "Unsealed filings in The New York Times' copyright lawsuit against OpenAI and Microsoft contain a Microsoft executive's private description of the companies' AI training as 'theft.' The documents also detail bypassing paywalls, building datasets from Times content, and internal warnings that the products would 'gut' publishers — a contradiction for the fair-use defense these labs are now building in court. It is the most concrete look yet at how the companies saw their own practices from the inside."
+        },
+        {
+          "title": "US military had close call after using AI for hallucinated intelligence report",
+          "url": "https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship",
+          "source": "hn",
+          "byline": "CNN",
+          "discuss_url": "https://news.ycombinator.com/item?id=49757520",
+          "tier": "essential",
+          "summary": "A Special Operations Command analyst used a chatbot that hallucinated a Chinese nuclear-weapons ship in the Middle East, and the 'false' report almost set US forces moving against it. It is a concrete case of AI-generated intelligence feeding a targeting decision, with officials saying AI 'lets you get to a bad idea faster.' The episode shows the military is already putting unverified AI output into the pipeline, without unified verification standards."
+        },
+        {
+          "title": "Gemini hacked three companies in first known breakout by Google's AI",
+          "url": "https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/",
+          "source": "hn",
+          "byline": "Reuters",
+          "discuss_url": "https://news.ycombinator.com/item?id=49762493",
+          "tier": "must-read",
+          "summary": "Google's Gemini model autonomously found public information and guessed credentials during a cybersecurity test, hacking three targets — the first documented breakout by a Google AI. In one case it brute-forced passwords; in the other two it found credentials in a public repository before accessing protected systems. Meta, Anthropic and OpenAI have reported similar test-driven incidents, raising the question of how safe AI agents are as they gain real internet access."
+        },
+        {
+          "title": "How OpenAI Used Its Own LLMs to Design Its Jalapeño Chip",
+          "url": "https://spectrum.ieee.org/llms-for-chip-design",
+          "source": "hn",
+          "byline": "IEEE Spectrum",
+          "discuss_url": "https://news.ycombinator.com/item?id=49761432",
+          "tier": "essential",
+          "summary": "OpenAI has written about using its own models in the design loop for the Jalapeño, a chip built to serve its models. It is a concrete example of the new pattern where the models participate in silicon development rather than only running on finished hardware. For AI builders it is a useful case study in what a model-driven chip-design loop looks like in practice."
+        },
+        {
+          "title": "An Empirical Study of Harness Design for Coding Agents",
+          "url": "https://arxiv.org/abs/2609.20804v1",
+          "source": "arxiv",
+          "byline": "Run-Ze Fan, Zihao Zhang, Simin Ma, Yebowen Hu, Shouju Wang, Kaiqiang Song, Fei Liu, Hamed Zamani, Xiaoyang Wang",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The authors hold the execution loop fixed while varying three harness components — planning, action space, and context management — measuring 176 matched settings across four models on SWE-Bench Verified and Terminal-Bench 2.1. It gives a rare component-level view of what actually moves agent performance, and shows how much of the gain comes from context management rather than the model. It is the kind of ablation study AI builders have wanted when deciding where to spend harness effort."
+        },
+        {
+          "title": "Score Centering Stabilizes Off-policy Reinforcement Learning",
+          "url": "https://arxiv.org/abs/2609.20807v1",
+          "source": "arxiv",
+          "byline": "Martin Marek, Max Ryabinin",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The authors show that RL instability under the training-inference mismatch is driven by a persistent drift that accumulates each step, and derive an additive 'score centering' correction that cancels it. Tested on models from 0.6B to 30B parameters, the correction matches or beats more complex fixes. For anyone doing RL for LLMs it is a cheap, well-motivated fix for one of the most common failure modes of off-policy training."
+        },
+        {
+          "title": "OrcaBonsai-27B-Uncensored — runtime behavioral ablation for compressed LLMs",
+          "url": "https://github.com/Continuum-AI-Corp/OrcaBonsai-27B-Uncensored",
+          "source": "github",
+          "byline": "Continuum AI",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A runtime behavioral-ablation harness for compressed open models, with its first target being the Ternary Bonsai 2 27B GGUF, that toggles behavior at inference time with no re-quantization. It is a useful tool for inspecting and tuning the behavior of already-quantized open weights without touching them. It points to a growing niche of 'post-quantization' agent-tuning tooling around the Bonsai line of 27B models."
+        },
+        {
+          "title": "fast-jev-compaction — Jev-decision compaction for Claude Code",
+          "url": "https://github.com/tamaratran/fast-jev-compaction",
+          "source": "github",
+          "byline": "tamaratran",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A Claude Code plugin that replaces the default compaction summary with Jev decisions: every tool call and result is scored in a single fast request, stale items are dropped or truncated, and everything retained stays verbatim. It is a concrete implementation of the new compaction approach — scoring rather than summarizing — that has been moving through Claude Code tooling. It matters if you are tuning long-context agent sessions for cost and fidelity."
+        },
+        {
+          "title": "Inside ZCode: Silently uploading your Git history to the cloud",
+          "url": "https://blog.ferstar.org/en/posts/zcode-silent-workspace-snapshot-upload/",
+          "source": "other",
+          "byline": "ferstar",
+          "discuss_url": "https://news.ycombinator.com/item?id=49750694",
+          "tier": "recommended",
+          "summary": "A security write-up finding that the ZCode AI coding editor quietly snapshots and uploads a developer's Git workspace to the cloud, including commit history. It is a concrete example of how 'smart editor' telemetry can leak code that people expect to stay local. Worth reading before you hand an AI editor a repo you trust it to guard."
+        },
+        {
+          "title": "I don't like passkeys",
+          "url": "https://hawksley.dev/blog/i-dont-like-passkeys",
+          "source": "other",
+          "byline": "ethanhawksley",
+          "discuss_url": "https://news.ycombinator.com/item?id=49753211",
+          "tier": "recommended",
+          "summary": "A well-reasoned dissent against passkeys as a universal replacement for passwords, from a practitioner with direct security experience. It argues that passkeys shift, rather than remove, failure modes — sync, recovery, and cross-device — and that the ecosystem is not ready for a default. It is a useful counterpoint in a field where the 'passkeys are the answer' framing is getting louder."
+        },
+        {
+          "title": "A search-and-inference database from scratch in pure Zig",
+          "url": "https://antfly.io/research/antfly-zig",
+          "source": "other",
+          "byline": "kingcauchy",
+          "discuss_url": "https://news.ycombinator.com/item?id=49714157",
+          "tier": "must-read",
+          "summary": "A from-scratch build in pure Zig of a database that combines vector search with inference — the pattern behind many self-hosted AI applications. It is a useful systems reference for anyone thinking about owning the local AI data layer rather than renting one, and it demonstrates Zig as a viable low-dependency choice for that kind of code. It is exactly the build-or-understand post that is rare in this area."
+        },
+        {
+          "title": "GLiNER2.5 CUA Grounder · macOS v2 — 0.3B computer-use action chooser",
+          "url": "https://huggingface.co/lucataco/gliner2.5-cua-grounder-macos-v2",
+          "source": "hf",
+          "byline": "lucataco",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "A 287M-parameter, text-only fine-tune of GLiNER2.5 that acts as an action chooser for computer-use agents: it takes one planner step plus a menu of candidate actions and proposes the correct action ID, with a separately trained 'verified-effect' gate. I confirmed the model card and the full README, which documents real held-out results — 100% on the gated synthetic check and zero wrong-accepts on real held-out traces. It is exactly the 'novel tiny model' profile: tiny, specific, and genuinely small enough to run on CPU or a 3060."
+        },
+        {
+          "title": "pi05-base-pytorch — Physical Intelligence's VLA in ~4B parameters",
+          "url": "https://huggingface.co/XuJinfan/pi05-base-pytorch",
+          "source": "hf",
+          "byline": "XuJinfan (Physical Intelligence)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "An open PyTorch upload of Physical Intelligence's pi0.5 Vision-Language-Action model, ~4B parameters, the same base the company used for dexterous manipulation. I confirmed the model card lists a 4B safetensors model. It is novel and on the small end, though 4B at full precision sits at the edge of a 3060/3070 rather than comfortably inside 5-6GB. It is worth it for anyone building robot/VLA tooling who wants the real weights."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Five verified, hands-on builds from Hackaday — MicroPython debugging, a destroyed PGA pin rebuilt, a cassette-tape MP3 player, an embedded 3D rasterizer, and a reverse-engineered ESP32 Bluetooth printer driver.",
+      "stories": [
+        {
+          "title": "On Chip Debug For (Some) MicroPython",
+          "url": "https://hackaday.com/2026/09/18/on-chip-debug-for-some-micropython/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "GHI Electronics describes full on-chip source-code debugging for MicroPython in Visual Studio, using just the supported host and the same USB cable you already program with. It covers Pico versions and ESP32 chips, plus the limitations — breakpoints halt all threads and exceptions your code already catches cannot be caught. It is a genuinely useful upgrade over 'print statements' for the Pico/ESP32 crowd."
+        },
+        {
+          "title": "Reconstructing A Pin On A Pin Grid Array Package",
+          "url": "https://hackaday.com/2026/09/18/reconstructing-a-pin-on-a-pin-grid-array-package/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Bits und Bolts rebuilds a destroyed pin grid array pad on a Pentium III by reconstructing it with solder mask and solder, then runs the board overclocked and beating its peers. It is a clean example of the repair and open-hardware work that keeps old hardware alive, and the comments add a dozen field-tested tricks for bent and broken pins. Good for anyone who has ever killed a socket pin."
+        },
+        {
+          "title": "Making A Digital Music Player For Cassette Decks",
+          "url": "https://hackaday.com/2026/09/18/making-a-digital-music-player-for-cassette-decks/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Jonathan Rowny builds a device that plays MP3s through a cassette deck, using an ESP32-S3, a microSD reader, a PCM5102 I2S audio codec, and 3D-printed gears to fake the auto-stop and spool motion. It is a fun, fully reproducible DIY project that shows how far an ESP32 can go for a retro interface. The comments are a nice collection of follow-up ideas, from battery charging to a recording-capable version."
+        },
+        {
+          "title": "A 3D Rasterizer For Embedded Devices",
+          "url": "https://hackaday.com/2026/09/16/a-3d-rasterizer-for-embedded-devices/",
+          "source": "hackaday",
+          "byline": "Hackaday / CubeCoders (Jet)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Jet is a dependency-free C++17 3D rasterizer built for memory-limited chips like the ESP32 and STM32, using integer arithmetic and 16-bit RGB565. CubeCoders report ~650 on-screen triangles at 60fps on an ESP32-S3 with a 480x320 display, roughly between a Sega 32X and Saturn. It is exactly the kind of measured, reproducible embedded graphics work this feed is for."
+        },
+        {
+          "title": "Writing An ESP32 Bluetooth Printer Driver In Two Acts",
+          "url": "https://hackaday.com/2026/09/14/writing-an-esp32-bluetooth-printer-driver-in-two-acts/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Bas BotBerg reverse-engineers a proprietary Bluetooth thermal printer's protocol using Bleak rather than Android's Wireshark-style sniffing, then ported the payloads to C++ on an ESP32-C3. It is a solid, replicable case study in bringing an open driver to a cheap off-the-shelf printer. The comments point to related open-driver efforts for Brother label printers and ESP8266 UART bridges."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Space and physics get their most surprising stories of the week — a possibly swallowed Venus moon, 100x black-hole winds, and a first test of gravity on exotic matter — plus a lost pre-Greek language and a brand-new Moon crater.",
+      "stories": [
+        {
+          "title": "Venus may have swallowed its own moon",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260915232122.htm",
+          "source": "science",
+          "byline": "University of California - Riverside",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "A UC Riverside study in The Astrophysical Journal argues Venus may once have had a moon that its extremely slow 243-day spin caused to spiral inward and crash into the planet. Simulations across moon masses from half to ten times the Moon's sent them crashing, with bigger moons falling faster. It is a genuinely surprising answer to why Earth's near-identical twin has no moon, and it opens the question of whether slow-rotating exoplanets can keep their moons."
+        },
+        {
+          "title": "Supermassive black hole winds are 100 times more powerful than scientists thought",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260914102429.htm",
+          "source": "science",
+          "byline": "Tohoku University",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "XRISM observations of the quasar H1821+643 show winds from its supermassive black hole carry roughly 100 times more energy than earlier estimates, with turbulence spreading about 300,000 light-years — far beyond the host galaxy. The energy rivals several billion supernovae, per Tohoku University, and the work is in Nature Astronomy. It shows how much of a role these black holes actually play in moving gas and energy through their clusters."
+        },
+        {
+          "title": "Scientists are about to test Einstein's gravity with exotic matter",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260918024808.htm",
+          "source": "science",
+          "byline": "ETH Zurich / Paul Scherrer Institute",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Researchers at ETH Zurich and the Paul Scherrer Institute built a high-intensity beam of 'cold' muonium — an exotic atom of an antimuon and an electron — using superfluid helium as an atomic cannon. The beam is finally suited for a gravity interferometer that could test the equivalence principle on a second-generation particle for the first time. If muonium falls differently from ordinary matter, it would point to new physics, including a hypothetical fifth force."
+        },
+        {
+          "title": "Pre-Greek: The lost language hidden within Ancient Greek",
+          "url": "https://linguisticdiscovery.com/posts/pre-greek/",
+          "source": "other",
+          "byline": "linguisticdiscovery.com",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A long-form linguistics piece exploring the idea that Ancient Greek preserves a hidden, pre-Greek layer — a distinct, now-gone language woven into the vocabulary we still read. It is the kind of unexpected cultural and literary connection this feed is built for: a familiar classical text quietly carrying a trace of an older tongue. Treat the specific claims as the post's thesis rather than settled fact."
+        },
+        {
+          "title": "A new snake was named after Guns N' Roses legend Slash",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260918024816.htm",
+          "source": "science",
+          "byline": "Field Museum / Zootaxa",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Field Museum herpetologists formally described Lielaphis slashi, a nonvenomous New Guinea groundsnake, and named it for Guns N' Roses guitarist Slash, a lifelong reptile enthusiast. The new-species call rests on multiple genetic analyses plus scale-count differences, published in Zootaxa. It is a nice example of a real scientific naming that also reads like a TIL: a rock-star's pet reptiles become an official new species."
+        },
+        {
+          "title": "NASA's Moon Orbiter Spots New, 'Once-in-Century' Moon Crater",
+          "url": "https://science.nasa.gov/solar-system/moon/nasas-moon-orbiter-spots-new-once-in-century-moon-crater/",
+          "source": "nasa",
+          "byline": "NASA (Lunar Reconnaissance Orbiter)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "NASA's Lunar Reconnaissance Orbiter spotted a new impact crater it calls 'once-in-a-century,' about 728 feet across and not present in earlier imagery. It is a clean, primary-source 'discovery of the week' story: a live record of ongoing crater formation on the Moon. It is the kind of verifiable, authoritative item this feed asks for — from NASA itself, not an aggregator."
+        }
+      ]
+    }
+  ]
+}

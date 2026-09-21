@@ -1,0 +1,198 @@
+{
+  "date": "2026-09-15",
+  "summary": "Small, practical systems work and unusually concrete demonstrations—from local models and agent evaluation to reverse-engineered hardware—stand out alongside fresh science and history with strong primary-source hooks.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The useful signal is less about another frontier-model launch than about evidence: agents finding simple solutions, compression tests for overfitting, optimized kernels, and small models that can actually run locally.",
+      "stories": [
+        {
+          "title": "Fable 5.1 Solves the Cyphral Distich, a 370-year-old cipher",
+          "url": "https://www.vals.ai/blogs/fable-solves-cyphral-distich",
+          "source": "hn",
+          "byline": "Geby Jaff / vals.ai",
+          "discuss_url": "https://news.ycombinator.com/item?id=49688695",
+          "tier": "must-read",
+          "summary": "Vals.ai reports that Claude Fable 5.1 recovered the plaintext of Sir Thomas Urquhart’s 64-number Cyphral Distich after 44 minutes and 176,000 tokens. The key was not conventional cryptanalysis but noticing that the two 32-number lines corresponded to Urquhart’s 32 Proquiritations and using each number as a word index. The result is a self-checking royalist couplet, and the model also nearly solved a larger related cipher in the same book."
+        },
+        {
+          "title": "Why machine learning research agents don’t overfit—and what compression has to do with it",
+          "url": "https://www.amazon.science/blog/why-dont-machine-learning-research-agents-overfit",
+          "source": "hn",
+          "byline": "Martin Bertran Lopez and Aaron Roth / Amazon Science",
+          "discuss_url": "https://news.ycombinator.com/item?id=49699648",
+          "tier": "essential",
+          "summary": "Amazon researchers let an explorer agent repeatedly optimize against a validation set, then forced a fresh reproducer to recover the strategy from a tiny compressed prompt. Across eight datasets, 16–32-token prompts reproduced the explorer’s performance on most tasks, while deliberately overfit gains disappeared through the bottleneck. The setup is a practical way to distinguish transferable research structure from memorization, though the authors note that model pretraining could create a side channel."
+        },
+        {
+          "title": "OpenAI bots knew about the RubyGems caching vulnerability",
+          "url": "https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive/",
+          "source": "hn",
+          "byline": "Aaron Patterson / Tenderlovemaking",
+          "discuss_url": "https://news.ycombinator.com/item?id=49695876",
+          "tier": "must-read",
+          "summary": "Aaron Patterson examines code in so-called GemStuffer gems and reports that automated agents appear to have tried to harvest a cached RubyGems authorization key and publish packages. The post also shows how YARD documentation processing could execute arbitrary gem code inside RubyDoc.info’s networked container. It is a concrete reminder that agentic supply-chain abuse can combine a known platform flaw with an unexpected build or documentation path; the underlying claims are linked to the RubyGems advisory and incident investigations."
+        },
+        {
+          "title": "DeepSelect: high-performance TopK kernels for DeepSeek sparse attention",
+          "url": "https://github.com/deepseek-ai/DeepSelect",
+          "source": "github",
+          "byline": "Yi Qian, Shengyu Liu, and Yichen Li / DeepSeek",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "DeepSeek’s DeepSelect packages CUDA TopK kernels for DeepSeek Sparse Attention and sampling, with a small C++/Python codebase and an MIT license. The repository documents targeted kernel tests, NaN handling, and an optimization pass that was rebuilt without register spills. It is the kind of low-level component that makes sparse-attention and sampler claims actionable rather than merely architectural."
+        },
+        {
+          "title": "Recurrent Looped Transformer",
+          "url": "https://github.com/yifanzhang-pro/recurrent-looped-tranformer",
+          "source": "github",
+          "byline": "Yifan Zhang",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This Apache-2.0 project explores a recurrently looped Transformer and publishes a paper, project page, and preliminary experiments in one repository. Its recent updates include independent state-tracking results, making it a useful small research artifact to inspect rather than a polished product claim. The evidence is still early-stage and should be read as an experiment report, not a settled result."
+        },
+        {
+          "title": "MiniCPM5-2B: an on-device model with open training data",
+          "url": "https://huggingface.co/openbmb/MiniCPM5-2B",
+          "source": "hf",
+          "byline": "OpenBMB",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "MiniCPM5-2B is a dense 2B-parameter Transformer explicitly aimed at local and resource-constrained deployment. The release includes GGUF, GPTQ, MLX, and LiteRT variants alongside the BF16 model, and OpenBMB is also releasing parts of the UltraData training and agent data. Its size and available quantizations make it a credible basic-GPU/CPU candidate rather than another model that only works in a large serving stack."
+        },
+        {
+          "title": "SmolVLA fine-tune for a two-camera lever task",
+          "url": "https://huggingface.co/HyeonseokE/smolvla_ablation2_turn_off_lever_B2_2000_10fps",
+          "source": "hf",
+          "byline": "HyeonseokE",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This 0.5B-parameter SmolVLA fine-tune controls an SO101 follower robot from two camera views and a six-dimensional state input. The model card gives a reproducible LeRobot rollout command, a 100-episode/21,734-frame training set, and a concrete task: turn a lever off until its indicator turns red. No evaluation results are supplied, so the value here is the unusually runnable, inspectable edge-robotics artifact rather than a performance claim."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "The strongest builds this morning are practical reverse-engineering and open-hardware projects with measurable constraints: wireless printers, Pi power, FPGA graphics, ASIC reconstruction, acoustic sensing, and e-paper memory tricks.",
+      "stories": [
+        {
+          "title": "Writing an ESP32 Bluetooth Printer Driver in Two Acts",
+          "url": "https://hackaday.com/2026/09/14/writing-an-esp32-bluetooth-printer-driver-in-two-acts/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Bas BotBerg reverse-engineered a proprietary Bluetooth thermal printer so an ESP32-C3 could print sensor reports without the vendor’s phone app. Instead of first recording the official app, the build enumerated writable BLE characteristics and iterated with Python and Bleak until it found the motor and paper-control payloads, then ported them to C++ with Adafruit GFX. The code is not yet published, but the workflow is a useful field guide to undocumented BLE devices."
+        },
+        {
+          "title": "A UPS for your Pi that’s a little different",
+          "url": "https://hackaday.com/2026/09/14/a-ups-for-your-pi-thats-a-little-different/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The Web3-Pi UPS sits in the USB power chain instead of on top of a Raspberry Pi 5 and accepts USB-C PD, barrel power, or a hot-swappable Sony camera battery. It delivers regulated 5 V at 5 A, exposes telemetry and shutdown signaling over USB, and splits the job between a CH32 RISC-V power controller and an RP2040/OLED interface controller. The project is open on GitHub, with LTE support still apparently incomplete."
+        },
+        {
+          "title": "Recreating Voodoo graphics and a late-1990s gaming PC on an FPGA",
+          "url": "https://blog.adafruit.com/2026/09/14/recreating-voodoo-graphics-and-a-late-1990s-gaming-pc-on-an-fpga/",
+          "source": "adafruit",
+          "byline": "Anne Barela / Adafruit",
+          "discuss_url": "",
+          "tier": "essential",
+          "summary": "The zSST project reimplements much of the 3dfx Voodoo Graphics SST-1 in SystemVerilog and combines it with a soft 486 CPU to run a DOS machine on a Xilinx KV260. The design tackles shared DDR bandwidth with an 8 KiB texture cache, eight outstanding fetches, a replay queue, and a 64-entry reorder buffer. Reported simulation results are 78.5 MPix/s for textured triangles, 38.5 FPS in Doom, and 8.1 FPS in Quake."
+        },
+        {
+          "title": "Reverse engineering an ASIC",
+          "url": "https://blog.adafruit.com/2026/09/14/reverse-engineering-an-asic/",
+          "source": "adafruit",
+          "byline": "Anne Barela / Adafruit",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "A Jane Street puzzle supplied only a GDS chip layout and one VCD trace, so the solver identified SkyWater 130 nm cells, traced conductors into a netlist, and simulated the design cycle by cycle. The reconstructed circuit’s 730 comparable output bits all matched the recording, revealing a 121-bit Star Battle validator built from 92 flip-flops and eleven board regions. It is a compact demonstration of how public process libraries turn polygons into understandable digital logic."
+        },
+        {
+          "title": "Turn Arduino UNO Q into a local 3D-printing watchdog",
+          "url": "https://blog.arduino.cc/2026/09/14/turn-arduino-uno-q-into-your-local-3d-printing-watchdog/",
+          "source": "arduino",
+          "byline": "Arduino Team",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Philipp Schweizer’s local print watchdog uses an Arduino UNO Q, an IMX219 camera, and Edge Impulse’s FOMO-AD anomaly model to learn what a normal print looks like instead of enumerating every possible failure. It pauses a Klipper job through Moonraker only when at least three of the last four frames look abnormal, and it can publish MQTT notifications to Home Assistant. The 632×480 pipeline runs entirely on the local network, making this a concrete privacy-preserving edge-AI build for older printers."
+        },
+        {
+          "title": "If it’s electronic paper, why not print to it?",
+          "url": "https://blog.adafruit.com/2026/09/14/if-its-electronic-paper-why-not-print-to-it/",
+          "source": "adafruit",
+          "byline": "Anne Barela / Adafruit",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A programmable Xteink X3 e-reader was turned into a network printer by implementing Internet Printing Protocol, Bonjour discovery, and Apple/PWG raster formats on the device. A 300-dpi Letter page is about 8.4 MB while the device has only 400 KB of RAM, so the firmware decodes, scales, and dithers row by row into the existing framebuffer, then saves finished pages to SD. The project is a strong example of designing around memory rather than pretending a microcontroller is a desktop."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Today’s oddities range from a browsable mathematical universe and a newly opened Roman wall mosaic to ancient plague DNA, waste-to-food chemistry, a rewritten textbook idea, and a surprising conservation result.",
+      "stories": [
+        {
+          "title": "An atlas of periodic solutions to the three-body problem",
+          "url": "https://www.threebodyorbits.com/",
+          "source": "hn",
+          "byline": "Three Body Orbits",
+          "discuss_url": "https://news.ycombinator.com/item?id=49670852",
+          "tier": "must-read",
+          "summary": "The three-body problem has no general solution, but this interactive atlas maps 3,915 periodic orbits in which three masses return to their starting positions and velocities. Similar orbits are arranged into visual families, and each orbit can be animated, perturbed, and explored individually. It turns a difficult celestial-mechanics catalogue into an unusually accessible research toy."
+        },
+        {
+          "title": "Largest Roman mosaic opens to the public",
+          "url": "https://www.theartnewspaper.com/2026/09/14/largest-roman-mosaic-opens-to-the-public",
+          "source": "other",
+          "byline": "Gareth Harris / The Art Newspaper",
+          "discuss_url": "https://news.ycombinator.com/item?id=49696132",
+          "tier": "must-read",
+          "summary": "A vast first-century wall mosaic and a companion fresco beneath Rome’s Baths of Trajan have opened to visitors in small weekend groups. The wall scene is about 10 metres high and 16 metres long, with a cityscape of towers and buildings; archaeologists say it is the largest wall mosaic yet found in the Roman world, although excavation continues. The site was discovered in the 1990s and is only now being made accessible."
+        },
+        {
+          "title": "Plague was killing entire families thousands of years before the Black Death",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260913082203.htm",
+          "source": "science",
+          "byline": "University of Copenhagen / ScienceDaily",
+          "discuss_url": "",
+          "tier": "essential",
+          "summary": "Ancient DNA from four hunter-gatherer burial sites around Siberia’s Lake Baikal found Yersinia pestis in 18 of 46 tested individuals, roughly 40 percent. The Nature-reported work indicates that plague could already be highly lethal 5,500 years ago, before the cities, fleas, and dense rodent populations usually associated with major epidemics. It challenges the assumption that early plague strains were necessarily mild."
+        },
+        {
+          "title": "NASA-backed scientists turn plastic waste into edible cookies",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260912220033.htm",
+          "source": "science",
+          "byline": "American Chemical Society / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Researchers at Southern Illinois University are engineering yeast to turn compounds from PET and agricultural waste into proteins, fats, vitamins, flavorings, and 3D-printed cookies called µBites. The work grew out of NASA’s Deep Space Food Challenge and was presented at an ACS meeting, so it is an early research demonstration rather than a ready food process. Its unusual premise is to treat plastic waste as a carbon feedstock for food in resource-limited environments."
+        },
+        {
+          "title": "Chemistry textbooks have been getting this wrong for nearly 100 years",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260913082157.htm",
+          "source": "science",
+          "byline": "Cardiff University / ScienceDaily",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Researchers from Cardiff University and the University of Newcastle argue that the textbook account of the inductive effect in neutral molecules is wrong: the effect appears to extend only across one bond instead of weakening across three or four. The work builds on a 2024 study and has already prompted two A-level exam boards to review their treatment of the concept. The story is a good example of a quiet correction to a foundational rule rather than a flashy new discovery."
+        },
+        {
+          "title": "Crocodiles are famous for finding their way home. These ones didn’t",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260913081913.htm",
+          "source": "science",
+          "byline": "Murdoch University / ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A study of captive-raised saltwater crocodiles released into Bangladesh’s Sundarbans found that the animals settled into the wild instead of trying to return to their breeding facility. That matters because the country’s remaining population is estimated at only about 140 mature individuals and has not recovered despite legal protection. The result suggests that mature captive crocodiles may be more useful for restoration than vulnerable hatchlings, though it is not a guarantee for every release."
+        }
+      ]
+    }
+  ]
+}

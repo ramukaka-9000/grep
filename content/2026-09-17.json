@@ -1,0 +1,207 @@
+{
+  "date": "2026-09-17",
+  "summary": "Today's signal runs from tiny models doing real database work and agents hiding in plain network traffic, to microcontroller builds with measured trade-offs, and a once-in-a-century lunar impact alongside fossils and literature that quietly rewrite timelines.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The strongest AI work today makes small models do constrained, measurable jobs: a 4B model beating Postgres's own planner, a tokenisation study that isolates what actually matters, and measurements of how much agent scaffolding costs. Security notes on MCP traffic and a bird-listening e-ink frame round out a builder-focused set.",
+      "stories": [
+        {
+          "title": "Show HN: An e-ink frame that hears birds and draws them as 1800s illustrations",
+          "url": "https://github.com/arnegiacomo/fugleramme",
+          "source": "hn",
+          "byline": "arnemunthekaas / fugleramme (Show HN)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49711544",
+          "tier": "essential",
+          "summary": "Fugleramme is a Show HN project that listens for birdsong, identifies species locally, and renders each visitor on an e-ink frame as a 19th-century natural-history illustration. It is a compact case study in chaining small on-device models - audio detection, classification, and image generation - into an artifact that feels handmade rather than automated. The top Show HN of the day on Hacker News with roughly 2,100 points, and the write-up covers the model choices and the e-ink rendering pipeline."
+        },
+        {
+          "title": "Training a 4B model to produce 81% faster query plans than Postgres",
+          "url": "https://rohanbansal.com/qorl",
+          "source": "hn",
+          "byline": "Rohan Bansal",
+          "discuss_url": "https://news.ycombinator.com/item?id=49731285",
+          "tier": "must-read",
+          "summary": "This write-up trains a 4B-parameter model with reinforcement learning to emit SQL query plans that execute faster than the plans Postgres's own planner chooses, claiming an average speedup around 81%. The interesting engineering is the reward design: runtime of the executed plan is directly measurable, making it one of the cleanest real-world RL environments in the AI-and-databases space. The Hacker News thread pushes hard on benchmark coverage, planner-feature parity, and whether the gains survive production query mixes - the right skepticism, with a useful discussion of where a learned planner could slot in beside cost-based optimization."
+        },
+        {
+          "title": "Objective vs. Search: Decomposing What Makes a Good Tokeniser",
+          "url": "https://arxiv.org/abs/2609.19145v1",
+          "source": "arxiv",
+          "byline": "Ahmetcan Yavuz, Clara Meister, and Tiago Pimentel",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "BPE and UnigramLM differ in two ways at once - what they optimise (compression vs. likelihood) and how they search (bottom-up merging vs. top-down pruning) - and prior comparisons conflated the two. The authors fill the 2x2 design space with two new algorithms, BottomUpLL and TopDownComp, and train models under each to show that the search procedure, not the objective, is the dominant factor: bottom-up tokenisers consistently win on bits-per-byte across model sizes, vocab sizes, and monolingual vs. multilingual domains. A rare controlled study for anyone who has ever wondered whether their tokenizer choice actually matters."
+        },
+        {
+          "title": "When Agents Look Like Beacons: NIDS Evasion by Model Context Protocol Traffic",
+          "url": "https://arxiv.org/abs/2609.19091v1",
+          "source": "arxiv",
+          "byline": "Muhammad Abdullah Sohail",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "MCP pumps authenticated, high-frequency JSON-RPC polling into enterprise networks, and this study shows that traffic structurally and temporally resembles Cobalt Strike-style C2 beaconing. In a controlled Docker testbed with eleven traffic profiles across three TLS conditions, standard IDS signatures and behavioral beacon-scoring did not flag remote MCP tool usage as anomalous - a visibility gap where defenders historically treat machine-like cadence as an indicator of compromise. Useful reading for anyone deploying remote MCP servers inside a monitored network."
+        },
+        {
+          "title": "Nvidia announces native GPU programming in Rust",
+          "url": "https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/",
+          "source": "hn",
+          "byline": "Nvidia Developer Blog",
+          "discuss_url": "https://news.ycombinator.com/item?id=49724881",
+          "tier": "must-read",
+          "summary": "Nvidia is formalizing Rust as a first-class path for CUDA kernels, describing two tracks: a safe, higher-level Rust surface and a lower-level path closer to raw CUDA semantics, both compiled into the existing toolchain. For GPU kernel authors this is the long-awaited answer to the question of whether Rust-on-CUDA is sanctioned or community-guessed, and it lands amid years of ecosystem work on bindings and safe wrappers. The Hacker News discussion weighs it against Triton and tile-based DSLs, and asks whether the compiler maturity will actually be there on day one."
+        },
+        {
+          "title": "HarnessTax: How Much Does the Harness Matter for Coding Agents?",
+          "url": "https://harnesstax.github.io/",
+          "source": "hn",
+          "byline": "HarnessTax authors",
+          "discuss_url": "https://news.ycombinator.com/item?id=49733726",
+          "tier": "recommended",
+          "summary": "HarnessTax measures how much agent scaffolding - prompts, tool wrappers, retry logic, context management - changes coding-agent results for a fixed model. Quantifying the harness separate from the model is the missing control in most agent-benchmark discourse, and early results show meaningful score swings attributable to scaffolding alone. Small site, young discussion, but the measurement framing is the right one if you maintain an agent harness and want to know what your edits are actually worth."
+        },
+        {
+          "title": "Mozilla Report: China-U.S. AI Model Capability Gap Narrows to 4.4 Months",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1whsw2g/mozilla_report_chinaus_ai_model_capability_gap/",
+          "source": "reddit",
+          "byline": "Mozilla Foundation / stateofopensource.ai (via r/LocalLLaMA)",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1whsw2g/mozilla_report_chinaus_ai_model_capability_gap/",
+          "tier": "recommended",
+          "summary": "Mozilla's State of Open Source AI report estimates the open-weight capability gap between Chinese and frontier US offerings at about 4.4 months, while noting Chinese models still trail on some benchmarks but are drastically cheaper to run. The linked report puts methodology and charts up for inspection, which is more than most gap estimates offer. The r/LocalLLaMA thread argues over whether a rolling months-behind metric is the right unit at all, since frontier closed models and open weights optimize different objectives."
+        },
+        {
+          "title": "A curated list of fruit fly connectome projects",
+          "url": "https://github.com/cobanov/awesome-fly",
+          "source": "github",
+          "byline": "cobanov / awesome-fly contributors",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "awesome-fly collects the male connectome (MaleCNS), FlyWire, and brain-simulation work for Drosophila into one index: datasets, tools, whole-brain simulations, and the papers underneath. As LLM benchmarks saturate, the fly connectome keeps coming up as the serious test of whether wiring diagrams yield behavior, and this list is the fastest map of that whole literature-and-tooling stack. Useful both as a reference and as a reminder of what a complete, mapped nervous system actually looks like: about 140,000 neurons, all of them traced."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Today's electronics section is about reference quality and honest builds: real solar-tagged field science on monarch wings, a privacy-first doorbell you can finish in an hour, embedded 3D graphics, and a taxonomy of the wall outlets hiding in plain sight.",
+      "stories": [
+        {
+          "title": "Wisconsin researchers tracking monarchs with tiny solar tags",
+          "url": "https://blog.adafruit.com/2026/09/16/wisconsin-researchers-tracking-monarchs-with-tiny-solar-tags/",
+          "source": "adafruit",
+          "byline": "Adafruit blog (via Wisconsin researchers)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Researchers at Goose Pond Sanctuary glued solar-powered radio tags, small enough not to impede flight, onto monarch butterflies so the tags can be detected by receiver stations along migration routes without ever recapturing the animal. The post covers the tagging technique and the tracking technology, turning a butterfly-conservation question into a concrete wireless-design problem: ultra-low-mass power budgets, duty cycles, and coverage. A rare case where a hobby-scale radio project answers a field-science question that marking-and-recapture never could."
+        },
+        {
+          "title": "Build your own smart doorbell and protect your privacy - in one hour, with Massimo Banzi",
+          "url": "https://blog.arduino.cc/2026/09/16/build-your-own-smart-doorbell-and-protect-your-privacy-in-one-hour-with-massimo-banzi/",
+          "source": "arduino",
+          "byline": "Massimo Banzi / Arduino Blog",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Arduino co-founder Massimo Banzi walks through building a smart doorbell that keeps video and audio local instead of shipping them to a vendor cloud, framed explicitly against the commercial doorbell default of subscription plus surveillance. The build is scoped to about an hour, which makes it one of the few privacy-by-design projects you can actually finish before dinner. A good template for the argument that local-first does not have to mean DIY-in-a-basement-for-a-week."
+        },
+        {
+          "title": "A 3D Rasterizer For Embedded Devices",
+          "url": "https://hackaday.com/2026/09/16/a-3d-rasterizer-for-embedded-devices/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "This Hackaday feature looks at a software 3D rasterizer written for microcontroller-class hardware, where there is no GPU, no framebuffer to speak of, and every triangle costs real cycles. It walks the classic techniques - fixed-point math, scanline fills, painter's algorithm - that make 3D plausible when the whole budget is a few hundred kilobytes and tens of megahertz. Reproducible and instructive for anyone doing graphics on ESP32-class parts."
+        },
+        {
+          "title": "Introducing the Periodic Table of US Electrical Receptacles",
+          "url": "https://hackaday.com/2026/09/16/introducing-the-periodic-table-of-us-electrical-receptacles/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "North American outlets look like two flat blades and a round hole until you need 240 V, a dryer, or an EV charger, at which point the NEMA zoo becomes unavoidable. This post organizes US receptacles and plugs the way the periodic table organized elements: by configuration, current, voltage, and purpose, so the relationships between NEMA 5-15, 14-30, 14-50 and friends become predictable instead of memorized. Instant bookmark for any shop or garage-build wiring decision."
+        },
+        {
+          "title": "Converting a $20 4G wireless hotspot into a texting device",
+          "url": "https://blog.adafruit.com/2026/09/15/converting-a-20-4g-wireless-hotspot-into-a-texting-device/",
+          "source": "adafruit",
+          "byline": "bkovac (via Adafruit blog)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The Modem Thing takes a cheap LTE hotspot off a shelf and reworks it into a dedicated SMS-only device - a pocket pager in a world engineered to keep you scrolling. The teardown-style write-up covers getting firmware access on the modem and wiring the interface, which is the reusable part: these $20 modems are a standing invitation because their internals are usually a real Linux system already. A tidy example of repurposing commodity radio hardware instead of buying yet another subscription gadget."
+        },
+        {
+          "title": "Every ZX81 expansion card you ever wanted, all at once",
+          "url": "https://blog.adafruit.com/2026/09/15/every-zx81-expansion-card-you-ever-wanted-all-at-once/",
+          "source": "adafruit",
+          "byline": "NollKollTroll (via Adafruit blog)",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "OpenSpand, published on Codeberg, folds SD-card storage and other functions into a single expansion for the Sinclair ZX81 and its clones, in the spirit of the ZXpand+ but broader. The ZX81 was a famously minimal machine - a rubber-keyed computer whose expansion story was mostly third-party hacks - so a maintained, open hardware-and-firmware card is a meaningful addition to that ecosystem. Good open-hardware retro project to study if you have ever wanted to design for a 3.25 MHz Z80 and a ULA with opinions."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Two primary-source space records lead the day - a once-in-a-century lunar impact found by accident and a planet younger than a million years - joined by a fossil that resets the dinosaur clock, a simulation explaining Venus's missing moon, and two history and nature facts that survive checking.",
+      "stories": [
+        {
+          "title": "NASA's Moon Orbiter Spots New, 'Once-in-Century' Moon Crater",
+          "url": "https://science.nasa.gov/solar-system/moon/nasas-moon-orbiter-spots-new-once-in-century-moon-crater/",
+          "source": "nasa",
+          "byline": "Lonnie Shekhtman / NASA Science (papers in Science Advances)",
+          "discuss_url": "",
+          "tier": "essential",
+          "summary": "During a routine data-quality check, LRO image specialist Robert Wagner found a bright spot with a dark halo that turned out to be McGetchin crater - the largest newly formed crater ever found in the solar system, carved between April 11 and May 22, 2024 by an object the size of a three-to-six-story building. The crater is 728 feet wide and 141 feet deep, and follow-up Diviner observations found a 4-mile-wide cold spot around it because impacts fluff up regolith so it holds less heat; both papers published September 15-16, 2026 in Science Advances. NASA counts impacts of this magnitude on the Moon roughly once a century or longer, and the episode is a nice demonstration that the lunar surface is still actively changing under instruments we already have in orbit."
+        },
+        {
+          "title": "Newfound 'Baby' Planet Smashes Record for Youngest Known World",
+          "url": "https://science.nasa.gov/universe/newfound-baby-planet-smashes-record-for-youngest-known-world/",
+          "source": "nasa",
+          "byline": "Ashley Balzer / NASA Science (ApJ Letters, Bernardi et al.)",
+          "discuss_url": "",
+          "tier": "essential",
+          "summary": "Elias 2-24 b is confirmed as the youngest known exoplanet at less than a million years old - still embedded in its natal disk and accreting material - using Keck coronagraph archival data reanalyzed by a team led by Andrea Bernardi, published this week in The Astrophysical Journal Letters. The previous youngest-planet records (PDS 70 and WISPIT 2 systems) were all over five million years old, and the authors say even the best planet-formation models struggled with those, so a sub-million-year Jupiter-mass planet sitting in a disk gap means models are missing real processes. It is a rare case where someone mined existing public archive data and moved a record by more than 5x."
+        },
+        {
+          "title": "A 240-million-year-old fossil just changed the dinosaur timeline",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260915232128.htm",
+          "source": "science",
+          "byline": "University of Bristol (Journal of Vertebrate Palaeontology, Sept 15)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Dinodontosaurus isiyavamanda, a plant-eating dicynodont from Tanzania described by Bristol-led researchers in the Journal of Vertebrate Palaeontology on September 15, belongs to a group previously known only from South America - and that biogeographic link is the point. The tie between the two continents' fossil beds suggests Tanzania's supposed oldest dinosaur fossils may actually be millions of years younger than assumed, quietly resetting part of the early-dinosaur timeline. The specimen itself sat partly unstudied in Natural History Museum, London collections since a 1963 expedition, a reminder of how much revision is waiting in old drawers."
+        },
+        {
+          "title": "Venus may have swallowed its own moon",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260915232122.htm",
+          "source": "science",
+          "byline": "University of California - Riverside",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "UC Riverside simulations model what would happen to a moon orbiting a planet that rotates as slowly as Venus: instead of the outward tidal drift that recedes Earth's Moon, a Venusian moon spirals inward and crashes into the planet, with bigger moons falling faster. That offers a concrete mechanism for why Venus - which may well have formed with a moon - has none today. Tidal-evolution arguments like this are doing a lot of work lately in explaining the solar system's odd cases, and the simulation parameters are stated plainly enough to see why the answer flips from retreat to impact."
+        },
+        {
+          "title": "The first British edition of Moby-Dick omitted the epilogue where Ishmael survives",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wi0n7i/til_the_first_british_edition_of_mobydick/",
+          "source": "reddit",
+          "byline": "u/dinosaruman / r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wi0n7i/til_the_first_british_edition_of_mobydick/",
+          "tier": "recommended",
+          "summary": "When Moby-Dick was published in Britain in 1847 as 'The Whale', the epilogue - the one page where Ishmael, the sole survivor, is rescued - was accidentally left out. British reviewers duly panned the book as absurd: a novel allegedly narrated by a man who drowned with his ship. The story is a long-standing publishing-history fact about Richard Bentley's edition and Melville's fury at it, and it is a good example of how one missing page made a bad first review cycle for the most-reviewed American novel."
+        },
+        {
+          "title": "Antarctic krill trigger their escape response in 55 milliseconds",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wid9mt/til_that_antarctic_krill_can_trigger_their/",
+          "source": "reddit",
+          "byline": "u/NBrief / r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wid9mt/til_that_antarctic_krill_can_trigger_their/",
+          "tier": "notable",
+          "summary": "Antarctic krill can fire their backwards escape jump about 55 milliseconds after detecting a visual threat, even though they live in near-freezing water where nerve conduction and muscle chemistry should be slow. That latency is fast by any standard and puts krill among the quicker escape reactions measured in the ocean - one reason krill remain numerous enough to underpin the Southern Ocean food web. The giant lateral interneuron behind the response is a classic escape-circuit model system, so the number is measured, not folklore."
+        }
+      ]
+    }
+  ]
+}

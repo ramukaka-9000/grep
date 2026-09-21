@@ -1,0 +1,180 @@
+{
+  "date": "2026-09-16",
+  "summary": "Today’s signal is unusually concrete: structured decision models, hard-problem RL diagnostics, tiny local models, and ambitious microcontroller builds sit beside discoveries that make ancient caves, fossils, and shipwrecks feel newly legible.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The most useful AI work today is about making systems operational: typed decisions instead of prose, measuring whether RL improves hard cases, preserving coding history, and fitting capable experiments into small local runtimes.",
+      "stories": [
+        {
+          "title": "TypeSafe introduces System One Models and Jev",
+          "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+          "source": "hn",
+          "byline": "Diogo Almeida / TypeSafe AI",
+          "discuss_url": "https://news.ycombinator.com/item?id=49717558",
+          "tier": "must-read",
+          "summary": "TypeSafe says its first System One Model, Jev, is designed for fast structured decisions rather than open-ended text generation. The company describes a parallel sampler and Reinforcement Learning for Calibrated Decisions, with typed outputs, probabilities, and confidence scores intended to be consumed directly by software. These are early-access company claims, but the framing is a useful challenge to the assumption that every AI interface should be a chat completion."
+        },
+        {
+          "title": "Learning to solve hard problems in RL for LLMs by never giving up",
+          "url": "https://mnoukhov.github.io/posts/ngu/",
+          "source": "hn",
+          "byline": "Michael Noukhovitch, Hamish Ivison, Nathan Lambert, and Aaron Courville / Ai2",
+          "discuss_url": "https://news.ycombinator.com/item?id=49717280",
+          "tier": "essential",
+          "summary": "This interactive report argues that aggregate RL evaluation curves can hide a Matthew Effect: models improve most on examples they already solve and barely move on the hardest cases. The authors split math, code, and agentic benchmarks by initial difficulty, then propose Never Give Up to keep exploration focused on stalled problems. It is a concrete diagnostic for deciding whether post-training is building new capability or polishing the easy tail."
+        },
+        {
+          "title": "AgentVerse-OS puts coding agents in a personal cloud OS",
+          "url": "https://github.com/agentverse-os/AgentVerse-OS",
+          "source": "github",
+          "byline": "Denis / AgentVerse-OS contributors",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "AgentVerse-OS is an Apache-2.0 personal cloud environment for a developer and their AI agents, combining browser workspaces, VS Code, Claude Code, Codex, backups, updates, and a catalog of self-hosted apps on one server. The project says access is through Tailscale rather than an internet-exposed service, with a Rust core and Svelte UI. Its small public commit history makes it worth treating as an early project, but the packaging is an interesting answer to the question of where agent work should live."
+        },
+        {
+          "title": "mjbatch runs thousands of MuJoCo simulations in parallel on CPU",
+          "url": "https://github.com/kevinzakka/mjbatch",
+          "source": "github",
+          "byline": "Kevin Zakka",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "mjbatch is an Apache-2.0 Python library for running large batches of MuJoCo simulations in parallel on CPU, with examples, benchmarks, and headless operation documented in the repository. Its focus is a common reinforcement-learning bottleneck: generating many environment rollouts without requiring a GPU-heavy serving stack. The project is small and recent, but its explicit CPU and benchmark orientation makes it a useful component to test in local embodied-AI experiments."
+        },
+        {
+          "title": "A deliberately backdoored 2B model for interpretability research",
+          "url": "https://huggingface.co/thoughtworks/backdoor-gemma2-2b-4single-french",
+          "source": "hf",
+          "byline": "Thoughtworks",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Thoughtworks published a Gemma-2-2B model organism with a deliberately installed single-trigger backdoor: any one of four words makes it answer in French. The card reports 0.977 pooled attack success, 0.002 clean false-positive rate, and a 2.6B-parameter footprint that is plausible to inspect on a basic GPU after quantization. This is not a deployable model—the warning is the point—but a compact, measured fixture for testing backdoor detection and interpretability tools."
+        },
+        {
+          "title": "Qwen3.5-0.8B in a 1 GB EXL3 quantization",
+          "url": "https://huggingface.co/Honkware/Qwen3.5-0.8B-exl3-3.0bpw",
+          "source": "hf",
+          "byline": "Honkware",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Honkware’s EXL3 build packages Qwen3.5-0.8B at 3.0 bits per weight in a stated 1.0 GB repository, with a reported median KL divergence of 0.0782. The model card gives direct paths through ExLlamaV3, TabbyAPI, and text-generation-webui, so it is a genuinely small local experiment rather than a model that needs a datacenter. It is quantized from the Qwen3.5-0.8B base model and inherits that model’s license and usage terms."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "This section rewards projects that push modest hardware past its expected role: Linux on an MMU-less ESP32, an evidence-graded WCH protocol reference, generative faces on an RP2350, vintage computers in silicon and speech hardware, and a free Pi repair.",
+      "stories": [
+        {
+          "title": "Running Linux 6.11 on the ESP32-S3 with a few tweaks",
+          "url": "https://hackaday.com/2026/09/15/running-linux-6-11-on-the-esp32-s3-with-a-few-tweaks/",
+          "source": "hackaday",
+          "byline": "Paulneja / Linux-on-esp32-S3",
+          "discuss_url": "",
+          "tier": "essential",
+          "summary": "Paulneja’s Linux 6.11 port boots reliably on an ESP32-S3 N16R8 using the NOMMU configuration and a custom fork implementation. Version 0.8 leaves about 3.7 MB available after boot; Linux uses one core while the other keeps the usual ESP-IDF Wi-Fi and Bluetooth stack running. It is explicitly a research project, but the result makes an embedded router or BusyBox-style appliance imaginable on hardware normally treated as a microcontroller."
+        },
+        {
+          "title": "wch-protocols documents how to flash and debug WCH chips",
+          "url": "https://blog.adafruit.com/2026/09/15/wch-protocols-helps-document-using-wch-chips/",
+          "source": "adafruit",
+          "byline": "Anne Barela / Adafruit",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The wch-protocols project is building an implementable reference for flashing and debugging WCH’s CH32 RISC-V chips, including byte layouts, registers, and procedures. Each entry labels its evidence as verified, attested, single-source, conflict, todo, or draft, which is a better model for reverse-engineered documentation than presenting every detail as equally certain. The current material is Japanese-only and still moving, but it is MIT-licensed and aims to support independent Python, Rust, and C tooling."
+        },
+        {
+          "title": "Pico-Faces runs a 1.5M-parameter image generator on an RP2350",
+          "url": "https://blog.adafruit.com/2026/09/15/new-learn-guide-pico-faces-on-fruit-jam-microcontrollers-adafruitlearningsystem-adafruit/",
+          "source": "adafruit",
+          "byline": "Adafruit Learning System / cpldcpu",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Pico-Faces implements a compact latent flow diffusion transformer that generates 128×128 faces on the RP2350, using roughly 1.5 million parameters—thousands of times smaller than typical image-generation models. The Fruit Jam guide adds HSTX/DVI output to the original serial and VGA modes, with a playful four-panel color-grid effect. It is a reproducible demonstration that generative models can be engineered around microcontroller memory and display constraints."
+        },
+        {
+          "title": "A 386 PC for your RP2350",
+          "url": "https://blog.adafruit.com/2026/09/15/a-386-pc-for-your-rp2350/",
+          "source": "adafruit",
+          "byline": "Anne Barela / Adafruit",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "FRANK-386 is an MIT-licensed i386 PC emulator for the RP2350, the processor in the Raspberry Pi Pico 2. It supports VGA or HDMI output, SD-card disk images, PS/2 and USB input, NES gamepads, audio, and several documented GPIO layouts. A runtime disk manager can swap floppy, hard-disk, and CD-ROM images without restarting, turning a tiny board into a surprisingly complete vintage-computing platform."
+        },
+        {
+          "title": "The speech synthesizer you wanted for your Apple II",
+          "url": "https://blog.adafruit.com/2026/09/15/its-the-speech-synthesiser-you-wanted-for-your-apple-ii/",
+          "source": "adafruit",
+          "byline": "Anne Barela / Adafruit",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Perfect Paul ][ is a DECtalk speech-synthesizer card for the Apple II built around a Raspberry Pi Pico. The tested revision uses RP2040 PIO to catch bus writes, a second core for synthesis, two selectable audio paths, and a minimal slot interface that works in slots 1–7 without jumpers. Published Gerbers and a demo disk make this a real hardware recreation rather than a video-only nostalgia project."
+        },
+        {
+          "title": "A free 3D-printed replacement for the Raspberry Pi 5’s fragile MIPI latch",
+          "url": "https://blog.adafruit.com/2026/09/15/i-3d-printed-a-replacement-for-the-raspberry-pi-5s-fragile-mipi-latch-and-it-cost-me-nothing/",
+          "source": "adafruit",
+          "byline": "Anne Barela / Adafruit; Ayush Pande / XDA Developers",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "After breaking a Raspberry Pi 5 camera-connector latch, Ayush Pande found a model and printed a replacement in PETG rather than PLA because the board’s heat could warp it. The two-minute print on a stock 0.4 mm nozzle fit the connector and held a ribbon cable well enough for the Pi to detect the camera. It is a small repair, but exactly the kind of low-cost, reproducible intervention that can save an otherwise usable board."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Primary and research-linked sources turn today’s oddities into solid leads: a daytime Venus occultation, new brown dwarfs, an Australian ritual record, hidden fossil camouflage, and explosives still entering a century-old wreck’s ecosystem.",
+      "stories": [
+        {
+          "title": "A daytime eclipse: the Moon occults Venus",
+          "url": "https://science.nasa.gov/image-article/apod-2026-september-15-a-daytime-eclipse-moon-occults-venus/",
+          "source": "nasa",
+          "byline": "Robert Nemiroff, Jerry Bonnell, Cecilia Chirenti, and Keighley Rockcliffe / NASA APOD",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "NASA’s Astronomy Picture of the Day for September 15 records the Moon passing in front of Venus during daylight, an occultation that is easy to miss because the sky is bright. The image and accompanying explanation are credited through NASA’s APOD service, with the date and authors explicitly listed on the page. It is a simple but genuinely counterintuitive reminder that bright daytime skies do not stop the Moon from hiding a planet."
+        },
+        {
+          "title": "Webb reveals a panorama of star formation and brown dwarfs",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/Webb/Webb_reveals_stunning_panorama_of_star_formation",
+          "source": "esa",
+          "byline": "ESA/Webb, NASA, and CSA",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The James Webb Space Telescope’s large view of the nearby star-forming region IC 348 helped astronomers identify brown dwarfs with masses as low as about twice Jupiter’s. ESA links the release to the underlying Astrophysical Journal paper and credits the international Webb partnership. The result extends the observed mass range of these failed-star objects while showing how a wide, visually striking panorama can still carry precise science."
+        },
+        {
+          "title": "This Australian cave hid 25,000 years of ritual secrets",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260914102443.htm",
+          "source": "science",
+          "byline": "Elle Grono et al. / Australian National University and collaborators",
+          "discuss_url": "",
+          "tier": "essential",
+          "summary": "Researchers studying Cloggs Cave found layers of deliberately carried and burned grasses whose phytoliths point to ritual use over roughly 25,000 years. The work was requested by the GunaiKurnai Land and Waters Corporation, and GunaiKurnai representatives participated in the research design, fieldwork, interpretation, and communication. Published in Frontiers in Environmental Archaeology, the study combines microscopic plant evidence with oral and historical records rather than treating the cave as an unexplained curiosity."
+        },
+        {
+          "title": "UV light reveals possible camouflage on a 125-million-year-old crocodile",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260914102436.htm",
+          "source": "science",
+          "byline": "Oscar Castillo-Visa et al. / Institut Català de Paleontologia Miquel Crusafont",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Ultraviolet examination of a 125-million-year-old fossil from northeastern Spain revealed preserved skin, possible sensory structures, respiratory anatomy, and alternating tail bands. The authors interpret the bands as possible camouflage, not proven color, and published the detailed description in the Zoological Journal of the Linnean Society. The specimen had been known for more than a century; the new technique exposed information hidden in the rock."
+        },
+        {
+          "title": "A German submarine sunk in 1917 is still leaking TNT",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260913081919.htm",
+          "source": "science",
+          "byline": "Katrine Juul Andresen et al. / Aarhus University",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Sampling around the wreck of UC-30, a German submarine sunk off Denmark in 1917 with mines and torpedoes aboard, found TNT in water, sediment, mussels, and starfish. Aarhus University researchers say the pollution is currently localized but could worsen as the wreck deteriorates and exposes more explosive material. The work is part of the NorthSeaWrecks research project and turns a historical wreck into a present-day environmental monitoring problem."
+        }
+      ]
+    }
+  ]
+}

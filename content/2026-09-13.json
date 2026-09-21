@@ -1,0 +1,180 @@
+{
+  "date": "2026-09-13",
+  "summary": "Today’s reading contrasts AI systems’ accelerating reach with the engineering, scientific, and social work needed to make their outputs trustworthy.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The useful frontier is moving from benchmark scores toward real code, formal verification, and honest accounting of what small models can and cannot do.",
+      "stories": [
+        {
+          "title": "Real-SWE: Benchmarking AI models on private, real-world, enterprise codebases",
+          "url": "https://withspecific.com/benchmarks/real-swe",
+          "source": "hn",
+          "byline": "theanonymousone",
+          "discuss_url": "https://news.ycombinator.com/item?id=49676820",
+          "tier": "essential",
+          "summary": "Specific Labs introduces a benchmark built from licensed production codebases and business-critical tasks such as billing, taxes, migrations, and multi-service changes. In its eight-run pass@1-style evaluation, the leading listed agent resolved 38.8% of tasks, while the benchmark emphasizes that enterprise context and harness choice are part of the engineering problem rather than noise to remove."
+        },
+        {
+          "title": "A Design Space Exploration of Async/Await",
+          "url": "https://cel.cs.brown.edu/blog/design-space-async-await/",
+          "source": "hn",
+          "byline": "wcrichton",
+          "discuss_url": "https://news.ycombinator.com/item?id=49626718",
+          "tier": "recommended",
+          "summary": "Brown researchers show that seven modern async runtimes can produce four different outputs for a tiny fire-and-forget program, and no two agree across three variants. Their paper names nine design dimensions—including eagerness, task extent, destruction, and cancellation—turning mysterious concurrency behavior into explicit language semantics."
+        },
+        {
+          "title": "We Must Pace the Frontier",
+          "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+          "source": "hn",
+          "byline": "apsec112",
+          "discuss_url": "https://news.ycombinator.com/item?id=49672510",
+          "tier": "recommended",
+          "summary": "Dario Amodei argues that capability progress should slow enough for alignment, operational security, and third-party evaluation to keep up, without halting research. He points to recursive self-improvement and the OpenAI–Hugging Face agent incident as reasons to pursue staged industry and international coordination."
+        },
+        {
+          "title": "anything2explainer: narrated explainer videos from a topic",
+          "url": "https://github.com/Vincentwei1021/anything2explainer",
+          "source": "github",
+          "byline": "Vincentwei1021",
+          "discuss_url": "https://github.com/Vincentwei1021/anything2explainer",
+          "tier": "recommended",
+          "summary": "anything2explainer packages a Claude Code/Codex skill that turns a topic into a black-canvas motion-graphics explainer with generated narration, subtitles, and chapter progress. Its repository includes a Remotion template, motion checks, self-checks, and examples, making the interesting part the production and quality-control workflow rather than a one-off generated video."
+        },
+        {
+          "title": "tokentab: local cost accounting for coding-agent sessions",
+          "url": "https://github.com/crwdla/tokentab",
+          "source": "github",
+          "byline": "crwdla",
+          "discuss_url": "https://github.com/crwdla/tokentab",
+          "tier": "recommended",
+          "summary": "tokentab reads Claude Code, Codex, Gemini CLI, and partially wired Cursor session logs from disk, then breaks token usage and estimated cost down by model, project, day, and work type. It runs locally with no account or API key, giving agent users a direct way to see whether spend is going to editing, exploration, or chat."
+        },
+        {
+          "title": "GTM-v2-chat: a 120M-parameter model fine-tuned into a chat assistant",
+          "url": "https://huggingface.co/OPENGCM/GTM-v2-chat",
+          "source": "hf",
+          "byline": "OpenGCM",
+          "discuss_url": "https://huggingface.co/OPENGCM/GTM-v2-chat",
+          "tier": "recommended",
+          "summary": "GTM-v2-chat is a roughly 120M-parameter decoder-only model pretrained from scratch and supervised-fine-tuned on UltraChat, small enough for CPU-oriented experimentation. Its authors explicitly call the displayed success a single example, warn that factual reliability is weak, and note that integrations should truncate at the learned end-of-turn marker themselves."
+        },
+        {
+          "title": "Parakeet RNN-T 0.6B adapted for dysarthric speech",
+          "url": "https://huggingface.co/dys-asr/parakeet-rnnt-0.6b-sapc12-syn",
+          "source": "hf",
+          "byline": "dys-asr",
+          "discuss_url": "https://huggingface.co/dys-asr/parakeet-rnnt-0.6b-sapc12-syn",
+          "tier": "must-read",
+          "summary": "This 0.6B English Parakeet RNN-T fine-tune targets dysarthric speech using deduplicated Speech Accessibility Project recordings plus 103 hours of synthetic speech. The model card reports 11.32% WER on the held-out SAPC2 development set, while clearly warning that performance varies by speaker and that the model is not suitable as the sole basis for clinical, legal, or safety-critical decisions."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "This week’s builds pair deliberately old hardware ideas with modern open boards, additive fabrication, and hands-on mechanical experimentation.",
+      "stories": [
+        {
+          "title": "2026 Retrocomputing Challenge: 16-Bit Homebrew Relay Computer",
+          "url": "https://hackaday.com/2026/09/12/2026-retrocomputing-challenge-16-bit-homebrew-relay-computer/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026/09/12/2026-retrocomputing-challenge-16-bit-homebrew-relay-computer/",
+          "tier": "must-read",
+          "summary": "Peter’s homebrew machine implements a 16-bit CPU using relays, with an accumulator-centered architecture and only 19 instructions. It calculates three digits of pi in about eight minutes of clicking and can drive a 32×32 LED matrix, making the cost of every bit of computation physically visible."
+        },
+        {
+          "title": "Making an Air-Powered Circular Saw with LEGO",
+          "url": "https://hackaday.com/2026/09/12/making-an-air-powered-circular-saw-with-lego/",
+          "source": "hackaday",
+          "byline": "Jamie’s Brick Jams / Hackaday",
+          "discuss_url": "https://hackaday.com/2026/09/12/making-an-air-powered-circular-saw-with-lego/",
+          "tier": "recommended",
+          "summary": "A LEGO mechanism evolves from a paper-cutting prototype into a compressed-air table saw with a real metal blade and a 3D-printed turbine. The build includes a dead-man air cutoff and exposes the boundary between toy construction, custom printed geometry, and genuinely hazardous workshop machinery."
+        },
+        {
+          "title": "This Mac Is Open Source Hardware",
+          "url": "https://hackaday.com/2026/09/12/this-mac-is-open-source-hardware/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026/09/12/this-mac-is-open-source-hardware/",
+          "tier": "recommended",
+          "summary": "OSHintosh is an open-source two-layer PCB recreation of a Macintosh 512K-style machine that boots a classic Mac OS image from ROM. It omits disks and SCSI for now, but shows how a historically recognizable computer can be rebuilt as inexpensive, inspectable hardware rather than only emulated software."
+        },
+        {
+          "title": "Arduino Core on Zephyr 1.0.0 is here",
+          "url": "https://blog.arduino.cc/2026/09/03/arduino-core-on-zephyr-1-0-0-is-here/",
+          "source": "arduino",
+          "byline": "Arduino Team",
+          "discuss_url": "https://blog.arduino.cc/2026/09/03/arduino-core-on-zephyr-1-0-0-is-here/",
+          "tier": "recommended",
+          "summary": "ArduinoCore-Zephyr 1.0.0 updates the base to Zephyr 4.4.1, adds the VENTUNO Q, and enables camera support for the Nicla Vision module. The release gives Arduino developers a path to combine board-level AI or vision with Zephyr’s real-time MCU capabilities and a common IDE setup flow."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "The strongest discoveries today come from seeing familiar systems—telescopes, DNA, planets, and fossils—with a new instrument or a better question.",
+      "stories": [
+        {
+          "title": "Help Refine Data from Space Telescopes with Artifact InSPECtor",
+          "url": "https://science.nasa.gov/get-involved/citizen-science/help-refine-data-from-space-telescopes-with-artifact-inspector/",
+          "source": "nasa",
+          "byline": "NASA Science",
+          "discuss_url": "https://science.nasa.gov/get-involved/citizen-science/help-refine-data-from-space-telescopes-with-artifact-inspector/",
+          "tier": "recommended",
+          "summary": "NASA’s Artifact InSPECtor asks volunteers to review suspected image artifacts in space-telescope data and check whether an AI model identified invalid pixels correctly. The project connects ordinary browser-based classifications to cleaner datasets for missions and surveys including Euclid and the Nancy Grace Roman Space Telescope."
+        },
+        {
+          "title": "NASA’s Chandra Unveils Mysterious X-Ray Objects",
+          "url": "https://science.nasa.gov/missions/chandra/nasas-chandra-unveils-mysterious-x-ray-objects/",
+          "source": "nasa",
+          "byline": "Megan Watzke / NASA Science",
+          "discuss_url": "https://science.nasa.gov/missions/chandra/nasas-chandra-unveils-mysterious-x-ray-objects/",
+          "tier": "must-read",
+          "summary": "Chandra observations identified 84 hypersoft X-ray sources across M101, M31, and four elliptical galaxies: objects with unusually low-energy X-rays but likely intense ultraviolet emission. The newly described class may help explain both Type Ia supernova questions and how the intergalactic medium is energized."
+        },
+        {
+          "title": "Researchers find a Wordle strategy that wins 99% of the time",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260911204910.htm",
+          "source": "sciencedaily",
+          "byline": "Binghamton University",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/09/260911204910.htm",
+          "tier": "recommended",
+          "summary": "A Binghamton University team used Shannon entropy to choose Wordle guesses that maximally reduce the remaining answer space, rather than simply selecting common letters or likely answers. In simulations the information-gain strategy solved 99% of puzzles versus 90% for the common-letter baseline, an accessible demonstration of active information gathering."
+        },
+        {
+          "title": "66-million-year-old feather in dinosaur poop may reveal why birds survived the asteroid",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260911003849.htm",
+          "source": "sciencedaily",
+          "byline": "Field Museum",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/09/260911003849.htm",
+          "tier": "essential",
+          "summary": "Micro-CT scans of a fossilized coprolite revealed feathers, fish scales, and bird bones from a hesperornithiform swallowed near the end of the Cretaceous. The primitive, less-insulating plumage may help explain why that aquatic bird lineage died out while the ancestors of modern birds survived the asteroid-driven impact winter."
+        },
+        {
+          "title": "Scientists capture two DNA strands zipping together for the first time",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260909231717.htm",
+          "source": "sciencedaily",
+          "byline": "University of York",
+          "discuss_url": "https://doi.org/10.1093/nar/gkag817",
+          "tier": "must-read",
+          "summary": "Atomic-force microscopy and simulations captured DNA helices aligning groove-for-groove even though both molecules are negatively charged. Divalent metal ions act as molecular bridges, providing experimental support for the two-decade-old DNA-zipper model and revealing sequence-dependent pairing hotspots."
+        },
+        {
+          "title": "Mercury’s surface reveals a surprisingly fiery past",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260911003854.htm",
+          "source": "sciencedaily",
+          "byline": "Max Planck Institute for Solar System Research",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/09/260911003854.htm",
+          "tier": "recommended",
+          "summary": "A new calibration using laboratory glass beads estimates that silicon dioxide makes up about 37% of Mercury’s surface, up to 25% less than earlier estimates. The low value points to ancient lava from a more deeply and extensively melted mantle, while the Moon provided a test case because it has both remote-sensing data and returned rock samples."
+        }
+      ]
+    }
+  ]
+}
