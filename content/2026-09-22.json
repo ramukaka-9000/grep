@@ -1,0 +1,234 @@
+{
+  "date": "2026-09-22",
+  "summary": "Open-weight frontier pressure from Xiaomi's MiMo-V2.6 and Grok 4.7, the typed-decision/small-model wave keeps compounding (MLX runtimes, an honest 0.6B ASR fine-tune, a 100M text-to-image DiT), and in hardware an RP2350 finally pushes 1080p while Stanford prints function into the voxel.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Two frontier releases — Xiaomi's fully open MiMo-V2.6 series and Grok 4.7 at aggressive pricing — plus the small-model ecosystem maturing: native MLX runtimes for typed decision models, a brutally honest 0.6B ASR fine-tune, and a 100M text-to-image DiT trained in 10 hours.",
+      "stories": [
+        {
+          "title": "Xiaomi releases and open-sources the MiMo-V2.6 series",
+          "url": "https://mimo.xiaomi.com/mimo-v2-6",
+          "source": "hn",
+          "byline": "Xiaomi MiMo team (via HN)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49792730",
+          "tier": "essential",
+          "summary": "Xiaomi open-sourced two natively omnimodal models, MiMo-V2.6-Pro and the efficiency-balanced V2.6-Flash, built by scaling RL on verifiable tasks (their stated RSI path). The benchmark tables put Pro within a few points of Claude Opus 5 on DeepSWE v1.1 (71.9 vs 74.0) and ahead of GPT-5.6 Sol on several agentic suites, with a 20x-output-speed UltraSpeed variant. Distilled Qwen-9B derivatives of V2.6 are already circulating on Hugging Face, so the weights are genuinely entering the local-model food chain."
+        },
+        {
+          "title": "Introducing Grok 4.7",
+          "url": "https://x.ai/news/grok-4-7",
+          "source": "hn",
+          "byline": "xAI (via HN)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49788838",
+          "tier": "recommended",
+          "summary": "xAI shipped Grok 4.7 on a new larger base, trained with a longer RL run weighted toward multi-hour tasks, at unchanged Grok 4.6 pricing: $2/$6 per million input/output tokens. xAI claims frontier price-performance on CursorBench 4.0 (46.3%) and a big Terminal-Bench 4.0 jump over 4.6 (38.0% vs 20.3%), with native understanding of the Grok Bot harness. The interesting signal is the price ladder: it undercuts GPT-5.6 Sol 2x and Fable 5.1 5x on output tokens while staying in the same benchmark band."
+        },
+        {
+          "title": "Transformers Explained Visually",
+          "url": "https://poloclub.github.io/transformer-explainer/",
+          "source": "hn",
+          "byline": "Georgia Tech POLYCUB (via HN)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49792342",
+          "tier": "recommended",
+          "summary": "An interactive, in-browser visual explainer that walks a real transformer forward pass token by token — embeddings, attention heads, MLPs — with live intermediate values you can inspect. From the POLYCUB group that builds interactive ML tooling, and worth the ten minutes even if you have read Attention Is All You Need twice: watching actual attention weights animate on a running model builds a different mental model than the equation."
+        },
+        {
+          "title": "Python Workers are now generally available on Cloudflare",
+          "url": "https://blog.cloudflare.com/python-workers-ga/",
+          "source": "hn",
+          "byline": "Cloudflare (via HN)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49787142",
+          "tier": "recommended",
+          "summary": "Two years after developer preview, Python is now a first-class language on the Workers runtime: FastAPI, Django, and Flask apps run at the edge with bindings to Workers AI, R2, D1, Hyperdrive, Durable Objects, and Queues, and you can spawn Python Workers inside Workers via Dynamic Workers. For agent builders this collapses a lot of glue — inference plus state plus HTTP in one deployable, with the Python packaging ecosystem you already use."
+        },
+        {
+          "title": "On Emergent Capabilities and Model Merging",
+          "url": "https://arxiv.org/abs/2609.24504",
+          "source": "arxiv",
+          "byline": "Luca Zhou, Emanuele Rodola",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A careful study of what weight-merging does to emergent behaviors — capabilities that were never explicit training targets — across activation-oracle and emergent-misalignment testbeds in three model families. Three clean results: merging preserves an emergent capability both parents carry, merging can never create a superadditive emergent capability, and a capability carried by only one parent dilutes faster than its trained companion. Direct consequence for anyone merging community fine-tunes: emergent misalignment rides along through the whole mixing range, and you cannot synthesize a capability by blending specialists."
+        },
+        {
+          "title": "Not All Task Vectors Need Equal Rank (SERA)",
+          "url": "https://arxiv.org/abs/2609.24517",
+          "source": "arxiv",
+          "byline": "Hyunjoong Cho, Jinhyeok Jang",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Spectral merging methods compress each task vector to a low-rank update but give every task the same rank budget. SERA instead allocates rank proportional to each task vector's singular-value energy — richer spectral capacity for complex or isolated tasks, fewer directions for compact ones — improving multi-task merging under the same total rank budget on standard vision merging protocols. A small, cheap, drop-in change to the SVD step that pairs naturally with the emergent-capabilities result above when you pick merge ingredients."
+        },
+        {
+          "title": "laya-mlx: native MLX runtime for typed decision models",
+          "url": "https://github.com/mizorewww/laya-mlx",
+          "source": "github",
+          "byline": "mizorewww",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A from-scratch MLX runtime for Laya-style non-autoregressive decision models: 7-14 ms short decisions on M3 Max with no text generation, no PyTorch, and no cloud API, now packaged for PyPI with a Snake demo. This is the local-inference ecosystem doing for typed decisions what llama.cpp did for LLMs — the decision-model wave (Laya, kev, Nimble) is spawning dedicated inference stacks, and a Core ML / Neural Engine port claiming ~5 ms is following."
+        },
+        {
+          "title": "bespokelabsai/nimble: local typed decisions with published training data",
+          "url": "https://github.com/bespokelabsai/nimble",
+          "source": "github",
+          "byline": "Bespoke Labs",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Bespoke Labs' take on the typed-decisions space: local decision models plus contrastive data curation and evaluation — and the part that matters, they just published the original 2,676 training examples and a frozen 324-example holdout. In a week full of decision-model hype threads, an open recipe with reproducible eval data is the artifact an AI builder can actually learn from."
+        },
+        {
+          "title": "Supra2-IMG: a 100M-parameter text-to-image DiT trained from scratch in under 10 hours",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wmftr3/massive_release_supra2img_a_tiny_100m_texttoimage/",
+          "source": "reddit",
+          "byline": "SupraLabs (r/LocalLLaMA)",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wmftr3/massive_release_supra2img_a_tiny_100m_texttoimage/",
+          "tier": "must-read",
+          "summary": "A 100M-parameter diffusion transformer that generates 256x256 images, trained entirely from scratch in under 10 hours on a single H100 and released Apache-2.0 with the inference script in the repo. Runs anywhere: roughly 2 seconds per image on a small GPU and ~20 seconds on CPU, so it fits in phone-adjacent budgets. The author publishes seed-0, fixed-settings sample grids and claims no cherry-picking — check the samples yourself, but if the quality claim holds even loosely, a 100M model at this training cost resets expectations for on-device image generation."
+        },
+        {
+          "title": "qwen3-asr-0.6b-us-atc-v1: a fully documented 0.6B air-traffic-control ASR fine-tune",
+          "url": "https://huggingface.co/thomaseibner/qwen3-asr-0.6b-us-atc-v1",
+          "source": "hf",
+          "byline": "thomaseibner",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A full (no-LoRA) fine-tune of Qwen3-ASR-0.6B on live Minneapolis airband audio, and the model card is the real gem: it opens by admitting it loses to the project's Whisper large-v3-turbo fine-tune (23.84 vs 20.60 WER on a 285-clip human-transcribed holdout), publishes two seeds with per-noise-stratum splits, flags that 8,456 of 14,256 training rows are pseudo-labels, and shows the payoff is failure decorrelation — an oracle over both models beats the better single model by 5.04 WER. A 0.6B model that runs comfortably on CPU, documented with more scientific honesty than most papers."
+        },
+        {
+          "title": "ZaraBERTa: the first cased, scripture-native encoder for the LDS Standard Works",
+          "url": "https://huggingface.co/BYU-Idaho/ZaraBERTa",
+          "source": "hf",
+          "byline": "Brigham Young University-Idaho",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A 357M roberta-large derivative that adds 1,467 scripture word forms as whole BPE tokens — so Nephi and Zarahemla are words, not fragment soup, and LORD/Lord/lord stay distinct — then learns them from public-domain text. The evaluation is the template for domain-specific encoders: person-vs-place classification of 68 Book of Mormon names goes from 58.8% (bert-base) to 86.8% with the vocabulary fix plus training, with nearest-word probes to show why. A small, replicable recipe for any corpus where tokenization quietly destroys the signal."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "An RP2350 pushes 1080p DVI with 1980s-style scanline tricks, Stanford prints multiple materials inside a single strand, and a run of measured, reproducible builds: hidden-camera detectors, e-waste routers, ducted quadcopters, and a printed laryngoscope.",
+      "stories": [
+        {
+          "title": "The RP2350 Does 1080p",
+          "url": "https://hackaday.com/2026-09-21/the-rp2350-does-1080p/",
+          "source": "hackaday",
+          "byline": "Hackaday (build: Aaron Gayle's TVtop)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Aaron Gayle generated a 1080p DVI signal from an RP2350, breaking the 720p ceiling the RP2040 set — and he had to overclock the chip to 372 MHz to do it. With no room for a framebuffer, the video is generated scanline by scanline, an 8-bit-era technique on a modern microcontroller. It lives inside TVtop, a board game where the TV shows the board and phones are the controllers (with an ESP32 handling Wi-Fi), and the firmware is on GitHub for anyone who wants to push pico-class video further."
+        },
+        {
+          "title": "Stanford's subvoxel 3D printing puts multiple functions inside one printed strand",
+          "url": "https://3dprintingindustry.com/news/stanford-labs-subvoxel-3d-printing-technique-aims-to-make-one-part-serve-multiple-functions-at-once-254859/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry (prof. Natalie Larson's lab)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Stanford mechanical engineering professor Natalie Larson's technique controls multiple materials within a single extruded strand — structure and function at sub-voxel resolution, so one part can conduct, sense, and bear load at once. Applications already span lab-grown meat scaffolds, structural vehicle batteries, and defense-funded metamaterials. This is the meaningful end of multi-material printing: not more colors, but materially graded parts that make the assembly line shorter."
+        },
+        {
+          "title": "Detect hidden cameras with SweepLED",
+          "url": "https://blog.adafruit.com/2026-09-21/detect-hidden-cameras-with-sweepled/",
+          "source": "adafruit",
+          "byline": "Adafruit (research via KAIST)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "KAIST researchers built SweepLED, a hidden-lens detector you can sweep a short-term rental with using a phone and inexpensive parts: modulated IR light sweeps the room and a camera lens's retroreflection pops out against ordinary surfaces. It is a genuinely reproducible privacy hack — the parts list and operating principle are both simple enough to build — and a nice example of using a sensor's own optics against it rather than RF sniffing."
+        },
+        {
+          "title": "DIY Router on x86 E-Waste: OpenWrt and OPNsense",
+          "url": "https://hackaday.com/2026-09-21/diy-router-on-x86-e-waste-openwrt-and-opnsense/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The latest installment of the e-waste router series gets concrete: booting OpenWrt on a thrift-store x86 box, running it headless, and comparing it against OPNsense on the same machine. Reproducible, useful, and timely given ISP router telemetry — a retired small-form-factor PC gives you VLANs, ad-blocking, and firewalling at a fraction of any prosumer router's price, with headroom the carrier gear never has."
+        },
+        {
+          "title": "Trying a New Radial Impeller Design for Quadcopters",
+          "url": "https://hackaday.com/2026-09-21/trying-a-new-radial-impeller-design-for-quadcopters/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A build log that questions a settled design choice: instead of open propellers, this quadcopter flies on ducted radial impellers, with the geometry iterated in CAD and the results actually measured rather than asserted. Ducted fans trade peak efficiency for safety and obstacle tolerance in indoor and cluttered environments, and this is the kind of quantify-your-hack drone experiment the platform does best."
+        },
+        {
+          "title": "Auburn team 3D prints a low-cost camera laryngoscope",
+          "url": "https://3dprintingindustry.com/news/auburn-team-3d-prints-low-cost-camera-laryngoscope-254849/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry (Auburn University)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Auburn's College of Veterinary Medicine and Samuel Ginn College of Engineering built a camera-equipped laryngoscope around 3D-printed optics housings, driving the cost far below commercial video laryngoscopes. Intubation guidance is exactly where printed medical hardware earns its keep — simple geometry, a huge price gap, and a veterinary-first validation path that sidesteps the slowest regulatory gates while the design matures."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "A 50-year transfusion mystery ends with a new blood group system, Spain yields the first Diplodocus ever found outside North America, Jezero's Margin Unit rewrites early Mars hydrology, Roman's 300-megapixel camera comes alive, and a clay tablet predates Pythagoras by a millennium.",
+      "stories": [
+        {
+          "title": "Scientists solve a 50-year mystery and discover a new human blood group",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260918024828.htm",
+          "source": "science",
+          "byline": "University of Bristol (via ScienceDaily)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Researchers at Bristol's International Blood Group Reference Laboratory found the genetic cause of the AnWj antigen — it sits on the MAL gene — solving a puzzle that began in 1972 and establishing MAL as a formally recognized blood group system (ISBT 047). The practical payoff is finding the exceptionally rare AnWj-negative patients and donors so they can be matched against potentially dangerous transfusion reactions. The tally is still moving: ISBT announced JAMA as the 49th system this September, 126 years after ABO."
+        },
+        {
+          "title": "The first Diplodocus ever found outside North America, in Spain",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260918024807.htm",
+          "source": "science",
+          "byline": "Fundacion Dinopolis (via Journal of Vertebrate Paleontology)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Fourteen exceptionally preserved tail vertebrae and chevron bones from La Tejeria, El Castellar (Teruel, Spain) have been identified as Diplodocus — the first confirmed specimen of the genus outside the Morrison Formation of the western United States. The ~25-meter animal lived about 150 million years ago, and its European home is strong evidence for Late Jurassic dispersal between North America and Europe across temporary land bridges during proto-Atlantic sea-level lows. Published in the Journal of Vertebrate Paleontology (DOI 10.1080/02724634.2026.2718423)."
+        },
+        {
+          "title": "NASA discovery reveals complex water systems on early Mars",
+          "url": "https://www.nasa.gov/solar-system/planets/mars/nasa-discovery-reveals-complex-water-systems-on-early-mars/",
+          "source": "nasa",
+          "byline": "NASA / Perseverance team",
+          "discuss_url": "https://news.ycombinator.com/item?id=49791939",
+          "tier": "recommended",
+          "summary": "Perseverance's traverse along the 'Margin Unit' at the inner edge of Jezero Crater keeps surprising the team: rocks that should be quiet lake-shore sediments record a more complicated water history than a single still lake — groundwater and later fluids reshaped the minerals long after deposition. It matters for the sample question (even with Mars Sample Return cancelled, the cached tubes remain the prize) and for every future 'habitable environment' claim on Mars: the mineral fingerprints of habitability can be younger than the rock itself."
+        },
+        {
+          "title": "NASA just powered up Roman's massive 300-megapixel camera",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260921081058.htm",
+          "source": "science",
+          "byline": "NASA (via ScienceDaily)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The Roman Space Telescope has activated its 300-megapixel infrared camera — the largest NASA has flown, sized to image enormous sky areas at Hubble-class sharpness — and its planet-hunting coronagraph is passing checks too. Science operations begin in 2027, and with the big mosaic sensor powered, the survey's core promises (dark-energy maps via weak lensing, an exoplanet microlensing census, direct imaging of gas giants) have moved from design to commissioning reality."
+        },
+        {
+          "title": "TIL a baboon named Jack worked as a railway signalman's assistant in Cape Colony",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wmwoiv/til_a_baboon_named_jack_operated_railroads/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wmwoiv/til_a_baboon_named_jack_operated_railroads/",
+          "tier": "notable",
+          "summary": "After James 'Jumper' Wide lost both legs in an accident, the chacma baboon he had raised, Jack, assisted him at the Cape Government Railways signal station near Simon's Town in the 1880s — fetching tools, carrying tickets, and reportedly helping work the levers, with the pair becoming local celebrities before Jack's death in 1890. The TIL's 'never made a mistake in nine years' line is period folklore rather than audited fact, but the employment itself is well documented (Wikipedia carries a sourced article). One of those stories that sounds invented and isn't."
+        },
+        {
+          "title": "TIL Plimpton 322, a Babylonian tablet from ~1800 BC, lists Pythagorean triples over a millennium before Pythagoras",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wm9orf/til_a_babylonian_clay_tablet_called_plimpton_322/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wm9orf/til_a_babylonian_clay_tablet_called_plimpton_322/",
+          "tier": "notable",
+          "summary": "The tablet's rows encode right-triangle side ratios — including a triple as large as (12709, 13500, 18541) — which rules out ad-hoc discovery and implies a systematic generation method 13-15 centuries before the Greek geometrists. The TIL's '1,000 years before Pythagoras' framing is conservative: dating puts it between 1822 and 1762 BC, and a 2017 History of Mathematics paper (Mansfield & Wildberger) argues it is an exact ratio-based trigonometric table, though that reading is still contested. The numbers themselves are not in dispute — only what the scribes wanted from them."
+        }
+      ]
+    }
+  ]
+}
