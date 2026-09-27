@@ -1,0 +1,252 @@
+{
+  "date": "2026-09-27",
+  "summary": "Sovereign tech gets real as Dutch government agencies coalesce around a NixOS-based Microsoft alternative, DeepSeek publishes the sandbox infrastructure behind its agentic training, and the small decision-model wave turns multilingual — while Enceladus keeps looking habitable and lead-laced Roman ink may finally crack the Herculaneum scrolls.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "The day's biggest engineering story is Dawo, the Dutch government's NixOS-based sovereign alternative to Microsoft 365, now at nearly 1,000 HN points. DeepSeek opens its agentic-training sandbox infrastructure (DSec) in a paper, Floci emulates any cloud service locally, Terence Tao argues AI-era mathematics needs mass-scale manpower, and the System 1 / typed-decision ecosystem adds a multilingual 322M checkpoint, a full-duplex 1.9B conversation TTS, and a recipe for converting GLM-Flash into a decision model.",
+      "stories": [
+        {
+          "title": "Dutch government builds an alternative to Microsoft based on NixOS",
+          "url": "https://www.dawo.community/en/",
+          "source": "HN",
+          "byline": "Dawo community (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49841563",
+          "tier": "essential",
+          "summary": "Municipal and national Dutch agencies are consolidating on Dawo, a sovereign Microsoft 365 alternative built on NixOS with self-hosted office, mail, and collaboration stacks, and it hit the top of HN at nearly 1,000 points and 570+ comments. The interesting part for builders is the delivery model: declarative, reproducible Nix configurations shared across government IT, so one agency's hardening work benefits all of them. It is the most credible large-scale proof yet that declarative infrastructure can run an entire public sector's productivity stack instead of a startup's demo."
+        },
+        {
+          "title": "DeepSeek Elastic Compute (DSec): sandbox infrastructure for agentic training at scale",
+          "url": "https://arxiv.org/abs/2609.22978",
+          "source": "arxiv",
+          "byline": "Huang, Tang, Chen et al. (DeepSeek)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49859112",
+          "tier": "must-read",
+          "summary": "DeepSeek published the infrastructure paper behind its agentic RL pipeline: DSec is an elastic sandbox system that spins up isolated execution environments at the scale and churn required for large-scale agent training. It is the rare infra paper from a frontier lab that treats the environment, not just the model, as the training bottleneck — sandbox throughput, snapshotting, and failure isolation get first-class treatment. If you are building agent eval or RL harnesses, this is the most concrete published description of what 'at scale' actually costs."
+        },
+        {
+          "title": "ExplorationBench: measuring AI systems' exploration in verifiable alien worlds",
+          "url": "https://arxiv.org/abs/2609.30199",
+          "source": "arxiv",
+          "byline": "Zhang, Xiang, Gao et al.",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A benchmark that scores how well LLM systems explore unfamiliar, procedurally consistent 'alien' environments where prior knowledge is useless and every claim is machine-verifiable. This attacks a real blind spot: most agent benchmarks reward models for patterns memorized from the web, while exploration — forming hypotheses, testing them, updating — is what separates general capability from retrieval. A useful instrument if you are evaluating agents for genuinely novel domains like new codebases or instrument control."
+        },
+        {
+          "title": "We're gonna need a lot more mathematicians",
+          "url": "https://terrytao.wordpress.com/2026-09-24/were-gonna-need-a-lot-more-mathematicians/",
+          "source": "HN",
+          "byline": "Terence Tao",
+          "discuss_url": "https://news.ycombinator.com/item?id=49852717",
+          "tier": "must-read",
+          "summary": "Tao argues that AI has shifted mathematics' bottleneck from proving to specifying, verifying, and organizing results — and that the field therefore needs far more working mathematicians, not fewer. The argument lands differently than the usual AI-takes-our-jobs discourse because it is a supply-side claim from the person best positioned to see frontier AI's actual ceiling in formal reasoning. 465 comments of arguing about exactly how much of that is right."
+        },
+        {
+          "title": "Is your Postgres migration safe or not safe?",
+          "url": "https://safenotsafe.dev/",
+          "source": "HN",
+          "byline": "safenotsafe.dev (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49854161",
+          "tier": "recommended",
+          "summary": "An interactive reference that classifies Postgres schema migrations by whether they can run concurrently without locking writes or breaking the running application — the classic ADD COLUMN NOT NULL DEFAULT trap versus the safe multi-step dance. Every team that ships to a live Postgres eventually learns these rules by outage; this compresses that lesson into a lookup. Pairs well with agent-generated migrations, where nobody reviewed whether the ALTER actually takes an ACCESS EXCLUSIVE lock."
+        },
+        {
+          "title": "Laya Multilingual: a 322M System 1 decision model for 100+ languages",
+          "url": "https://huggingface.co/sxtylws/laya-multilingual",
+          "source": "huggingface",
+          "byline": "Convai Innovations",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The multilingual checkpoint of the Laya typed-decision family: 322M params on an mmBERT-base encoder, answering typed questions about tickets, emails, or JSON with calibrated probabilities in a single forward pass — no generation, nothing to parse, nothing to hallucinate. It covers 100+ languages at roughly 2x the speed of the English 421M model, with documented long-context behavior up to 8,192 tokens and a Router that picks the right checkpoint from input script before the forward pass. Runs comfortably in a couple of GB; the honest per-language MASSIVE benchmark table (including where the English model silently fails on non-Latin scripts) is worth the read by itself."
+        },
+        {
+          "title": "DuDE: full-duplex conversation TTS that generates two speakers together",
+          "url": "https://huggingface.co/penguinfish1688/duplexdataengine",
+          "source": "huggingface",
+          "byline": "Cheng-Kuang Chang",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "DuDE is a 1.9B text-to-speech model fine-tuned from Qwen3-TTS that synthesizes an entire two-speaker conversation in one shot — turn-taking, backchannels, overlapping speech, even coughs and laughs — from an XML dialogue script, emitting 24 kHz stereo with each speaker on a channel. It self-distills on independent utterances first, then fine-tunes on ~1,922 hours of synchronized Seamless Interaction conversations. This is the missing piece for cheaply generating realistic full-duplex dialogue data for voice agents, and at 2B params it is trainable-adjacent territory for small-lab budgets."
+        },
+        {
+          "title": "Turning GLM-5.3-Flash into a Jev-like decision model",
+          "url": "https://www.privatemode.ai/blog/system-one-from-glm-flash",
+          "source": "HN",
+          "byline": "PrivateMode.ai",
+          "discuss_url": "https://news.ycombinator.com/item?id=49857656",
+          "tier": "notable",
+          "summary": "A worked recipe for bolting typed, probabilistic decision behavior onto a sparse MoE chat model instead of training a dedicated System 1 model, using GLM-5.3-Flash as the substrate. Useful as a counterpoint to the from-scratch small decision models (Laya, Mica, K2-Type) that dominated this week's editions: here the decision layer is extracted from a model that already exists. The write-up includes the failure modes, which matters more than the wins when you are choosing between the two architectures."
+        },
+        {
+          "title": "Contrastive-LM/CLM: official implementation of the contrastive System 1 model",
+          "url": "https://github.com/Contrastive-LM/CLM",
+          "source": "github",
+          "byline": "Contrastive-LM",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "The code release behind the Contrastive Language Models paper that made yesterday's edition: fast, generalizable typed decisions from a contrastively trained encoder rather than token generation. Having the reference implementation next to the paper turns yesterday's claim into something you can actually benchmark against Laya or a prompted frontier model this week. The repo arrived right as the decision-model space splits into from-scratch, converted, and contrastive camps."
+        },
+        {
+          "title": "supermemoryai/company-brain: a Slack teammate that remembers everything",
+          "url": "https://github.com/supermemoryai/company-brain",
+          "source": "github",
+          "byline": "Supermemory",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Supermemory open-sourced the internal agent it runs in its own Slack: it ingests team conversation, maintains memory over it, and can go execute work rather than just answer questions. Interesting as a reference architecture for org-scale agent memory — what gets captured, how it is indexed against people and projects, and how retrieval triggers action. The open-sourcing also doubles as a live demo of where the company thinks agent memory products are headed."
+        },
+        {
+          "title": "How I changed teaching after AI managed to do all my homework assignments",
+          "url": "https://thelastsoftwareengineer.substack.com/p/how-i-changed-teaching-after-ai-managed",
+          "source": "HN",
+          "byline": "The Last Software Engineer",
+          "discuss_url": "https://news.ycombinator.com/item?id=49836579",
+          "tier": "notable",
+          "summary": "A CS instructor who checked whether frontier models could pass their own assignments found they could do all of them — and then actually redesigned the course around in-person, process-visible work instead of pretending the problem was detection. Concrete and honest about what was kept, cut, and now happens in class. Pairs uncomfortably well with last week's StudentBench result that AI and human tutoring produce equivalent GRE gains."
+        },
+        {
+          "title": "Analyzing frontier model progress with Prince of Persia",
+          "url": "https://blog.priyan.in/2026/09/analyzing-frontier-model-progress-with.html",
+          "source": "HN",
+          "byline": "Priyan Guha",
+          "discuss_url": "https://news.ycombinator.com/item?id=49849820",
+          "tier": "notable",
+          "summary": "The same Prince of Persia levels are run past successive frontier models as a longitudinal capability probe — fixed task, fixed environment, only the model changes. It is a nice template for personal, low-budget eval suites that survive benchmark contamination: a 1989 game's spatial reasoning and death-retry loops are nowhere in any leaderboard's training mix. The per-model diffs are more readable than any leaderboard row."
+        },
+        {
+          "title": "Fonts where every LLM token is the same width",
+          "url": "https://ampdot.mesh.host/token-space-fonts.html",
+          "source": "HN",
+          "byline": "ampdot.mesh.host",
+          "discuss_url": "https://news.ycombinator.com/item?id=49851883",
+          "tier": "notable",
+          "summary": "A typeface experiment that assigns each tokenizer token a fixed advance width, so text rendered in it shows true token volume — prompt length becomes literally visible as physical space. Part art project, part debugging lens: you can see where BPE fragmentation inflates a string and why non-Latin scripts cost so many more tokens. A cheap way to build tokenizer intuition for anyone tuning prompts against context budgets."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Liquid metal that repairs its own circuits, a Cheap Yellow Display reborn as a PDA, silicon you can design and fab yourself via shuttle runs, a 16 GB iPod Nano memory transplant, and two serious uses of industrial 3D printing — a 2-ton WAAM steel die for Boeing and 23 printed reefs seeded on the Atlantic seabed.",
+      "stories": [
+        {
+          "title": "Self-repairing conductive material from liquid metal",
+          "url": "https://hackaday.com/2026-09-26/self-repairing-conductive-material-from-liquid-metal/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Researchers demonstrated a liquid-metal-based conductive material whose traces rejoin and restore conductivity after being cut — Terminator-style circuits that heal themselves. The piece covers the gallium-alloy chemistry, how the damage releases metal into the gap, and measured resistance recovery after repeated damage. Practical horizon: flex circuits, wearables, and wiring harnesses that survive fatigue instead of failing at the crease."
+        },
+        {
+          "title": "Cheap Yellow Display dreams of PDA",
+          "url": "https://hackaday.com/2026-09-26/cheap-yellow-display-dreams-of-pda/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A build log turning the ubiquitous ESP32 Cheap Yellow Display into a working PDA — battery, case, and a real apps-and-PIM software layer on top of the cheap board. Good reproducible ESP32 work: touch UI state management, power handling, and the usual CYD display quirks are all documented. Follows the recent CYD-as-TV set and shows the board has become its own mini-platform for handheld builds."
+        },
+        {
+          "title": "You can make a microprocessor that's all your own",
+          "url": "https://hackaday.com/2026-09-26/you-can-make-a-microprocessor-thats-all-your-own/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A survey of how far hobbyist silicon fabrication has come, from Tiny Tapeout shuttle tiles to genuinely original hobby-designed cores reaching real silicon. The point that sticks: the gap between 'my idea fits in the shuttle slot' and 'my instruction set is in a fabbed die' is now a few hundred dollars and a few months. An encouraging map for anyone who has ever wanted to leave Verilog simulation behind."
+        },
+        {
+          "title": "16 GB iPod Nano 3rd-gen memory upgrade",
+          "url": "https://tuckerosman.com/projects/16gb-ipod-nano",
+          "source": "HN",
+          "byline": "Tucker Osman (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49826087",
+          "tier": "recommended",
+          "summary": "A meticulous mod that swaps the flash in a 3rd-gen iPod Nano to land a 16 GB capacity the model never shipped with — micro-soldering, NAND geometry questions, and firmware behavior when the device sees a chip it has never met. The write-up shows the measurements and failed assumptions, not just the win. A clean modern example of the classic storage-transplant hack applied to a device people assumed was closed."
+        },
+        {
+          "title": "ORNL 3D prints a 2-ton steel mold for Boeing aircraft work",
+          "url": "https://3dprintingindustry.com/news/ornl-3d-prints-steel-mold-for-boeing-aircraft-work-255091",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Oak Ridge National Laboratory and Boeing produced a steel stamp-form die by wire-arc additive manufacturing: six feet tall, four feet wide, close to two tons, printed in eight weeks for Boeing's NASA Hi-Rate Composite Wing program. The number that matters is what the alternative was — conventional die-sunk tooling at multiples the cost and lead time for a part that only ever touches a few dozen wings. A concrete data point that WAAM is past demo stage for heavy industrial tooling."
+        },
+        {
+          "title": "23 3D-printed reefs deployed for cold-water coral recovery",
+          "url": "https://3dprintingindustry.com/news/university-of-galway-and-ifremer-test-3d-printed-reefs-for-cold-water-coral-recovery-255078",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A Franco-Irish team from University of Galway and Ifremer sank 23 printed artificial reefs onto the Atlantic seabed at depths up to 1,100 metres to test whether AM structures can accelerate recovery of cold-water coral habitats wrecked by bottom trawling. The interesting engineering is designing for a substrate environment nobody prints for — current loading, settlement chemistry, and geometry that coral larvae actually settle on. A rare case of large-scale additive manufacturing pointed at ecosystem repair rather than production."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Two Science Advances papers make Enceladus measurably more habitable and its plume easier to sample; Berkeley researchers burned their own papyrus to prove lead in Roman ink lights up Herculaneum scrolls under X-rays; separate time crystals in one semiconductor fall into the same rhythm across 40 micrometres; Stonehenge's altar stone may have hitched a ride on a glacier from Scotland; the 2004 tsunami physically changed Earth's rotation; and Brazil's 1910 Revolt of the Lash.",
+      "stories": [
+        {
+          "title": "Two new studies make Enceladus look more habitable — and easier to sample",
+          "url": "https://www.fu-berlin.de/en/presse/informationen/fup/2026/fup_26_116-enceladus-cassini-mikroben-science-postberg/index.html",
+          "source": "science",
+          "byline": "Freie Universität Berlin (Science Advances, Sept 25, 2026)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49852905",
+          "tier": "essential",
+          "summary": "Two Science Advances papers from Frank Postberg's group change the Enceladus story in the same week. First, Cassini plume grains froze slowly, not instantly — so salts and organics segregate into distinct locations inside each ice grain, meaning a flyby dust analyzer can read the ocean's chemistry more cleanly than assumed. Second, lab work shows methanogenic microorganisms tolerate Enceladus-like geochemistry under extreme CO2 limitation better than expected. Between them, the odds improve on both halves of the question: is it habitable, and could we tell from orbit."
+        },
+        {
+          "title": "Scientists burned their own scrolls to unlock the Herculaneum mystery",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260925005414.htm",
+          "source": "science",
+          "byline": "UC Berkeley (Seiler et al., PLOS One)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "To test why some carbonized Herculaneum scrolls read in X-ray scans and others don't, Berkeley SETI affiliate Douglas Seiler had students write on real Egyptian papyrus with traditional lampblack ink, then carbonized the scrolls in a furnace to mimic Vesuvius in 79 CE. The result: trace lead in ancient ink makes the letters stand out dramatically against charred papyrus — the invisible-carbon-ink problem that has blocked most of the 1,000+ surviving scrolls. A cheap, checkable lever for finally reading the only intact library from antiquity."
+        },
+        {
+          "title": "Distant time crystals fall into the same rhythm",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260923035934.htm",
+          "source": "science",
+          "byline": "TU Dortmund (Nature Communications)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The TU Dortmund group that showed a continuous time crystal can persist for hours inside a semiconductor now demonstrates multiple time crystals in the same gallium-arsenide chip synchronizing their electron-nuclear spin oscillations — coupled by spin-polarized electrons across up to 40 micrometres, over 1,000 times the size of a single oscillator. It is the first evidence these exotic systems have long-range mutual influence, which is exactly the property you would need before any time-crystal device concept is taken seriously."
+        },
+        {
+          "title": "Stonehenge's 6-ton altar stone may have traveled from Scotland by glacier",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260922005715.htm",
+          "source": "science",
+          "byline": "ScienceDaily (Sept 22, 2026)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "New analysis suggests the Altar Stone's journey was multistage: glacier-carried from Scotland across what is now the Dogger Bank seabed, then hauled hundreds of kilometres overland to Salisbury Plain by prehistoric people. If confirmed, it reframes the stone as valuable long before humans touched it — ice as the first quarry — and adds a plausible explanation for how a 6-ton orbicular granite ended up ~750 km from its only known source. The glacier leg is the part still being argued."
+        },
+        {
+          "title": "TIL: the 2004 Indonesian tsunami changed Earth's rotation and shape",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wqhxcm/til_that_the_2004_indonesian_tsunami_was_so_large/",
+          "source": "reddit",
+          "byline": "u/Known_Refrigerator_5 (r/todayilearned)",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wqhxcm/til_that_the_2004_indonesian_tsunami_was_so_large/",
+          "tier": "notable",
+          "summary": "The magnitude-9.1 Sumatra-Andaman quake shifted enough mass that NASA's JPL calculated a shortened day by about 2.7 microseconds, a tiny change in Earth's oblateness, and a polar wobble drift of centimeters. The claim is not Reddit folklore — it is published JPL/Lambeck analysis of the 2004 event, which redistributed mass by tilting the subduction slab and pushing the seafloor up metres. A good calibration of how much planetary-scale geophysics a single earthquake can move."
+        },
+        {
+          "title": "TIL: the 1910 Revolt of the Lash — sailors seized Brazil's modern warships to end flogging",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wqvpn7/til_about_the_revolt_of_the_lash_in_1910_brazil/",
+          "source": "reddit",
+          "byline": "u/nesser2 (r/todayilearned)",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wqvpn7/til_about_the_revolt_of_the_lash_in_1910_brazil/",
+          "tier": "notable",
+          "summary": "In November 1910, mostly Black sailors — two decades after abolition, still beaten with the whip in Brazil's navy — mutinied, took command of the fleet's brand-new battleships, and threatened to bombard Rio de Janeiro until flogging was abolished. The government capitulated to every demand; the rebels were promised amnesty, then arrested, killed, or deported after surrendering their ships. A well-documented uprising (the Revolta da Chibata, led by João Cândido) that barely registers outside Brazil — worth knowing precisely because the betrayal pattern repeats."
+        }
+      ]
+    }
+  ]
+}
