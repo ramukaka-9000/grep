@@ -1,0 +1,261 @@
+{
+  "date": "2026-09-30",
+  "summary": "Anthropic's own red-team report hands open-weight GLM-5.3 its best advertisement as the most cyber-capable open model ever measured, mechanistic work pinpoints where models decide to obey prompt injections, and the squeeze keeps tightening — a 125B MoE on an 8 GB GPU, a 289M LLM on a bare microcontroller — while BepiColombo closes in on Mercury.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Cyber capability diffusion, injection mechanics, and frontier models shrinking onto small hardware.",
+      "stories": [
+        {
+          "title": "GPT 6.1 Sol: near-Astra intelligence for a fifth of the price",
+          "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+          "source": "HN",
+          "byline": "OpenAI via Hacker News, 810 pts / 747 comments",
+          "discuss_url": "https://news.ycombinator.com/item?id=49896586",
+          "tier": "must-read",
+          "summary": "OpenAI's mid-tier 'Sol' line claims near-flagship (Astra) intelligence at roughly one fifth the price, and the HN thread reads like a pricing-page audit — per-token math, eval pickiness, and which workloads actually move down-tier. If the claim holds, most production agent traffic that currently pays flagship rates has a cheaper seat, which changes harness economics more than model choice. Worth reading for the cost-per-capability curve alone."
+        },
+        {
+          "title": "Dots: always-on agents",
+          "url": "https://openai.com/index/introducing-dots/",
+          "source": "HN",
+          "byline": "OpenAI via Hacker News, 476 pts / 357 comments",
+          "discuss_url": "https://news.ycombinator.com/item?id=49896604",
+          "tier": "notable",
+          "summary": "OpenAI is shipping persistent, always-on agents that watch triggers and act without a prompt in the loop, and the debate mirrors every daemon product before it: who audits what ran at 3am, and what happens when a scheduled agent misreads its mandate. For builders this is the product-shaped preview of the pattern most agent frameworks are converging on — long-lived state, event-driven wakes, budget controls. The comment section is a useful catalog of the failure modes people expect first."
+        },
+        {
+          "title": "Livenerf: has Opus 5.5 been nerfed yet?",
+          "url": "https://github.com/ninjahawk/livenerf",
+          "source": "HN",
+          "byline": "ninjahawk via Hacker News, 294 pts / 129 comments",
+          "discuss_url": "https://news.ycombinator.com/item?id=49901736",
+          "tier": "notable",
+          "summary": "A community project that continuously re-runs fixed probe suites against frontier APIs to detect silent capability changes over time. The premise — 'was my model nerfed?' — is usually dismissed as vibes, and this turns it into a longitudinal eval with plotted history instead. Whatever the verdict on Opus 5.5, the pattern is the takeaway: if model behavior is part of your production dependency graph, you need drift detection on it like you have on every other dependency."
+        },
+        {
+          "title": "A privacy analysis of web and mobile conversational AI agents",
+          "url": "https://jorgegarciaherrero.com/wp-content/interactivos/20260916-Prompt-like-a-butterfly-sting-like-a-bee.pdf",
+          "source": "HN",
+          "byline": "García Herrero et al. via Hacker News, 411 pts / 130 comments",
+          "discuss_url": "https://news.ycombinator.com/item?id=49890226",
+          "tier": "recommended",
+          "summary": "A measurement study of what today's conversational AI agents on web and mobile actually transmit, where it goes, and how long it persists — the kind of empirical teardown that separates a product's privacy policy from its network traffic. It hit the HN front page because the gap between the two is the story. Read it before wiring a consumer agent into anything you would not paste into a public form."
+        },
+        {
+          "title": "She Spoofed Sea Ships by the Sea Shore: measuring large-scale GPS spoofing in global maritime traffic",
+          "url": "https://arxiv.org/abs/2609.37676",
+          "source": "arxiv",
+          "byline": "Raymaker, Von Brock, Pickren et al. (Georgia Tech)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "The first large-scale measurement study of maritime GPS spoofing, run over AIS broadcasts from more than 367,000 vessels between late November 2024 and early February 2025. The method is a motion-aware detector that flags physically implausible, correlated vessel displacement — many ships 'moving' together in ways no ocean current explains — and grades the evidence per region, surfacing 31 persistent spoofing hotspots. If you build anything that trusts GNSS, this is what the adversarial ground truth looks like at planetary scale."
+        },
+        {
+          "title": "Where do LLMs decide to break the rules? Mechanistic localization of prompt injection compliance",
+          "url": "https://arxiv.org/abs/2609.37737",
+          "source": "arxiv",
+          "byline": "Wen, Liu, Yang, Sakuma, Sun",
+          "discuss_url": "",
+          "tier": "essential",
+          "summary": "Layer-by-layer causal activation patching across five models (4B to 32B) finds a clean dissociation: injection content is linearly decodable from the very first layer, but the model only gains causal leverage over its own compliance in a late-layer bottleneck in the final third of the network. Patching that bottleneck flips compliance in 77-92% of cases, and the compliance mechanism lives in a compact linear subspace — rank-8 at 4B/14B, rank-64 at 32B — stable across architectures. A rare mechanistic result with an obvious engineering handle: defense may be a targeted intervention, not a system-prompt arms race."
+        },
+        {
+          "title": "Niko1221/Strata: Qwen3.8-Flash-Next 125B MoE on an 8 GB GPU",
+          "url": "https://github.com/Niko1221/Strata",
+          "source": "github",
+          "byline": "Niko1221, 1.8k stars",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A one-click Windows/Linux installer for a C++ inference engine that runs the 125B-parameter Qwen3.8-Flash-Next MoE on 8+ GB NVIDIA cards, exposing OpenAI- and Anthropic-compatible APIs on localhost with optional image input. It is the most polished packaging yet of the expert-offload trick that keeps frontier-class open models alive on laptop silicon. If you have been waiting for a 125B-class local model to feel like a normal install rather than a weekend project, this is the datapoint."
+        },
+        {
+          "title": "dzhng/jevgrep: find code by asking what it does",
+          "url": "https://github.com/dzhng/jevgrep",
+          "source": "github",
+          "byline": "dzhng, 1.8k stars",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A CLI for coding agents that replaces keyword grep with intent search: ask what the code does and it returns the relevant files and source context, using a Jev-style decision model to rank candidates cheaply before the expensive model ever reads them. Context retrieval is the boring bottleneck in most agent harnesses, and this is a tidy, drop-in attack on it. The agent-native CLI shape — stdout for agents, not humans — is worth stealing even if you swap the model out."
+        },
+        {
+          "title": "Language models for text classification: from bag-of-words to Jev",
+          "url": "https://magazine.sebastianraschka.com/p/classifier-history-and-jev",
+          "source": "other",
+          "byline": "Sebastian Raschka, Ahead of AI",
+          "discuss_url": "https://news.ycombinator.com/item?id=49891203",
+          "tier": "recommended",
+          "summary": "Raschka traces text classification end to end — bag-of-words, TF-IDF, fine-tuned encoders, LLM prompting — and lands on where the new typed decision models (the Jev wave) actually earn their keep versus where a logistic regression on TF-IDF still wins on cost and latency. The honest engineering read on the current small-model moment: most classification workloads never needed a transformer, and the ones that did mostly needed this much compute. A good calibration piece before you reach for an LLM classifier."
+        },
+        {
+          "title": "Building a certificate authority for the whole Internet",
+          "url": "https://blog.cloudflare.com/cloudflare-certificate-authority/",
+          "source": "other",
+          "byline": "Cloudflare",
+          "discuss_url": "https://news.ycombinator.com/item?id=49893144",
+          "tier": "recommended",
+          "summary": "Cloudflare walks through operating a globally trusted certificate authority — the HSM architecture, ceremony procedures, and split-key custody that let a web company hold root trust without becoming a single point of failure for the Web PKI. It is one of the few honest long-form accounts of what 'trusted infrastructure' actually costs in process, not just code. Quietly low on HN points, high on durable reference value for anyone who has to defend a key-management design."
+        },
+        {
+          "title": "GLM-5.3 and the spread of advanced cyber capabilities",
+          "url": "https://www.anthropic.com/research/glm-5.3-and-the-spread-of-advanced-cyber-capabilities",
+          "source": "other",
+          "byline": "Anthropic Frontier Red Team (Fasano, Fleischer, McFaul, Xiao, Gallagher), Sept 29, 2026",
+          "discuss_url": "https://news.ycombinator.com/item?id=49897075",
+          "tier": "essential",
+          "summary": "Anthropic's red team measured Zhipu's openly downloadable GLM-5.3 building end-to-end exploits in 50 of 410 ExploitBench runs — statistically shoulder-to-shoulder with Claude Mythos Preview's 56 — chaining browser 0-days into a drive-by that exfiltrated an SSH key, and turning two known CVEs into a working ARM64 PAC-bypass chain for $20.40 of API tokens. Safeguards fell to simple jailbreaks in 64-100% of simulated tests, and NIST CAISI independently called it the most cyber-capable open-weight model released to date. The LocalLLaMA and HN threads went the other way, reading the report as a free advertisement for open weights and a case that defenders need these models too — the capability fact is now jointly verified, whatever you make of the framing."
+        },
+        {
+          "title": "Qwen 3.8 27B Q4 with 100K context on a 16 GB RX 7800 XT",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wt7e8l/qwen_38_27b_q4_with_100k_context_on_a_16_gb_rx/",
+          "source": "reddit",
+          "byline": "u/Haunting-Stretch8069 (r/LocalLLaMA)",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wt7e8l/qwen_38_27b_q4_with_100k_context_on_a_16_gb_rx/",
+          "tier": "notable",
+          "summary": "A step-by-step guide to squeezing a Q4-quantized Qwen 3.8 27B with a 100K-token context onto a 16 GB AMD card — KV-cache sizing, offload split, and the ROCm settings that make it fit without collapsing throughput. The kind of concrete, reproducible recipe that moves a whole hardware class from 'technically possible' to 'today'. If you own an RDNA3 card and have treated it as a paperweight for LLMs, start here."
+        },
+        {
+          "title": "TeleOCR: a 1.2B VLM that unifies digital and camera-captured document parsing",
+          "url": "https://huggingface.co/XingChen-AGI/TeleOCR",
+          "source": "hf",
+          "byline": "TeleAI / XingChen-AGI (Apache-2.0)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A ~1.2B-parameter open vision-language model that handles both clean digital PDFs and photographed documents in one framework — the split where most parsers fall apart — beating MinerU 2.5 Pro and PaddleOCR-VL 1.6 on the EMNLP Dr.DocBench challenge with native weights, and ranking third under 128B on Real5-OmniDocBench. Confirmed on the model card: quantized it sits comfortably in ~5 GB VRAM, and a community GGUF already runs it in llama.cpp. One of the strongest small-model document parsers available right now."
+        },
+        {
+          "title": "Nemotron-3 Diarization: streaming 'who spoke when' under 100M parameters",
+          "url": "https://huggingface.co/nvidia/Nemotron-3-Diarization",
+          "source": "hf",
+          "byline": "NVIDIA, released Sept 23, 2026",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "NVIDIA open-sourced a sub-100M-parameter speaker diarization model that handles up to eight speakers with both streaming and offline inference — an arrival-order speaker cache keeps identities stable across chunks, down to 80 ms buffer latency, with unlimited duration via chunked inference. At this size it runs performantly on CPU or any GPU, ships with a NeMo-Speech.cpp native runtime, and is cleared for commercial use. Meeting transcription pipelines just got a serious drop-in for the diarization step that usually costs more than the ASR."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Interferometric radar on a drone, generative AI on bare metal, and mechanical ingenuity in plastic and silicon.",
+      "stories": [
+        {
+          "title": "Synthetic aperture radar drone gets interferometric imaging",
+          "url": "https://blog.adafruit.com/2026-09-29/synthetic-aperture-radar-drone-gets-interferometric-imaging/",
+          "source": "adafruit",
+          "byline": "Henrik Forstén via Adafruit",
+          "discuss_url": "",
+          "tier": "essential",
+          "summary": "Henrik Forstén's homebuilt SAR drone now does interferometric SAR (InSAR) — millimeter-scale surface-change imaging, the technique behind satellite ground-deformation maps — on essentially the same cheap hardware. The unlock was RTK positioning: an F9P module with a helical antenna from AliExpress for 144 EUR plus a 180 EUR base station. It is a striking demonstration that centimeter-truth positioning turns hobby budgets into remote-sensing-grade instruments."
+        },
+        {
+          "title": "Microcontrollers now run a diffusion model and a 289M LLM",
+          "url": "https://blog.adafruit.com/2026-09-29/microcontrollers-now-run-a-diffusion-model-and-289m-llm/",
+          "source": "adafruit",
+          "byline": "Open Source For You via Adafruit",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Two open-source projects now run generative models on bare-metal microcontrollers — no Linux, no GPU, no external accelerator. A compact diffusion model generates images on an STM32N6570-DK (Cortex-M55 plus an Ethos-U55 NPU), and a 289M-parameter LLM runs in the same class of footprint. Between this and this week's 8 GB-GPU packaging of 125B MoEs, the cost curve for 'model on a $15 chip' just visibly bent."
+        },
+        {
+          "title": "Designing a fully 3D-printed mechanical calculator",
+          "url": "https://hackaday.com/2026-09-29/designing-a-fully-3d-printed-mechanical-calculator/",
+          "source": "hackaday",
+          "byline": "3D all Workshop via Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Two months and roughly a hundred design iterations went into this fully FDM-printed mechanical calculator that adds and multiplies with nothing but gears — digit carry being the part that fights you every step. The write-up is honest about tolerance-driven redesigns and the lubrication that finally made the gear train behave. A clean, reproducible case study in why printed mechanisms fail and what fixes them, which transfers to any printed gearbox."
+        },
+        {
+          "title": "Metal Gear Solid moves from PlayStation to ESP32",
+          "url": "https://blog.adafruit.com/2026-09-29/metal-gear-solid-moves-from-playstation-to-esp32/",
+          "source": "adafruit",
+          "byline": "Velxio via Adafruit",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A native port of Metal Gear Solid running on an ESP32-S3: the FoxdieTeam decompilation's C source compiled straight to Xtensa, with everything the PlayStation supplied — the GTE geometry transform engine, the CD BIOS — reimplemented in software. It is a genuinely instructive teardown of what a console actually provided to a 1998 game, rebuilt one subsystem at a time on a $5 WiFi chip. The embedded-graphics and fixed-point tricks in the port are the real payload."
+        },
+        {
+          "title": "Using the SNES Super FX chip to run Super Mario 64",
+          "url": "https://blog.adafruit.com/2026-09-29/using-the-snes-super-fx-chip-to-run-super-mario-64/",
+          "source": "adafruit",
+          "byline": "Tobi (via Hackaday) via Adafruit",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "Someone got a version of Super Mario 64 running on original SNES hardware by leaning on the Super FX — the 3D coprocessor that lived in cartridges like Star Fox's — rather than the console's own 65816. It reframes the perennial 'SM64 on SNES' myth with the one hardware path that was ever plausible, and documents exactly where the N64's architecture still wins. Retro-programming depth: the cycle-level accounting of what the FX could and could not absorb."
+        },
+        {
+          "title": "Electromechanical TV goes 3D with a light-field display",
+          "url": "https://hackaday.com/2026-09-29/electromechanical-tv-goes-3d-with-this-light-field-display/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A mechanical television — Nipkow disk, single lamp, persistence of vision — rebuilt as a light-field 3D display, so the nineteenth-century spinning-disk scanner becomes the pixel-clock for volumetric imagery. Light-field displays usually mean dense micro-lens arrays and GPU math; doing it electromechanically forces you to understand both the optics and the scanning from first principles. A rare build that teaches display physics by making it visibly, audibly spin."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Earth's wobbling day, resurrected Jurassic antibiotics, medieval graves that lie about kinship, and a spacecraft arriving at Mercury this December.",
+      "stories": [
+        {
+          "title": "Earth's day isn't exactly 24 hours — the reason may lie deep inside the planet",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260928100540.htm",
+          "source": "science",
+          "byline": "Nature (Sept 29, 2026) via ScienceDaily",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "New Nature work suggests the decades-long milliseconds-long swings in the length of day come from angular-momentum exchange between Earth's liquid core and mantle: over roughly thirty-year cycles the core speeds up and the mantle slows, then they trade places, detected through magnetic-field changes at the surface. Your day is not 86,400 seconds; it is 86,400 seconds plus a planetary-scale tug-of-war happening 3,000 km under your feet. A rare case where timekeeping, geodynamo, and deep-Earth dynamics all show up on one clock."
+        },
+        {
+          "title": "160-million-year-old proteins show surprising power against superbugs",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260925093155.htm",
+          "source": "science",
+          "byline": "University of Oregon (Sept 28, 2026) via ScienceDaily",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "University of Oregon biologists reconstructed antimicrobial peptides from mammals' ancestors going back up to 160 million years, brought them back to life in the lab, and found several kill drug-resistant bacteria more potently than the modern human versions. Molecular de-extinction as a drug-discovery strategy is the story: evolution ran billions of trials against long-dead pathogens, and the winners are recoverable from sequence alone. With antibiotic resistance climbing, the Jurassic may be a better arsenal than the pharmacy."
+        },
+        {
+          "title": "These medieval graves looked like family burials. DNA told a different story",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260925005444.htm",
+          "source": "science",
+          "byline": "Stockholm University (Science Advances) via ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Ancient DNA from 142 people across three Swedish sites — Sigtuna, Västerhus, Fjälkinge — shows adults and children buried together in late-Viking and medieval graves were often not immediate family, so shared graves encoded something other than kinship: household, status, devotion. The same dataset surfaces early gender-based burial customs and a young woman whose isotopes suggest she may have completed a pilgrimage across Europe. Archaeology's most humble assumption — buried together means related — just needed an audit."
+        },
+        {
+          "title": "BepiColombo's Mercury arrival begins — watch it at ESA this December",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Win_a_trip_to_ESA_to_witness_BepiColombo_arrive_at_Mercury",
+          "source": "esa",
+          "byline": "ESA",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "After a seven-year, 9-billion-kilometer cruise with nine gravity assists around Earth, Venus and Mercury, BepiColombo's arrival sequence at Mercury is underway, with ESA's live event centered on December 9 — and the agency is literally giving away trips to watch it at mission operations. Mercury orbit insertion is the hardest braking maneuver in current planetary science, done by a joint ESA/JAXA stack that cannot afford a single bad burn. Put December 9 in the calendar; the last European spacecraft to orbit Mercury took eleven years to get there."
+        },
+        {
+          "title": "TIL: Korea printed books with movable metal type more than 70 years before Gutenberg",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wttmja/til_that_korea_was_using_movable_metal_type_to/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wttmja/til_that_korea_was_using_movable_metal_type_to/",
+          "tier": "notable",
+          "summary": "The Buddhist anthology Jikji, printed in Cheongju in 1377, predates Gutenberg's 42-line Bible by roughly 78 years, and Korean records describe cast-metal movable type decades before that — with surviving volumes in the Bibliothèque nationale de France to prove it. The textbook story still usually starts at Mainz; the primary evidence starts in Korea. A clean example of how 'invention' narratives drift when the surviving copies live in someone else's library."
+        },
+        {
+          "title": "TIL: before Don Quixote, Cervantes spent five years as a slave in Algiers",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wteimq/til_before_he_wrote_don_quixote_cervantes_was/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wteimq/til_before_he_wrote_don_quixote_cervantes_was/",
+          "tier": "notable",
+          "summary": "Returning from Naples in 1575, Miguel de Cervantes was captured by Barbary corsairs and held in Algiers for five years — four escape attempts, a ransom his Trinitarian order finally raised — before he wrote the novel that helped invent the modern form. His captivity bleeds straight into the work: several of his Novelas ejemplares and the Quixote itself feature characters living the same bondage. The founding text of the European novel was written by its most famous former hostage."
+        }
+      ]
+    }
+  ]
+}
