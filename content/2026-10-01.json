@@ -1,0 +1,261 @@
+{
+  "date": "2026-10-01",
+  "summary": "Frontier releases keep landing (Gemini 4 Argon) while the agent-tooling fight moves to MCP refusals and self-optimizing inference engines; on the small side an ESP32 becomes an SDR and a 421M router learns when an agent should think; a dying crossword setter, a whisky-ransom hijacking, and mid-air mail-catching close out the day's history.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Gemini 4 Argon opens October, MCP fatigue gets its essay, and the local stack keeps absorbing new architectures within hours.",
+      "stories": [
+        {
+          "title": "Gemini 4 Argon",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+          "source": "Hacker News",
+          "byline": "Google (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49913571",
+          "tier": "must-read",
+          "summary": "Google opens the new quarter with Gemini 4 Argon, announced on the official blog and immediately the most-discussed AI item on HN with 700+ comments. Read it alongside yesterday's GPT-6.1 Sol launch: the frontier-price war Google started, with OpenAI answering at a fifth of the price, is now a two-front release race. The HN thread is where benchmark skepticism and real-world usage reports land first."
+        },
+        {
+          "title": "You said no MCP",
+          "url": "https://earendil.com/posts/you-said-no-mcp/",
+          "source": "Hacker News",
+          "byline": "earendil.com",
+          "discuss_url": "https://news.ycombinator.com/item?id=49906637",
+          "tier": "recommended",
+          "summary": "A sharp essay on the gap between what agent tool-calling setups promise and what they deliver, aimed squarely at MCP's adoption story. It captures the growing practitioner sentiment that context-bloating tool servers often cost more than the tools earn. 347 HN comments of people comparing notes on what actually survives in their harnesses."
+        },
+        {
+          "title": "I could've accessed 17T Microsoft records",
+          "url": "https://blog.faav.net/how-i-couldve-accessed-17-trillion-microsoft-records",
+          "source": "Hacker News",
+          "byline": "faav.net",
+          "discuss_url": "https://news.ycombinator.com/item?id=49883970",
+          "tier": "recommended",
+          "summary": "A security researcher walks through how an unauthenticated path led to exposure of roughly 17 trillion Microsoft records — a data-lake-scale misconfiguration writeup with the discovery chain spelled out. Useful reading for anyone shipping agent pipelines that touch cloud storage: the failure mode is boring (over-broad tokens, public sinks) and the blast radius is not."
+        },
+        {
+          "title": "Launch HN: Magnitude — self-optimizing inference engine for agents",
+          "url": "https://github.com/magnitudedev/magnitude",
+          "source": "Hacker News",
+          "byline": "Magnitude (YC S25)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49911995",
+          "tier": "recommended",
+          "summary": "YC S25's Launch HN: an open-source inference engine that compiles and tunes its kernels on your exact hardware at install time, claiming up to 2x over llama.cpp on Apple Silicon, NVIDIA, AMD, or CPU-only. The self-optimizing angle — profile, compile, benchmark on-device — is the interesting bet, made the same week Strata's instance-adaptive engine topped the same subreddit. Worth benchmarking against your own quant mix before believing the 2x."
+        },
+        {
+          "title": "Scaling Laws for Looped Mixture of Experts",
+          "url": "https://arxiv.org/abs/2609.40316v1",
+          "source": "arXiv",
+          "byline": "arXiv preprint",
+          "discuss_url": "https://arxiv.org/abs/2609.40316v1",
+          "tier": "recommended",
+          "summary": "Derives scaling laws for the looped-MoE family — sparse experts reused across depth — which is quickly becoming the shape of cheap frontier-class models. If the fitted exponents hold, capacity-per-parameter tradeoffs for recurrent-expert stacks become predictable, which matters directly for the open-weight 8-30B class that home inference actually runs."
+        },
+        {
+          "title": "How Much Is an AI Token Worth? Scaling Laws for Wild AI-Generated Web Text",
+          "url": "https://arxiv.org/abs/2609.40295v1",
+          "source": "arXiv",
+          "byline": "arXiv preprint",
+          "discuss_url": "https://arxiv.org/abs/2609.40295v1",
+          "tier": "notable",
+          "summary": "Attempts to price synthetic text as training data: how much value an AI-generated token on the open web contributes to future model training, and how that value decays with volume. Directly relevant to the data-sourcing economics behind every crawler and licensing deal, and to the 'model collapse via synthetic flood' debate."
+        },
+        {
+          "title": "openai/mcp-extensions — build plugins that feel native to ChatGPT",
+          "url": "https://github.com/openai/mcp-extensions",
+          "source": "GitHub",
+          "byline": "OpenAI",
+          "discuss_url": "https://github.com/openai/mcp-extensions",
+          "tier": "recommended",
+          "summary": "OpenAI ships the SDK for building MCP extensions that surface inside ChatGPT as first-class features rather than bolted-on tool lists — the plugin ecosystem OpenAI cited as feeding its always-on Dots agents across 4,000+ apps. Read it next to 'You said no MCP' above: the standards fight is now between raw MCP servers and curated, store-like extension surfaces."
+        },
+        {
+          "title": "feder-cr/dots — an open-source agent browser that doesn't get blocked",
+          "url": "https://github.com/feder-cr/dots",
+          "source": "GitHub",
+          "byline": "feder-cr",
+          "discuss_url": "https://github.com/feder-cr/dots",
+          "tier": "notable",
+          "summary": "Open-source browser automation built for agents, pitched explicitly as 'one that does not get blocked' — fingerprint and session handling as first-class features. The name collides with OpenAI's Dots agents, intentionally or not, and the blocking-resistance framing is the honest answer to what every production agent team hits in week two."
+        },
+        {
+          "title": "Oíddo: speech recognition that beats Whisper-tiny on a $5 microcontroller",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wu2jjy/o%C3%ADddo_speech_recognition_that_beats_whispertiny/",
+          "source": "Reddit",
+          "byline": "Lokutor team (r/LocalLLaMA)",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wu2jjy/o%C3%ADddo_speech_recognition_that_beats_whispertiny/",
+          "tier": "must-read",
+          "summary": "Open-source ASR running NVIDIA's 13M-parameter Conformer-CTC (int8) on an ESP32-S3 with 8 MB PSRAM — no GPU, no NPU — posting LibriSpeech WER of 3.7/8.2 versus 6.3/15.9 for Whisper tiny.en running on a laptop. Under real noise (car, kitchen, cafeteria plus babble and reverb) it still leads: 8.4 vs 12.1 mean WER. The strongest case yet that tiny specialized models beat tiny generalist ones on the hardware where most of the world's compute actually lives."
+        },
+        {
+          "title": "World's fastest WebGPU kernels for local AI, open-sourced",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wu8tpg/we_just_opensourced_the_worlds_fastest_webgpu/",
+          "source": "Reddit",
+          "byline": "Hugging Face team (r/LocalLLaMA)",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wu8tpg/we_just_opensourced_the_worlds_fastest_webgpu/",
+          "tier": "recommended",
+          "summary": "A kernel collection covering 200+ common ML ops, tuned to run entirely in-browser on WebGPU, with plans to upstream into Transformers.js, ONNX Runtime Web, and LiteRT.js. Browser-local inference has usually lost badly to native runtimes; a shared, optimized kernel layer is the prerequisite for small models running at usable speed with no install. Top r/LocalLLaMA post of the day at 345 points."
+        },
+        {
+          "title": "llama.cpp merges GLM-5.3-Flash (GLM5-Next) support",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wu0bdf/add_glm53flash_glm5next_support_by_timkhronos/",
+          "source": "Reddit",
+          "byline": "timkhronos PR #27773 (r/LocalLLaMA)",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wu0bdf/add_glm53flash_glm5next_support_by_timkhronos/",
+          "tier": "recommended",
+          "summary": "PR #27773 lands GLM-5.3-Flash support in llama.cpp — 'now you can use GLM-5.3-Flash on your home computer' — closing the gap between the model's release and home usability in days, not weeks. Given GLM-5.3's record-setting cyber-capability numbers in Anthropic's red-team report, local runnability of this family is a distribution event, not just a merge."
+        },
+        {
+          "title": "Qwen3.8-Flash-Next GGUF: 50 t/s decode, 1500 t/s prefill on a 12 GB laptop",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wtv43r/qwen38_flash_next_istadaslab_gguf_50ts_tg_and/",
+          "source": "Reddit",
+          "byline": "r/LocalLLaMA",
+          "discuss_url": "https://www.reddit.com/r/LocalLLaMA/comments/1wtv43r/qwen38_flash_next_istadaslab_gguf_50ts_tg_and/",
+          "tier": "notable",
+          "summary": "Field report of the ISTA-DASLab GGUF of Qwen3.8-Flash-Next hitting 50 t/s token generation and 1500 t/s prefill on a 12 GB VRAM + 64 GB RAM laptop via the Strata engine, with 129 comments of people comparing configs. Follows yesterday's Strata coverage with the thing that matters: reproducible numbers on commodity laptops, plus reports that the engine's early KV-cache and throttling bugs got fixed."
+        },
+        {
+          "title": "laya-for-clara: a 421M model that decides when your agent should think",
+          "url": "https://huggingface.co/TheWiderLensInitiative/laya-for-clara",
+          "source": "Hugging Face",
+          "byline": "The Wider Lens Initiative",
+          "discuss_url": "https://huggingface.co/TheWiderLensInitiative/laya-for-clara",
+          "tier": "recommended",
+          "summary": "A 421M-parameter fine-tune of Laya (ModernBERT-large + decision head) that answers two questions about every message in ~0.35 s on CPU: route it (chat/task/schedule) and set effort (quick/deep). Trained on 1,343 synthetic routing examples in about 4 minutes on an RTX 3060, it scores 39/40 and 40/40 on held-out sets where the base model gets 30/40. A concrete, runnable answer to the cost problem of always-thinking agents — the router itself costs nothing."
+        },
+        {
+          "title": "ancient-words-o1: OCR that returns words with bending polygons, in 0.85B",
+          "url": "https://huggingface.co/commreteris/ancient-words-o1",
+          "source": "Hugging Face",
+          "byline": "commreteris",
+          "discuss_url": "https://huggingface.co/commreteris/ancient-words-o1",
+          "tier": "recommended",
+          "summary": "An 0.85B VLM (Qwen3.5-0.8B via OvisOCR2) fine-tuned to read a scanned book page into one JSON object: every region typed and outlined, every word in reading order with a polygon that tilts and bends with skewed or warped pages. A Q8_0 GGUF build ships for llama.cpp, so it runs quantized inside a 5-6 GB budget. Dense pages can exceed 32K output tokens — a reminder that OCR-as-generation has its own scaling quirks."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "The ESP32 keeps turning into hardware it was never documented to be — an SDR, a desktop — plus retro salvage and a FireWire revival.",
+      "stories": [
+        {
+          "title": "ESP-SDR: undocumented raw I/Q capture turns the ESP32 into a software defined radio",
+          "url": "https://blog.adafruit.com/2026-09-30/esp-sdr-uses-undocumented-raw-i-q-capture-of-esp32-to-make-software-defined-radios/",
+          "source": "Adafruit",
+          "byline": "Florian Euchner (ESPARGOS)",
+          "discuss_url": "https://blog.adafruit.com/2026-09-30/esp-sdr-uses-undocumented-raw-i-q-capture-of-esp32-to-make-software-defined-radios/",
+          "tier": "must-read",
+          "summary": "ESPARGOS author Florian Euchner published firmware that hooks an undocumented raw I/Q capture path in the ESP32's 2.4 GHz Wi-Fi radio, turning the chip into a real SDR — spectrum viewing and signal study beyond WiFi packets, with no separate SDR dongle. Reproducible from GitHub and it reframes every $4 ESP32 board as a candidate 2.4 GHz receiver. The RF community's favorite kind of hack: the hardware could always do it, Espressif just never documented it."
+        },
+        {
+          "title": "TinyDesk: a mouse-controlled windowed desktop for the ESP32, rendered in your terminal",
+          "url": "https://www.reddit.com/r/esp32/comments/1wuedgu/i_built_a_mousecontrolled_desktop_for_the_esp32/",
+          "source": "Reddit",
+          "byline": "r/esp32 (321 upvotes)",
+          "discuss_url": "https://www.reddit.com/r/esp32/comments/1wuedgu/i_built_a_mousecontrolled_desktop_for_the_esp32/",
+          "tier": "must-read",
+          "summary": "An open-source windowed text desktop that runs entirely on the ESP32 and displays over USB serial as ANSI/VT output — the PC only renders characters and forwards keyboard/mouse events, with no host-side application. Draggable/resizable windows, taskbar, start menu, file manager, all on a microcontroller. Cross-posted to r/embedded and the top ESP32 build of the day; the serial-terminal-as-thin-client architecture is genuinely clever."
+        },
+        {
+          "title": "Firehat brings native FireWire to the Raspberry Pi 5",
+          "url": "https://blog.adafruit.com/2026-09-30/firehat-bringing-firewire-to-the-raspberry-pi-5/",
+          "source": "Adafruit",
+          "byline": "Open Electronics",
+          "discuss_url": "https://blog.adafruit.com/2026-09-30/firehat-bringing-firewire-to-the-raspberry-pi-5/",
+          "tier": "recommended",
+          "summary": "An open-source HAT adding native IEEE 1394 to the Pi 5 (and Radxa ROCK 2F), built for one stubbornly practical reason: MiniDV, Digital8, DVCAM and HDV tapes can only be captured losslessly over FireWire, and modern machines dropped the port. Home video preservation is a ticking clock — consumer DV decks are dying faster than the tapes — and this keeps capture possible on hardware you already own."
+        },
+        {
+          "title": "Floppy Emu: a month of failure analysis on 68 dead boards",
+          "url": "https://blog.adafruit.com/2026-09-30/floppy-emu-hardware-failure-analysis-results/",
+          "source": "Adafruit",
+          "byline": "Steve, Big Mess o' Wires",
+          "discuss_url": "https://blog.adafruit.com/2026-09-30/floppy-emu-hardware-failure-analysis-results/",
+          "tier": "recommended",
+          "summary": "A rare, honest PCB rework case study: a month spent sorting 68 failed Floppy Emu boards — QA rejects plus customer returns — by root cause, with the full tally published. Failure-rate data at this granularity almost never goes public outside big industry; for anyone shipping small-batch hardware it's a free lesson in which assembly defects actually dominate and which are folklore."
+        },
+        {
+          "title": "KryonOS: a graphical, JavaScript-driven operating system for the ESP32",
+          "url": "https://blog.adafruit.com/2026-09-30/kryonos-a-javascript-os-for-esp32/",
+          "source": "Adafruit",
+          "byline": "Haris (Hackster.io)",
+          "discuss_url": "https://blog.adafruit.com/2026-09-30/kryonos-a-javascript-os-for-esp32/",
+          "tier": "notable",
+          "summary": "An open-source graphical OS for ESP32/ESP32-S3 built around the Duktape JavaScript engine, where apps run on top of the system and reach graphics, input, and hardware through OS-provided APIs instead of touching registers. The 'write apps, not firmware' layer on a $5 MCU has been tried before and usually stalls; worth watching whether the app surface grows."
+        },
+        {
+          "title": "Reverse-engineering a $35 backup-camera display (AMT630A)",
+          "url": "https://github.com/mogrinz/AMT630A",
+          "source": "GitHub",
+          "byline": "mogrinz",
+          "discuss_url": "https://news.ycombinator.com/item?id=49884346",
+          "tier": "notable",
+          "summary": "A deep teardown and reverse-engineering of the AMT630A SoC inside cheap automotive backup-camera displays, documented to the register level on GitHub. These $35 LCD+camera modules are everywhere and normally black boxes; cracking the boot chain and video pipeline makes them reusable as dirt-cheap embedded displays. The HN thread is full of people finding other AMT-based hardware to attack."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "A crossword setter's final clue, a hijacker paid in whisky, and mail caught mid-air — plus a 10-minute X-ray flash and a record-fast trip to the ISS.",
+      "stories": [
+        {
+          "title": "TIL: a dying crossword setter told his readers through his own puzzle",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wuasw7/til_in_2013_the_91yearold_guardian_crossword/",
+          "source": "Reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wuasw7/til_in_2013_the_91yearold_guardian_crossword/",
+          "tier": "must-read",
+          "summary": "In January 2013 the Rev John Graham — the Guardian's 91-year-old 'Araucaria' — printed a note above one of his own cryptics: 'Araucaria has 18 down of the 19, which is being treated with 13 15.' Solving the puzzle revealed cancer of the oesophagus treated with palliative care. Verified against contemporaneous Channel 4 News coverage of the January 12, 2013 puzzle (#25842); he died two months later."
+        },
+        {
+          "title": "TIL: the 1978 Finnair hijacking ended with a whisky ransom and a limousine",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wu1ior/til_that_in_1978_a_finnish_man_hijacked_a/",
+          "source": "Reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wu1ior/til_that_in_1978_a_finnish_man_hijacked_a/",
+          "tier": "recommended",
+          "summary": "On September 30, 1978 — 48 years ago this week — Aarno Lamminpää talked his way into the cockpit of Finnair Flight 405 and hijacked the Caravelle on a domestic Oulu–Helsinki hop, collecting over $200k in ransom across a 17-hour, 4,500 km loop via Helsinki and Amsterdam. His final demands: four bottles of whisky, a chauffeured limousine, and 24 hours alone with his wife. All 49 aboard survived; verified against the flight's documented record."
+        },
+        {
+          "title": "TIL: airmail planes used to grab mailbags mid-air without landing (1939–1949)",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1wu0rm1/til_that_from_1939_to_1949_some_us_airmail_planes/",
+          "source": "Reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1wu0rm1/til_that_from_1939_to_1949_some_us_airmail_planes/",
+          "tier": "recommended",
+          "summary": "For a decade, US airmail flew routes where planes never touched the ground at intermediate stops: the pilot swooped low to hook a mailbag suspended between two poles with a line, while dropping the outgoing mail from the aircraft. Documented by the National Postal Museum's airmail exhibition, including the Stinson Reliant equipped for the pickup service. One of the most audacious routine operations in aviation history, run for ten years."
+        },
+        {
+          "title": "A record-breaking X-ray flash may reveal the birth of a magnetar",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260930020252.htm",
+          "source": "ScienceDaily",
+          "byline": "ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-09-260930020252.htm",
+          "tier": "recommended",
+          "summary": "Astronomers report strong evidence that some mysterious minutes-long X-ray flashes are produced when two neutron stars collide and briefly form a magnetar rather than collapsing straight to a black hole. One record-setting event glowed in X-rays for nearly 10 minutes. If the interpretation holds, these flashes become a new detection channel for the rarest class of cosmic mergers."
+        },
+        {
+          "title": "Enceladus's ice plumes chemically concentrate themselves on the way out",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260929053528.htm",
+          "source": "ScienceDaily",
+          "byline": "ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-09-260929053528.htm",
+          "tier": "recommended",
+          "summary": "New work suggests Enceladus naturally separates and concentrates chemicals from its hidden ocean as droplets freeze and shatter during their escape into space — a freeze-fractionation process that could finally explain Cassini's puzzly ice-grain chemistry. The practical upshot: a future flythrough sampler may read an already-concentrated sample of potential biosignatures rather than a dilute spray."
+        },
+        {
+          "title": "Crew-13 could make the fastest US crewed trip to the ISS ever — launching today",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260930020312.htm",
+          "source": "ScienceDaily",
+          "byline": "ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-09-260930020312.htm",
+          "tier": "notable",
+          "summary": "NASA's SpaceX Crew-13 launches October 1 with four astronauts, targeting a Dragon rendezvous with the station in 7 hours 50 minutes — the fastest US spacecraft journey to the ISS in history, beating the typical ~24-hour profile. The fast profile is a docking-timing and phasing-orbit achievement rather than raw speed, and it matters for every future quick-turnaround rotation."
+        }
+      ]
+    }
+  ]
+}
