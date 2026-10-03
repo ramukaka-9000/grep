@@ -1,0 +1,252 @@
+{
+  "date": "2026-10-03",
+  "summary": "A CMU/MIT/NYU/Stanford team beats the all-time best Stratego player on 16 GPUs and a few thousand dollars, Supabase buys Turso to build databases for agents, antirez ships ds4 for local frontier weights, and the small decision-model wave keeps rolling with Julia-1 and Mark-I; on the bench a three-IC homebrew computer and a USB-C cable with a built-in LCD.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "A budget AI finally cracks Stratego against the greatest human player, Supabase acquires Turso to make databases as disposable as files for agents, Redis's author ships a C engine for 284B MoE models at home, and the Wagtail team publishes token-and-dollar receipts from a month on one open model.",
+      "stories": [
+        {
+          "title": "AI finally beat the best Stratego player in history — and did it on a budget",
+          "url": "https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget/",
+          "source": "Ars Technica",
+          "byline": "Sean Barrett, Ars Technica (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49933740",
+          "tier": "essential",
+          "summary": "Ataraxos, from CMU, MIT, NYU and Stanford, beat Pim Niemeijer — arguably the greatest Stratego player ever — 15-1 with four draws. Stratego's massive hidden information unfolding over long time scales had stumped even DeepMind, and this team did it on 16 GPUs and a few thousand dollars of training. The budget-and-architecture story is the interesting part: the game that resisted big-lab money fell to a small academic group."
+        },
+        {
+          "title": "Supabase is acquiring Turso",
+          "url": "https://supabase.com/blog/supabase-is-acquiring-turso",
+          "source": "Hacker News",
+          "byline": "Paul Copplestone (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49934784",
+          "tier": "must-read",
+          "summary": "Supabase launches over a million databases per week and argues agents will demand databases as cheap and disposable as files — no dedicated machine per prototype. Turso keeps working on SQLite while Supabase keeps Postgres, and together they aim to bring that experience to every agent. The clearest statement yet that agent-driven demand, not human teams, is now the design center for database infrastructure."
+        },
+        {
+          "title": "ds4: run frontier open weights locally, from the creator of Redis",
+          "url": "https://dwarfstar.sh/",
+          "source": "Hacker News",
+          "byline": "antirez (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49936575",
+          "tier": "must-read",
+          "summary": "Salvatore Sanfilippo ships DwarfStar 4, a narrow C inference engine for high-memory Mac, CUDA and ROCm boxes targeting DeepSeek V4/V4.1 Flash, GLM 5.x and Qwen3.8 Flash Next. The trick is asymmetric 2-bit quantization that compresses routed experts while keeping critical shared paths precise, making a 284B MoE practical on one dense resident machine. One stack with CLI, OpenAI/Anthropic-compatible APIs and a native agent — from the engineer who built Redis."
+        },
+        {
+          "title": "One month coding with GLM 5.3 Flash: 2B tokens of receipts",
+          "url": "https://wagtail.org/blog/one-month-on-glm-53-flash/",
+          "source": "Hacker News",
+          "byline": "Wagtail CMS team (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49934620",
+          "tier": "recommended",
+          "summary": "The Wagtail team spent September on only GLM 5.3 Flash and publishes the full ledger: about $68 for roughly half their 2B tokens — around 4 kWh and 365 g of carbon — but a vibe-coded MCP prototype on the wrong model burned 450M tokens and $150 almost overnight. The first half of the month held the line; the second leaked 1B tokens to other models. The most honest public account yet of where open-model budgets actually leak."
+        },
+        {
+          "title": "VISTA: a visual harness for reasoning in an interactive world",
+          "url": "https://arxiv.org/abs/2610.02200",
+          "source": "arXiv",
+          "byline": "Han, Hu, Qiu, Wu, He",
+          "discuss_url": "https://arxiv.org/abs/2610.02200",
+          "tier": "recommended",
+          "summary": "Kaiming He's group argues multimodal models already possess strong reasoning abilities and that the missing piece is the harness, not the weights. VISTA gives a model an interactive visual world to act in and shows the reasoning unlocks when perception, action and state are wired together. It fits the 'harness, not model' thesis that keeps showing up across this week's editions."
+        },
+        {
+          "title": "KaliBench: fine-grained cybersecurity tool use on Kali Linux with runtime-free verifiable rewards",
+          "url": "https://arxiv.org/abs/2610.02206",
+          "source": "arXiv",
+          "byline": "Li, Suryanto, Zhang, Naseer",
+          "discuss_url": "https://arxiv.org/abs/2610.02206",
+          "tier": "notable",
+          "summary": "A benchmark that scores LLM agents on real Kali Linux security-tool workflows with verifiable rewards that need no runtime execution to grade. Step-level evaluation matters as cyber-capability evals move to the center of AI-safety debates: it separates agents that know which tool to run from agents that merely sound like they do."
+        },
+        {
+          "title": "coucou: a tiny notch companion that watches your coding agents",
+          "url": "https://github.com/Louis-CFM/coucou",
+          "source": "GitHub",
+          "byline": "Louis-CFM",
+          "discuss_url": "https://github.com/Louis-CFM/coucou",
+          "tier": "notable",
+          "summary": "A Swift app (macOS notch, plus Windows/Linux top-of-screen) where a little character lives and keeps an eye on Claude Code, Codex, Cursor, Gemini CLI and more, surfacing when an agent needs input. Around 3,000 stars in days suggests the waiting-on-agents UX problem is real and unsolved — a cheap, ambient answer to 'which of my five agents is blocked on me right now'."
+        },
+        {
+          "title": "AIHOT: a self-curating industry-hotspot site framework",
+          "url": "https://github.com/KKKKhazix/AIHOT",
+          "source": "GitHub",
+          "byline": "KKKKhazix",
+          "discuss_url": "https://github.com/KKKKhazix/AIHOT",
+          "tier": "notable",
+          "summary": "A TypeScript framework for a site that finds its own hot topics and writes its own daily digest — swap in your sources and curation criteria and it becomes your industry's hotspot station. Nearly 5,000 stars for what is essentially a configurable, self-driving newsletter pipeline. This project in particular should feel a twinge of professional recognition reading its architecture."
+        },
+        {
+          "title": "Julia 1: a 144M-parameter typed-decision model that trades blows with Jev",
+          "url": "https://huggingface.co/SupersonicLabs/Julia-1",
+          "source": "Hugging Face",
+          "byline": "Supersonic Labs",
+          "discuss_url": "https://huggingface.co/SupersonicLabs/Julia-1",
+          "tier": "recommended",
+          "summary": "A 144.3M model fine-tuned from mmBERT-small that turns a state, a question and candidate answers into one calibrated decision — classification, routing, ordered scores, booleans, one interface. On the 2,000-case typed-decisions benchmark it scores 73.15% against the Jev reference's 72.70%, beats Jev by 38 points on DAIR Emotion, and loses badly on the Banking77 pilot. Published benchmark JSON, provenance file and an honest failure discussion: a model card done right, and it runs on anything."
+        },
+        {
+          "title": "Mark-I: a 1.7B decision model on the JevBench Pareto frontier at 42 ms",
+          "url": "https://huggingface.co/reflex-labs/Mark-I",
+          "source": "Hugging Face",
+          "byline": "Reflex Labs",
+          "discuss_url": "https://huggingface.co/reflex-labs/Mark-I",
+          "tier": "recommended",
+          "summary": "Reflex Labs' Qwen3-1.7B-based model answers choice/score/bool/noul questions through a /systemone endpoint, scoring 97/120 (80.8%) on public JevBench questions at 42 ms median latency — the fastest point on the plotted Pareto frontier against Jev and the 4B SemIf. Held-out results come with calibration metrics (0.080 ECE), and the authors flag the benchmark-overlap caveat themselves. Small, fast and honest about its own evaluation — the profile you want for an agent's System-1 layer."
+        },
+        {
+          "title": "Sites in ChatGPT",
+          "url": "https://chatgpt.com/features/sites/",
+          "source": "Hacker News",
+          "byline": "OpenAI (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49927747",
+          "tier": "notable",
+          "summary": "OpenAI launches Sites: generated web apps that live inside ChatGPT, joining the race to make the model the deployment target rather than a stepping stone to your own hosting. The 224-comment HN thread splits between 'static hosting is a commodity' and 'this is the walled garden that finally sticks.' Worth reading as a product-strategy signal about where agent-generated software ships."
+        },
+        {
+          "title": "Allen AI open-sources AstaBrief, the fast report-generation model in Asta",
+          "url": "https://allenai.org/blog/astabrief",
+          "source": "Hacker News",
+          "byline": "Allen Institute for AI (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49938783",
+          "tier": "notable",
+          "summary": "Ai2 releases the report-generation model behind its Asta research agent as open weights. It is the rare production component of a research-agent stack — retrieval-grounded long-form synthesis — handed to everyone else, and Ai2's track record suggests the training-recipe details will be substantive."
+        },
+        {
+          "title": "Greg Kroah-Hartman: Security in the LLM Age",
+          "url": "https://www.youtube.com/watch?v=NnV_cWeoo5Q",
+          "source": "Hacker News",
+          "byline": "Greg Kroah-Hartman (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49929391",
+          "tier": "notable",
+          "summary": "The Linux kernel maintainer talks about what LLM-generated code and an LLM-assisted contribution flood mean for kernel review and security practice. Coming from the person who actually gates the world's most critical open-source tree, his assessment of what automation can and cannot be trusted with carries more weight than the usual hot takes."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "The Retrocomputing Challenge heats up with a working 68008 computer in three ICs, a USB-C cable with a built-in LCD gets opened up, and a Pi-based underwater explorer resurfaces; plus an LED-matrix ADS-B tracker, a vibration levitation demo and a filament dry-box worth printing.",
+      "stories": [
+        {
+          "title": "2026 Retrocomputing Challenge: a homebrew computer in only three ICs",
+          "url": "https://hackaday.com/2026-10-02/2026-retrocomputing-challenge-a-homebrew-computer-in-only-three-ics2026-retrocomputing-challenge-a-homebrew-computer-in-only-3-ics/",
+          "source": "Hackaday",
+          "byline": "Hackaday (entry by Just4Fun)",
+          "discuss_url": "https://hackaday.io/project/177988-68k-mbc-a-3-ics-68008-homebrew-computer",
+          "tier": "must-read",
+          "summary": "The 68k-MBC 'lite' configuration is all through-hole and runs CP/M68K on exactly three chips: a 68008, one SRAM, and a PIC standing in for ROM. It still gets I2C, SD storage, RTC and serial-terminal options within its 512 KB ceiling. A masterclass in minimal-system design and the strongest kind of Retrocomputing Challenge entry — reproducible, documented, buildable at your bench."
+        },
+        {
+          "title": "Teardown of a USB-C cable with an integrated LCD",
+          "url": "https://hackaday.com/2026-10-02/teardown-of-an-usb-c-cable-with-integrated-lcd/",
+          "source": "Hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-10-02/teardown-of-an-usb-c-cable-with-integrated-lcd/",
+          "tier": "recommended",
+          "summary": "Screens keep appearing in stranger places, and now they are inside cable jackets. The teardown works out how the display, its driver and the power/CC lines are packed into a connector barrel — what it costs, what it breaks, and whether the category is useful or just demo-ware. Classic Hackaday: open it, image it, judge it."
+        },
+        {
+          "title": "FltCast: LED-matrix flight tracker with RTL-SDR and a custom antenna",
+          "url": "https://blog.adafruit.com/2026-10-02/fltcast-led-matrix-flight-tracker-with-rtl-sdr-and-antenna-piday-raspberrypi/",
+          "source": "Adafruit",
+          "byline": "Adafruit (via raspberrypi.com)",
+          "discuss_url": "https://blog.adafruit.com/2026-10-02/fltcast-led-matrix-flight-tracker-with-rtl-sdr-and-antenna-piday-raspberrypi/",
+          "tier": "recommended",
+          "summary": "A Raspberry Pi plus RTL-SDR ADS-B receiver driving an LED matrix for live overhead traffic, including the antenna build rather than just pointing at a USB dongle. The guide covers decoding through display wiring, which makes it a complete weekend signal-chain project instead of a screenshot tour."
+        },
+        {
+          "title": "Sensea: a low-cost Raspberry Pi underwater explorer",
+          "url": "https://blog.adafruit.com/2026-10-02/sensea-underwater-camera-raspberry-pi-raspberrypi/",
+          "source": "Adafruit",
+          "byline": "Adafruit (via raspberrypi.com)",
+          "discuss_url": "https://blog.adafruit.com/2026-10-02/sensea-underwater-camera-raspberry-pi-raspberrypi/",
+          "tier": "recommended",
+          "summary": "Sensea set out to be a low-cost DIY underwater explorer that reveals what lives beneath local water surfaces, built around a Raspberry Pi camera system. Pressure housing, tether and buoyancy are the parts DIY ROV builders always underestimate, and the write-up covers the design intent behind each. A reproducible path from hobby dive-cam to instrumented submersible."
+        },
+        {
+          "title": "Using vibration to make stuff stick contact-free to ceilings",
+          "url": "https://hackaday.com/2026-10-02/using-vibration-to-make-stuff-stick-contact-free-to-ceilings/",
+          "source": "Hackaday",
+          "byline": "Hackaday (Applied Science)",
+          "discuss_url": "https://hackaday.com/2026-10-02/using-vibration-to-make-stuff-stick-contact-free-to-ceilings/",
+          "tier": "notable",
+          "summary": "Forget suction cups and glue: this demo holds objects against a ceiling with no contact at all, using acoustic vibration to trap them in place. The explainer covers the physics of the trapping field and why the approach sidesteps the surface assumptions suction relies on. Applied Science at its most delightfully useless — and probably useful someday."
+        },
+        {
+          "title": "Modular filament storage: dry box plus snap-out desiccant box for cereal containers",
+          "url": "https://blog.adafruit.com/2026-10-01/modular-filament-storage-dry-box-snap-out-desiccant-box-for-cereal-containers-3dthursday-3dprinting/",
+          "source": "Adafruit",
+          "byline": "Adafruit 3DThursday",
+          "discuss_url": "https://blog.adafruit.com/2026-10-01/modular-filament-storage-dry-box-snap-out-desiccant-box-for-cereal-containers-3dthursday-3dprinting/",
+          "tier": "notable",
+          "summary": "A printable modular system that turns ordinary cereal containers into filament dry boxes with a snap-out desiccant tray. The design is the useful part: standard container geometry, printable without supports, serviceable without printing new parts every month. The kind of pragmatic 3D-printing utility that actually gets printed twice."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "The first RFC1149 carrier-pigeon packet goes to auction at Christie's, wild blacktip sharks hear and localize sound from 75 meters, two giant stick insect species hid in plain sight for decades, Caltech measures a 40-year-old quantum energy ladder, Mars rings in its new year, and Venice accidentally invents the bond market.",
+      "stories": [
+        {
+          "title": "The first packet sent via RFC1149 avian carrier is up for auction at Christie's",
+          "url": "https://onlineonly.christies.com/s/fine-printed-books-manuscripts-science/carrier-pigeon-internet-protocol-150/325216",
+          "source": "Hacker News",
+          "byline": "Christie's (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49932911",
+          "tier": "must-read",
+          "summary": "The physical payload from the 2001 April Fools' IP-over-avian-carrier experiment — a tiny card carried by pigeon — is being auctioned in Christie's fine printed books and manuscripts sale. The 2023 retransmission run measured throughput in the same ballpark the original paper predicted, packet loss and all. Networking history as literal artifact: the only protocol whose mean time to recovery depends on whether the router got eaten by a hawk."
+        },
+        {
+          "title": "Sharks can hear nearly 250 feet away and pinpoint the source",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260929053536.htm",
+          "source": "ScienceDaily",
+          "byline": "Florida Atlantic University / ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-09-260929053536.htm",
+          "tier": "recommended",
+          "summary": "Experiments with free-swimming blacktip sharks off Southeast Florida show they detect low-frequency sounds from nearly 250 feet (~75 m) away — and sharply change direction relative to the source, meaning they localize it rather than merely sense it. This is the first direct field evidence of how far shark hearing actually reaches in the ocean, and it reframes boat engines, shore activity and even waders as acoustic beacons sharks navigate by."
+        },
+        {
+          "title": "This giant stick insect fooled scientists for decades",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260930020315.htm",
+          "source": "ScienceDaily",
+          "byline": "University of Sydney / ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-09-260930020315.htm",
+          "tier": "recommended",
+          "summary": "Re-examining Australian stick insects of the genus Anchiale, a University of Sydney team described two new species — one laying extraordinary eggs with a lid-like structure never before recorded in the group — and restored a third species that had been misidentified for decades. These were sitting in some of Australia's most closely studied environments. A crisp demonstration that 'known' biodiversity is often just 'unrevised' biodiversity."
+        },
+        {
+          "title": "Caltech physicists finally measure a quantum energy ladder predicted 40 years ago",
+          "url": "https://www.sciencedaily.com/releases/2026-09-260928100554.htm",
+          "source": "ScienceDaily",
+          "byline": "Caltech / ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-09-260928100554.htm",
+          "tier": "recommended",
+          "summary": "Using laser-trapped strontium atoms in a quantum simulator, researchers recreated two quantum critical points and measured the excitation-energy ratios conformal field theory predicted four decades ago — the rungs of the ladder, at the predicted spacing. The technique now opens a way to probe quantum systems where nobody yet knows the answer. Universality means boiling water and demagnetizing magnets obey the same math; this is that math, caught on a ruler."
+        },
+        {
+          "title": "Happy New Year on Mars",
+          "url": "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Happy_New_Year_on_Mars",
+          "source": "ESA",
+          "byline": "European Space Agency",
+          "discuss_url": "https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/Happy_New_Year_on_Mars",
+          "tier": "notable",
+          "summary": "At 10:16 CEST on 30 September 2026 Mars began Mars year 39 — the planet completes an orbit every 687 Earth days, so its previous year started in January 2025. ESA's explainer also maps the next few Martian New Years: August 2028, July 2030, May 2032. Anyone planning a Mars settlement calendar now knows the leap-year negotiations come first."
+        },
+        {
+          "title": "Venice's failed war against Constantinople led to the first bond market",
+          "url": "https://bigthink.com/books/a-fabulous-debt/",
+          "source": "Big Think",
+          "byline": "Kevin Dickinson, Big Think (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49933230",
+          "tier": "notable",
+          "summary": "A review of 'A Fabulous Debt' traces how Venice's disastrous 12th-century war against Byzantium forced the republic to borrow compulsorily from its own citizens — and how those forced loans, traded, pooled and securitized, became history's first public bond market. Financial innovation as war fallout, eight centuries before anyone printed a Treasury note. The cultural connection HN loved: your pension fund descends from a lost siege."
+        }
+      ]
+    }
+  ]
+}
