@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-04",
+  "summary": "AI builders get fresh reminders to measure tool use honestly and cap agent spend, while practical electronics and NASA’s orbital and planetary perspectives round out the day.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Small-model defenses and evaluation discipline share the stage with model sovereignty, cost controls, and cross-channel agents.",
+      "stories": [
+        {
+          "title": "Kolibri: a sovereign open-weight model",
+          "url": "https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/",
+          "source": "Aleph Alpha",
+          "byline": "Aleph Alpha (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49942706",
+          "tier": "recommended",
+          "summary": "Aleph Alpha introduces Kolibri as an open-weight model intended for organizations that need control over where AI runs and how it is governed. The release is notable for positioning sovereignty and deployability—not just benchmark rank—as the product proposition. Check the linked model and license details before adopting it."
+        },
+        {
+          "title": "Default hard budget caps for AI agents and everything else",
+          "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
+          "source": "Simon Willison",
+          "byline": "Simon Willison (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=49949235",
+          "tier": "recommended",
+          "summary": "Willison argues that systems with potentially unbounded usage need hard spending limits enabled by default, rather than relying on alerts after the bill has accrued. Agent loops, API calls and cloud resources can turn a small mistake into sustained spend. The principle is a practical deployment safeguard: set a ceiling before adding autonomy."
+        },
+        {
+          "title": "TACO: a ternary, one-sparse optimizer for LLM fine-tuning",
+          "url": "https://arxiv.org/abs/2610.02199v1",
+          "source": "arXiv",
+          "byline": "TACO authors (arXiv preprint)",
+          "discuss_url": "https://arxiv.org/abs/2610.02199v1",
+          "tier": "notable",
+          "summary": "TACO proposes a ternary, column-wise one-sparse optimizer aimed at reducing optimizer-state memory during full-parameter LLM fine-tuning. The authors target a practical tension: Muon can cut memory but changes the update geometry relative to AdamW, while conventional first-order methods retain expensive state. This is a new preprint, so its claimed quality and efficiency need independent reproduction."
+        },
+        {
+          "title": "Keyword harnesses fail open: a cheap diagnostic ladder for tool-use claims",
+          "url": "https://arxiv.org/abs/2610.02142v1",
+          "source": "arXiv",
+          "byline": "Keyword Harnesses authors (arXiv preprint)",
+          "discuss_url": "https://arxiv.org/abs/2610.02142v1",
+          "tier": "recommended",
+          "summary": "This study shows how keyword-matching evaluations can credit small language models for tool use they do not actually perform. A matched-model comparison reports similar scores on lenient metrics, while checks for verbatim training-example reproduction separate the systems. The authors propose a progressively stricter, low-cost diagnostic ladder—a useful warning for anyone evaluating agent skills."
+        },
+        {
+          "title": "OpenDots — AI coworkers that move between text, calls, and Slack",
+          "url": "https://github.com/CopilotKit/OpenDots",
+          "source": "GitHub",
+          "byline": "CopilotKit",
+          "discuss_url": "https://github.com/CopilotKit/OpenDots",
+          "tier": "notable",
+          "summary": "OpenDots is an open-source project for persistent AI coworkers that can operate across text, voice calls and Slack. Its cross-channel design makes identity, continuity and permissions central engineering questions, beyond the underlying model choice. Inspect the repository for current integrations and maturity before treating it as production-ready."
+        },
+        {
+          "title": "A 307M multilingual phishing and scam detector with browser/CPU ONNX support",
+          "url": "https://huggingface.co/Horizon-Labs/phishing-scam-detector-base",
+          "source": "Hugging Face",
+          "byline": "Horizon Labs",
+          "discuss_url": "https://huggingface.co/Horizon-Labs/phishing-scam-detector-base",
+          "tier": "recommended",
+          "summary": "This 307M-parameter classifier labels messages as fraud, spam or legitimate and includes quantized ONNX weights for CPU and browser use. Its model card describes evaluation across several languages and reports top-label agreement between quantized and full-precision inference on a 520-message benchmark. The small footprint and explicit legitimate-message class make it relevant to local filtering and agent inbox defenses; review its published false-positive rates for your language and use case."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Three practical maker projects turn scrap metal, retrocomputing, and reverse-engineering into accessible builds.",
+      "stories": [
+        {
+          "title": "A DIY solder stencil starts with a cleanly sliced soda can",
+          "url": "https://hackaday.com/2026/10/03/a-good-diy-solder-stencil-begins-with-a-cleanly-sliced-soda-can/",
+          "source": "Hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026/10/03/a-good-diy-solder-stencil-begins-with-a-cleanly-sliced-soda-can/",
+          "tier": "recommended",
+          "summary": "A maker turns the thin aluminum from a beverage can into a low-cost solder-paste stencil, using a clean cut as the key to a usable edge. It is a simple, reproducible PCB-assembly hack that trades specialized materials for careful preparation. The result is especially relevant for one-off boards and small home labs."
+        },
+        {
+          "title": "Vectron65 Plus: a 6502 retrocomputer with room to grow",
+          "url": "https://hackaday.com/2026/10/03/2026-retrocomputer-challenge-vectron65-plus-puts-the-emphasis-on-plus/",
+          "source": "Hackaday",
+          "byline": "Hackaday / 2026 Retrocomputer Challenge",
+          "discuss_url": "https://hackaday.com/2026/10/03/2026-retrocomputer-challenge-vectron65-plus-puts-the-emphasis-on-plus/",
+          "tier": "notable",
+          "summary": "The Vectron65 Plus is a new entry in Hackaday’s retrocomputer challenge, expanding on a 6502-based design rather than stopping at a minimal vintage-CPU build. The project is a useful look at how a hobby computer grows into a more capable system through its supporting circuitry and peripherals. Follow the linked project for implementation details."
+        },
+        {
+          "title": "Taking control of the OSD chip in a cheap composite monitor",
+          "url": "https://hackaday.com/2026/10/03/own-the-osd-chip-in-your-cheap-composite-monitor/",
+          "source": "Hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026/10/03/own-the-osd-chip-in-your-cheap-composite-monitor/",
+          "tier": "notable",
+          "summary": "A reverse-engineering project investigates the on-screen-display chip inside an inexpensive composite monitor, opening up a path to controlling its overlay rather than accepting the factory interface. It combines board-level hardware exploration with practical control of an otherwise closed component. The approach is a good fit for builders repurposing low-cost displays."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "NASA imagery and mission engineering bring the day’s Earth and planetary stories into focus.",
+      "stories": [
+        {
+          "title": "APOD: Selfie at Vera Rubin Ridge (October 3, 2026)",
+          "url": "https://science.nasa.gov/image-article/apod-2026-october-3-selfie-at-vera-rubin-ridge/",
+          "source": "NASA Astronomy Picture of the Day",
+          "byline": "NASA",
+          "discuss_url": "https://science.nasa.gov/image-article/apod-2026-october-3-selfie-at-vera-rubin-ridge/",
+          "tier": "recommended",
+          "summary": "NASA’s October 3 Astronomy Picture of the Day revisits a Curiosity rover selfie at Vera Rubin Ridge on Mars. The image is assembled from multiple exposures made by the rover’s arm-mounted camera, with the arm kept out of the final composite. It is a striking record of a fieldwork moment on another world, presented with NASA’s own image and mission context."
+        },
+        {
+          "title": "NASA maps flooding along India’s Gandak River",
+          "url": "https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/",
+          "source": "NASA Earth Observatory",
+          "byline": "NASA Earth Observatory",
+          "discuss_url": "https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/",
+          "tier": "notable",
+          "summary": "NASA Earth Observatory uses satellite imagery to show how heavy rains spread water across the Gandak River region. The before-and-after view makes the changing river and inundated landscape legible from orbit, while connecting the event to the monsoon system. The source article provides the image dates and geographic context."
+        },
+        {
+          "title": "NASA’s DAVINCI probe is designed to withstand Venus’s heat",
+          "url": "https://www.nasa.gov/image-article/nasas-davinci-probe-can-stand-the-heat/",
+          "source": "NASA",
+          "byline": "NASA",
+          "discuss_url": "https://www.nasa.gov/image-article/nasas-davinci-probe-can-stand-the-heat/",
+          "tier": "notable",
+          "summary": "NASA describes the engineering work behind DAVINCI’s planned descent through Venus’s punishing atmosphere. The mission’s probe must survive extreme heat and pressure long enough to return measurements from an environment that has destroyed earlier landers quickly. The item foregrounds the hardware challenge behind a future attempt to study Venus in situ."
+        }
+      ]
+    }
+  ]
+}
