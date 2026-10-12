@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>grep · Monday, October 12, 2026</title>
+<meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-10-12.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style-v2.css">
+<script>
+  // set theme before paint to avoid a flash of the wrong palette
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
+  </div>
+  <nav class="topnav">
+    <a class="navlink" href="2026-10-11.html">‹ Prev</a>
+    <span class="edition-pill">Monday, October 12, 2026 · <span id="count">16</span> stories</span>
+    <span class="navlink disabled">Next ›</span>
+    <a class="navlink" href="archive.html">Archive</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  
+  <nav class="section-nav" aria-label="Sections">
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">8</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">5</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">3</span></a>
+  </nav>
+  <div class="section-panels">
+    
+  <section class="section-panel" id="ai" data-section-panel="ai" style="--section-color:#ff8000" aria-labelledby="heading-ai">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-ai">AI</h1>
+        <p class="section-summary">Tool selection, sandbox state, and verification matter more than agent throughput; small, focused tools can improve the context agents work from.</p>
+      </div>
+      <span class="section-count" id="count-ai">8 stories</span>
+    </div>
+    <section class="filters" data-section-filters="ai" aria-label="AI filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="ai">
+      
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://itsallaboutthebit.com/i-am-sorry-but-you-still-have-to-think/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/ai-01-hn-placeholder.svg" alt="I&#x27;m sorry, but you still have to think" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Piotr Sarnacki</span>
+          <a class="orig" href="https://itsallaboutthebit.com/i-am-sorry-but-you-still-have-to-think/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50043689" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://itsallaboutthebit.com/i-am-sorry-but-you-still-have-to-think/" target="_blank" rel="noopener">I'm sorry, but you still have to think</a></h2>
+        <div class="story-summary"><p>Piotr Sarnacki compares AI rewrites of Campfire Once in Rust and Elixir, showing how underspecified prompts silently choose different compatibility, concurrency, and failure policies. The benchmark dispute illustrates why throughput alone can hide notification loss and backpressure: under a reported 100 requests/second, one test measured only about 1% notification delivery for the Rust version before a buffer change, while larger buffers traded drops for very long latency. His point is not that one language wins, but that system constraints and what counts as failure still require deliberate engineering judgment.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://momo5502.com/posts/2026-10-09-game-decompilation/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/ai-02-500-billion-tokens-later-letting-ai-agents-decom.png" alt="500+ billion tokens later: letting AI agents decompile a first-person shooter" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Maurice</span>
+          <a class="orig" href="https://momo5502.com/posts/2026-10-09-game-decompilation/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50039092" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://momo5502.com/posts/2026-10-09-game-decompilation/" target="_blank" rel="noopener">500+ billion tokens later: letting AI agents decompile a first-person shooter</a></h2>
+        <div class="story-summary"><p>A months-long agent project made rapid visible progress—about 80% of the game decompiled in its first month—yet the resulting readable C++ was semantically wrong, with invented logic and costly architectural changes. The turning point was adding an objective oracle: compile reconstructed functions with the original compiler and compare their bytes against the original binary. The author estimates 600–700 billion tokens overall, but the durable lesson is that correctness criteria and independent verification beat apparent throughput.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2610.13889" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/ai-03-arxiv-placeholder.svg" alt="RATED: retrieve tools using execution reliability, not relevance alone" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Weiliang Chen, Song Liao</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.13889" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.13889" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.13889" target="_blank" rel="noopener">RATED: retrieve tools using execution reliability, not relevance alone</a></h2>
+        <div class="story-summary"><p>RATED combines semantic matching with a lightweight contextual bandit that reranks tools using runtime success and failure feedback. On the authors’ EcoAgent benchmark of 5,172 tools and over 210,000 query-tool pairs, they report 52.2% relative MRR improvement over ToolLLM’s API retriever and a reduction in fault selection from 86.2% to 2.9% under a simulated 30% outage rate, with under 1 ms added latency. It is an author-reported benchmark result, but the design directly addresses the gap between finding a relevant tool and finding one that is currently usable.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://arxiv.org/abs/2610.13651" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/ai-04-arxiv-placeholder.svg" alt="ToFu fuzzes the trust boundary between LLMs, orchestrators, and tools" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Md Nazmul Islam Ananto, Pierre Prevost-Avenel, Colin Smith, Kyungtae Kim, Taegyu Kim, Arslan Khan</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.13651" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.13651" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.13651" target="_blank" rel="noopener">ToFu fuzzes the trust boundary between LLMs, orchestrators, and tools</a></h2>
+        <div class="story-summary"><p>ToFu derives tool-specific semantic checks from metadata and a CWE-guided sanitizer corpus, then generates fuzzing harnesses and runtime oracles. The authors evaluated 3,405 tools across 273 MCP servers and report 253 verified semantic-security bugs in 118 servers, including cases where documented input constraints were not actually enforced. This is a substantial ecosystem audit, not evidence that every MCP server is unsafe; it reinforces that model-generated arguments must be treated as untrusted input.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://github.com/TedHaley/pensieve" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/ai-05-pensieve-local-code-search-and-mcp-context-for-a.png" alt="Pensieve: local code search and MCP context for AI coding agents" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">Ted Haley</span>
+          <a class="orig" href="https://github.com/TedHaley/pensieve" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50049508" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/TedHaley/pensieve" target="_blank" rel="noopener">Pensieve: local code search and MCP context for AI coding agents</a></h2>
+        <div class="story-summary"><p>Pensieve indexes files, Git repositories, and coding-agent sessions locally, then exposes scoped semantic and exact-text search through an MCP server. Its author reports 131 of 144 held-out file-finding runs succeeded versus 123 of 144 with grep alone, with fewer tool calls across four repositories; the benchmark scripts are available in the repository. It is useful when an agent needs a few relevant passages rather than broad, repeated filesystem searches, while the reported comparison remains author-run.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/wheresryan22/anatomy" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/ai-06-anatomy-explain-technical-ideas-with-interactive.png" alt="Anatomy: explain technical ideas with interactive isometric builds" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">Ryan</span>
+          <a class="orig" href="https://github.com/wheresryan22/anatomy" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/wheresryan22/anatomy" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/wheresryan22/anatomy" target="_blank" rel="noopener">Anatomy: explain technical ideas with interactive isometric builds</a></h2>
+        <div class="story-summary"><p>Anatomy is an agent skill that turns a technical concept into a small, working-object metaphor rendered as a detailed isometric figure, with SVG, optional WebGL shaders, and experimental 3D output. The repository supports Claude Code, OpenCode, and Codex, includes examples and checks, and explicitly labels 3D as beta with performance limits on complex figures. It is a visual explanation workflow rather than a general-purpose diagram generator.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/Chulinz/d1-600m-text2sql" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/ai-07-d1-600m-text2sql-selects-among-supplied-query-ca.png" alt="D1-600M-Text2SQL selects among supplied query candidates" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">Chulinz</span>
+          <a class="orig" href="https://huggingface.co/Chulinz/d1-600m-text2sql" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/Chulinz/d1-600m-text2sql" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/Chulinz/d1-600m-text2sql" target="_blank" rel="noopener">D1-600M-Text2SQL selects among supplied query candidates</a></h2>
+        <div class="story-summary"><p>This 587M-parameter FP32 model fine-tunes LiquidAI’s D1-Omni-600M to rank four SQL candidates from a schema, question, and fixed conversation history; the application supplies and executes the queries. Its model card reports 45.6% accuracy versus 24.9% for the base on 1,000 synthetic development turns, but the set was reused for model selection and option renaming changed predictions. It is a compact, narrow decision model—not a free-form SQL generator—and its custom code and permissions should be reviewed before use.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://huggingface.co/lvtpsjlfj94/ACT_sim_handle_basket_ft" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/ai-08-a-51-6m-parameter-act-policy-fine-tuned-for-simu.png" alt="A 51.6M-parameter ACT policy fine-tuned for simulated basket handling" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">lvtpsjlfj94</span>
+          <a class="orig" href="https://huggingface.co/lvtpsjlfj94/ACT_sim_handle_basket_ft" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/lvtpsjlfj94/ACT_sim_handle_basket_ft" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/lvtpsjlfj94/ACT_sim_handle_basket_ft" target="_blank" rel="noopener">A 51.6M-parameter ACT policy fine-tuned for simulated basket handling</a></h2>
+        <div class="story-summary"><p>This 51.6M-parameter LeRobot ACT checkpoint targets the RoboSynChallenge simulated handle-basket task for a dual-arm robot with three RGB cameras and 14-dimensional joint state/action. Its card reports 11 successes in 20 episodes over two seeds, compared with 5/20 for the released task checkpoint under the same local evaluation protocol. That small author-run sample is preliminary; the documented adapter requires LeRobot 0.3.3 and the result says nothing about real-robot transfer.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="electronics" data-section-panel="electronics" style="--section-color:#22d3ee" aria-labelledby="heading-electronics">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-electronics">Electronics</h1>
+        <p class="section-summary">Small boards keep doing surprising work: a Pico in a Nokia shell, RP2350 video output, and a weather UI squeezed onto 32 KB of RAM.</p>
+      </div>
+      <span class="section-count" id="count-electronics">5 stories</span>
+    </div>
+    <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
+<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
+<button class="chip" data-filter-source="arduino" style="--c:#00979d">Arduino</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="electronics">
+      
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026/10/11/taking-a-nokia-3310-game-jam-to-the-nth-degree/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/electronics-01-a-nokia-3310-game-jam-entry-gets-a-custom-pico-p.jpg" alt="A Nokia 3310 game jam entry gets a custom Pico PCB" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Jenny List / Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/10/11/taking-a-nokia-3310-game-jam-to-the-nth-degree/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026/10/11/taking-a-nokia-3310-game-jam-to-the-nth-degree/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/10/11/taking-a-nokia-3310-game-jam-to-the-nth-degree/" target="_blank" rel="noopener">A Nokia 3310 game jam entry gets a custom Pico PCB</a></h2>
+        <div class="story-summary"><p>Hoani built Trick Shot II for the Nokia 3310’s 94×48 monochrome display, buzzer, and keypad, then designed a custom PCB to fit the hardware into a gutted 3310 case. A Raspberry Pi Pico drives the original LCD and keypad, while the game engine is written in Go. The first board revision missed the case fit because it used 1.6 mm PCB instead of 1 mm, making this a concrete embedded-build story rather than just a retro-game demo.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026/10/11/improving-an-autorouter-with-a-hexagonal-grid/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/electronics-02-a-hex-cell-grid-improves-a-home-built-pcb-autoro.png" alt="A hex-cell grid improves a home-built PCB autorouter" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Jenny List / Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/10/11/improving-an-autorouter-with-a-hexagonal-grid/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50032253" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/10/11/improving-an-autorouter-with-a-hexagonal-grid/" target="_blank" rel="noopener">A hex-cell grid improves a home-built PCB autorouter</a></h2>
+        <div class="story-summary"><p>James Bowman’s CuFlow autorouter uses Lee’s shortest-path algorithm on a hexagonal rather than square grid. Six equidistant neighbors avoid the unequal diagonal steps of square grids, and the denser cells can pack more traces into the same board area. The routing method is experimental and does not solve placement or high-speed signal-integrity constraints, but the geometry change is simple and reproducible.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026/10/11/60-hz-hello-on-metro-rp2350/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/electronics-03-adafruit-placeholder.svg" alt="60 Hz “hello” from a Metro RP2350" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Phillip Torrone / Adafruit</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/10/11/60-hz-hello-on-metro-rp2350/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/10/11/60-hz-hello-on-metro-rp2350/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/10/11/60-hz-hello-on-metro-rp2350/" target="_blank" rel="noopener">60 Hz “hello” from a Metro RP2350</a></h2>
+        <div class="story-summary"><p>A Metro RP2350 with PSRAM runs CircuitPython 11 and outputs 640×480 video at 60 Hz through its 22-pin HSTX connection and an HSTX-to-DVI adapter. The demo renders Apple-style lettering from a converted font, with a recorded output paired to a wiring diagram. It is a useful worked example of the RP2350’s display path and an idea for diagrams that show both connections and actual device behavior.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="arduino" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.arduino.cc/2026/10/09/porting-a-weather-station-app-from-the-arduino-giga-r1-to-the-arduino-uno-r4-boards/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/electronics-04-port-a-zephyr-weather-station-from-giga-r1-to-un.jpg" alt="Port a Zephyr weather station from GIGA R1 to UNO R4 WiFi" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#00979d">Ar</span>
+          <span class="by">Arduino Team</span>
+          <a class="orig" href="https://blog.arduino.cc/2026/10/09/porting-a-weather-station-app-from-the-arduino-giga-r1-to-the-arduino-uno-r4-boards/" target="_blank" rel="noopener">Arduino ›</a><a class="discuss" href="https://forum.arduino.cc/t/porting-wifi-app-that-displays-weather-from-giga-and-teensy-boards-to-uno-r4-wifi/1460156" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.arduino.cc/2026/10/09/porting-a-weather-station-app-from-the-arduino-giga-r1-to-the-arduino-uno-r4-boards/" target="_blank" rel="noopener">Port a Zephyr weather station from GIGA R1 to UNO R4 WiFi</a></h2>
+        <div class="story-summary"><p>Arduino forum users KurtE and Merlin513 ported a ZephyrOS touchscreen weather application from the GIGA R1 WiFi to the much smaller UNO R4 WiFi. The latter has a 48 MHz single-core MCU, 32 KB RAM, and 256 KB flash, so the port reduced display-library and GUI costs by simplifying colors and images. Arduino reports that the optimized application runs “reasonably well”; the forum thread contains the demonstration and implementation details.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/Ma7moud3ly/micro-repl" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/electronics-05-adafruit-placeholder.svg" alt="Micro REPL brings a cross-platform IDE to MicroPython boards" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Mahmoud Aly (via Adafruit)</span>
+          <a class="orig" href="https://github.com/Ma7moud3ly/micro-repl" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/10/08/micro-repl-a-micropython-ide-for-multiple-platforms/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/Ma7moud3ly/micro-repl" target="_blank" rel="noopener">Micro REPL brings a cross-platform IDE to MicroPython boards</a></h2>
+        <div class="story-summary"><p>Micro REPL provides a live serial REPL, board file browser, and code editor for MicroPython on Android, Windows, macOS, Linux, and in a desktop browser. The browser build uses Web Serial and therefore needs a compatible browser over HTTPS or localhost; the Android app has separate no-analytics and Firebase variants. The project is MIT-licensed and can run, edit, and transfer files without switching between tools.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="interesting-news" data-section-panel="interesting-news" style="--section-color:#f472b6" aria-labelledby="heading-interesting-news">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-interesting-news">Interesting News</h1>
+        <p class="section-summary">A room-temperature thorium-229 crystal now drives a feedback-stabilized nuclear clock; careful lab results hint at future precision, not yet a replacement for today’s standards.</p>
+      </div>
+      <span class="section-count" id="count-interesting-news">3 stories</span>
+    </div>
+    <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="nasa" style="--c:#fc3d21">NASA</button>
+<button class="chip" data-filter-source="science" style="--c:#10b981">Science</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="interesting-news">
+      
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.nature.com/articles/s41586-026-11084-4" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/interesting-news-01-a-thorium-229-optical-nuclear-clock-with-a-feedb.png" alt="A thorium-229 optical nuclear clock with a feedback loop" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Thorsten Sikorsky et al. / Nature</span>
+          <a class="orig" href="https://www.nature.com/articles/s41586-026-11084-4" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://hackaday.com/2026/10/11/thorium-clocks-start-ticking-with-lasers/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.nature.com/articles/s41586-026-11084-4" target="_blank" rel="noopener">A thorium-229 optical nuclear clock with a feedback loop</a></h2>
+        <div class="story-summary"><p>Published October 7, the Nature team stabilized a continuous-wave laser to a 148 nm transition in thorium-229 nuclei embedded in a millimetre-scale calcium-fluoride crystal at room temperature. Feedback from the absorption signal lets the nuclear transition correct laser drift; the demonstrated clock’s fractional-frequency instability approaches 10⁻¹⁵ after a day of averaging. This is a first solid-state optical nuclear clock with promising stability, not yet a more accurate replacement for established clocks; the authors project substantial future improvements.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/10/261008005256.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/interesting-news-02-birch-tar-made-with-prehistoric-techniques-inhib.webp" alt="Birch tar made with prehistoric techniques inhibits wound-infection bacteria" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">University of Cologne research release via ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/10/261008005256.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/10/261008005256.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/10/261008005256.htm" target="_blank" rel="noopener">Birch tar made with prehistoric techniques inhibits wound-infection bacteria</a></h2>
+        <div class="story-summary"><p>A University of Cologne-led study recreated birch tar using techniques associated with Neanderthals and tested its antibacterial properties. The researchers report that every tested sample inhibited bacteria implicated in wound infections, making medicinal use a plausible hypothesis for a material already known as tool adhesive. Laboratory inhibition does not show that Neanderthals used it to treat wounds; the historical interpretation remains speculative.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://science.nasa.gov/image-article/apod-2026-october-11-ice-fishing-for-cosmic-neutrinos/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-12/interesting-news-03-ice-fishing-for-cosmic-neutrinos.jpg" alt="Ice fishing for cosmic neutrinos" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#fc3d21">NA</span>
+          <span class="by">Robert Nemiroff, Jerry Bonnell, Cecilia Chirenti, Keighley Rockcliffe / NASA APOD</span>
+          <a class="orig" href="https://science.nasa.gov/image-article/apod-2026-october-11-ice-fishing-for-cosmic-neutrinos/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://science.nasa.gov/image-article/apod-2026-october-11-ice-fishing-for-cosmic-neutrinos/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://science.nasa.gov/image-article/apod-2026-october-11-ice-fishing-for-cosmic-neutrinos/" target="_blank" rel="noopener">Ice fishing for cosmic neutrinos</a></h2>
+        <div class="story-summary"><p>NASA’s October 11 Astronomy Picture of the Day features the IceCube Neutrino Observatory at the South Pole, which uses a cubic kilometre of Antarctic ice as a detector for high-energy neutrinos. The sensors watch for faint Cherenkov light from secondary charged particles produced when neutrinos interact in the ice. The image’s “fishing” metaphor is apt: neutrinos almost never interact, so the detector relies on immense instrumented volume and exceptionally dark, transparent ice.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning · Monday, October 12, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
