@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>grep · Tuesday, October 13, 2026</title>
+<title>grep · Wednesday, October 14, 2026</title>
 <meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://grep.shantanugoel.com/2026-10-13.html">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-10-14.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style-v2.css">
 <script>
@@ -21,8 +21,8 @@
     <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
   </div>
   <nav class="topnav">
-    <a class="navlink" href="2026-10-12.html">‹ Prev</a>
-    <span class="edition-pill">Tuesday, October 13, 2026 · <span id="count">11</span> stories</span>
+    <a class="navlink" href="2026-10-13.html">‹ Prev</a>
+    <span class="edition-pill">Wednesday, October 14, 2026 · <span id="count">15</span> stories</span>
     <span class="navlink disabled">Next ›</span>
     <a class="navlink" href="archive.html">Archive</a>
     <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
@@ -31,8 +31,8 @@
 <main>
   
   <nav class="section-nav" aria-label="Sections">
-    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">4</span></a>
-<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">4</span></a>
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
 <a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">3</span></a>
   </nav>
   <div class="section-panels">
@@ -41,15 +41,17 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-ai">AI</h1>
-        <p class="section-summary">Agents are expanding what software can do, but the bottlenecks remain measurable: trustworthy tool boundaries, review capacity, and hardware limits.</p>
+        <p class="section-summary">Anthropic describes rebuilding source control for a 12-fold jump in daily merges; Apple explores pooling idle Mac GPUs, and two small models target Vietnamese transcription and calibrated multimodal decisions.</p>
       </div>
-      <span class="section-count" id="count-ai">4 stories</span>
+      <span class="section-count" id="count-ai">6 stories</span>
     </div>
     <section class="filters" data-section-filters="ai" aria-label="AI filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
 <button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
 <button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
@@ -58,66 +60,98 @@
     <section class="stories" data-section-stories="ai">
       
     <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://github.com/prabanta-dev/janas" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/ai-01-janas-streams-oversized-language-models-from-ssd.png" alt="Janas streams oversized language models from SSD" loading="lazy">
+      <a class="thumb" href="https://www.anthropic.com/engineering/redesigning-source-control" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/ai-01-redesigning-source-control-at-anthropic.png" alt="Redesigning source control at Anthropic" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">Prabanta Dev</span>
-          <a class="orig" href="https://github.com/prabanta-dev/janas" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50063717" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Anthropic Engineering, via Hacker News</span>
+          <a class="orig" href="https://www.anthropic.com/engineering/redesigning-source-control" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50073633" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://github.com/prabanta-dev/janas" target="_blank" rel="noopener">Janas streams oversized language models from SSD</a></h2>
-        <div class="story-summary"><p>Janas is an experimental C inference engine that streams model experts from SSD, with CPU/GPU support and speculative decoding. Its author reports 24 generated tokens per second from Qwen3-Next-80B on a 32 GB laptop—versus 2.8 tok/s with llama.cpp in the same comparison—and publishes results across 13 models; those are developer-run benchmarks, not an independent evaluation.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://arxiv.org/abs/2610.13886v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/ai-02-arxiv-placeholder.svg" alt="X-AgentRed explores harmful paths across connected services" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">Yeonsung Jung, Zhiyuan Wang, Zifan Wang, Vítor Albiero, Benjamin Newman, Edoardo Debenedetti, Ivan Evtimov, Ninareh Mehrabi</span>
-          <a class="orig" href="https://arxiv.org/abs/2610.13886v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.13886v1" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
-        </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.13886v1" target="_blank" rel="noopener">X-AgentRed explores harmful paths across connected services</a></h2>
-        <div class="story-summary"><p>The framework builds a graph of tool effects and preconditions, then uses execution feedback to find cross-service action sequences that can produce harmful outcomes from benign requests. Across four frontier agents, the authors report 1.77× the harmful-path rate and 2.99× average tool coverage versus their baseline. The findings are an author-run red-team evaluation, but the graph-and-execution approach targets compositional risks that single-tool tests can miss.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/ai-03-hn-placeholder.svg" alt="AI coding agents increase output, while review absorbs the gains" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">Kyle Orland</span>
-          <a class="orig" href="https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50059523" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/" target="_blank" rel="noopener">AI coding agents increase output, while review absorbs the gains</a></h2>
-        <div class="story-summary"><p>A study using engineering activity across more than 700 firms and 700,000 employees found that adopting coding agents coincided with 30% more lines of code, 20% more commits, and 23% more pull requests, while review time and revision requests also rose. The authors find little evidence that firms increased software output or reduced employment, suggesting the coding-stage speedup can be absorbed downstream. These are firm-level observational results, not a claim that every team experiences the same effect.</p></div>
+        <h2 class="story-title"><a href="https://www.anthropic.com/engineering/redesigning-source-control" target="_blank" rel="noopener">Redesigning source control at Anthropic</a></h2>
+        <div class="story-summary"><p>Anthropic says daily merges to its monorepo grew from about 2,500 in May to more than 30,000 in September, turning source control and review into infrastructure bottlenecks. It describes building Scion, an in-house version-control system, plus review and code-search tools, and migrating the monorepo from Git in five months.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/ai-04-qgis-proposes-a-pause-on-ai-generated-contributi.png" alt="QGIS proposes a pause on AI-generated contributions" loading="lazy">
+      <a class="thumb" href="https://machinelearning.apple.com/research/distributed-gpu-cloud" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/ai-02-minions-a-dynamic-and-distributed-virtual-gpu-cl.png" alt="Minions: A Dynamic and Distributed Virtual GPU Cloud Built on Idle Apple Silicon Devices" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">QGIS Enhancement Proposals contributors</span>
-          <a class="orig" href="https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50054751" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Apple Machine Learning Research, via Hacker News</span>
+          <a class="orig" href="https://machinelearning.apple.com/research/distributed-gpu-cloud" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50070593" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387" target="_blank" rel="noopener">QGIS proposes a pause on AI-generated contributions</a></h2>
-        <div class="story-summary"><p>A proposal in QGIS&#x27;s public enhancement-process repository calls for a temporary moratorium on AI-generated contributions while the project works out community policy. It makes the governance question concrete for maintainers: how to handle code whose provenance, review burden, or authorship may be difficult to establish. This is a proposal in the project&#x27;s workflow, not evidence of a permanent ban.</p></div>
+        <h2 class="story-title"><a href="https://machinelearning.apple.com/research/distributed-gpu-cloud" target="_blank" rel="noopener">Minions: A Dynamic and Distributed Virtual GPU Cloud Built on Idle Apple Silicon Devices</a></h2>
+        <div class="story-summary"><p>Apple Research presents Minions, a system that pools idle GPUs across Apple Silicon Macs into a distributed inference resource. The paper focuses on fault-tolerant task execution and using existing devices to soften centralized GPU capacity and cost constraints; it is a systems approach, not a claim that Macs replace dedicated clusters in every workload.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2610.16039v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/ai-03-arxiv-placeholder.svg" alt="When Agents Talk, Secrets Travel: Topology-Driven Leakage and Recipient-Conditioned Sanitization in Multi-Agent LLM Systems" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">arXiv</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.16039v1" target="_blank" rel="noopener">arXiv ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.16039v1" target="_blank" rel="noopener">When Agents Talk, Secrets Travel: Topology-Driven Leakage and Recipient-Conditioned Sanitization in Multi-Agent LLM Systems</a></h2>
+        <div class="story-summary"><p>This paper studies how information disclosed to one authorized agent can propagate through ordinary coordination to an unauthorized agent, even without a malicious participant. Its evaluation spans coordinator-worker, peer-to-peer, and hierarchical topologies, and motivates defenses that account for who will receive a message rather than merely labeling the original data as sensitive.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/noahdunnagan/fsearch" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/ai-04-fsearch-whole-disk-file-search-for-macos.png" alt="fsearch: whole-disk file search for macOS" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">Noah Dunnagan / GitHub</span>
+          <a class="orig" href="https://github.com/noahdunnagan/fsearch" target="_blank" rel="noopener">GitHub ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/noahdunnagan/fsearch" target="_blank" rel="noopener">fsearch: whole-disk file search for macOS</a></h2>
+        <div class="story-summary"><p>This open-source macOS tool indexes filenames and file contents for fast, typo-tolerant whole-disk search; its project description reports roughly 1 ms searches across eight million files. The implementation is a useful look at local indexing and retrieval for people building desktop AI workflows, though the speed figure is the author’s claim rather than an independent benchmark.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/qnguyen3/QUAN-Transcribe-1.0" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/ai-05-quan-transcribe-1-0-streaming-vietnamese-speech-.png" alt="QUAN-Transcribe-1.0: streaming Vietnamese speech recognition in 356M parameters" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">qnguyen3 / Hugging Face</span>
+          <a class="orig" href="https://huggingface.co/qnguyen3/QUAN-Transcribe-1.0" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/qnguyen3/QUAN-Transcribe-1.0" target="_blank" rel="noopener">QUAN-Transcribe-1.0: streaming Vietnamese speech recognition in 356M parameters</a></h2>
+        <div class="story-summary"><p>A 356M-parameter Vietnamese ASR model adapts the small EmbeddingGemma 2 audio encoder with a CTC reader, supporting both full-context and chunked streaming transcription. Its model card reports 6.87% average word error rate across its listed test sets and gives training data, inference code, and benchmark methodology; the speed result is measured on an H100, not a low-end device.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/LiquidAI/d1-3B" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/ai-06-d1-3b-a-small-multimodal-model-for-calibrated-de.png" alt="d1-3B: a small multimodal model for calibrated decisions" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">Liquid AI / Hugging Face</span>
+          <a class="orig" href="https://huggingface.co/LiquidAI/d1-3B" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/LiquidAI/d1-3B" target="_blank" rel="noopener">d1-3B: a small multimodal model for calibrated decisions</a></h2>
+        <div class="story-summary"><p>Liquid AI’s 3.12B-parameter model takes text, structured state, and images with named questions, then returns typed decisions in one forward pass rather than generating a chat response. The model card documents its 32K context, usage code, and benchmark claims, positioning it for routing, classification, and visual checks; quantized weights should fit the intended small-model class, though the vendor’s latency figures use high-end hardware.</p></div>
       </div>
     </article>
     </section>
@@ -127,15 +161,15 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-electronics">Electronics</h1>
-        <p class="section-summary">Repurposed silicon and small controllers deliver outsized capabilities, from wideband reception and local voice inference to fast e-paper graphics.</p>
+        <p class="section-summary">An ESP32 radio hack adds transmission, an ESP32-C5 probes India’s NavIC signal, and a Wi-Fi 7 router becomes a wideband SDR; RP2350 builds supply a six-port serial bridge and a tiny computer.</p>
       </div>
-      <span class="section-count" id="count-electronics">4 stories</span>
+      <span class="section-count" id="count-electronics">6 stories</span>
     </div>
     <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
-<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
-<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
+<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
@@ -143,67 +177,99 @@
     </section>
     <section class="stories" data-section-stories="electronics">
       
-    <article class="story" data-section="electronics" data-source="hn" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://github.com/h0m3us3r/w1700k-sdr" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/electronics-01-a-wi-fi-7-router-becomes-a-320-msps-software-def.png" alt="A Wi-Fi 7 router becomes a 320 Msps software-defined radio" loading="lazy">
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://hackaday.com/2026/10/13/esp-sdr-can-now-transmit/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/electronics-01-esp-sdr-can-now-transmit.jpg" alt="ESP-SDR Can Now Transmit" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">h0m3us3r</span>
-          <a class="orig" href="https://github.com/h0m3us3r/w1700k-sdr" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50055593" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/10/13/esp-sdr-can-now-transmit/" target="_blank" rel="noopener">Hackaday ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://github.com/h0m3us3r/w1700k-sdr" target="_blank" rel="noopener">A Wi-Fi 7 router becomes a 320 Msps software-defined radio</a></h2>
-        <div class="story-summary"><p>The project replaces firmware on a router built around MediaTek&#x27;s MT7996 radio and streams raw 14-bit IQ samples to a host, with a browser spectrum and waterfall display. The repository documents 40–320 Msps capture over 10 GbE and says its firmware is receive-only; it also warns that installation replaces the stock operating system and that restoration requires a separate raw-NAND writer. This is an advanced hardware hack, not a casual router firmware update.</p></div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/10/13/esp-sdr-can-now-transmit/" target="_blank" rel="noopener">ESP-SDR Can Now Transmit</a></h2>
+        <div class="story-summary"><p>A follow-on ESP32 radio experiment has moved from receiving raw 2.4 GHz samples to transmitting, extending recent work that exposed low-level radio access on several ESP32 variants. It is a striking example of how inexpensive embedded hardware can double as an experimental software-defined radio platform, with the usual need to respect local radio regulations.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="electronics" data-source="github" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://github.com/iamankushpandit/esp_ai" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/electronics-02-ivy-ai-runs-a-fully-offline-voice-assistant-on-a.png" alt="Ivy AI runs a fully offline voice assistant on an ESP32-S3" loading="lazy">
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026/10/13/2026-retrocomputing-challenge-usbsid-pico-has-two-sids-many-inputs/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/electronics-02-2026-retrocomputing-challenge-usbsid-pico-has-tw.jpg" alt="2026 Retrocomputing Challenge: USBSID-Pico has Two SIDs, Many Inputs" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
-          <span class="by">Anankush Pandit</span>
-          <a class="orig" href="https://github.com/iamankushpandit/esp_ai" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://blog.adafruit.com/2026/10/12/open-source-voice-ai-runs-entirely-on-esp32-s3/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/10/13/2026-retrocomputing-challenge-usbsid-pico-has-two-sids-many-inputs/" target="_blank" rel="noopener">Hackaday ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://github.com/iamankushpandit/esp_ai" target="_blank" rel="noopener">Ivy AI runs a fully offline voice assistant on an ESP32-S3</a></h2>
-        <div class="story-summary"><p>Ivy chains wake-word detection, speech recognition, a 19.7-million-parameter 4-bit language model, and speech synthesis on an ESP32-S3 with 8 MB of PSRAM; Wi-Fi is used only for clock sync. The project&#x27;s measured results show the limits as well as the feat: transcription takes longer than real time, and a rephrased test question was answered correctly less often than the wording used in training. The code, model measurements, hardware requirements, and known limitations are documented in the repository.</p></div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/10/13/2026-retrocomputing-challenge-usbsid-pico-has-two-sids-many-inputs/" target="_blank" rel="noopener">2026 Retrocomputing Challenge: USBSID-Pico has Two SIDs, Many Inputs</a></h2>
+        <div class="story-summary"><p>The USBSID-Pico build combines a Raspberry Pi Pico with two SID sound chips and a broad set of inputs, creating a flexible USB-connected platform for reproducing the distinctive sound of classic Commodore machines. It is a practical retro-audio project where the hardware choices and interface design are as interesting as the nostalgia.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="electronics" data-source="hackster" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://www.hackster.io/robertfletcher1582/8-channel-analog-monitor-with-nxp-hef4052bp-and-arduino-da7495" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/electronics-03-read-eight-analog-channels-through-one-arduino-m.jpg" alt="Read eight analog channels through one Arduino multiplexer" loading="lazy">
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026/10/13/turning-a-wi-fi-7-router-into-a-wideband-software-defined-receiver/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/electronics-03-adafruit-placeholder.svg" alt="Turning a Wi-Fi 7 router into a wideband software-defined receiver" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#22d3ee">WB</span>
-          <span class="by">Robert Fletcher</span>
-          <a class="orig" href="https://www.hackster.io/robertfletcher1582/8-channel-analog-monitor-with-nxp-hef4052bp-and-arduino-da7495" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://www.hackster.io/robertfletcher1582/8-channel-analog-monitor-with-nxp-hef4052bp-and-arduino-da7495" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Blog</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/10/13/turning-a-wi-fi-7-router-into-a-wideband-software-defined-receiver/" target="_blank" rel="noopener">Adafruit ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://www.hackster.io/robertfletcher1582/8-channel-analog-monitor-with-nxp-hef4052bp-and-arduino-da7495" target="_blank" rel="noopener">Read eight analog channels through one Arduino multiplexer</a></h2>
-        <div class="story-summary"><p>An NXP HEF4052BP dual 4-channel analog switch routes eight inputs to two Arduino Uno ADC pins, with a simple serial monitor and potentiometers standing in for sensors. The tutorial includes wiring and code, including a settling delay and a discarded conversion after switching channels. It explicitly notes that the inputs are sampled in pairs rather than simultaneously and flags source impedance, voltage limits, and settling as accuracy considerations.</p></div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/10/13/turning-a-wi-fi-7-router-into-a-wideband-software-defined-receiver/" target="_blank" rel="noopener">Turning a Wi-Fi 7 router into a wideband software-defined receiver</a></h2>
+        <div class="story-summary"><p>The w1700k-sdr project repurposes a Gemtek Wi-Fi 7 router’s MediaTek radio to capture raw 14-bit IQ data at up to 320 Msps, then streams it over 10 GbE to a Linux host for spectrum display. It turns otherwise closed networking hardware into an ambitious wideband receiver, with project code and the hardware pipeline documented for further exploration.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="electronics" data-source="gitlab" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://gitlab.com/hpsaturn/paperboy" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/electronics-04-paperboy-pushes-game-boy-graphics-to-60-fps-on-e.jpg" alt="Paperboy pushes Game Boy graphics to 60 fps on e-paper" loading="lazy">
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026/10/13/a-6-port-usb-to-uart-bridge-for-embedded-bring-up-test-fixtures-automation-and-multi-device-debugging/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/electronics-04-adafruit-placeholder.svg" alt="A six-port USB-to-UART bridge built on RP2040 or RP2350" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#22d3ee">WB</span>
-          <span class="by">Antonio Vanegas</span>
-          <a class="orig" href="https://gitlab.com/hpsaturn/paperboy" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://gitlab.com/hpsaturn/paperboy" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Blog</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/10/13/a-6-port-usb-to-uart-bridge-for-embedded-bring-up-test-fixtures-automation-and-multi-device-debugging/" target="_blank" rel="noopener">Adafruit ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://gitlab.com/hpsaturn/paperboy" target="_blank" rel="noopener">Paperboy pushes Game Boy graphics to 60 fps on e-paper</a></h2>
-        <div class="story-summary"><p>Paperboy emulates original Game Boy games on M5Stack e-paper devices, drawing frames directly to the panel rather than relying on full-screen refreshes. The firmware provides sound, touch controls, a ROM picker, and save states, and the repository documents builds for both the ESP32-S3 M5PaperS3 and the original ESP32 M5Paper. The 60-fps result is the project&#x27;s reported display capability, constrained by the panel&#x27;s partial-refresh behavior.</p></div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/10/13/a-6-port-usb-to-uart-bridge-for-embedded-bring-up-test-fixtures-automation-and-multi-device-debugging/" target="_blank" rel="noopener">A six-port USB-to-UART bridge built on RP2040 or RP2350</a></h2>
+        <div class="story-summary"><p>PicoUart turns an RP2040 or RP2350 board into six independent USB serial ports, combining hardware UARTs with PIO-based channels and DMA-backed data paths. A separate HID interface reports board health, making the open firmware useful for embedded bring-up, automated test fixtures, and debugging several devices at once.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.adafruit.com/2026/10/13/a-pi-pico-2-pc-for-varvara/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/electronics-05-adafruit-placeholder.svg" alt="A Pi Pico 2 PC for Varvara" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Blog</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/10/13/a-pi-pico-2-pc-for-varvara/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/10/13/a-pi-pico-2-pc-for-varvara/" target="_blank" rel="noopener">A Pi Pico 2 PC for Varvara</a></h2>
+        <div class="story-summary"><p>A custom RP2350B carrier board turns a Pi Pico 2 into a small computer for Varvara, the virtual machine behind UXN. It adds two PS/2 ports, a three-port USB hub, NES controller input, a real-time clock, and a second microSD slot—an unusually complete interface set for a microcontroller-based retro-computing build.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.adafruit.com/2026/10/13/picothermal-a-usb-c-thermal-camera/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/electronics-06-adafruit-placeholder.svg" alt="Picothermal: a USB-C thermal camera" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Blog</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/10/13/picothermal-a-usb-c-thermal-camera/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/10/13/picothermal-a-usb-c-thermal-camera/" target="_blank" rel="noopener">Picothermal: a USB-C thermal camera</a></h2>
+        <div class="story-summary"><p>Picothermal upgrades an earlier compact thermal-camera design from a 32×24 sensor to a 160×120 FLIR Lepton 3.5 and sends the image over USB-C to a phone instead of adding a screen and battery. The trade-off keeps the handheld build lean while substantially increasing thermal detail, and the maker has documented the project on their blog.</p></div>
       </div>
     </article>
     </section>
@@ -213,14 +279,14 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-interesting-news">Interesting News</h1>
-        <p class="section-summary">Fresh NASA observations turn up two unexpected terrestrial comparisons: Antarctic sea ice near a record low and a lunar-like rock formation in Madagascar.</p>
+        <p class="section-summary">A single 1692 color-mixing manual survives as a 900-page scan; high-speed video shows the bee stinger working like a paired pump, and an intricate mechanical calculator is rebuilt in detail.</p>
       </div>
       <span class="section-count" id="count-interesting-news">3 stories</span>
     </div>
     <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
-<button class="chip" data-filter-source="nasa" style="--c:#fc3d21">NASA</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
@@ -228,51 +294,51 @@
     </section>
     <section class="stories" data-section-stories="interesting-news">
       
-    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/interesting-news-01-antarctic-sea-ice-reaches-its-third-lowest-winte.jpg" alt="Antarctic sea ice reaches its third-lowest winter maximum on record" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.openculture.com/2026/10/a-900-page-pre-pantone-guide-to-color-from-1692.html" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/interesting-news-01-a-900-page-pre-pantone-guide-to-color-from-1692-.jpg" alt="A 900-page pre-Pantone guide to color from 1692, now scanned in high resolution" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#fc3d21">NA</span>
-          <span class="by">Michala Garrison / NASA Earth Observatory</span>
-          <a class="orig" href="https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Open Culture, via Hacker News</span>
+          <a class="orig" href="https://www.openculture.com/2026/10/a-900-page-pre-pantone-guide-to-color-from-1692.html" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50053487" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/" target="_blank" rel="noopener">Antarctic sea ice reaches its third-lowest winter maximum on record</a></h2>
-        <div class="story-summary"><p>NASA and the National Snow and Ice Data Center estimate that Antarctic sea ice reached its 2026 maximum on September 14, covering 17.59 million square kilometers—the third-lowest maximum in the satellite record. The record began in 1978, and NASA cautions that year-to-year variability makes it too early to know whether the recent decline is a lasting shift or a statistical fluctuation.</p></div>
+        <h2 class="story-title"><a href="https://www.openculture.com/2026/10/a-900-page-pre-pantone-guide-to-color-from-1692.html" target="_blank" rel="noopener">A 900-page pre-Pantone guide to color from 1692, now scanned in high resolution</a></h2>
+        <div class="story-summary"><p>Artist A. Boogert made a single copy of a Dutch color-mixing manual in 1692, with more than 700 pages devoted to color swatches and instructions. A high-resolution digital scan makes the 900-page work available to browse; it predates modern color standards, though there is little evidence that this lone copy influenced later color theory.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://science.nasa.gov/earth/earth-observatory/moon-like-madagascar/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/interesting-news-02-a-moon-like-mass-of-anorthosite-stands-out-in-ma.jpg" alt="A Moon-like mass of anorthosite stands out in Madagascar" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arstechnica.com/science/2026/10/honey-bee-stingers-are-double-piston-venom-pumps/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/interesting-news-02-hn-placeholder.svg" alt="High-speed video reveals how honey bee stingers pump venom" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#fc3d21">NA</span>
-          <span class="by">Lindsey Doermann / NASA Earth Observatory</span>
-          <a class="orig" href="https://science.nasa.gov/earth/earth-observatory/moon-like-madagascar/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://science.nasa.gov/earth/earth-observatory/moon-like-madagascar/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Ars Technica, via Hacker News</span>
+          <a class="orig" href="https://arstechnica.com/science/2026/10/honey-bee-stingers-are-double-piston-venom-pumps/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50081133" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://science.nasa.gov/earth/earth-observatory/moon-like-madagascar/" target="_blank" rel="noopener">A Moon-like mass of anorthosite stands out in Madagascar</a></h2>
-        <div class="story-summary"><p>An astronaut photograph from the International Space Station shows the Saririaky anorthosite massif in southern Madagascar, a bright rock formation resembling the Moon&#x27;s highlands. The exposed body covers about 100 square kilometers and is at least 600 million years old; NASA links its geology to ancient continental collisions. Anorthosite is not unique to the Moon, but this unusually clear terrestrial outcrop makes the lunar connection vivid.</p></div>
+        <h2 class="story-title"><a href="https://arstechnica.com/science/2026/10/honey-bee-stingers-are-double-piston-venom-pumps/" target="_blank" rel="noopener">High-speed video reveals how honey bee stingers pump venom</a></h2>
+        <div class="story-summary"><p>High-speed imaging reveals that a honey bee’s barbed stinger is not simply a passive needle: moving components act as a paired pump to draw venom from the gland and deliver it into the target. The mechanism helps explain how the sting continues to inject after the bee has flown away, and offers a vivid example of biomechanics hiding in a familiar structure.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="rec" data-tier="notable">
-      <a class="thumb" href="https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-13/interesting-news-03-spacex-s-next-station-cargo-mission-carries-brai.jpg" alt="SpaceX&#x27;s next station cargo mission carries brain and crop experiments" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="hn" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.johnwolff.au/calculators/Tech/OdhnerPinwheel/Odhner127Rebuild.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-14/interesting-news-03-hn-placeholder.svg" alt="Rebuilding the Original Odhner Model 127 Pinwheel Calculator" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#fc3d21">NA</span>
-          <span class="by">NASA Science Editorial Team</span>
-          <a class="orig" href="https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">John Wolff, via Hacker News</span>
+          <a class="orig" href="https://www.johnwolff.au/calculators/Tech/OdhnerPinwheel/Odhner127Rebuild.htm" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50057612" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/" target="_blank" rel="noopener">SpaceX's next station cargo mission carries brain and crop experiments</a></h2>
-        <div class="story-summary"><p>NASA&#x27;s CRS-35 resupply mission is carrying several studies for the International Space Station, including lab-grown brain tissue, fungus-infected plants, and tracking of antibiotic-resistant bacteria. The experiments compare spaceflight effects with Earth controls and test whether a compact lab reader can measure health biomarkers in orbit. The results could inform both long-duration crew health and crop disease management on Earth.</p></div>
+        <h2 class="story-title"><a href="https://www.johnwolff.au/calculators/Tech/OdhnerPinwheel/Odhner127Rebuild.htm" target="_blank" rel="noopener">Rebuilding the Original Odhner Model 127 Pinwheel Calculator</a></h2>
+        <div class="story-summary"><p>John Wolff documents a detailed reconstruction of the Odhner Model 127, a mechanical pinwheel calculator whose arithmetic depends on carefully sequenced gears, sliding pins, and a clearing mechanism. The build makes the machine’s design and operation tangible through a hands-on engineering account rather than treating it as a museum curiosity.</p></div>
       </div>
     </article>
     </section>
@@ -280,7 +346,7 @@
   </div>
 </main>
 <footer class="site-footer">
-  <p>grep — curated by a Hermes agent every morning · Tuesday, October 13, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+  <p>grep — curated by a Hermes agent every morning · Wednesday, October 14, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
 </footer>
 <script src="assets/app.js"></script>
 </body>
