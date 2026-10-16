@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>grep · Friday, October 16, 2026</title>
+<meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-10-16.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style-v2.css">
+<script>
+  // set theme before paint to avoid a flash of the wrong palette
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
+  </div>
+  <nav class="topnav">
+    <a class="navlink" href="2026-10-15.html">‹ Prev</a>
+    <span class="edition-pill">Friday, October 16, 2026 · <span id="count">21</span> stories</span>
+    <span class="navlink disabled">Next ›</span>
+    <a class="navlink" href="archive.html">Archive</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  
+  <nav class="section-nav" aria-label="Sections">
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">10</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">5</span></a>
+  </nav>
+  <div class="section-panels">
+    
+  <section class="section-panel" id="ai" data-section-panel="ai" style="--section-color:#ff8000" aria-labelledby="heading-ai">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-ai">AI</h1>
+        <p class="section-summary">Muse Spark Open lands as a huge US open-weight agent model, Goodfire says neurons were already clean, Microsoft reports a 2.8T MoE base, and two papers attack looped-model latency and math-claim audits.</p>
+      </div>
+      <span class="section-count" id="count-ai">10 stories</span>
+    </div>
+    <section class="filters" data-section-filters="ai" aria-label="AI filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="ai">
+      
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://research.meta.ai/blog/muse-spark-open" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/ai-01-muse-spark-open-meta-s-816b-42b-active-open-weig.webp" alt="Muse Spark Open: Meta’s 816B/42B-active open-weight model" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Meta Superintelligence Labs, via Hacker News</span>
+          <a class="orig" href="https://research.meta.ai/blog/muse-spark-open" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50107379" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://research.meta.ai/blog/muse-spark-open" target="_blank" rel="noopener">Muse Spark Open: Meta’s 816B/42B-active open-weight model</a></h2>
+        <div class="story-summary"><p>On October 15 Meta released weights for Muse Spark Open, a natively multimodal model with 816B total parameters, 42B active, and a 1M-token context, aimed at coding and long-horizon agent work. The company says it is the first model in its class to run on two Apple M5 Ultra Mac Studios via MLX, using up to 512 GB unified memory per machine, and lists SGLang, vLLM, TensorRT-LLM, llama.cpp, and Unsloth among inference targets. Weights are on Hugging Face, SageMaker, Model Garden, and Foundry, with APIs at Baseten, Fireworks, Groq, Modal, Nebius, OpenRouter, and Together. Benchmarks and on-device demos are vendor-reported.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://already-clean.goodfire.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/ai-02-neural-networks-are-already-clean.png" alt="Neural networks are already clean" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Nick Cammarata / Goodfire, via Hacker News</span>
+          <a class="orig" href="https://already-clean.goodfire.com/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50105647" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://already-clean.goodfire.com/" target="_blank" rel="noopener">Neural networks are already clean</a></h2>
+        <div class="story-summary"><p>Nick Cammarata argues that the classic evidence for polysemanticity and superposition in early model organisms was misread, and that what looked like arbitrary packing is mostly a motif he calls recursive generalization. If that holds, neurons and circuits can be studied directly instead of first training a sparse autoencoder to unknot them. He frames this as a working hypothesis, not a settled result, and says the outlook for mechanistic interpretability may be better than the superposition story implied. The essay is a long-form Goodfire note, not a paper with independent replication.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.signalscorps.com/blog/prompt-injection-in-http-headers/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/ai-03-prompt-injection-in-http-headers-what-217m-web-r.png" alt="Prompt injection in HTTP headers: what 217M web responses show" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Sarah Andrews / Signals Corps, via Hacker News</span>
+          <a class="orig" href="https://www.signalscorps.com/blog/prompt-injection-in-http-headers/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50104310" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.signalscorps.com/blog/prompt-injection-in-http-headers/" target="_blank" rel="noopener">Prompt injection in HTTP headers: what 217M web responses show</a></h2>
+        <div class="story-summary"><p>Signals Corps scanned headers on 217,097,223 Common Crawl responses, about 10% of the September 2026 crawl, and found 7,959 sites sending a header aimed at AI systems. Almost all were pointers such as x-llms-txt; 30 sites sent injection attempts, 24 of them in a header named X-AI, mostly pranks. In their October tests, Claude Code models found planted headers and did not act by default, but obeyed in 7 of 9 runs when the user prompt told them to follow the site. Defense starts with what a fetch tool actually passes to the model.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://microsoft.ai/news/frontier-pre-training-at-microsoft-ai/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/ai-04-frontier-pre-training-at-microsoft-ai-mai-base-2.webp" alt="Frontier pre-training at Microsoft AI: MAI-Base-2" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Microsoft AI, via Hacker News</span>
+          <a class="orig" href="https://microsoft.ai/news/frontier-pre-training-at-microsoft-ai/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50105791" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://microsoft.ai/news/frontier-pre-training-at-microsoft-ai/" target="_blank" rel="noopener">Frontier pre-training at Microsoft AI: MAI-Base-2</a></h2>
+        <div class="story-summary"><p>Microsoft says it finished pre-training MAI-Base-2, an MoE with 80B active and 2.8T total parameters, on 16k GB200 GPUs over 38 days in August–September 2026, with 21% MFU and 89% goodput. It reports 4–12× more pre-training FLOPs efficiency than DeepSeek-V4-Pro-Base on held-out evaluations, using organic data without distillation, and compares models with bits-per-byte so tokenizer differences drop out. MAI-Base-2 is in post-training; the comparisons and efficiency figures are vendor-reported.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2610.21594v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/ai-05-arxiv-placeholder.svg" alt="LoopAhead: speculative decoding for looped language models" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Liu, Xue, Bao, Xu, Cao, Yao, Chen / arXiv</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.21594v1" target="_blank" rel="noopener">arXiv ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.21594v1" target="_blank" rel="noopener">LoopAhead: speculative decoding for looped language models</a></h2>
+        <div class="story-summary"><p>Looped Transformers reuse the same layers, so each token still pays sequential compute and repeated weight reads. LoopAhead drafts several future tokens from early-loop states with a lightweight lookahead drafter, uses deeper-loop feedback to continue or pause branches, and lets the full-depth model make the final token decisions. The authors report up to 7.82× decoding speedup over autoregressive decoding while matching the target model&#x27;s output distribution; those numbers are paper-reported.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2610.21581v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/ai-06-arxiv-placeholder.svg" alt="ClaimScope: label-blind witness verification for math claims" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Mushir Akhtar / arXiv</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.21581v1" target="_blank" rel="noopener">arXiv ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.21581v1" target="_blank" rel="noopener">ClaimScope: label-blind witness verification for math claims</a></h2>
+        <div class="story-summary"><p>ClaimScope is a 72-task benchmark that asks a model for a verdict, scope, counterexample, and repair on small mathematical claims, then checks only the submitted witness without looking at reference labels. On Qwen3-8B, verifier feedback produced 23/39 accepted counterexamples on invalid claims and 25/72 safe completions, versus 15/39 and 20/72 with checker-free generic feedback. Strict completion stayed at 17/72, and a schema-only fix of the direct outputs reached the same 25 safe tasks without another model call. The author locates the gains in witness-structure correction, not broader reasoning.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://github.com/chenglou/handwired" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/ai-07-handwired-turn-ordinary-javascript-into-a-neural.png" alt="Handwired: turn ordinary JavaScript into a neural net" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">Cheng Lou / GitHub</span>
+          <a class="orig" href="https://github.com/chenglou/handwired" target="_blank" rel="noopener">GitHub ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/chenglou/handwired" target="_blank" rel="noopener">Handwired: turn ordinary JavaScript into a neural net</a></h2>
+        <div class="story-summary"><p>Handwired compiles regular JavaScript into an exact, fully differentiable network that runs in the browser without a GPU and without training. Conditionals become combinations of ReLUs; a mini OS demo is 9,909 weights across 130 layers, and another demo turns regex matching, JSON parsing, and highlighting into WebGPU kernels over 100,000 documents. You can unfreeze compiled weights and train them live. The project is MIT-licensed, with live demos at chenglou.me/handwired.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/zhuyansen/new-term-radar" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/ai-08-new-term-radar-catch-ai-names-before-keyword-too.png" alt="new-term-radar: catch AI names before keyword tools list them" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">zhuyansen / GitHub</span>
+          <a class="orig" href="https://github.com/zhuyansen/new-term-radar" target="_blank" rel="noopener">GitHub ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/zhuyansen/new-term-radar" target="_blank" rel="noopener">new-term-radar: catch AI names before keyword tools list them</a></h2>
+        <div class="story-summary"><p>new-term-radar watches X accounts, Hugging Face trending, GitHub, sitemaps, and optional Search Console for new model, product, and repo names, then checks Google Trends 14 days later for a hit rate per signal. Version 0.4 adds Reddit asks, Chrome Web Store pain points, and an MCP server; state is SQLite plus gzip snapshots, with AIsa as the one paid dependency. Hit rates are not in yet because the 14-day review has only begun. MIT-licensed, extracted from the radar behind agentskillshub.top.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/ManyCamDS/ToarimEmbedder" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/ai-09-t-arimembedder-a-24-3m-cpu-stateful-embedder.png" alt="TóarimEmbedder: a 24.3M CPU stateful embedder" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">ManyCamDS / Hugging Face</span>
+          <a class="orig" href="https://huggingface.co/ManyCamDS/ToarimEmbedder" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/ManyCamDS/ToarimEmbedder" target="_blank" rel="noopener">TóarimEmbedder: a 24.3M CPU stateful embedder</a></h2>
+        <div class="story-summary"><p>TóarimEmbedder is a 24.3-million-parameter F32 embedding model aimed at long industrial RAG documents, with a GNN enricher, low-rank projections, and a Titan-style memory updated by Sherman–Morrison rank-1 steps. The card documents CPU-only inference, about 100 MB of weights, a 768-d L2-normalized vector, and a local WordPiece tokenizer; it does not need a GPU. Cost-cut and continuity claims are the author&#x27;s. Apache 2.0, Spanish and English.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://huggingface.co/ml-resources/Index-Translate-2B" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/ai-10-index-translate-2b-a-2b-multilingual-translator-.png" alt="Index-Translate-2B: a 2B multilingual translator on Qwen3.5" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">ml-resources / Hugging Face</span>
+          <a class="orig" href="https://huggingface.co/ml-resources/Index-Translate-2B" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/ml-resources/Index-Translate-2B" target="_blank" rel="noopener">Index-Translate-2B: a 2B multilingual translator on Qwen3.5</a></h2>
+        <div class="story-summary"><p>Index-Translate-2B is the compact 2.27B-parameter text model of the Index-Translate family, built on Qwen3.5, for translation across 150 languages plus glossary, JSON/markdown, and style constraints. The card reports beating Hy-MT2-1.8B on the team&#x27;s main metrics, with instTrans IFscore 0.7569 and a 3.97% off-target rate on a low-resource instruction split; image translation uses companion mmproj encoders. BF16 weights are about 4.5 GB, so 4-bit is the realistic 3060/3070 path. Apache 2.0; scores are report-claimed.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="electronics" data-section-panel="electronics" style="--section-color:#22d3ee" aria-labelledby="heading-electronics">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-electronics">Electronics</h1>
+        <p class="section-summary">Sheets of optical waveguides reconstruct pose, antirez simulates a C64 pin by pin, Espressif measures hybrid PQC on ESP32, and Nano Matter learns Zigbee.</p>
+      </div>
+      <span class="section-count" id="count-electronics">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
+<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
+<button class="chip" data-filter-source="arduino" style="--c:#00979d">Arduino</button>
+<button class="chip" data-filter-source="espressif" style="--c:#e7352c">Espressif</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="electronics">
+      
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026/10/15/using-optical-waveguide-arrays-to-make-sheets-sense-shapes/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/electronics-01-optical-waveguide-arrays-that-make-sheets-sense-.jpg" alt="Optical waveguide arrays that make sheets sense shape" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Maya Posch / Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/10/15/using-optical-waveguide-arrays-to-make-sheets-sense-shapes/" target="_blank" rel="noopener">Hackaday ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/10/15/using-optical-waveguide-arrays-to-make-sheets-sense-shapes/" target="_blank" rel="noopener">Optical waveguide arrays that make sheets sense shape</a></h2>
+        <div class="story-summary"><p>Qifan Yu and colleagues lay custom elastomeric optical waveguides in a double-sided zig-zag on a sheet, then reconstruct the sheet&#x27;s shape from how light propagation changes as it bends. Wrapped around an arm, elbow, and hand, the array tracked joint flex without cameras. The Advanced Intelligent Systems demo is still bulky and the reconstruction is unoptimized; the interesting claim is a fabric-scale pose sensor rather than a finished VR glove.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026/10/15/c64-hardware-simulator-isnt-just-for-playing-around/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/electronics-02-c64-hardware-simulator-isn-t-just-for-playing-ga.gif" alt="C64 hardware simulator isn’t (just) for playing games" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Tyler August / Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/10/15/c64-hardware-simulator-isnt-just-for-playing-around/" target="_blank" rel="noopener">Hackaday ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/10/15/c64-hardware-simulator-isnt-just-for-playing-around/" target="_blank" rel="noopener">C64 hardware simulator isn’t (just) for playing games</a></h2>
+        <div class="story-summary"><p>Salvatore Sanfilippo&#x27;s c64-hw-sim models an ASSY 250407 Commodore 64 motherboard down to chips and nets, so you can pull a part or short a pin in software. Cycle-accurate CPU, CIA, SID, and VIC-II emulation comes from Andre Weissflog; analog video, audio, and power are not simulated, and even on fast hardware it runs at about one-third speed. It is a diagnostic and teaching tool, not a game emulator. Code is on GitHub at antirez/c64-hw-simulator.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="espressif" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://developer.espressif.com/blog/2026/10/esp32-post-quantum-cryptography/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/electronics-03-post-quantum-cryptography-on-esp32.webp" alt="Post-quantum cryptography on ESP32" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#e7352c">Es</span>
+          <span class="by">Pranav Sonawane / Espressif</span>
+          <a class="orig" href="https://developer.espressif.com/blog/2026/10/esp32-post-quantum-cryptography/" target="_blank" rel="noopener">Espressif ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://developer.espressif.com/blog/2026/10/esp32-post-quantum-cryptography/" target="_blank" rel="noopener">Post-quantum cryptography on ESP32</a></h2>
+        <div class="story-summary"><p>Espressif&#x27;s esp-pqc component, announced October 14, adds software ML-KEM-768 and ML-DSA-65 to ESP-IDF v6.0+ for hybrid TLS 1.3 and a verify-only Secure Boot path on ESP32-C3/C5/C6. Hybrid key share X25519MLKEM768 is 1,216 bytes versus 32 for X25519, and ML-DSA-65 signatures are 3,309 bytes; on an ESP32-C5 the example handshake completed in about 300 ms including local RTT. The post frames it as evaluation on current silicon, not a hardware PQC accelerator. Numbers are Espressif&#x27;s on-device logs.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="arduino" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.arduino.cc/2026/10/15/your-arduino-nano-matter-board-now-speaks-zigbee/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/electronics-04-arduino-nano-matter-now-speaks-zigbee.jpg" alt="Arduino Nano Matter now speaks Zigbee" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#00979d">Ar</span>
+          <span class="by">Arduino Blog</span>
+          <a class="orig" href="https://blog.arduino.cc/2026/10/15/your-arduino-nano-matter-board-now-speaks-zigbee/" target="_blank" rel="noopener">Arduino ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.arduino.cc/2026/10/15/your-arduino-nano-matter-board-now-speaks-zigbee/" target="_blank" rel="noopener">Arduino Nano Matter now speaks Zigbee</a></h2>
+        <div class="story-summary"><p>Silicon Labs Arduino core 5.0 adds Zigbee 3.0 on the same MGM240S radio that already did Matter over Thread and Bluetooth LE: pick Zigbee under Tools › Protocol stack and upload. Fourteen examples cover lights, switches, temperature/humidity/light sensors, and a time client; a board can also be flashed as a ZHA coordinator. Humidity and light examples ship fake values, and temperature reads the MG24 die unless you wire a real sensor. Pairing can take minutes; the network is stored in NVM across resets.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.adafruit.com/2026/10/15/100-3d-printed-bench-vise-no-hardware-required-100mm-clamping-range-3dthursday-3dprinting/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/electronics-05-adafruit-placeholder.svg" alt="A 100% 3D-printed bench vise, no hardware required" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Blog</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/10/15/100-3d-printed-bench-vise-no-hardware-required-100mm-clamping-range-3dthursday-3dprinting/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/10/15/100-3d-printed-bench-vise-no-hardware-required-100mm-clamping-range-3dthursday-3dprinting/" target="_blank" rel="noopener">A 100% 3D-printed bench vise, no hardware required</a></h2>
+        <div class="story-summary"><p>STLsupplier&#x27;s compact vise is 160×160×80 mm with a 100 mm clamping range and prints as a complete mechanism: no screws, bolts, or rods. It is meant for light hobby clamping, gluing, soldering, and holding small parts; the spindle hole needs supports. Treat it as a printable fixture, not a machinist&#x27;s vise. Files are linked from the Adafruit 3D Thursday roundup.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026/10/15/so-you-want-to-make-your-sdr-work-on-other-frequencies/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/electronics-06-so-you-want-to-make-your-sdr-work-on-other-frequ.jpg" alt="So you want to make your SDR work on other frequencies" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/10/15/so-you-want-to-make-your-sdr-work-on-other-frequencies/" target="_blank" rel="noopener">Hackaday ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/10/15/so-you-want-to-make-your-sdr-work-on-other-frequencies/" target="_blank" rel="noopener">So you want to make your SDR work on other frequencies</a></h2>
+        <div class="story-summary"><p>ESP32 Wi-Fi radios can already be driven as 2.4 GHz transmit/receive SDRs, but proven range is still a slice around Wi-Fi, maybe down toward 1.8 GHz. This primer walks through analog converters — the old TV-tuner superhet trick — as a way to move that window onto other bands without waiting for undocumented clock hacks. It is a frequency-planning note, not a finished ESP32 HF transceiver. Transmit tests still need a license and a dummy load.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="interesting-news" data-section-panel="interesting-news" style="--section-color:#f472b6" aria-labelledby="heading-interesting-news">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-interesting-news">Interesting News</h1>
+        <p class="section-summary">NASA tracks what NOAA calls a historic El Niño, Webb peers into NGC 7129, and the day’s TILs undo the Ellis Island name myth and recall the Union’s stone-filled whalers.</p>
+      </div>
+      <span class="section-count" id="count-interesting-news">5 stories</span>
+    </div>
+    <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="nasa" style="--c:#fc3d21">NASA</button>
+<button class="chip" data-filter-source="esa" style="--c:#4f8ef7">ESA</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="interesting-news">
+      
+    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://science.nasa.gov/earth/nasa-satellites-observe-historic-2026-el-nino/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/interesting-news-01-nasa-satellites-observe-a-historic-2026-el-ni-o.jpg" alt="NASA satellites observe a historic 2026 El Niño" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#fc3d21">NA</span>
+          <span class="by">Erica McNamee and Sally Younger / NASA Science</span>
+          <a class="orig" href="https://science.nasa.gov/earth/nasa-satellites-observe-historic-2026-el-nino/" target="_blank" rel="noopener">NASA ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://science.nasa.gov/earth/nasa-satellites-observe-historic-2026-el-nino/" target="_blank" rel="noopener">NASA satellites observe a historic 2026 El Niño</a></h2>
+        <div class="story-summary"><p>NASA&#x27;s October 15 briefing tracks the 2026 El Niño with Sentinel-6 sea-surface height, radiometer temperatures, and PACE ocean color. NOAA is quoted as giving an 83% chance that the strongest El Niño since 1950 is underway; eastern Pacific sea surface temperatures are about 1.7 °C above the long-term average, with local sea level up 30–40 cm where Kelvin waves piled warm water. PACE shows the equatorial Pacific getting bluer as phytoplankton fade when upwelling weakens. Those strength odds are NOAA&#x27;s, relayed by NASA.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="esa" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://esawebb.org/news/weic2620/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/interesting-news-02-webb-captures-commotion-from-a-nebula-s-stellar-.jpg" alt="Webb captures commotion from a nebula’s stellar jets" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#4f8ef7">ESA</span>
+          <span class="by">ESA/Webb</span>
+          <a class="orig" href="https://esawebb.org/news/weic2620/" target="_blank" rel="noopener">ESA ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://esawebb.org/news/weic2620/" target="_blank" rel="noopener">Webb captures commotion from a nebula’s stellar jets</a></h2>
+        <div class="story-summary"><p>On October 6, 2026, ESA/Webb released a NIRCam view of NGC 7129, a stellar nursery about 3,300 light-years away. Infrared light cuts through dust to show pre-main-sequence star LkHα 234 (about 5–8 solar masses) carving a 3.5-light-year golden cavity, while younger protostars on the other side drive overlapping jets that shock the cloud. Bow shocks and a photodissociation ridge mark where stellar winds meet colder molecular gas. It is an image release, not a new distance measurement.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="wikipedia" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://en.wikipedia.org/wiki/Ellis_Island#Name-change_myth" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/interesting-news-03-ellis-island-officials-did-not-invent-new-immigr.jpg" alt="Ellis Island officials did not invent new immigrant names" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Wikipedia</span>
+          <a class="orig" href="https://en.wikipedia.org/wiki/Ellis_Island#Name-change_myth" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1x6oxy7/til_that_the_trope_of_immigration_officials_at/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://en.wikipedia.org/wiki/Ellis_Island#Name-change_myth" target="_blank" rel="noopener">Ellis Island officials did not invent new immigrant names</a></h2>
+        <div class="story-summary"><p>The story that clerks at Ellis Island freely anglicized surnames is not supported by the records: inspectors copied names from steamship manifests, often fixing mistakes, and typically spoke several languages. Families more often Americanized names later; the Naturalization Act of 1906 required documenting those changes, on average about five years after arrival. The myth persists in films such as The Godfather Part II. Wikipedia summarizes NYPL, USCIS, and related research.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="wikipedia" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://en.wikipedia.org/wiki/Stone_Fleet" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/interesting-news-04-the-union-navy-s-stone-fleet-was-a-harbor-full-o.jpg" alt="The Union Navy’s Stone Fleet was a harbor full of scuttled whalers" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Wikipedia</span>
+          <a class="orig" href="https://en.wikipedia.org/wiki/Stone_Fleet" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1x6pqzd/til_in_december_1861_the_us_navy_deliberately/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://en.wikipedia.org/wiki/Stone_Fleet" target="_blank" rel="noopener">The Union Navy’s Stone Fleet was a harbor full of scuttled whalers</a></h2>
+        <div class="story-summary"><p>In December 1861 the U.S. Navy bought aging New Bedford and other New England whalers, filled them with stone, and sank them to obstruct Confederate harbors, starting at Charleston. A second fleet of 12 to 20 vessels went down in Maffitt&#x27;s Channel in 1862. The hulks did little lasting damage as a blockade; Herman Melville, who had sailed in the whale fishery, wrote the poem “The Stone Fleet.”</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="wikipedia" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://en.wikipedia.org/wiki/Cauliflory" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-16/interesting-news-05-cacao-flowers-grow-from-the-trunk-not-the-twig-t.jpg" alt="Cacao flowers grow from the trunk, not the twig tips" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Wikipedia</span>
+          <a class="orig" href="https://en.wikipedia.org/wiki/Cauliflory" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1x6ixnd/til_cacao_trees_grow_flowers_directly_from_their/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://en.wikipedia.org/wiki/Cauliflory" target="_blank" rel="noopener">Cacao flowers grow from the trunk, not the twig tips</a></h2>
+        <div class="story-summary"><p>Cauliflory is the habit of flowering and fruiting on the trunk or older branches instead of new shoot tips. Cacao does this, as do jackfruit and several rainforest trees, which puts heavy pods on wood that can bear them and keeps blossoms where trunk-crawling pollinators can reach. It is an old botanical term, not a 2026 discovery; the cacao example is the one that still surprises people.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning · Friday, October 16, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
