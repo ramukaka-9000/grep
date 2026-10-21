@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>grep · Wednesday, October 21, 2026</title>
+<meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-10-21.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style-v2.css">
+<script>
+  // set theme before paint to avoid a flash of the wrong palette
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
+  </div>
+  <nav class="topnav">
+    <a class="navlink" href="2026-10-20.html">‹ Prev</a>
+    <span class="edition-pill">Wednesday, October 21, 2026 · <span id="count">25</span> stories</span>
+    <span class="navlink disabled">Next ›</span>
+    <a class="navlink" href="archive.html">Archive</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  
+  <nav class="section-nav" aria-label="Sections">
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">13</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">6</span></a>
+  </nav>
+  <div class="section-panels">
+    
+  <section class="section-panel" id="ai" data-section-panel="ai" style="--section-color:#ff8000" aria-labelledby="heading-ai">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-ai">AI</h1>
+        <p class="section-summary">Inference infrastructure goes public: DeepSeek releases DeepInfer, Google opens a native PyTorch TPU backend, and Meta shows what a gigawatt supercluster actually takes.</p>
+      </div>
+      <span class="section-count" id="count-ai">13 stories</span>
+    </div>
+    <section class="filters" data-section-filters="ai" aria-label="AI filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
+<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="ai">
+      
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-01-hn-placeholder.svg" alt="DeepInfer: DeepSeek&#x27;s production inference framework, open-sourced" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">DeepSeek-AI (C++/Python, Apache-2.0)</span>
+          <a class="orig" href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50163277" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noopener">DeepInfer: DeepSeek's production inference framework, open-sourced</a></h2>
+        <div class="story-summary"><p>DeepSeek has released the inference framework that powers its large-scale production services, supporting DeepSeek-V4.1-Flash on NVIDIA SM100 and Huawei Ascend 950. The README is a tour of current serving practice: FlashMLA/DeepGEMM/DeepEP kernels, attention DP with MoE EP + EPLB, DSpark draft decoding with confidence-scheduled verification, sliding-window bounded replay prefill, batch-invariant and deterministic sampling. It hit ~13.7k stars in four days; note the caveats — KV cache management and prefill/decode disaggregation are not in this release, so it is an engine, not a turnkey service.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://mistral.ai/news/voxtral-3/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-02-voxtral-3-mistral-s-voice-agent-stack-goes-end-t.png" alt="Voxtral 3: Mistral&#x27;s voice-agent stack goes end-to-end" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Mistral AI</span>
+          <a class="orig" href="https://mistral.ai/news/voxtral-3/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50168396" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://mistral.ai/news/voxtral-3/" target="_blank" rel="noopener">Voxtral 3: Mistral's voice-agent stack goes end-to-end</a></h2>
+        <div class="story-summary"><p>Mistral shipped a new STT/TTS family plus a voice-agent SDK that folds listening, reasoning, tool calling and speaking into one real-time streaming pipeline: diarization and context-biasing across 50+ languages, sub-500ms realtime transcription, and expressive TTS across 35+ languages. Pricing is published per-minute and the whole family is self-deployable, keeping the EU data-sovereignty pitch intact. If you are building phone or contact-center agents, this is the stack to benchmark against OpenAI&#x27;s realtime API.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.cloudflare.com/typescript-rust-port/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-03-tsrs-a-port-of-typescript-to-rust.png" alt="Tsrs: a port of TypeScript to Rust" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Cloudflare</span>
+          <a class="orig" href="https://blog.cloudflare.com/typescript-rust-port/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50165953" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.cloudflare.com/typescript-rust-port/" target="_blank" rel="noopener">Tsrs: a port of TypeScript to Rust</a></h2>
+        <div class="story-summary"><p>Cloudflare describes porting the TypeScript compiler to Rust, joining the ongoing migration of the JS toolchain away from single-threaded TypeScript-land. The interesting engineering read is how they handle fidelity: a Rust reimplementation that disagrees with tsc on any diagnostic is a bug, so the port is validated against the existing test corpus rather than rewritten from scratch. Worth reading if you care about what compiler porting at ecosystem scale actually costs.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://peec.ai/blog/publish-stats-get-cited-the-tactic-that-put-my-data-all-over-the-web" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-04-hn-placeholder.svg" alt="Publish fake stats, get cited in LLMs" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Peec AI</span>
+          <a class="orig" href="https://peec.ai/blog/publish-stats-get-cited-the-tactic-that-put-my-data-all-over-the-web" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50165801" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://peec.ai/blog/publish-stats-get-cited-the-tactic-that-put-my-data-all-over-the-web" target="_blank" rel="noopener">Publish fake stats, get cited in LLMs</a></h2>
+        <div class="story-summary"><p>A data company planted fabricated statistics on its own site and watched them propagate into LLM answers as authoritative-sounding facts — a clean field demonstration of training-data and search-grounding poisoning. The stakes run both ways: it is a marketing exploit, but also proof that model outputs are now a laundering channel for invented numbers. Treat any single-source stat an LLM cites with new suspicion, and treat vendor &#x27;research&#x27; pages as adversarial inputs.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://github.com/google-pytorch/torch_tpu" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-05-torchtpu-google-s-native-pytorch-back-end-for-tp.png" alt="TorchTPU: Google&#x27;s native PyTorch back end for TPUs, open-sourced" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">Google PyTorch team</span>
+          <a class="orig" href="https://github.com/google-pytorch/torch_tpu" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50169053" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/google-pytorch/torch_tpu" target="_blank" rel="noopener">TorchTPU: Google's native PyTorch back end for TPUs, open-sourced</a></h2>
+        <div class="story-summary"><p>Google open-sourced a native PyTorch backend for TPUs, the latest move in its strategy of meeting the community where it lives. A native backend — rather than an XLA bridge — means PyTorch semantics first and TPU acceleration underneath, which is what practitioners have asked for since torch_xla&#x27;s friction became folklore. Watch how quickly the training-loop ecosystem (torchtitan, HF Trainer) adopts it; that determines whether TPUs become a real alternative for fine-tuning.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/LiCinCan/blender-ai-mcp-addon" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-06-blender-ai-mcp-addon-an-mcp-server-inside-blende.png" alt="blender-ai-mcp-addon: an MCP server inside Blender" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">LiCinCan (Python)</span>
+          <a class="orig" href="https://github.com/LiCinCan/blender-ai-mcp-addon" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/LiCinCan/blender-ai-mcp-addon" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/LiCinCan/blender-ai-mcp-addon" target="_blank" rel="noopener">blender-ai-mcp-addon: an MCP server inside Blender</a></h2>
+        <div class="story-summary"><p>A Blender addon that embeds an AI assistant and exposes the scene as MCP tools, so any MCP-capable client — Claude, ChatGPT, Ollama, OpenCode — can chat visually, run bpy scripting, and drive multi-agent scene workflows. ~940 stars in its first week signals real appetite for agents-as-3D-artists rather than prompt-to-render pipelines. The interesting failure mode to explore is destructive edits: giving an agent write access to a live .blend is exactly as scary as it sounds.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2610.28626v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-07-arxiv-placeholder.svg" alt="UniWALM: Unified World Action Language Model for embodied robot control" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Rahul Sajnani et al.</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.28626v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.28626v1" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.28626v1" target="_blank" rel="noopener">UniWALM: Unified World Action Language Model for embodied robot control</a></h2>
+        <div class="story-summary"><p>UniWALM trains one model over video, action, and language jointly — a world-action-language model that predicts how the world evolves while conditioning manipulation policies on that prediction. It is the clearest recent statement of the &#x27;video pretraining transfers to control&#x27; bet that VLA-scaling work has been circling. If the ablations hold up outside the lab, unified WAM training becomes the default recipe for robot foundation models rather than bolt-on world models.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://arxiv.org/abs/2610.28619v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-08-arxiv-placeholder.svg" alt="Adaptive Multi-Token Prediction: how far should we go?" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Emile Anand, Mohammed Rehan Parwani, Xinyuan Cao</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.28619v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.28619v1" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.28619v1" target="_blank" rel="noopener">Adaptive Multi-Token Prediction: how far should we go?</a></h2>
+        <div class="story-summary"><p>Multi-token prediction speeds up decoding by drafting several tokens and verifying them in one pass, but the optimal draft length depends on context — long drafts waste compute when rejected. This paper studies adaptive speculation horizons: scheduling how far to draft based on confidence, rather than fixing a max-draft length. Directly relevant if you operate speculative decoding in production, and the same confidence-scheduling idea now shows up inside DeepSeek&#x27;s DeepInfer.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://engineering.fb.com/2026-10-19/data-center-engineering/inside-prometheus-meta-gigawatt-scale-supercluster/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-09-inside-prometheus-meta-s-gigawatt-scale-superclu.jpg" alt="Inside Prometheus: Meta&#x27;s gigawatt-scale supercluster" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Meta Engineering</span>
+          <a class="orig" href="https://engineering.fb.com/2026-10-19/data-center-engineering/inside-prometheus-meta-gigawatt-scale-supercluster/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50152886" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://engineering.fb.com/2026-10-19/data-center-engineering/inside-prometheus-meta-gigawatt-scale-supercluster/" target="_blank" rel="noopener">Inside Prometheus: Meta's gigawatt-scale supercluster</a></h2>
+        <div class="story-summary"><p>Meta&#x27;s first write-up of Prometheus: hundreds of thousands of GPUs across multiple buildings in New Albany, Ohio, interconnected by miles of fiber and running as a single machine, on its way to ~1 million GPUs at gigawatt scale. The engineering details worth reading are the unglamorous ones — closed-loop liquid cooling, rapid-deployment structures, and keeping heterogeneous buildings in one failure domain. The Muse model family was trained on phase one, making this the rare cluster post tied to shipped models.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.anthropic.com/research/claude-scorpion-toxin-binder-design" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-10-claude-designed-protein-binders-against-scorpion.jpg" alt="Claude designed protein binders against scorpion neurotoxins" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Anthropic</span>
+          <a class="orig" href="https://www.anthropic.com/research/claude-scorpion-toxin-binder-design" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50170021" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.anthropic.com/research/claude-scorpion-toxin-binder-design" target="_blank" rel="noopener">Claude designed protein binders against scorpion neurotoxins</a></h2>
+        <div class="story-summary"><p>With a prompt and four follow-ups (co-developed with Citrini Research), an internal research model ran ~64 hours mostly autonomously designing minibinders against scorpion neurotoxins; Adaptyv Bio and Twist Bioscience wet-lab tested 211 designs and 17 met binding criteria, targeting a neglected tropical disease that stings 1.2M people a year. All 211 designs and data are released, which makes this auditable rather than a press result. The honest read: an 8% hit rate from a general model is a screening tool, not a discovery engine — but the cost curve is the story.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://jepsen.io/analyses/orkes-conductor-5.3.2" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-11-other-placeholder.svg" alt="Jepsen: Orkes Conductor 5.3.2" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">aphyr / Jepsen</span>
+          <a class="orig" href="https://jepsen.io/analyses/orkes-conductor-5.3.2" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50165904" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://jepsen.io/analyses/orkes-conductor-5.3.2" target="_blank" rel="noopener">Jepsen: Orkes Conductor 5.3.2</a></h2>
+        <div class="story-summary"><p>The latest Jepsen teardown turns on Orkes Conductor, the workflow orchestrator behind the Netflix Conductor lineage, probing what happens to in-flight workflows under partitions and clock skew. If you run durable execution or workflow engines as your system of record, these analyses are the closest thing to a correctness spec that exists. Read it as a checklist: the failure modes Jepsen finds in Conductor tend to recur in every queue-plus-state-machine architecture.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/compnet-renard/bert-base-cased-literary-coref-v2" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-12-bert-base-cased-literary-coref-v2-end-to-end-cor.png" alt="bert-base-cased-literary-coref-v2: end-to-end coreference for literature" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">CompNet Renard (Tibert)</span>
+          <a class="orig" href="https://huggingface.co/compnet-renard/bert-base-cased-literary-coref-v2" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/compnet-renard/bert-base-cased-literary-coref-v2" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/compnet-renard/bert-base-cased-literary-coref-v2" target="_blank" rel="noopener">bert-base-cased-literary-coref-v2: end-to-end coreference for literature</a></h2>
+        <div class="story-summary"><p>A 121M-parameter BERT that does end-to-end coreference resolution out of the box via the Tibert library — mention clustering with no annotation pipeline — trained on literary text. At 0.1B params it runs comfortably on CPU, which makes document-scale entity linking and pronoun resolution for RAG over long transcripts genuinely cheap. MIT-licensed and a two-line install; this is the kind of boring-but-powerful NLP primitive most agent stacks are still hand-rolling badly.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://huggingface.co/gatilin/tokenflow_clipb_32k_visual_codec" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/ai-13-tokenflow-clip-b-32k-visual-codec-a-377m-image-t.png" alt="TokenFlow CLIP-B 32K visual codec: a 377M image tokenizer you can run locally" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">Gatilin AI Center (MIT)</span>
+          <a class="orig" href="https://huggingface.co/gatilin/tokenflow_clipb_32k_visual_codec" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/gatilin/tokenflow_clipb_32k_visual_codec" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/gatilin/tokenflow_clipb_32k_visual_codec" target="_blank" rel="noopener">TokenFlow CLIP-B 32K visual codec: a 377M image tokenizer you can run locally</a></h2>
+        <div class="story-summary"><p>A complete repackaging of ByteDance&#x27;s TokenFlow visual codec — semantic CLIP-B encoder, pixel encoder, both codebooks, multi-scale residual quantizer, and an enhanced RGB decoder — at 377M params, loadable with a few lines of code. Image tokenizers are the quiet bottleneck of unified multimodal models, and having a small, MIT-licensed one with a 32K vocabulary makes discrete visual tokens practical to experiment with on a single consumer GPU. The same org also released EMU3.5 and MammothTok codecs if you want comparisons.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="electronics" data-section-panel="electronics" style="--section-color:#22d3ee" aria-labelledby="heading-electronics">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-electronics">Electronics</h1>
+        <p class="section-summary">A Game Boy Advance running Super Mario Galaxy, a bare-metal NES emulator on a Pico, and a full-dish first satellite ground station.</p>
+      </div>
+      <span class="section-count" id="count-electronics">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
+<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="electronics">
+      
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://hackaday.com/2026-10-20/super-mario-galaxy-now-runs-on-the-gba/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/electronics-01-super-mario-galaxy-now-runs-on-the-game-boy-adva.jpg" alt="Super Mario Galaxy now runs on the Game Boy Advance" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Tobias Friedly (Tobi)</span>
+          <a class="orig" href="https://hackaday.com/2026-10-20/super-mario-galaxy-now-runs-on-the-gba/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026-10-20/super-mario-galaxy-now-runs-on-the-gba/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-20/super-mario-galaxy-now-runs-on-the-gba/" target="_blank" rel="noopener">Super Mario Galaxy now runs on the Game Boy Advance</a></h2>
+        <div class="story-summary"><p>A porter known as Tobi has Super Mario Galaxy — a Wii game with a 3D engine and megabytes of assets — running on hardware with a 16.8 MHz ARM7TDMI and 256 KB of work RAM. The video walkthrough of what gets faked, streamed, and re-rendered for a 240x160 bitmap LCD is a masterclass in constraints-driven engineering. Watch it before your next argument that some feature &#x27;can&#x27;t be done&#x27; on a microcontroller.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026-10-20/going-whole-hog-on-a-first-satellite-ground-station/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/electronics-02-going-whole-hog-on-a-first-satellite-ground-stat.png" alt="Going whole-hog on a first satellite ground station" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026-10-20/going-whole-hog-on-a-first-satellite-ground-station/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026-10-20/going-whole-hog-on-a-first-satellite-ground-station/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-20/going-whole-hog-on-a-first-satellite-ground-station/" target="_blank" rel="noopener">Going whole-hog on a first satellite ground station</a></h2>
+        <div class="story-summary"><p>Most first satellite passes are a hand-rolled Yagi and luck; this builder skipped the tutorial phase and put up a proper tracking ground station with a rotator, LNA, and a full ground-segment software stack from day one. The write-up is honest about the cost curve and the calibration rabbit holes — antenna pointing math, Doppler correction, and filtering. If you have been meaning to get into amateur satellite work, this is a realistic map of what &#x27;doing it right&#x27; involves.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-19/nesemulatorpicoseries-an-nes-emulator-in-puremetal-for-raspberry-pi-pico-w-pico-2-w-and-pi-4/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/electronics-03-adafruit-placeholder.svg" alt="An NES emulator in PureMetal for Raspberry Pi Pico W, Pico 2 W and Pi 4" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">ajtaji (PureMetalForge)</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-19/nesemulatorpicoseries-an-nes-emulator-in-puremetal-for-raspberry-pi-pico-w-pico-2-w-and-pi-4/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-10-19/nesemulatorpicoseries-an-nes-emulator-in-puremetal-for-raspberry-pi-pico-w-pico-2-w-and-pi-4/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-19/nesemulatorpicoseries-an-nes-emulator-in-puremetal-for-raspberry-pi-pico-w-pico-2-w-and-pi-4/" target="_blank" rel="noopener">An NES emulator in PureMetal for Raspberry Pi Pico W, Pico 2 W and Pi 4</a></h2>
+        <div class="story-summary"><p>An NTSC NES emulator compiled to bare-metal machine code with PureMetalForge — no SDK, no RTOS, no OS — running on Pico W, Pico 2 W, and Pi 4. Games aren&#x27;t baked into firmware: a small Python tool writes your own .nes ROMs to the board&#x27;s flash over USB. It doubles as a proof that a genuinely useful embedded stack can be built without vendor SDKs, which is the PureMetal project&#x27;s whole thesis.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-19/micromanipulatorstepper-a-sub-micrometer-3d-motion-control-plattform/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/electronics-04-adafruit-placeholder.svg" alt="MicroManipulatorStepper: a sub-micrometer 3D motion platform" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">0x23</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-19/micromanipulatorstepper-a-sub-micrometer-3d-motion-control-plattform/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-10-19/micromanipulatorstepper-a-sub-micrometer-3d-motion-control-plattform/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-19/micromanipulatorstepper-a-sub-micrometer-3d-motion-control-plattform/" target="_blank" rel="noopener">MicroManipulatorStepper: a sub-micrometer 3D motion platform</a></h2>
+        <div class="story-summary"><p>An open-source motorized XYZ micromanipulator for optical alignment, probing components, and microscopy that hits sub-micrometer positioning with off-the-shelf steppers. The trick is the parallel kinematic structure with miniature ball joints — stiff, compact, and with more range than a serial cartesian stage of the same footprint — driven by a 30 kHz closed-loop controller. Sub-micron motion stages normally cost four figures; this is a credible bench build with measured results.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-20/off-the-cloud-a-raspberry-pi-5-that-replaces-google-photos/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/electronics-05-adafruit-placeholder.svg" alt="Off The Cloud: a Raspberry Pi 5 that replaces Google Photos" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Alonso Vidales</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-20/off-the-cloud-a-raspberry-pi-5-that-replaces-google-photos/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-10-20/off-the-cloud-a-raspberry-pi-5-that-replaces-google-photos/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-20/off-the-cloud-a-raspberry-pi-5-that-replaces-google-photos/" target="_blank" rel="noopener">Off The Cloud: a Raspberry Pi 5 that replaces Google Photos</a></h2>
+        <div class="story-summary"><p>A family-photo archive that aims to replace Google Photos/iCloud: Pi 5, local index, phone backup, and a web UI that keeps a family&#x27;s entire photo history out of someone else&#x27;s datacenter. The hard parts — dedup, search, and getting non-technical family members to actually use it — are covered rather than waved away. The most practically useful self-hosting project of the week, because photo lock-in is the one cloud dependency most people refuse to give up.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-20/an-annotated-disassembly-of-the-dec-vt-100-rom/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/electronics-06-adafruit-placeholder.svg" alt="An annotated disassembly of the DEC VT-100 ROM" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">VT100.net</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-20/an-annotated-disassembly-of-the-dec-vt-100-rom/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-10-20/an-annotated-disassembly-of-the-dec-vt-100-rom/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-20/an-annotated-disassembly-of-the-dec-vt-100-rom/" target="_blank" rel="noopener">An annotated disassembly of the DEC VT-100 ROM</a></h2>
+        <div class="story-summary"><p>VT100.net published a fully annotated disassembly of the original 8 KiB firmware of the DEC VT100, the 1978 terminal that defined ANSI escape sequences and gave the command line its keyboard. Every routine is explained with cross-links to the technical manual and print set, showing how 8K of code drove a screen, a keyboard, and a modem protocol. Essential reading for anyone who uses a terminal and has never wondered what a terminal actually is.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="interesting-news" data-section-panel="interesting-news" style="--section-color:#f472b6" aria-labelledby="heading-interesting-news">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-interesting-news">Interesting News</h1>
+        <p class="section-summary">Statin muscle pain gets an atom-level culprit, the Big Bang&#x27;s helium gets a 0.5% measurement, and the fattest belemnite ever found turns out to be a relict from an extinct family.</p>
+      </div>
+      <span class="section-count" id="count-interesting-news">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
+<button class="chip" data-filter-source="reddit" style="--c:#ff4500">Reddit</button>
+<button class="chip" data-filter-source="science" style="--c:#10b981">Science</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="interesting-news">
+      
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261019093447.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/interesting-news-01-science-placeholder.svg" alt="Statin muscle pain explained: the drugs wedge open a muscle calcium channel" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">UBC / Nature Communications (Molinarolo et al.)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261019093447.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026-10-261019093447.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261019093447.htm" target="_blank" rel="noopener">Statin muscle pain explained: the drugs wedge open a muscle calcium channel</a></h2>
+        <div class="story-summary"><p>Cryo-electron microscopy at UBC (with UW-Madison) shows statins binding the ryanodine receptor RyR1 in an unusual three-molecule cluster: one primes the channel, two wedge it open, and calcium leaks continuously into muscle cells — the mechanism behind the muscle pain that drives millions to quit the world&#x27;s most prescribed drugs. Published in Nature Communications and pointed at designing statins that keep the heart benefit without the muscle damage. Given how many people this affects, it&#x27;s the most consequential health-mechanism result of the month.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261019093442.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/interesting-news-02-science-placeholder.svg" alt="The universe&#x27;s first five minutes: primordial helium measured to 0.5%" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">LBT Yp Project / Skillman et al., ApJ</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261019093442.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.universetoday.com/articles/primordial-helium-further-confirms-our-understanding-of-the-big-bang" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261019093442.htm" target="_blank" rel="noopener">The universe's first five minutes: primordial helium measured to 0.5%</a></h2>
+        <div class="story-summary"><p>The LBT Yp Project measured the helium forged in the first five minutes after the Big Bang by studying 15 remarkably pristine dwarf galaxies — cosmic time capsules barely polluted by stellar processing — pinning primordial helium at ~24.6% of ordinary matter with record precision. The result tightens one of the three pillars of Big Bang cosmology (light-element abundances) and finds ~90% of all cosmic helium is primordial. Published as a multi-paper series in The Astrophysical Journal, led by University of Minnesota&#x27;s Skillman and collaborators.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261019093434.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/interesting-news-03-science-placeholder.svg" alt="The &#x27;fattest squid&#x27; ever: a barrel-shaped Jurassic belemnite from a family thought extinct" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Ippolitov et al., Papers in Palaeontology (Wyoteuthis linsterorum)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261019093434.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.manchester.ac.uk/about/news/peculiar-new-species-of-jurassic-squid-found-in-wyoming/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261019093434.htm" target="_blank" rel="noopener">The 'fattest squid' ever: a barrel-shaped Jurassic belemnite from a family thought extinct</a></h2>
+        <div class="story-summary"><p>Two fossils from Wyoming&#x27;s 160-million-year-old Sundance Formation describe Wyoteuthis linsterorum, a belemnite with a rostrum up to 6 cm wide — the thickest ever recorded, roughly 60 cm long alive. CT scanning placed it in Megateuthididae, a family supposedly gone 20 million years earlier, making it a relict survivor hiding in a north-east Pacific refugium; its girth may have been an advantage hunting the smaller squid around it. The first specimen sat unidentified in a drawer from the late 1990s until a second turned up in 2019 — a nice reminder that paleontology&#x27;s frontier is partly in museum cabinets.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="other" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://e360.yale.edu/digest/deepwater-horizon-deep-sea-recovery" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/interesting-news-04-other-placeholder.svg" alt="Sixteen years on, Deepwater Horizon&#x27;s deep-sea life still hasn&#x27;t recovered" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Fred Pearce / Yale E360 (PNAS study)</span>
+          <a class="orig" href="https://e360.yale.edu/digest/deepwater-horizon-deep-sea-recovery" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50168357" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://e360.yale.edu/digest/deepwater-horizon-deep-sea-recovery" target="_blank" rel="noopener">Sixteen years on, Deepwater Horizon's deep-sea life still hasn't recovered</a></h2>
+        <div class="story-summary"><p>A PNAS study combining acoustic surveys and thousands of netted samples finds mid-water octopus, squid, krill, shrimp and lanternfish in the Gulf fell at least 60% after the 2010 spill — &#x27;the fastest and most severe&#x27; decline recorded in the 600-foot-to-two-mile layer — with little sign of rebound sixteen years later. Researchers stop short of sole causation but call the spill &#x27;the most parsimonious explanation&#x27;; oil compounds keep turning up in squid flesh, octopus tissue and fish eggs. The quieter finding is the drop in genetic diversity, which erodes the population&#x27;s capacity to adapt at all.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xb2dqx/til_that_charles_lindbergh_famous_for_his/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/interesting-news-05-reddit-placeholder.svg" alt="TIL Charles Lindbergh co-invented the glass perfusion pump that kept organs alive outside the body" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">u/DayPuzzleheaded7625 (verified: Smithsonian NMAH)</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xb2dqx/til_that_charles_lindbergh_famous_for_his/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://americanhistory.si.edu/explore/stories/what-we-dont-remember-charles-lindbergh-perfusion-pump" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xb2dqx/til_that_charles_lindbergh_famous_for_his/" target="_blank" rel="noopener">TIL Charles Lindbergh co-invented the glass perfusion pump that kept organs alive outside the body</a></h2>
+        <div class="story-summary"><p>The aviation fame buries it: in the early 1930s Lindbergh partnered with Nobel surgeon Alexis Carrel and hand-built the Carrel-Lindbergh perfusion pump from Pyrex — no moving parts, air-pressure driven — which kept organs, including a whole thyroid, alive outside the body for weeks. The Smithsonian holds the instruments and the story, including how the pump&#x27;s sterility design fed into the heart-lung machines of open-heart surgery a generation later. A genuinely strange footnote given what Lindbergh&#x27;s name also carries.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="hn" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://prestonbyrne.com/2026-10-20/ofcom-concedes-defeat/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-21/interesting-news-06-ofcom-concedes-defeat-in-the-4chan-enforcement-c.jpg" alt="Ofcom concedes defeat in the 4chan enforcement case" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Preston Byrne</span>
+          <a class="orig" href="https://prestonbyrne.com/2026-10-20/ofcom-concedes-defeat/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50167028" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://prestonbyrne.com/2026-10-20/ofcom-concedes-defeat/" target="_blank" rel="noopener">Ofcom concedes defeat in the 4chan enforcement case</a></h2>
+        <div class="story-summary"><p>Testifying before the UK&#x27;s DCMS Committee, Ofcom&#x27;s chief executive admitted her regulator may never collect most of its Online Safety Act fines — foreign courts, American ones especially, will simply refuse to enforce them. Byrne, who litigated 4chan v. Ofcom in D.D.C., walks through the district court&#x27;s warning that US courts won&#x27;t enforce foreign judgments repugnant to the First Amendment. The structural lesson for every regulator writing cross-border internet rules: jurisdiction without enforcement leverage is theater, and the US legal system just said so out loud.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning · Wednesday, October 21, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
