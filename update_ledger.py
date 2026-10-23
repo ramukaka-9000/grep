@@ -6,7 +6,7 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
 LEDGER = BASE / "seen-items.json"
-TODAY = date(2026, 8, 17)
+TODAY = date(2026, 10, 23)
 CUTOFF = TODAY - timedelta(days=60)  # keep items with last_seen >= cutoff
 
 def norm(url: str) -> str:
@@ -31,7 +31,7 @@ for sec in edition["sections"]:
         })
 
 ledger = json.load(open(LEDGER, encoding="utf-8"))
-items = ledger["items"]
+items = ledger if isinstance(ledger, list) else ledger.get("items", [])
 
 # prune: drop entries whose last_seen is before cutoff
 before = len(items)
@@ -58,7 +58,7 @@ for e in new_entries:
         seen[e["url"]] = e
 
 items.sort(key=lambda x: x.get("first_seen", ""))
-ledger["items"] = items
-json.dump(ledger, open(LEDGER, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
+
+json.dump(items if isinstance(ledger, list) else ledger, open(LEDGER, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 print(f"pruned {before-after} old item(s); kept {len(items)}")
 print(f"added {len(new_entries)-dedupe_added} new entry(ies); updated {dedupe_added} existing (should be 0)")
