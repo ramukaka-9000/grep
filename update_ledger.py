@@ -6,7 +6,7 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
 LEDGER = BASE / "seen-items.json"
-TODAY = date(2026, 10, 23)
+TODAY = date(2026, 10, 24)
 CUTOFF = TODAY - timedelta(days=60)  # keep items with last_seen >= cutoff
 
 def norm(url: str) -> str:
