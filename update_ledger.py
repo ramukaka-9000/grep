@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Append today's edition items to seen-items.json and prune >60 days."""
 import json
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
 LEDGER = BASE / "seen-items.json"
-TODAY = date(2026, 10, 24)
+TODAY = datetime.now(timezone(timedelta(hours=5, minutes=30))).date()  # Asia/Kolkata
 CUTOFF = TODAY - timedelta(days=60)  # keep items with last_seen >= cutoff
 
 def norm(url: str) -> str:

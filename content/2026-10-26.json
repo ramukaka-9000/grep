@@ -1,0 +1,225 @@
+{
+  "date": "2026-10-26",
+  "summary": "A tiny specialized CNN embarrasses frontier LLMs at skin-cancer diagnosis while inference prices crater, a candidate first exomoon circles a brown dwarf, and a supervolcano quietly refills.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Specialization still beats scale in vision diagnosis, LLM price cuts keep compounding, and cheap local inference plus neuron-level steering tools keep the on-prem stack practical.",
+      "stories": [
+        {
+          "title": "A 10-year-old CNN outperforms frontier LLMs for skin cancer diagnosis",
+          "url": "https://lynchlab.net/llm-skin-cancer",
+          "source": "other",
+          "byline": "Dr Magnus Lynch, Consultant Dermatologist, Guy's Hospital",
+          "discuss_url": "https://news.ycombinator.com/item?id=50233779",
+          "tier": "essential",
+          "summary": "A dermatologist benchmarked GPT-6 Astra and Claude Fable 5.1 against a 2016-era Inception CNN on 200 biopsy-proven lesions from the MILK10k dataset. The fine-tuned (about twenty minutes) CNN named the correct diagnosis for 62% of lesions versus 42% for both frontier models, and correctly flagged a melanoma both LLMs cleared for discharge. Prompts, replies, and scoring code are published for reproduction. A sharp corrective to vision-LLM marketing claims in safety-critical triage."
+        },
+        {
+          "title": "We should be more ambitious with the software we build",
+          "url": "https://danluu.com/ambitious/",
+          "source": "other",
+          "byline": "Dan Luu",
+          "discuss_url": "https://news.ycombinator.com/item?id=50225695",
+          "tier": "must-read",
+          "summary": "Dan Luu argues that teams systematically under-scope what they attempt, and that the gap between incremental tooling and genuinely ambitious systems is mostly organizational and psychological rather than technical. Draws on years of observing which ambitious projects actually shipped. Top of HN today with a large, engaged discussion; useful calibration for anyone deciding what to build next with AI leverage."
+        },
+        {
+          "title": "Gheist campaign plants secret-dumping workflows using stolen GitHub tokens",
+          "url": "https://www.wiz.io/blog/gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles",
+          "source": "other",
+          "byline": "Wiz Research",
+          "discuss_url": "https://news.ycombinator.com/item?id=50235010",
+          "tier": "must-read",
+          "summary": "Wiz details a campaign that used leaked GitHub tokens to inject malicious Actions workflows designed to exfiltrate repository secrets at scale. The campaign largely stumbled, but the technique — trusted CI automation turned into a secret dumper — is exactly the supply-chain shape that token sprawl enables. Direct action item: audit repo scopes, required reviewers on workflows, and token rotation for any org running GitHub Actions."
+        },
+        {
+          "title": "Cerebras: How we deploy trillion-parameter frontier models",
+          "url": "https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras",
+          "source": "other",
+          "byline": "Cerebras engineering",
+          "discuss_url": "https://news.ycombinator.com/item?id=50227356",
+          "tier": "recommended",
+          "summary": "Engineering walkthrough of serving trillion-parameter models on wafer-scale systems: weight placement, memory routing, and the serving-stack choices that make frontier-scale inference practical outside a handful of clouds. Rare detail from a provider about the internals of large-model deployment, and useful context as price competition pushes inference hardware differentiation."
+        },
+        {
+          "title": "OpenAI and Anthropic cut their LLM prices by up to 80% within a few months. Why?",
+          "url": "https://minimaxir.com/2026/10/cheap-llms/",
+          "source": "other",
+          "byline": "Max Woolf",
+          "discuss_url": "https://news.ycombinator.com/item?id=50236102",
+          "tier": "recommended",
+          "summary": "A price-history analysis of the June-to-September collapse in frontier API pricing, with GPT-6 Sol halving input/output costs and smaller classes getting nearly free. Max Woolf attributes the cratering curve to behavioral economics (models indistinguishable outside vibes), DeepSeek-style competitive pressure, and IPO incentives. A concrete dataset behind the intuition that inference is becoming a commodity."
+        },
+        {
+          "title": "neuron-explorer: steering-first neuron explorer for Qwen3.5-4B",
+          "url": "https://github.com/lyramakesmusic/neuron-explorer",
+          "source": "github",
+          "byline": "lyramakesmusic",
+          "discuss_url": "https://github.com/lyramakesmusic/neuron-explorer",
+          "tier": "recommended",
+          "summary": "An open interpretability tool that pushes every MLP neuron in Qwen3.5-4B one at a time, keeps every rollout, and lets you browse the results to find steerable concepts. The steering-first design inverts the usual activate-then-attribute pipeline: you discover effects empirically, then trace causes. Runs at 4B scale on a single GPU, which puts mechanistic exploration within reach of small teams."
+        },
+        {
+          "title": "NVIDIA/flare-local-inference",
+          "url": "https://github.com/NVIDIA/flare-local-inference",
+          "source": "github",
+          "byline": "NVIDIA",
+          "discuss_url": "https://github.com/NVIDIA/flare-local-inference",
+          "tier": "recommended",
+          "summary": "NVIDIA released FLARE, a local inference stack that runs modern models on consumer and workstation GPUs rather than datacenter hardware. Official first-party tooling for on-device serving matters for anyone budgeting against the ongoing API price war: it makes the self-hosted side of the build-vs-buy calculation concrete."
+        },
+        {
+          "title": "The State of Context Engineering",
+          "url": "https://www.dbreunig.com/2026-10-24/the-state-of-context-engineering.html",
+          "source": "other",
+          "byline": "Drew Breunig",
+          "discuss_url": "https://news.ycombinator.com/item?id=50235780",
+          "tier": "recommended",
+          "summary": "A survey of where context engineering has landed: retrieval, memory, compaction, and tool-result curation as the load-bearing parts of agent quality. Useful as a map of the field's current primitives and open problems, distinguishing what has hardened into practice from what is still folklore. Short, concrete, and current as of this week."
+        },
+        {
+          "title": "Apollo: No signs of AI payoff outside the tech sector",
+          "url": "https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector",
+          "source": "other",
+          "byline": "Apollo Wealth Daily Spark",
+          "discuss_url": "https://news.ycombinator.com/item?id=50224463",
+          "tier": "notable",
+          "summary": "Apollo's economists find no measurable productivity or margin payoff from AI adoption outside the technology sector so far, despite enormous capex. The claim is narrow (published financials, not anecdotes) but lands hard in a week when price cuts make inference look nearly free. Worth reading as the skeptical counterweight to builder enthusiasm."
+        },
+        {
+          "title": "Hurston-1: accented English narrowband TTS built for the phone line",
+          "url": "https://huggingface.co/destined/hurston-1",
+          "source": "hf",
+          "byline": "Destined AI",
+          "discuss_url": "https://news.ycombinator.com/item?id=50227330",
+          "tier": "must-read",
+          "summary": "A 3.3B-parameter Apache-2.0 TTS fine-tune (of Maya1) that speaks Southern American, Nigerian, and other African English accents that generic TTS flattens, and introduces NB-TTS: a phone mode emitting 8 kHz G.711 audio ready for Twilio-style telephony. Trained on consented, paid contributor recordings and steerable by plain-language voice descriptions. Verified on the model page: 3.3B params, runs quantized within consumer VRAM — one of the few genuinely novel small-model releases this cycle."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Reproducible radio builds — a Meshtastic pet collar and ESP-NOW walkie-talkies — alongside a 2D-material transistor explainer, a replica Apollo DSKY, and repairable 3D-printed headphones.",
+      "stories": [
+        {
+          "title": "Meshtastic Pet Tracking: the LIA collar tracker",
+          "url": "https://hackaday.com/2026-10-25/meshtastic-pet-tracking/",
+          "source": "hackaday",
+          "byline": "Jon G Aguado via Hackaday",
+          "discuss_url": "https://hackaday.com/2026-10-25/meshtastic-pet-tracking/",
+          "tier": "recommended",
+          "summary": "Jon G Aguado designed LIA, a custom Meshtastic collar tracker that locates pets over LoRa mesh with no subscription or cellular network. A complete open build — custom board, 3D-printed enclosure, mesh positioning workflow — that is the archetypal off-grid telemetry project. The power budget and antenna tradeoffs for a neck-mounted node are the interesting engineering parts."
+        },
+        {
+          "title": "ESP-NOW Walkie Talkies",
+          "url": "https://blog.adafruit.com/2026-10-25/esp-now-walkie-talkies/",
+          "source": "adafruit",
+          "byline": "Adafruit Learn",
+          "discuss_url": "https://blog.adafruit.com/2026-10-25/esp-now-walkie-talkies/",
+          "tier": "recommended",
+          "summary": "A full build guide for a pair of walkie-talkies using a Feather ESP32-S3 Reverse TFT and Arduino code over ESP-NOW, the connectionless Wi-Fi protocol that gives low-latency peer-to-peer audio without an access point. A reproducible weekend build that teaches ESP-NOW's send/receive model with a payoff you can actually talk through."
+        },
+        {
+          "title": "Recreate the Apollo Guidance Computer's DSKY",
+          "url": "https://www.raspberrypi.com/news/recreate-the-apollo-guidance-computer/",
+          "source": "other",
+          "byline": "David Crookes, Raspberry Pi",
+          "discuss_url": "https://news.ycombinator.com/item?id=50195769",
+          "tier": "must-read",
+          "summary": "Mike Newton has built a working replica of the Apollo Guidance Computer's DSKY display and keyboard, with backlight, key feel, and a peripheral mode that connects over the local network to the NASSP add-on for the Orbiter flight simulator. The modelling and fabrication details are on recreateapollo.com. A standout example of hardware archaeology meeting a serious simulator ecosystem."
+        },
+        {
+          "title": "Transforming a Tungsten Ditelluride Monolayer into a Transistor",
+          "url": "https://hackaday.com/2026-10-25/transforming-a-tungsten-ditelluride-monolayer-into-a-transistor/",
+          "source": "hackaday",
+          "byline": "Hackaday Staff",
+          "discuss_url": "https://hackaday.com/2026-10-25/transforming-a-tungsten-ditelluride-monolayer-into-a-transistor/",
+          "tier": "recommended",
+          "summary": "An accessible tour of new work turning a single-atom-thick WTe2 monolayer into a functioning transistor, contrasting the layer-by-layer build-up of 2D materials with silicon's implant-and-etch pipeline. Good conceptual grounding for where post-silicon channel materials actually are: lab-scale, instructive, and far from fab-ready."
+        },
+        {
+          "title": "Building Passive Headphones",
+          "url": "https://blog.adafruit.com/2026-10-25/building-passive-headphones/",
+          "source": "adafruit",
+          "byline": "Paul Lagier via Adafruit",
+          "discuss_url": "https://blog.adafruit.com/2026-10-25/building-passive-headphones/",
+          "tier": "notable",
+          "summary": "Paul Lagier designed fully repairable passive headphones from 3D-printed ear cups, TPU seals, an adjustable headband, and interchangeable drivers. No amplification or DSP — the interesting content is the acoustic chamber geometry and the design goal of making every part replaceable. A satisfying merge of 3D-printing technology and audio DIY."
+        },
+        {
+          "title": "Simple, Reliable RF Remote Control",
+          "url": "https://hackaday.com/2026-10-25/simple-reliable-rf-remote-control/",
+          "source": "hackaday",
+          "byline": "Hackaday Staff",
+          "discuss_url": "https://hackaday.com/2026-10-25/simple-reliable-rf-remote-control/",
+          "tier": "notable",
+          "summary": "A history-inflected build of a no-frills sub-GHz RF remote that prioritizes reliability over features, tracing how consumer remotes went from sound and light to coded radio. The useful part for embedded work is the protocol minimalism: fixed codes, repeat-on-hold, and why that still beats cleverness for garage-door-class control."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "A possible first exomoon orbits a brown dwarf, Spinosaurus looks fully aquatic, a supervolcano is refilling, mirror life gets a detection plan, snakes roll like wheels, and bird poop still buys you islands.",
+      "stories": [
+        {
+          "title": "Astronomers may have discovered the first moon beyond our Solar System",
+          "url": "https://www.sciencedaily.com/releases/2026-10-261023023736.htm",
+          "source": "space",
+          "byline": "ESO press release via ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-10-261023023736.htm",
+          "tier": "essential",
+          "summary": "ESO's Very Large Telescope has found evidence of an exosatellite at least as massive as Jupiter orbiting a 37-Jupiter-mass brown dwarf in the CD-35 2722 system. The arrangement — a massive satellite around a failed star that itself orbits a sun-like star — strains Solar-System words like planet and moon, and would be the first confirmed moon outside our system. Genuinely a new category of object if the follow-up holds."
+        },
+        {
+          "title": "New evidence suggests Spinosaurus spent most of its life underwater",
+          "url": "https://www.sciencedaily.com/releases/2026-10-261024221956.htm",
+          "source": "science",
+          "byline": "Caleb Gordon et al.; Yale University",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-10-261024221956.htm",
+          "tier": "must-read",
+          "summary": "Yale researchers applied machine learning to thousands of fossil measurements across secondarily aquatic reptiles to infer how prehistoric animals actually moved in water. The standout result: Spinosaurus was not a heron-like shore hunter but a mostly submerged, seal-or-penguin-like swimmer, part of a pattern where lineages returning to water converged on strikingly similar body plans. It settles one of paleontology's longest-running debates with a quantitative method others will reuse."
+        },
+        {
+          "title": "One of Earth's most powerful supervolcanoes is refilling with fresh magma",
+          "url": "https://www.sciencedaily.com/releases/2026-10-261023003214.htm",
+          "source": "science",
+          "byline": "Kobe University via ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-10-261023003214.htm",
+          "tier": "recommended",
+          "summary": "Underwater seismic surveys show a vast magma reservoir beneath Japan's mostly-submerged Kikai caldera has been recharging 7,300 years after one of the largest eruptions of the Holocene. Because Kikai is the textbook case of a catastrophic eruption that left no obvious summit crater, the finding offers a window on how supervolcanoes like Yellowstone and Toba rebuild their magma supply — and a reminder that the quiet ones are reloading."
+        },
+        {
+          "title": "Scientists propose a way to detect dangerous mirror life before it exists",
+          "url": "https://www.sciencedaily.com/releases/2026-10-261023023726.htm",
+          "source": "science",
+          "byline": "University of Strathclyde via ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-10-261023023726.htm",
+          "tier": "recommended",
+          "summary": "Researchers propose the first practical screen for mirror-image life: fluorescent molecules plus circularly polarized light — the same trick behind 3D movies — that would distinguish ordinary organisms from hypothetical D-reversed counterparts. As synthetic biology edges toward organisms built from mirror-image chemistry, which could evade every ecosystem's defenses, the detection conversation is arriving before the capability. A rare biosecurity measure designed ahead of the risk."
+        },
+        {
+          "title": "These tiny snakes roll four times faster than they slither",
+          "url": "https://www.sciencedaily.com/releases/2026-10-261023023718.htm",
+          "source": "science",
+          "byline": "Yosuke Kojima et al.; Toho University",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-10-261023023718.htm",
+          "tier": "notable",
+          "summary": "High-speed filming of Southeast Asian dwarf reedsnakes (Pseudorabdion saravacense) shows they escape by rotating their bodies like a wheel, reaching four times their slithering speed while keeping the head remarkably steady — on a 20 cm racetrack, so it is controlled travel, not tumbling. Rolling was thought impossible for limbless animals without rigid, ball-shaped bodies; these snakes do it with pure body control. Soft-robotics locomotion people should take notes."
+        },
+        {
+          "title": "TIL the US still claims islands purely for bird poop under an 1856 law",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xfcmeo/til_america_claimed_dozens_of_islands_purely_for/",
+          "source": "reddit",
+          "byline": "u/PDXAirman",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xfcmeo/til_america_claimed_dozens_of_islands_purely_for/",
+          "tier": "notable",
+          "summary": "The Guano Islands Act of 1856 let any US citizen claim an unclaimed island containing bird droppings — valued as fertilizer and gunpowder feedstock — and it is still federal law, codified at 48 U.S.C. sections 1411-1419. More than 100 islands were claimed under it; ten remain US possessions today, including Midway and Navassa (which Haiti disputes). The verified core checks out against the US Code: an 1856 resource grab still shapes the map."
+        }
+      ]
+    }
+  ]
+}
