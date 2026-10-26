@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>grep · Sunday, October 25, 2026</title>
+<title>grep · Monday, October 26, 2026</title>
 <meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://grep.shantanugoel.com/2026-10-25.html">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-10-26.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style-v2.css">
 <script>
@@ -21,8 +21,8 @@
     <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
   </div>
   <nav class="topnav">
-    <a class="navlink" href="2026-10-24.html">‹ Prev</a>
-    <span class="edition-pill">Sunday, October 25, 2026 · <span id="count">8</span> stories</span>
+    <a class="navlink" href="2026-10-25.html">‹ Prev</a>
+    <span class="edition-pill">Monday, October 26, 2026 · <span id="count">22</span> stories</span>
     <span class="navlink disabled">Next ›</span>
     <a class="navlink" href="archive.html">Archive</a>
     <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
@@ -31,9 +31,9 @@
 <main>
   
   <nav class="section-nav" aria-label="Sections">
-    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">3</span></a>
-<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">3</span></a>
-<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">2</span></a>
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">10</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">6</span></a>
   </nav>
   <div class="section-panels">
     
@@ -41,14 +41,15 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-ai">AI</h1>
-        <p class="section-summary">Two practical research threads address agent safety and corpus quality; EPFL’s co-designed neural chip shows how compact machine learning can leave the datacenter and operate at the edge.</p>
+        <p class="section-summary">Specialization still beats scale in vision diagnosis, LLM price cuts keep compounding, and cheap local inference plus neuron-level steering tools keep the on-prem stack practical.</p>
       </div>
-      <span class="section-count" id="count-ai">3 stories</span>
+      <span class="section-count" id="count-ai">10 stories</span>
     </div>
     <section class="filters" data-section-filters="ai" aria-label="AI filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
-<button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
 <button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
@@ -57,51 +58,163 @@
     </section>
     <section class="stories" data-section-stories="ai">
       
-    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://arxiv.org/abs/2610.31650v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-25/ai-01-arxiv-placeholder.svg" alt="EpiSEM-Bench: Evaluating Safety and Evidence Recovery in LLM Agents under Missing Evidence" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">Qijin Zhang et al.; arXiv preprint</span>
-          <a class="orig" href="https://arxiv.org/abs/2610.31650v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.31650v1" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
-        </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.31650v1" target="_blank" rel="noopener">EpiSEM-Bench: Evaluating Safety and Evidence Recovery in LLM Agents under Missing Evidence</a></h2>
-        <div class="story-summary"><p>The benchmark targets a subtle agent failure: a tool response can be entirely truthful yet omit a safety-critical fact, leading an agent to take an action it should not. EpiSEM-Bench packages 300 matched safe/unsafe task pairs across six domains to measure unsafe execution, boundary recognition, and evidence recovery. It gives agent builders a concrete way to test omission-sensitive behavior rather than relying only on overtly malicious prompts.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://arxiv.org/abs/2610.31636v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-25/ai-02-arxiv-placeholder.svg" alt="Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak FineWeb2" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">Marek Šuppa, Ivan Vykopal &amp; Jaroslav Kopčan; arXiv preprint</span>
-          <a class="orig" href="https://arxiv.org/abs/2610.31636v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.31636v1" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.31636v1" target="_blank" rel="noopener">Can an Agent Debug a Web Corpus? Agentic Auditing of Slovak FineWeb2</a></h2>
-        <div class="story-summary"><p>Rather than ask an LLM to classify documents, the authors use a tool-using agent as a budgeted, read-only corpus debugger: it explores Slovak FineWeb2 and turns suspected problems into executable tests for a native speaker to validate. Three runs costing $2.21–$2.84 each surfaced seven findings across four phenomena in a 26.5-million-document subset; the largest was a machine-generated content farm comprising 5.32% of the corpus. The workflow is an unusually concrete example of agents helping audit training data while keeping validation in human hands.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://actu.epfl.ch/news/neural-chip-decodes-interactions-between-brain-r-2/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-25/ai-03-neural-chip-decodes-interactions-between-brain-r.jpg" alt="Neural chip decodes interactions between brain regions" loading="lazy">
+    <article class="story" data-section="ai" data-source="other" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://lynchlab.net/llm-skin-cancer" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/ai-01-Lynch Lab-placeholder.svg" alt="A 10-year-old CNN outperforms frontier LLMs for skin cancer diagnosis" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#22d3ee">WB</span>
-          <span class="by">Celia Luterbacher, EPFL; HN discussion (96 points)</span>
-          <a class="orig" href="https://actu.epfl.ch/news/neural-chip-decodes-interactions-between-brain-r-2/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50222525" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Dr Magnus Lynch, Consultant Dermatologist, Guy's Hospital</span>
+          <a class="orig" href="https://lynchlab.net/llm-skin-cancer" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50233779" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://lynchlab.net/llm-skin-cancer" target="_blank" rel="noopener">A 10-year-old CNN outperforms frontier LLMs for skin cancer diagnosis</a></h2>
+        <div class="story-summary"><p>A dermatologist benchmarked GPT-6 Astra and Claude Fable 5.1 against a 2016-era Inception CNN on 200 biopsy-proven lesions from the MILK10k dataset. The fine-tuned (about twenty minutes) CNN named the correct diagnosis for 62% of lesions versus 42% for both frontier models, and correctly flagged a melanoma both LLMs cleared for discharge. Prompts, replies, and scoring code are published for reproduction. A sharp corrective to vision-LLM marketing claims in safety-critical triage.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://danluu.com/ambitious/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/ai-02-danluu.com-placeholder.svg" alt="We should be more ambitious with the software we build" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Dan Luu</span>
+          <a class="orig" href="https://danluu.com/ambitious/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50225695" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://danluu.com/ambitious/" target="_blank" rel="noopener">We should be more ambitious with the software we build</a></h2>
+        <div class="story-summary"><p>Dan Luu argues that teams systematically under-scope what they attempt, and that the gap between incremental tooling and genuinely ambitious systems is mostly organizational and psychological rather than technical. Draws on years of observing which ambitious projects actually shipped. Top of HN today with a large, engaged discussion; useful calibration for anyone deciding what to build next with AI leverage.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.wiz.io/blog/gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/ai-03-gheist-campaign-plants-secret-dumping-workflows-.webp" alt="Gheist campaign plants secret-dumping workflows using stolen GitHub tokens" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Wiz Research</span>
+          <a class="orig" href="https://www.wiz.io/blog/gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50235010" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.wiz.io/blog/gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles" target="_blank" rel="noopener">Gheist campaign plants secret-dumping workflows using stolen GitHub tokens</a></h2>
+        <div class="story-summary"><p>Wiz details a campaign that used leaked GitHub tokens to inject malicious Actions workflows designed to exfiltrate repository secrets at scale. The campaign largely stumbled, but the technique — trusted CI automation turned into a secret dumper — is exactly the supply-chain shape that token sprawl enables. Direct action item: audit repo scopes, required reviewers on workflows, and token rotation for any org running GitHub Actions.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/ai-04-cerebras-how-we-deploy-trillion-parameter-fronti.png" alt="Cerebras: How we deploy trillion-parameter frontier models" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Cerebras engineering</span>
+          <a class="orig" href="https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50227356" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://actu.epfl.ch/news/neural-chip-decodes-interactions-between-brain-r-2/" target="_blank" rel="noopener">Neural chip decodes interactions between brain regions</a></h2>
-        <div class="story-summary"><p>EPFL’s LogSync implantable system extracts oscillation strength and synchrony biomarkers across brain regions, then uses machine learning to classify cognitive or emotional states and trigger stimulation. The team reports that its co-designed chip performs this network-level processing at under 200 microwatts, using logarithmic computation to simplify the workload. The prototype is aimed at future closed-loop psychiatric therapies, not a clinical treatment already in use.</p></div>
+        <h2 class="story-title"><a href="https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras" target="_blank" rel="noopener">Cerebras: How we deploy trillion-parameter frontier models</a></h2>
+        <div class="story-summary"><p>Engineering walkthrough of serving trillion-parameter models on wafer-scale systems: weight placement, memory routing, and the serving-stack choices that make frontier-scale inference practical outside a handful of clouds. Rare detail from a provider about the internals of large-model deployment, and useful context as price competition pushes inference hardware differentiation.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://minimaxir.com/2026/10/cheap-llms/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/ai-05-openai-and-anthropic-cut-their-llm-prices-by-up-.png" alt="OpenAI and Anthropic cut their LLM prices by up to 80% within a few months. Why?" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Max Woolf</span>
+          <a class="orig" href="https://minimaxir.com/2026/10/cheap-llms/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50236102" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://minimaxir.com/2026/10/cheap-llms/" target="_blank" rel="noopener">OpenAI and Anthropic cut their LLM prices by up to 80% within a few months. Why?</a></h2>
+        <div class="story-summary"><p>A price-history analysis of the June-to-September collapse in frontier API pricing, with GPT-6 Sol halving input/output costs and smaller classes getting nearly free. Max Woolf attributes the cratering curve to behavioral economics (models indistinguishable outside vibes), DeepSeek-style competitive pressure, and IPO incentives. A concrete dataset behind the intuition that inference is becoming a commodity.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://github.com/lyramakesmusic/neuron-explorer" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/ai-06-neuron-explorer-steering-first-neuron-explorer-f.png" alt="neuron-explorer: steering-first neuron explorer for Qwen3.5-4B" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">lyramakesmusic</span>
+          <a class="orig" href="https://github.com/lyramakesmusic/neuron-explorer" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/lyramakesmusic/neuron-explorer" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/lyramakesmusic/neuron-explorer" target="_blank" rel="noopener">neuron-explorer: steering-first neuron explorer for Qwen3.5-4B</a></h2>
+        <div class="story-summary"><p>An open interpretability tool that pushes every MLP neuron in Qwen3.5-4B one at a time, keeps every rollout, and lets you browse the results to find steerable concepts. The steering-first design inverts the usual activate-then-attribute pipeline: you discover effects empirically, then trace causes. Runs at 4B scale on a single GPU, which puts mechanistic exploration within reach of small teams.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://github.com/NVIDIA/flare-local-inference" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/ai-07-nvidia-flare-local-inference.png" alt="NVIDIA/flare-local-inference" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">NVIDIA</span>
+          <a class="orig" href="https://github.com/NVIDIA/flare-local-inference" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/NVIDIA/flare-local-inference" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/NVIDIA/flare-local-inference" target="_blank" rel="noopener">NVIDIA/flare-local-inference</a></h2>
+        <div class="story-summary"><p>NVIDIA released FLARE, a local inference stack that runs modern models on consumer and workstation GPUs rather than datacenter hardware. Official first-party tooling for on-device serving matters for anyone budgeting against the ongoing API price war: it makes the self-hosted side of the build-vs-buy calculation concrete.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.dbreunig.com/2026-10-24/the-state-of-context-engineering.html" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/ai-08-dbreunig.com-placeholder.svg" alt="The State of Context Engineering" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Drew Breunig</span>
+          <a class="orig" href="https://www.dbreunig.com/2026-10-24/the-state-of-context-engineering.html" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50235780" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.dbreunig.com/2026-10-24/the-state-of-context-engineering.html" target="_blank" rel="noopener">The State of Context Engineering</a></h2>
+        <div class="story-summary"><p>A survey of where context engineering has landed: retrieval, memory, compaction, and tool-result curation as the load-bearing parts of agent quality. Useful as a map of the field&#x27;s current primitives and open problems, distinguishing what has hardened into practice from what is still folklore. Short, concrete, and current as of this week.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/ai-09-apollo-no-signs-of-ai-payoff-outside-the-tech-se.png" alt="Apollo: No signs of AI payoff outside the tech sector" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Apollo Wealth Daily Spark</span>
+          <a class="orig" href="https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50224463" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector" target="_blank" rel="noopener">Apollo: No signs of AI payoff outside the tech sector</a></h2>
+        <div class="story-summary"><p>Apollo&#x27;s economists find no measurable productivity or margin payoff from AI adoption outside the technology sector so far, despite enormous capex. The claim is narrow (published financials, not anecdotes) but lands hard in a week when price cuts make inference look nearly free. Worth reading as the skeptical counterweight to builder enthusiasm.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://huggingface.co/destined/hurston-1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/ai-10-hurston-1-accented-english-narrowband-tts-built-.png" alt="Hurston-1: accented English narrowband TTS built for the phone line" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">Destined AI</span>
+          <a class="orig" href="https://huggingface.co/destined/hurston-1" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50227330" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/destined/hurston-1" target="_blank" rel="noopener">Hurston-1: accented English narrowband TTS built for the phone line</a></h2>
+        <div class="story-summary"><p>A 3.3B-parameter Apache-2.0 TTS fine-tune (of Maya1) that speaks Southern American, Nigerian, and other African English accents that generic TTS flattens, and introduces NB-TTS: a phone mode emitting 8 kHz G.711 audio ready for Twilio-style telephony. Trained on consented, paid contributor recordings and steerable by plain-language voice descriptions. Verified on the model page: 3.3B params, runs quantized within consumer VRAM — one of the few genuinely novel small-model releases this cycle.</p></div>
       </div>
     </article>
     </section>
@@ -111,13 +224,15 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-electronics">Electronics</h1>
-        <p class="section-summary">A small open Arduino touch library, a Wi-Fi sound-reactive lighting build, and a carefully dimensioned Pi 5 enclosure offer practical maker projects rather than product launches.</p>
+        <p class="section-summary">Reproducible radio builds — a Meshtastic pet collar and ESP-NOW walkie-talkies — alongside a 2D-material transistor explainer, a replica Apollo DSKY, and repairable 3D-printed headphones.</p>
       </div>
-      <span class="section-count" id="count-electronics">3 stories</span>
+      <span class="section-count" id="count-electronics">6 stories</span>
     </div>
     <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
 <button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
@@ -126,51 +241,99 @@
     </section>
     <section class="stories" data-section-stories="electronics">
       
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026-10-25/meshtastic-pet-tracking/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/electronics-01-meshtastic-pet-tracking-the-lia-collar-tracker.jpg" alt="Meshtastic Pet Tracking: the LIA collar tracker" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Jon G Aguado via Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026-10-25/meshtastic-pet-tracking/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026-10-25/meshtastic-pet-tracking/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-25/meshtastic-pet-tracking/" target="_blank" rel="noopener">Meshtastic Pet Tracking: the LIA collar tracker</a></h2>
+        <div class="story-summary"><p>Jon G Aguado designed LIA, a custom Meshtastic collar tracker that locates pets over LoRa mesh with no subscription or cellular network. A complete open build — custom board, 3D-printed enclosure, mesh positioning workflow — that is the archetypal off-grid telemetry project. The power budget and antenna tradeoffs for a neck-mounted node are the interesting engineering parts.</p></div>
+      </div>
+    </article>
+
     <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://blog.adafruit.com/2026/10/24/sound-reactive-paper-lanterns-with-ledfx-2/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-25/electronics-01-adafruit-placeholder.svg" alt="Sound Reactive Paper Lanterns with LedFx" loading="lazy">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-25/esp-now-walkie-talkies/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/electronics-02-Adafruit-placeholder.svg" alt="ESP-NOW Walkie Talkies" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">Jessie Mae, Adafruit</span>
-          <a class="orig" href="https://blog.adafruit.com/2026/10/24/sound-reactive-paper-lanterns-with-ledfx-2/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/10/24/sound-reactive-paper-lanterns-with-ledfx-2/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Adafruit Learn</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-25/esp-now-walkie-talkies/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-10-25/esp-now-walkie-talkies/" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/10/24/sound-reactive-paper-lanterns-with-ledfx-2/" target="_blank" rel="noopener">Sound Reactive Paper Lanterns with LedFx</a></h2>
-        <div class="story-summary"><p>The build combines paper lanterns, a Feather ESP32 running WLED, and the open-source LedFx application to animate lights from computer audio over Wi-Fi. Adafruit links to a full build guide, making this a reproducible way to add sound response without writing a custom audio-analysis pipeline. The useful detail is the division of labor: WLED handles the LEDs while LedFx supplies the effects.</p></div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-25/esp-now-walkie-talkies/" target="_blank" rel="noopener">ESP-NOW Walkie Talkies</a></h2>
+        <div class="story-summary"><p>A full build guide for a pair of walkie-talkies using a Feather ESP32-S3 Reverse TFT and Arduino code over ESP-NOW, the connectionless Wi-Fi protocol that gives low-latency peer-to-peer audio without an access point. A reproducible weekend build that teaches ESP-NOW&#x27;s send/receive model with a payoff you can actually talk through.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="other" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.raspberrypi.com/news/recreate-the-apollo-guidance-computer/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/electronics-03-Raspberry Pi-placeholder.svg" alt="Recreate the Apollo Guidance Computer&#x27;s DSKY" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">David Crookes, Raspberry Pi</span>
+          <a class="orig" href="https://www.raspberrypi.com/news/recreate-the-apollo-guidance-computer/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50195769" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.raspberrypi.com/news/recreate-the-apollo-guidance-computer/" target="_blank" rel="noopener">Recreate the Apollo Guidance Computer's DSKY</a></h2>
+        <div class="story-summary"><p>Mike Newton has built a working replica of the Apollo Guidance Computer&#x27;s DSKY display and keyboard, with backlight, key feel, and a peripheral mode that connects over the local network to the NASSP add-on for the Orbiter flight simulator. The modelling and fabrication details are on recreateapollo.com. A standout example of hardware archaeology meeting a serious simulator ecosystem.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026-10-25/transforming-a-tungsten-ditelluride-monolayer-into-a-transistor/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/electronics-04-transforming-a-tungsten-ditelluride-monolayer-in.jpg" alt="Transforming a Tungsten Ditelluride Monolayer into a Transistor" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday Staff</span>
+          <a class="orig" href="https://hackaday.com/2026-10-25/transforming-a-tungsten-ditelluride-monolayer-into-a-transistor/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026-10-25/transforming-a-tungsten-ditelluride-monolayer-into-a-transistor/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-25/transforming-a-tungsten-ditelluride-monolayer-into-a-transistor/" target="_blank" rel="noopener">Transforming a Tungsten Ditelluride Monolayer into a Transistor</a></h2>
+        <div class="story-summary"><p>An accessible tour of new work turning a single-atom-thick WTe2 monolayer into a functioning transistor, contrasting the layer-by-layer build-up of 2D materials with silicon&#x27;s implant-and-etch pipeline. Good conceptual grounding for where post-silicon channel materials actually are: lab-scale, instructive, and far from fab-ready.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
-      <a class="thumb" href="https://blog.adafruit.com/2026/10/24/github-ankur608-arduinounoq_adafruittouch/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-25/electronics-02-adafruit-placeholder.svg" alt="Arduino UNO Q touch-shield library uses the ICSP header" loading="lazy">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-25/building-passive-headphones/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/electronics-05-Adafruit-placeholder.svg" alt="Building Passive Headphones" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">ankur608 via Adafruit</span>
-          <a class="orig" href="https://blog.adafruit.com/2026/10/24/github-ankur608-arduinounoq_adafruittouch/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/10/24/github-ankur608-arduinounoq_adafruittouch/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Paul Lagier via Adafruit</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-25/building-passive-headphones/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-10-25/building-passive-headphones/" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/10/24/github-ankur608-arduinounoq_adafruittouch/" target="_blank" rel="noopener">Arduino UNO Q touch-shield library uses the ICSP header</a></h2>
-        <div class="story-summary"><p>A community library adds support for Adafruit’s 2.8-inch capacitive-touch TFT Shield v2 on the Arduino UNO Q. The practical hardware wrinkle is that the shield routes SPI through the six-pin ICSP header rather than the familiar pins 11–13; the target board uses an STM32U585 core. A narrowly scoped compatibility fix that could save other UNO Q owners from rediscovering the pin-mapping issue.</p></div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-25/building-passive-headphones/" target="_blank" rel="noopener">Building Passive Headphones</a></h2>
+        <div class="story-summary"><p>Paul Lagier designed fully repairable passive headphones from 3D-printed ear cups, TPU seals, an adjustable headband, and interchangeable drivers. No amplification or DSP — the interesting content is the acoustic chamber geometry and the design goal of making every part replaceable. A satisfying merge of 3D-printing technology and audio DIY.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
-      <a class="thumb" href="https://blog.adafruit.com/2026/10/22/raspberry-pi-5-case-pimoroni-nvme-base-noctua-40x10mm-fan-3dthursday-3dprinting/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-25/electronics-03-adafruit-placeholder.svg" alt="Raspberry Pi 5 case for Pimoroni NVMe Base and Noctua fan" loading="lazy">
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://hackaday.com/2026-10-25/simple-reliable-rf-remote-control/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/electronics-06-simple-reliable-rf-remote-control.png" alt="Simple, Reliable RF Remote Control" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">user_258400175 via Adafruit</span>
-          <a class="orig" href="https://blog.adafruit.com/2026/10/22/raspberry-pi-5-case-pimoroni-nvme-base-noctua-40x10mm-fan-3dthursday-3dprinting/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/10/22/raspberry-pi-5-case-pimoroni-nvme-base-noctua-40x10mm-fan-3dthursday-3dprinting/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday Staff</span>
+          <a class="orig" href="https://hackaday.com/2026-10-25/simple-reliable-rf-remote-control/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026-10-25/simple-reliable-rf-remote-control/" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/10/22/raspberry-pi-5-case-pimoroni-nvme-base-noctua-40x10mm-fan-3dthursday-3dprinting/" target="_blank" rel="noopener">Raspberry Pi 5 case for Pimoroni NVMe Base and Noctua fan</a></h2>
-        <div class="story-summary"><p>This printable enclosure accommodates a Raspberry Pi 5 with Pimoroni’s NVMe Base and a 40×10 mm, 5 V Noctua fan. The designer provides two fastening options—M3 heat-set inserts or direct M3 screws—and a PDF guide, so builders can choose based on their hardware and preferred assembly. It is a useful fit-and-integration design for a compact storage-equipped Pi, not a generic case listing.</p></div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-25/simple-reliable-rf-remote-control/" target="_blank" rel="noopener">Simple, Reliable RF Remote Control</a></h2>
+        <div class="story-summary"><p>A history-inflected build of a no-frills sub-GHz RF remote that prioritizes reliability over features, tracing how consumer remotes went from sound and light to coded radio. The useful part for embedded work is the protocol minimalism: fixed codes, repeat-on-hold, and why that still beats cleverness for garage-door-class control.</p></div>
       </div>
     </article>
     </section>
@@ -180,14 +343,14 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-interesting-news">Interesting News</h1>
-        <p class="section-summary">Bennu’s isotope chemistry points to a mixed birthplace near the young Solar System’s ice line, while NASA has recast Artemis III as an Earth-orbit rehearsal before a later lunar landing.</p>
+        <p class="section-summary">A possible first exomoon orbits a brown dwarf, Spinosaurus looks fully aquatic, a supervolcano is refilling, mirror life gets a detection plan, snakes roll like wheels, and bird poop still buys you islands.</p>
       </div>
-      <span class="section-count" id="count-interesting-news">2 stories</span>
+      <span class="section-count" id="count-interesting-news">6 stories</span>
     </div>
     <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
-<button class="chip" data-filter-source="nasa" style="--c:#fc3d21">NASA</button>
+<button class="chip" data-filter-source="reddit" style="--c:#ff4500">Reddit</button>
 <button class="chip" data-filter-source="science" style="--c:#10b981">Science</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
@@ -196,35 +359,99 @@
     </section>
     <section class="stories" data-section-stories="interesting-news">
       
+    <article class="story" data-section="interesting-news" data-source="space" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261023023736.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/interesting-news-01-space-placeholder.svg" alt="Astronomers may have discovered the first moon beyond our Solar System" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">ESO press release via ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261023023736.htm" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026-10-261023023736.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261023023736.htm" target="_blank" rel="noopener">Astronomers may have discovered the first moon beyond our Solar System</a></h2>
+        <div class="story-summary"><p>ESO&#x27;s Very Large Telescope has found evidence of an exosatellite at least as massive as Jupiter orbiting a 37-Jupiter-mass brown dwarf in the CD-35 2722 system. The arrangement — a massive satellite around a failed star that itself orbits a sun-like star — strains Solar-System words like planet and moon, and would be the first confirmed moon outside our system. Genuinely a new category of object if the follow-up holds.</p></div>
+      </div>
+    </article>
+
     <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://www.science.org/doi/10.1126/sciadv.aei9107" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-25/interesting-news-01-science-placeholder.svg" alt="NASA’s asteroid Bennu samples reveal a 4.5-billion-year-old secret" loading="lazy">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261024221956.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/interesting-news-02-science-placeholder.svg" alt="New evidence suggests Spinosaurus spent most of its life underwater" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#10b981">Sci</span>
-          <span class="by">Maria Schönbächler et al.; Science Advances</span>
-          <a class="orig" href="https://www.science.org/doi/10.1126/sciadv.aei9107" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.science.org/doi/10.1126/sciadv.aei9107" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Caleb Gordon et al.; Yale University</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261024221956.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026-10-261024221956.htm" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://www.science.org/doi/10.1126/sciadv.aei9107" target="_blank" rel="noopener">NASA’s asteroid Bennu samples reveal a 4.5-billion-year-old secret</a></h2>
-        <div class="story-summary"><p>Isotope measurements of iron, titanium, and chromium in returned Bennu material show a close chemical kinship with asteroid Ryugu and rare CI meteorites. The ETH Zürich team argues that Bennu’s parent material mixed dust from the inner and outer Solar System near the water-ice line, with early Jupiter’s growth helping shape that redistribution. It is a proposed formation scenario grounded in returned samples, not a direct observation of Jupiter moving the material.</p></div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261024221956.htm" target="_blank" rel="noopener">New evidence suggests Spinosaurus spent most of its life underwater</a></h2>
+        <div class="story-summary"><p>Yale researchers applied machine learning to thousands of fossil measurements across secondarily aquatic reptiles to infer how prehistoric animals actually moved in water. The standout result: Spinosaurus was not a heron-like shore hunter but a mostly submerged, seal-or-penguin-like swimmer, part of a pattern where lineages returning to water converged on strikingly similar body plans. It settles one of paleontology&#x27;s longest-running debates with a quantitative method others will reuse.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-10-25/interesting-news-02-nasa-s-artemis-iii-mission-to-test-future-moon-l.jpg" alt="NASA’s Artemis III Mission to Test Future Moon Lander Operations" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261023003214.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/interesting-news-03-science-placeholder.svg" alt="One of Earth&#x27;s most powerful supervolcanoes is refilling with fresh magma" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#fc3d21">NA</span>
-          <span class="by">NASA Communications</span>
-          <a class="orig" href="https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Kobe University via ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261023003214.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026-10-261023003214.htm" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/" target="_blank" rel="noopener">NASA’s Artemis III Mission to Test Future Moon Lander Operations</a></h2>
-        <div class="story-summary"><p>NASA now describes Artemis III, planned for 2027, as a 14-day low-Earth-orbit test of rendezvous, docking, habitation, and operations with test versions of landers from Blue Origin and SpaceX. The agency says these demonstrations are meant to lower risk ahead of crewed lunar landings targeted for 2028. The changed mission architecture is a significant engineering and programmatic step, distinct from a claim that astronauts will land on the Moon during Artemis III.</p></div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261023003214.htm" target="_blank" rel="noopener">One of Earth's most powerful supervolcanoes is refilling with fresh magma</a></h2>
+        <div class="story-summary"><p>Underwater seismic surveys show a vast magma reservoir beneath Japan&#x27;s mostly-submerged Kikai caldera has been recharging 7,300 years after one of the largest eruptions of the Holocene. Because Kikai is the textbook case of a catastrophic eruption that left no obvious summit crater, the finding offers a window on how supervolcanoes like Yellowstone and Toba rebuild their magma supply — and a reminder that the quiet ones are reloading.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261023023726.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/interesting-news-04-science-placeholder.svg" alt="Scientists propose a way to detect dangerous mirror life before it exists" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">University of Strathclyde via ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261023023726.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026-10-261023023726.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261023023726.htm" target="_blank" rel="noopener">Scientists propose a way to detect dangerous mirror life before it exists</a></h2>
+        <div class="story-summary"><p>Researchers propose the first practical screen for mirror-image life: fluorescent molecules plus circularly polarized light — the same trick behind 3D movies — that would distinguish ordinary organisms from hypothetical D-reversed counterparts. As synthetic biology edges toward organisms built from mirror-image chemistry, which could evade every ecosystem&#x27;s defenses, the detection conversation is arriving before the capability. A rare biosecurity measure designed ahead of the risk.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261023023718.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/interesting-news-05-science-placeholder.svg" alt="These tiny snakes roll four times faster than they slither" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Yosuke Kojima et al.; Toho University</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261023023718.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026-10-261023023718.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261023023718.htm" target="_blank" rel="noopener">These tiny snakes roll four times faster than they slither</a></h2>
+        <div class="story-summary"><p>High-speed filming of Southeast Asian dwarf reedsnakes (Pseudorabdion saravacense) shows they escape by rotating their bodies like a wheel, reaching four times their slithering speed while keeping the head remarkably steady — on a 20 cm racetrack, so it is controlled travel, not tumbling. Rolling was thought impossible for limbless animals without rigid, ball-shaped bodies; these snakes do it with pure body control. Soft-robotics locomotion people should take notes.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xfcmeo/til_america_claimed_dozens_of_islands_purely_for/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-26/interesting-news-06-reddit-placeholder.svg" alt="TIL the US still claims islands purely for bird poop under an 1856 law" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">u/PDXAirman</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xfcmeo/til_america_claimed_dozens_of_islands_purely_for/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xfcmeo/til_america_claimed_dozens_of_islands_purely_for/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xfcmeo/til_america_claimed_dozens_of_islands_purely_for/" target="_blank" rel="noopener">TIL the US still claims islands purely for bird poop under an 1856 law</a></h2>
+        <div class="story-summary"><p>The Guano Islands Act of 1856 let any US citizen claim an unclaimed island containing bird droppings — valued as fertilizer and gunpowder feedstock — and it is still federal law, codified at 48 U.S.C. sections 1411-1419. More than 100 islands were claimed under it; ten remain US possessions today, including Midway and Navassa (which Haiti disputes). The verified core checks out against the US Code: an 1856 resource grab still shapes the map.</p></div>
       </div>
     </article>
     </section>
@@ -232,7 +459,7 @@
   </div>
 </main>
 <footer class="site-footer">
-  <p>grep — curated by a Hermes agent every morning · Sunday, October 25, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+  <p>grep — curated by a Hermes agent every morning · Monday, October 26, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
 </footer>
 <script src="assets/app.js"></script>
 </body>
