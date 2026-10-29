@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>grep · Thursday, October 29, 2026</title>
+<meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-10-29.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style-v2.css">
+<script>
+  // set theme before paint to avoid a flash of the wrong palette
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
+  </div>
+  <nav class="topnav">
+    <a class="navlink" href="2026-10-28.html">‹ Prev</a>
+    <span class="edition-pill">Thursday, October 29, 2026 · <span id="count">26</span> stories</span>
+    <span class="navlink disabled">Next ›</span>
+    <a class="navlink" href="archive.html">Archive</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  
+  <nav class="section-nav" aria-label="Sections">
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">14</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">6</span></a>
+  </nav>
+  <div class="section-panels">
+    
+  <section class="section-panel" id="ai" data-section-panel="ai" style="--section-color:#ff8000" aria-labelledby="heading-ai">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-ai">AI</h1>
+        <p class="section-summary">Frontier launch day (Gemini 4 Carbon), a RISC-V CPU compiled into LLM weights, and small-model work you can actually run.</p>
+      </div>
+      <span class="section-count" id="count-ai">14 stories</span>
+    </div>
+    <section class="filters" data-section-filters="ai" aria-label="AI filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
+<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="ai">
+      
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-01-gemini-4-carbon-our-next-frontier-model.png" alt="Gemini 4 Carbon: our next frontier model" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Google (via HN, 828 points)</span>
+          <a class="orig" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50276792" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/" target="_blank" rel="noopener">Gemini 4 Carbon: our next frontier model</a></h2>
+        <div class="story-summary"><p>Google&#x27;s next frontier model, positioned on cybersecurity and long-horizon agentic work: #1 on the Artificial Analysis Intelligence Index v5.0 at 59, with leads on SEC-bench Pro (88.2%), ExploitGym (54.8%), and CWE-bench (71.0%). Pricing lands at $4/$20 per million input/output tokens after the intro period, which is the number most builders will actually care about. The HN thread is busy comparing it against last week&#x27;s Gemini 4 Argon release and what the Carbon/Argon naming split even means for the lineup.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://divagr.com/blog/qwenputer" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-02-qwenputer-a-fully-functioning-deterministic-risc.png" alt="Qwenputer: a fully functioning, deterministic RISC-V CPU inside Qwen3.5" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Divyansh Agrawal (via HN, 136 points)</span>
+          <a class="orig" href="https://divagr.com/blog/qwenputer" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50282838" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://divagr.com/blog/qwenputer" target="_blank" rel="noopener">Qwenputer: a fully functioning, deterministic RISC-V CPU inside Qwen3.5</a></h2>
+        <div class="story-summary"><p>A stock Qwen 3.5 4B with a RISC-V CPU compiled into its weights, using the model&#x27;s own Gated DeltaNet layers as RAM - it executes C and MicroPython inside forward passes with no external runtime or tool calls. This is not a sandbox or plugin; the model routes exact arithmetic to deterministic compute it cannot tamper with. The follow-up posts on hiding reasoning in RNN state and building tamper-proof oversight into weights make this required reading for interpretability and safety folks.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://surgehq.ai/blog/dayjob-tax" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-03-dayjob-tax-evaluating-ai-agents-on-50-profession.png" alt="Dayjob: Tax - evaluating AI agents on 50 professional tax assignments" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">SurgeHQ (via HN, 211 points)</span>
+          <a class="orig" href="https://surgehq.ai/blog/dayjob-tax" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50275626" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://surgehq.ai/blog/dayjob-tax" target="_blank" rel="noopener">Dayjob: Tax - evaluating AI agents on 50 professional tax assignments</a></h2>
+        <div class="story-summary"><p>A benchmark built from 50 real professional tax assignments rather than synthetic tasks, graded against how a qualified human would file. It is a useful ground-truth check on where agent capabilities actually stand for knowledge-work automation: the failure modes are regulatory reasoning and edge-case judgment, not formatting. Worth reading alongside the ongoing debate about which agent benchmarks measure economic value versus leaderboard gaming.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/blog/nvidia/nemotron-transcribe-granary" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-04-nvidia-nemotron-3-5-transcribe-open-asr-for-40-l.jpg" alt="Nvidia Nemotron 3.5 Transcribe: open ASR for 40 languages" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Nvidia (via HN, 116 points)</span>
+          <a class="orig" href="https://huggingface.co/blog/nvidia/nemotron-transcribe-granary" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50275128" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/blog/nvidia/nemotron-transcribe-granary" target="_blank" rel="noopener">Nvidia Nemotron 3.5 Transcribe: open ASR for 40 languages</a></h2>
+        <div class="story-summary"><p>Nvidia releases an open-weights ASR model covering 40 languages, published with the Granary dataset effort on Hugging Face. For anyone running local voice pipelines this is a serious Whisper alternative candidate, and the open training data angle matters more than the WER deltas for reproducibility. The HN thread compares it against the recent crop of open TTS/ASR releases and notes the licensing is permissive enough for commercial use.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2610.37647" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-05-arxiv-placeholder.svg" alt="MuonGS: pretraining LLMs with relaxed weight-norm control" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">arXiv preprint</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.37647" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.37647" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.37647" target="_blank" rel="noopener">MuonGS: pretraining LLMs with relaxed weight-norm control</a></h2>
+        <div class="story-summary"><p>Proposes a Muon-family optimizer variant that relaxes the strict weight-norm control of Muon while keeping its spectral-update benefits, aiming at stability and throughput in LLM pretraining. If it holds up, it is another data point that the AdamW monoculture is finally cracking at the optimizer layer. Relevant if you maintain training infra - the practical claim is better loss-per-step without brittle scaling heuristics.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2610.37658" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-06-arxiv-placeholder.svg" alt="When should we intervene at test time?" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">arXiv preprint</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.37658" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.37658" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.37658" target="_blank" rel="noopener">When should we intervene at test time?</a></h2>
+        <div class="story-summary"><p>Studies the policy problem behind test-time compute: not how to intervene (reroll, hint, correct) but when it is worth it, given that most interventions on already-solvable prompts waste compute or hurt. Directly applicable to anyone building agent loops that currently &#x27;think harder&#x27; indiscriminately. The framing - intervention as a decision problem with a measurable counterfactual - is the part worth stealing for your own harness.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/ZiChuanLan/agent-purge" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-07-github-placeholder.svg" alt="agent-purge: one persona, many coding agents" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">ZiChuanLan (817 stars)</span>
+          <a class="orig" href="https://github.com/ZiChuanLan/agent-purge" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/ZiChuanLan/agent-purge" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/ZiChuanLan/agent-purge" target="_blank" rel="noopener">agent-purge: one persona, many coding agents</a></h2>
+        <div class="story-summary"><p>A single tool to replace or inject system prompts across codex, claude, opencode, grok, hermes, pi, and other coding-agent CLIs from one persona definition. Useful and slightly alarming: it is also a live demonstration of how unguarded these tools&#x27; prompt surfaces are, which pairs uncomfortably well with this week&#x27;s instruction-stack measurement paper. If you maintain a house style across multiple agents, this saves you seven config files.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/daveebbelaar/bama" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-08-bama-build-any-mac-app-with-agent-skills.png" alt="BAMA: Build Any Mac App with agent skills" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">daveebbelaar (606 stars)</span>
+          <a class="orig" href="https://github.com/daveebbelaar/bama" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/daveebbelaar/bama" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/daveebbelaar/bama" target="_blank" rel="noopener">BAMA: Build Any Mac App with agent skills</a></h2>
+        <div class="story-summary"><p>A packaged set of agent skills that walks coding agents through researching, cloning, designing, building, optimizing, and testing native macOS apps with Swift. It is a good example of domain-skills-as-product: the value is the workflow scaffolding and the verification steps, not prompt cleverness. The test-first loop for App Store-shaped constraints (signing, sandboxing) is the transferable idea even if you do not ship Mac apps.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://cursor.com/blog/agent-sdk" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-09-the-agent-sdk.png" alt="The Agent SDK" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Cursor</span>
+          <a class="orig" href="https://cursor.com/blog/agent-sdk" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50273731" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://cursor.com/blog/agent-sdk" target="_blank" rel="noopener">The Agent SDK</a></h2>
+        <div class="story-summary"><p>Cursor opens its agent harness as an SDK, exposing the same loop, tool APIs, and context management its own product runs on. The interesting strategic read: the editor is becoming a front-end for a headless agent runtime that runs anywhere, joining Claude Code and OpenAI&#x27;s SDKs in standardizing what &#x27;agent substrate&#x27; means. Evaluate it on what you get beyond the model - sandboxing, session persistence, and subagent orchestration.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-10-the-sleep-framework-retaining-knowledge-in-conti.jpg" alt="The Sleep framework: retaining knowledge in continual learning for LLMs" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Google Research</span>
+          <a class="orig" href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50272479" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/" target="_blank" rel="noopener">The Sleep framework: retaining knowledge in continual learning for LLMs</a></h2>
+        <div class="story-summary"><p>Google Research proposes a &#x27;sleep&#x27; phase where the model consolidates new knowledge between training runs, attacking the catastrophic-forgetting problem that makes continual fine-tuning so fragile. The metaphor is literal-ish: replay and distillation passes interleaved with adaptation to stabilize old behavior. If the results generalize, this is a recipe for orgs that want a model that keeps up with their corpus without weekly full retrains.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.cartesia.ai/blog/from-tokens-to-bytes-part-1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-11-scaling-hierarchical-networks-from-tokens-to-byt.webp" alt="Scaling hierarchical networks (From Tokens to Bytes, Part 1)" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Cartesia AI</span>
+          <a class="orig" href="https://www.cartesia.ai/blog/from-tokens-to-bytes-part-1" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50278253" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.cartesia.ai/blog/from-tokens-to-bytes-part-1" target="_blank" rel="noopener">Scaling hierarchical networks (From Tokens to Bytes, Part 1)</a></h2>
+        <div class="story-summary"><p>Cartesia argues for hierarchical architectures that process raw bytes at the bottom and abstractions at the top, and shows scaling behavior for their hierarchical network design. It is part one of a series on replacing the tokenizer-centric stack, which puts it in the same conversation as the token-free models gaining traction in speech and audio. Worth reading for the scaling-methodology section alone, even if you are skeptical of the ending.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.hbrooks.com/writing/image-generation-has-come-a-long-way" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-12-other-placeholder.svg" alt="Image generation has come a long way since August 2022" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">H. Brooks</span>
+          <a class="orig" href="https://www.hbrooks.com/writing/image-generation-has-come-a-long-way" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50250609" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.hbrooks.com/writing/image-generation-has-come-a-long-way" target="_blank" rel="noopener">Image generation has come a long way since August 2022</a></h2>
+        <div class="story-summary"><p>A same-prompt longitudinal comparison of image models from the Dall-E 2 era to today, holding the prompts fixed and letting the artifacts speak. The most honest way to feel the four-year delta - text rendering, hands, and physical plausibility moved more than any benchmark table conveys. A nice calibration piece for how quickly perceived &#x27;solved&#x27; problems rotate in generative media.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/model-rampage/BareTorch-Qwen3.5-0.8B-Hybrid" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-13-baretorch-qwen3-5-0-8b-hybrid-sub-quadratic-mixi.png" alt="BareTorch-Qwen3.5-0.8B-Hybrid: sub-quadratic mixing in pure GEMMs" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">Model Rampage (Hugging Face)</span>
+          <a class="orig" href="https://huggingface.co/model-rampage/BareTorch-Qwen3.5-0.8B-Hybrid" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/model-rampage/BareTorch-Qwen3.5-0.8B-Hybrid" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/model-rampage/BareTorch-Qwen3.5-0.8B-Hybrid" target="_blank" rel="noopener">BareTorch-Qwen3.5-0.8B-Hybrid: sub-quadratic mixing in pure GEMMs</a></h2>
+        <div class="story-summary"><p>A 0.9B-param hybrid distilled from Qwen3.5 with 18 of 24 layers replaced by pure-PyTorch low-rank associative recurrent blocks - no causal-conv1d or Triton kernels, just torch.compile-compatible GEMMs with O(1) decode state. The card reports 3.2x smaller short-context cache and ~1.21 GB lower 32K peak VRAM than the base model, with eval retention above the teacher, so it fits a 3060 with room to spare. The real claim to watch is portability: linear attention that runs on hardware without CUDA kernel ecosystems.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://huggingface.co/axteam/GLM-OCR-FP8-dynamic" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/ai-14-glm-ocr-fp8-dynamic-1-3b-ocr-model-in-fp8.png" alt="GLM-OCR-FP8-dynamic: 1.3B OCR model in FP8" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">axteam (Hugging Face)</span>
+          <a class="orig" href="https://huggingface.co/axteam/GLM-OCR-FP8-dynamic" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/axteam/GLM-OCR-FP8-dynamic" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/axteam/GLM-OCR-FP8-dynamic" target="_blank" rel="noopener">GLM-OCR-FP8-dynamic: 1.3B OCR model in FP8</a></h2>
+        <div class="story-summary"><p>Official dynamic-FP8 quantization of zai-org&#x27;s GLM-OCR at a verified 1.33B parameters, packaged compressed-tensors style for vLLM and transformers. OCR is exactly the workload where a sub-2B specialized vision model beats a general VLM on cost and latency, and FP8-dynamic keeps accuracy while halving the serving footprint. Drop-in for document pipelines that outgrew tesseract but cannot justify a 7B VLM per request.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="electronics" data-section-panel="electronics" style="--section-color:#22d3ee" aria-labelledby="heading-electronics">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-electronics">Electronics</h1>
+        <p class="section-summary">Offline speech on an ESP32-S3, a robot that builds PCBs on demand, and measured answers about e-paper abuse.</p>
+      </div>
+      <span class="section-count" id="count-electronics">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
+<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
+<button class="chip" data-filter-source="3dprinting" style="--c:#14b8a6">3D Print</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="electronics">
+      
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-28/whistle-speech-to-text-running-fully-on-an-esp32-s3/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/electronics-01-adafruit-placeholder.svg" alt="Whistle speech-to-text running fully on an ESP32-S3" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Blog</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-28/whistle-speech-to-text-running-fully-on-an-esp32-s3/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-10-28/whistle-speech-to-text-running-fully-on-an-esp32-s3/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-28/whistle-speech-to-text-running-fully-on-an-esp32-s3/" target="_blank" rel="noopener">Whistle speech-to-text running fully on an ESP32-S3</a></h2>
+        <div class="story-summary"><p>Saulo Verissimo&#x27;s whistle-esp32 does free-speech recognition entirely on an ESP32-S3: hold a button, say &#x27;make it red&#x27; or &#x27;flash the light blue&#x27;, and the onboard WS2812 obeys - no network, no cloud, no phone, and not a fixed command list. Free-form vocabulary at this footprint is the interesting part, and the repo shows the model-size tradeoffs. This is the clearest demo yet that usable voice control belongs on $10 MCUs.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.circuithub.com/post/unveiling-the-grid" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/electronics-02-the-grid-a-factory-scale-robot-that-builds-pcbs-.jpg" alt="The Grid: a factory-scale robot that builds PCBs on demand" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">CircuitHub (via HN, 442 points)</span>
+          <a class="orig" href="https://www.circuithub.com/post/unveiling-the-grid" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50243060" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.circuithub.com/post/unveiling-the-grid" target="_blank" rel="noopener">The Grid: a factory-scale robot that builds PCBs on demand</a></h2>
+        <div class="story-summary"><p>CircuitHub unveils The Grid, a factory-scale robotic system that assembles PCBs on demand from design files, aimed at collapsing the week-plus turnaround of traditional SMT lines. The HN discussion digs into whether lights-out board assembly finally makes small-batch hardware economics work, including component sourcing as the real bottleneck. For anyone who has waited six weeks for a prototype build, this is the post to read.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026-10-28/does-running-an-e-paper-display-at-30-fps-destroy-it/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/electronics-03-does-running-an-e-paper-display-at-30-fps-destro.jpg" alt="Does running an e-paper display at 30 FPS destroy it?" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026-10-28/does-running-an-e-paper-display-at-30-fps-destroy-it/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026-10-28/does-running-an-e-paper-display-at-30-fps-destroy-it/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-28/does-running-an-e-paper-display-at-30-fps-destroy-it/" target="_blank" rel="noopener">Does running an e-paper display at 30 FPS destroy it?</a></h2>
+        <div class="story-summary"><p>With cheap e-paper panels being pushed toward 30 fps refresh modes, Hackaday runs the abuse test nobody&#x27;s datasheet answers: does sustained fast refreshing kill the panel? The observed ghosting progression and long-term degradation are exactly the kind of empirical data that e-ink project planners guess at. Useful before you spec a fast-refresh display into anything you cannot easily replace.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-28/train-a-balance-bot-with-reinforcement-learning/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/electronics-04-adafruit-placeholder.svg" alt="Train a balance bot with reinforcement learning" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Blog / Make: Vol. 99</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-28/train-a-balance-bot-with-reinforcement-learning/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-10-28/train-a-balance-bot-with-reinforcement-learning/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-28/train-a-balance-bot-with-reinforcement-learning/" target="_blank" rel="noopener">Train a balance bot with reinforcement learning</a></h2>
+        <div class="story-summary"><p>Shawn Hymel&#x27;s Make: guide trains a two-wheeled balance bot with PPO instead of writing a classical PID control loop, sim-to-real included. The pedagogical value is the side-by-side: you see what learned control buys over hand-tuned loops and where it embarrasses you. PPO is the same algorithm behind RLHF, so it doubles as an intuitive grounding in the policy-gradient machinery LLM people talk past.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="3dprinting" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://3dprintingindustry.com/news/university-of-turku-can-now-3d-print-different-metals-in-a-single-layer-for-fusion-and-aerospace-research-256002/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/electronics-05-university-of-turku-can-3d-print-different-metal.jpg" alt="University of Turku can 3D print different metals in a single layer" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#14b8a6">3D</span>
+          <span class="by">3D Printing Industry</span>
+          <a class="orig" href="https://3dprintingindustry.com/news/university-of-turku-can-now-3d-print-different-metals-in-a-single-layer-for-fusion-and-aerospace-research-256002/" target="_blank" rel="noopener">3D Print ›</a><a class="discuss" href="https://3dprintingindustry.com/news/university-of-turku-can-now-3d-print-different-metals-in-a-single-layer-for-fusion-and-aerospace-research-256002/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://3dprintingindustry.com/news/university-of-turku-can-now-3d-print-different-metals-in-a-single-layer-for-fusion-and-aerospace-research-256002/" target="_blank" rel="noopener">University of Turku can 3D print different metals in a single layer</a></h2>
+        <div class="story-summary"><p>A Finnish team retrofitted a metal powder-bed machine with a multi-material recoater that deposits from three powder drums within a single layer, targeting functionally graded parts for fusion and aerospace research. Graded metal composition - heat-resistant on one face, tough on the other - is the capability unlock, and doing it as a recoater mod rather than a new machine is the hackable insight. Watch for what the first graded-part results show.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://hackaday.com/2026-10-28/hacking-the-modern-tamagotchi-with-uart/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/electronics-06-hacking-the-modern-tamagotchi-with-uart.png" alt="Hacking the modern Tamagotchi with UART" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026-10-28/hacking-the-modern-tamagotchi-with-uart/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026-10-28/hacking-the-modern-tamagotchi-with-uart/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-28/hacking-the-modern-tamagotchi-with-uart/" target="_blank" rel="noopener">Hacking the modern Tamagotchi with UART</a></h2>
+        <div class="story-summary"><p>A teardown-and-exploit walk through the debug UART on Bandai&#x27;s current-generation Tamagotchi, opening up firmware access on a locked-down toy. Classic embedded-recon material: find the pads, identify the baud, and decide how deep to go before bricking a retail unit. Nice companion piece to this week&#x27;s retro-computing wave for anyone who cuts firmware on hobby hardware.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="interesting-news" data-section-panel="interesting-news" style="--section-color:#f472b6" aria-labelledby="heading-interesting-news">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-interesting-news">Interesting News</h1>
+        <p class="section-summary">The asteroid that killed the dinosaurs may have handed ants the world, spiders&#x27; spinning chemistry gets solved, and rats turn out to be archaeologists.</p>
+      </div>
+      <span class="section-count" id="count-interesting-news">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="reddit" style="--c:#ff4500">Reddit</button>
+<button class="chip" data-filter-source="nasa" style="--c:#fc3d21">NASA</button>
+<button class="chip" data-filter-source="esa" style="--c:#4f8ef7">ESA</button>
+<button class="chip" data-filter-source="science" style="--c:#10b981">Science</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="interesting-news">
+      
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/10/261026225608.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/interesting-news-01-the-asteroid-that-killed-the-dinosaurs-may-have-.webp" alt="The asteroid that killed the dinosaurs may have helped ants conquer the world" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/10/261026225608.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/10/261026225608.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/10/261026225608.htm" target="_blank" rel="noopener">The asteroid that killed the dinosaurs may have helped ants conquer the world</a></h2>
+        <div class="story-summary"><p>A large genomic study finds bursts of &#x27;jumping gene&#x27; activity in ant genomes coincided with the rise of the major ant lineages right after the K-Pg extinction, possibly sharpening their chemoreception and letting them exploit the emptied ecosystems. The chain of causation - space rock, mobile genetic elements, chemical communication, planetary dominance - is the kind of multi-scale story that only big phylogenomic datasets can tell. Still correlational, but the timing match across multiple independent ant radiations is striking.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.quantamagazine.org/how-spiders-spin-silk-dope-into-natures-toughest-material-20261028/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/interesting-news-02-how-spiders-spin-silk-dope-into-nature-s-toughes.jpg" alt="How spiders spin &#x27;silk dope&#x27; into nature&#x27;s toughest material" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Quanta Magazine</span>
+          <a class="orig" href="https://www.quantamagazine.org/how-spiders-spin-silk-dope-into-natures-toughest-material-20261028/" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50277755" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.quantamagazine.org/how-spiders-spin-silk-dope-into-natures-toughest-material-20261028/" target="_blank" rel="noopener">How spiders spin 'silk dope' into nature's toughest material</a></h2>
+        <div class="story-summary"><p>Quanta covers newly resolved chemistry behind how spiders turn a liquid protein dope into silk tougher than steel by weight - the phase transitions and molecular alignment inside the spinning duct that every synthetic-silk company has been trying to copy. Decades of failed artificial-silk attempts make the mechanism genuinely valuable knowledge, not just trivia. If you follow materials or soft matter, this is the week&#x27;s best explainer.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/10/261027063659.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/interesting-news-03-nasa-s-artemis-i-data-reveals-surprising-radiati.webp" alt="NASA&#x27;s Artemis I data reveals surprising radiation levels near the Moon" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/10/261027063659.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/10/261027063659.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/10/261027063659.htm" target="_blank" rel="noopener">NASA's Artemis I data reveals surprising radiation levels near the Moon</a></h2>
+        <div class="story-summary"><p>Instruments that flew around the Moon on Artemis I are producing the first big human-relevant radiation maps of the cislunar environment, and some measured levels are higher than mission planners&#x27; models expected. This directly feeds shielding and mission-duration limits for Artemis II onward - the difference between &#x27;comfortable&#x27; and &#x27;count your days&#x27; for lunar stay times. One of the few Artemis results that quietly decides whether the Moon program&#x27;s schedule survives contact with physics.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.atlasobscura.com/articles/colonial-williamsburg-bray-school-rat-nest-archaeology" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/interesting-news-04-in-colonial-williamsburg-thieving-rats-saved-his.jpg" alt="In Colonial Williamsburg, thieving rats saved history" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">Atlas Obscura (via r/todayilearned)</span>
+          <a class="orig" href="https://www.atlasobscura.com/articles/colonial-williamsburg-bray-school-rat-nest-archaeology" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xhihno/til_archaeologists_discovered_a_rats_nest_inside/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.atlasobscura.com/articles/colonial-williamsburg-bray-school-rat-nest-archaeology" target="_blank" rel="noopener">In Colonial Williamsburg, thieving rats saved history</a></h2>
+        <div class="story-summary"><p>Archaeologists dismantling a wall at the Bray School site in Colonial Williamsburg found a centuries-old rat&#x27;s nest that rodents had turned into a time capsule: a silver fork, seeds, textiles and other everyday objects preserved in the cavity, many of them missing from the normal archaeological record. It is a lovely inversion - the vermin that nibbled colonists&#x27; belongings accidentally curated a snapshot of 18th-century domestic life. Nest archaeology has found similar caches in European cathedrals, which makes the Williamsburg find part of a weirdly systematic field.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="esa" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.esa.int/ESA_Multimedia/Images/2026/10/MMX_lifts_off_to_Mars_s_moon_Phobos" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/interesting-news-05-mmx-lifts-off-to-mars-s-moon-phobos.gif" alt="MMX lifts off to Mars&#x27;s moon Phobos" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#4f8ef7">ESA</span>
+          <span class="by">ESA</span>
+          <a class="orig" href="https://www.esa.int/ESA_Multimedia/Images/2026/10/MMX_lifts_off_to_Mars_s_moon_Phobos" target="_blank" rel="noopener">ESA ›</a><a class="discuss" href="https://www.esa.int/Science_Exploration/Space_Science/Mars_moon_lander_set_to_launch_on_19_October" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.esa.int/ESA_Multimedia/Images/2026/10/MMX_lifts_off_to_Mars_s_moon_Phobos" target="_blank" rel="noopener">MMX lifts off to Mars's moon Phobos</a></h2>
+        <div class="story-summary"><p>JAXA&#x27;s Martian Moons eXploration spacecraft launched on an H3 from Tanegashima on 20 October 2026, with ESA contributing cruise and landing-segment hardware. MMX will be the first spacecraft to orbit Phobos, the first to sample its surface, and the first to return material to Earth from the Mars system, arriving next summer. Whether Phobos is a captured asteroid or a Mars-forming debris pile gets settled when those samples land in a Japanese lab.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://science.nasa.gov/earth/earth-observatory/the-land-of-the-standing-up-rocks/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-29/interesting-news-06-the-land-of-the-standing-up-rocks-america-s-newe.jpg" alt="The Land of the Standing-Up Rocks: America&#x27;s newest national park" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#fc3d21">NA</span>
+          <span class="by">NASA Earth Observatory</span>
+          <a class="orig" href="https://science.nasa.gov/earth/earth-observatory/the-land-of-the-standing-up-rocks/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://science.nasa.gov/earth/earth-observatory/the-land-of-the-standing-up-rocks/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://science.nasa.gov/earth/earth-observatory/the-land-of-the-standing-up-rocks/" target="_blank" rel="noopener">The Land of the Standing-Up Rocks: America's newest national park</a></h2>
+        <div class="story-summary"><p>NASA&#x27;s Earth Observatory turns its imager on Chiricahua - a national monument since the 1920s that just became America&#x27;s newest national park - and its forest of balanced rhyolite &#x27;tent rocks&#x27;. The pillars are welded tuff from a 27-million-year-old volcanic eruption, eroded into columns that look stacked by hand. Good TIL bait with a satellite image attached: most people have never heard of the park that joined the system this year.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning · Thursday, October 29, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
