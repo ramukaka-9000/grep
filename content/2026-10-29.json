@@ -1,0 +1,261 @@
+{
+  "date": "2026-10-29",
+  "summary": "Google ships Gemini 4 Carbon while a compiled-in RISC-V CPU and a pure-GEMM hybrid small model show the open-weights scene getting weird; ESP32 offline speech and a PCB robot lead electronics, and ants, spiders, and rats make the news oddly biological.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Frontier launch day (Gemini 4 Carbon), a RISC-V CPU compiled into LLM weights, and small-model work you can actually run.",
+      "stories": [
+        {
+          "title": "Gemini 4 Carbon: our next frontier model",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "source": "hn",
+          "byline": "Google (via HN, 828 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50276792",
+          "tier": "essential",
+          "summary": "Google's next frontier model, positioned on cybersecurity and long-horizon agentic work: #1 on the Artificial Analysis Intelligence Index v5.0 at 59, with leads on SEC-bench Pro (88.2%), ExploitGym (54.8%), and CWE-bench (71.0%). Pricing lands at $4/$20 per million input/output tokens after the intro period, which is the number most builders will actually care about. The HN thread is busy comparing it against last week's Gemini 4 Argon release and what the Carbon/Argon naming split even means for the lineup."
+        },
+        {
+          "title": "Qwenputer: a fully functioning, deterministic RISC-V CPU inside Qwen3.5",
+          "url": "https://divagr.com/blog/qwenputer",
+          "source": "hn",
+          "byline": "Divyansh Agrawal (via HN, 136 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50282838",
+          "tier": "must-read",
+          "summary": "A stock Qwen 3.5 4B with a RISC-V CPU compiled into its weights, using the model's own Gated DeltaNet layers as RAM - it executes C and MicroPython inside forward passes with no external runtime or tool calls. This is not a sandbox or plugin; the model routes exact arithmetic to deterministic compute it cannot tamper with. The follow-up posts on hiding reasoning in RNN state and building tamper-proof oversight into weights make this required reading for interpretability and safety folks."
+        },
+        {
+          "title": "Dayjob: Tax - evaluating AI agents on 50 professional tax assignments",
+          "url": "https://surgehq.ai/blog/dayjob-tax",
+          "source": "hn",
+          "byline": "SurgeHQ (via HN, 211 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50275626",
+          "tier": "recommended",
+          "summary": "A benchmark built from 50 real professional tax assignments rather than synthetic tasks, graded against how a qualified human would file. It is a useful ground-truth check on where agent capabilities actually stand for knowledge-work automation: the failure modes are regulatory reasoning and edge-case judgment, not formatting. Worth reading alongside the ongoing debate about which agent benchmarks measure economic value versus leaderboard gaming."
+        },
+        {
+          "title": "Nvidia Nemotron 3.5 Transcribe: open ASR for 40 languages",
+          "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+          "source": "hn",
+          "byline": "Nvidia (via HN, 116 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50275128",
+          "tier": "recommended",
+          "summary": "Nvidia releases an open-weights ASR model covering 40 languages, published with the Granary dataset effort on Hugging Face. For anyone running local voice pipelines this is a serious Whisper alternative candidate, and the open training data angle matters more than the WER deltas for reproducibility. The HN thread compares it against the recent crop of open TTS/ASR releases and notes the licensing is permissive enough for commercial use."
+        },
+        {
+          "title": "MuonGS: pretraining LLMs with relaxed weight-norm control",
+          "url": "https://arxiv.org/abs/2610.37647",
+          "source": "arxiv",
+          "byline": "arXiv preprint",
+          "discuss_url": "https://arxiv.org/abs/2610.37647",
+          "tier": "recommended",
+          "summary": "Proposes a Muon-family optimizer variant that relaxes the strict weight-norm control of Muon while keeping its spectral-update benefits, aiming at stability and throughput in LLM pretraining. If it holds up, it is another data point that the AdamW monoculture is finally cracking at the optimizer layer. Relevant if you maintain training infra - the practical claim is better loss-per-step without brittle scaling heuristics."
+        },
+        {
+          "title": "When should we intervene at test time?",
+          "url": "https://arxiv.org/abs/2610.37658",
+          "source": "arxiv",
+          "byline": "arXiv preprint",
+          "discuss_url": "https://arxiv.org/abs/2610.37658",
+          "tier": "recommended",
+          "summary": "Studies the policy problem behind test-time compute: not how to intervene (reroll, hint, correct) but when it is worth it, given that most interventions on already-solvable prompts waste compute or hurt. Directly applicable to anyone building agent loops that currently 'think harder' indiscriminately. The framing - intervention as a decision problem with a measurable counterfactual - is the part worth stealing for your own harness."
+        },
+        {
+          "title": "agent-purge: one persona, many coding agents",
+          "url": "https://github.com/ZiChuanLan/agent-purge",
+          "source": "github",
+          "byline": "ZiChuanLan (817 stars)",
+          "discuss_url": "https://github.com/ZiChuanLan/agent-purge",
+          "tier": "notable",
+          "summary": "A single tool to replace or inject system prompts across codex, claude, opencode, grok, hermes, pi, and other coding-agent CLIs from one persona definition. Useful and slightly alarming: it is also a live demonstration of how unguarded these tools' prompt surfaces are, which pairs uncomfortably well with this week's instruction-stack measurement paper. If you maintain a house style across multiple agents, this saves you seven config files."
+        },
+        {
+          "title": "BAMA: Build Any Mac App with agent skills",
+          "url": "https://github.com/daveebbelaar/bama",
+          "source": "github",
+          "byline": "daveebbelaar (606 stars)",
+          "discuss_url": "https://github.com/daveebbelaar/bama",
+          "tier": "notable",
+          "summary": "A packaged set of agent skills that walks coding agents through researching, cloning, designing, building, optimizing, and testing native macOS apps with Swift. It is a good example of domain-skills-as-product: the value is the workflow scaffolding and the verification steps, not prompt cleverness. The test-first loop for App Store-shaped constraints (signing, sandboxing) is the transferable idea even if you do not ship Mac apps."
+        },
+        {
+          "title": "The Agent SDK",
+          "url": "https://cursor.com/blog/agent-sdk",
+          "source": "other",
+          "byline": "Cursor",
+          "discuss_url": "https://news.ycombinator.com/item?id=50273731",
+          "tier": "recommended",
+          "summary": "Cursor opens its agent harness as an SDK, exposing the same loop, tool APIs, and context management its own product runs on. The interesting strategic read: the editor is becoming a front-end for a headless agent runtime that runs anywhere, joining Claude Code and OpenAI's SDKs in standardizing what 'agent substrate' means. Evaluate it on what you get beyond the model - sandboxing, session persistence, and subagent orchestration."
+        },
+        {
+          "title": "The Sleep framework: retaining knowledge in continual learning for LLMs",
+          "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/",
+          "source": "other",
+          "byline": "Google Research",
+          "discuss_url": "https://news.ycombinator.com/item?id=50272479",
+          "tier": "recommended",
+          "summary": "Google Research proposes a 'sleep' phase where the model consolidates new knowledge between training runs, attacking the catastrophic-forgetting problem that makes continual fine-tuning so fragile. The metaphor is literal-ish: replay and distillation passes interleaved with adaptation to stabilize old behavior. If the results generalize, this is a recipe for orgs that want a model that keeps up with their corpus without weekly full retrains."
+        },
+        {
+          "title": "Scaling hierarchical networks (From Tokens to Bytes, Part 1)",
+          "url": "https://www.cartesia.ai/blog/from-tokens-to-bytes-part-1",
+          "source": "other",
+          "byline": "Cartesia AI",
+          "discuss_url": "https://news.ycombinator.com/item?id=50278253",
+          "tier": "notable",
+          "summary": "Cartesia argues for hierarchical architectures that process raw bytes at the bottom and abstractions at the top, and shows scaling behavior for their hierarchical network design. It is part one of a series on replacing the tokenizer-centric stack, which puts it in the same conversation as the token-free models gaining traction in speech and audio. Worth reading for the scaling-methodology section alone, even if you are skeptical of the ending."
+        },
+        {
+          "title": "Image generation has come a long way since August 2022",
+          "url": "https://www.hbrooks.com/writing/image-generation-has-come-a-long-way",
+          "source": "other",
+          "byline": "H. Brooks",
+          "discuss_url": "https://news.ycombinator.com/item?id=50250609",
+          "tier": "notable",
+          "summary": "A same-prompt longitudinal comparison of image models from the Dall-E 2 era to today, holding the prompts fixed and letting the artifacts speak. The most honest way to feel the four-year delta - text rendering, hands, and physical plausibility moved more than any benchmark table conveys. A nice calibration piece for how quickly perceived 'solved' problems rotate in generative media."
+        },
+        {
+          "title": "BareTorch-Qwen3.5-0.8B-Hybrid: sub-quadratic mixing in pure GEMMs",
+          "url": "https://huggingface.co/model-rampage/BareTorch-Qwen3.5-0.8B-Hybrid",
+          "source": "hf",
+          "byline": "Model Rampage (Hugging Face)",
+          "discuss_url": "https://huggingface.co/model-rampage/BareTorch-Qwen3.5-0.8B-Hybrid",
+          "tier": "recommended",
+          "summary": "A 0.9B-param hybrid distilled from Qwen3.5 with 18 of 24 layers replaced by pure-PyTorch low-rank associative recurrent blocks - no causal-conv1d or Triton kernels, just torch.compile-compatible GEMMs with O(1) decode state. The card reports 3.2x smaller short-context cache and ~1.21 GB lower 32K peak VRAM than the base model, with eval retention above the teacher, so it fits a 3060 with room to spare. The real claim to watch is portability: linear attention that runs on hardware without CUDA kernel ecosystems."
+        },
+        {
+          "title": "GLM-OCR-FP8-dynamic: 1.3B OCR model in FP8",
+          "url": "https://huggingface.co/axteam/GLM-OCR-FP8-dynamic",
+          "source": "hf",
+          "byline": "axteam (Hugging Face)",
+          "discuss_url": "https://huggingface.co/axteam/GLM-OCR-FP8-dynamic",
+          "tier": "notable",
+          "summary": "Official dynamic-FP8 quantization of zai-org's GLM-OCR at a verified 1.33B parameters, packaged compressed-tensors style for vLLM and transformers. OCR is exactly the workload where a sub-2B specialized vision model beats a general VLM on cost and latency, and FP8-dynamic keeps accuracy while halving the serving footprint. Drop-in for document pipelines that outgrew tesseract but cannot justify a 7B VLM per request."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Offline speech on an ESP32-S3, a robot that builds PCBs on demand, and measured answers about e-paper abuse.",
+      "stories": [
+        {
+          "title": "Whistle speech-to-text running fully on an ESP32-S3",
+          "url": "https://blog.adafruit.com/2026-10-28/whistle-speech-to-text-running-fully-on-an-esp32-s3/",
+          "source": "adafruit",
+          "byline": "Adafruit Blog",
+          "discuss_url": "https://blog.adafruit.com/2026-10-28/whistle-speech-to-text-running-fully-on-an-esp32-s3/",
+          "tier": "must-read",
+          "summary": "Saulo Verissimo's whistle-esp32 does free-speech recognition entirely on an ESP32-S3: hold a button, say 'make it red' or 'flash the light blue', and the onboard WS2812 obeys - no network, no cloud, no phone, and not a fixed command list. Free-form vocabulary at this footprint is the interesting part, and the repo shows the model-size tradeoffs. This is the clearest demo yet that usable voice control belongs on $10 MCUs."
+        },
+        {
+          "title": "The Grid: a factory-scale robot that builds PCBs on demand",
+          "url": "https://www.circuithub.com/post/unveiling-the-grid",
+          "source": "hn",
+          "byline": "CircuitHub (via HN, 442 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50243060",
+          "tier": "recommended",
+          "summary": "CircuitHub unveils The Grid, a factory-scale robotic system that assembles PCBs on demand from design files, aimed at collapsing the week-plus turnaround of traditional SMT lines. The HN discussion digs into whether lights-out board assembly finally makes small-batch hardware economics work, including component sourcing as the real bottleneck. For anyone who has waited six weeks for a prototype build, this is the post to read."
+        },
+        {
+          "title": "Does running an e-paper display at 30 FPS destroy it?",
+          "url": "https://hackaday.com/2026-10-28/does-running-an-e-paper-display-at-30-fps-destroy-it/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-10-28/does-running-an-e-paper-display-at-30-fps-destroy-it/",
+          "tier": "recommended",
+          "summary": "With cheap e-paper panels being pushed toward 30 fps refresh modes, Hackaday runs the abuse test nobody's datasheet answers: does sustained fast refreshing kill the panel? The observed ghosting progression and long-term degradation are exactly the kind of empirical data that e-ink project planners guess at. Useful before you spec a fast-refresh display into anything you cannot easily replace."
+        },
+        {
+          "title": "Train a balance bot with reinforcement learning",
+          "url": "https://blog.adafruit.com/2026-10-28/train-a-balance-bot-with-reinforcement-learning/",
+          "source": "adafruit",
+          "byline": "Adafruit Blog / Make: Vol. 99",
+          "discuss_url": "https://blog.adafruit.com/2026-10-28/train-a-balance-bot-with-reinforcement-learning/",
+          "tier": "recommended",
+          "summary": "Shawn Hymel's Make: guide trains a two-wheeled balance bot with PPO instead of writing a classical PID control loop, sim-to-real included. The pedagogical value is the side-by-side: you see what learned control buys over hand-tuned loops and where it embarrasses you. PPO is the same algorithm behind RLHF, so it doubles as an intuitive grounding in the policy-gradient machinery LLM people talk past."
+        },
+        {
+          "title": "University of Turku can 3D print different metals in a single layer",
+          "url": "https://3dprintingindustry.com/news/university-of-turku-can-now-3d-print-different-metals-in-a-single-layer-for-fusion-and-aerospace-research-256002/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "https://3dprintingindustry.com/news/university-of-turku-can-now-3d-print-different-metals-in-a-single-layer-for-fusion-and-aerospace-research-256002/",
+          "tier": "notable",
+          "summary": "A Finnish team retrofitted a metal powder-bed machine with a multi-material recoater that deposits from three powder drums within a single layer, targeting functionally graded parts for fusion and aerospace research. Graded metal composition - heat-resistant on one face, tough on the other - is the capability unlock, and doing it as a recoater mod rather than a new machine is the hackable insight. Watch for what the first graded-part results show."
+        },
+        {
+          "title": "Hacking the modern Tamagotchi with UART",
+          "url": "https://hackaday.com/2026-10-28/hacking-the-modern-tamagotchi-with-uart/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-10-28/hacking-the-modern-tamagotchi-with-uart/",
+          "tier": "notable",
+          "summary": "A teardown-and-exploit walk through the debug UART on Bandai's current-generation Tamagotchi, opening up firmware access on a locked-down toy. Classic embedded-recon material: find the pads, identify the baud, and decide how deep to go before bricking a retail unit. Nice companion piece to this week's retro-computing wave for anyone who cuts firmware on hobby hardware."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "The asteroid that killed the dinosaurs may have handed ants the world, spiders' spinning chemistry gets solved, and rats turn out to be archaeologists.",
+      "stories": [
+        {
+          "title": "The asteroid that killed the dinosaurs may have helped ants conquer the world",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261026225608.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/10/261026225608.htm",
+          "tier": "recommended",
+          "summary": "A large genomic study finds bursts of 'jumping gene' activity in ant genomes coincided with the rise of the major ant lineages right after the K-Pg extinction, possibly sharpening their chemoreception and letting them exploit the emptied ecosystems. The chain of causation - space rock, mobile genetic elements, chemical communication, planetary dominance - is the kind of multi-scale story that only big phylogenomic datasets can tell. Still correlational, but the timing match across multiple independent ant radiations is striking."
+        },
+        {
+          "title": "How spiders spin 'silk dope' into nature's toughest material",
+          "url": "https://www.quantamagazine.org/how-spiders-spin-silk-dope-into-natures-toughest-material-20261028/",
+          "source": "science",
+          "byline": "Quanta Magazine",
+          "discuss_url": "https://news.ycombinator.com/item?id=50277755",
+          "tier": "recommended",
+          "summary": "Quanta covers newly resolved chemistry behind how spiders turn a liquid protein dope into silk tougher than steel by weight - the phase transitions and molecular alignment inside the spinning duct that every synthetic-silk company has been trying to copy. Decades of failed artificial-silk attempts make the mechanism genuinely valuable knowledge, not just trivia. If you follow materials or soft matter, this is the week's best explainer."
+        },
+        {
+          "title": "NASA's Artemis I data reveals surprising radiation levels near the Moon",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261027063659.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/10/261027063659.htm",
+          "tier": "recommended",
+          "summary": "Instruments that flew around the Moon on Artemis I are producing the first big human-relevant radiation maps of the cislunar environment, and some measured levels are higher than mission planners' models expected. This directly feeds shielding and mission-duration limits for Artemis II onward - the difference between 'comfortable' and 'count your days' for lunar stay times. One of the few Artemis results that quietly decides whether the Moon program's schedule survives contact with physics."
+        },
+        {
+          "title": "In Colonial Williamsburg, thieving rats saved history",
+          "url": "https://www.atlasobscura.com/articles/colonial-williamsburg-bray-school-rat-nest-archaeology",
+          "source": "reddit",
+          "byline": "Atlas Obscura (via r/todayilearned)",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xhihno/til_archaeologists_discovered_a_rats_nest_inside/",
+          "tier": "notable",
+          "summary": "Archaeologists dismantling a wall at the Bray School site in Colonial Williamsburg found a centuries-old rat's nest that rodents had turned into a time capsule: a silver fork, seeds, textiles and other everyday objects preserved in the cavity, many of them missing from the normal archaeological record. It is a lovely inversion - the vermin that nibbled colonists' belongings accidentally curated a snapshot of 18th-century domestic life. Nest archaeology has found similar caches in European cathedrals, which makes the Williamsburg find part of a weirdly systematic field."
+        },
+        {
+          "title": "Two of Jupiter's moons just occulted each other",
+          "url": "https://science.nasa.gov/image-article/apod-2026-october-28-the-mutual-occultation-of-ganymede-and-io/",
+          "source": "nasa",
+          "byline": "NASA APOD",
+          "discuss_url": "https://science.nasa.gov/image-article/apod-2026-october-28-the-mutual-occultation-of-ganymede-and-io/",
+          "tier": "notable",
+          "summary": "Yesterday's APOD captures a genuinely rare geometry: from Earth, Ganymede passed directly in front of Io, a mutual occultation that happens only when the alignment of Jupiter's system with our line of sight briefly permits it. The frames show Io vanishing behind the larger moon - a chance to watch two worlds a few hundred million kilometers away line up to pixel accuracy. Mutual occultations like this are not just pretty: historically, timing them was how astronomers refined the Galilean moons' orbits and chased the anomalies that led to Io's volcanism being predicted."
+        },
+        {
+          "title": "The Land of the Standing-Up Rocks: America's newest national park",
+          "url": "https://science.nasa.gov/earth/earth-observatory/the-land-of-the-standing-up-rocks/",
+          "source": "nasa",
+          "byline": "NASA Earth Observatory",
+          "discuss_url": "https://science.nasa.gov/earth/earth-observatory/the-land-of-the-standing-up-rocks/",
+          "tier": "notable",
+          "summary": "NASA's Earth Observatory turns its imager on Chiricahua - a national monument since the 1920s that just became America's newest national park - and its forest of balanced rhyolite 'tent rocks'. The pillars are welded tuff from a 27-million-year-old volcanic eruption, eroded into columns that look stacked by hand. Good TIL bait with a satellite image attached: most people have never heard of the park that joined the system this year."
+        }
+      ]
+    }
+  ]
+}
