@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>grep · Friday, October 30, 2026</title>
+<meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-10-30.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style-v2.css">
+<script>
+  // set theme before paint to avoid a flash of the wrong palette
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
+  </div>
+  <nav class="topnav">
+    <a class="navlink" href="2026-10-29.html">‹ Prev</a>
+    <span class="edition-pill">Friday, October 30, 2026 · <span id="count">22</span> stories</span>
+    <span class="navlink disabled">Next ›</span>
+    <a class="navlink" href="archive.html">Archive</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  
+  <nav class="section-nav" aria-label="Sections">
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">10</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">6</span></a>
+  </nav>
+  <div class="section-panels">
+    
+  <section class="section-panel" id="ai" data-section-panel="ai" style="--section-color:#ff8000" aria-labelledby="heading-ai">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-ai">AI</h1>
+        <p class="section-summary">Mistral Large 4 weights land, a crawler unmasked a fingerprinting script doing something sinister, and two small models you can actually run.</p>
+      </div>
+      <span class="section-count" id="count-ai">10 stories</span>
+    </div>
+    <section class="filters" data-section-filters="ai" aria-label="AI filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="ai">
+      
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/ai-01-we-re-releasing-the-weights-of-mistral-large-4.jpg" alt="We&#x27;re releasing the weights of Mistral Large 4" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Mistral AI (via HN, 1238 points)</span>
+          <a class="orig" href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50289418" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank" rel="noopener">We're releasing the weights of Mistral Large 4</a></h2>
+        <div class="story-summary"><p>The open-weights release Mistral promised for Le Chonk (Mistral Large 4) at its October 6 preview has landed: the trillion-parameter MoE is now downloadable, positioned by Mistral as frontier-class for agentic coding and cybersecurity under the &#x27;Built for Coders, Trusted by Defenders&#x27; framing. This closes the gap that made the preview &#x27;not yet meaningfully open-weight&#x27; — self-hosters and fine-tuners finally have the actual checkpoint plus architecture, benchmark, and post-training details. The HN thread is the usual frontier-model audit: license terms, hardware math for the 1T MoE, and how it stacks against this month&#x27;s Gemini releases.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://nullpt.rs/fingerprinting-bioweapons" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/ai-02-hn-placeholder.svg" alt="Why is this fingerprinting script creating bioweapons?" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">veritas (via HN, 1541 points)</span>
+          <a class="orig" href="https://nullpt.rs/fingerprinting-bioweapons" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50276998" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://nullpt.rs/fingerprinting-bioweapons" target="_blank" rel="noopener">Why is this fingerprinting script creating bioweapons?</a></h2>
+        <div class="story-summary"><p>A reverse-engineer crawled 10,000 Tranco-top sites with Playwright, hooking canvas toDataURL and anti-bot property reads to collect every canvas-fingerprinting payload on the web into fingerprint.garden — and found one payload that wasn&#x27;t fingerprinting at all. Buried in the canvas draws was an elaborate obfuscated script doing something far worse than device ID: the title is the discovery, not a joke. It&#x27;s a great demonstration of treating the fingerprinting ecosystem as an attack surface worth mapping, and the write-up walks through the deobfuscation and attribution.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://skypilot.ai/blog/grace-blackwell-needs-a-new-scheduler" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/ai-03-grace-blackwell-needs-a-new-scheduler-27-more-us.png" alt="Grace Blackwell needs a new scheduler: 27% more usable GPUs from the same racks" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">SkyPilot (via HN, 132 points)</span>
+          <a class="orig" href="https://skypilot.ai/blog/grace-blackwell-needs-a-new-scheduler" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50290912" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://skypilot.ai/blog/grace-blackwell-needs-a-new-scheduler" target="_blank" rel="noopener">Grace Blackwell needs a new scheduler: 27% more usable GPUs from the same racks</a></h2>
+        <div class="story-summary"><p>SkyPilot argues Grace-Blackwell NVL72 racks waste a quarter of their GPUs under schedulers designed for the HGX-era 8-GPU box, and shows a scheduling redesign that recovers about 27% usable GPUs from the same hardware. Concrete reading for anyone renting or running Blackwell capacity: the win comes from treating the rack as a unified memory/compute domain rather than eight islands, and the post gets into the fragmentation math that makes the difference.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2610.38822" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/ai-04-arxiv-placeholder.svg" alt="CopyLoop: Fast Looped Transformer Decoding via Context Copying and Shallow Screening" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Wenyu Du, Stephen Chung</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.38822" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.38822" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.38822" target="_blank" rel="noopener">CopyLoop: Fast Looped Transformer Decoding via Context Copying and Shallow Screening</a></h2>
+        <div class="story-summary"><p>Looped transformers reuse one block many times, which makes full-depth decoding expensive; CopyLoop is a training-free decoder that proposes multi-token suffixes copied from the context, screens them at a shallow recurrent depth, and keeps newer blocks running while older ones finish verification. Results are 2.98x-10.70x over full-depth decoding on base models (2.74x-3.52x on thinking models) across Ouro, Raven, and Huginn checkpoints. Timely given today&#x27;s Pico world-model story — looped architectures are having a moment and decoding speed is their bottleneck.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://arxiv.org/abs/2610.38691" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/ai-05-arxiv-placeholder.svg" alt="Beyond fabrication: Misattributed numbers in papers written by AI research agents" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Mosab Alfaqeeh et al.</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.38691" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2610.38691" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.38691" target="_blank" rel="noopener">Beyond fabrication: Misattributed numbers in papers written by AI research agents</a></h2>
+        <div class="story-summary"><p>Re-analyzing 540 judgments from the public AI-research-agent benchmark, the authors find that most &#x27;fabricated&#x27; numbers aren&#x27;t invented — about four in five unsupported claims are real values from the agent&#x27;s own files attributed to the wrong experiment, metric, or run. They ship a deterministic claim-to-evidence checker that certifies claims at over 90% precision (kappa 0.89 vs blinded annotators), while an LLM verifier accepts three times as many misattributed numbers. If you ship anything that audits agent-written output, this is the provenance-first playbook.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://github.com/unclebob/ub-mode" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/ai-06-ub-mode-uncle-bob-s-disciplined-engineering-agen.png" alt="ub-mode: Uncle Bob&#x27;s disciplined-engineering agent skill" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">unclebob (4,785 stars)</span>
+          <a class="orig" href="https://github.com/unclebob/ub-mode" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/unclebob/ub-mode" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/unclebob/ub-mode" target="_blank" rel="noopener">ub-mode: Uncle Bob's disciplined-engineering agent skill</a></h2>
+        <div class="story-summary"><p>Robert Martin&#x27;s agent skill for enforcing disciplined engineering in coding agents: Make it Work, Make it Right, Follow Practice, packaged as a SKILL.md that Claude Code and Codex pick up. It&#x27;s trending hard within days of release, and the issue tracker is already the interesting part — practitioners are finding rules (like push-to-main language) that let agents act without a human diff review. Worth reading both as a skills-authoring exemplar and as a live debate about what TDD discipline means for agents.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/qybaihe/bla" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/ai-07-bla-blind-llm-agents-an-adversarial-shield-for-b.png" alt="BLA: Blind LLM Agents — an adversarial shield for binaries and bundles" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">qybaihe (871 stars)</span>
+          <a class="orig" href="https://github.com/qybaihe/bla" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/qybaihe/bla" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/qybaihe/bla" target="_blank" rel="noopener">BLA: Blind LLM Agents — an adversarial shield for binaries and bundles</a></h2>
+        <div class="story-summary"><p>An adversarial defense that wraps binaries, Electron apps, JS bundles, and Python packages in decoys and traps that mislead LLM-agent analysis — the flip side of the week&#x27;s agent-security stories. Practical if your threat model now includes an autonomous agent poking at your client for reverse-engineering or license circumvention; the repo demonstrates the poison-pill approach across several packaging targets.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://trakkr.ai/trakkr-research/zombie-stats" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/ai-08-zombie-stats-where-the-numbers-ai-quotes-come-fr.png" alt="Zombie stats: Where the numbers AI quotes come from" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Trakkr Research (via HN, 148 points)</span>
+          <a class="orig" href="https://trakkr.ai/trakkr-research/zombie-stats" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50290283" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://trakkr.ai/trakkr-research/zombie-stats" target="_blank" rel="noopener">Zombie stats: Where the numbers AI quotes come from</a></h2>
+        <div class="story-summary"><p>A study of how dead or debunked statistics respawn inside LLM answers: numbers that circulated in old press releases and blogs never got retracted, so models keep citing them as current. Pairs neatly with the misattributed-numbers paper above — two independent views this week of why LLM numeric claims need provenance, not vibes. Useful calibration if you put LLM output anywhere near a decision or a slide.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://huggingface.co/LiquidAI/LFM3-1.7B" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/ai-09-liquid-ai-s-lfm3-1-7b-a-tri-hybrid-1-7b-agent-mo.png" alt="Liquid AI&#x27;s LFM3-1.7B: a tri-hybrid 1.7B agent model that fits in ~1 GB" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">Liquid AI</span>
+          <a class="orig" href="https://huggingface.co/LiquidAI/LFM3-1.7B" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://www.liquid.ai/blog/lfm3" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/LiquidAI/LFM3-1.7B" target="_blank" rel="noopener">Liquid AI's LFM3-1.7B: a tri-hybrid 1.7B agent model that fits in ~1 GB</a></h2>
+        <div class="story-summary"><p>Liquid AI&#x27;s LFM3-1.7B is a text model built on a new tri-hybrid (conv/attention/Mamba-style) architecture, post-trained with agentic RL inside real agent harnesses, with a 256K context and about 1 GB at 4-bit — comfortably a 3060-class or pure-CPU model with GGUF builds for llama.cpp/Ollama. Liquid measures 1.8-2.8x faster on-device decode than the next model at Q4_0 and claims 64% task success vs Qwen3.5-2B&#x27;s 48% on real macOS agent tasks. One of the strongest tiny agent models available right now; 489 likes and 15k+ downloads in days.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://huggingface.co/baidu/Unlimited-OCR-2" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/ai-10-baidu-unlimited-ocr-2-3-3b-mit-model-with-near-c.png" alt="Baidu Unlimited-OCR-2: 3.3B MIT model with near-constant-cost unlimited-horizon OCR" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">Baidu</span>
+          <a class="orig" href="https://huggingface.co/baidu/Unlimited-OCR-2" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://github.com/baidu/Unlimited-OCR" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/baidu/Unlimited-OCR-2" target="_blank" rel="noopener">Baidu Unlimited-OCR-2: 3.3B MIT model with near-constant-cost unlimited-horizon OCR</a></h2>
+        <div class="story-summary"><p>Unlimited-OCR-2 parses 100-300-page documents in one shot by compressing text-visual attention into a fixed 512-token reference pool (SR-SWA), so per-step decode latency and memory stay nearly flat regardless of document length — the quadratic wall that breaks every other long-doc VLM. It scores 77.1 on the new MarathonDocBench long-document benchmark where the next model listed gets 33.7, at 3.34B params under MIT license, runnable quantized in a few GB. If you OCR anything longer than a page, this is worth a spin.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="electronics" data-section-panel="electronics" style="--section-color:#22d3ee" aria-labelledby="heading-electronics">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-electronics">Electronics</h1>
+        <p class="section-summary">A world model dreaming games on a $6 Pico, a desktop OS for microcontrollers, and two genuinely useful ESP32 builds.</p>
+      </div>
+      <span class="section-count" id="count-electronics">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
+<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
+<button class="chip" data-filter-source="3dprinting" style="--c:#14b8a6">3D Print</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="electronics">
+      
+    <article class="story" data-section="electronics" data-source="hn" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://github.com/SheepSeb/tinyworldformer" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/electronics-01-a-tiny-world-model-running-games-on-a-raspberry-.png" alt="A tiny world model running games on a Raspberry Pi Pico 2 W" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">SheepSeb (via HN, 147 points)</span>
+          <a class="orig" href="https://github.com/SheepSeb/tinyworldformer" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50295450" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/SheepSeb/tinyworldformer" target="_blank" rel="noopener">A tiny world model running games on a Raspberry Pi Pico 2 W</a></h2>
+        <div class="story-summary"><p>Two int8-quantized looped transformers — a world model that predicts the next frame and a Stream-AC actor that plays it — run simultaneously in 520 KB of RAM on a $6 RP2350, generating and playing Breakout, Pong, Pac-Man-lite and a Doom-like raycaster with no cloud and no replay buffer. Weights export to no_std Rust via embassy and there&#x27;s a browser demo of the same code on WASM. The write-up is unusually honest: the Doom-lite agent scores 210 in the dream versus 28 in the real game, a clean demonstration of world-model exploitation that&#x27;s worth more than the demo itself.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026-10-29/an-attempt-at-a-useful-desktop-os-for-microcontrollers/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/electronics-02-an-attempt-at-a-useful-desktop-os-for-microcontr.jpg" alt="An Attempt at a Useful Desktop OS For Microcontrollers" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026-10-29/an-attempt-at-a-useful-desktop-os-for-microcontrollers/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50295868" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-29/an-attempt-at-a-useful-desktop-os-for-microcontrollers/" target="_blank" rel="noopener">An Attempt at a Useful Desktop OS For Microcontrollers</a></h2>
+        <div class="story-summary"><p>Hackaday looks at Sylphide OS, a general-purpose OS that gives microcontroller-based computers an actual desktop environment — windows, apps, files — instead of bare-metal-per-project. The interesting engineering is fitting a usable interactive system into the memory envelope of Cortex-M-class parts, and the piece weighs whether it&#x27;s a real platform or a demo of what MCU hardware could do with better software. Related HN discussion covers the project&#x27;s own site.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-29/open-source-hermes-turns-esp32-into-voice-assistant/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/electronics-03-adafruit-placeholder.svg" alt="Open-source Hermes turns an ESP32 into a voice assistant" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Daily</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-29/open-source-hermes-turns-esp32-into-voice-assistant/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-10-29/open-source-hermes-turns-esp32-into-voice-assistant/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-29/open-source-hermes-turns-esp32-into-voice-assistant/" target="_blank" rel="noopener">Open-source Hermes turns an ESP32 into a voice assistant</a></h2>
+        <div class="story-summary"><p>A reproducible build for a fully open voice assistant on ESP32: wake word on-device, streaming to local models for STT/LLM/TTS, with hardware you can source in an afternoon. A good template if you want a private kitchen-lab assistant without a big-tech mic in the room — the parts list and firmware layout are the useful artifacts.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-29/esp32-s3-wifi-bridge-for-a-usb-printer/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/electronics-04-adafruit-placeholder.svg" alt="ESP32-S3 WiFi bridge for a USB printer" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Daily</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-29/esp32-s3-wifi-bridge-for-a-usb-printer/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-10-29/esp32-s3-wifi-bridge-for-a-usb-printer/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-29/esp32-s3-wifi-bridge-for-a-usb-printer/" target="_blank" rel="noopener">ESP32-S3 WiFi bridge for a USB printer</a></h2>
+        <div class="story-summary"><p>Cures the oldest annoyance in home offices — a USB-only printer — by putting an ESP32-S3 USB host on the network as a print bridge, so the printer shows up as a network device without buying a new one. Classic embedded utility work: the post covers the USB host stack, the print-protocol shim, and where the ESP32&#x27;s limits bite.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="3dprinting" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://3dprintingindustry.com/news/sandia-cuts-lead-time-from-6-months-to-1-week-with-3d-printing-256015/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/electronics-05-sandia-cuts-lead-time-from-6-months-to-1-week-wi.jpg" alt="Sandia cuts lead time from 6 months to 1 week with 3D printing" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#14b8a6">3D</span>
+          <span class="by">3D Printing Industry</span>
+          <a class="orig" href="https://3dprintingindustry.com/news/sandia-cuts-lead-time-from-6-months-to-1-week-with-3d-printing-256015/" target="_blank" rel="noopener">3D Print ›</a><a class="discuss" href="https://3dprintingindustry.com/news/sandia-cuts-lead-time-from-6-months-to-1-week-with-3d-printing-256015/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://3dprintingindustry.com/news/sandia-cuts-lead-time-from-6-months-to-1-week-with-3d-printing-256015/" target="_blank" rel="noopener">Sandia cuts lead time from 6 months to 1 week with 3D printing</a></h2>
+        <div class="story-summary"><p>Sandia National Laboratories compressed parts that took six months through conventional supply chains to about a week by moving them onto qualified additive manufacturing flows. The interesting part isn&#x27;t the speed claim but the qualification story — how a national lab validates printed parts to mission-grade standards is the template most regulated shops are still missing, and the piece covers the process rather than just the press release.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://hackaday.com/2026-10-29/replicating-the-color-changing-effect-of-the-lycurgus-cup/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/electronics-06-replicating-the-color-changing-effect-of-the-lyc.jpg" alt="Replicating the color-changing effect of the Lycurgus Cup" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026-10-29/replicating-the-color-changing-effect-of-the-lycurgus-cup/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026-10-29/replicating-the-color-changing-effect-of-the-lycurgus-cup/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-29/replicating-the-color-changing-effect-of-the-lycurgus-cup/" target="_blank" rel="noopener">Replicating the color-changing effect of the Lycurgus Cup</a></h2>
+        <div class="story-summary"><p>The 4th-century Roman Lycurgus Cup shifts green-to-red depending on whether light passes through it, thanks to gold-silver nanoparticle glass — ancient nanotechnology that&#x27;s proven hard to reproduce. This build replicates the dichroic effect with modern materials and measured optical results, making it both a solid hack and a nice piece of materials archaeology you can read end to end.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="interesting-news" data-section-panel="interesting-news" style="--section-color:#f472b6" aria-labelledby="heading-interesting-news">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-interesting-news">Interesting News</h1>
+        <p class="section-summary">A 4.1-billion-year-old piece of Mars reaches a journal, BepiColombo is weeks from Mercury orbit, and Byzantine surgeons beat everyone to conjoined-twin separation.</p>
+      </div>
+      <span class="section-count" id="count-interesting-news">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="reddit" style="--c:#ff4500">Reddit</button>
+<button class="chip" data-filter-source="nasa" style="--c:#fc3d21">NASA</button>
+<button class="chip" data-filter-source="esa" style="--c:#4f8ef7">ESA</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="interesting-news">
+      
+    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://www.nasa.gov/solar-system/planets/mars/nasa-funded-study-details-one-of-oldest-mars-meteorites-ever-found/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/interesting-news-01-nasa-funded-study-details-teghaza-001-one-of-the.jpg" alt="NASA-funded study details Teghaza 001, one of the oldest Mars meteorites ever found" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#fc3d21">NA</span>
+          <span class="by">NASA / JPL</span>
+          <a class="orig" href="https://www.nasa.gov/solar-system/planets/mars/nasa-funded-study-details-one-of-oldest-mars-meteorites-ever-found/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://science.nasa.gov/photojournal/slice-of-martian-meteorite-teghaza-001/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.nasa.gov/solar-system/planets/mars/nasa-funded-study-details-one-of-oldest-mars-meteorites-ever-found/" target="_blank" rel="noopener">NASA-funded study details Teghaza 001, one of the oldest Mars meteorites ever found</a></h2>
+        <div class="story-summary"><p>An 800-gram rose-colored rock found in the Sahara in 2022 has been age-dated at over 4.1 billion years, making it one of the oldest Martian meteorites known — a snapshot of Mars&#x27; ancient crust from the planet&#x27;s first half-billion years. The characterization paper published Thursday in Science (lead author Yang Liu, JPL) had a reviewer call it &#x27;a Rosetta Stone for Mars,&#x27; and a companion Science Advances paper from June detailed its water content; only ~435 Martian meteorites are known.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="esa" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Latest_updates_BepiColombo_s_arrival_at_Mercury" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/interesting-news-02-bepicolombo-is-weeks-away-from-becoming-the-firs.jpg" alt="BepiColombo is weeks away from becoming the first twin-spacecraft Mercury orbit" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#4f8ef7">ESA</span>
+          <span class="by">ESA</span>
+          <a class="orig" href="https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Latest_updates_BepiColombo_s_arrival_at_Mercury" target="_blank" rel="noopener">ESA ›</a><a class="discuss" href="https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Latest_updates_BepiColombo_s_arrival_at_Mercury" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.esa.int/Science_Exploration/Space_Science/BepiColombo/Latest_updates_BepiColombo_s_arrival_at_Mercury" target="_blank" rel="noopener">BepiColombo is weeks away from becoming the first twin-spacecraft Mercury orbit</a></h2>
+        <div class="story-summary"><p>After eight years and 9.9 billion kilometres, the ESA/JAXA BepiColombo stack separated from its transfer module on 3 September and is now on final approach: Mercury orbit insertion on 21 November 2026, JAXA&#x27;s Mio deploys 9-10 December, and MPO reaches its science orbit in March 2027. It will be the first mission with two spacecraft orbiting Mercury at once, and the arrival is a six-month choreographed sequence with no real-time intervention possible — the ESA live-updates page is a rare front-row seat to a planetary insertion in progress.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xj0we2/til_the_first_recorded_separation_of_conjoined/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/interesting-news-03-reddit-placeholder.svg" alt="TIL the first recorded separation of conjoined twins happened in the Byzantine Empire in the 900s" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">u/CatPooedInMyShoe</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xj0we2/til_the_first_recorded_separation_of_conjoined/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xj0we2/til_the_first_recorded_separation_of_conjoined/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xj0we2/til_the_first_recorded_separation_of_conjoined/" target="_blank" rel="noopener">TIL the first recorded separation of conjoined twins happened in the Byzantine Empire in the 900s</a></h2>
+        <div class="story-summary"><p>The earliest recorded attempt to separate conjoined twins comes from 10th-century Byzantium: with one twin already dead, surgeons separated the surviving twin from the deceased one, and the survivor lived three days afterward. It predates the Western accounts usually cited by centuries and reads like a surgical case report smuggled out of a medieval chronicle.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xino6g/til_that_ancient_egypt_had_its_own/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/interesting-news-04-reddit-placeholder.svg" alt="TIL ancient Egypt had its own &#x27;Egyptologist&#x27; — Prince Khaemweset" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">u/T_A_T_N</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xino6g/til_that_ancient_egypt_had_its_own/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xino6g/til_that_ancient_egypt_had_its_own/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xino6g/til_that_ancient_egypt_had_its_own/" target="_blank" rel="noopener">TIL ancient Egypt had its own 'Egyptologist' — Prince Khaemweset</a></h2>
+        <div class="story-summary"><p>Khaemweset, a son of Ramesses II (c. 1281-1225 BCE) and high priest of Ptah, spent his life identifying and restoring Egyptian monuments that were already more than a thousand years old when he lived — making him arguably the first Egyptologist in history, two and a half millennia before the discipline had a name. He was later credited with authoring the &#x27;Book of the Dead&#x27; under his own name, a claim on authorship by a prince who was himself 3,000 years from being ancient.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xirtu7/til_that_in_1874_congress_passed_legislation_to/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/interesting-news-05-reddit-placeholder.svg" alt="TIL Congress tried to stop the bison slaughter in 1874 and Grant vetoed it" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">u/carboncopy95437</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xirtu7/til_that_in_1874_congress_passed_legislation_to/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xirtu7/til_that_in_1874_congress_passed_legislation_to/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xirtu7/til_that_in_1874_congress_passed_legislation_to/" target="_blank" rel="noopener">TIL Congress tried to stop the bison slaughter in 1874 and Grant vetoed it</a></h2>
+        <div class="story-summary"><p>In 1874 Congress passed a bill to halt the slaughter of the American bison; President Ulysses S. Grant vetoed it, and hunters went on to kill an estimated 4.4 million bison, an ecological and cultural catastrophe deliberately used to break Plains nations&#x27; independence. A well-documented federal policy choice — not a tragedy of the commons by accident — and a good reminder that conservation history has villains with pens, not just rifles.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xj23dw/til_the_largest_calvary_charge_in_history/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-30/interesting-news-06-reddit-placeholder.svg" alt="TIL the largest cavalry charge in history was at the Battle of Vienna, 1683" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">u/pangea1430</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xj23dw/til_the_largest_calvary_charge_in_history/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xj23dw/til_the_largest_calvary_charge_in_history/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xj23dw/til_the_largest_calvary_charge_in_history/" target="_blank" rel="noopener">TIL the largest cavalry charge in history was at the Battle of Vienna, 1683</a></h2>
+        <div class="story-summary"><p>The relief of Vienna in September 1683 saw the largest cavalry charge on record: roughly 18,000 horsemen of the Polish-Habsburg relief force — including some 3,000 Polish Winged Hussars — smashing into the Ottoman siege lines. The hussars&#x27; charge broke the siege in hours and is still taught as the moment heavy cavalry ended as a shock weapon at the highest level, on a scale never attempted before or since.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning · Friday, October 30, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
