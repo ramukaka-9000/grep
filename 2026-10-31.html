@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>grep · Saturday, October 31, 2026</title>
+<meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-10-31.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style-v2.css">
+<script>
+  // set theme before paint to avoid a flash of the wrong palette
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
+  </div>
+  <nav class="topnav">
+    <a class="navlink" href="2026-10-30.html">‹ Prev</a>
+    <span class="edition-pill">Saturday, October 31, 2026 · <span id="count">22</span> stories</span>
+    <span class="navlink disabled">Next ›</span>
+    <a class="navlink" href="archive.html">Archive</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  
+  <nav class="section-nav" aria-label="Sections">
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">10</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">6</span></a>
+  </nav>
+  <div class="section-panels">
+    
+  <section class="section-panel" id="ai" data-section-panel="ai" style="--section-color:#ff8000" aria-labelledby="heading-ai">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-ai">AI</h1>
+        <p class="section-summary">A backdoored Claude Code VS Code extension on the Cursor Marketplace and a deep Azure cross-tenant chain headline a security-heavy day; the craft pieces are a compiler that hides a working NES in Qwen weights and an honest audit of what LLMs break when you ask them to &#x27;modernize&#x27; legacy code.</p>
+      </div>
+      <span class="section-count" id="count-ai">10 stories</span>
+    </div>
+    <section class="filters" data-section-filters="ai" aria-label="AI filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
+<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="ai">
+      
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://phorion.io/blog/offical-claude-code-vsx-compromise/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/ai-01-backdoor-in-claude-code-for-vs-code-extension-on.png" alt="Backdoor in Claude Code for VS Code extension on the Cursor Marketplace" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Phorion (via HN, 798 points)</span>
+          <a class="orig" href="https://phorion.io/blog/offical-claude-code-vsx-compromise/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50300683" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://phorion.io/blog/offical-claude-code-vsx-compromise/" target="_blank" rel="noopener">Backdoor in Claude Code for VS Code extension on the Cursor Marketplace</a></h2>
+        <div class="story-summary"><p>Researchers found a compromised &#x27;official&#x27; Claude Code VS Code extension distributed through the Cursor Marketplace, not the VS Code Marketplace — a supply-chain reminder that every IDE extension channel needs its own trust model. If you install AI coding assistants from a marketplace search result, treat the URL and publisher as the only trustworthy signal and verify the extension ID against Anthropic&#x27;s docs. The HN thread goes through how the lookalike listing slipped through and what Cursor&#x27;s vetting caught (or didn&#x27;t).</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://www.binarysecurity.no/posts/2026/10/one-root-case" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/ai-02-other-placeholder.svg" alt="Azure&#x27;s Weakest Link — Five Full Cross-Tenant Compromises" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Binary Security (Thomas K. Hende et al.)</span>
+          <a class="orig" href="https://www.binarysecurity.no/posts/2026/10/one-root-case" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50301854" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.binarysecurity.no/posts/2026/10/one-root-case" target="_blank" rel="noopener">Azure's Weakest Link — Five Full Cross-Tenant Compromises</a></h2>
+        <div class="story-summary"><p>A single path-traversal bug in the Logic Apps / API Connections &#x27;DynamicInvoke&#x27; endpoint let one tenant&#x27;s token read another tenant&#x27;s Key Vault secrets, and the team chained it five separate ways — to databases, APIM keys, and full cross-tenant compromise across real customer environments. The writeup is a masterclass in connector abuse: parameter smuggling in dynamic lists, SQL INSERTs through dataset configs, and why shared connector infrastructure is a blast radius problem. Anyone who deploys agent tooling on Azure should read it before wiring Logic Apps into anything privileged.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://github.com/dbreunig/nesformer" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/ai-03-show-hn-a-working-nintendo-in-1gb-of-qwen-weight.png" alt="Show HN: A working Nintendo in ~1GB of Qwen weights" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Dan McKinley (via HN, 200 points)</span>
+          <a class="orig" href="https://github.com/dbreunig/nesformer" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50306442" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/dbreunig/nesformer" target="_blank" rel="noopener">Show HN: A working Nintendo in ~1GB of Qwen weights</a></h2>
+        <div class="story-summary"><p>nesformer compiles the NES&#x27;s 6502 CPU, its 2 KB of RAM, and a cartridge ROM into the weights of a stock Qwen3.5 checkpoint — nobody trained the model, a compiler computed every weight, and the Gated DeltaNet state acts as the machine&#x27;s memory while the model predicts the CPU&#x27;s execution log one token at a time. Bundled games render frames that match a conventional 6502 emulator exactly. It builds on Qwenputer&#x27;s CHIP-8/RISC-V trick, and the writeup is a surprisingly clean primer on how transformer state can be repurposed as deterministic memory.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://labs.ycombinator.com/projects/games/index.html" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/ai-04-hn-placeholder.svg" alt="AI agent swarms in Minecraft and Mindustry (Y Combinator Labs)" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">YC Research Labs with Olam Labs (via HN, 398 points)</span>
+          <a class="orig" href="https://labs.ycombinator.com/projects/games/index.html" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50296486" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://labs.ycombinator.com/projects/games/index.html" target="_blank" rel="noopener">AI agent swarms in Minecraft and Mindustry (Y Combinator Labs)</a></h2>
+        <div class="story-summary"><p>YC Labs ran multi-agent swarms in Minecraft (survival, resource gathering, food queues, informal hierarchies) and in Mindustry&#x27;s PvP mode, where two teams of agents race to build conveyor economies into turret armies. The value is in the raw field notes: agents inventing roles, rationing food, and reporting status like a scrum of very literal employees. A useful empirical counterweight to both swarm-hype and doom-casting on emergent multi-agent behavior.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/ai-05-ai-isn-t-replacing-sres-it-s-deskilling-them.jpg" alt="AI Isn&#x27;t Replacing SREs. It&#x27;s Deskilling Them." loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">SigNoz Engineering Newsletter (via HN, 523 points)</span>
+          <a class="orig" href="https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50305693" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling" target="_blank" rel="noopener">AI Isn't Replacing SREs. It's Deskilling Them.</a></h2>
+        <div class="story-summary"><p>If AI handles 95% of incident response, does anyone stay sharp for the 5% novel outage that actually matters? The piece grounds the argument in measured deskilling: endoscopists using AI polyp detection dropped unassisted detection from 28% to 22%, and the FAA now mandates manual flying hours because autopilot reliance degrades pilot situational awareness. A practical read for anyone rolling out AI ops tooling — the fix is designing AI to keep humans in the loop deliberately, not removing them from it.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://arxiv.org/abs/2610.40269" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/ai-06-arxiv-placeholder.svg" alt="When Modernization Breaks Working Code: LLMs on Legacy PHP" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Mahmud et al., BUET (arXiv cs.SE)</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.40269" target="_blank" rel="noopener">arXiv ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.40269" target="_blank" rel="noopener">When Modernization Breaks Working Code: LLMs on Legacy PHP</a></h2>
+        <div class="story-summary"><p>Five LLMs were each asked to &#x27;modernize&#x27; 100 WordPress 4.0 PHP files to PHP 8.3 with no project context. Of the 83 files that already passed all 630 behavioral checks untouched, the best model left only 59 passing — every model broke 32-51 working files while fixing at most 10, while rule-based Rector broke 7 and fixed 6. Most damage happened in files needing no change at all. The takeaway for any agent-driven migration: evaluate against a no-change baseline, and don&#x27;t let an LLM touch code that already works.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2610.40655" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/ai-07-arxiv-placeholder.svg" alt="Elucidating the Design Space of LM Data Attribution" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Yu, Wang, Hamidieh, Torralba, Bau (arXiv cs.CL)</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.40655" target="_blank" rel="noopener">arXiv ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.40655" target="_blank" rel="noopener">Elucidating the Design Space of LM Data Attribution</a></h2>
+        <div class="story-summary"><p>CATT fine-tunes LLMs on entirely fictitious knowledge to get unambiguous ground truth for &#x27;which training document made the model say this&#x27;, then varies one dataset property at a time. Redundancy and lexical distractors consistently wreck attribution, and the causal evidence inside a document turns out to be highly localized — standard whole-document averaging dilutes it into noise, which smarter score aggregation largely fixes. A rare attribution paper that diagnoses why methods fail instead of proposing another estimator.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.firezone.dev/blog/introducing-sanstun" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/ai-08-sanstun-a-sans-io-parallel-friendly-wireguard-in.png" alt="sanstun: a sans-IO, parallel-friendly WireGuard in Rust" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Thomas Eizinger, Firezone</span>
+          <a class="orig" href="https://www.firezone.dev/blog/introducing-sanstun" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50310398" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.firezone.dev/blog/introducing-sanstun" target="_blank" rel="noopener">sanstun: a sans-IO, parallel-friendly WireGuard in Rust</a></h2>
+        <div class="story-summary"><p>After two years of using and patching boringtun (70+ PRs), Firezone rewrote the WireGuard state machine as a sans-IO Rust library: no side effects, no buffering, IO and time handed in by the caller. The post is as much a sans-IO manifesto — function coloring, testability, composability — as a release note, and it explains exactly why not buffering packets inside the library simplifies both sides of the interface. Worth a read if you build networking or agent-infrastructure in Rust.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/cloudsurf-software/CloudSurf-1B" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/ai-09-cloudsurf-1b-a-from-scratch-0-89b-on-device-base.png" alt="CloudSurf-1B: a from-scratch 0.89B on-device base model" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">CloudSurf Software LLC</span>
+          <a class="orig" href="https://huggingface.co/cloudsurf-software/CloudSurf-1B" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/cloudsurf-software/CloudSurf-1B" target="_blank" rel="noopener">CloudSurf-1B: a from-scratch 0.89B on-device base model</a></h2>
+        <div class="story-summary"><p>A 0.89B-parameter base LM trained from random weights with its own tokenizer, trainer, and corpus pipeline, built to run offline on a phone or laptop as the routing/offline tier of an assistant. Q4_K_M GGUF lands at 0.55 GB, so it&#x27;s trivially runnable on a 3060-class card or pure CPU, with llama.cpp commands and a bos-token quirk documented up front. The honest &#x27;base checkpoint, no instruction tune yet, fine-tune will have pre-registered bars&#x27; framing is itself a nice change from benchmark-spray releases.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/kienletrung/Qwen3-ASR-1.7B-Vietnamese" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/ai-10-qwen3-asr-1-7b-vietnamese-11-4-wer-voice-assista.png" alt="Qwen3-ASR-1.7B-Vietnamese: 11.4% WER voice-assistant ASR with context biasing" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">kienletrung</span>
+          <a class="orig" href="https://huggingface.co/kienletrung/Qwen3-ASR-1.7B-Vietnamese" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/kienletrung/Qwen3-ASR-1.7B-Vietnamese" target="_blank" rel="noopener">Qwen3-ASR-1.7B-Vietnamese: 11.4% WER voice-assistant ASR with context biasing</a></h2>
+        <div class="story-summary"><p>A 1.7B ASR fine-tune of Qwen3-ASR for Vietnamese voice-assistant commands across all three regional accents, with an evaluation table that shows the gains: 27.8% WER base → 16.2% for ZipFormer-150M → 11.4% for this model, and 10.1% when you pass contact/device names as context. The context-biasing design — inject your contacts, addresses, and device names so proper nouns come out right, with a control showing irrelevant context barely hurts — is a pattern worth stealing for any local voice assistant stack.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="electronics" data-section-panel="electronics" style="--section-color:#22d3ee" aria-labelledby="heading-electronics">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-electronics">Electronics</h1>
+        <p class="section-summary">Inside-track reads on a near-blackout and an e-paper panel pushed to 30 FPS, plus three builds worth copying: SLAM tracking for a base-station-free VR headset, an Aliens-style radar motion tracker, and a magnet-gesture lockbox.</p>
+      </div>
+      <span class="section-count" id="count-electronics">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
+<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="electronics">
+      
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026-10-30/vr-headset-ditches-the-base-stations-with-diy-tracking/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/electronics-01-vr-headset-ditches-the-base-stations-with-diy-sl.png" alt="VR headset ditches the base stations with DIY SLAM tracking" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday (by [Prohurtz])</span>
+          <a class="orig" href="https://hackaday.com/2026-10-30/vr-headset-ditches-the-base-stations-with-diy-tracking/" target="_blank" rel="noopener">Hackaday ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-30/vr-headset-ditches-the-base-stations-with-diy-tracking/" target="_blank" rel="noopener">VR headset ditches the base stations with DIY SLAM tracking</a></h2>
+        <div class="story-summary"><p>BSB-SLAM adds inside-out SLAM tracking to the Bigscreen Beyond headset, freeing it from lighthouse base stations by doing localization and mapping on-board. A clean example of grafting a modern tracking stack onto hardware that shipped without it, with the hard parts — camera placement, drift, latency — laid out in the build writeup.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://hackaday.com/2026-10-30/how-britain-narrowly-escaped-a-grid-blackout-in-june-2026/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/electronics-02-how-britain-narrowly-escaped-a-grid-blackout-in-.jpg" alt="How Britain narrowly escaped a grid blackout in June 2026" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday / Maya Posch</span>
+          <a class="orig" href="https://hackaday.com/2026-10-30/how-britain-narrowly-escaped-a-grid-blackout-in-june-2026/" target="_blank" rel="noopener">Hackaday ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-30/how-britain-narrowly-escaped-a-grid-blackout-in-june-2026/" target="_blank" rel="noopener">How Britain narrowly escaped a grid blackout in June 2026</a></h2>
+        <div class="story-summary"><p>During one of Europe&#x27;s worst heatwaves, the UK grid frequency fell to 49.657 Hz on June 23 — 0.157 Hz from the statutory 49.5 Hz floor where protection systems start shedding load. The investigation traces the alignment of maintenance outages and demand spikes, and credits halted exports plus French hydro and nuclear imports for the save. It also contrasts the event with the 2025 Iberian cascade, where grid-following solar converters amplified reactive-power oscillations — two near-misses with different physics and different lessons.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-30/build-an-aliens-style-motion-scanner-with-an-esp32-s3-and-radar/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/electronics-03-adafruit-placeholder.svg" alt="Build an Aliens-style motion scanner with an ESP32-S3 and radar" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Geeky Gadgets via Adafruit (NorthWorks Lab)</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-30/build-an-aliens-style-motion-scanner-with-an-esp32-s3-and-radar/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-30/build-an-aliens-style-motion-scanner-with-an-esp32-s3-and-radar/" target="_blank" rel="noopener">Build an Aliens-style motion scanner with an ESP32-S3 and radar</a></h2>
+        <div class="story-summary"><p>NorthWorks Lab&#x27;s handheld tracker recreates the motion tracker from Aliens using an ESP32-S3 paired with an LD2450 mmWave radar module — a genuinely reproducible build with off-the-shelf parts rather than a concept video. Radar-based people tracking on a sub-$10 microcontroller is a step up in range and robustness from the PIR tricks most hobby builds use, and the parts list makes it accessible.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-30/what-happens-when-you-run-e-paper-at-30-fps/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/electronics-04-adafruit-placeholder.svg" alt="What happens when you run e-paper at 30 FPS?" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Bo Made It (via Adafruit)</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-30/what-happens-when-you-run-e-paper-at-30-fps/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-30/what-happens-when-you-run-e-paper-at-30-fps/" target="_blank" rel="noopener">What happens when you run e-paper at 30 FPS?</a></h2>
+        <div class="story-summary"><p>A measured experiment pushing a Waveshare ESP32-S3 e-paper panel far past its intended refresh rate with a custom display driver, quantifying exactly what it costs: ghosting, waveform abuse, and the actual attainable frame rate. The kind of empirical &#x27;what if we ignore the datasheet&#x27;s polite suggestion&#x27; work that tells you whether e-paper is viable for your UI before you buy ten of them.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-30/a-magnetic-lock-opens-by-magic/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/electronics-05-adafruit-placeholder.svg" alt="A magnetic lock that opens only to the right gesture" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Stephen Cass via Adafruit (IEEE Spectrum)</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-30/a-magnetic-lock-opens-by-magic/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-30/a-magnetic-lock-opens-by-magic/" target="_blank" rel="noopener">A magnetic lock that opens only to the right gesture</a></h2>
+        <div class="story-summary"><p>A lockbox that unlocks when you trace the correct gesture in the air with a magnet, using SparkFun&#x27;s $100 magnetic imaging tile as the sensor. Gesture-as-key on a magnetometer array is a nice security-adjacent hack: no pins, no app, no battery in the key, and a build path anyone can follow with a dev board and the tile.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-30/eurorack-what-to-do-with-digital-inputs/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/electronics-06-adafruit-placeholder.svg" alt="DIY Eurorack interface for the Teensy 4.1" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">flok via PJRC Forum (Adafruit)</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-30/eurorack-what-to-do-with-digital-inputs/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-30/eurorack-what-to-do-with-digital-inputs/" target="_blank" rel="noopener">DIY Eurorack interface for the Teensy 4.1</a></h2>
+        <div class="story-summary"><p>When no ready-made Eurorack-to-Teensy board existed, this build started from scratch: signal levels, gate/trigger handling, and panel layout for getting a Teensy 4.1 into a modular synth rack. A useful reference for anyone doing the same on other MCU boards, since the 1U Eurorack power and 3.3-to-12V logic problem is the same problem everywhere.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="interesting-news" data-section-panel="interesting-news" style="--section-color:#f472b6" aria-labelledby="heading-interesting-news">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-interesting-news">Interesting News</h1>
+        <p class="section-summary">Halloween-adjacent myth-busting from a sociologist with 60+ years of data, Stone Age arrows surfacing from vanishing glaciers, a deep-sea convergence that evolved seahorses twice, and the novel Verne&#x27;s publisher was sure nobody wanted.</p>
+      </div>
+      <span class="section-count" id="count-interesting-news">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="reddit" style="--c:#ff4500">Reddit</button>
+<button class="chip" data-filter-source="science" style="--c:#10b981">Science</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="interesting-news">
+      
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xjj4je/til_that_a_sociologist_with_data_going_back_to/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/interesting-news-01-reddit-placeholder.svg" alt="TIL no child has ever been killed or seriously hurt by contaminated trick-or-treat candy" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">u/Altinvfinance via r/todayilearned</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xjj4je/til_that_a_sociologist_with_data_going_back_to/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xjj4je/til_that_a_sociologist_with_data_going_back_to/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xjj4je/til_that_a_sociologist_with_data_going_back_to/" target="_blank" rel="noopener">TIL no child has ever been killed or seriously hurt by contaminated trick-or-treat candy</a></h2>
+        <div class="story-summary"><p>Sociologist Joel Best (University of Delaware) has collected every reported Halloween candy-contamination case since 1958 and found zero confirmed child deaths or serious injuries from treats picked up trick-or-treating. The famous Texas case everyone cites was a father who poisoned his own son as a &#x27;perfect crime&#x27;, and the California razor-blade deaths turned out to be natural causes on autopsy — yet the panic has outlived every news cycle since the 1950s. Peak-Halloween reading on how an urban legend refuses to die.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.sciencenorway.no/archaeology-climate-culture/the-oldest-ice-is-disappearing-the-stone-age-is-emerging-from-the-melting-ice/2713921" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/interesting-news-02-the-oldest-ice-is-disappearing-and-the-stone-age.jpg" alt="The oldest ice is disappearing — and the Stone Age is emerging from it" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">sciencenorway.no (via HN, 102 points)</span>
+          <a class="orig" href="https://www.sciencenorway.no/archaeology-climate-culture/the-oldest-ice-is-disappearing-the-stone-age-is-emerging-from-the-melting-ice/2713921" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50309266" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencenorway.no/archaeology-climate-culture/the-oldest-ice-is-disappearing-the-stone-age-is-emerging-from-the-melting-ice/2713921" target="_blank" rel="noopener">The oldest ice is disappearing — and the Stone Age is emerging from it</a></h2>
+        <div class="story-summary"><p>As Norway&#x27;s glaciers melt, thousands of years of preserved hunting gear — arrows, bows, snowshoes, clothing fragments — are surfacing from ice that held them since the Stone Age. The article covers both the remarkable finds and the race against decay: artifacts that survived 6,000 years frozen can disintegrate within days of exposure, turning climate loss into an archaeological excavation deadline.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261029072119.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/interesting-news-03-science-placeholder.svg" alt="Scientists find seahorse lookalikes no one has ever seen alive — and they&#x27;re not seahorses" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261029072119.htm" target="_blank" rel="noopener">Science ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261029072119.htm" target="_blank" rel="noopener">Scientists find seahorse lookalikes no one has ever seen alive — and they're not seahorses</a></h2>
+        <div class="story-summary"><p>Three bizarre deep-sea fish that look exactly like seahorses — upright posture, curled prehensile tail, snout and all — turn out to belong to an entirely separate evolutionary group, meaning nature evolved the seahorse body plan twice. None had ever been observed alive; the specimens came from bycatch. Convergent evolution producing the ocean&#x27;s most recognizable silhouette independently is exactly the kind of discovery that rewrites what counts as a &#x27;seahorse shape&#x27;.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261028234703.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/interesting-news-04-science-placeholder.svg" alt="Physicists created a tiny universe in the lab and watched time emerge without a clock" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261028234703.htm" target="_blank" rel="noopener">Science ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261028234703.htm" target="_blank" rel="noopener">Physicists created a tiny universe in the lab and watched time emerge without a clock</a></h2>
+        <div class="story-summary"><p>Using 24,000 ultracold atoms, researchers realized a laboratory miniature of a long-standing idea in quantum gravity: that time doesn&#x27;t flow from a universal clock but emerges from correlations between a system and a quantum clock subsystem. If the interpretation holds, it&#x27;s a tabletop demonstration of the Page–Wootters-style &#x27;time from entanglement&#x27; picture — a genuinely strange result about where the arrow you experience every second actually comes from.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blue-continuum.com/verne-paris" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/interesting-news-05-jules-verne-s-lost-novel-the-machine-perfect-par.jpg" alt="Jules Verne&#x27;s lost novel: the machine-perfect Paris he wrote in 1863 and nobody would publish" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">John Steele, Blue Continuum (via HN, 86 points)</span>
+          <a class="orig" href="https://blue-continuum.com/verne-paris" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50309314" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blue-continuum.com/verne-paris" target="_blank" rel="noopener">Jules Verne's lost novel: the machine-perfect Paris he wrote in 1863 and nobody would publish</a></h2>
+        <div class="story-summary"><p>In 1863 Verne looked forward instead of outward and wrote Paris in the Twentieth Century, a vision of 1960 ruled by calculators, gas-powered cabs running on Étienne Lenoir&#x27;s engine, and commerce devouring art. Publisher Hetzel refused it as implausible and too bleak; the manuscript sat in a family safe for 131 years before surfacing in 1994. The essay is a sharp read on why Verne&#x27;s extrapolation nailed the machines and got the humans backwards — and why the publisher&#x27;s instinct about his audience was right even though the book&#x27;s was better.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-10-31/interesting-news-06-how-do-you-take-a-picture-of-a-black-hole.jpg" alt="How do you take a picture of a black hole?" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Quanta Magazine</span>
+          <a class="orig" href="https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50301717" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/" target="_blank" rel="noopener">How do you take a picture of a black hole?</a></h2>
+        <div class="story-summary"><p>An Event Horizon Telescope voice walks through what it takes to photograph something that emits no light: a planet-sized interferometer, observatories in Chile, Mexico, Wyoming, and the Canary Islands, and the data-processing alchemy that turns sparse visibilities into the ring image everyone remembers. The kicker is the roadmap — add a fifth site on Kilimanjaro and the same technique yields high-definition, full-color movies of black holes.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning · Saturday, October 31, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
