@@ -1,0 +1,225 @@
+{
+  "date": "2026-10-31",
+  "summary": "A compromised Claude Code extension and a five-hop Azure tenant-break make for an uncomfortable supply-chain day, while the fun is in the margins: a full NES living inside Qwen weights, agent swarms running factories in Mindustry, and two genuinely runnable small models; plus a Halloween-safe reading on poisoned-candy panics and Jules Verne's rejected vision of 1960.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "A backdoored Claude Code VS Code extension on the Cursor Marketplace and a deep Azure cross-tenant chain headline a security-heavy day; the craft pieces are a compiler that hides a working NES in Qwen weights and an honest audit of what LLMs break when you ask them to 'modernize' legacy code.",
+      "stories": [
+        {
+          "title": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace",
+          "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+          "source": "hn",
+          "byline": "Phorion (via HN, 798 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50300683",
+          "tier": "essential",
+          "summary": "Researchers found a compromised 'official' Claude Code VS Code extension distributed through the Cursor Marketplace, not the VS Code Marketplace — a supply-chain reminder that every IDE extension channel needs its own trust model. If you install AI coding assistants from a marketplace search result, treat the URL and publisher as the only trustworthy signal and verify the extension ID against Anthropic's docs. The HN thread goes through how the lookalike listing slipped through and what Cursor's vetting caught (or didn't)."
+        },
+        {
+          "title": "Azure's Weakest Link — Five Full Cross-Tenant Compromises",
+          "url": "https://www.binarysecurity.no/posts/2026/10/one-root-case",
+          "source": "other",
+          "byline": "Binary Security (Thomas K. Hende et al.)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50301854",
+          "tier": "essential",
+          "summary": "A single path-traversal bug in the Logic Apps / API Connections 'DynamicInvoke' endpoint let one tenant's token read another tenant's Key Vault secrets, and the team chained it five separate ways — to databases, APIM keys, and full cross-tenant compromise across real customer environments. The writeup is a masterclass in connector abuse: parameter smuggling in dynamic lists, SQL INSERTs through dataset configs, and why shared connector infrastructure is a blast radius problem. Anyone who deploys agent tooling on Azure should read it before wiring Logic Apps into anything privileged."
+        },
+        {
+          "title": "Show HN: A working Nintendo in ~1GB of Qwen weights",
+          "url": "https://github.com/dbreunig/nesformer",
+          "source": "hn",
+          "byline": "Dan McKinley (via HN, 200 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50306442",
+          "tier": "must-read",
+          "summary": "nesformer compiles the NES's 6502 CPU, its 2 KB of RAM, and a cartridge ROM into the weights of a stock Qwen3.5 checkpoint — nobody trained the model, a compiler computed every weight, and the Gated DeltaNet state acts as the machine's memory while the model predicts the CPU's execution log one token at a time. Bundled games render frames that match a conventional 6502 emulator exactly. It builds on Qwenputer's CHIP-8/RISC-V trick, and the writeup is a surprisingly clean primer on how transformer state can be repurposed as deterministic memory."
+        },
+        {
+          "title": "AI agent swarms in Minecraft and Mindustry (Y Combinator Labs)",
+          "url": "https://labs.ycombinator.com/projects/games/index.html",
+          "source": "hn",
+          "byline": "YC Research Labs with Olam Labs (via HN, 398 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50296486",
+          "tier": "must-read",
+          "summary": "YC Labs ran multi-agent swarms in Minecraft (survival, resource gathering, food queues, informal hierarchies) and in Mindustry's PvP mode, where two teams of agents race to build conveyor economies into turret armies. The value is in the raw field notes: agents inventing roles, rationing food, and reporting status like a scrum of very literal employees. A useful empirical counterweight to both swarm-hype and doom-casting on emergent multi-agent behavior."
+        },
+        {
+          "title": "AI Isn't Replacing SREs. It's Deskilling Them.",
+          "url": "https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling",
+          "source": "hn",
+          "byline": "SigNoz Engineering Newsletter (via HN, 523 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50305693",
+          "tier": "recommended",
+          "summary": "If AI handles 95% of incident response, does anyone stay sharp for the 5% novel outage that actually matters? The piece grounds the argument in measured deskilling: endoscopists using AI polyp detection dropped unassisted detection from 28% to 22%, and the FAA now mandates manual flying hours because autopilot reliance degrades pilot situational awareness. A practical read for anyone rolling out AI ops tooling — the fix is designing AI to keep humans in the loop deliberately, not removing them from it."
+        },
+        {
+          "title": "When Modernization Breaks Working Code: LLMs on Legacy PHP",
+          "url": "https://arxiv.org/abs/2610.40269",
+          "source": "arxiv",
+          "byline": "Mahmud et al., BUET (arXiv cs.SE)",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Five LLMs were each asked to 'modernize' 100 WordPress 4.0 PHP files to PHP 8.3 with no project context. Of the 83 files that already passed all 630 behavioral checks untouched, the best model left only 59 passing — every model broke 32-51 working files while fixing at most 10, while rule-based Rector broke 7 and fixed 6. Most damage happened in files needing no change at all. The takeaway for any agent-driven migration: evaluate against a no-change baseline, and don't let an LLM touch code that already works."
+        },
+        {
+          "title": "Elucidating the Design Space of LM Data Attribution",
+          "url": "https://arxiv.org/abs/2610.40655",
+          "source": "arxiv",
+          "byline": "Yu, Wang, Hamidieh, Torralba, Bau (arXiv cs.CL)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "CATT fine-tunes LLMs on entirely fictitious knowledge to get unambiguous ground truth for 'which training document made the model say this', then varies one dataset property at a time. Redundancy and lexical distractors consistently wreck attribution, and the causal evidence inside a document turns out to be highly localized — standard whole-document averaging dilutes it into noise, which smarter score aggregation largely fixes. A rare attribution paper that diagnoses why methods fail instead of proposing another estimator."
+        },
+        {
+          "title": "sanstun: a sans-IO, parallel-friendly WireGuard in Rust",
+          "url": "https://www.firezone.dev/blog/introducing-sanstun",
+          "source": "other",
+          "byline": "Thomas Eizinger, Firezone",
+          "discuss_url": "https://news.ycombinator.com/item?id=50310398",
+          "tier": "recommended",
+          "summary": "After two years of using and patching boringtun (70+ PRs), Firezone rewrote the WireGuard state machine as a sans-IO Rust library: no side effects, no buffering, IO and time handed in by the caller. The post is as much a sans-IO manifesto — function coloring, testability, composability — as a release note, and it explains exactly why not buffering packets inside the library simplifies both sides of the interface. Worth a read if you build networking or agent-infrastructure in Rust."
+        },
+        {
+          "title": "CloudSurf-1B: a from-scratch 0.89B on-device base model",
+          "url": "https://huggingface.co/cloudsurf-software/CloudSurf-1B",
+          "source": "hf",
+          "byline": "CloudSurf Software LLC",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A 0.89B-parameter base LM trained from random weights with its own tokenizer, trainer, and corpus pipeline, built to run offline on a phone or laptop as the routing/offline tier of an assistant. Q4_K_M GGUF lands at 0.55 GB, so it's trivially runnable on a 3060-class card or pure CPU, with llama.cpp commands and a bos-token quirk documented up front. The honest 'base checkpoint, no instruction tune yet, fine-tune will have pre-registered bars' framing is itself a nice change from benchmark-spray releases."
+        },
+        {
+          "title": "Qwen3-ASR-1.7B-Vietnamese: 11.4% WER voice-assistant ASR with context biasing",
+          "url": "https://huggingface.co/kienletrung/Qwen3-ASR-1.7B-Vietnamese",
+          "source": "hf",
+          "byline": "kienletrung",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A 1.7B ASR fine-tune of Qwen3-ASR for Vietnamese voice-assistant commands across all three regional accents, with an evaluation table that shows the gains: 27.8% WER base → 16.2% for ZipFormer-150M → 11.4% for this model, and 10.1% when you pass contact/device names as context. The context-biasing design — inject your contacts, addresses, and device names so proper nouns come out right, with a control showing irrelevant context barely hurts — is a pattern worth stealing for any local voice assistant stack."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Inside-track reads on a near-blackout and an e-paper panel pushed to 30 FPS, plus three builds worth copying: SLAM tracking for a base-station-free VR headset, an Aliens-style radar motion tracker, and a magnet-gesture lockbox.",
+      "stories": [
+        {
+          "title": "VR headset ditches the base stations with DIY SLAM tracking",
+          "url": "https://hackaday.com/2026-10-30/vr-headset-ditches-the-base-stations-with-diy-tracking/",
+          "source": "hackaday",
+          "byline": "Hackaday (by [Prohurtz])",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "BSB-SLAM adds inside-out SLAM tracking to the Bigscreen Beyond headset, freeing it from lighthouse base stations by doing localization and mapping on-board. A clean example of grafting a modern tracking stack onto hardware that shipped without it, with the hard parts — camera placement, drift, latency — laid out in the build writeup."
+        },
+        {
+          "title": "How Britain narrowly escaped a grid blackout in June 2026",
+          "url": "https://hackaday.com/2026-10-30/how-britain-narrowly-escaped-a-grid-blackout-in-june-2026/",
+          "source": "hackaday",
+          "byline": "Hackaday / Maya Posch",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "During one of Europe's worst heatwaves, the UK grid frequency fell to 49.657 Hz on June 23 — 0.157 Hz from the statutory 49.5 Hz floor where protection systems start shedding load. The investigation traces the alignment of maintenance outages and demand spikes, and credits halted exports plus French hydro and nuclear imports for the save. It also contrasts the event with the 2025 Iberian cascade, where grid-following solar converters amplified reactive-power oscillations — two near-misses with different physics and different lessons."
+        },
+        {
+          "title": "Build an Aliens-style motion scanner with an ESP32-S3 and radar",
+          "url": "https://blog.adafruit.com/2026-10-30/build-an-aliens-style-motion-scanner-with-an-esp32-s3-and-radar/",
+          "source": "adafruit",
+          "byline": "Geeky Gadgets via Adafruit (NorthWorks Lab)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "NorthWorks Lab's handheld tracker recreates the motion tracker from Aliens using an ESP32-S3 paired with an LD2450 mmWave radar module — a genuinely reproducible build with off-the-shelf parts rather than a concept video. Radar-based people tracking on a sub-$10 microcontroller is a step up in range and robustness from the PIR tricks most hobby builds use, and the parts list makes it accessible."
+        },
+        {
+          "title": "What happens when you run e-paper at 30 FPS?",
+          "url": "https://blog.adafruit.com/2026-10-30/what-happens-when-you-run-e-paper-at-30-fps/",
+          "source": "adafruit",
+          "byline": "Bo Made It (via Adafruit)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A measured experiment pushing a Waveshare ESP32-S3 e-paper panel far past its intended refresh rate with a custom display driver, quantifying exactly what it costs: ghosting, waveform abuse, and the actual attainable frame rate. The kind of empirical 'what if we ignore the datasheet's polite suggestion' work that tells you whether e-paper is viable for your UI before you buy ten of them."
+        },
+        {
+          "title": "A magnetic lock that opens only to the right gesture",
+          "url": "https://blog.adafruit.com/2026-10-30/a-magnetic-lock-opens-by-magic/",
+          "source": "adafruit",
+          "byline": "Stephen Cass via Adafruit (IEEE Spectrum)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A lockbox that unlocks when you trace the correct gesture in the air with a magnet, using SparkFun's $100 magnetic imaging tile as the sensor. Gesture-as-key on a magnetometer array is a nice security-adjacent hack: no pins, no app, no battery in the key, and a build path anyone can follow with a dev board and the tile."
+        },
+        {
+          "title": "DIY Eurorack interface for the Teensy 4.1",
+          "url": "https://blog.adafruit.com/2026-10-30/eurorack-what-to-do-with-digital-inputs/",
+          "source": "adafruit",
+          "byline": "flok via PJRC Forum (Adafruit)",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "When no ready-made Eurorack-to-Teensy board existed, this build started from scratch: signal levels, gate/trigger handling, and panel layout for getting a Teensy 4.1 into a modular synth rack. A useful reference for anyone doing the same on other MCU boards, since the 1U Eurorack power and 3.3-to-12V logic problem is the same problem everywhere."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Halloween-adjacent myth-busting from a sociologist with 60+ years of data, Stone Age arrows surfacing from vanishing glaciers, a deep-sea convergence that evolved seahorses twice, and the novel Verne's publisher was sure nobody wanted.",
+      "stories": [
+        {
+          "title": "TIL no child has ever been killed or seriously hurt by contaminated trick-or-treat candy",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xjj4je/til_that_a_sociologist_with_data_going_back_to/",
+          "source": "reddit",
+          "byline": "u/Altinvfinance via r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xjj4je/til_that_a_sociologist_with_data_going_back_to/",
+          "tier": "must-read",
+          "summary": "Sociologist Joel Best (University of Delaware) has collected every reported Halloween candy-contamination case since 1958 and found zero confirmed child deaths or serious injuries from treats picked up trick-or-treating. The famous Texas case everyone cites was a father who poisoned his own son as a 'perfect crime', and the California razor-blade deaths turned out to be natural causes on autopsy — yet the panic has outlived every news cycle since the 1950s. Peak-Halloween reading on how an urban legend refuses to die."
+        },
+        {
+          "title": "The oldest ice is disappearing — and the Stone Age is emerging from it",
+          "url": "https://www.sciencenorway.no/archaeology-climate-culture/the-oldest-ice-is-disappearing-the-stone-age-is-emerging-from-the-melting-ice/2713921",
+          "source": "hn",
+          "byline": "sciencenorway.no (via HN, 102 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50309266",
+          "tier": "must-read",
+          "summary": "As Norway's glaciers melt, thousands of years of preserved hunting gear — arrows, bows, snowshoes, clothing fragments — are surfacing from ice that held them since the Stone Age. The article covers both the remarkable finds and the race against decay: artifacts that survived 6,000 years frozen can disintegrate within days of exposure, turning climate loss into an archaeological excavation deadline."
+        },
+        {
+          "title": "Scientists find seahorse lookalikes no one has ever seen alive — and they're not seahorses",
+          "url": "https://www.sciencedaily.com/releases/2026-10-261029072119.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Three bizarre deep-sea fish that look exactly like seahorses — upright posture, curled prehensile tail, snout and all — turn out to belong to an entirely separate evolutionary group, meaning nature evolved the seahorse body plan twice. None had ever been observed alive; the specimens came from bycatch. Convergent evolution producing the ocean's most recognizable silhouette independently is exactly the kind of discovery that rewrites what counts as a 'seahorse shape'."
+        },
+        {
+          "title": "Physicists created a tiny universe in the lab and watched time emerge without a clock",
+          "url": "https://www.sciencedaily.com/releases/2026-10-261028234703.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Using 24,000 ultracold atoms, researchers realized a laboratory miniature of a long-standing idea in quantum gravity: that time doesn't flow from a universal clock but emerges from correlations between a system and a quantum clock subsystem. If the interpretation holds, it's a tabletop demonstration of the Page–Wootters-style 'time from entanglement' picture — a genuinely strange result about where the arrow you experience every second actually comes from."
+        },
+        {
+          "title": "Jules Verne's lost novel: the machine-perfect Paris he wrote in 1863 and nobody would publish",
+          "url": "https://blue-continuum.com/verne-paris",
+          "source": "hn",
+          "byline": "John Steele, Blue Continuum (via HN, 86 points)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50309314",
+          "tier": "recommended",
+          "summary": "In 1863 Verne looked forward instead of outward and wrote Paris in the Twentieth Century, a vision of 1960 ruled by calculators, gas-powered cabs running on Étienne Lenoir's engine, and commerce devouring art. Publisher Hetzel refused it as implausible and too bleak; the manuscript sat in a family safe for 131 years before surfacing in 1994. The essay is a sharp read on why Verne's extrapolation nailed the machines and got the humans backwards — and why the publisher's instinct about his audience was right even though the book's was better."
+        },
+        {
+          "title": "How do you take a picture of a black hole?",
+          "url": "https://www.quantamagazine.org/how-do-you-take-a-picture-of-a-black-hole-20261029/",
+          "source": "science",
+          "byline": "Quanta Magazine",
+          "discuss_url": "https://news.ycombinator.com/item?id=50301717",
+          "tier": "notable",
+          "summary": "An Event Horizon Telescope voice walks through what it takes to photograph something that emits no light: a planet-sized interferometer, observatories in Chile, Mexico, Wyoming, and the Canary Islands, and the data-processing alchemy that turns sparse visibilities into the ring image everyone remembers. The kicker is the roadmap — add a fifth site on Kilimanjaro and the same technique yields high-definition, full-color movies of black holes."
+        }
+      ]
+    }
+  ]
+}
