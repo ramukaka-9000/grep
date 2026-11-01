@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>grep · Sunday, November 1, 2026</title>
+<meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-01.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style-v2.css">
+<script>
+  // set theme before paint to avoid a flash of the wrong palette
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
+  </div>
+  <nav class="topnav">
+    <a class="navlink" href="2026-10-31.html">‹ Prev</a>
+    <span class="edition-pill">Sunday, November 1, 2026 · <span id="count">22</span> stories</span>
+    <span class="navlink disabled">Next ›</span>
+    <a class="navlink" href="archive.html">Archive</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  
+  <nav class="section-nav" aria-label="Sections">
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">10</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">6</span></a>
+  </nav>
+  <div class="section-panels">
+    
+  <section class="section-panel" id="ai" data-section-panel="ai" style="--section-color:#ff8000" aria-labelledby="heading-ai">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-ai">AI</h1>
+        <p class="section-summary">Agent harnesses, database correctness, memory latency, and two small models you can actually run.</p>
+      </div>
+      <span class="section-count" id="count-ai">10 stories</span>
+    </div>
+    <section class="filters" data-section-filters="ai" aria-label="AI filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="ai">
+      
+    <article class="story" data-section="ai" data-source="Karpathy&#x27;s bearblog" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://karpathy.bearblog.dev/hacker-tube/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/ai-01-hackertube-youtube-built-from-videos-recommended.png" alt="HackerTube: YouTube built from videos recommended by HN" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Andrej Karpathy</span>
+          <a class="orig" href="https://karpathy.bearblog.dev/hacker-tube/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50319510" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://karpathy.bearblog.dev/hacker-tube/" target="_blank" rel="noopener">HackerTube: YouTube built from videos recommended by HN</a></h2>
+        <div class="story-summary"><p>Karpathy wires HN&#x27;s recommendation graph into a minimal YouTube clone: front-page votes select which videos surface, turning a link aggregator into a video feed. A neat demonstration of how much of a recommender&#x27;s value is just the curation graph, before any ML at all. Worth reading as a counterpoint to feed-algorithm complexity.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="Jepsen" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://jepsen.io/analyses/particledb-1.1.4" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/ai-02-Jepsen-placeholder.svg" alt="Jepsen: ParticleDB 1.1.4" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Kyle Kingsbury</span>
+          <a class="orig" href="https://jepsen.io/analyses/particledb-1.1.4" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50316100" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://jepsen.io/analyses/particledb-1.1.4" target="_blank" rel="noopener">Jepsen: ParticleDB 1.1.4</a></h2>
+        <div class="story-summary"><p>The latest Jepsen teardown of the Postgres-compatible distributed store, finding anomalies in linearizability and transaction guarantees under partition and stall workloads. If you are evaluating ParticleDB as a Postgres-flavoured distributed replacement, this is the ground truth. Classic Aphyr: precise history modeling, reproducible nemesis workloads, and a blunt verdict.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="PivotLake" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://pivotlake.io/blog/its-the-memory-latency-stupid/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/ai-03-PivotLake-placeholder.svg" alt="It&#x27;s the memory latency, stupid" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">PivotLake engineering</span>
+          <a class="orig" href="https://pivotlake.io/blog/its-the-memory-latency-stupid/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50318720" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://pivotlake.io/blog/its-the-memory-latency-stupid/" target="_blank" rel="noopener">It's the memory latency, stupid</a></h2>
+        <div class="story-summary"><p>A crisp argument that for data- and inference-serving workloads, memory latency rather than bandwidth is the binding constraint, and why the industry&#x27;s HBM-centric framing misses it. Useful mental model for anyone sizing hardware for LLM serving or database workloads. The worked examples make the prefetch-pipeline argument concrete.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="Atlasum" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://atlasum.net/blog/cve-2026-98432-linux-ipv4-tcp-uaf" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/ai-04-tcp-use-after-free-cve-2026-98432-cvss-9-8.png" alt="TCP Use-After-Free: CVE-2026-98432 / CVSS 9.8" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Atlasum Security</span>
+          <a class="orig" href="https://atlasum.net/blog/cve-2026-98432-linux-ipv4-tcp-uaf" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50319143" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://atlasum.net/blog/cve-2026-98432-linux-ipv4-tcp-uaf" target="_blank" rel="noopener">TCP Use-After-Free: CVE-2026-98432 / CVSS 9.8</a></h2>
+        <div class="story-summary"><p>A remotely triggerable use-after-free in the Linux IPv4 TCP stack, rated CVSS 9.8, walked through from bug to exploit primitive. Anyone running self-hosted AI infrastructure or exposed Linux services should read the affected-version analysis and patch immediately. The write-up doubles as a good tutorial in network-stack memory bugs.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arXiv" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://arxiv.org/abs/2610.40655" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/ai-05-elucidating-the-design-space-of-lm-data-attribut.png" alt="Elucidating the Design Space of LM Data Attribution" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Steven Yu, Sheng-Yu Wang, Kimia Hamidieh, Antonio Torralba, David Bau</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.40655" target="_blank" rel="noopener">Web ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.40655" target="_blank" rel="noopener">Elucidating the Design Space of LM Data Attribution</a></h2>
+        <div class="story-summary"><p>A systematic study of data-attribution design choices for language models from the Bau/Torralba group: which attribution methods actually hold up, and which design decisions dominate results. The right starting point if you are building unlearning, attribution, or training-data auditing pipelines. Reads as the field&#x27;s missing ablation paper.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arXiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2610.40269" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/ai-06-when-modernization-breaks-working-code-a-single-.png" alt="When Modernization Breaks Working Code: A Single-File Study of LLMs on Legacy PHP" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Afridi Mahmud et al.</span>
+          <a class="orig" href="https://arxiv.org/abs/2610.40269" target="_blank" rel="noopener">Web ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2610.40269" target="_blank" rel="noopener">When Modernization Breaks Working Code: A Single-File Study of LLMs on Legacy PHP</a></h2>
+        <div class="story-summary"><p>A controlled single-file study of how LLMs behave when asked to modernize legacy PHP: where they silently break working behavior rather than fail loudly. Directly relevant to anyone letting agents touch real legacy codebases. The failure taxonomy is more useful than the headline pass rates.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="GitHub" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://github.com/heydamir/unslop" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/ai-07-unslop-a-claude-skill-that-de-ai-ifies-vibecoded.png" alt="unslop: a Claude skill that de-AI-ifies vibecoded UI" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">heydamir</span>
+          <a class="orig" href="https://github.com/heydamir/unslop" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://github.com/heydamir/unslop" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/heydamir/unslop" target="_blank" rel="noopener">unslop: a Claude skill that de-AI-ifies vibecoded UI</a></h2>
+        <div class="story-summary"><p>A Claude/Codex skill that runs nine design passes over AI-generated interfaces to strip the telltale &#x27;slop&#x27; look — gradient-on-glass defaults, dead spacing, icon soup — toward an actually directed design. One-line install via skill-installer and examples show before/after. A pragmatic example of skills as a design-review layer for agent-written frontends.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="GitHub" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/ai-08-deepseek-dsh-superagent-prototype-towards-a-more.png" alt="DeepSeek dsh-superagent-prototype: towards a more autonomous agent system" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">DeepSeek Harness Team</span>
+          <a class="orig" href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noopener">DeepSeek dsh-superagent-prototype: towards a more autonomous agent system</a></h2>
+        <div class="story-summary"><p>DeepSeek&#x27;s newly open-sourced research prototype for a more autonomous agent harness, published as a single initial commit with docs and MIT license. Already at 3k stars, it is the first direct look at how the DeepSeek harness team thinks about long-horizon autonomy rather than tool-calling demos. Compare its architecture against Claude Code and Codex harnesses.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="Hugging Face" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/Hadidiz9/VoiceTut-TTS" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/ai-09-voicetut-tts-open-egyptian-arabic-tts-with-code-.png" alt="VoiceTut-TTS: open Egyptian-Arabic TTS with code-switching" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Mohammed Aly</span>
+          <a class="orig" href="https://huggingface.co/Hadidiz9/VoiceTut-TTS" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://huggingface.co/Hadidiz9/VoiceTut-TTS" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/Hadidiz9/VoiceTut-TTS" target="_blank" rel="noopener">VoiceTut-TTS: open Egyptian-Arabic TTS with code-switching</a></h2>
+        <div class="story-summary"><p>A ~610M-parameter fine-tune of k2-fsa&#x27;s OmniVoice for Egyptian Arabic with seamless Arabic-English code-switching, 19 built-in voices, zero-shot voice cloning, and true streaming. Small enough to run comfortably on a 6GB card or CPU, with a public Space and audio comparisons against the base model. Fills a genuine gap in open Arabic speech stacks, alongside the companion QwenCleo-ASR.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="Hugging Face" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/umarfarzan/acliptic-clipworthy-v2" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/ai-10-acliptic-clipworthy-v2-142m-model-that-scores-st.png" alt="acliptic-clipworthy-v2: 142M-model that scores stream moments for clip-worthiness" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Umar Farzan</span>
+          <a class="orig" href="https://huggingface.co/umarfarzan/acliptic-clipworthy-v2" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://huggingface.co/umarfarzan/acliptic-clipworthy-v2" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/umarfarzan/acliptic-clipworthy-v2" target="_blank" rel="noopener">acliptic-clipworthy-v2: 142M-model that scores stream moments for clip-worthiness</a></h2>
+        <div class="story-summary"><p>A fine-tuned DeBERTa-v3-small (142M params) that scores 30-second transcript segments for viral-clip likelihood at ~0.14s per segment on CPU. Retrained with real conversation as the negative class and ships with an ad filter and per-hour clip caps — the production rules, not just the weights. A tidy template for building your own moment-detection model on top of Whisper output.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="electronics" data-section-panel="electronics" style="--section-color:#22d3ee" aria-labelledby="heading-electronics">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-electronics">Electronics</h1>
+        <p class="section-summary">Fire-cooled refrigerators, ESP32 radar, a rooted Echo Dot, and measured thermal hacks.</p>
+      </div>
+      <span class="section-count" id="count-electronics">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="electronics">
+      
+    <article class="story" data-section="electronics" data-source="Hackaday" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://hackaday.com/2026-10-31/3d-printed-einstein-szilard-refrigerator-cools-with-fire/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/electronics-01-3d-printed-einstein-szilard-refrigerator-cools-w.png" alt="3D Printed Einstein-Szilard Refrigerator Cools with Fire" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026-10-31/3d-printed-einstein-szilard-refrigerator-cools-with-fire/" target="_blank" rel="noopener">Web ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-31/3d-printed-einstein-szilard-refrigerator-cools-with-fire/" target="_blank" rel="noopener">3D Printed Einstein-Szilard Refrigerator Cools with Fire</a></h2>
+        <div class="story-summary"><p>A build of the 1930s Einstein-Szilard absorption refrigerator — no moving parts, no compressor, cooled by flame — realized with 3D-printed components. A rare combination of archival physics, thermodynamics you can verify by hand, and modern fabrication. The best kind of reproducible history-of-tech build.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="Adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026-10-30/build-an-aliens-style-motion-scanner-with-an-esp32-s3-and-radar/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/electronics-02-Adafruit-placeholder.svg" alt="Build an Aliens style motion scanner with an ESP32-S3 and radar" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Adafruit Learn</span>
+          <a class="orig" href="https://blog.adafruit.com/2026-10-30/build-an-aliens-style-motion-scanner-with-an-esp32-s3-and-radar/" target="_blank" rel="noopener">Web ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-10-30/build-an-aliens-style-motion-scanner-with-an-esp32-s3-and-radar/" target="_blank" rel="noopener">Build an Aliens style motion scanner with an ESP32-S3 and radar</a></h2>
+        <div class="story-summary"><p>A full guide to a motion detector straight out of Aliens: an ESP32-S3 driving a display with radar-based human detection, complete with wiring and code. Practical radar-sensor integration on the S3 without a camera, which sidesteps a whole class of privacy complaints. One of the more useful ESP32 projects of the week.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="Hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026-10-31/rooting-an-amazon-echo-dot/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/electronics-03-rooting-an-amazon-echo-dot.jpg" alt="Rooting an Amazon Echo Dot" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026-10-31/rooting-an-amazon-echo-dot/" target="_blank" rel="noopener">Web ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-31/rooting-an-amazon-echo-dot/" target="_blank" rel="noopener">Rooting an Amazon Echo Dot</a></h2>
+        <div class="story-summary"><p>A walkthrough of gaining root on an Echo Dot, from UART recon to a writable filesystem — the classic path of turning a cloud eavesdropper into your own device. The exploit chain and mitigations encountered are the interesting part, not the gadget itself. Good reading before you buy any locked-down smart speaker.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="Hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026-10-31/diy-wifi-analyzer-sniffs-out-congestion-and-coverage-issues-suggests-fixes/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/electronics-04-diy-wifi-analyzer-sniffs-out-congestion-and-cove.png" alt="DIY WiFi Analyzer Sniffs Out Congestion and Coverage Issues, Suggests Fixes" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026-10-31/diy-wifi-analyzer-sniffs-out-congestion-and-coverage-issues-suggests-fixes/" target="_blank" rel="noopener">Web ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026-10-31/diy-wifi-analyzer-sniffs-out-congestion-and-coverage-issues-suggests-fixes/" target="_blank" rel="noopener">DIY WiFi Analyzer Sniffs Out Congestion and Coverage Issues, Suggests Fixes</a></h2>
+        <div class="story-summary"><p>A handheld WiFi analyzer build that maps congestion and coverage holes and then suggests channel/placement fixes instead of just dumping numbers. Useful hardware for anyone whose home network fight with a landlord-grade router has gone professional. The suggested-fix logic is the clever layer on top of the usual RSSI sweep.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="Show HN" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://zebra.rodeo/en/blog/marelleo/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/electronics-05-show-hn-marelleo-an-open-source-story-box-for-ki.jpg" alt="Show HN: Marelleo, an open-source story box for kids built on ESP32" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">zebra.rodeo</span>
+          <a class="orig" href="https://zebra.rodeo/en/blog/marelleo/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50260753" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://zebra.rodeo/en/blog/marelleo/" target="_blank" rel="noopener">Show HN: Marelleo, an open-source story box for kids built on ESP32</a></h2>
+        <div class="story-summary"><p>An open-source screenless story machine for children: ESP32 hardware, a button, and generated audio tales, documented end-to-end so you can build one. A good reference design for LLM-generated audio on a sub-$10 MCU with parental controls done locally. The build log covers both the hardware and the content pipeline trade-offs.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="Jeff Geerling" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.jeffgeerling.com/blog/2026/noctua-fan-swap-calnex-rb-gps-frequency-reference/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/electronics-06-Jeff Geerling-placeholder.svg" alt="Noctua Fan Swap on a Calnex Rubidium/GPS Frequency Reference" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Jeff Geerling</span>
+          <a class="orig" href="https://www.jeffgeerling.com/blog/2026/noctua-fan-swap-calnex-rb-gps-frequency-reference/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50293806" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.jeffgeerling.com/blog/2026/noctua-fan-swap-calnex-rb-gps-frequency-reference/" target="_blank" rel="noopener">Noctua Fan Swap on a Calnex Rubidium/GPS Frequency Reference</a></h2>
+        <div class="story-summary"><p>Geerling replaces the shrieking OEM fan in a Calnex rubidium standard with a Noctua unit, with the important caveat: thermal management of a rubidium oscillator affects frequency stability, so he measures before declaring victory. A model of how to mod precision test gear — quantify the risk, verify the spec still holds. Also explains why these boxes sound like jet engines.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="interesting-news" data-section-panel="interesting-news" style="--section-color:#f472b6" aria-labelledby="heading-interesting-news">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-interesting-news">Interesting News</h1>
+        <p class="section-summary">A parliament of PhDs, a 75,000-year-old murder weapon, and a 1,600-year-old glass recipe cracked.</p>
+      </div>
+      <span class="section-count" id="count-interesting-news">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="interesting-news">
+      
+    <article class="story" data-section="interesting-news" data-source="Science (AAAS)" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.science.org/content/article/serbia-just-elected-world-s-brainiest-parliament" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/interesting-news-01-Science (AAAS)-placeholder.svg" alt="Serbia just elected the world&#x27;s brainiest parliament" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Nenad Jarić Dauenhauer &amp; Mićo Tatalović</span>
+          <a class="orig" href="https://www.science.org/content/article/serbia-just-elected-world-s-brainiest-parliament" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50314654" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.science.org/content/article/serbia-just-elected-world-s-brainiest-parliament" target="_blank" rel="noopener">Serbia just elected the world's brainiest parliament</a></h2>
+        <div class="story-summary"><p>After the Novi Sad station canopy collapse of November 2024 killed 16 and sparked years of student protests, the Student List – Students Are Winning won 141 of 250 seats on 25 October 2026. Dozens of its MPs are academics — an astrophysicist, a robotist electrical engineer, organic chemists, physicians — with more than half holding a PhD or MD. Science calls it possibly the most educated parliament in the world; researchers now expect merit-based science funding and an end to the Vučić-era politicization of universities.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="ScienceDaily (University of Cambridge)" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261029072126.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/interesting-news-02-ScienceDaily (University of Cambridge)-placeholder.svg" alt="75,000-year-old Neanderthal may have been killed by a spear aimed at the heart" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">University of Cambridge</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261029072126.htm" target="_blank" rel="noopener">Web ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261029072126.htm" target="_blank" rel="noopener">75,000-year-old Neanderthal may have been killed by a spear aimed at the heart</a></h2>
+        <div class="story-summary"><p>A small circular hole in the shoulder blade of the Shanidar A Neanderthal from Iraqi Kurdistan suggests a sharpened wooden spear was driven through the chest — potentially the oldest evidence in the hominin fossil record of fatal interpersonal violence with a wooden weapon. The same individual had survived an earlier devastating facial injury, implying group care. Rare two-sided evidence: both murder and medicine in one skeleton.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="Make Tech Easier / National Academies" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://maketecheasier.com/arecibo-zinc-creep-collapse/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/interesting-news-03-zinc-creep-in-cable-spelter-sockets-brought-down.jpg" alt="Zinc creep in cable spelter sockets brought down the Arecibo telescope" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">The MTE Letter</span>
+          <a class="orig" href="https://maketecheasier.com/arecibo-zinc-creep-collapse/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50311045" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://maketecheasier.com/arecibo-zinc-creep-collapse/" target="_blank" rel="noopener">Zinc creep in cable spelter sockets brought down the Arecibo telescope</a></h2>
+        <div class="story-summary"><p>The National Academies&#x27; final report pins the 2020 Arecibo platform collapse on long-term zinc creep in the cable spelter sockets — the first documented case of its kind despite a century of zinc-socket use. The failure sequence began with Hurricane Maria more than three years earlier, with minimal warning signs before cables pulled out. A sobering reminder that unique science infrastructure needs inspection regimes, not just maintenance budgets.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="Ars Technica" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arstechnica.com/science/2026/10/scientists-recreate-the-1600-year-old-recipe-of-lycurgus-cup/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/interesting-news-04-Ars Technica-placeholder.svg" alt="Scientists recreate the 1,600-year-old recipe of the Lycurgus Cup" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Ars Technica</span>
+          <a class="orig" href="https://arstechnica.com/science/2026/10/scientists-recreate-the-1600-year-old-recipe-of-lycurgus-cup/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50301723" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arstechnica.com/science/2026/10/scientists-recreate-the-1600-year-old-recipe-of-lycurgus-cup/" target="_blank" rel="noopener">Scientists recreate the 1,600-year-old recipe of the Lycurgus Cup</a></h2>
+        <div class="story-summary"><p>University of Sheffield scientists cracked the recipe behind the ~400 CE Lycurgus Cup&#x27;s dichroic glass — green in front light, deep red in backlit glow — a nanotechnology effect from gold-silver alloy nanoparticles that Roman glassmakers achieved empirically. They produced a contemporary sculpture reproducing the exact optical effect, blending the Lycurgus story with the Farnese Atlas, globe swapped for a cup. It goes on public display at the Millennium Gallery during Sheffield&#x27;s Festival of the Mind before a permanent home in the Turner Museum of Glass.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="ScienceDaily (Brookhaven National Laboratory)" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-10-261030002935.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/interesting-news-05-ScienceDaily (Brookhaven National Laboratory)-placeholder.svg" alt="Scientists smash oxygen nuclei to recreate matter from the Big Bang" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Brookhaven National Laboratory</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026-10-261030002935.htm" target="_blank" rel="noopener">Web ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-10-261030002935.htm" target="_blank" rel="noopener">Scientists smash oxygen nuclei to recreate matter from the Big Bang</a></h2>
+        <div class="story-summary"><p>At RHIC, near-light-speed oxygen-nucleus collisions produced quark-gluon plasma — the primordial soup of the early universe — in a much smaller, lower-energy system than previously demonstrated. The jet-quenching signatures show the exotic state forms well below the heavy-ion regimes where textbooks said it needed to, redrawing the boundary of early-universe physics. It also opens lighter collision systems as precision probes of the plasma.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="Smithsonian Magazine" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.smithsonianmag.com/science-nature/italian-farmer-found-unknown-seeds-attic-with-nothing-lose-planted-them-result-biblical-180989644/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-01/interesting-news-06-an-italian-farmer-found-unknown-seeds-in-his-att.webp" alt="An Italian farmer found unknown seeds in his attic and planted them — the result was almost biblical" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Lina Zeldovich</span>
+          <a class="orig" href="https://www.smithsonianmag.com/science-nature/italian-farmer-found-unknown-seeds-attic-with-nothing-lose-planted-them-result-biblical-180989644/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50320963" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.smithsonianmag.com/science-nature/italian-farmer-found-unknown-seeds-attic-with-nothing-lose-planted-them-result-biblical-180989644/" target="_blank" rel="noopener">An Italian farmer found unknown seeds in his attic and planted them — the result was almost biblical</a></h2>
+        <div class="story-summary"><p>In the early 1990s, Claudio Grossi, a farmer near Parma, planted mystery seeds from his attic and grew a plant with seven ears of grain on a single stalk and kernels in a rainbow of colors. It turned out to be an ancient wheat variety with modern relevance — drought tolerance the Smithsonian profiles for climate-era agriculture. A grassroots crop-rediscovery story: a miracle, then a seed bank, then a farm business.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning · Sunday, November 1, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
