@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>grep · Wednesday, November 4, 2026</title>
+<title>grep · Thursday, November 5, 2026</title>
 <meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-04.html">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-05.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style-v2.css">
 <script>
@@ -21,8 +21,8 @@
     <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
   </div>
   <nav class="topnav">
-    <a class="navlink" href="2026-11-03.html">‹ Prev</a>
-    <span class="edition-pill">Wednesday, November 4, 2026 · <span id="count">22</span> stories</span>
+    <a class="navlink" href="2026-11-04.html">‹ Prev</a>
+    <span class="edition-pill">Thursday, November 5, 2026 · <span id="count">24</span> stories</span>
     <span class="navlink disabled">Next ›</span>
     <a class="navlink" href="archive.html">Archive</a>
     <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
@@ -31,7 +31,7 @@
 <main>
   
   <nav class="section-nav" aria-label="Sections">
-    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">10</span></a>
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">12</span></a>
 <a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
 <a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">6</span></a>
   </nav>
@@ -41,9 +41,9 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-ai">AI</h1>
-        <p class="section-summary">Skepticism and systems: the weight-editing saga gets a careful rebuttal and a partial replication, while MoE serving and recommender storage papers pinpoint real infrastructure bottlenecks. Two small runnable models round it out.</p>
+        
       </div>
-      <span class="section-count" id="count-ai">10 stories</span>
+      <span class="section-count" id="count-ai">12 stories</span>
     </div>
     <section class="filters" data-section-filters="ai" aria-label="AI filters">
       <span class="filter-label">Source</span>
@@ -52,6 +52,7 @@
 <button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
 <button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
 <button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
+<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
@@ -60,162 +61,194 @@
     <section class="stories" data-section-stories="ai">
       
     <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://honnibal.dev/blog/astra-read-write-misleading" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/ai-01-the-astra-can-read-and-write-weights-to-improve-.png" alt="The &#x27;Astra can read and write weights to improve Qwen&#x27; post is misleading" loading="lazy">
+      <a class="thumb" href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-01-kimi-k3-1-pro-model-weights-are-out.png" alt="Kimi K3.1 Pro model weights are out" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">Matthew Honnibal</span>
-          <a class="orig" href="https://honnibal.dev/blog/astra-read-write-misleading" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50351111" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">abrarthought (HN)</span>
+          <a class="orig" href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50366999" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://honnibal.dev/blog/astra-read-write-misleading" target="_blank" rel="noopener">The 'Astra can read and write weights to improve Qwen' post is misleading</a></h2>
-        <div class="story-summary"><p>A methodical teardown of yesterday&#x27;s viral weight-space programming post argues the headline claim outruns the evidence: the reported improvements are within noise of simple baselines and the experimental setup hides confounds. Honnibal walks through what the figures actually support and what a fair evaluation would require. If you read the original Astra post, this is the necessary companion piece before drawing conclusions about models editing their own weights.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://github.com/postmanlabs/postman-app-support/issues/14370" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/ai-02-postman-silently-auto-installs-ai-plugins-and-at.png" alt="Postman silently auto-installs AI plugins and attempts to share all API data" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">sidgarimella (GitHub issue)</span>
-          <a class="orig" href="https://github.com/postmanlabs/postman-app-support/issues/14370" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50354960" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://github.com/postmanlabs/postman-app-support/issues/14370" target="_blank" rel="noopener">Postman silently auto-installs AI plugins and attempts to share all API data</a></h2>
-        <div class="story-summary"><p>Users discovered that a Postman desktop update silently auto-installed AI plugins and tried to sync full API collections, including request/response data, toward AI features without clear consent. The filed issue triggered a large thread on trust and default-on AI features in developer tools that hold sensitive credentials. A concrete reminder to pin and audit the tooling in your critical path, especially anything that caches API secrets.</p></div>
+        <h2 class="story-title"><a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro" target="_blank" rel="noopener">Kimi K3.1 Pro model weights are out</a></h2>
+        <div class="story-summary"><p>MoonshotAI released the weights for Kimi K3.1 Pro on Hugging Face, continuing the lab&#x27;s open-weights streak. The HN thread is focused on license terms, hardware requirements for self-hosting, and how it stacks up against other frontier open models. Worth a look if you are benchmarking open alternatives for agentic or long-context workloads.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://chalmovsky.com/posts/wtf-ubuntu" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/ai-03-hn-placeholder.svg" alt="WTF Ubuntu?" loading="lazy">
+      <a class="thumb" href="https://www.mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-02-nvidia-rtx-spark-encrypted-firmware-slows-infere.png" alt="Nvidia RTX Spark encrypted firmware slows inference to 35% on Linux" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">chalmovsky</span>
-          <a class="orig" href="https://chalmovsky.com/posts/wtf-ubuntu" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50337608" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">novaRom (HN)</span>
+          <a class="orig" href="https://www.mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50362905" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://chalmovsky.com/posts/wtf-ubuntu" target="_blank" rel="noopener">WTF Ubuntu?</a></h2>
-        <div class="story-summary"><p>A frustrated engineering write-up of Ubuntu&#x27;s recent direction — snap enforcement, apt friction, and telemetry choices — that resonated hard with the sysadmin crowd at 1600+ points. The piece argues the distro&#x27;s convenience layer now costs server operators more in surprise than it saves in setup time. The HN thread is a useful survey of where teams are migrating and what they weigh when picking a default Linux for production.</p></div>
+        <h2 class="story-title"><a href="https://www.mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop" target="_blank" rel="noopener">Nvidia RTX Spark encrypted firmware slows inference to 35% on Linux</a></h2>
+        <div class="story-summary"><p>A teardown-style report claims the RTX Spark laptop&#x27;s encrypted firmware imposes a heavy penalty on local inference under Linux, with throughput dropping to roughly 35% of what the hardware can do. The HN discussion digs into whether this is driver policy, firmware lockdown, or measurement noise. Important reading before buying an Nvidia laptop as a local-LLM box.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/ai-04-hn-placeholder.svg" alt="Qwen 3.8 27B on my laptop can interpret model weights, too" loading="lazy">
+      <a class="thumb" href="https://www.ricursive.com/ripple" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-03-ripple-65b-preview-u-s-open-weight-sota-on-agent.png" alt="Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">Simon Willison</span>
-          <a class="orig" href="https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50355251" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Philpax (HN)</span>
+          <a class="orig" href="https://www.ricursive.com/ripple" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50369925" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/" target="_blank" rel="noopener">Qwen 3.8 27B on my laptop can interpret model weights, too</a></h2>
-        <div class="story-summary"><p>Simon Willison runs a local replication of the weight-interpretation claim with Qwen 3.8 27B on a laptop and finds the model can, to a limited degree, describe what weight slices correspond to — echoing part of the Astra story without the stronger improvement claims. He is careful about what the demo does and does not prove, positioning it alongside Honnibal&#x27;s skepticism rather than the original hype. A good calibrated data point on the emerging &#x27;models reading weights&#x27; genre.</p></div>
+        <h2 class="story-title"><a href="https://www.ricursive.com/ripple" target="_blank" rel="noopener">Ripple-65B Preview: U.S. Open-Weight SOTA on Agentic Coding</a></h2>
+        <div class="story-summary"><p>Ricursive previewed Ripple-65B, claiming state-of-the-art among US open-weight models on agentic coding benchmarks. The HN thread probes the benchmark selection and whether a 65B dense model can really hold the claimed position against MoE rivals. Interesting data point for anyone choosing a self-hosted coding model.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.anthropic.com/research/provable-inference" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-04-progress-on-provable-inference-for-large-languag.jpg" alt="Progress on provable inference for large language models" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">ltononro (HN)</span>
+          <a class="orig" href="https://www.anthropic.com/research/provable-inference" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50368626" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.anthropic.com/research/provable-inference" target="_blank" rel="noopener">Progress on provable inference for large language models</a></h2>
+        <div class="story-summary"><p>Anthropic published research progress toward provable inference — cryptographic guarantees that a claimed model output actually came from the advertised model and compute path. The thread connects this to the broader supply-chain problem in hosted inference and to verifiable-compute startups. A meaningful step for anyone building on rented GPU inference.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://arxiv.org/abs/2611.04222" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/ai-05-arxiv-placeholder.svg" alt="GC-MoE: Overlapping Expert-Parallel Token Dispatch with FP8/FP4 Grouped GEMM via CUDA Green Contexts" loading="lazy">
+      <a class="thumb" href="https://arxiv.org/abs/2611.05919v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-05-arxiv-placeholder.svg" alt="Routes of Reasoning: Reading and Reshaping Test-Time Compute in MoE Models" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">arXiv cs.DC</span>
-          <a class="orig" href="https://arxiv.org/abs/2611.04222" target="_blank" rel="noopener">arXiv ›</a>
+          <span class="by">Shengjie Wang, Mohsen Fayyaz, Nanyun Peng</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.05919v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.05919v1" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.04222" target="_blank" rel="noopener">GC-MoE: Overlapping Expert-Parallel Token Dispatch with FP8/FP4 Grouped GEMM via CUDA Green Contexts</a></h2>
-        <div class="story-summary"><p>Expert-parallel MoE decoding pays for all-to-all token dispatch, grouped GEMMs, and a combine step in every layer, and at decode each rank may hold as few as 1-256 tokens — far too little to saturate the GPU. GC-MoE uses CUDA Green Contexts to partition SMs so dispatch overlaps with FP8/FP4 grouped GEMM instead of serializing behind it. The measured decode-latency wins are the kind of detail inference-engineering teams tuning multi-GPU MoE serving will want.</p></div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.05919v1" target="_blank" rel="noopener">Routes of Reasoning: Reading and Reshaping Test-Time Compute in MoE Models</a></h2>
+        <div class="story-summary"><p>The paper examines how reasoning models allocate test-time compute inside Mixture-of-Experts architectures and shows that expert routing paths can be read and reshaped to control reasoning effort. Practical angle: cheap interventions on routing may give you cost/quality knobs without retraining. Relevant if you serve MoE models and care about inference budgets.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://arxiv.org/abs/2611.02618" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/ai-06-arxiv-placeholder.svg" alt="USDB: Scaling Storage for Next-Generation Recommender Systems at ByteDance" loading="lazy">
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://arxiv.org/abs/2611.05942v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-06-arxiv-placeholder.svg" alt="Reward Budgeting Reduces Premature Convergence in RL for LLM Reasoning" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">arXiv cs.DB</span>
-          <a class="orig" href="https://arxiv.org/abs/2611.02618" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50354250" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Mengni Jia, Mengyu Zhou, Xiaoxi Jiang, Guanjun Jiang</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.05942v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.05942v1" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.02618" target="_blank" rel="noopener">USDB: Scaling Storage for Next-Generation Recommender Systems at ByteDance</a></h2>
-        <div class="story-summary"><p>ByteDance describes the storage engine behind its recommender systems at scale, covering how feature tables and training-serving data are organized when throughput demands dwarf ordinary OLTP workloads. It is a rare look at real database engineering inside one of the world&#x27;s largest ML fleets, including the tradeoffs between freshness, footprint, and read amplification. Useful reading for anyone building AI-and-databases infrastructure where the model is only as fast as its storage layer.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://github.com/storytold/craft-anything" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/ai-07-craft-anything-understand-how-any-software-works.png" alt="Craft Anything: understand how any software works, and craft your own" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
-          <span class="by">storytold</span>
-          <a class="orig" href="https://github.com/storytold/craft-anything" target="_blank" rel="noopener">GitHub ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
-        </div>
-        <h2 class="story-title"><a href="https://github.com/storytold/craft-anything" target="_blank" rel="noopener">Craft Anything: understand how any software works, and craft your own</a></h2>
-        <div class="story-summary"><p>A fast-growing Rust tool that reverse-explains arbitrary software — binaries or apps — and then scaffolds a simplified reimplementation you can build on, turning &#x27;how does this work&#x27; into a guided learning loop. At 8.7k stars in days, it captures the current appetite for AI-assisted code archaeology that ends in understanding rather than a clone. The educational angle (explain-then-craft) is what separates it from plain decompiler wrappers.</p></div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.05942v1" target="_blank" rel="noopener">Reward Budgeting Reduces Premature Convergence in RL for LLM Reasoning</a></h2>
+        <div class="story-summary"><p>RL training of reasoning LLMs often collapses early onto easy solution patterns; this work proposes budgeting the reward signal across training to keep exploration alive longer. A simple, low-cost change to RLVR pipelines that others can try on small setups. Useful for anyone fine-tuning reasoning models with GRPO-style objectives.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
-      <a class="thumb" href="https://github.com/wangzan101/Mika" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/ai-08-mika-an-on-device-ai-agent-for-android.png" alt="Mika: an on-device AI agent for Android" loading="lazy">
+      <a class="thumb" href="https://github.com/anthropics/FlashProve" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-07-github-placeholder.svg" alt="FlashProve: zero-knowledge proofs of AI inference" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#8b5cf6">Gh</span>
-          <span class="by">wangzan101</span>
-          <a class="orig" href="https://github.com/wangzan101/Mika" target="_blank" rel="noopener">GitHub ›</a>
+          <span class="by">anthropics</span>
+          <a class="orig" href="https://github.com/anthropics/FlashProve" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/anthropics/FlashProve" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://github.com/wangzan101/Mika" target="_blank" rel="noopener">Mika: an on-device AI agent for Android</a></h2>
-        <div class="story-summary"><p>An open-source Kotlin agent that operates Android apps and the web on your behalf using accessibility APIs, with Jetpack Compose UI and no cloud dependency for the orchestration loop. It is one of the more complete public examples of the phone-as-robot pattern, useful for studying permission handling and action grounding on mobile. At 6k stars it is early but active, pushed today.</p></div>
+        <h2 class="story-title"><a href="https://github.com/anthropics/FlashProve" target="_blank" rel="noopener">FlashProve: zero-knowledge proofs of AI inference</a></h2>
+        <div class="story-summary"><p>A research prototype from Anthropic, written in Lean, for producing zero-knowledge proofs that AI inference was executed as claimed. Explicitly unmaintained, but the code is a rare public artifact showing how formal methods and ZK proofs are being stitched onto inference pipelines. Pairs well with the provable-inference post above.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="ai" data-source="hf" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://huggingface.co/rikai-translate/rikai-jp-eng-Bench-265-1.4B" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/ai-09-rikai-jp-eng-bench-265-1-4b-on-device-japanese-e.png" alt="rikai jp↔eng Bench 265 1.4B — on-device Japanese-English translation" loading="lazy">
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/Verlintas/NOIR" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-08-noir-android-privacy-audit-over-adb.png" alt="NOIR: Android privacy audit over adb" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#ffd21e">HF</span>
-          <span class="by">rikai-translate</span>
-          <a class="orig" href="https://huggingface.co/rikai-translate/rikai-jp-eng-Bench-265-1.4B" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">Verlintas</span>
+          <a class="orig" href="https://github.com/Verlintas/NOIR" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/Verlintas/NOIR" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/Verlintas/NOIR" target="_blank" rel="noopener">NOIR: Android privacy audit over adb</a></h2>
+        <div class="story-summary"><p>NOIR scans Android apps over adb and maps permissions, reporting endpoints, and data flows, then proposes reversible remediations you can roll back. Written in Kotlin as a desktop-side auditor, which makes it practical for auditing your own phone. A handy tool for anyone doing personal-data hygiene or privacy research.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://go.dev/blog/jsonv2" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-09-a-new-go-api-for-json-json-v2.jpg" alt="A new Go API for JSON (json/v2)" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Go team (Go blog)</span>
+          <a class="orig" href="https://go.dev/blog/jsonv2" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50369106" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://huggingface.co/rikai-translate/rikai-jp-eng-Bench-265-1.4B" target="_blank" rel="noopener">rikai jp↔eng Bench 265 1.4B — on-device Japanese-English translation</a></h2>
-        <div class="story-summary"><p>A 1.4B prefix-LM translation model that matches CyberAgent&#x27;s CAT-Translate-3.3B on most automatic metrics at 2.4x its decode speed, with an 8-bit MLX build that lands at 1.5 GB — comfortably inside a 6 GB card or Apple silicon. The model card also documents two real bugs in the upstream CAT-Translate release (a rope_theta config mistake and a broken tokenizer conversion) that they had to fix before training, which is worth knowing if you build on that family. Novel, runnable, and honest about where the LLM judge still prefers bigger models.</p></div>
+        <h2 class="story-title"><a href="https://go.dev/blog/jsonv2" target="_blank" rel="noopener">A new Go API for JSON (json/v2)</a></h2>
+        <div class="story-summary"><p>Google published the long-awaited json/v2 proposal and API for Go, reworking struct-tag semantics, omit/nullable behavior, and error handling that have annoyed encoding/json users for a decade. The HN thread debates migration pain versus the ergonomics win. Any Go service touching LLM APIs or config should read this before 1.25 lands.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.cosmos-institute.org/p/verification-is-not-knowledge" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-10-verification-is-not-knowledge-science-needs-more.jpg" alt="Verification Is Not Knowledge: Science needs more than answers" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Cosmos Institute</span>
+          <a class="orig" href="https://blog.cosmos-institute.org/p/verification-is-not-knowledge" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50363019" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.cosmos-institute.org/p/verification-is-not-knowledge" target="_blank" rel="noopener">Verification Is Not Knowledge: Science needs more than answers</a></h2>
+        <div class="story-summary"><p>An argument that verifiable-answer benchmarks (the RLVR wave) optimize for checkable outputs rather than genuine understanding, and why that distinction matters as labs scale RL on math and code. The HN discussion splits between &#x27;correct and obvious&#x27; and &#x27;hand-waving without metrics.&#x27; A good counterweight to benchmark mania.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://huggingface.co/Cohere-AR/cohere-transcribe-ar-rl2-v9enc" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/ai-10-cohere-ar-rl-tuned-arabic-phone-call-asr-at-2-07.png" alt="Cohere-AR: RL-tuned Arabic phone-call ASR at 2.07B params" loading="lazy">
+      <a class="thumb" href="https://huggingface.co/Mincofficial/Minico-M1-1105" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-11-minico-m1-1105-a-350m-reasoning-tool-calling-mod.png" alt="Minico-M1-1105: a 350M reasoning + tool-calling model on LFM2.5" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ffd21e">HF</span>
-          <span class="by">Cohere-AR (community fine-tune)</span>
-          <a class="orig" href="https://huggingface.co/Cohere-AR/cohere-transcribe-ar-rl2-v9enc" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="by">Mincofficial</span>
+          <a class="orig" href="https://huggingface.co/Mincofficial/Minico-M1-1105" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/Mincofficial/Minico-M1-1105" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://huggingface.co/Cohere-AR/cohere-transcribe-ar-rl2-v9enc" target="_blank" rel="noopener">Cohere-AR: RL-tuned Arabic phone-call ASR at 2.07B params</a></h2>
-        <div class="story-summary"><p>A 2.07B community fine-tune of Cohere&#x27;s Arabic transcription model, trained with a second stage of 800 minimum-WER RL steps over ~73k clips of dialect Arabic, English, and code-switched phone audio — with the encoder in the loop this time. It runs in BF16 on a 6 GB GPU and writes its own language header for automatic language detection on ~30s clips. A strong, reproducible recipe for dialect-heavy ASR where commercial APIs fall apart, though note some training sets are non-commercial licensed and the repo is gated.</p></div>
+        <h2 class="story-title"><a href="https://huggingface.co/Mincofficial/Minico-M1-1105" target="_blank" rel="noopener">Minico-M1-1105: a 350M reasoning + tool-calling model on LFM2.5</a></h2>
+        <div class="story-summary"><p>A finetune of LiquidAI&#x27;s LFM2.5-350M that adds reasoning-effort controls and tool calling at 354M parameters — trivially runnable on a 3060 or CPU. One of the few sub-1B models shipping thinking/tool-calling behavior rather than just chat. Worth testing as the brain of a tiny agent loop; commercial use is license-gated below a revenue threshold.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://huggingface.co/maya-research/maya2-native" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/ai-12-maya-2-native-streaming-tts-for-11-indian-langua.png" alt="Maya 2 Native: streaming TTS for 11 Indian languages at 2.5B params" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">maya-research</span>
+          <a class="orig" href="https://huggingface.co/maya-research/maya2-native" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/maya-research/maya2-native" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/maya-research/maya2-native" target="_blank" rel="noopener">Maya 2 Native: streaming TTS for 11 Indian languages at 2.5B params</a></h2>
+        <div class="story-summary"><p>Apache-2.0 open weights for a 2.5B streaming text-to-speech model covering 11 Indian languages plus English, with 24 kHz audio, 20 built-in voices, zero-shot voice cloning, and cross-lingual synthesis. Ships an OpenAI-compatible speech endpoint, WebSocket streaming, and continuous batching, so it slots into existing voice-agent stacks. Runs quantized inside 5-6 GB VRAM.</p></div>
       </div>
     </article>
     </section>
@@ -225,17 +258,15 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-electronics">Electronics</h1>
-        <p class="section-summary">Open hardware and released history: an $800 room-scale gripper robot, a car infotainment jailbreak, Pi-plus-SDR radar, Microsoft&#x27;s 1976 BASIC source, and a bench-fired 3D-printed turbojet.</p>
+        
       </div>
       <span class="section-count" id="count-electronics">6 stories</span>
     </div>
     <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
-<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
-<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
 <button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
-<button class="chip" data-filter-source="3dprinting" style="--c:#14b8a6">3D Print</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
@@ -243,99 +274,99 @@
     </section>
     <section class="stories" data-section-stories="electronics">
       
-    <article class="story" data-section="electronics" data-source="hn" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://neufangled.com/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/electronics-01-hn-placeholder.svg" alt="Stringman, an $800 open-source room-scale gripper robot" loading="lazy">
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026/11/04/making-a-wax-motor-for-micrometer-level-control/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/electronics-01-making-a-wax-motor-for-micrometer-level-control.jpg" alt="Making a wax motor for micrometer-level control" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">nufangled / HN</span>
-          <a class="orig" href="https://neufangled.com/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50354358" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/11/04/making-a-wax-motor-for-micrometer-level-control/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026/11/04/making-a-wax-motor-for-micrometer-level-control/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://neufangled.com/" target="_blank" rel="noopener">Stringman, an $800 open-source room-scale gripper robot</a></h2>
-        <div class="story-summary"><p>A publicly documented robot arm and gripper platform that operates at room scale for around $800 in parts, aiming at the gap between desk toys and industrial arms. The open documentation covers the mechanical build and control stack, making it one of the more credible low-cost manipulation platforms to actually reproduce. The HN thread digs into payload limits, repeatability, and what the BOM leaves out — read that before ordering parts.</p></div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/11/04/making-a-wax-motor-for-micrometer-level-control/" target="_blank" rel="noopener">Making a wax motor for micrometer-level control</a></h2>
+        <div class="story-summary"><p>A build log on making your own wax actuator — the phase-change motor behind silent thermostat valves — for micrometer-precision linear motion from household parts. Explains the fill/vent/bleed procedure that usually keeps commercial units sealed. Reproducible precision-mechanics hack with real measured results.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="electronics" data-source="hn" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://blog.nns.ee/2026/11/02/renault-hack/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/electronics-02-hn-placeholder.svg" alt="Jailbreaking my car&#x27;s navigation system just so I can change the time" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">ns</span>
-          <a class="orig" href="https://blog.nns.ee/2026/11/02/renault-hack/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50339288" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://blog.nns.ee/2026/11/02/renault-hack/" target="_blank" rel="noopener">Jailbreaking my car's navigation system just so I can change the time</a></h2>
-        <div class="story-summary"><p>A reverse-engineering diary of getting root on a Renault&#x27;s locked-down navigation unit for the gloriously mundane goal of fixing the clock. The write-up covers the actual embedded path — interfaces found, firmware pulled, and the chain of small exploits that made a cosmetic fix possible. It is a compact, practical tour of automotive infotainment internals and how little separation exists between settings and full control.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://blog.adafruit.com/2026/11/03/build-a-portable-radar-station-with-a-raspberry-pi-and-sdr/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/electronics-03-adafruit-placeholder.svg" alt="Build a portable radar station with a Raspberry Pi and SDR" loading="lazy">
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/04/the-esp32-p4-launcher-loads-relocatable-papp-v2-apps-from-an-sd-card/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/electronics-02-adafruit-placeholder.svg" alt="The ESP32-P4 launcher loads relocatable PAPP v2 apps from an SD card" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">Adafruit / Julian Horsey</span>
-          <a class="orig" href="https://blog.adafruit.com/2026/11/03/build-a-portable-radar-station-with-a-raspberry-pi-and-sdr/" target="_blank" rel="noopener">Adafruit ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
+          <span class="by">Gil Tal</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/04/the-esp32-p4-launcher-loads-relocatable-papp-v2-apps-from-an-sd-card/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/04/the-esp32-p4-launcher-loads-relocatable-papp-v2-apps-from-an-sd-card/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/03/build-a-portable-radar-station-with-a-raspberry-pi-and-sdr/" target="_blank" rel="noopener">Build a portable radar station with a Raspberry Pi and SDR</a></h2>
-        <div class="story-summary"><p>A handheld flight-tracker build pairing a Raspberry Pi with a software-defined radio to decode live aircraft signals into a portable radar-style display. The build is reproducible with off-the-shelf parts and turns RF decoding into a tangible, field-usable project rather than a desktop notebook. A good template for anyone extending SDR projects into battery-powered, go-anywhere territory.</p></div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/04/the-esp32-p4-launcher-loads-relocatable-papp-v2-apps-from-an-sd-card/" target="_blank" rel="noopener">The ESP32-P4 launcher loads relocatable PAPP v2 apps from an SD card</a></h2>
+        <div class="story-summary"><p>Gil Tal published an ESP32-P4 launcher that boots relocatable PAPP v2 apps straight from an SD card, effectively giving the P4 an app-store-style workflow without reflashing. A concrete step toward a practical app ecosystem on Espressif&#x27;s new high-end chip. Worth studying if you build ESP32-P4 products and dread the flash cycle.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://blog.adafruit.com/2026/11/03/microsoft-basic-for-6502-microprocessor-released-web-version/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/electronics-04-adafruit-placeholder.svg" alt="Microsoft BASIC for 6502 released with source + web version" loading="lazy">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/04/new-open-source-hardware-uext-module-adds-100mb-ethernet-to-pico-pico2-and-all-esp32s-lacking-wired-ethernet/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/electronics-03-adafruit-placeholder.svg" alt="Open-source UEXT module adds 100MB Ethernet to Pico and ESP32" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#7c3aed">Ad</span>
           <span class="by">Adafruit</span>
-          <a class="orig" href="https://blog.adafruit.com/2026/11/03/microsoft-basic-for-6502-microprocessor-released-web-version/" target="_blank" rel="noopener">Adafruit ›</a>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/04/new-open-source-hardware-uext-module-adds-100mb-ethernet-to-pico-pico2-and-all-esp32s-lacking-wired-ethernet/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/04/new-open-source-hardware-uext-module-adds-100mb-ethernet-to-pico-pico2-and-all-esp32s-lacking-wired-ethernet/" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/03/microsoft-basic-for-6502-microprocessor-released-web-version/" target="_blank" rel="noopener">Microsoft BASIC for 6502 released with source + web version</a></h2>
-        <div class="story-summary"><p>Microsoft has posted the original 6502 assembly source for Microsoft BASIC 1.1, dating from 1976-78, with a web version you can run immediately. This is the code that booted the Apple II, PET, and much of the early microcomputer software economy, now inspectable line by line. Worth studying for the density tricks that fit an interpreter into a few KB, and it is a legitimate primary source for computing history.</p></div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/04/new-open-source-hardware-uext-module-adds-100mb-ethernet-to-pico-pico2-and-all-esp32s-lacking-wired-ethernet/" target="_blank" rel="noopener">Open-source UEXT module adds 100MB Ethernet to Pico and ESP32</a></h2>
+        <div class="story-summary"><p>A new open-hardware UEXT module brings 100 Mbps Ethernet to Raspberry Pi Pico, Pico 2, and any ESP32 without wired networking. Schematics and firmware are open, and the UEXT connector means no soldering onto headers. Practical fix for headless embedded projects where Wi-Fi is flaky or unwelcome.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="electronics" data-source="3dprinting" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://3dprintingindustry.com/news/beehives-100-lbf-frenzy-6-turbojet-completes-first-engine-test-256184/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/electronics-05-beehive-s-100-lbf-frenzy-6-turbojet-completes-fi.jpg" alt="Beehive&#x27;s 100 lbf Frenzy 6 turbojet completes first engine test" loading="lazy">
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/04/jailbreaking-a-cars-navigation-system-just-to-change-the-time/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/electronics-04-adafruit-placeholder.svg" alt="Jailbreaking a car&#x27;s navigation system just to change the time" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#14b8a6">3D</span>
-          <span class="by">3D Printing Industry</span>
-          <a class="orig" href="https://3dprintingindustry.com/news/beehives-100-lbf-frenzy-6-turbojet-completes-first-engine-test-256184/" target="_blank" rel="noopener">3D Print ›</a>
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Rasmus Moorats</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/04/jailbreaking-a-cars-navigation-system-just-to-change-the-time/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/04/jailbreaking-a-cars-navigation-system-just-to-change-the-time/" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://3dprintingindustry.com/news/beehives-100-lbf-frenzy-6-turbojet-completes-first-engine-test-256184/" target="_blank" rel="noopener">Beehive's 100 lbf Frenzy 6 turbojet completes first engine test</a></h2>
-        <div class="story-summary"><p>Denver-based Beehive Industries ran its 100 lbf Frenzy 6 turbojet, a turbine built heavily with additive manufacturing, through a first full engine test. The story matters beyond the benchmark: it shows metal 3D printing collapsing the cost and iteration loop for small turbine engines that used to require aerospace-tier supply chains. Watch for the follow-up data on thrust-specific fuel consumption and rebuild intervals.</p></div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/04/jailbreaking-a-cars-navigation-system-just-to-change-the-time/" target="_blank" rel="noopener">Jailbreaking a car's navigation system just to change the time</a></h2>
+        <div class="story-summary"><p>Rasmus Moorats bought a 2014 Renault Latitude whose nav unit wouldn&#x27;t let him set the clock, and responded by fully jailbreaking the head unit. A tidy walkthrough of the extraction, firmware-poking, and unlock path on an obsolescing car infotainment system. A good template for reclaiming any locked-down embedded Linux device you own.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="electronics" data-source="other" data-tier-group="rec" data-tier="notable">
-      <a class="thumb" href="https://flipper.net/pages/flipper-one" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/electronics-06-other-placeholder.svg" alt="Flipper One pre-orders open ahead of the Kickstarter" loading="lazy">
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://hackaday.com/2026/11/04/its-doom-on-a-toy-camera/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/electronics-05-it-s-doom-on-a-toy-camera.jpg" alt="It&#x27;s DOOM, on a toy camera" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#22d3ee">WB</span>
-          <span class="by">Flipper Devices</span>
-          <a class="orig" href="https://flipper.net/pages/flipper-one" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50356994" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/11/04/its-doom-on-a-toy-camera/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026/11/04/its-doom-on-a-toy-camera/" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://flipper.net/pages/flipper-one" target="_blank" rel="noopener">Flipper One pre-orders open ahead of the Kickstarter</a></h2>
-        <div class="story-summary"><p>Flipper Devices opened pre-orders for Flipper One ahead of its Kickstarter, the follow-up to the open-source pentesting multi-tool. The HN thread weighs the announced specs and the company&#x27;s track record on open firmware against Kickstarter fatigue and pricing questions. Worth a look if you care about open-hardware security tools, with the usual caveat that pre-order hardware is vapor until units ship.</p></div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/11/04/its-doom-on-a-toy-camera/" target="_blank" rel="noopener">It's DOOM, on a toy camera</a></h2>
+        <div class="story-summary"><p>Another impossibly-cheap port: DOOM running on the SoC inside a dirt-cheap toy camera, pushing the usual lens-swap crowd into full software territory. Details the memory gymnastics needed on a camera chip with almost no RAM. Fun, but also a real lesson in squeezing code onto unknown silicon.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/04/reverse-engineering-the-121gw-multimeter-on-a-25-ai-plan/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/electronics-06-adafruit-placeholder.svg" alt="Reverse engineering the Extech 121GW multimeter on a $25 AI plan" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Dave Jones (EEVblog)</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/04/reverse-engineering-the-121gw-multimeter-on-a-25-ai-plan/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/04/reverse-engineering-the-121gw-multimeter-on-a-25-ai-plan/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/04/reverse-engineering-the-121gw-multimeter-on-a-25-ai-plan/" target="_blank" rel="noopener">Reverse engineering the Extech 121GW multimeter on a $25 AI plan</a></h2>
+        <div class="story-summary"><p>EEVblog&#x27;s Dave Jones documented reverse-engineering the beloved 121GW multimeter&#x27;s protocol using an AI coding assistant on a $25/month plan, and posted the token counts behind the work. Honest data on where AI-assisted RE helps and where it flails on hardware protocols. Useful calibration for anyone trying the same on test gear.</p></div>
       </div>
     </article>
     </section>
@@ -345,16 +376,13 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-interesting-news">Interesting News</h1>
-        <p class="section-summary">Life&#x27;s letters on a 4.5-billion-year-old asteroid, a 2000-year-old scroll finally read, neutrinos with a billion-fold energy gap, and two perfectly strange historical footnotes.</p>
+        
       </div>
       <span class="section-count" id="count-interesting-news">6 stories</span>
     </div>
     <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
-<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
-<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
-<button class="chip" data-filter-source="reddit" style="--c:#ff4500">Reddit</button>
 <button class="chip" data-filter-source="science" style="--c:#10b981">Science</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
@@ -364,98 +392,98 @@
     <section class="stories" data-section-stories="interesting-news">
       
     <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="essential">
-      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261102075903.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/interesting-news-01-all-5-genetic-letters-of-dna-and-rna-discovered-.webp" alt="All 5 genetic &#x27;letters&#x27; of DNA and RNA discovered in a 4.5-billion-year-old asteroid" loading="lazy">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261104012256.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/interesting-news-01-slac-scientists-find-conclusive-proof-of-a-third.webp" alt="SLAC scientists find conclusive proof of a third type of magnetism" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#10b981">Sci</span>
-          <span class="by">The Conversation / ScienceDaily</span>
-          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261102075903.htm" target="_blank" rel="noopener">Science ›</a>
+          <span class="by">SLAC (ScienceDaily, Nov 4)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261104012256.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261104012256.htm" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261102075903.htm" target="_blank" rel="noopener">All 5 genetic 'letters' of DNA and RNA discovered in a 4.5-billion-year-old asteroid</a></h2>
-        <div class="story-summary"><p>A study in Nature Astronomy confirms all five nucleobases — adenine, guanine, cytosine, thymine, uracil — in pristine Hayabusa2 samples from asteroid Ryugu, after uracil alone was reported in 2023. Finding the complete genetic alphabet in unaltered 4.5-billion-year-old material strengthens the case that life&#x27;s key ingredients were widespread in the early Solar System and could have been delivered to Earth. This is the rare astrobiology claim resting on returned, contamination-controlled samples rather than meteorite scraps.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="interesting-news" data-source="other" data-tier-group="must" data-tier="essential">
-      <a class="thumb" href="https://scrollprize.substack.com/p/writing-seen-in-pherc-306b-for-the" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/interesting-news-02-writing-seen-in-pherc-306b-for-the-first-time-in.jpg" alt="Writing seen in PHerc. 306B for the first time in 2000 years" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#22d3ee">WB</span>
-          <span class="by">Vesuvius Challenge</span>
-          <a class="orig" href="https://scrollprize.substack.com/p/writing-seen-in-pherc-306b-for-the" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50342119" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://scrollprize.substack.com/p/writing-seen-in-pherc-306b-for-the" target="_blank" rel="noopener">Writing seen in PHerc. 306B for the first time in 2000 years</a></h2>
-        <div class="story-summary"><p>The Vesuvius Challenge awarded its $50K First Letters Prize for PHerc. 306B, a scroll buried by Vesuvius in AD 79, excavated in the 1750s, and unread ever since — now yielding legible ink via last year&#x27;s micro-CT scans. Liam Warner and Nicola Bodill recovered enough characters to meet the 10-letters-in-4cm² bar after 25 submissions fell agonizingly short, and their work also settled which fragment is the scroll&#x27;s upper section. The $800K Grand Prize for reading 70% of a whole scroll is now the next milestone, with 13 other scrolls already under submission.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="interesting-news" data-source="hn" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://nicholas.carlini.com/writing/2026/algorithmic-improvements-chess.html" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/interesting-news-03-could-a-modern-chess-engine-on-a-pentium-have-de.png" alt="Could a modern chess engine on a Pentium have defeated Kasparov in 1996?" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">Nicholas Carlini</span>
-          <a class="orig" href="https://nicholas.carlini.com/writing/2026/algorithmic-improvements-chess.html" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50349276" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://nicholas.carlini.com/writing/2026/algorithmic-improvements-chess.html" target="_blank" rel="noopener">Could a modern chess engine on a Pentium have defeated Kasparov in 1996?</a></h2>
-        <div class="story-summary"><p>Deep Blue needed 480 custom co-processors to threaten Kasparov; Carlini tests how a modern engine plays when strangled to 1996-era Pentium compute, isolating how much of the advantage was algorithm rather than silicon. The measured answer reframes a quarter-century of &#x27;AI progress&#x27; intuition: evaluation-function and search improvements carry most of the gain. A clean, quantitative case study in algorithmic progress versus hardware progress, from a researcher who takes benchmarks seriously.</p></div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261104012256.htm" target="_blank" rel="noopener">SLAC scientists find conclusive proof of a third type of magnetism</a></h2>
+        <div class="story-summary"><p>After ~90 years of the ferromagnet/antiferromagnet dichotomy, SLAC researchers report the first conclusive experimental signature of altermagnetism — a third magnetic order — using specialized X-ray measurements. Altermagnets promise the stability of antiferromagnets with spin-polarized currents, a combination spintronics has wanted for decades. This is the milestone paper the field was waiting for.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261101010533.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/interesting-news-04-icecube-detects-ghost-particles-with-10-billion-.webp" alt="IceCube detects ghost particles with 10 billion times the energy of solar neutrinos" loading="lazy">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261104012248.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/interesting-news-02-mit-breaks-a-20-year-rule-of-materials-design-wi.webp" alt="MIT breaks a 20-year rule of materials design with flexible nanoparticle links" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#10b981">Sci</span>
-          <span class="by">UC San Diego / ScienceDaily</span>
-          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261101010533.htm" target="_blank" rel="noopener">Science ›</a>
+          <span class="by">MIT (ScienceDaily, Nov 4)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261104012248.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261104012248.htm" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261101010533.htm" target="_blank" rel="noopener">IceCube detects ghost particles with 10 billion times the energy of solar neutrinos</a></h2>
-        <div class="story-summary"><p>A UC San Diego physicist explains what IceCube&#x27;s ultra-high-energy neutrino detections mean — particles arriving with roughly ten billion times the energy of the neutrinos the Sun pours through us constantly. The piece lands on the news that this year&#x27;s Physics Nobel went to IceCube&#x27;s Francis Halzen for discovering astrophysical high-energy neutrinos, making the explainer well-timed. Good grounding on why a cubic kilometer of Antarctic ice is a telescope, and what these ghost particles might say about the Big Bang.</p></div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261104012248.htm" target="_blank" rel="noopener">MIT breaks a 20-year rule of materials design with flexible nanoparticle links</a></h2>
+        <div class="story-summary"><p>Two decades of nanoparticle self-assembly dogma said rigid molecular linkers were needed to control crystal structures; MIT and collaborators showed flexible linkers do the opposite, unlocking never-before-seen arrangements. The route points to designer materials for photonics, catalysis, and medicine. A clean example of a field&#x27;s assumed necessary condition being wrong.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="notable">
-      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xna1yo/til_that_a_railway_tunnel_was_built_in_mauritania/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/interesting-news-05-reddit-placeholder.svg" alt="TIL a railway tunnel was built in Mauritania in the 1960s solely to avoid the Spanish Sahara border" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261103003149.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/interesting-news-03-a-hidden-companion-star-is-plowing-through-betel.webp" alt="A hidden companion star is plowing through Betelgeuse&#x27;s atmosphere" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#ff4500">r/</span>
-          <span class="by">u/Recent_Flounder6011</span>
-          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xna1yo/til_that_a_railway_tunnel_was_built_in_mauritania/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xna1yo/til_that_a_railway_tunnel_was_built_in_mauritania/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ALMA (ScienceDaily, Nov 3)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261103003149.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261103003149.htm" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xna1yo/til_that_a_railway_tunnel_was_built_in_mauritania/" target="_blank" rel="noopener">TIL a railway tunnel was built in Mauritania in the 1960s solely to avoid the Spanish Sahara border</a></h2>
-        <div class="story-summary"><p>The Zouérate–Nouadhibou iron-ore railway, opened in the mid-1960s while the neighboring territory was still Spanish Sahara, includes a tunnel bored purely so the line never crossed a border. It is a neat physical fossil of colonial border-making: a whole engineering work exists to satisfy a political line drawn on a map. The 700km line still runs some of the longest and heaviest freight trains on Earth.</p></div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261103003149.htm" target="_blank" rel="noopener">A hidden companion star is plowing through Betelgeuse's atmosphere</a></h2>
+        <div class="story-summary"><p>New radio observations suggest Siwarha, Betelgeuse&#x27;s recently discovered companion, is physically traveling through the red supergiant&#x27;s extended atmosphere, leaving a wake that stretches the star&#x27;s shape. This offers a mechanism for long-standing anomalies in Betelgeuse&#x27;s behavior, including its famous dimming. ALMA-based evidence with a beautiful physical picture.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xmma8o/til_that_harry_glicken_who_took_the_final_photo/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-04/interesting-news-06-reddit-placeholder.svg" alt="TIL Harry Glicken took the final photo of David Johnston at Mt. St. Helens, then became the only other American volcanologist to die in an eruption" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261102202838.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/interesting-news-04-a-50-year-mystery-of-vanishing-brazilian-frogs-p.webp" alt="A 50-year mystery of vanishing Brazilian frogs points to a hidden fungal killer" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#ff4500">r/</span>
-          <span class="by">u/Drake</span>
-          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xmma8o/til_that_harry_glicken_who_took_the_final_photo/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xmma8o/til_that_harry_glicken_who_took_the_final_photo/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Smithsonian NZCBI / Penn State (ScienceDaily, Nov 3)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261102202838.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261102202838.htm" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xmma8o/til_that_harry_glicken_who_took_the_final_photo/" target="_blank" rel="noopener">TIL Harry Glicken took the final photo of David Johnston at Mt. St. Helens, then became the only other American volcanologist to die in an eruption</a></h2>
-        <div class="story-summary"><p>Harry Glicken took the last known photo of David Johnston moments before Johnston was killed by the 1980 Mt. St. Helens eruption. Eleven years later, Glicken himself died in a volcanic surge at Japan&#x27;s Unzen volcano — one of the few USGS scientists killed in the field, and the only other American volcanologist to die in an eruption. A quiet, verifiable thread connecting two of the deadliest days in modern volcanology, and a reminder of how eruption forecasting risk actually looks.</p></div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261102202838.htm" target="_blank" rel="noopener">A 50-year mystery of vanishing Brazilian frogs points to a hidden fungal killer</a></h2>
+        <div class="story-summary"><p>Genomic evidence from Smithsonian and Penn State researchers suggests a deadly fungus drove the decades-long collapse of frogs in Brazil&#x27;s Atlantic Forest — and many populations have since rebounded, apparently evolving tolerance. Published in Molecular Ecology after ~50 years of unanswered field observations. A rare collapse-then-recovery story with a mechanism attached.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261103003146.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/interesting-news-05-why-brains-and-bodies-are-cross-wired-may-trace-.webp" alt="Why brains and bodies are cross-wired may trace back to ancient fish vision" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Frontiers (ScienceDaily, Nov 4)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261103003146.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261103003146.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261103003146.htm" target="_blank" rel="noopener">Why brains and bodies are cross-wired may trace back to ancient fish vision</a></h2>
+        <div class="story-summary"><p>A new hypothesis traces the nervous system&#x27;s left-right crossover to the visual systems of ancient fish over 500 million years ago — not an advantage, but an architectural legacy that later circuits were built on top of. It reframes one of biology&#x27;s strangest quirks as path dependence rather than adaptation. A neat evolutionary-developmental argument worth reading in full.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261103003154.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-05/interesting-news-06-hera-is-closing-in-on-the-asteroid-nasa-smashed-.webp" alt="Hera is closing in on the asteroid NASA smashed into with DART" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ESA (ScienceDaily, Nov 3)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261103003154.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261103003154.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261103003154.htm" target="_blank" rel="noopener">Hera is closing in on the asteroid NASA smashed into with DART</a></h2>
+        <div class="story-summary"><p>Europe&#x27;s Hera spacecraft has captured its first clear views of the Didymos–Dimorphos system four years after DART&#x27;s kinetic impact, and is approaching the cratered moonlet for close survey. Hera will finally measure the crater and momentum-transfer efficiency that DART left ambiguous. A milestone for planetary defense science in the coming weeks.</p></div>
       </div>
     </article>
     </section>
@@ -463,7 +491,7 @@
   </div>
 </main>
 <footer class="site-footer">
-  <p>grep — curated by a Hermes agent every morning · Wednesday, November 4, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+  <p>grep — curated by a Hermes agent every morning · Thursday, November 5, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
 </footer>
 <script src="assets/app.js"></script>
 </body>
