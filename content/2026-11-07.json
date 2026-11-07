@@ -1,0 +1,234 @@
+{
+  "date": "2026-11-07",
+  "summary": "Agent infrastructure matures on every layer — microVM sandboxes, background agent loops, GPU UIs agents can drive — while Swift burns up over Sumatra and 115-million-year-old dinosaur blood lands in PNAS.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Libghostty 1.0",
+          "url": "https://mitchellh.com/writing/libghostty-1-0",
+          "source": "hn",
+          "byline": "Mitchell Hashimoto (HN, 256 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50399933",
+          "tier": "must-read",
+          "summary": "Ghostty's terminal core is now a standalone C ABI library at 1.0, so any app or language can embed the same renderer, terminal emulation, and configuration engine that powers Ghostty itself. Mitchell lays out the hard API-surface decisions: what stays inside the library, what becomes embedder responsibility, and how the stability promise is enforced. A clean case study in productizing the guts of a system-level app without forking your product team in two."
+        },
+        {
+          "title": "A Jev that can ask Opus for help gives Opus accuracy at 4x lower cost",
+          "url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+          "source": "hn",
+          "byline": "Hightouch (HN, 360 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50397429",
+          "tier": "must-read",
+          "summary": "Hightouch's identity-resolution system pairs a small always-on model with an escalation path to a frontier model, and reports matching the big model's accuracy at a quarter of the cost by only paying for escalation on hard cases. The interesting part isn't the cascade idea — it's the discipline around when the small model is allowed to defer, and how LLM-judge evals catch the failure modes that accuracy-on-average hides. A concrete, measured template for two-tier model routing in production."
+        },
+        {
+          "title": "Introducing Gemini Omni 1.2 Flash",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+          "source": "hn",
+          "byline": "Google (HN, 302 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50392118",
+          "tier": "notable",
+          "summary": "Google ships the Flash-tier release of its Omni line — the natively omni-modal (any-to-any audio/vision/text) family — pushing real-time conversational latency and cheaper streaming into the high-throughput tier. Relevant if your voice-agent stack has been paying flagship prices for Flash-grade quality, since omni-native models collapse the ASR→LLM→TTS pipeline into one round trip. Worth benchmarking against your current pipeline on interruption handling, not just transcription accuracy."
+        },
+        {
+          "title": "Inside Replit's new sandbox engine: the path to microVMs",
+          "url": "https://frontier.replit.com/sandbox-engine-microvms-part-1/",
+          "source": "hn",
+          "byline": "Replit Frontier (HN, 71 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50396834",
+          "tier": "must-read",
+          "summary": "Replit rewrote nearly a decade of container-based sandboxing onto microVMs — stronger isolation for untrusted agent code, bottomless storage, fast cold starts — and migrated hundreds of millions of projects live without data loss. The isolation-boundary discussion is the payoff: where namespaces and seccomp stopped being enough once agents, not humans, were generating the workloads. Directly relevant to anyone building or choosing agent-execution infra (E2B, Daytona, Modal all converge on the same requirements)."
+        },
+        {
+          "title": "Understanding AI from the Inside: The State of Mechanistic Interpretability for AI Safety",
+          "url": "https://arxiv.org/abs/2611.08438",
+          "source": "arxiv",
+          "byline": "arXiv survey",
+          "discuss_url": "https://arxiv.org/abs/2611.08438",
+          "tier": "recommended",
+          "summary": "A consolidated state-of-the-field survey of mechanistic interpretability aimed at safety: what features, circuits, and activation-inversion techniques actually certify, and where the extrapolations outrun the evidence. Useful as a calibration document — it draws the line between interpretability results that survive adversarial scrutiny and the ones that are mostly narrative. The fastest honest map of the field right now if you only read one mech-interp paper this week."
+        },
+        {
+          "title": "Accepted but Wrong: Silent Failures of LLM Code Repairs after API Migrations",
+          "url": "https://arxiv.org/abs/2611.08269",
+          "source": "arxiv",
+          "byline": "arXiv",
+          "discuss_url": "https://arxiv.org/abs/2611.08269",
+          "tier": "must-read",
+          "summary": "Studies LLM-generated repairs after library API migrations and finds a nasty class of 'accepted but wrong' patches: code that compiles, passes tests, and silently changes semantics. The failure taxonomy matters for agent-based refactor pipelines — green CI is a much weaker correctness signal than teams assume when the migration itself touched the API surface the tests exercise. Argues for differential testing against pre-migration behavior, not just post-migration test suites."
+        },
+        {
+          "title": "agent-autoloop: command-line agents that pick up work and follow through in the background",
+          "url": "https://github.com/KKKKhazix/agent-autoloop",
+          "source": "github",
+          "byline": "KKKKhazix (3.7k stars, TypeScript)",
+          "discuss_url": "https://github.com/KKKKhazix/agent-autoloop",
+          "tier": "notable",
+          "summary": "A trending harness that lets Claude Code/Codex-style CLI agents take tasks autonomously, pursue them to completion in the background, and only interrupt you with a decision card when genuinely stuck. The event-driven 'bother the human last' pattern is exactly the missing loop between cron-fired agents and interactive sessions. Chinese-language project, but the design and the escalation-card mechanism are worth stealing for any agent orchestration stack."
+        },
+        {
+          "title": "sand3d: 3D modeling in Python, built for LLMs",
+          "url": "https://github.com/Sandflow-ai/sand3d",
+          "source": "github",
+          "byline": "Sandflow-ai (813 stars)",
+          "discuss_url": "https://github.com/Sandflow-ai/sand3d",
+          "tier": "notable",
+          "summary": "A Python CAD library explicitly designed so LLMs can author 3D models — a deliberately agent-legible API surface instead of a GUI-first kernel with a scripting afterthought. Sits in the same 'CAD-as-code' revival as build123d/CadQuery but with the LLM ergonomics (typed geometry ops, verifiable outputs) as a first-class goal. Nice complement to the trend of agents driving headless tools end to end."
+        },
+        {
+          "title": "ChatGPT silently passes data between connectors — and the bounty wants an ID card",
+          "url": "https://community.openai.com/t/security-follow-up-tool-call-silently-routed-to-a-different-connector/1413053",
+          "source": "other",
+          "byline": "OpenAI Community (HN, 79 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50399569",
+          "tier": "recommended",
+          "summary": "A researcher reports ChatGPT routing tool calls across connectors without telling the user — data meant for one service ending up visible to another — and describes OpenAI's bounty process as demanding government ID before paying. Both halves deserve attention: cross-connector data flow is a real, under-discussed threat model for agentic assistants, and demanding ID for a disclosure bounty chills exactly the research the ecosystem needs. Read it as a warning for anyone wiring multiple third-party connectors into an agent."
+        },
+        {
+          "title": "Meditor 2 3.4B Universal — hierarchical MoE compiled to standard Qwen2-MoE",
+          "url": "https://huggingface.co/Yo-Purple/Meditor-2-3.4B-Universal",
+          "source": "hf",
+          "byline": "Hugging Face",
+          "discuss_url": "https://huggingface.co/Yo-Purple/Meditor-2-3.4B-Universal",
+          "tier": "recommended",
+          "summary": "A 3.4B-stored / 1.8B-active hierarchical MoE upcycled from SmolLM2-1.7B over 11T tokens, with domain-specialized sub-experts (math, language, code) compiled into a standard qwen2_moe topology — so it runs in Transformers, vLLM, Ollama, and llama.cpp with no custom code. The author measured 55 tok/s on an RTX 4060, and at ~1.8B active the quantized footprint lands comfortably inside a 3060/3070's 6GB. One of the more serious small-MoE experiments: 98.4% routing-agreement claim included, judge it on evals you run yourself."
+        },
+        {
+          "title": "lingologos-pure-1: requirement sentences to certified logic via pushdown-masked decoding",
+          "url": "https://huggingface.co/tailot/lingologos-pure-1",
+          "source": "hf",
+          "byline": "Hugging Face",
+          "discuss_url": "https://huggingface.co/tailot/lingologos-pure-1",
+          "tier": "must-read",
+          "summary": "A small encoder-decoder trained from scratch translates requirement sentences in five languages into a bracketed logic algebra, decoding only through a pushdown-automaton mask and certifying every output in Z3 — 94% exact-tree accuracy on 675 unseen rows, with a brutal ablation: legality drops from 1.0 to 0.0 without the mask. Tiny enough for CPU inference, and the honest gate table (E1–E5) is rarer than the model itself. A tight demonstration that neuro-symbolic pipelines can get machine-checked guarantees at sub-1B scale."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "It's Alpine Linux, On A Kindle Paperwhite 3",
+          "url": "https://hackaday.com/2026-11-06/its-alpine-linux-on-a-kindle-paperwhite-3/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-11-06/its-alpine-linux-on-a-kindle-paperwhite-3/",
+          "tier": "recommended",
+          "summary": "Full Alpine Linux running on a decade-old Kindle Paperwhite 3 — the eternal e-reader mod, taken further this time with a musl-based userland instead of the usual chroot toys. The framebuffer-driving work and boot-chain unlocking steps make it a useful reference for anyone repurposing dead Kindles into low-power status displays or weather stations. Hardware outlives software support by decades; this is what keeping it alive actually looks like."
+        },
+        {
+          "title": "80,000 hops/second AD9361 measurements confirm Starlink terminal uplink/downlink channel pairing",
+          "url": "https://blog.adafruit.com/2026-11-06/80000-hops-per-second-ad9361-measurement-confirm-starlink-terminal-uplink-downlink-channel-pairing-and-surprisingly-big-rf-radiation/",
+          "source": "adafruit",
+          "byline": "Adafruit",
+          "discuss_url": "https://blog.adafruit.com/2026-11-06/80000-hops-per-second-ad9361-measurement-confirm-starlink-terminal-uplink-downlink-channel-pairing-and-surprisingly-big-rf-radiation/",
+          "tier": "must-read",
+          "summary": "RF measured rather than speculated: a PlutoSDR-class AD9361 pushed to 80k hops/sec captures Starlink terminal behavior, confirming uplink/downlink channel pairing and documenting more near-field RF radiation from the terminal dish than expected. Measured SDR work like this is the only way the hobby community actually understands how LEO constellations behave on the ground. The frequency-hopping capture methodology is worth studying even if you don't care about Starlink specifically."
+        },
+        {
+          "title": "wireskein turns logic analyzer captures into automated tests",
+          "url": "https://blog.adafruit.com/2026-11-06/wireskein-takes-logic-analyzer-captures-and-turns-them-into-automated-tests/",
+          "source": "adafruit",
+          "byline": "Adafruit",
+          "discuss_url": "https://blog.adafruit.com/2026-11-06/wireskein-takes-logic-analyzer-captures-and-turns-them-into-automated-tests/",
+          "tier": "recommended",
+          "summary": "WireSkein takes PulseView-format logic analyzer captures and converts them into executable protocol tests — turn a one-off bus trace into a regression check that runs in CI. That closes a gap every embedded developer feels: protocol decoding exists, protocol assertion almost never does. From Open Embedded Probe on GitHub, and exactly the kind of tool that makes cheap 8-channel analyzers suddenly serious."
+        },
+        {
+          "title": "Pulsed Arc 3D Printing Produces Meter-Tall Titanium Single Crystals",
+          "url": "https://3dprintingindustry.com/news/pulsed-arc-3d-printing-produces-meter-tall-titanium-single-crystals-256242/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "https://3dprintingindustry.com/news/pulsed-arc-3d-printing-produces-meter-tall-titanium-single-crystals-256242/",
+          "tier": "must-read",
+          "summary": "Wire-arc-style pulsed arc additive printing is producing meter-scale titanium single crystals — parts that would normally need investment casting plus single-crystal furnaces, printed near net shape. Single-crystal Ti at that scale matters for aerospace turbine and structural parts where grain boundaries are the fatigue weak point, and the deposition-control story is genuinely novel metallurgy, not product marketing. A rare AM headline where the material result, not the machine launch, is the news."
+        },
+        {
+          "title": "MousePods reverse-engineers head-tracking data from stubborn AirPods",
+          "url": "https://hackaday.com/2026-11-06/mousepods-reverse-engineers-head-tracking-data-from-stubborn-airpods/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-11-06/mousepods-reverse-engineers-head-tracking-data-from-stubborn-airpods/",
+          "tier": "notable",
+          "summary": "MousePods is a Python tool that pulls the IMU/head-tracking telemetry Apple buries inside the AirPods Bluetooth protocol and turns head motion into mouse/cursor control. The reverse-engineering of the vendor-private packets is the valuable part — Apple ships the sensors and hides the stream, and the write-up shows how the gap was probed. Handy for DIY spatial interfaces and a reminder that the hardware in your ears is already a sensor rig."
+        },
+        {
+          "title": "MoofTCP is a modern replacement for MacTCP on 68k Macs",
+          "url": "https://blog.adafruit.com/2026-11-06/mooftcp-is-a-modern-replacement-for-mactcp-on-68k-macs/",
+          "source": "adafruit",
+          "byline": "Adafruit",
+          "discuss_url": "https://blog.adafruit.com/2026-11-06/mooftcp-is-a-modern-replacement-for-mactcp-on-68k-macs/",
+          "tier": "notable",
+          "summary": "MoofTCP replaces Apple's circa-1985 MacTCP stack on 68k Macintoshes with a modern rewrite that keeps the classic Open Transport-era APIs, so vintage networking actually works past the 1990s-era assumptions. The project sits in that rewarding corner of retrocomputing where the hard part isn't the hardware but a protocol stack that predates half of TCP's RFC history. A good study in writing a compatible network stack under genuinely brutal memory constraints."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "NASA's Swift telescope falls to Earth after nearly 22 years in space",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261105224545.htm",
+          "source": "science",
+          "byline": "ScienceDaily (Nov 6)",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261105224545.htm",
+          "tier": "must-read",
+          "summary": "The Neil Gehrels Swift Observatory re-entered at 7:39 a.m. EST Wednesday over North Sumatra, Indonesia — a 3,200-pound gamma-ray-burst hunter designed for two years that served nearly 22. A July rescue by Katalyst Space's Link robot failed, solar-driven atmospheric drag did the rest, and Swift kept catching bursts until October 20. Dense survivors (reaction wheels, mirror segments) may still turn up on the ground; the mission's graveyard of decommissioned observatories is exactly why nobody funds re-orbit as standard."
+        },
+        {
+          "title": "Heme signatures in fossilized red blood cells of a 115-million-year-old dinosaur bone",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261105224542.htm",
+          "source": "science",
+          "byline": "ScienceDaily / Curtin University (PNAS)",
+          "discuss_url": "https://doi.org/10.1073/pnas.2614248123",
+          "tier": "essential",
+          "summary": "A PNAS team reports red-blood-cell-like structures with heme-derived molecules inside vascular canals of a 115-million-year-old Aratasaurus museunacionali leg bone from Brazil, preserved in a microbe-rich, low-oxygen burial and stabilized by the mineral hausmannite. Microscopy, spectroscopy, and molecular geochemistry converge, and the authors are careful: no DNA, and the 'cells' could be fossilization artifacts — but it's the strongest molecular blood evidence yet from deep time. The sediment next to the bone had no heme signal, which is the control that makes the claim bite."
+        },
+        {
+          "title": "NASA announces the X-70 Fractal experimental aircraft",
+          "url": "https://www.nasa.gov/news-release/nasa-announces-x-70-experimental-aircraft-to-advance-flight-research/",
+          "source": "nasa",
+          "byline": "NASA (UP.Summit, Nov 4)",
+          "discuss_url": "https://arstechnica.com/gadgets/2026/11/nasas-experimental-x-70-aircraft-is-a-big-question-mark",
+          "tier": "recommended",
+          "summary": "NASA unveiled its newest X-plane at Kennedy's UP.Summit: a crewed, 10,000-lb, Mach 0.75 testbed with rapidly reconfigurable flight controls and 2,000 lb of swappable payload, first flight promised within two years. Ars Technica's skeptical read notes the press kit image is AI-generated, no contractor is named, and the design remains a silhouette in smoke — which is itself the story: an X-plane program announced more concept than hardware. Administrator Isaacman promised more X-planes are coming."
+        },
+        {
+          "title": "TIL: in 1960, Science published 'Doomsday: Friday, 13 November, A.D. 2026' — and the date is next week",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xplv0g/til_that_in_1960_scientists_published_a_paper_in/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xplv0g/til_that_in_1960_scientists_published_a_paper_in/",
+          "tier": "must-read",
+          "summary": "Cyberneticist Heinz von Foerster and two students modeled world population as super-exponential — cooperation accelerating cooperation — and showed the curve diverging to infinity on Friday, November 13, 2026, which they picked partly because it was his birthday. Contemporary letters to Science called it 'manifestly absurd'; actual population growth has since flattened hard, exactly as the model assumed it never would. A perfect sixty-year-later lesson on what a mathematically elegant model does when its central behavioral assumption is wrong — and a nice one to reread six days out."
+        },
+        {
+          "title": "TIL: Paraguay's flag is the only national flag with a different design on each side",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xpjy5t/til_the_flag_of_paraguay_has_slightly_different/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xpjy5t/til_the_flag_of_paraguay_has_slightly_different/",
+          "tier": "recommended",
+          "summary": "The obverse carries Paraguay's national seal — a star in a palm-and-olive wreath; the reverse carries the treasury seal — a lion under a Phrygian cap with 'Paz y Justicia'. Wikipedia confirms it's the only national flag whose reverse differs from its obverse, in force since 1842 with artistic revisions since. Small fact, but the manufacturing implication is real: genuine two-sided flags cost roughly double, which is precisely why no other country bothers."
+        },
+        {
+          "title": "TIL: 'peanut stars' — contact binaries where two stars share one envelope",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xp8n7r/til_about_contact_binaries_or_peanut_stars_two/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xp8n7r/til_about_contact_binaries_or_peanut_stars_two/",
+          "tier": "notable",
+          "summary": "In a contact binary the two stars orbit so closely that their surfaces overflow into a shared common envelope, fusing visually into a single peanut-shaped object — W Ursae Majoris variables, the class that gives the archetype its name. They're unstable enough that many end as stellar mergers, which makes them living laboratories for mass transfer and a quirky calibrator for distance measurements. The best kind of astronomy fact: the universe really does make peanut-shaped stars."
+        }
+      ]
+    }
+  ]
+}
