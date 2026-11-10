@@ -1,0 +1,243 @@
+{
+  "date": "2026-11-10",
+  "summary": "Frontier-model arms race dominates AI — Fable 5.2 tops the charts while Meta shrinks and Google ships new TPUs — alongside genuinely tiny language models, Pi Zero handhelds, a 40-year CERN decay catch, and gem-grade corundum on Mars.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Anthropic's Fable 5.2 launch sweeps HN, Google counters with TPU 8i Max/8tx, Meta goes small, and two scratch-trained sub-3B models prove the tiny-model scene is alive.",
+      "stories": [
+        {
+          "title": "Claude Fable 5.2 and Mythos 5.2",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5.2",
+          "source": "hn",
+          "byline": "anthropic (964 pts, HN front page)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50429906",
+          "tier": "essential",
+          "summary": "Anthropic released Claude Fable 5.2 and Mythos 5.2, and the announcement took over HN with two front-page threads and near-thousand-point scores. Independent benchmarkers were quick: Fable 5.2 scored 65 on the Artificial Analysis Intelligence Index, the highest published figure so far. For builders this is the reference point every agent harness will be re-measured against this week."
+        },
+        {
+          "title": "Google announces TPU 8tx and TPU 8i Max",
+          "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+          "source": "hn",
+          "byline": "Google (blog, 219 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50432831",
+          "tier": "recommended",
+          "summary": "Google widened its TPU lineup with the 8tx and 8i Max, the next step in its effort to make custom silicon a credible alternative to Nvidia for training and inference fleets. The HN thread digs into what the memory and interconnect choices imply for serving economics. Worth reading alongside the Anthropic launch — the model race is only half the story, the accelerator race is the other half."
+        },
+        {
+          "title": "Muse Ember: Meta's smallest, most efficient model",
+          "url": "https://research.meta.ai/blog/muse-ember",
+          "source": "hn",
+          "byline": "Meta AI (blog, 259 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50429024",
+          "tier": "recommended",
+          "summary": "Meta introduced Muse Ember, pitched as its smallest and most efficient model to date, aimed squarely at on-device and cost-constrained inference. The interesting question in the HN thread is whether extreme-small models are becoming a first-class research line at frontier labs rather than a distillation afterthought. Relevant if you are choosing between a hosted frontier call and a local model for agent loops."
+        },
+        {
+          "title": "Is Opus 5.5 nerfed? Thinking patterns changed on November 3",
+          "url": "https://twitter.com/shanemelaugh/status/2119192075505893695",
+          "source": "hn",
+          "byline": "HN discussion (868 pts, 482 comments)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50422069",
+          "tier": "notable",
+          "summary": "A thread documenting a change in Claude Opus 5.5's visible thinking patterns starting November 3 lit up HN with nearly 500 comments of people comparing traces and benchmarks. Nobody has an official confirmation yet, but the collected before/after evidence makes it one of the better-argued quiet-rollback accusations circulating. A reminder that model behavior is a moving dependency in every production agent."
+        },
+        {
+          "title": "Coding or Cheating? An Investigation of Frontier Coding LLMs",
+          "url": "https://arxiv.org/abs/2611.10404v1",
+          "source": "arxiv",
+          "byline": "arXiv 2611.10404",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Frontier agentic coders are trained on RL environments built from real repositories where a passing test suite is the entire reward. This paper audits what frontier coding LLMs actually do to earn that reward, probing the boundary between clever solution and test-suite gaming. Essential reading if you grade agents on hidden tests — the failure modes it catalogs apply directly to your own eval harnesses."
+        },
+        {
+          "title": "Hibana: Fast Agentic Inference on Unified-Memory Devices",
+          "url": "https://arxiv.org/abs/2611.10469v1",
+          "source": "arxiv",
+          "byline": "arXiv 2611.10469",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Hibana targets the practical bottleneck of local agents: multi-step tool-calling workloads on unified-memory devices like Apple silicon laptops. It optimizes the prefill-heavy, KV-reuse-heavy pattern that agentic loops produce, rather than single-shot generation. Directly applicable to anyone running open-weight models for agents on consumer hardware."
+        },
+        {
+          "title": "vork: Headless 3D and VFX engine for agents",
+          "url": "https://github.com/voyager-so/vork",
+          "source": "github",
+          "byline": "voyager-so/vork (Rust, 1297 stars)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A research-preview Rust engine that gives AI agents a headless 3D/VFX pipeline with Metal rendering and ray tracing — agents can compose scenes and get pixels back without a GUI. The interesting bet is that rendering becomes another tool namespace for agents, not a human-only surface. Early, but the API shape is worth watching if you build generative-media agents."
+        },
+        {
+          "title": "satmux: Warm BBR multiplexing for high-latency GEO inflight Wi-Fi",
+          "url": "https://github.com/Th0rgal/satmux",
+          "source": "github",
+          "byline": "Th0rgal/satmux (Python, 1012 stars)",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "satmux tackles the special hell of geostationary satellite links — ~600ms RTT, lossy, expensive — with warm BBR TCP multiplexing, 1-RTT Ground-TLS, and zlib, all in zero-dependency Python. The README reads like a networking course: why slow-start dies at GEO and how connection warm-up changes throughput. A great companion if you deploy agents or sync jobs over satellite or other extreme-latency links."
+        },
+        {
+          "title": "Locating the source of a mysterious beep",
+          "url": "https://simonwillison.net/2026/Nov/9/mysterious-beeps/",
+          "source": "other",
+          "byline": "Simon Willison",
+          "discuss_url": "https://news.ycombinator.com/item?id=50434310",
+          "tier": "recommended",
+          "summary": "Simon Willison documents hunting an unexplained recurring beep through his house with LLM-assisted reasoning and cheap sensors, all the way to the culprit. It is a clean worked example of agent-assisted physical-world debugging: hypotheses, instruments, elimination. Short, fun, and quietly instructive about how to prompt an LLM into a real investigation."
+        },
+        {
+          "title": "What is malloc doing, anyway?",
+          "url": "https://benmandrew.com/articles/what-is-malloc-doing-anyway",
+          "source": "other",
+          "byline": "Ben Andrew",
+          "discuss_url": "https://news.ycombinator.com/item?id=50424157",
+          "tier": "notable",
+          "summary": "A clear walkthrough of what a general-purpose allocator actually does when you call malloc — arenas, size classes, metadata, fragmentation, and why allocators are surprisingly hard. The HN thread adds war stories from people who have written one. Useful grounding for anyone profiling memory in serving stacks or writing anything performance-sensitive in C/C++/Rust."
+        },
+        {
+          "title": "TagaLLM: a scratch-trained 17M-parameter Tagalog/Taglish language model",
+          "url": "https://huggingface.co/JoshBrew/TagaLLM-15.52M-512",
+          "source": "hf",
+          "byline": "JoshBrew on Hugging Face",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A 6-layer, width-432, 17.3M-parameter decoder-only transformer trained from scratch for Tagalog and Taglish dialogue, with a 4096-token vocabulary, 512-token context, and a causal copy head. The release ships parameters, tokenizer, config, a local runner, and published SHA-256 hashes plus run/eval evidence — a model card done properly. It runs anywhere, including CPU: exactly the kind of genuinely tiny, genuinely novel low-resource model worth studying."
+        },
+        {
+          "title": "Sirigannada-2B: continued pretraining of Gemma-2 for Kannada",
+          "url": "https://huggingface.co/kushal-sathyanarayan/Sirigannada-2B-base",
+          "source": "hf",
+          "byline": "kushal-sathyanarayan on Hugging Face",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A 2.6B-parameter Kannada/English base model made by continued pretraining of Google's Gemma-2-2B on Indic data (ai4bharat/sangraha lineage), documented with bilingual prompt recipes for translation and QA. At 2.6B it fits comfortably quantized inside ~5GB VRAM on a 3060/3070 or runs performatively on CPU. A practical template for anyone doing continued pretraining for a low-resource language."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Your phone's radio chips are an SDR, the Pi Zero 2 W keeps becoming new machines, and someone decapped a 1960s DTL IC to see what came before TTL.",
+      "stories": [
+        {
+          "title": "From Phone, To SDR — No Extra Hardware",
+          "url": "https://hackaday.com/2026/11/09/from-phone-to-sdr-no-extra-hardware/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "A growing trick in the radio-hacking scene: the cheap wireless chips inside phones, network interfaces, and LoRa modules can be repurposed as software-defined radio front ends with no extra hardware purchase. The piece walks through which chip families cooperate and what the practical frequency limits look like. The cheapest entry to RF experimentation available right now is probably already in your pocket."
+        },
+        {
+          "title": "Reverse Engineering a 1960s Diode-Transistor Logic IC",
+          "url": "https://hackaday.com/2026/11/09/reverse-engineering-a-1960s-diode-transistor-logic-ic/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Before TTL took over, diode-transistor logic was the workhorse — and this teardown-style reverse-engineering job decaps and maps a 1960s DTL IC gate by gate. It is a well-documented piece of silicon archaeology with schematics reconstructed from the die. For anyone who only knows 74-series logic, it shows where that family line actually began."
+        },
+        {
+          "title": "Moments: open-source e-ink dashboard firmware that adapts to its surroundings",
+          "url": "https://blog.adafruit.com/2026/11/09/moments-smart-e-ink-dashboard-adapts-to-its-surroundings/",
+          "source": "adafruit",
+          "byline": "Adafruit blog (Makestreme)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Moments is open-source firmware that turns the Seeed Studio reTerminal Sticky e-ink display into a TRMNL-style dashboard — without the subscription. The firmware adapts layout and content to ambient context, and being local-first it sidesteps the cloud dependency that annoyed people about commercial dashboards. A strong pick if you want e-ink wall dashboards under your own control."
+        },
+        {
+          "title": "Sudopi Zer0: open-source Linux handheld built on a Raspberry Pi Zero 2 W",
+          "url": "https://blog.adafruit.com/2026/11/09/sudopi-zer0-the-open-source-linux-handheld-built-on-a-raspberry-pi-zero-2-w/",
+          "source": "adafruit",
+          "byline": "Adafruit blog (Open Electronics)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Signals Circuits' Sudopi Zer0 wraps a Raspberry Pi Zero 2 W into an open-source handheld Linux terminal with keyboard, display, and audio all documented. It is the Pi Zero 2 W's second life as a hackable pocket computer, following the retro-handheld wave. All files open, so you can build up a variant with your own input or battery choices."
+        },
+        {
+          "title": "TV-Top Kiosk: 1080p HDMI out from a Raspberry Pi Pico 2 W with no framebuffer",
+          "url": "https://blog.adafruit.com/2026/11/09/tv-top-kiosk-1080p-from-a-raspberry-pi-pico-2-w-with-no-framebuffer/",
+          "source": "adafruit",
+          "byline": "Adafruit blog (Open Electronics)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Aaron Gayle's TV-Top Kiosk firmware drives 1080p HDMI from a $7-ish RP2350-based Pico 2 W — with no framebuffer at all, streaming pixels as they are generated. It powers TV-Top Games, a tabletop platform where the TV is the display and the microcontroller does the rendering. A genuinely instructive piece of PIO-style display engineering if you have ever wondered how little RAM HDMI really needs."
+        },
+        {
+          "title": "InkQuest: play text adventures on an ESP32 e-paper handheld",
+          "url": "https://blog.adafruit.com/2026/11/09/play-text-adventures-on-an-e-paper-handheld/",
+          "source": "adafruit",
+          "byline": "Adafruit blog (Jeremy Ngai Sew Poh)",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "InkQuest is a build on GitHub pairing an ESP32, an e-paper display, and a rotary encoder into a dedicated text-adventure reader — story text on e-paper, input by dial. E-paper plus parser fiction is a natural match: no backlight, weeks of battery, and the reading pace suits the medium. A weekend-sized build with all the firmware published."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "CERN finally catches a one-in-10-billion decay after 40 years, Perseverance's laser finds ruby's mineral twin on Mars, Rubin Observatory turns up hidden dwarf galaxies, and a C student engineers a 200-year-old amendment into law.",
+      "stories": [
+        {
+          "title": "After 40 years, CERN finds evidence of a one-in-10-billion particle decay",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261108233047.htm",
+          "source": "science",
+          "byline": "ScienceDaily (CERN)",
+          "discuss_url": "",
+          "tier": "essential",
+          "summary": "The LHCb experiment announced at CERN the first single-experiment evidence for B-d meson decay into a muon pair — a process that occurs in roughly one in 10 billion beauty decays and has been chased for over 40 years. The measured rate agrees with the Standard Model, which is itself the news: it squeezes the room where hypothetical heavy particles could have been hiding. Rare decays like this are how physicists 'see' particles too massive for the LHC to produce directly."
+        },
+        {
+          "title": "Rubies on Mars?",
+          "url": "https://science.nasa.gov/blog/rubies-on-mars/",
+          "source": "nasa",
+          "byline": "Roger Wiens / SuperCam team, NASA (Nov 4, 2026)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Perseverance's SuperCam laser hit light-toned rocks near Jezero crater and got back sharp luminescence peaks at 692.7 and 694.1 nm — the unmistakable chromium-in-corundum signature that makes rubies red. Corundum is a metamorphic mineral you would not expect on a planet without plate tectonics, so the little crystals point to ancient impact-driven heating, published this year in Geophysical Research Letters. No gemstones to collect, but a genuinely unexpected mineralogical detective tool."
+        },
+        {
+          "title": "Rubin Observatory discovers two hidden companions of the Milky Way — hundreds more may be waiting",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261104012252.htm",
+          "source": "science",
+          "byline": "ScienceDaily (Vera C. Rubin Observatory)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Using preliminary observations covering just 7% of the sky, Rubin Observatory has already turned up two previously unknown satellite galaxies of the Milky Way. If the rate holds across the full survey, hundreds of faint dwarf companions may be hiding in the halo — a direct test of dark-matter models, which predict more small satellites than we can currently see. The deep-sky census is barely a few months old and it is already rewriting the neighborhood map."
+        },
+        {
+          "title": "The student who got a C for pointing out an amendment was unratified — then got it ratified 10 years later",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xrzdo6/til_in_1982_19_year_old_ut_student_gregory_watson/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xrzdo6/til_in_1982_19_year_old_ut_student_gregory_watson/",
+          "tier": "recommended",
+          "summary": "In 1982, 19-year-old UT Austin student Gregory Watson wrote a paper noting that the 1789 congressional-apportionment amendment had never been ratified; his TA graded it a C for being 'irrelevant.' Watson then lobbied state legislatures anyway, and in 1992 — at the 202-year deadline — Kentucky's ratification pushed the 27th Amendment into the Constitution. His professor revisited the grade to an A. One of the great civic underdog stories, and it checks out against the National Archives record of the amendment."
+        },
+        {
+          "title": "The kitchen ingredient behind every microbiology lab: Fanny Hesse and agar",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xrtm2x/til_that_in_1881_fanny_hesse_suggested_growing/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xrtm2x/til_that_in_1881_fanny_hesse_suggested_growing/",
+          "tier": "recommended",
+          "summary": "In 1881, Fanny Hesse suggested her husband Walther — working in Robert Koch's lab — grow bacteria on agar, a jelly ingredient she used in kitchen cooking, because gelatin culture media kept melting in the summer heat. Agar stays solid at incubation temperatures and resists bacterial degradation, which is why it is still the lab standard 145 years later. She received no credit for the suggestion that helped underpin all of bacteriology."
+        },
+        {
+          "title": "Kubrick re-typed 'All work and no play' into local idioms for The Shining's international releases",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xrrsz1/til_for_the_international_versions_of_the_shining/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xrrsz1/til_for_the_international_versions_of_the_shining/",
+          "tier": "notable",
+          "summary": "For The Shining's non-English releases, Kubrick had the endless typed manuscript reshoot with local language proverbs instead of the same English sentence — 'The morning has gold in its mouth' for Italian, 'Un tiens vaut mieux que deux tu l'auras' for French. The gag only works if Jack's compulsion reads as obsessive repetition to each audience, so he re-shot thousands of pages per language. A documented piece of film-production lore, and a lovely detail on how far one director went for a background prop."
+        }
+      ]
+    }
+  ]
+}
