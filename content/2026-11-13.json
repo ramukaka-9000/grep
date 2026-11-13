@@ -1,0 +1,225 @@
+{
+  "date": "2026-11-13",
+  "summary": "Nvidia's board drama, a from-scratch GPU forensics hunt, and a dwarf planet hiding in the outer solar system.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Jensen Huang resigns as Nvidia CEO",
+          "url": "https://apnews.com/article/nvidia-megaspeed-china-singapore-huang-5403f152a601cf82ce939f1d24fffa0f",
+          "source": "hn",
+          "byline": "AP / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50467087",
+          "tier": "must-read",
+          "summary": "The biggest HN thread of the day (2,800+ comments) on Jensen Huang stepping down amid the Megaspeed China-sourcing investigation that the board opened last week. Follow the WSJ and Reuters reporting in the thread for the board's timeline, the employee petition to bring him back, and what it means for the CUDA roadmap's governance. If you build on Nvidia hardware, this is the succession story to track."
+        },
+        {
+          "title": "In Memoriam: Tim Peters (1952–2026)",
+          "url": "https://discuss.python.org/t/in-memoriam-tim-peters-1952-2026/110028",
+          "source": "hn",
+          "byline": "python-discuss / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50450488",
+          "tier": "must-read",
+          "summary": "Tim Peters, author of the Zen of Python and the person who made Python's hash randomization a default defense, has died at 74. The discuss.python.org thread carries remembrances from core developers who worked alongside him for decades, and the HN thread is a who's-who of Python folklore. His 'Beautiful is better than ugly' list is still the closest thing Python has to a constitution."
+        },
+        {
+          "title": "Turning a 22-year-old Postgres type-confusion primitive into RCE",
+          "url": "https://mehmetince.net/part-3-6-how-i-ended-up-turning-a-22-year-old-postgresql-type-confusion-primitive-into-rce-cve-2026-6460/",
+          "source": "hn",
+          "byline": "Mehmet İnce / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50471761",
+          "tier": "recommended",
+          "summary": "Part 3 of a series showing how a type-confusion primitive lurking in PostgreSQL since 2004 was escalated into full remote code execution (CVE-2026-6460). The write-up walks through the type-system corner where a cached coercion disagrees with the catalog, and how the author chained it through function resolution to code execution. A good reminder that 'ancient and audited' databases still have 20-year-old bugs reachable from new features."
+        },
+        {
+          "title": "Chinese frontier AI models carry the fingerprint of export-controlled GPUs",
+          "url": "https://unemploymentlabs.com/checkpoint-forensics",
+          "source": "hn",
+          "byline": "Unemployment Labs / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50474883",
+          "tier": "recommended",
+          "summary": "A forensics pass over released Chinese frontier model checkpoints argues that numerics, padding artifacts, and kernel-level quirks betray training on export-controlled Nvidia hardware despite official denials. The method section is the interesting part: what a weight dump leaks about the datacenter behind it. Worth reading alongside the export-control policy debate it lands in the middle of."
+        },
+        {
+          "title": "Termination Lag: Coding Agents Solve Early but Stop Late",
+          "url": "https://arxiv.org/abs/2611.14960v1",
+          "source": "arxiv",
+          "byline": "arXiv cs.SE",
+          "discuss_url": "https://arxiv.org/abs/2611.14960v1",
+          "tier": "recommended",
+          "summary": "Instrumenting coding-agent trajectories, the authors find agents typically reach a passing solution well before they stop generating — then keep churning, editing, and sometimes breaking working code. The gap between 'solved' and 'stopped' is quantified across models and harnesses, with concrete implications for budgeting and for agent stop-criteria design. If you run long agent loops, this measures exactly the tax you are paying."
+        },
+        {
+          "title": "Breaking Bad: 'Going Badly' Activations Drive Reward Hacking",
+          "url": "https://arxiv.org/abs/2611.14996v1",
+          "source": "arxiv",
+          "byline": "arXiv cs.LG",
+          "discuss_url": "https://arxiv.org/abs/2611.14996v1",
+          "tier": "recommended",
+          "summary": "An interpretability-style look at reward hacking that finds identifiable activation directions lighting up when a model starts gaming its reward signal, before the hack shows up in outputs. Probing these 'going badly' features suggests early-detection hooks that don't require waiting for the verifier to be fooled. A useful data point for anyone building RL pipelines or agent evals where reward hacking is the failure mode that bites last and hardest."
+        },
+        {
+          "title": "smolmaxxing — making LLMs work on small and old devices",
+          "url": "https://github.com/hyperionaidev/smolmaxxing",
+          "source": "github",
+          "byline": "hyperionaidev / GitHub",
+          "discuss_url": "https://news.ycombinator.com/item?id=50468888",
+          "tier": "recommended",
+          "summary": "A fast-growing C/Python collection for squeezing LLMs onto genuinely old hardware: quantized runtimes, memory-mapped loading, and device-specific tuning notes assembled by Mohammed Rashad. The HN thread (98 comments) is full of people posting their weirdest successful targets, from thin clients to routers. Practical counterweight to the frontier-model noise — a bench of what actually fits."
+        },
+        {
+          "title": "phoneuse — drive an unmodified iPhone from a Linux PC",
+          "url": "https://github.com/lxe/phoneuse",
+          "source": "github",
+          "byline": "lxe / GitHub",
+          "discuss_url": "https://github.com/lxe/phoneuse",
+          "tier": "notable",
+          "summary": "AirPlay mirror in, Bluetooth HID mouse/keyboard out: phoneuse lets a Linux box see and operate a stock iPhone with no jailbreak or developer mode hacks, and ships a CLI plus an agent skill on top. It is the missing mobile leg for computer-use agents that currently stop at Android. Clever use of commodity protocols instead of Apple's walled tooling."
+        },
+        {
+          "title": "Qwen3-1.7B quantized to NVFP4 with honest, measured loss numbers",
+          "url": "https://huggingface.co/gcube-ai/Qwen3-1.7B-nvfp4",
+          "source": "hf",
+          "byline": "gcube-ai / Hugging Face",
+          "discuss_url": "https://huggingface.co/gcube-ai/Qwen3-1.7B-nvfp4",
+          "tier": "recommended",
+          "summary": "Not a new model — a 1.7B Qwen3 cut to NVFP4 (1.3 GB weights) with what's rare on the Hub: real measured data from an 8 GB RTX 5060. 190 tok/s single-user, 1,286 tok/s at 16 concurrent with sub-second first token, and an honest quantization-loss table showing structured output dropping 18 points while tool calling barely moves. Exactly the disclosure format small-model deployment decisions need."
+        },
+        {
+          "title": "VibeKit-LFM3-VL-2B — vision-language Liquid AI model fused and 4-bit for MLX",
+          "url": "https://huggingface.co/ferdinandl007/VibeKit-LFM3-VL-2B-MLX-4bit",
+          "source": "hf",
+          "byline": "ferdinandl007 / Hugging Face",
+          "discuss_url": "https://huggingface.co/ferdinandl007/VibeKit-LFM3-VL-2B-MLX-4bit",
+          "tier": "notable",
+          "summary": "A 1.59 GB MLX checkpoint that takes Liquid AI's LFM3-VL-2B, fine-tunes and fuses the selected language projections, then 4-bit quantizes just those tensors while keeping the rest of Liquid's MLX conversion. Runs vision-language workloads on Apple Silicon well inside unified-memory budgets. A neat example of surgical projection quantization rather than blanket 4-bit."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "",
+      "stories": [
+        {
+          "title": "Making a €40 USB-C hub work as a Nintendo Switch 2 dock",
+          "url": "http://blog.nozomi.space/posts/sw2_dock/",
+          "source": "other",
+          "byline": "Nozomi / blog.nozomi.space (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50431971",
+          "tier": "must-read",
+          "summary": "Nozomi reverse-engineered what the official Switch 2 dock actually does over the USB-C config channel and got a generic €40 hub to pass the console's video handshake — with captured PD/DP-ALT negotiation traces along the way. The write-up doubles as a practical intro to DisplayPort alt-mode discovery. Hackaday picked it up too; the HN thread goes deep on the EDID wrangling."
+        },
+        {
+          "title": "USBnet — internet between two computers through one CH32V467 board",
+          "url": "https://blog.adafruit.com/2026-11-12/usbnet-internet-via-usb-and-hid/",
+          "source": "adafruit",
+          "byline": "Adafruit",
+          "discuss_url": "https://blog.adafruit.com/2026-11-12/usbnet-internet-via-usb-and-hid/",
+          "tier": "recommended",
+          "summary": "Ismael's USBnet tunnels TCP between two machines through a single CH32V467WEU6 board plugged into both over USB, carrying the data as HID so neither host needs a driver. It is a clean study in picking USB classes that OSes already trust, and a fun fallback network path for air-gapped-ish setups. The firmware-side framing of TCP-over-HID is the instructive part."
+        },
+        {
+          "title": "Baochip-1x: a mostly-open 22nm SoC for high-assurance applications",
+          "url": "https://hackaday.com/2026-11-12/baochip-1x-a-mostly-open-22nm-soc-for-high-assurance-applications/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-11-12/baochip-1x-a-mostly-open-22nm-soc-for-high-assurance-applications/",
+          "tier": "recommended",
+          "summary": "A look at a Chinese 22nm SoC developed for high-assurance (defense/safety) use whose RTL, tooling chain, and documentation are mostly open — a rarity at that process node. Hackaday walks through what 'mostly open' really covers and why verifiable supply chains are driving open silicon at advanced nodes. Worth reading even if you will never tape out: it is where open hardware is actually headed."
+        },
+        {
+          "title": "WeAct Logic Analyzer V2: a $10 USB 3.0 16-channel analyzer on the CH32H417",
+          "url": "https://blog.adafruit.com/2026-11-12/weact-logic-analyzer-v2-a-10-usb-3-0-ch32h417-logic-analyzer-board/",
+          "source": "adafruit",
+          "byline": "CNX Software via Adafruit",
+          "discuss_url": "https://blog.adafruit.com/2026-11-12/weact-logic-analyzer-v2-a-10-usb-3-0-ch32h417-logic-analyzer-board/",
+          "tier": "recommended",
+          "summary": "The WeAct board turns WCH's CH32H417 into a 16-channel USB 3.0 logic analyzer for about ten dollars, well past where saleae-clone pricing used to sit. Coverage notes sampling depth and software compatibility (sigrok-class tooling) rather than just the spec sheet. At this price it is an easy bench addition — and wireskein-style capture-to-test workflows just got cheaper to staff."
+        },
+        {
+          "title": "Build your own Chladni plate to see sound",
+          "url": "https://hackaday.com/2026-11-12/watch-that-sound-your-own-chladni-plate/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-11-12/watch-that-sound-your-own-chladni-plate/",
+          "tier": "notable",
+          "summary": "CrazyScience shows how to drive a Chladni plate from a speaker and sweep sine tones until sand organizes into the plate's mode shapes — the classic standing-wave visual, built from a signal generator and a function of your phone. Good weekend build with real physics payoff, and a nice excuse to learn about resonance mode ordering. The parts list is essentially junk-drawer level."
+        },
+        {
+          "title": "Lynxel resin printers handle 300,000 cP slurries",
+          "url": "https://3dprintingindustry.com/news/lynxel-unveils-new-resin-3d-printers-supporting-300000-cp-viscosity-256559/",
+          "source": "3dprinting",
+          "byline": "3D Printing Industry",
+          "discuss_url": "https://3dprintingindustry.com/news/lynxel-unveils-new-resin-3d-printers-supporting-300000-cp-viscosity-256559/",
+          "tier": "notable",
+          "summary": "Lynxel's new machines print with resins loaded to 300,000 cP — viscosity near toothpaste territory — which opens VAT printing to heavily ceramic- and metal-filled slurries previously stuck to extrusion processes. The engineering story is in the recoat and lift mechanics that make that possible at all. If you follow ceramic or metal AM trickling down to desktop price points, this is the enabler to watch."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "",
+      "stories": [
+        {
+          "title": "A dwarf planet candidate is hiding far beyond Pluto on a 280-year orbit",
+          "url": "https://www.smithsonianmag.com/smart-news/astronomers-found-a-mysterious-object-orbiting-far-beyond-pluto-it-could-be-a-new-dwarf-planet-hidden-in-our-solar-system-180989857",
+          "source": "other",
+          "byline": "Carlyn Kranking / Smithsonian Magazine (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50472490",
+          "tier": "must-read",
+          "summary": "2026 ED138, found in Rubin Observatory data and announced in late October, sits about 46 AU out on a ~281-year orbit and may be at least 600 km wide — big enough to become the IAU's sixth recognized dwarf planet if size checks confirm. Smithsonian's explainer covers what still has to be measured to classify it. Bonus thread: amateurs have already pulled precoveries off 1954–1991 survey plates, extending the arc before the orbit had time to firm up."
+        },
+        {
+          "title": "A white dwarf spinning every eight minutes, pulsing radio beside a Sun-like star",
+          "url": "https://www.curtin.edu.au/news/media-release/researchers-discover-rare-star-system-that-emits-radio-signals-every-eight-minutes/",
+          "source": "other",
+          "byline": "Curtin University / ICRAR",
+          "discuss_url": "https://news.ycombinator.com/item?id=50465453",
+          "tier": "must-read",
+          "summary": "GPM J071507−114153 is the first long-period transient where radio pulses are clearly traced to a white dwarf — spinning once every 7.9 minutes — orbiting a G-type star just like our Sun, published in Nature Astronomy. The pulses also let the team watch stellar flares and a plasma prominence on the companion, like a radio flashlight shining through another star's corona 5,000 light-years away. MWA survey plus MeerKAT localization plus Keck optical confirmation — a textbook instrument chain."
+        },
+        {
+          "title": "Perseverance confirms complex organic carbon just under the surface of ancient Mars rocks",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261111005908.htm",
+          "source": "science",
+          "byline": "Science Advances via ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261111005908.htm",
+          "tier": "recommended",
+          "summary": "Following September 2025's potential-biosignature announcement, new Science Advances work from the SHERLOC team definitively confirms complex organic carbon just beneath the surface of two Bright Angel formation rocks — where UV and oxidants should have destroyed it. Preservation so close to the surface means potential biosignatures may be widespread and reachable across Mars. Not proof of life; a big upgrade to the odds and the sample-return case."
+        },
+        {
+          "title": "Earth may have made hundreds of oceans' worth of water during its fiery birth",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261110042549.htm",
+          "source": "science",
+          "byline": "University of New Mexico via ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261110042549.htm",
+          "tier": "recommended",
+          "summary": "UNM researchers heated iron-bearing silicate rocks to 1,200–1,400 °C in flowing hydrogen — the young Earth's atmosphere — and watched ~80% of the iron oxide reduce to metal while releasing water vapor, in minutes. Extrapolated over pebble accretion, the mechanism could produce hundreds of oceans of water, meaning rocky planets may manufacture their own water rather than catch it from comets. Published in Nature Geoscience; helium controls showed hydrogen is the key reactant."
+        },
+        {
+          "title": "Crows decide twice as fast as humans — 235 milliseconds to a choice",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261111005850.htm",
+          "source": "science",
+          "byline": "University of Tübingen via ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261111005850.htm",
+          "tier": "notable",
+          "summary": "In random-dot motion tasks, carrion crows averaged 235 ms to judge which way dots were moving and commit — roughly twice as fast as humans and monkeys — while staying highly accurate. The Tübingen group's result suggests corvid brains trade architecture for raw speed on visual decisions. Nice calibration for anyone who assumes speed-accuracy limits are mammal-shaped."
+        },
+        {
+          "title": "TIL the 'human computer' Shakuntala Devi beat a Univac to the 23rd root of a 201-digit number in 50 seconds",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xuvsv0/til_that_shakuntala_devi_aka_the_human_computer/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xuvsv0/til_that_shakuntala_devi_aka_the_human_computer/",
+          "tier": "recommended",
+          "summary": "In 1977 at Southern Methodist University, Shakuntala Devi gave the 23rd root of a 201-digit number — 546,372,891 — in 50 seconds; the Univac 1101 that verified it at the US Bureau of Standards took longer, and UC Berkeley's Arthur Jensen later tested her under lab conditions and published in Intelligence. The NYT obit confirms the feat. A satisfying counterpoint to leaderboard culture: verified human compute, no benchmark contamination possible."
+        }
+      ]
+    }
+  ]
+}
