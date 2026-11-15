@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>grep · Sunday, November 15, 2026</title>
+<meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-15.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style-v2.css">
+<script>
+  // set theme before paint to avoid a flash of the wrong palette
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
+  </div>
+  <nav class="topnav">
+    <a class="navlink" href="2026-11-14.html">‹ Prev</a>
+    <span class="edition-pill">Sunday, November 15, 2026 · <span id="count">22</span> stories</span>
+    <span class="navlink disabled">Next ›</span>
+    <a class="navlink" href="archive.html">Archive</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  
+  <nav class="section-nav" aria-label="Sections">
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">10</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">6</span></a>
+  </nav>
+  <div class="section-panels">
+    
+  <section class="section-panel" id="ai" data-section-panel="ai" style="--section-color:#ff8000" aria-labelledby="heading-ai">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-ai">AI</h1>
+        <p class="section-summary">ggml turns 1.0, a vibe-coding platform exposes 200K private messages, energy costs split along language lines, and two tiny models go from scratch to Game Boy.</p>
+      </div>
+      <span class="section-count" id="count-ai">10 stories</span>
+    </div>
+    <section class="filters" data-section-filters="ai" aria-label="AI filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="ai">
+      
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://github.com/ggml-org/ggml/releases/tag/v1.0.0" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/ai-01-ggml-v1-0-0.png" alt="ggml v1.0.0" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">ggml-org / Hacker News</span>
+          <a class="orig" href="https://github.com/ggml-org/ggml/releases/tag/v1.0.0" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50493062" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/ggml-org/ggml/releases/tag/v1.0.0" target="_blank" rel="noopener">ggml v1.0.0</a></h2>
+        <div class="story-summary"><p>The tensor library underneath llama.cpp and most local-LLM tooling declares 1.0: deprecated public API pruned, legacy DIAG_MASK ops removed, the RPC protocol bumped to reject incompatible peers, plus FP8 support, configurable YaRN truncation, and a sweep of backend performance work (CUDA/Metal MoE fusion, Vulkan prefill FlashAttention, OpenCL Adreno, new WebGPU kernels). For anyone who ships on ggml, the API pruning and RPC break are the migration items to check. The 67-comment thread reads like a who&#x27;s-who of the local-inference scene reacting to finally having a stability contract.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://www.crissyfield.de/research/lovable-en/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/ai-02-lovable-apps-expose-passport-details-and-more-th.jpg" alt="Lovable apps expose passport details and more than 200K private messages" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Crissy Field / Hacker News</span>
+          <a class="orig" href="https://www.crissyfield.de/research/lovable-en/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50499017" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.crissyfield.de/research/lovable-en/" target="_blank" rel="noopener">Lovable apps expose passport details and more than 200K private messages</a></h2>
+        <div class="story-summary"><p>A security researcher audited apps built with the Lovable vibe-coding platform and found systemic exposure: passport details and over 200,000 private messages readable without authentication, because generated apps ship with permissive database rules by default. The read for builders is that prompt-to-app platforms automate the part of development where security review used to live — default RLS policies and secret handling are now your responsibility, not your junior dev&#x27;s. The 282-comment thread splits between &#x27;predictable&#x27; and &#x27;this should have been caught at the platform layer&#x27;.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://news.umich.edu/generative-ai-uses-more-energy-on-non-english-text/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/ai-03-hn-placeholder.svg" alt="Generative AI uses more energy on non-English text" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">University of Michigan Engineering / Hacker News</span>
+          <a class="orig" href="https://news.umich.edu/generative-ai-uses-more-energy-on-non-english-text/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50441444" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://news.umich.edu/generative-ai-uses-more-energy-on-non-english-text/" target="_blank" rel="noopener">Generative AI uses more energy on non-English text</a></h2>
+        <div class="story-summary"><p>An EMNLP study measured inference energy across 122 languages on Qwen 3, Gemma 3 and Llama 3.1: total energy per response varies up to 179x between English (17.6 kJ) and Pashto (3,147 kJ), driven by token inflation for non-Latin scripts plus higher per-token cost. Hindi and Bengali — hundreds of millions of speakers each — need 7.9x and 15.3x English&#x27;s energy, and the high-energy languages also score lowest on accuracy: about 5.2 billion people pay double or worse. If you serve multilingual traffic, tokenizer choice is now an energy and cost axis, not just a quality one.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.csongor.co.uk/cachet-grids-and-tiles/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/ai-04-write-your-own-kernel-optimiser.svg" alt="Write your own kernel optimiser" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Csongor Kadocsy / Hacker News</span>
+          <a class="orig" href="https://blog.csongor.co.uk/cachet-grids-and-tiles/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50444891" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.csongor.co.uk/cachet-grids-and-tiles/" target="_blank" rel="noopener">Write your own kernel optimiser</a></h2>
+        <div class="story-summary"><p>A worked build-your-own tour of GPU kernel scheduling through the Cachet project: grids, tiles, and how an optimiser searches the space of block/thread mappings to pick kernel configs that compilers miss. It is the clearest explanation going of why autotuning works and where its search space blows up, written by someone who implemented one. Good background for anyone wiring kernel-generation agents into an inference stack — the search heuristics are exactly what LLM-based kernel writers are being asked to replace or guide.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2611.17115v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/ai-05-arxiv-placeholder.svg" alt="CapLite: Prompt-Injection Defense for Small Language Model Agents" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">arXiv</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.17115v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.17115v1" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.17115v1" target="_blank" rel="noopener">CapLite: Prompt-Injection Defense for Small Language Model Agents</a></h2>
+        <div class="story-summary"><p>Prompt-injection defenses usually ask the model to write its own security artifacts, which is a joke for 1-4B parameter agents — they are too weak to police themselves. CapLite moves the defense outside the model entirely, guarding small-model agents without any model-written security code. Directly relevant to the current wave of tiny on-device agent runtimes: the paper is a concrete argument that SLM agent security is an architecture problem, not a training problem, with baselines against standard quarantine and spotlighting schemes.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://arxiv.org/abs/2611.17309v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/ai-06-arxiv-placeholder.svg" alt="Classical Energies Learn to Reason 1,000x Faster than Looped Models" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">arXiv</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.17309v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.17309v1" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.17309v1" target="_blank" rel="noopener">Classical Energies Learn to Reason 1,000x Faster than Looped Models</a></h2>
+        <div class="story-summary"><p>Against the popular looped-transformer trend — small weight-shared models that iterate their reasoning for extra depth — this paper reports a classical-energy formulation that reaches comparable reasoning accuracy roughly 1,000x faster on the authors&#x27; benchmark suite. Treat the multiplier as the paper&#x27;s own claim pending third-party replication, but the direction matters: it attacks the assumption that test-time iteration through shared weights is the efficient way to buy reasoning depth. Worth reading alongside the looped-templates and latent-thought crowd before you commit to any iteration-heavy agent architecture.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://github.com/HybridRobotics/supermimic" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/ai-07-supermimic-humanoid-whole-body-motion-tracking-w.png" alt="supermimic: humanoid whole-body motion tracking with one differentiable world model" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">HybridRobotics (Qiayuan Liao) / GitHub</span>
+          <a class="orig" href="https://github.com/HybridRobotics/supermimic" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/HybridRobotics/supermimic" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/HybridRobotics/supermimic" target="_blank" rel="noopener">supermimic: humanoid whole-body motion tracking with one differentiable world model</a></h2>
+        <div class="story-summary"><p>From the HybridRobotics group (the SuperLOD/Isaac ecosystem), a fresh Apache-2.0 release for humanoid whole-body motion tracking driven by a single differentiable world model rather than the usual ensemble of task-specific controllers. 285 commits in under a week, Python-only, and the README positions it as the tracking backbone you can bolt onto existing humanoid sim pipelines. If you are tracking the general-models-swallow-robotics trend (OpenAI just disbanded its robotics team), this is what that consolidation looks like from the research-lab side: one model, one world, many motions.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/IRS-Public/direct-file" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/ai-08-irs-direct-file-the-us-government-s-open-source-.png" alt="IRS Direct File: the US government&#x27;s open-source tax-filing code" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">IRS-Public / GitHub via Hacker News</span>
+          <a class="orig" href="https://github.com/IRS-Public/direct-file" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50499083" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/IRS-Public/direct-file" target="_blank" rel="noopener">IRS Direct File: the US government's open-source tax-filing code</a></h2>
+        <div class="story-summary"><p>The full source of the IRS&#x27;s free Direct File product is public — a Django/React production app that filed real federal returns for real taxpayers, with the tax-law logic, e-file schemas, and identity flows intact. For engineers it is a rare artifact: government-scale form logic written in the open, including how they model the US tax code as data and test it. The HN thread digs into the architecture choices and how it compares to the commercial tax-prep stack the project was built to compete with.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://huggingface.co/gszauer/ChatGBA" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/ai-09-chatgba-a-4-million-parameter-chat-model-that-ru.png" alt="ChatGBA: a 4-million-parameter chat model that runs on a Game Boy Advance" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">gszauer / Hugging Face</span>
+          <a class="orig" href="https://huggingface.co/gszauer/ChatGBA" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/gszauer/ChatGBA" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/gszauer/ChatGBA" target="_blank" rel="noopener">ChatGBA: a 4-million-parameter chat model that runs on a Game Boy Advance</a></h2>
+        <div class="story-summary"><p>A decoder-only transformer with 4,003,264 parameters — 10 blocks, d=192, GQA, SwiGLU, byte-level UTF-8 tokenizer — packaged as an int8 .gba cartridge that runs in pure integer arithmetic on the GBA&#x27;s 16.78 MHz ARM7TDMI, printing about one letter every two seconds. It holds short English conversations, ships a dependency-free reference.js, and is the console member of the Gab family (10M-1B). The floor of what a genuine chat model needs keeps dropping, and this one fits in a toy; quantized it is trivially CPU-runnable on anything you own.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/seoan1024/Hanok-LLM-Base" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/ai-10-hanok-llm-a-korean-first-1b-base-model-and-full-.png" alt="Hanok LLM: a Korean-first 1B base model and full training stack" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">seoan1024 / Hugging Face</span>
+          <a class="orig" href="https://huggingface.co/seoan1024/Hanok-LLM-Base" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/seoan1024/Hanok-LLM-Base" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/seoan1024/Hanok-LLM-Base" target="_blank" rel="noopener">Hanok LLM: a Korean-first 1B base model and full training stack</a></h2>
+        <div class="story-summary"><p>A native PyTorch 1B-parameter transformer (33 layers, 1,280 hidden, SwiGLU) built for Korean-language research, released base-model-first with the full training, checkpointing, and data-workflow stack in the companion repo — not a fine-tune of someone else&#x27;s checkpoint. At 1B it lands comfortably inside 5-6GB VRAM quantized and runs performantly on CPU for short generations. A good template if you are building a language-first small model: the repo shows corpus assembly, tokenizer choices, and training config for a non-English-first model end to end.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="electronics" data-section-panel="electronics" style="--section-color:#22d3ee" aria-labelledby="heading-electronics">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-electronics">Electronics</h1>
+        <p class="section-summary">An out-of-order RISC-V core boots Linux, an old phone outsells the Pi, and someone measures how leaky a trash-can Faraday cage really is.</p>
+      </div>
+      <span class="section-count" id="count-electronics">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
+<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="electronics">
+      
+    <article class="story" data-section="electronics" data-source="github" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://github.com/FURSOY/fursoy-cpu" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/electronics-01-show-hn-fursoy-out-of-order-rv64imafdv-core-in-s.png" alt="Show HN: Fursoy — out-of-order RV64IMAFDV core in SystemVerilog boots Linux 6.6" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">FURSOY / Hacker News</span>
+          <a class="orig" href="https://github.com/FURSOY/fursoy-cpu" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50497137" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/FURSOY/fursoy-cpu" target="_blank" rel="noopener">Show HN: Fursoy — out-of-order RV64IMAFDV core in SystemVerilog boots Linux 6.6</a></h2>
+        <div class="story-summary"><p>A hobby RTL project that cleared the real bar: a fully out-of-order RV64IMAFDV core (full vector extension) written in SystemVerilog that boots Linux 6.6. Out-of-order is the hard part — rename, ROB, scheduler — and having it run a modern kernel rather than just CoreMark puts it in a tiny club of open silicon. Worth following even if you never touch Verilog: the testbench and CI setup are a masterclass in how to make an HDL project reviewable.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://so.long.thanks.fish/why-pi-when-i-have-an-old-phone/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/electronics-02-why-get-an-expensive-pi-when-i-have-an-old-phone.webp" alt="Why get an expensive Pi when I have an old phone?" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">so.long.thanks.fish / Hacker News</span>
+          <a class="orig" href="https://so.long.thanks.fish/why-pi-when-i-have-an-old-phone/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50440709" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://so.long.thanks.fish/why-pi-when-i-have-an-old-phone/" target="_blank" rel="noopener">Why get an expensive Pi when I have an old phone?</a></h2>
+        <div class="story-summary"><p>A 519-point field report replacing Raspberry Pis with repurposed Android phones for hobby embedded work: you get an SoC with more RAM, built-in battery management, Wi-Fi, a screen, and cellular, often free from a drawer. The post is honest about the costs — bootloader locks, no GPIO header, thermal throttling, Android-vs-Linux pain and the postmarketOS/Debian-on-Android escape hatches. For sensor nodes, dashcams, and offsite telemetry the BOM math genuinely favors the phone; for pin-banging and I2C experiments the Pi still wins. Read the thread for people&#x27;s specific &#x27;phone X as sensor hub&#x27; recipes.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.jefftk.com/p/testing-a-trash-can-faraday-cage" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/electronics-03-testing-a-trash-can-faraday-cage.jpg" alt="Testing a trash-can Faraday cage" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Jeff Kaufman / Hacker News</span>
+          <a class="orig" href="https://www.jefftk.com/p/testing-a-trash-can-faraday-cage" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50467278" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.jefftk.com/p/testing-a-trash-can-faraday-cage" target="_blank" rel="noopener">Testing a trash-can Faraday cage</a></h2>
+        <div class="story-summary"><p>Jeff Kaufman does what almost nobody does with Faraday-cage claims: actually measures them. A steel trash can with a conductive gasket is tested against cell signals, RFID/keyfob frequencies, and NFC with real attenuation numbers per frequency, showing where the lid seam leaks and how much a copper-tape rim improves it. The takeaway is the pattern rather than the specific can: cage performance is seam engineering, and marketing &#x27;Faraday bags&#x27; routinely fail the same tests this blog gives a trash can. A useful measured-results template for your own RF shielding builds.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.righto.com/2026/11/signetics-st680a-dtl-nand.html" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/electronics-04-reverse-engineering-a-vintage-diode-transistor-l.jpg" alt="Reverse engineering a vintage diode-transistor logic chip" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Ken Shirriff (Righto) / Hacker News</span>
+          <a class="orig" href="https://www.righto.com/2026/11/signetics-st680a-dtl-nand.html" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50416011" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.righto.com/2026/11/signetics-st680a-dtl-nand.html" target="_blank" rel="noopener">Reverse engineering a vintage diode-transistor logic chip</a></h2>
+        <div class="story-summary"><p>Ken Shirriff de-capss and die-shots a Signetics ST680A DTL NAND — the logic family sitting between RTL and TTL — and walks the transistor-level circuit, explaining why diode-transistor logic lost to TTL and how the pull-up saturation behavior shows up on the die. As usual the die photography is the artifact you cannot get anywhere else, and the piece reconstructs the design decisions (resistor ratios, diode stacks) from silicon geometry. Pairs unexpectedly well with the PostScript/RPN pieces in Electronics today: both are about reading machine logic at its native level.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026/11/14/making-co%e2%82%82-sensors-fail-visibly-not-silently/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/electronics-05-making-co-sensors-fail-visibly-not-silently.png" alt="Making CO₂ Sensors Fail Visibly, Not Silently" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/11/14/making-co%e2%82%82-sensors-fail-visibly-not-silently/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026/11/14/making-co%e2%82%82-sensors-fail-visibly-not-silently/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/11/14/making-co%e2%82%82-sensors-fail-visibly-not-silently/" target="_blank" rel="noopener">Making CO₂ Sensors Fail Visibly, Not Silently</a></h2>
+        <div class="story-summary"><p>A practical teardown of why low-cost NDIR CO₂ monitors drift into comfortable lies: sensors age, firmware clamps readings, and auto-baseline calibration happily calibrates toward an assumed clean-air minimum that never happens in a sealed room. The build is an arduino-based watchdog that compares a reference instrument against your cheap monitor and raises a visible alarm when they diverge, instead of letting the number sit plausible-but-wrong. Directly applicable to any environmental-sensing project — the failure mode described is exactly how people end up trusting bad ventilation data. Includes the calibration-philosophy discussion the genre usually skips.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/13/build-a-4-ai-desk-assistant-with-an-esp32-s3-chip/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/electronics-06-adafruit-placeholder.svg" alt="Build a $4 AI desk assistant with an ESP32-S3 chip" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Industries</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/13/build-a-4-ai-desk-assistant-with-an-esp32-s3-chip/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/13/build-a-4-ai-desk-assistant-with-an-esp32-s3-chip/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/13/build-a-4-ai-desk-assistant-with-an-esp32-s3-chip/" target="_blank" rel="noopener">Build a $4 AI desk assistant with an ESP32-S3 chip</a></h2>
+        <div class="story-summary"><p>A complete walkable build: an ESP32-S3 board at roughly four dollars doing wake-word detection and streaming to a hosted LLM for a desk assistant, with the full parts list, wiring, and firmware for the voice pipeline on the cheap silicon. The interesting engineering is in the budget constraints — how much intelligence you keep on the S3 versus the server without the interaction feeling laggy. Fits the $4-ESP32 + tiny-models pattern running through today&#x27;s AI section: the edge device is now a commodity, and the interesting work is the plumbing around it.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="interesting-news" data-section-panel="interesting-news" style="--section-color:#f472b6" aria-labelledby="heading-interesting-news">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-interesting-news">Interesting News</h1>
+        <p class="section-summary">Crows decide twice as fast as primates, the federal tea board wouldn&#x27;t die, and an emperor moved into his own tomb.</p>
+      </div>
+      <span class="section-count" id="count-interesting-news">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="reddit" style="--c:#ff4500">Reddit</button>
+<button class="chip" data-filter-source="nasa" style="--c:#fc3d21">NASA</button>
+<button class="chip" data-filter-source="science" style="--c:#10b981">Science</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="interesting-news">
+      
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261111005850.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/interesting-news-01-crows-make-decisions-twice-as-fast-as-humans-and.webp" alt="Crows make decisions twice as fast as humans — and just as accurately" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261111005850.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261111005850.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261111005850.htm" target="_blank" rel="noopener">Crows make decisions twice as fast as humans — and just as accurately</a></h2>
+        <div class="story-summary"><p>A Science study (Schmidbauer &amp; Nieder, Oct 22) put carrion crows through the same random-dot motion task used on primates: decisions in ~235 ms versus 400-600 ms for monkeys and humans, with accuracy intact — near 100% on easy trials, above chance even at 3% coherence. Recordings from 248 neurons in the crow&#x27;s nidopallium caudolaterale show the same ramping decision-variable dynamics as primate prefrontal cortex, with choice predictable just 70 ms after stimulus onset. Caveats are in order (two birds, one task), but the convergence of mammal-like circuit logic in an unlaminated 360-million-year divergent brain is the interesting part. Excellent design inspiration for latency-bound agent loops, honestly.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xvvk6u/til_that_as_recently_as_1996_the_us_government_had/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/interesting-news-02-reddit-placeholder.svg" alt="TIL the US had a Board of Tea Appeals that could order tea destroyed — until 1996" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">r/todayilearned</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xvvk6u/til_that_as_recently_as_1996_the_us_government_had/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xvvk6u/til_that_as_recently_as_1996_the_us_government_had/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xvvk6u/til_that_as_recently_as_1996_the_us_government_had/" target="_blank" rel="noopener">TIL the US had a Board of Tea Appeals that could order tea destroyed — until 1996</a></h2>
+        <div class="story-summary"><p>True, and better than the TIL: the Tea Importation Act of 1897 created a Board of Tea Experts that set &#x27;standards of purity, quality, and fitness&#x27; by literally taste-testing imports in a Brooklyn warehouse, with a separate Board of Tea Appeals as the courts. The Federal Tea Tasters Repeal Act (Pub. L. 104-128) killed it on April 9, 1996 after decades of failed repeal attempts — but the Board of Tea Experts technically lingered with no members and no budget until the FDA formally removed it from the advisory-committee list on September 19, 2023. Bureaucratic half-life as a spectator sport.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xw3noh/til_that_the_vi%E1%BB%87t_nam_emperor_t%E1%BB%B1_%C4%91%E1%BB%A9c_had_built/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/interesting-news-03-reddit-placeholder.svg" alt="TIL the Vietnamese Emperor Tự Đức loved his own tomb so much he moved in" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">r/todayilearned</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xw3noh/til_that_the_vi%E1%BB%87t_nam_emperor_t%E1%BB%B1_%C4%91%E1%BB%A9c_had_built/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xw3noh/til_that_the_vi%E1%BB%87t_nam_emperor_t%E1%BB%B1_%C4%91%E1%BB%A9c_had_built/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xw3noh/til_that_the_vi%E1%BB%87t_nam_emperor_t%E1%BB%B1_%C4%91%E1%BB%A9c_had_built/" target="_blank" rel="noopener">TIL the Vietnamese Emperor Tự Đức loved his own tomb so much he moved in</a></h2>
+        <div class="story-summary"><p>Confirmed against the Huế monuments record: Tự Đức, the Nguyễn emperor with the longest reign (1848-1883), built Khiêm Lăng from 1864-1867 — a 12-hectare complex with lake, theater, and palaces so livable that corvée labor demands sparked an abortive 1866 coup. The emperor then used his own mausoleum as his residence for the last 16 years of his life. The kicker is verified too: he was buried somewhere else entirely, in secret — tradition holds the 200 laborers who dug the grave were killed afterward, and his real burial site has never been found.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xwcuu6/til_the_city_of_dish_texas_was_originally_named/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/interesting-news-04-reddit-placeholder.svg" alt="TIL the city of Dish, Texas was bought by Dish Network — renamed in exchange for free cable" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">r/todayilearned</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xwcuu6/til_the_city_of_dish_texas_was_originally_named/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xwcuu6/til_the_city_of_dish_texas_was_originally_named/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xwcuu6/til_the_city_of_dish_texas_was_originally_named/" target="_blank" rel="noopener">TIL the city of Dish, Texas was bought by Dish Network — renamed in exchange for free cable</a></h2>
+        <div class="story-summary"><p>In 2005 the ~230-person town of Clark, Texas accepted Dish Network&#x27;s offer: rename the town (post office, water tower, all of it) to Dish, and every resident gets free satellite TV for life. The company spent roughly what a regional ad buy would have cost and bought a permanent place-name ad nobody can skip. The interesting adjacent detail is that Clark had already renamed itself once to avoid postal confusion with another Clark, making Dish the second hand-me-down identity in the town&#x27;s history — municipal rebranding as a line item in a marketing budget.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/interesting-news-05-nasa-satellite-data-shows-mangroves-are-globally.jpg" alt="NASA satellite data shows mangroves are globally rebounding" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#fc3d21">NA</span>
+          <span class="by">NASA Earth Observatory</span>
+          <a class="orig" href="https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/" target="_blank" rel="noopener">NASA satellite data shows mangroves are globally rebounding</a></h2>
+        <div class="story-summary"><p>NASA Earth Observatory&#x27;s satellite accounting finds global mangrove cover has been recovering after decades of loss — roughly 20,000 km² cleared since the 1980s offset by regrowth and aggressive replanting programs, with parts of Southeast Asia and China showing net gains. The story carries more than feel-good weight: mangroves store several times more carbon per hectare than terrestrial forest and buffer storm surge for hundreds of millions of coastal people, so the trend line is a rare verified-wins column in coastal climate accounting. Also a nice example of what medium-res orbital imagery can actually settle quantitatively.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xw1smb/til_that_until_2019_the_international_kilogram/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-15/interesting-news-06-reddit-placeholder.svg" alt="TIL the kilogram was defined by a metal cylinder — and copies drifted 50 micrograms from it over a century" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">r/todayilearned</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xw1smb/til_that_until_2019_the_international_kilogram/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xw1smb/til_that_until_2019_the_international_kilogram/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xw1smb/til_that_until_2019_the_international_kilogram/" target="_blank" rel="noopener">TIL the kilogram was defined by a metal cylinder — and copies drifted 50 micrograms from it over a century</a></h2>
+        <div class="story-summary"><p>Accurate, and the details are delicious: until the 2019 SI redefinition tied the kilogram to Planck&#x27;s constant, one kilogram was exactly the mass of the platinum-iridium Le Grand K kept in a vault near Paris — by definition, even if it gained or lost atoms. Official national copies drifted against it by ~50 micrograms over the century, which is nothing for butchery and a genuine problem for metrology and pharmacology. The philosophical oddity survives re-reading: for 130 years the entire mass of chemistry was calibrated against one specific object&#x27;s behavior, and cleaning it changed what &#x27;mass&#x27; meant operationally.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning · Sunday, November 15, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
