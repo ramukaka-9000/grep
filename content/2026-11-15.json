@@ -1,0 +1,225 @@
+{
+  "date": "2026-11-15",
+  "summary": "The local-inference stack hits 1.0 while vibe-coded apps leak passports; crows out-decide primates and a federal tea board refuses to die.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "ggml turns 1.0, a vibe-coding platform exposes 200K private messages, energy costs split along language lines, and two tiny models go from scratch to Game Boy.",
+      "stories": [
+        {
+          "title": "ggml v1.0.0",
+          "url": "https://github.com/ggml-org/ggml/releases/tag/v1.0.0",
+          "source": "hn",
+          "byline": "ggml-org / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50493062",
+          "tier": "must-read",
+          "summary": "The tensor library underneath llama.cpp and most local-LLM tooling declares 1.0: deprecated public API pruned, legacy DIAG_MASK ops removed, the RPC protocol bumped to reject incompatible peers, plus FP8 support, configurable YaRN truncation, and a sweep of backend performance work (CUDA/Metal MoE fusion, Vulkan prefill FlashAttention, OpenCL Adreno, new WebGPU kernels). For anyone who ships on ggml, the API pruning and RPC break are the migration items to check. The 67-comment thread reads like a who's-who of the local-inference scene reacting to finally having a stability contract."
+        },
+        {
+          "title": "Lovable apps expose passport details and more than 200K private messages",
+          "url": "https://www.crissyfield.de/research/lovable-en/",
+          "source": "hn",
+          "byline": "Crissy Field / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50499017",
+          "tier": "essential",
+          "summary": "A security researcher audited apps built with the Lovable vibe-coding platform and found systemic exposure: passport details and over 200,000 private messages readable without authentication, because generated apps ship with permissive database rules by default. The read for builders is that prompt-to-app platforms automate the part of development where security review used to live — default RLS policies and secret handling are now your responsibility, not your junior dev's. The 282-comment thread splits between 'predictable' and 'this should have been caught at the platform layer'."
+        },
+        {
+          "title": "Generative AI uses more energy on non-English text",
+          "url": "https://news.umich.edu/generative-ai-uses-more-energy-on-non-english-text/",
+          "source": "hn",
+          "byline": "University of Michigan Engineering / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50441444",
+          "tier": "must-read",
+          "summary": "An EMNLP study measured inference energy across 122 languages on Qwen 3, Gemma 3 and Llama 3.1: total energy per response varies up to 179x between English (17.6 kJ) and Pashto (3,147 kJ), driven by token inflation for non-Latin scripts plus higher per-token cost. Hindi and Bengali — hundreds of millions of speakers each — need 7.9x and 15.3x English's energy, and the high-energy languages also score lowest on accuracy: about 5.2 billion people pay double or worse. If you serve multilingual traffic, tokenizer choice is now an energy and cost axis, not just a quality one."
+        },
+        {
+          "title": "Write your own kernel optimiser",
+          "url": "https://blog.csongor.co.uk/cachet-grids-and-tiles/",
+          "source": "hn",
+          "byline": "Csongor Kadocsy / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50444891",
+          "tier": "recommended",
+          "summary": "A worked build-your-own tour of GPU kernel scheduling through the Cachet project: grids, tiles, and how an optimiser searches the space of block/thread mappings to pick kernel configs that compilers miss. It is the clearest explanation going of why autotuning works and where its search space blows up, written by someone who implemented one. Good background for anyone wiring kernel-generation agents into an inference stack — the search heuristics are exactly what LLM-based kernel writers are being asked to replace or guide."
+        },
+        {
+          "title": "CapLite: Prompt-Injection Defense for Small Language Model Agents",
+          "url": "https://arxiv.org/abs/2611.17115v1",
+          "source": "arxiv",
+          "byline": "arXiv",
+          "discuss_url": "https://arxiv.org/abs/2611.17115v1",
+          "tier": "recommended",
+          "summary": "Prompt-injection defenses usually ask the model to write its own security artifacts, which is a joke for 1-4B parameter agents — they are too weak to police themselves. CapLite moves the defense outside the model entirely, guarding small-model agents without any model-written security code. Directly relevant to the current wave of tiny on-device agent runtimes: the paper is a concrete argument that SLM agent security is an architecture problem, not a training problem, with baselines against standard quarantine and spotlighting schemes."
+        },
+        {
+          "title": "Classical Energies Learn to Reason 1,000x Faster than Looped Models",
+          "url": "https://arxiv.org/abs/2611.17309v1",
+          "source": "arxiv",
+          "byline": "arXiv",
+          "discuss_url": "https://arxiv.org/abs/2611.17309v1",
+          "tier": "notable",
+          "summary": "Against the popular looped-transformer trend — small weight-shared models that iterate their reasoning for extra depth — this paper reports a classical-energy formulation that reaches comparable reasoning accuracy roughly 1,000x faster on the authors' benchmark suite. Treat the multiplier as the paper's own claim pending third-party replication, but the direction matters: it attacks the assumption that test-time iteration through shared weights is the efficient way to buy reasoning depth. Worth reading alongside the looped-templates and latent-thought crowd before you commit to any iteration-heavy agent architecture."
+        },
+        {
+          "title": "supermimic: humanoid whole-body motion tracking with one differentiable world model",
+          "url": "https://github.com/HybridRobotics/supermimic",
+          "source": "github",
+          "byline": "HybridRobotics (Qiayuan Liao) / GitHub",
+          "discuss_url": "https://github.com/HybridRobotics/supermimic",
+          "tier": "recommended",
+          "summary": "From the HybridRobotics group (the SuperLOD/Isaac ecosystem), a fresh Apache-2.0 release for humanoid whole-body motion tracking driven by a single differentiable world model rather than the usual ensemble of task-specific controllers. 285 commits in under a week, Python-only, and the README positions it as the tracking backbone you can bolt onto existing humanoid sim pipelines. If you are tracking the general-models-swallow-robotics trend (OpenAI just disbanded its robotics team), this is what that consolidation looks like from the research-lab side: one model, one world, many motions."
+        },
+        {
+          "title": "IRS Direct File: the US government's open-source tax-filing code",
+          "url": "https://github.com/IRS-Public/direct-file",
+          "source": "github",
+          "byline": "IRS-Public / GitHub via Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50499083",
+          "tier": "notable",
+          "summary": "The full source of the IRS's free Direct File product is public — a Django/React production app that filed real federal returns for real taxpayers, with the tax-law logic, e-file schemas, and identity flows intact. For engineers it is a rare artifact: government-scale form logic written in the open, including how they model the US tax code as data and test it. The HN thread digs into the architecture choices and how it compares to the commercial tax-prep stack the project was built to compete with."
+        },
+        {
+          "title": "ChatGBA: a 4-million-parameter chat model that runs on a Game Boy Advance",
+          "url": "https://huggingface.co/gszauer/ChatGBA",
+          "source": "hf",
+          "byline": "gszauer / Hugging Face",
+          "discuss_url": "https://huggingface.co/gszauer/ChatGBA",
+          "tier": "must-read",
+          "summary": "A decoder-only transformer with 4,003,264 parameters — 10 blocks, d=192, GQA, SwiGLU, byte-level UTF-8 tokenizer — packaged as an int8 .gba cartridge that runs in pure integer arithmetic on the GBA's 16.78 MHz ARM7TDMI, printing about one letter every two seconds. It holds short English conversations, ships a dependency-free reference.js, and is the console member of the Gab family (10M-1B). The floor of what a genuine chat model needs keeps dropping, and this one fits in a toy; quantized it is trivially CPU-runnable on anything you own."
+        },
+        {
+          "title": "Hanok LLM: a Korean-first 1B base model and full training stack",
+          "url": "https://huggingface.co/seoan1024/Hanok-LLM-Base",
+          "source": "hf",
+          "byline": "seoan1024 / Hugging Face",
+          "discuss_url": "https://huggingface.co/seoan1024/Hanok-LLM-Base",
+          "tier": "recommended",
+          "summary": "A native PyTorch 1B-parameter transformer (33 layers, 1,280 hidden, SwiGLU) built for Korean-language research, released base-model-first with the full training, checkpointing, and data-workflow stack in the companion repo — not a fine-tune of someone else's checkpoint. At 1B it lands comfortably inside 5-6GB VRAM quantized and runs performantly on CPU for short generations. A good template if you are building a language-first small model: the repo shows corpus assembly, tokenizer choices, and training config for a non-English-first model end to end."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "An out-of-order RISC-V core boots Linux, an old phone outsells the Pi, and someone measures how leaky a trash-can Faraday cage really is.",
+      "stories": [
+        {
+          "title": "Show HN: Fursoy — out-of-order RV64IMAFDV core in SystemVerilog boots Linux 6.6",
+          "url": "https://github.com/FURSOY/fursoy-cpu",
+          "source": "github",
+          "byline": "FURSOY / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50497137",
+          "tier": "essential",
+          "summary": "A hobby RTL project that cleared the real bar: a fully out-of-order RV64IMAFDV core (full vector extension) written in SystemVerilog that boots Linux 6.6. Out-of-order is the hard part — rename, ROB, scheduler — and having it run a modern kernel rather than just CoreMark puts it in a tiny club of open silicon. Worth following even if you never touch Verilog: the testbench and CI setup are a masterclass in how to make an HDL project reviewable."
+        },
+        {
+          "title": "Why get an expensive Pi when I have an old phone?",
+          "url": "https://so.long.thanks.fish/why-pi-when-i-have-an-old-phone/",
+          "source": "hn",
+          "byline": "so.long.thanks.fish / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50440709",
+          "tier": "must-read",
+          "summary": "A 519-point field report replacing Raspberry Pis with repurposed Android phones for hobby embedded work: you get an SoC with more RAM, built-in battery management, Wi-Fi, a screen, and cellular, often free from a drawer. The post is honest about the costs — bootloader locks, no GPIO header, thermal throttling, Android-vs-Linux pain and the postmarketOS/Debian-on-Android escape hatches. For sensor nodes, dashcams, and offsite telemetry the BOM math genuinely favors the phone; for pin-banging and I2C experiments the Pi still wins. Read the thread for people's specific 'phone X as sensor hub' recipes."
+        },
+        {
+          "title": "Testing a trash-can Faraday cage",
+          "url": "https://www.jefftk.com/p/testing-a-trash-can-faraday-cage",
+          "source": "hn",
+          "byline": "Jeff Kaufman / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50467278",
+          "tier": "recommended",
+          "summary": "Jeff Kaufman does what almost nobody does with Faraday-cage claims: actually measures them. A steel trash can with a conductive gasket is tested against cell signals, RFID/keyfob frequencies, and NFC with real attenuation numbers per frequency, showing where the lid seam leaks and how much a copper-tape rim improves it. The takeaway is the pattern rather than the specific can: cage performance is seam engineering, and marketing 'Faraday bags' routinely fail the same tests this blog gives a trash can. A useful measured-results template for your own RF shielding builds."
+        },
+        {
+          "title": "Reverse engineering a vintage diode-transistor logic chip",
+          "url": "https://www.righto.com/2026/11/signetics-st680a-dtl-nand.html",
+          "source": "hn",
+          "byline": "Ken Shirriff (Righto) / Hacker News",
+          "discuss_url": "https://news.ycombinator.com/item?id=50416011",
+          "tier": "recommended",
+          "summary": "Ken Shirriff de-capss and die-shots a Signetics ST680A DTL NAND — the logic family sitting between RTL and TTL — and walks the transistor-level circuit, explaining why diode-transistor logic lost to TTL and how the pull-up saturation behavior shows up on the die. As usual the die photography is the artifact you cannot get anywhere else, and the piece reconstructs the design decisions (resistor ratios, diode stacks) from silicon geometry. Pairs unexpectedly well with the PostScript/RPN pieces in Electronics today: both are about reading machine logic at its native level."
+        },
+        {
+          "title": "Making CO₂ Sensors Fail Visibly, Not Silently",
+          "url": "https://hackaday.com/2026/11/14/making-co%e2%82%82-sensors-fail-visibly-not-silently/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026/11/14/making-co%e2%82%82-sensors-fail-visibly-not-silently/",
+          "tier": "recommended",
+          "summary": "A practical teardown of why low-cost NDIR CO₂ monitors drift into comfortable lies: sensors age, firmware clamps readings, and auto-baseline calibration happily calibrates toward an assumed clean-air minimum that never happens in a sealed room. The build is an arduino-based watchdog that compares a reference instrument against your cheap monitor and raises a visible alarm when they diverge, instead of letting the number sit plausible-but-wrong. Directly applicable to any environmental-sensing project — the failure mode described is exactly how people end up trusting bad ventilation data. Includes the calibration-philosophy discussion the genre usually skips."
+        },
+        {
+          "title": "Build a $4 AI desk assistant with an ESP32-S3 chip",
+          "url": "https://blog.adafruit.com/2026/11/13/build-a-4-ai-desk-assistant-with-an-esp32-s3-chip/",
+          "source": "adafruit",
+          "byline": "Adafruit Industries",
+          "discuss_url": "https://blog.adafruit.com/2026/11/13/build-a-4-ai-desk-assistant-with-an-esp32-s3-chip/",
+          "tier": "notable",
+          "summary": "A complete walkable build: an ESP32-S3 board at roughly four dollars doing wake-word detection and streaming to a hosted LLM for a desk assistant, with the full parts list, wiring, and firmware for the voice pipeline on the cheap silicon. The interesting engineering is in the budget constraints — how much intelligence you keep on the S3 versus the server without the interaction feeling laggy. Fits the $4-ESP32 + tiny-models pattern running through today's AI section: the edge device is now a commodity, and the interesting work is the plumbing around it."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Crows decide twice as fast as primates, the federal tea board wouldn't die, and an emperor moved into his own tomb.",
+      "stories": [
+        {
+          "title": "Crows make decisions twice as fast as humans — and just as accurately",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261111005850.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/11/261111005850.htm",
+          "tier": "must-read",
+          "summary": "A Science study (Schmidbauer & Nieder, Oct 22) put carrion crows through the same random-dot motion task used on primates: decisions in ~235 ms versus 400-600 ms for monkeys and humans, with accuracy intact — near 100% on easy trials, above chance even at 3% coherence. Recordings from 248 neurons in the crow's nidopallium caudolaterale show the same ramping decision-variable dynamics as primate prefrontal cortex, with choice predictable just 70 ms after stimulus onset. Caveats are in order (two birds, one task), but the convergence of mammal-like circuit logic in an unlaminated 360-million-year divergent brain is the interesting part. Excellent design inspiration for latency-bound agent loops, honestly."
+        },
+        {
+          "title": "TIL the US had a Board of Tea Appeals that could order tea destroyed — until 1996",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xvvk6u/til_that_as_recently_as_1996_the_us_government_had/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xvvk6u/til_that_as_recently_as_1996_the_us_government_had/",
+          "tier": "recommended",
+          "summary": "True, and better than the TIL: the Tea Importation Act of 1897 created a Board of Tea Experts that set 'standards of purity, quality, and fitness' by literally taste-testing imports in a Brooklyn warehouse, with a separate Board of Tea Appeals as the courts. The Federal Tea Tasters Repeal Act (Pub. L. 104-128) killed it on April 9, 1996 after decades of failed repeal attempts — but the Board of Tea Experts technically lingered with no members and no budget until the FDA formally removed it from the advisory-committee list on September 19, 2023. Bureaucratic half-life as a spectator sport."
+        },
+        {
+          "title": "TIL the Vietnamese Emperor Tự Đức loved his own tomb so much he moved in",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xw3noh/til_that_the_vi%E1%BB%87t_nam_emperor_t%E1%BB%B1_%C4%91%E1%BB%A9c_had_built/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xw3noh/til_that_the_vi%E1%BB%87t_nam_emperor_t%E1%BB%B1_%C4%91%E1%BB%A9c_had_built/",
+          "tier": "recommended",
+          "summary": "Confirmed against the Huế monuments record: Tự Đức, the Nguyễn emperor with the longest reign (1848-1883), built Khiêm Lăng from 1864-1867 — a 12-hectare complex with lake, theater, and palaces so livable that corvée labor demands sparked an abortive 1866 coup. The emperor then used his own mausoleum as his residence for the last 16 years of his life. The kicker is verified too: he was buried somewhere else entirely, in secret — tradition holds the 200 laborers who dug the grave were killed afterward, and his real burial site has never been found."
+        },
+        {
+          "title": "TIL the city of Dish, Texas was bought by Dish Network — renamed in exchange for free cable",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xwcuu6/til_the_city_of_dish_texas_was_originally_named/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xwcuu6/til_the_city_of_dish_texas_was_originally_named/",
+          "tier": "notable",
+          "summary": "In 2005 the ~230-person town of Clark, Texas accepted Dish Network's offer: rename the town (post office, water tower, all of it) to Dish, and every resident gets free satellite TV for life. The company spent roughly what a regional ad buy would have cost and bought a permanent place-name ad nobody can skip. The interesting adjacent detail is that Clark had already renamed itself once to avoid postal confusion with another Clark, making Dish the second hand-me-down identity in the town's history — municipal rebranding as a line item in a marketing budget."
+        },
+        {
+          "title": "NASA satellite data shows mangroves are globally rebounding",
+          "url": "https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/",
+          "source": "nasa",
+          "byline": "NASA Earth Observatory",
+          "discuss_url": "https://science.nasa.gov/earth/earth-observatory/a-global-rebound-for-mangroves/",
+          "tier": "recommended",
+          "summary": "NASA Earth Observatory's satellite accounting finds global mangrove cover has been recovering after decades of loss — roughly 20,000 km² cleared since the 1980s offset by regrowth and aggressive replanting programs, with parts of Southeast Asia and China showing net gains. The story carries more than feel-good weight: mangroves store several times more carbon per hectare than terrestrial forest and buffer storm surge for hundreds of millions of coastal people, so the trend line is a rare verified-wins column in coastal climate accounting. Also a nice example of what medium-res orbital imagery can actually settle quantitatively."
+        },
+        {
+          "title": "TIL the kilogram was defined by a metal cylinder — and copies drifted 50 micrograms from it over a century",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xw1smb/til_that_until_2019_the_international_kilogram/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xw1smb/til_that_until_2019_the_international_kilogram/",
+          "tier": "notable",
+          "summary": "Accurate, and the details are delicious: until the 2019 SI redefinition tied the kilogram to Planck's constant, one kilogram was exactly the mass of the platinum-iridium Le Grand K kept in a vault near Paris — by definition, even if it gained or lost atoms. Official national copies drifted against it by ~50 micrograms over the century, which is nothing for butchery and a genuine problem for metrology and pharmacology. The philosophical oddity survives re-reading: for 130 years the entire mass of chemistry was calibrated against one specific object's behavior, and cleaning it changed what 'mass' meant operationally."
+        }
+      ]
+    }
+  ]
+}
