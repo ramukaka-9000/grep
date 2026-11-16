@@ -1,0 +1,225 @@
+{
+  "date": "2026-11-16",
+  "summary": "Qwen4-Max lands with a 2.4T MoE and big price cuts, Starship Flight 15 ends in a booster catch, and the tiny-model lab keeps shipping — a 142M code completer and a 9M streaming Japanese ASR.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Frontier releases, agent engineering, and Postgres search internals.",
+      "stories": [
+        {
+          "title": "Qwen4-Max: 2.4T-parameter MoE with 1M-token context and 62% cheaper tasks",
+          "url": "https://qwen.ai/blog?id=qwen4-max",
+          "source": "other",
+          "byline": "Qwen Team",
+          "discuss_url": "https://news.ycombinator.com/item?id=50513215",
+          "tier": "essential",
+          "summary": "Qwen's new flagship ships on a Qwen4 architecture: 2.4T backbone parameters, 71B activated per token, plus 328B N-gram embedding parameters, native vision, and a one-million-token context window. The engineering story is in the hybrid attention — three Gated DeltaNet layers compress history into fixed-size states per Qwen Sparse Attention layer, with a lightweight indexer selecting context at micro-block granularity. The team claims 24-49% token reductions versus Qwen3.8-Max on Work360 and Terminal-Bench 4.0, with average cost per task dropping from $4.43 to $1.67 alongside lower API prices."
+        },
+        {
+          "title": "All AI-generated code should be Open Source",
+          "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+          "source": "hn",
+          "byline": "Jakub T. Jankiewicz",
+          "discuss_url": "https://news.ycombinator.com/item?id=50507303",
+          "tier": "must-read",
+          "summary": "A hot take argued from two directions: models were trained on OSS and Stack Overflow content scraped without attribution, and purely AI-generated code has no human author, so under the Monkey Selfie precedent and U.S. Copyright Office guidance it should not be copyrightable at all. The author concludes such code is effectively public domain and should be released as open source to close the attribution loop. One of the day's biggest HN threads (1,100+ points, ~600 comments) with strong counterarguments about license contamination and the GPL/AGPL fraction of training corpora."
+        },
+        {
+          "title": "Understanding Positional Embeddings in Modern LLMs",
+          "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+          "source": "hn",
+          "byline": "Sebastian Raschka",
+          "discuss_url": "https://news.ycombinator.com/item?id=50506376",
+          "tier": "recommended",
+          "summary": "Raschka's practical tour through the positional-encoding stack used by current open-weight models: absolute encodings, RoPE and its scaling tricks, and the newer hybrid schemes behind long-context models. Written at his usual implementer level — math plus runnable code rather than hand-waving — so it pairs well with the Qwen4-Max announcement's claims about attention changes. A good primer before reading papers that assume you know why attention sinks and partial rotary dimensions matter."
+        },
+        {
+          "title": "What thousands of conversations look like inside a language model",
+          "url": "https://operator0x.com/field-notes/qwen-conversation-state-space/",
+          "source": "hn",
+          "byline": "Operator_0x",
+          "discuss_url": "https://news.ycombinator.com/item?id=50481321",
+          "tier": "recommended",
+          "summary": "An interactive atlas of Qwen3-1.7B's internal representations across ~900 prompts in four languages plus Python coding tasks, projected down to a navigable 3D state space. The honesty is the best part: the measurement table shows the pretty 3D view captures only 17.6% of token-state variation, and 684 PCA directions are needed to retain 90%, so the map is explicitly a projection, not the territory. Raw measurement CSVs are published alongside, making this a template for interpretable interpretability posts."
+        },
+        {
+          "title": "Do we still have to denormalize? Search joins in Postgres get 1000x faster",
+          "url": "https://www.paradedb.com/blog/joins",
+          "source": "other",
+          "byline": "Stu Hood / ParadeDB",
+          "discuss_url": "https://news.ycombinator.com/item?id=50484998",
+          "tier": "must-read",
+          "summary": "ParadeDB attacks the age-old search dilemma: denormalize into Elasticsearch via fragile ETL, or accept Postgres scoring millions of joined rows to return a handful. Using DataFusion, rank joins, co-partitioning, and tuple tagging, a 3-table Top-K BM25 search over a normalized StackOverflow schema drops from 2 minutes to ~100 ms — up to 1000x vanilla Postgres — with no extra infrastructure. Worth reading even if you don't adopt ParadeDB: the join-operator design is a serious step for AI apps doing hybrid search over normalized schemas."
+        },
+        {
+          "title": "Claude Code and Codex reverse engineered a 1994 Jeep's ECU over a $3 Arduino",
+          "url": "https://www.youtube.com/watch?v=WPj3aQ-xxpI",
+          "source": "hn",
+          "byline": "envoked (via HN)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50463399",
+          "tier": "recommended",
+          "summary": "A hands-on field report of pointing coding agents at a 32-year-old vehicle: a $3 Arduino clone on the Jeep's diagnostic bus feeds captures to Claude Code and Codex, which collaboratively reverse-engineer the 1994 ECU's undocumented protocol. It's a concrete data point for agentic coding beyond greenfield TypeScript — the agents handle protocol archaeology, hypothesis testing against hardware, and iterative decoding. ~360 points and a lively thread on where the humans still had to drive."
+        },
+        {
+          "title": "open-orange — run Cloudflare Workers and Durable Objects unchanged on AWS, GCP, or your own servers",
+          "url": "https://github.com/rivet-dev/open-orange",
+          "source": "github",
+          "byline": "Rivet",
+          "discuss_url": "https://github.com/rivet-dev/open-orange",
+          "tier": "must-read",
+          "summary": "Rivet's open-source runtime executes Cloudflare Workers and Durable Objects unmodified on AWS, GCP, Azure, or bare metal, attacking the lock-in that Workers-era edge apps reintroduce. Durable Objects — stateful single-writer actors — are the hard part, and getting them portable matters for the wave of agent infrastructure built on the Workers model. Young repo (~600 stars) but from a team with real distributed-systems credentials; watch for how complete the V8 isolate compatibility surface is."
+        },
+        {
+          "title": "relax — Makepad's new Rust JIT",
+          "url": "https://github.com/makepad/relax",
+          "source": "github",
+          "byline": "Makepad",
+          "discuss_url": "https://github.com/makepad/relax",
+          "tier": "notable",
+          "summary": "The Makepad team (of live-UI-in-Rust fame) released a standalone Rust JIT, freshly pushed and already drawing ~560 stars. A JIT from the people who care about frame-budget performance tends to come with clever ideas about layout and hot paths, and it lands in a space where Rust JITs are rare. Early enough that the README outpaces the docs — expect rough edges — but a credible new substrate for anyone wanting runtime-compiled Rust for scripting layers or shader-like workloads."
+        },
+        {
+          "title": "Alexandria-Research-Preview-150m — a 142M code-completion model trained from scratch with full data manifest",
+          "url": "https://huggingface.co/zoeissleeping/Alexandria-Research-Preview-150m",
+          "source": "hf",
+          "byline": "zoeissleeping",
+          "discuss_url": "https://huggingface.co/zoeissleeping/Alexandria-Research-Preview-150m",
+          "tier": "must-read",
+          "summary": "A 142M-parameter Supermaven-style autocomplete model trained from scratch on 11.3B tokens of Python/JS, with a genuinely novel chunked encoder-decoder: each code chunk is encoded independently so its KV can be cached and only edited chunks recompute. It runs easily in <1GB and the writeup is a masterclass in honesty — a known-failures section, a stop reason (loss flattened at 10.98B tokens), and a per-file training manifest with SWHIDs so the corpus is rebuildable without redistribution. Not usable in an editor yet; it's a research preview worth studying for the architecture and data hygiene."
+        },
+        {
+          "title": "kikimimi-hiragana-9m — 9.1M-parameter streaming Japanese ASR that runs on a phone",
+          "url": "https://huggingface.co/Yakimask/kikimimi-hiragana-9m",
+          "source": "hf",
+          "byline": "Yakimask",
+          "discuss_url": "https://huggingface.co/Yakimask/kikimimi-hiragana-9m",
+          "tier": "recommended",
+          "summary": "A 9.1M-parameter causal Conformer trained from scratch with CTC that emits hiragana 40ms after each audio slice — the 'ears' for a full-duplex dialogue system, CPU-friendly at a scale usually reserved for toy models. Trained on 304 hours of YODAS with honest failure reporting: CER 0.471 on in-domain YouTube audio, 0.041 on clean TTS, and a measured noise sensitivity curve (CER 0.52 at 2x noise). Output is pronunciation-form kana only, deliberately leaving kanji conversion to the downstream LLM — a clean decomposition worth copying for edge voice stacks."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Homebrew 486 hardware, charge-pump forensics, non-planar printing, and a subscription jailbreak.",
+      "stories": [
+        {
+          "title": "VapourDeck is the 486 handheld you didn't know you needed",
+          "url": "https://hackaday.com/2026-11-15/vapourdeck-is-the-486-handheld-you-didnt-know-you-needed/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-11-15/vapourdeck-is-the-486-handheld-you-didnt-know-you-needed/",
+          "tier": "essential",
+          "summary": "Sprite_tm designed a from-scratch Intel 486 motherboard — not an industrial SBC — to build a handheld DOS-gaming PC, choosing the 486 precisely because Intel's 1990s datasheets let mere mortals do the math. The build is excellently documented on spritesmods.com, covering the bus timing, VGA glue logic, and power design that make a 486 fit in a portable case. A rare modern exercise in designing real 16/32-bit PC hardware from the silicon up, and a masterclass in reading old documentation."
+        },
+        {
+          "title": "Chasing an audio artifact on power loss",
+          "url": "https://subalpinecircuits.com/chasing-an-audio-artifact-on-power-loss/",
+          "source": "other",
+          "byline": "Drew / Subalpine Circuits",
+          "discuss_url": "https://subalpinecircuits.com/chasing-an-audio-artifact-on-power-loss/",
+          "tier": "must-read",
+          "summary": "A pop on the bench: an ESP32-driven PCM510xA DAC screams on power-down even after self-muting. The forensic writeup captures the spike, adds 220µF of bulk capacitance, and the artifact vanishes — then explains why: when the I2S clock dies instantly, the DAC still needs headroom time to hold the output at 0V while the charge-pump capacitors discharge into the line instead. Cross-checked against TI's datasheet pop-on-power-down note, with scope captures. Exactly the kind of measured, first-principles debug log embedded work needs more of."
+        },
+        {
+          "title": "My $300 embroidery machine needed a subscription, so I built my own app",
+          "url": "https://blog.adafruit.com/2026-11-14/my-300-embroidery-machine-needed-a-subscription-so-i-built-my-own-app/",
+          "source": "adafruit",
+          "byline": "Adafruit Industries",
+          "discuss_url": "https://blog.adafruit.com/2026-11-14/my-300-embroidery-machine-needed-a-subscription-so-i-built-my-own-app/",
+          "tier": "recommended",
+          "summary": "A hardware-as-a-service jailbreak: the owner of a $300 embroidery machine that gates basic design transfer behind a subscription builds an alternative app to drive it directly. Practical reverse-engineering of the machine's transfer protocol and file pipeline, in the tradition of right-to-repair tooling that keeps purchased hardware usable. Useful reading for anyone who has met a peripheral that phones home to unlock features you already paid for."
+        },
+        {
+          "title": "Printing smooth upper surfaces with a non-planar slicer",
+          "url": "https://hackaday.com/2026-11-15/printing-smooth-upper-surfaces-with-a-non-planar-slicer/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-11-15/printing-smooth-upper-surfaces-with-a-non-planar-slicer/",
+          "tier": "recommended",
+          "summary": "Non-planar slicing kills the stair-stepping on top faces by curving the print layers with the surface instead of cutting horizontal slices, and this walk-through covers what the current toolchain can and cannot do on a stock printer. Includes the practical constraints — curvature limits, nozzle collisions, speed tradeoffs — that decide whether it's worth leaving planar-land. Good timing: non-planar paths are one of the few firmware/slicer frontiers where hobby printers can still gain visible quality."
+        },
+        {
+          "title": "Loop antennas for transmitting",
+          "url": "https://hackaday.com/2026-11-15/loop-antennas-for-transmitting/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-11-15/loop-antennas-for-transmitting/",
+          "tier": "recommended",
+          "summary": "Most loop-antenna content covers receiving; this treats them as transmitters — the magnetic near field, radiation resistance that makes small loops brutally inefficient, matching networks, and where a loop actually beats a dipole in a constrained install. Solid RF fundamentals for HF operators and anyone doing embedded near-field link work who needs to reason about why their tiny loop isn't going anywhere. The measured framing makes it more than an antenna-theory rehash."
+        },
+        {
+          "title": "WM 0.10 is a window manager for DOS XT and 286",
+          "url": "https://blog.adafruit.com/2026-11-15/wm-0-10-is-a-window-manager-for-dos-xt-and-286/",
+          "source": "adafruit",
+          "byline": "Adafruit Industries",
+          "discuss_url": "https://blog.adafruit.com/2026-11-15/wm-0-10-is-a-window-manager-for-dos-xt-and-286/",
+          "tier": "notable",
+          "summary": "A new window manager targeting the bottom of the DOS food chain — XT and 286 machines, where every byte of conventional memory and every CGA/EGA cycle counts. 0.10 is early, but retro-computing projects that survive on 8088-class hardware are a good test of engineering restraint, and the code has to fit in the space GEM and Desqview once occupied. Fun companion to this month's 8088 Domination and VapourDeck wave of vintage-hardware renaissance projects."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "A booster caught on the first try of the day, dark energy changing sign, quantum elevator jumps, and a seat saved since 1937.",
+      "stories": [
+        {
+          "title": "SpaceX catches the Starship booster to end Flight 15",
+          "url": "https://www.spacex.com/launches/starship-flight-15",
+          "source": "other",
+          "byline": "SpaceX",
+          "discuss_url": "https://news.ycombinator.com/item?id=50500963",
+          "tier": "essential",
+          "summary": "Flight 15 closes with SpaceX's tower catch of the Super Heavy booster — the maneuver that turns booster recovery from a landing-barge gamble into an assembly-line relaunch — capping the year's Starship campaign. The HN thread (1,650 points, 1,200+ comments) tracks the full flight profile and what the catch means for the Artemis and Mars timelines. One of the few space stories where the claim and the video both deliver."
+        },
+        {
+          "title": "Dark energy may have flipped from negative to positive 9.5 billion years ago",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261111005901.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261111005901.htm",
+          "tier": "must-read",
+          "summary": "An international team led by Özgür Akarsu at Istanbul Technical University revisited an alternative-gravity theory in Physical Review D and found a mathematical possibility everyone else had overlooked: dark energy's equation of state could have crossed zero, flipping from attractive to repulsive roughly 9.5 billion years ago. If real, the cosmological constant isn't constant, and the universe's acceleration history gets rewritten. Speculative but peer-reviewed in PRD — exactly the kind of load-bearing physics claim worth watching for replication against supernova and BAO data."
+        },
+        {
+          "title": "Scientists capture electrons making seemingly impossible quantum jumps",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261112025523.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261112025523.htm",
+          "tier": "recommended",
+          "summary": "Researchers directly imaged electrons leaping between energy levels while skipping the states in between — like an elevator display going 1, 2, 3, then 20, with the seventeen middle floors never visited. The observation probes a century-old question about whether quantum jumps are instantaneous transitions or have catchable dynamics, and capturing them requires watching a single emitter faster than the jump itself. A rare case of textbook quantum weirdness becoming experimental footage rather than an inference from spectra."
+        },
+        {
+          "title": "Uranus and Neptune's tilted magnetic fields may come from conductivity cliffs in their deep oceans",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261114202204.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261114202204.htm",
+          "tier": "recommended",
+          "summary": "The ice giants' magnetic fields are the solar system's oddities — wildly tilted off the rotation axis and multipolar instead of dipolar — and a new study pins the weirdness on how well their hot, compressed interior materials conduct electricity under extreme conditions. A conductivity gradient deep inside could cage and distort the dynamo, and the model predicts the fields may reorganize dramatically within decades. Testable against Voyager-era data and future missions, and a reminder that planetary magnetism is less settled than the textbook pictures suggest."
+        },
+        {
+          "title": "5,000-year-old skulls from Abydos back up Petrie's human-sacrifice theory for Egypt's first kings",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261112025540.htm",
+          "source": "science",
+          "byline": "ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261112025540.htm",
+          "tier": "recommended",
+          "summary": "When Flinders Petrie dug the First Dynasty royal tombs at Abydos in the 1920s, the hundreds of attendants buried around each king looked like human sacrifice — a claim later archaeologists dismissed. New analysis of those skulls supports Petrie after a century, with perimortem evidence pointing at retainer sacrifice around 3000 BCE Egypt's earliest pharaohs. Bioarchaeology quietly overturning a generation of cautious reinterpretation; a good example of old museum collections yielding new verdicts with new methods."
+        },
+        {
+          "title": "TIL the Tomb of the Unknown Soldier has been continuously guarded, 24/7, since July 2, 1937",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xwl3v2/til_the_united_states_tomb_of_the_unknown_soldier/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xwl3v2/til_the_united_states_tomb_of_the_unknown_soldier/",
+          "tier": "notable",
+          "summary": "The 3rd U.S. Infantry's sentinels have stood watch over Arlington's Tomb of the Unknown Soldier without a single unguarded hour since July 2, 1937 — through hurricanes, snowstorms, and the pandemic's empty cemetery. One of those facts that sounds like civic mythology but is verifiable through the Old Guard's own records, including the storm days when guards refused to leave post. A small, durable piece of institutional devotion next to the day's grander claims."
+        }
+      ]
+    }
+  ]
+}
