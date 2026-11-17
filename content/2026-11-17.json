@@ -1,0 +1,243 @@
+{
+  "date": "2026-11-17",
+  "summary": "Agent-era engineering hygiene — Lean's verification caveats, telemetry in Windows dev tools, credential-sandboxed agents — alongside ternary-quantized small models and genuinely tiny hardware builds.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Verification claims, agent telemetry, and small-model tricks lead the day.",
+      "stories": [
+        {
+          "title": "Interpreting claims that a theorem is correct because it was checked in Lean",
+          "url": "https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/",
+          "source": "hn",
+          "byline": "The xAPI project (via Hacker News, 289 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50515058",
+          "tier": "must-read",
+          "summary": "A careful read of what 'the proof was checked in Lean' actually licenses you to believe. The post walks through the gap between a machine-checked term and a true theorem: the statement must match the intended one, the Lean kernel itself and its axioms sit outside the check, and sorry or axioms can hide in dependencies. For anyone building AI-for-math tooling — including the recent Gödel-notebooks hype cycle — this is the calibration piece: verification is a pipeline, not a boolean. The 132-comment HN thread adds practitioners arguing where the real trust boundaries are."
+        },
+        {
+          "title": "Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use",
+          "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
+          "source": "hn",
+          "byline": "xusheng.dev (via Hacker News, 296 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50524736",
+          "tier": "must-read",
+          "summary": "A reverse-engineering writeup finds Windows 11 sampling which coding agents, IDEs, and developer tools are installed and running on your machine, phoned home via a telemetry component not covered by the usual diagnostic-data toggles. The author shows the registry/process-discovery mechanism and the endpoint. Worth reading before you assume an OS reimage or privacy guide has actually silenced dev-tool fingerprinting; the HN thread has the counter-arguments on how invasive the payload really is."
+        },
+        {
+          "title": "Jiff 1.0: A datetime library for Rust",
+          "url": "https://burntsushi.net/jiff/",
+          "source": "hn",
+          "byline": "Andrew Gallant (via Hacker News, 321 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50519744",
+          "tier": "recommended",
+          "summary": "Burntsushi ships 1.0 of Jiff, his answer to what datetime handling in Rust should feel like: one crate covering instants, zoned datetimes, and civil datetimes, with timezone conversions that are correct by default instead of opt-in footguns. The post lays out the design history — why chrono's split types push errors onto users, how Jiff handles ambiguous and non-existent times across DST transitions, and the performance work. If your agents touch scheduling or timezones, this is the library to evaluate; the 76-comment thread relitigates datetime design generally."
+        },
+        {
+          "title": "Running coding agents without handing them my credentials",
+          "url": "https://blog.antonio.cx/running-agents-with-lend",
+          "source": "hn",
+          "byline": "antonio.cx (via Hacker News)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50526152",
+          "tier": "recommended",
+          "summary": "A practical pattern for agent sandboxing: rather than giving a coding agent your AWS keys, GitHub tokens, and npm credentials, the author runs a broker (lend) that holds real credentials and issues the agent short-lived, scoped, revocable ones per task. Includes the threat model — prompt-injected agents as credential exfiltrators — and the failure modes of the common 'just put secrets in env vars' setup. Directly applicable if you run autonomous agents against real infrastructure."
+        },
+        {
+          "title": "On-policy distillation as a Backdoor Propagation Channel",
+          "url": "https://arxiv.org/abs/2611.19207v1",
+          "source": "arxiv",
+          "byline": "Zane Fu et al.",
+          "discuss_url": "https://arxiv.org/abs/2611.19207v1",
+          "tier": "recommended",
+          "summary": "On-policy distillation is becoming the cheap way to make small students from big teachers — and this paper shows an attacker can weaponize it. A conditional backdoor implanted in a teacher via SFT transfers into the student even when the distillation stream contains only a tiny proportion of trigger prompts, and the transferred backdoor survives further fine-tuning better than the original. If your pipeline distills third-party fine-tunes from the hub, treat the teacher's weights as untrusted input, not just the data."
+        },
+        {
+          "title": "Executable Archaeology: Reanimating the Logic Theorist",
+          "url": "https://arxiv.org/abs/2611.19167v1",
+          "source": "arxiv",
+          "byline": "David Moews & Jeff Shrager",
+          "discuss_url": "https://arxiv.org/abs/2611.19167v1",
+          "tier": "notable",
+          "summary": "Newell, Shaw and Simon's 1956 Logic Theorist — arguably the first AI program — exists only in pseudocode (LL/IPL-I) and a 1963 IPL-V pedagogical release. The authors reconstruct and actually execute both versions, resolving long-standing ambiguities about how the original heuristic search behaved versus the sanitized textbook account. A nice piece of computational history done rigorously, and a reminder that most 'history of AI' claims have never been run against real code."
+        },
+        {
+          "title": "Claude Mythos slashed AMD GPU onboarding from up to 12 months to ~3 days",
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-says-claude-mythos-slashed-software-work-to-onboard-amd-gpus-from-up-to-12-months-to-around-three-days-writing-almost-100-percent-of-kernels-autonomously-chips-away-at-nvidias-cuda-moat",
+          "source": "other",
+          "byline": "Tom's Hardware / Anthropic claim",
+          "discuss_url": "https://news.ycombinator.com/item?id=50526264",
+          "tier": "recommended",
+          "summary": "Anthropic reports that Claude Mythos wrote nearly 100% of the kernels needed to onboard a new AMD GPU platform, compressing work previously estimated at up to twelve months into around three days. The strategic read is the CUDA moat: if frontier-agent kernel authoring is this good, portability stops being a switching cost. Vendor-claimed numbers with no published benchmark yet — treat the 12-months-to-3-days framing as marketing until independent reproductions land, but the direction is the story."
+        },
+        {
+          "title": "First phase of embedded assessments at OpenAI",
+          "url": "https://openai.com/index/our-first-phase-of-embedded-assessments/",
+          "source": "other",
+          "byline": "OpenAI",
+          "discuss_url": "https://news.ycombinator.com/item?id=50519153",
+          "tier": "notable",
+          "summary": "OpenAI describes the first phase of putting external safety researchers inside the company ('embedded assessments') to red-team frontier systems during development rather than after release. The post details scope, what the assessors got access to, and what came back. Read it alongside the ongoing debate about self-regulation: it is a concrete data point on what internal-but-independent review actually looks like in practice."
+        },
+        {
+          "title": "Ternary1B: SmolLM2 1.7B squeezed to 499 MB at 1.58-bit BitNet weights",
+          "url": "https://huggingface.co/AmareshHebbar/Ternary1B_SmolLM2_1.7B_BITNET",
+          "source": "hf",
+          "byline": "AmareshHebbar (Hugging Face)",
+          "discuss_url": "https://huggingface.co/AmareshHebbar/Ternary1B_SmolLM2_1.7B_BITNET",
+          "tier": "recommended",
+          "summary": "Every linear layer of SmolLM2-1.7B converted to BitNet b1.58 ternary weights (minus-1/0/plus-1) via staged warmup plus distillation, landing at a 499 MB packed file that still scores 40.7 hellaswag / 63.8 piqa — versus total collapse (26 hellaswag, perplexity in the millions) from naive ternary rounding. Perplexity 35 on WikiText2 is a real degradation from the 8.12 original, but the model runs comfortably on a laptop CPU or any GPU under 1 GB. The one-card-per-method Ternary1B collection is the interesting part: a clean, honest ablation of what extreme quantization actually costs."
+        },
+        {
+          "title": "Dweep 1.7B: the first open language model for the Andaman & Nicobar Islands, trained on a MacBook Air",
+          "url": "https://huggingface.co/docanan/dweep-1.7b",
+          "source": "hf",
+          "byline": "docanan (Hugging Face)",
+          "discuss_url": "https://huggingface.co/docanan/dweep-1.7b",
+          "tier": "notable",
+          "summary": "A LoRA fine-tune of Qwen3-1.7B on 3,275 validated instruction pairs about the Andaman and Nicobar Islands — geography, administration, ecology, transport — trained on a 16 GB MacBook Air M5 on the islands themselves. The model card is the standout: a dated, archived HuggingFace-API census backing the 'first open language model for the islands' claim, plus explicit naming of prior work that does NOT count (a police chatbot, legal-PDF datasets). A template for how small domain models should document novelty, and runnable anywhere a 1.7B fits."
+        },
+        {
+          "title": "tiny-voca: a 4.5M-parameter two-voice TTS model trained from scratch",
+          "url": "https://github.com/n4ze3m/tiny-voca",
+          "source": "github",
+          "byline": "n4ze3m on GitHub (625 stars)",
+          "discuss_url": "https://github.com/n4ze3m/tiny-voca",
+          "tier": "recommended",
+          "summary": "A from-scratch English TTS model in 4.5 million parameters with two voices, shipped as ONNX so it runs anywhere without a PyTorch stack. That is roughly three orders of magnitude smaller than the Whisper/Kokoro-era models people assume TTS requires — the interesting artifact is the architecture/data recipe that makes intelligible speech this small, and the training writeup behind it. For agent sidebars, embedded devices, or CPU-only deployments where 50 MB of model is already too much."
+        },
+        {
+          "title": "Haru: low-latency, multilingual, full-duplex spoken dialogue model",
+          "url": "https://github.com/higurashi-ai/Haru",
+          "source": "github",
+          "byline": "higurashi-ai on GitHub (528 stars)",
+          "discuss_url": "https://github.com/higurashi-ai/Haru",
+          "tier": "notable",
+          "summary": "Haru targets the hard part of voice agents: full-duplex conversation — listening while speaking, handling interruptions and backchannels — in a multilingual, low-latency open release rather than a closed API. If the weights and inference code hold up to independent testing, this is the open alternative to pay-per-minute duplex voice stacks; evaluate the license and the real-time factor on your own hardware before building on it."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "ESP32-P4 desktop OSes, a $24 e-ink pager, and honest reverse-engineering tools.",
+      "stories": [
+        {
+          "title": "A $24 e-ink desk pager built from a Raspberry Pi Zero",
+          "url": "https://blog.adafruit.com/2026/11/16/a-24-e-ink-desk-pager-built-from-a-raspberry-pi-zero/",
+          "source": "adafruit",
+          "byline": "Adafruit News / Vipul Gupta",
+          "discuss_url": "https://blog.adafruit.com/2026/11/16/a-24-e-ink-desk-pager-built-from-a-raspberry-pi-zero/",
+          "tier": "recommended",
+          "summary": "Vipul Gupta built a desk pager for $24: a Pi Zero driving a small e-ink panel that surfaces agent notifications, usage limits, and personal texts, with the zero-power-at-idle behavior that only e-ink gives you. The parts list and power budget make it reproducible in an afternoon, and the use case — ambient signals from long-running coding agents without a phone in hand — is one more makers are converging on this year."
+        },
+        {
+          "title": "BMDS: a DOS-like desktop OS for the ESP32-P4",
+          "url": "https://blog.adafruit.com/2026/11/16/a-desktop-os-for-the-esp32-p4/",
+          "source": "adafruit",
+          "byline": "Adafruit News / Jason Howard",
+          "discuss_url": "https://blog.adafruit.com/2026/11/16/a-desktop-os-for-the-esp32-p4/",
+          "tier": "recommended",
+          "summary": "Jason Howard's Bare Metal Do Stuff turns the Olimex ESP32-P4-PC into a self-contained personal computer: a small DOS-like OS with its own shell, editor, and window-ish UI running close to bare metal on the P4's 400 MHz RISC-V core. It is the most serious 'what does an OS even need to be' experiment to land on the P4, and the code is on GitHub — a good substrate if you have been waiting for a reason to buy the P4."
+        },
+        {
+          "title": "ESP32-C5 WiFi jam detector uses its own radio as a snapshot SDR",
+          "url": "https://blog.adafruit.com/2026/11/16/esp32-wifi-jam-detector-finds-the-jamming/",
+          "source": "adafruit",
+          "byline": "Adafruit News / TheDigital1",
+          "discuss_url": "https://blog.adafruit.com/2026/11/16/esp32-wifi-jam-detector-finds-the-jamming/",
+          "tier": "recommended",
+          "summary": "A receive-only RF interference detector for the Waveshare ESP32-C5-Touch-LCD-3.5 that abuses the C5's WiFi receiver as a snapshot SDR to spot jamming patterns on 2.4 GHz — no extra RF hardware, no transmit, so it stays legal to run anywhere. The interesting technique is characterizing interference style (continuous vs. pulsed vs. swept) from receiver RSSI snapshots alone, which is enough to distinguish an accidental microwave from deliberate jamming."
+        },
+        {
+          "title": "usb-rea: reverse-engineer a USB device's protocol from a pcap",
+          "url": "https://blog.adafruit.com/2026/11/16/reverse-engineer-that-usb-device-in-style/",
+          "source": "adafruit",
+          "byline": "Adafruit News / Emir Mrkaljević",
+          "discuss_url": "https://blog.adafruit.com/2026/11/16/reverse-engineer-that-usb-device-in-style/",
+          "tier": "recommended",
+          "summary": "usb-rea takes usbmon/Wireshark pcap captures of an undocumented USB device and works out what the protocol actually is — control transfers, endpoints, request patterns — instead of leaving you squinting at hex dumps. It slots directly into the classic 'make this no-name gadget open-source' workflow and pairs well with the toolchain people already use for HID reverse engineering; on GitHub."
+        },
+        {
+          "title": "VapourDeck: a handheld DOS machine with a real 486, not an emulator",
+          "url": "https://blog.adafruit.com/2026/11/16/vapourdeck-is-the-486-handheld-you-didnt-know-you-needed/",
+          "source": "adafruit",
+          "byline": "Adafruit News",
+          "discuss_url": "https://blog.adafruit.com/2026/11/16/vapourdeck-is-the-486-handheld-you-didnt-know-you-needed/",
+          "tier": "notable",
+          "summary": "A Steam Deck-shaped handheld that runs DOS games on an actual Intel 486 — the builder designed the system board from scratch rather than emulating, which means real ISA-era quirks and real cycle-accurate behavior in a modern case. A showcase of what retrocomputing in the 2020s looks like: salvaged or fabbed period-correct silicon, custom PCB, and the honest engineering of fitting a 5V bus era into Li-ion power."
+        },
+        {
+          "title": "Can't get the right cassette mechanism? Make your own",
+          "url": "https://hackaday.com/2026/11/16/cant-get-the-right-cassette-mechanism-have-a-go-at-making-your-own/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026/11/16/cant-get-the-right-cassette-mechanism-have-a-go-at-making-your-own/",
+          "tier": "notable",
+          "summary": "With essentially one company still manufacturing cassette deck mechanisms, tape-deck restorers are designing their own: this build covers the capstan, pinch roller, tape path, and transport geometry well enough to substitute for a discontinued mechanism. It doubles as a compact masterclass in the mechatronics everyone forgot — the tolerance stack-ups that made 'simple' analog transport actually hard."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "A new world inside a deep-sea rock, a new side of Didymos, and elections decided by two votes.",
+      "stories": [
+        {
+          "title": "NASA smashed into an asteroid — now Hera reveals a strange, unseen side of Didymos",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261116023351.htm",
+          "source": "esa",
+          "byline": "European Space Agency / ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/11/261116023351.htm",
+          "tier": "must-read",
+          "summary": "ESA's Hera has returned the first close-up of Didymos, the 780 m primary of the asteroid system where NASA's DART deliberately impacted moonlet Dimorphos in September 2022. The 60 km framing-camera shot shows a side of Didymos never before resolved — 'like looking at a whole new world,' per PI Patrick Michel — with craters and boulders that surprise the team. Hera's real job is ahead: measuring the impact crater and momentum transfer to turn asteroid deflection from a one-off experiment into calibrated planetary defense."
+        },
+        {
+          "title": "245 animals living inside a single deep-sea rock: nodules are hidden ecosystems",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261114202133.htm",
+          "source": "science",
+          "byline": "MARUM, University of Bremen / ScienceDaily",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026/11/261114202133.htm",
+          "tier": "must-read",
+          "summary": "MARUM researchers examined 244 polymetallic nodules from the Clarion-Clipperton Zone — fist-sized iron-manganese rocks that grow millimeters per million years at 4,000-6,000 m depth — and found more than 4,100 sub-millimeter animals in their internal cracks and cavities, up to 245 in a single nodule. The fauna differ from the surrounding seafloor mud communities, meaning each nodule is a slow-growing habitat in its own right — and the exact resource targeted by deep-sea mining."
+        },
+        {
+          "title": "The 1974 Senate race decided by two votes — and the do-over election it forced",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xxg9s2/til_a_1974_us_senate_race_in_new_hampshire_was_so/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xxg9s2/til_a_1974_us_senate_race_in_new_hampshire_was_so/",
+          "tier": "recommended",
+          "summary": "Durkin v. Wyman remains the closest Senate election in US history: Wyman won by 355, a recount flipped it to Durkin by 10, a third tabulation gave Wyman the seat by two votes out of ~223,000, and after six cloture votes and 200+ hours the Senate gave up and declared the seat vacant, forcing a September 1975 special election that Durkin won by 27,000. Verified against the Senate's own historical office writeup — the part the TIL softens slightly is that the Senate itself, 60-40 Democratic, refused to seat the two-vote winner."
+        },
+        {
+          "title": "The NBA's 24-second shot clock came from a 19-18 game and some arithmetic",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xy31sv/til_the_nba_shot_clock_exists_because_of_a_1950/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xy31sv/til_the_nba_shot_clock_exists_because_of_a_1950/",
+          "tier": "recommended",
+          "summary": "After the Fort Wayne Pistons beat the Lakers 19-18 in 1950 by holding the ball for minutes at a time, Syracuse owner Danny Biasone derived the 24-second clock by dividing 48 minutes by ~120 shots per team — the number that produced the most entertaining games in his film study. The clock debuted in 1954 and the league's scoring jumped ~14 points a game within two seasons. The well-documented origin story of probably the most successful rule change in professional sports."
+        },
+        {
+          "title": "Kaihōgyō: the Buddhist marathon monks' 1,000-day walk through death vigils",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xxlak5/til_about_kaihōgyō_a_practice_performed_by/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xxlak5/til_about_kaihōgyō_a_practice_performed_by/",
+          "tier": "notable",
+          "summary": "Mount Hiei's kaihogyo is a ~12-year circumambulation practice whose middle stage demands up to 84 km of walking daily for 100 days while abstaining from food, water, and sleep — historically, monks who chose to quit at that stage were expected to fast to death in the hall of the protective deity. Completion rates are near zero per generation; the tradition's modern documentation (the 1980s documentary, the monks' own accounts) makes it one of the most extreme verifiable ascetic practices still alive."
+        },
+        {
+          "title": "US surveyors used a 'survey foot' slightly different from the normal foot until 2022",
+          "url": "https://www.reddit.com/r/todayilearned/comments/1xxm5t6/til_that_until_2022_us_surveyors_still_used_the/",
+          "source": "reddit",
+          "byline": "r/todayilearned",
+          "discuss_url": "https://www.reddit.com/r/todayilearned/comments/1xxm5t6/til_that_until_2022_us_surveyors_still_used_the/",
+          "tier": "notable",
+          "summary": "The US survey foot — defined so a survey inch was 25.4000508 mm, a hair over the exact international inch — lingered in US land surveying for over a century and only expired at the end of 2022. NIST's retirement notice made the news because every state-plane-coordinate dataset and old property survey built on it needed a conversion footgun audit. A rare unit story where the whole 50 parts-per-million actually mattered: in a long boundary line, it moves the fence."
+        }
+      ]
+    }
+  ]
+}
