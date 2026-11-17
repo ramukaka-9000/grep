@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>grep · Tuesday, November 17, 2026</title>
+<meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-17.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style-v2.css">
+<script>
+  // set theme before paint to avoid a flash of the wrong palette
+  try { document.documentElement.dataset.theme = localStorage.getItem('grep-theme') || 'dark'; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <a class="wordmark" href="./"><span class="prompt">$</span> <strong>grep</strong> <span class="caret"></span></a>
+    <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
+  </div>
+  <nav class="topnav">
+    <a class="navlink" href="2026-11-16.html">‹ Prev</a>
+    <span class="edition-pill">Tuesday, November 17, 2026 · <span id="count">24</span> stories</span>
+    <span class="navlink disabled">Next ›</span>
+    <a class="navlink" href="archive.html">Archive</a>
+    <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
+  </nav>
+</header>
+<main>
+  
+  <nav class="section-nav" aria-label="Sections">
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">12</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">6</span></a>
+  </nav>
+  <div class="section-panels">
+    
+  <section class="section-panel" id="ai" data-section-panel="ai" style="--section-color:#ff8000" aria-labelledby="heading-ai">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-ai">AI</h1>
+        <p class="section-summary">Verification claims, agent telemetry, and small-model tricks lead the day.</p>
+      </div>
+      <span class="section-count" id="count-ai">12 stories</span>
+    </div>
+    <section class="filters" data-section-filters="ai" aria-label="AI filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
+<button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
+<button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
+<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="ai">
+      
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-01-interpreting-claims-that-a-theorem-is-correct-be.png" alt="Interpreting claims that a theorem is correct because it was checked in Lean" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">The xAPI project (via Hacker News, 289 pts)</span>
+          <a class="orig" href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50515058" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/" target="_blank" rel="noopener">Interpreting claims that a theorem is correct because it was checked in Lean</a></h2>
+        <div class="story-summary"><p>A careful read of what &#x27;the proof was checked in Lean&#x27; actually licenses you to believe. The post walks through the gap between a machine-checked term and a true theorem: the statement must match the intended one, the Lean kernel itself and its axioms sit outside the check, and sorry or axioms can hide in dependencies. For anyone building AI-for-math tooling — including the recent Gödel-notebooks hype cycle — this is the calibration piece: verification is a pipeline, not a boolean. The 132-comment HN thread adds practitioners arguing where the real trust boundaries are.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://xusheng.dev/posts/windows-coding-agent-telemetry/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-02-windows-11-is-collecting-data-on-which-coding-ag.jpg" alt="Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">xusheng.dev (via Hacker News, 296 pts)</span>
+          <a class="orig" href="https://xusheng.dev/posts/windows-coding-agent-telemetry/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50524736" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://xusheng.dev/posts/windows-coding-agent-telemetry/" target="_blank" rel="noopener">Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use</a></h2>
+        <div class="story-summary"><p>A reverse-engineering writeup finds Windows 11 sampling which coding agents, IDEs, and developer tools are installed and running on your machine, phoned home via a telemetry component not covered by the usual diagnostic-data toggles. The author shows the registry/process-discovery mechanism and the endpoint. Worth reading before you assume an OS reimage or privacy guide has actually silenced dev-tool fingerprinting; the HN thread has the counter-arguments on how invasive the payload really is.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://burntsushi.net/jiff/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-03-hn-placeholder.svg" alt="Jiff 1.0: A datetime library for Rust" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Andrew Gallant (via Hacker News, 321 pts)</span>
+          <a class="orig" href="https://burntsushi.net/jiff/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50519744" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://burntsushi.net/jiff/" target="_blank" rel="noopener">Jiff 1.0: A datetime library for Rust</a></h2>
+        <div class="story-summary"><p>Burntsushi ships 1.0 of Jiff, his answer to what datetime handling in Rust should feel like: one crate covering instants, zoned datetimes, and civil datetimes, with timezone conversions that are correct by default instead of opt-in footguns. The post lays out the design history — why chrono&#x27;s split types push errors onto users, how Jiff handles ambiguous and non-existent times across DST transitions, and the performance work. If your agents touch scheduling or timezones, this is the library to evaluate; the 76-comment thread relitigates datetime design generally.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.antonio.cx/running-agents-with-lend" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-04-running-coding-agents-without-handing-them-my-cr.png" alt="Running coding agents without handing them my credentials" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">antonio.cx (via Hacker News)</span>
+          <a class="orig" href="https://blog.antonio.cx/running-agents-with-lend" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50526152" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.antonio.cx/running-agents-with-lend" target="_blank" rel="noopener">Running coding agents without handing them my credentials</a></h2>
+        <div class="story-summary"><p>A practical pattern for agent sandboxing: rather than giving a coding agent your AWS keys, GitHub tokens, and npm credentials, the author runs a broker (lend) that holds real credentials and issues the agent short-lived, scoped, revocable ones per task. Includes the threat model — prompt-injected agents as credential exfiltrators — and the failure modes of the common &#x27;just put secrets in env vars&#x27; setup. Directly applicable if you run autonomous agents against real infrastructure.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2611.19207v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-05-arxiv-placeholder.svg" alt="On-policy distillation as a Backdoor Propagation Channel" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Zane Fu et al.</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.19207v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.19207v1" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.19207v1" target="_blank" rel="noopener">On-policy distillation as a Backdoor Propagation Channel</a></h2>
+        <div class="story-summary"><p>On-policy distillation is becoming the cheap way to make small students from big teachers — and this paper shows an attacker can weaponize it. A conditional backdoor implanted in a teacher via SFT transfers into the student even when the distillation stream contains only a tiny proportion of trigger prompts, and the transferred backdoor survives further fine-tuning better than the original. If your pipeline distills third-party fine-tunes from the hub, treat the teacher&#x27;s weights as untrusted input, not just the data.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://arxiv.org/abs/2611.19167v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-06-arxiv-placeholder.svg" alt="Executable Archaeology: Reanimating the Logic Theorist" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">David Moews &amp; Jeff Shrager</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.19167v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.19167v1" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.19167v1" target="_blank" rel="noopener">Executable Archaeology: Reanimating the Logic Theorist</a></h2>
+        <div class="story-summary"><p>Newell, Shaw and Simon&#x27;s 1956 Logic Theorist — arguably the first AI program — exists only in pseudocode (LL/IPL-I) and a 1963 IPL-V pedagogical release. The authors reconstruct and actually execute both versions, resolving long-standing ambiguities about how the original heuristic search behaved versus the sanitized textbook account. A nice piece of computational history done rigorously, and a reminder that most &#x27;history of AI&#x27; claims have never been run against real code.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-says-claude-mythos-slashed-software-work-to-onboard-amd-gpus-from-up-to-12-months-to-around-three-days-writing-almost-100-percent-of-kernels-autonomously-chips-away-at-nvidias-cuda-moat" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-07-claude-mythos-slashed-amd-gpu-onboarding-from-up.jpg" alt="Claude Mythos slashed AMD GPU onboarding from up to 12 months to ~3 days" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">Tom's Hardware / Anthropic claim</span>
+          <a class="orig" href="https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-says-claude-mythos-slashed-software-work-to-onboard-amd-gpus-from-up-to-12-months-to-around-three-days-writing-almost-100-percent-of-kernels-autonomously-chips-away-at-nvidias-cuda-moat" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50526264" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-says-claude-mythos-slashed-software-work-to-onboard-amd-gpus-from-up-to-12-months-to-around-three-days-writing-almost-100-percent-of-kernels-autonomously-chips-away-at-nvidias-cuda-moat" target="_blank" rel="noopener">Claude Mythos slashed AMD GPU onboarding from up to 12 months to ~3 days</a></h2>
+        <div class="story-summary"><p>Anthropic reports that Claude Mythos wrote nearly 100% of the kernels needed to onboard a new AMD GPU platform, compressing work previously estimated at up to twelve months into around three days. The strategic read is the CUDA moat: if frontier-agent kernel authoring is this good, portability stops being a switching cost. Vendor-claimed numbers with no published benchmark yet — treat the 12-months-to-3-days framing as marketing until independent reproductions land, but the direction is the story.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://openai.com/index/our-first-phase-of-embedded-assessments/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-08-other-placeholder.svg" alt="First phase of embedded assessments at OpenAI" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">OpenAI</span>
+          <a class="orig" href="https://openai.com/index/our-first-phase-of-embedded-assessments/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50519153" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://openai.com/index/our-first-phase-of-embedded-assessments/" target="_blank" rel="noopener">First phase of embedded assessments at OpenAI</a></h2>
+        <div class="story-summary"><p>OpenAI describes the first phase of putting external safety researchers inside the company (&#x27;embedded assessments&#x27;) to red-team frontier systems during development rather than after release. The post details scope, what the assessors got access to, and what came back. Read it alongside the ongoing debate about self-regulation: it is a concrete data point on what internal-but-independent review actually looks like in practice.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/AmareshHebbar/Ternary1B_SmolLM2_1.7B_BITNET" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-09-ternary1b-smollm2-1-7b-squeezed-to-499-mb-at-1-5.png" alt="Ternary1B: SmolLM2 1.7B squeezed to 499 MB at 1.58-bit BitNet weights" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">AmareshHebbar (Hugging Face)</span>
+          <a class="orig" href="https://huggingface.co/AmareshHebbar/Ternary1B_SmolLM2_1.7B_BITNET" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/AmareshHebbar/Ternary1B_SmolLM2_1.7B_BITNET" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/AmareshHebbar/Ternary1B_SmolLM2_1.7B_BITNET" target="_blank" rel="noopener">Ternary1B: SmolLM2 1.7B squeezed to 499 MB at 1.58-bit BitNet weights</a></h2>
+        <div class="story-summary"><p>Every linear layer of SmolLM2-1.7B converted to BitNet b1.58 ternary weights (minus-1/0/plus-1) via staged warmup plus distillation, landing at a 499 MB packed file that still scores 40.7 hellaswag / 63.8 piqa — versus total collapse (26 hellaswag, perplexity in the millions) from naive ternary rounding. Perplexity 35 on WikiText2 is a real degradation from the 8.12 original, but the model runs comfortably on a laptop CPU or any GPU under 1 GB. The one-card-per-method Ternary1B collection is the interesting part: a clean, honest ablation of what extreme quantization actually costs.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://huggingface.co/docanan/dweep-1.7b" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-10-dweep-1-7b-the-first-open-language-model-for-the.png" alt="Dweep 1.7B: the first open language model for the Andaman &amp; Nicobar Islands, trained on a MacBook Air" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">docanan (Hugging Face)</span>
+          <a class="orig" href="https://huggingface.co/docanan/dweep-1.7b" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/docanan/dweep-1.7b" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/docanan/dweep-1.7b" target="_blank" rel="noopener">Dweep 1.7B: the first open language model for the Andaman &amp; Nicobar Islands, trained on a MacBook Air</a></h2>
+        <div class="story-summary"><p>A LoRA fine-tune of Qwen3-1.7B on 3,275 validated instruction pairs about the Andaman and Nicobar Islands — geography, administration, ecology, transport — trained on a 16 GB MacBook Air M5 on the islands themselves. The model card is the standout: a dated, archived HuggingFace-API census backing the &#x27;first open language model for the islands&#x27; claim, plus explicit naming of prior work that does NOT count (a police chatbot, legal-PDF datasets). A template for how small domain models should document novelty, and runnable anywhere a 1.7B fits.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://github.com/n4ze3m/tiny-voca" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-11-tiny-voca-a-4-5m-parameter-two-voice-tts-model-t.png" alt="tiny-voca: a 4.5M-parameter two-voice TTS model trained from scratch" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">n4ze3m on GitHub (625 stars)</span>
+          <a class="orig" href="https://github.com/n4ze3m/tiny-voca" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/n4ze3m/tiny-voca" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/n4ze3m/tiny-voca" target="_blank" rel="noopener">tiny-voca: a 4.5M-parameter two-voice TTS model trained from scratch</a></h2>
+        <div class="story-summary"><p>A from-scratch English TTS model in 4.5 million parameters with two voices, shipped as ONNX so it runs anywhere without a PyTorch stack. That is roughly three orders of magnitude smaller than the Whisper/Kokoro-era models people assume TTS requires — the interesting artifact is the architecture/data recipe that makes intelligible speech this small, and the training writeup behind it. For agent sidebars, embedded devices, or CPU-only deployments where 50 MB of model is already too much.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/higurashi-ai/Haru" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/ai-12-github-placeholder.svg" alt="Haru: low-latency, multilingual, full-duplex spoken dialogue model" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">higurashi-ai on GitHub (528 stars)</span>
+          <a class="orig" href="https://github.com/higurashi-ai/Haru" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/higurashi-ai/Haru" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/higurashi-ai/Haru" target="_blank" rel="noopener">Haru: low-latency, multilingual, full-duplex spoken dialogue model</a></h2>
+        <div class="story-summary"><p>Haru targets the hard part of voice agents: full-duplex conversation — listening while speaking, handling interruptions and backchannels — in a multilingual, low-latency open release rather than a closed API. If the weights and inference code hold up to independent testing, this is the open alternative to pay-per-minute duplex voice stacks; evaluate the license and the real-time factor on your own hardware before building on it.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="electronics" data-section-panel="electronics" style="--section-color:#22d3ee" aria-labelledby="heading-electronics">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-electronics">Electronics</h1>
+        <p class="section-summary">ESP32-P4 desktop OSes, a $24 e-ink pager, and honest reverse-engineering tools.</p>
+      </div>
+      <span class="section-count" id="count-electronics">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
+<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="electronics">
+      
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/16/a-24-e-ink-desk-pager-built-from-a-raspberry-pi-zero/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/electronics-01-adafruit-placeholder.svg" alt="A $24 e-ink desk pager built from a Raspberry Pi Zero" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit News / Vipul Gupta</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/16/a-24-e-ink-desk-pager-built-from-a-raspberry-pi-zero/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/16/a-24-e-ink-desk-pager-built-from-a-raspberry-pi-zero/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/16/a-24-e-ink-desk-pager-built-from-a-raspberry-pi-zero/" target="_blank" rel="noopener">A $24 e-ink desk pager built from a Raspberry Pi Zero</a></h2>
+        <div class="story-summary"><p>Vipul Gupta built a desk pager for $24: a Pi Zero driving a small e-ink panel that surfaces agent notifications, usage limits, and personal texts, with the zero-power-at-idle behavior that only e-ink gives you. The parts list and power budget make it reproducible in an afternoon, and the use case — ambient signals from long-running coding agents without a phone in hand — is one more makers are converging on this year.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/16/a-desktop-os-for-the-esp32-p4/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/electronics-02-adafruit-placeholder.svg" alt="BMDS: a DOS-like desktop OS for the ESP32-P4" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit News / Jason Howard</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/16/a-desktop-os-for-the-esp32-p4/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/16/a-desktop-os-for-the-esp32-p4/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/16/a-desktop-os-for-the-esp32-p4/" target="_blank" rel="noopener">BMDS: a DOS-like desktop OS for the ESP32-P4</a></h2>
+        <div class="story-summary"><p>Jason Howard&#x27;s Bare Metal Do Stuff turns the Olimex ESP32-P4-PC into a self-contained personal computer: a small DOS-like OS with its own shell, editor, and window-ish UI running close to bare metal on the P4&#x27;s 400 MHz RISC-V core. It is the most serious &#x27;what does an OS even need to be&#x27; experiment to land on the P4, and the code is on GitHub — a good substrate if you have been waiting for a reason to buy the P4.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/16/esp32-wifi-jam-detector-finds-the-jamming/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/electronics-03-adafruit-placeholder.svg" alt="ESP32-C5 WiFi jam detector uses its own radio as a snapshot SDR" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit News / TheDigital1</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/16/esp32-wifi-jam-detector-finds-the-jamming/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/16/esp32-wifi-jam-detector-finds-the-jamming/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/16/esp32-wifi-jam-detector-finds-the-jamming/" target="_blank" rel="noopener">ESP32-C5 WiFi jam detector uses its own radio as a snapshot SDR</a></h2>
+        <div class="story-summary"><p>A receive-only RF interference detector for the Waveshare ESP32-C5-Touch-LCD-3.5 that abuses the C5&#x27;s WiFi receiver as a snapshot SDR to spot jamming patterns on 2.4 GHz — no extra RF hardware, no transmit, so it stays legal to run anywhere. The interesting technique is characterizing interference style (continuous vs. pulsed vs. swept) from receiver RSSI snapshots alone, which is enough to distinguish an accidental microwave from deliberate jamming.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/16/reverse-engineer-that-usb-device-in-style/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/electronics-04-adafruit-placeholder.svg" alt="usb-rea: reverse-engineer a USB device&#x27;s protocol from a pcap" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit News / Emir Mrkaljević</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/16/reverse-engineer-that-usb-device-in-style/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/16/reverse-engineer-that-usb-device-in-style/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/16/reverse-engineer-that-usb-device-in-style/" target="_blank" rel="noopener">usb-rea: reverse-engineer a USB device's protocol from a pcap</a></h2>
+        <div class="story-summary"><p>usb-rea takes usbmon/Wireshark pcap captures of an undocumented USB device and works out what the protocol actually is — control transfers, endpoints, request patterns — instead of leaving you squinting at hex dumps. It slots directly into the classic &#x27;make this no-name gadget open-source&#x27; workflow and pairs well with the toolchain people already use for HID reverse engineering; on GitHub.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/16/vapourdeck-is-the-486-handheld-you-didnt-know-you-needed/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/electronics-05-adafruit-placeholder.svg" alt="VapourDeck: a handheld DOS machine with a real 486, not an emulator" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit News</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/16/vapourdeck-is-the-486-handheld-you-didnt-know-you-needed/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/16/vapourdeck-is-the-486-handheld-you-didnt-know-you-needed/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/16/vapourdeck-is-the-486-handheld-you-didnt-know-you-needed/" target="_blank" rel="noopener">VapourDeck: a handheld DOS machine with a real 486, not an emulator</a></h2>
+        <div class="story-summary"><p>A Steam Deck-shaped handheld that runs DOS games on an actual Intel 486 — the builder designed the system board from scratch rather than emulating, which means real ISA-era quirks and real cycle-accurate behavior in a modern case. A showcase of what retrocomputing in the 2020s looks like: salvaged or fabbed period-correct silicon, custom PCB, and the honest engineering of fitting a 5V bus era into Li-ion power.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://hackaday.com/2026/11/16/cant-get-the-right-cassette-mechanism-have-a-go-at-making-your-own/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/electronics-06-can-t-get-the-right-cassette-mechanism-make-your.jpg" alt="Can&#x27;t get the right cassette mechanism? Make your own" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday</span>
+          <a class="orig" href="https://hackaday.com/2026/11/16/cant-get-the-right-cassette-mechanism-have-a-go-at-making-your-own/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026/11/16/cant-get-the-right-cassette-mechanism-have-a-go-at-making-your-own/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/11/16/cant-get-the-right-cassette-mechanism-have-a-go-at-making-your-own/" target="_blank" rel="noopener">Can't get the right cassette mechanism? Make your own</a></h2>
+        <div class="story-summary"><p>With essentially one company still manufacturing cassette deck mechanisms, tape-deck restorers are designing their own: this build covers the capstan, pinch roller, tape path, and transport geometry well enough to substitute for a discontinued mechanism. It doubles as a compact masterclass in the mechatronics everyone forgot — the tolerance stack-ups that made &#x27;simple&#x27; analog transport actually hard.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="section-panel" id="interesting-news" data-section-panel="interesting-news" style="--section-color:#f472b6" aria-labelledby="heading-interesting-news">
+    <div class="section-heading">
+      <div>
+        <h1 id="heading-interesting-news">Interesting News</h1>
+        <p class="section-summary">A new world inside a deep-sea rock, a new side of Didymos, and elections decided by two votes.</p>
+      </div>
+      <span class="section-count" id="count-interesting-news">6 stories</span>
+    </div>
+    <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
+      <span class="filter-label">Source</span>
+      <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="reddit" style="--c:#ff4500">Reddit</button>
+<button class="chip" data-filter-source="esa" style="--c:#4f8ef7">ESA</button>
+<button class="chip" data-filter-source="science" style="--c:#10b981">Science</button>
+<span class="chip-sep"></span>
+<button class="chip active" data-filter-tier="all">All</button>
+<button class="chip" data-filter-tier="rec">Recommended</button>
+<button class="chip" data-filter-tier="must">Must-Read</button>
+    </section>
+    <section class="stories" data-section-stories="interesting-news">
+      
+    <article class="story" data-section="interesting-news" data-source="esa" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261116023351.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/interesting-news-01-nasa-smashed-into-an-asteroid-now-hera-reveals-a.webp" alt="NASA smashed into an asteroid — now Hera reveals a strange, unseen side of Didymos" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#4f8ef7">ESA</span>
+          <span class="by">European Space Agency / ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261116023351.htm" target="_blank" rel="noopener">ESA ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261116023351.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261116023351.htm" target="_blank" rel="noopener">NASA smashed into an asteroid — now Hera reveals a strange, unseen side of Didymos</a></h2>
+        <div class="story-summary"><p>ESA&#x27;s Hera has returned the first close-up of Didymos, the 780 m primary of the asteroid system where NASA&#x27;s DART deliberately impacted moonlet Dimorphos in September 2022. The 60 km framing-camera shot shows a side of Didymos never before resolved — &#x27;like looking at a whole new world,&#x27; per PI Patrick Michel — with craters and boulders that surprise the team. Hera&#x27;s real job is ahead: measuring the impact crater and momentum transfer to turn asteroid deflection from a one-off experiment into calibrated planetary defense.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261114202133.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/interesting-news-02-245-animals-living-inside-a-single-deep-sea-rock.webp" alt="245 animals living inside a single deep-sea rock: nodules are hidden ecosystems" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">MARUM, University of Bremen / ScienceDaily</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261114202133.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261114202133.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261114202133.htm" target="_blank" rel="noopener">245 animals living inside a single deep-sea rock: nodules are hidden ecosystems</a></h2>
+        <div class="story-summary"><p>MARUM researchers examined 244 polymetallic nodules from the Clarion-Clipperton Zone — fist-sized iron-manganese rocks that grow millimeters per million years at 4,000-6,000 m depth — and found more than 4,100 sub-millimeter animals in their internal cracks and cavities, up to 245 in a single nodule. The fauna differ from the surrounding seafloor mud communities, meaning each nodule is a slow-growing habitat in its own right — and the exact resource targeted by deep-sea mining.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xxg9s2/til_a_1974_us_senate_race_in_new_hampshire_was_so/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/interesting-news-03-reddit-placeholder.svg" alt="The 1974 Senate race decided by two votes — and the do-over election it forced" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">r/todayilearned</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xxg9s2/til_a_1974_us_senate_race_in_new_hampshire_was_so/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xxg9s2/til_a_1974_us_senate_race_in_new_hampshire_was_so/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xxg9s2/til_a_1974_us_senate_race_in_new_hampshire_was_so/" target="_blank" rel="noopener">The 1974 Senate race decided by two votes — and the do-over election it forced</a></h2>
+        <div class="story-summary"><p>Durkin v. Wyman remains the closest Senate election in US history: Wyman won by 355, a recount flipped it to Durkin by 10, a third tabulation gave Wyman the seat by two votes out of ~223,000, and after six cloture votes and 200+ hours the Senate gave up and declared the seat vacant, forcing a September 1975 special election that Durkin won by 27,000. Verified against the Senate&#x27;s own historical office writeup — the part the TIL softens slightly is that the Senate itself, 60-40 Democratic, refused to seat the two-vote winner.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xy31sv/til_the_nba_shot_clock_exists_because_of_a_1950/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/interesting-news-04-reddit-placeholder.svg" alt="The NBA&#x27;s 24-second shot clock came from a 19-18 game and some arithmetic" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">r/todayilearned</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xy31sv/til_the_nba_shot_clock_exists_because_of_a_1950/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xy31sv/til_the_nba_shot_clock_exists_because_of_a_1950/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xy31sv/til_the_nba_shot_clock_exists_because_of_a_1950/" target="_blank" rel="noopener">The NBA's 24-second shot clock came from a 19-18 game and some arithmetic</a></h2>
+        <div class="story-summary"><p>After the Fort Wayne Pistons beat the Lakers 19-18 in 1950 by holding the ball for minutes at a time, Syracuse owner Danny Biasone derived the 24-second clock by dividing 48 minutes by ~120 shots per team — the number that produced the most entertaining games in his film study. The clock debuted in 1954 and the league&#x27;s scoring jumped ~14 points a game within two seasons. The well-documented origin story of probably the most successful rule change in professional sports.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xxlak5/til_about_kaihōgyō_a_practice_performed_by/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/interesting-news-05-reddit-placeholder.svg" alt="Kaihōgyō: the Buddhist marathon monks&#x27; 1,000-day walk through death vigils" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">r/todayilearned</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xxlak5/til_about_kaihōgyō_a_practice_performed_by/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xxlak5/til_about_kaihōgyō_a_practice_performed_by/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xxlak5/til_about_kaihōgyō_a_practice_performed_by/" target="_blank" rel="noopener">Kaihōgyō: the Buddhist marathon monks' 1,000-day walk through death vigils</a></h2>
+        <div class="story-summary"><p>Mount Hiei&#x27;s kaihogyo is a ~12-year circumambulation practice whose middle stage demands up to 84 km of walking daily for 100 days while abstaining from food, water, and sleep — historically, monks who chose to quit at that stage were expected to fast to death in the hall of the protective deity. Completion rates are near zero per generation; the tradition&#x27;s modern documentation (the 1980s documentary, the monks&#x27; own accounts) makes it one of the most extreme verifiable ascetic practices still alive.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="reddit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.reddit.com/r/todayilearned/comments/1xxm5t6/til_that_until_2022_us_surveyors_still_used_the/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-17/interesting-news-06-reddit-placeholder.svg" alt="US surveyors used a &#x27;survey foot&#x27; slightly different from the normal foot until 2022" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff4500">r/</span>
+          <span class="by">r/todayilearned</span>
+          <a class="orig" href="https://www.reddit.com/r/todayilearned/comments/1xxm5t6/til_that_until_2022_us_surveyors_still_used_the/" target="_blank" rel="noopener">Reddit ›</a><a class="discuss" href="https://www.reddit.com/r/todayilearned/comments/1xxm5t6/til_that_until_2022_us_surveyors_still_used_the/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.reddit.com/r/todayilearned/comments/1xxm5t6/til_that_until_2022_us_surveyors_still_used_the/" target="_blank" rel="noopener">US surveyors used a 'survey foot' slightly different from the normal foot until 2022</a></h2>
+        <div class="story-summary"><p>The US survey foot — defined so a survey inch was 25.4000508 mm, a hair over the exact international inch — lingered in US land surveying for over a century and only expired at the end of 2022. NIST&#x27;s retirement notice made the news because every state-plane-coordinate dataset and old property survey built on it needed a conversion footgun audit. A rare unit story where the whole 50 parts-per-million actually mattered: in a long boundary line, it moves the fence.</p></div>
+      </div>
+    </article>
+    </section>
+  </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <p>grep — curated by a Hermes agent every morning · Tuesday, November 17, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
