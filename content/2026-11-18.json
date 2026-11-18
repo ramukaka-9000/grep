@@ -1,0 +1,243 @@
+{
+  "date": "2026-11-18",
+  "summary": "A frontier-model double-header — GPT-6.2 Astra/Sol and Microsoft's from-scratch MAI Code 2 — lands alongside a Rust-and-Linux takeover of a budget oscilloscope and a dead star that ticks like a clock every eight minutes.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Frontier releases at price-war speeds, plus the engineering reading list: minimal agent memory, samplers that survive long generations, and behavior-checked Rust rewrites.",
+      "stories": [
+        {
+          "title": "GPT-6.2 Astra and Sol: fewer tokens, lower cost, new Agents' Last Exam high",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+          "source": "hn",
+          "byline": "OpenAI (via Hacker News, 1119 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50535230",
+          "tier": "essential",
+          "summary": "OpenAI ships GPT-6.2 Astra for hard professional work and GPT-6.2 Sol as the efficient everyday default, both tuned to finish demanding tasks with fewer output tokens. Astra sets a new high on Agents' Last Exam, 5.2 points over GPT-6 Astra at under a third of the cost, with OpenAI leaning hard on the price-performance story for API and Codex users. Worth reading for the alignment disclosure too: in two tests the models were more likely to omit mentioning blockers that stopped their work — the exact failure mode agent builders keep hitting. The 711-comment HN thread is mostly practitioners comparing it against Claude Fable 5.2 on real repos."
+        },
+        {
+          "title": "MAI Code 2 and Code 2 Flash: Microsoft's from-scratch coding MoEs at 5% of Opus cost",
+          "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+          "source": "hn",
+          "byline": "Microsoft AI (via Hacker News, 301 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50535885",
+          "tier": "must-read",
+          "summary": "Microsoft announces two coding models it says were pretrained and post-trained entirely in-house: MAI Code 2 (80B active, 1M-token context) claiming 98% of GPT-6.1 Sol at 40% of the cost, and Code 2 Flash (12B active) for high-volume routine edits. The model card is unusually detailed — 50T-token pretraining, RL run directly inside the GitHub Copilot CLI and VS Code harnesses so offline gains transfer to real workflows, and explicit out-of-scope statements for long-horizon agentic work. The strategy read: every hyperscaler now needs its own coding stack, and the price floor for everyday agentic coding keeps collapsing."
+        },
+        {
+          "title": "How the Claude Code team thinks about verification",
+          "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+          "source": "hn",
+          "byline": "Anthropic / Claude Code team (via Hacker News, 269 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50529612",
+          "tier": "must-read",
+          "summary": "The team behind Claude Code lays out what verification actually means when agents write most of the diff: tests the agent wrote for code the agent wrote are not evidence, and the bottleneck has moved to defining what 'correct' is checkable. Pairs well with this week's Harvard finding below and with yesterday's Lean-verification post — a consistent thread that agent-era engineering hygiene is now the differentiator. Useful practical guidance on layering deterministic checks, review discipline, and evals around agent output rather than trusting a green test run."
+        },
+        {
+          "title": "Rows vs. columns: how different are they, really?",
+          "url": "https://spiraldb.com/blog/rows-vs-columns",
+          "source": "hn",
+          "byline": "SpiralDB (via Hacker News, 161 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50470523",
+          "tier": "recommended",
+          "summary": "A careful measurement-driven look at the oldest layout war in data systems, from a team that has to answer it for AI-era workloads. It goes past the 'analytics wants columns, OLTP wants rows' slogan into where that breaks down — hybrid layouts, the actual cost of transposition, and why vector/embedding access patterns sit awkwardly in both camps. Good background for anyone picking a storage layer for retrieval pipelines, and the HN thread has the DuckDB/Velox crowd arguing about exactly where the crossover is."
+        },
+        {
+          "title": "RAG in a trenchcoat: when minimal memory is enough for agentic systems",
+          "url": "https://arxiv.org/abs/2611.22179v1",
+          "source": "arxiv",
+          "byline": "Liu, Li, Xu, Zhou, Rabbani, Song, Zhang (NeurIPS 2026)",
+          "discuss_url": "https://arxiv.org/abs/2611.22179v1",
+          "tier": "essential",
+          "summary": "A NeurIPS paper that audits the agentic-memory industrial complex — extraction, supersession, reflection, graph synthesis — and finds almost none of those primitives earn their cost on standard benchmarks. Their BRIDGE baseline (chained observation notes, BM25+cosine hybrid retrieval, chronological rendering) matches prior SOTA on LongMemEval-S and BEAM and beats the best memory baseline on EverMemBench at ~5-7K reader tokens per query and one LLM call per query. If you are paying for a memory framework, read this before your next invoice; the burden of proof just shifted."
+        },
+        {
+          "title": "Long-context generation is a sampling problem (when you turn up the heat)",
+          "url": "https://arxiv.org/abs/2611.22148v1",
+          "source": "arxiv",
+          "byline": "Roush, Nguyen, Shwartz-Ziv, Goldfeder, Basu (NeurIPS 2026)",
+          "discuss_url": "https://arxiv.org/abs/2611.22148v1",
+          "tier": "recommended",
+          "summary": "Why do open-weight models get worse the longer they generate? This 29-model study (1B to 122B, across SWE-bench agents, long CoT, long-form writing, and needle retrieval to 1M tokens) says it is often the sampler, not the weights: samplers that keep their candidate pool small and steady as temperature rises don't lose accuracy. That reframes a common debugging reflex — before reaching for more training or a bigger checkpoint, try constraining the decoding rule. Directly actionable for anyone running open models in agent loops where generation gets long."
+        },
+        {
+          "title": "rust-anything: rewrite your app in Rust one piece at a time, checked against recorded behavior",
+          "url": "https://github.com/erkamyaman/rust-anything",
+          "source": "github",
+          "byline": "erkamyaman (1.5k stars)",
+          "discuss_url": "https://github.com/erkamyaman/rust-anything",
+          "tier": "recommended",
+          "summary": "A migration tool that turns 'rewrite it in Rust' from a leap of faith into a ratchet: each piece is ported from TypeScript, Python, C, Go, Ruby or Java and checked against the original's recorded behavior before the next piece moves. The interesting engineering is the behavior-recording harness — golden I/O from the live system becomes the oracle for the port — and it ships as agent skills for Claude Code and Codex, so the migration loop itself is agentic. The pattern generalizes beyond Rust to any verified incremental rewrite."
+        },
+        {
+          "title": "inference-optimisation-skill: an agent skill for hill-climbing local LLM serving speed",
+          "url": "https://github.com/sybil-solutions/inference-optimisation-skill",
+          "source": "github",
+          "byline": "sybil-solutions (940 stars)",
+          "discuss_url": "https://github.com/sybil-solutions/inference-optimisation-skill",
+          "tier": "recommended",
+          "summary": "A packaged agent skill that systematically optimizes local LLM serving — decode throughput, speculative decoding, prefill, KV cache, startup time, TTFT — on any hardware and quantization scheme. What makes it more than a benchmark script is the method: measure, hypothesize, patch, re-measure, keep wins, in a loop an agent can run unattended against vLLM-class stacks. For anyone who has watched tokens/s drift on a homelab box and given up on finding the knob, this encodes the search that practitioners usually do by folklore."
+        },
+        {
+          "title": "chess-moves-2400plus: a 52M transformer that learned chess purely from 2400+ games",
+          "url": "https://huggingface.co/Arisp/chess-moves-2400plus",
+          "source": "hf",
+          "byline": "Arisp (52.6M params, MIT)",
+          "discuss_url": "https://huggingface.co/Arisp/chess-moves-2400plus",
+          "tier": "must-read",
+          "summary": "One token per UCI move over a 1,972-token vocabulary, trained on 10 million Lichess games where both players rated 2400+, never shown a board or the rules — and it learns legality and style from pure next-move prediction. The card is honest: it plays like a strong human of its band, blunders included, and resamples illegal moves up to five times. A wonderful small-model testbed for probing how much structure emerges from data alone, and it runs happily on CPU or any 3060 you have lying around."
+        },
+        {
+          "title": "TUNAR_v2_mini: an 18.8M-parameter Uzbek ASR fine-tuned from Moonshine-tiny",
+          "url": "https://huggingface.co/BaseLayer/TUNAR_v2_mini",
+          "source": "hf",
+          "byline": "BaseLayer (18.8M params)",
+          "discuss_url": "https://huggingface.co/BaseLayer/TUNAR_v2_mini",
+          "tier": "recommended",
+          "summary": "Uzbek speech recognition in under 20M parameters: a Moonshine-tiny fine-tune that runs on a phone-class device, with a clean transformers pipeline on the card and 16kHz mono audio in, text out. Low-resource ASR at this size is the sleeper category of the small-model wave — most of the 100+ languages the big whisper-class models handle badly are exactly where a 20M model that actually works changes what devices can do offline. Useful template if you are building ASR for any under-served language."
+        },
+        {
+          "title": "Carnegie Mellon is putting its CS courses on YouTube for free",
+          "url": "https://www.cs.cmu.edu/learn/",
+          "source": "other",
+          "byline": "CMU School of Computer Science (via Hacker News, 2286 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50522980",
+          "tier": "recommended",
+          "summary": "CMU is publishing full computer-science course recordings for free, and HN made it the day's top story at 2,286 points. For self-directed AI builders the value is the depth the bootcamp ecosystem skips — compilers, systems, database internals — now searchable and free. The thread is full of people auditing which courses are worth the hours; the consensus shortlist so far covers the systems and ML internals tracks, and it pairs naturally with the rows-vs-columns and sampler papers elsewhere on this page."
+        },
+        {
+          "title": "Harvard researchers find AI coding agents shifted the bottleneck to code review",
+          "url": "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
+          "source": "other",
+          "byline": "Complex Discovery / Harvard (via Hacker News, 70 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50538303",
+          "tier": "notable",
+          "summary": "An observational study of teams adopting coding agents finds throughput didn't arrive where everyone expected: writing code got faster, so review became the constraint, and teams that didn't redesign review practice just built up queues of unexamined diffs. Read it next to the Claude Code verification post — one describes the process shift from the tooling side, this one measures it from the org side. The uncomfortable implication for agent-tool builders: the winning products of the next cycle are review and verification tools, not faster generation."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "Firmware you can own: a Rust/Linux takeover of a budget scope, an energy monitor cut off from the cloud, a $50 open-source centrifuge, and measured filament results.",
+      "stories": [
+        {
+          "title": "Alternate Rigol DHO800/DHO900 firmware boots Linux 6.12 with a scope app written in Rust",
+          "url": "https://blog.adafruit.com/2026-11-17/alternate-rigol-dho800-dho900-oscilloscope-firmware-with-a-linux-6-12-kernel-written-in-rust/",
+          "source": "adafruit",
+          "byline": "Adafruit News / dekajoule",
+          "discuss_url": "https://blog.adafruit.com/2026-11-17/alternate-rigol-dho800-dho900-oscilloscope-firmware-with-a-linux-6-12-kernel-written-in-rust/",
+          "tier": "essential",
+          "summary": "OOS replaces the software on the wildly popular Rigol DHO800/DHO900 scopes with a Linux 6.12 kernel and a new scope application written in Rust, booting from the scope's own SD card alongside the stock system, which stays selectable at power-on. That dual-boot safety net is what makes it worth trying on real hardware: worst case you pick the vendor firmware again. Independent of Rigol, so treat it as hacker firmware with hacker responsibility — but a Rust-based instrument stack on a $300 scope is exactly the kind of ownership the open-hardware world has been pushing toward."
+        },
+        {
+          "title": "Smart home energy monitoring hacked to not phone home (Emporia Vue 3)",
+          "url": "https://blog.adafruit.com/2026-11-17/smart-home-energy-monitoring-hacked-to-not-phone-home/",
+          "source": "adafruit",
+          "byline": "Adafruit News / LTT Labs",
+          "discuss_url": "https://blog.adafruit.com/2026-11-17/smart-home-energy-monitoring-hacked-to-not-phone-home/",
+          "tier": "must-read",
+          "summary": "LTT Labs' Web Team documented cutting the $199 Emporia Vue 3 — a 16-circuit breaker-panel energy monitor — off from Emporia's cloud and running it entirely on the local network. The write-up covers the cloud dependency in the firmware, the local API surface, and the practical DNS/firewall isolation approach, which is reusable against any cloud-tethered panel device. Whole-home energy telemetry is exactly the kind of data nobody should have to trust a vendor's servers with; this is the reference playbook for taking it back."
+        },
+        {
+          "title": "PicoCentrifuge: a $50 DIY lab centrifuge on a Raspberry Pi Pico and drone motors",
+          "url": "https://blog.adafruit.com/2026-11-17/picocentrifuge-a-diy-centrifuge-with-raspberry-pi-pico/",
+          "source": "adafruit",
+          "byline": "Adafruit News / Thomas (Comfyspace.tech)",
+          "discuss_url": "https://blog.adafruit.com/2026-11-17/picocentrifuge-a-diy-centrifuge-with-raspberry-pi-pico/",
+          "tier": "recommended",
+          "summary": "A fully open-source benchtop centrifuge built for around $50 using a Pi Pico and brushless drone motors, with code, hardware, and BOM published — against commercial units that run to $3,000. The hard parts of this build are the ones the project has to get right: rotor balance, speed control, and a lid interlock that actually stops the thing, so read the safety handling before spinning anything. A genuinely useful open-science-instrument template for makerspaces and teaching labs where $3K never gets approved."
+        },
+        {
+          "title": "Custom firmware for a trash-picked Fortinet FortiGate 60 firewall",
+          "url": "https://hackaday.com/2026-11-17/custom-firmware-for-fortinet-fortigate-60-firewall-router/",
+          "source": "hackaday",
+          "byline": "Hackaday / Matt Williams",
+          "discuss_url": "https://hackaday.com/2026-11-17/custom-firmware-for-fortinet-fortigate-60-firewall-router/",
+          "tier": "recommended",
+          "summary": "Matt Williams pulled a 2000s-era enterprise FortiGate 60 out of the trash and rebuilt it with custom firmware — serial-console archaeology, storage imaging, and replacing vendor lock-in with something he controls. It is a clean walk-through of how these appliances are actually assembled (off-the-shelf SoC, CF card, stock Linux underneath the vendor shell), which demystifies a whole class of e-waved network gear. If you have ever eyed a discarded firewall at a hamfest, this is the template for deciding whether it is a platform or a paperweight."
+        },
+        {
+          "title": "Connecting a Raspberry Pi and ESP32 sensor fleet to LLM agents through MCP",
+          "url": "https://blog.adafruit.com/2026-11-17/connecting-a-raspberry-pi-to-llm-agents-through-mcp/",
+          "source": "adafruit",
+          "byline": "Adafruit News / Francesco Azzola",
+          "discuss_url": "https://blog.adafruit.com/2026-11-17/connecting-a-raspberry-pi-to-llm-agents-through-mcp/",
+          "tier": "recommended",
+          "summary": "Francesco Azzola wired an ESP32 reading real environmental sensors — ENS160 air quality, MPU6050 motion — into an LLM agent via the Model Context Protocol, with a Pi bridging the hardware and the agent. It is one of the first concrete, reproducible examples of MCP meeting physical computing: the agent gets tools that touch the actual world and can act on what it senses. For anyone curious where agentic AI meets home automation, the parts list and wiring make it a weekend build rather than a thought experiment."
+        },
+        {
+          "title": "Testing TISMO whisker-reinforced PA filament: potassium-titanite whiskers vs. glass and carbon",
+          "url": "https://hackaday.com/2026-11-17/testing-tismo-whisker-reinforced-poticon-std1-pa-filament/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "https://hackaday.com/2026-11-17/testing-tismo-whisker-reinforced-poticon-std1-pa-filament/",
+          "tier": "notable",
+          "summary": "A measured look at TISMO (potassium-titanite) whisker-reinforced filament, which at first glance looks like just another chopped-fiber additive but behaves quite differently from glass and carbon reinforcement. The value here is the actual test data rather than vendor claims — how the whiskers change strength, surface, and print handling compared to conventional reinforced nylons. Whisker reinforcement is a real materials story quietly entering the FDM market; having independent prints and numbers to compare against makes this worth bookmarking before you buy a spool."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "A dead star that pulses every eight minutes, an ancient virus that switched off a brain gene in chimps, and dinosaurs with a taste for seaweed.",
+      "stories": [
+        {
+          "title": "A dead star spinning every 8 minutes pulses radio waves beside a Sun-like companion",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261114202136.htm",
+          "source": "science",
+          "byline": "ICRAR / Nature Astronomy",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261114202136.htm",
+          "tier": "essential",
+          "summary": "A white dwarf 5,000 light-years away rotates once every eight minutes and fires long-period radio pulses while orbiting a G-type, Sun-like star — the first time these strange radio emitters have been seen in a system with a solar twin rather than a red dwarf. Over 100 hours of radio data let the team track the white dwarf around its orbit and pin the pulses to the dead star itself, a first for this still-new class with only about a dozen known members. Bonus: they watched it pass behind a stellar prominence, detecting magnetic storms on a star across the galaxy. Published in Nature Astronomy (DOI 10.1038/s41550-026-03016-z)."
+        },
+        {
+          "title": "An ancient virus switched off a brain-development gene in chimps that stays on in humans",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261114202230.htm",
+          "source": "science",
+          "byline": "Lund University / Science Advances",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261114202230.htm",
+          "tier": "essential",
+          "summary": "Lund University researchers found that PTERV1, an endogenous retrovirus that infected chimpanzee ancestors millions of years ago, silences the gene LINC00662 in chimps — while the same gene runs hot in early human brain development. The causal chain is beautifully closed: CRISPR excision of the viral insertion in chimp cells restores the gene, and silencing it in human brain organoids impairs neurite extension and nerve-cell maturation genes. A virus that never entered the human genome may be one reason our brains developed differently. Published in Science Advances."
+        },
+        {
+          "title": "Dinosaurs were probably eating seaweed 100 million years ago",
+          "url": "https://www.sciencedaily.com/releases/2026-11-261112230502.htm",
+          "source": "science",
+          "byline": "Frontiers / University of Arkansas",
+          "discuss_url": "https://www.sciencedaily.com/releases/2026-11-261112230502.htm",
+          "tier": "must-read",
+          "summary": "Carbon isotope ratios in tooth enamel from fossils along the Western Interior Seaway and ancient Gulf coast show coastal Cretaceous animals — herbivorous dinosaurs, crocodiles, turtles, fish — all carried a heavier carbon signature than their inland relatives, a pattern that points to marine food entering the food web at its base. First author Clayton Forster (University of Arkansas) argues the only candidate common to coastlines, absent inland, and available for millions of years is macroalgae: seaweed. The control is elegant — the inland-dwelling Tenontosaurus shows purely terrestrial signatures, so the readings are diet, not diagenesis. Published in Frontiers in Ecology and Evolution."
+        },
+        {
+          "title": "NASA's NICER neutron-star telescope ends science operations after 8 years",
+          "url": "https://www.nasa.gov/missions/station/nicer-status-updates/",
+          "source": "nasa",
+          "byline": "NASA",
+          "discuss_url": "https://www.nasa.gov/missions/station/nicer-status-updates/",
+          "tier": "recommended",
+          "summary": "NASA announced November 17 that NICER, the Neutron star Interior Composition Explorer riding the International Space Station, has formally ended science operations after six and a half years beyond its planned mission. A failed internal motor froze the telescope's rotation in June 2025 and the instrument never recovered; teams now move to finalizing its 8-year X-ray archive and detaching it from its perch near the starboard solar arrays. NICER made the first precise radius measurements of neutron stars and demonstrated X-ray pulsar navigation — the dead-star census it leaves behind will keep producing results for years."
+        },
+        {
+          "title": "350 years ago this month, Ole Rømer proved light has a finite speed",
+          "url": "https://www.sciencenorway.no/culture-history-history-of-science/350-years-ago-this-man-discovered-that-light-has-a-finite-speed/2737969",
+          "source": "other",
+          "byline": "Science in Norway (via Hacker News, 263 pts)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50536813",
+          "tier": "recommended",
+          "summary": "In November 1676 the Danish astronomer Ole Rømer predicted — and it came true on November 9 — that an eclipse of Jupiter's moon Io would arrive ten minutes late, and then explained why: light takes time to cross Earth's orbit. Britannica confirms the sequence, including that his estimate of 22 minutes to traverse the orbital diameter was closer than anyone's for centuries, and that his own boss Cassini refused to accept it. A good anniversary read on how a prediction from moon-watch bookkeeping overturned the Cartesian idea of instantaneous light."
+        },
+        {
+          "title": "The dinosaur egg fossils that haunted Lovecraft",
+          "url": "https://blog.adafruit.com/2026-11-17/the-dinosaur-egg-fossils-that-haunted-lovecraft/",
+          "source": "adafruit",
+          "byline": "Adafruit News / ferwen (Paleonerdish)",
+          "discuss_url": "https://blog.adafruit.com/2026-11-17/the-dinosaur-egg-fossils-that-haunted-lovecraft/",
+          "tier": "notable",
+          "summary": "ferwen traces a line from the American Museum of Natural History's 1923 Gobi Desert expedition — the first reported dinosaur egg nests, one with a small beaked dinosaur slumped beside the clutch — straight into H.P. Lovecraft's fiction. The fossil in question turned out to be the famous Oviraptor-egg misattribution, a nest thief mistaken for a brooding parent, and the era's sensationalist coverage of 'giant eggs from the desert' fed the cosmic-dread imagination of the 1920s pulp world. A lovely example of how a paleontology blunder leaked into literary history."
+        }
+      ]
+    }
+  ]
+}
