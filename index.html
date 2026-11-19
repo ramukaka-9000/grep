@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>grep · Wednesday, November 18, 2026</title>
+<title>grep · Thursday, November 19, 2026</title>
 <meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-18.html">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-19.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style-v2.css">
 <script>
@@ -21,8 +21,8 @@
     <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
   </div>
   <nav class="topnav">
-    <a class="navlink" href="2026-11-17.html">‹ Prev</a>
-    <span class="edition-pill">Wednesday, November 18, 2026 · <span id="count">24</span> stories</span>
+    <a class="navlink" href="2026-11-18.html">‹ Prev</a>
+    <span class="edition-pill">Thursday, November 19, 2026 · <span id="count">24</span> stories</span>
     <span class="navlink disabled">Next ›</span>
     <a class="navlink" href="archive.html">Archive</a>
     <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
@@ -41,7 +41,7 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-ai">AI</h1>
-        <p class="section-summary">Frontier releases at price-war speeds, plus the engineering reading list: minimal agent memory, samplers that survive long generations, and behavior-checked Rust rewrites.</p>
+        <p class="section-summary">Two severe remote-code-execution bugs dominate, while Gemini 4 Neon, Microsoft&#x27;s Ignite model blitz, and a 1.8M-parameter energy-based reasoner round out the day.</p>
       </div>
       <span class="section-count" id="count-ai">12 stories</span>
     </div>
@@ -61,194 +61,194 @@
     <section class="stories" data-section-stories="ai">
       
     <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="essential">
-      <a class="thumb" href="https://openai.com/index/introducing-gpt-6-2-astra-sol/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-01-gpt-6-2-astra-and-sol-fewer-tokens-lower-cost-ne.png" alt="GPT-6.2 Astra and Sol: fewer tokens, lower cost, new Agents&#x27; Last Exam high" loading="lazy">
+      <a class="thumb" href="https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-01-unauthenticated-remote-code-execution-in-nginx-h.webp" alt="Unauthenticated remote code execution in Nginx HTTP/2" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">OpenAI (via Hacker News, 1119 pts)</span>
-          <a class="orig" href="https://openai.com/index/introducing-gpt-6-2-astra-sol/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50535230" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Wiz Research (via Hacker News)</span>
+          <a class="orig" href="https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50547374" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://openai.com/index/introducing-gpt-6-2-astra-sol/" target="_blank" rel="noopener">GPT-6.2 Astra and Sol: fewer tokens, lower cost, new Agents' Last Exam high</a></h2>
-        <div class="story-summary"><p>OpenAI ships GPT-6.2 Astra for hard professional work and GPT-6.2 Sol as the efficient everyday default, both tuned to finish demanding tasks with fewer output tokens. Astra sets a new high on Agents&#x27; Last Exam, 5.2 points over GPT-6 Astra at under a third of the cost, with OpenAI leaning hard on the price-performance story for API and Codex users. Worth reading for the alignment disclosure too: in two tests the models were more likely to omit mentioning blockers that stopped their work — the exact failure mode agent builders keep hitting. The 711-comment HN thread is mostly practitioners comparing it against Claude Fable 5.2 on real repos.</p></div>
+        <h2 class="story-title"><a href="https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities" target="_blank" rel="noopener">Unauthenticated remote code execution in Nginx HTTP/2</a></h2>
+        <div class="story-summary"><p>Wiz disclosed memory-safety vulnerabilities in Nginx&#x27;s HTTP/2 implementation that allow unauthenticated attackers to achieve remote code execution — no valid credentials, no user interaction, just a crafted request to any exposed HTTP/2 listener. The top HN story of the day at ~1,175 points and 525 comments, with operators debating mitigation depth versus simply disabling HTTP/2. If you front anything with Nginx, read the affected-version matrix before the next change freeze.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://calif.io/java4shell/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-02-java4shell-rce-in-openjdk-when-processing-base64.jpg" alt="Java4Shell: RCE in OpenJDK when processing Base64" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">calif.io (via Hacker News)</span>
+          <a class="orig" href="https://calif.io/java4shell/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50538240" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://calif.io/java4shell/" target="_blank" rel="noopener">Java4Shell: RCE in OpenJDK when processing Base64</a></h2>
+        <div class="story-summary"><p>A second same-day RCE: a flaw in OpenJDK&#x27;s Base64 handling that turns ordinary decoding of attacker-supplied input into code execution. The write-up walks through the bug class and why something as boring as a decoder primitive can become a remote entry point when it sits on a trust boundary. Pair it with the Nginx post — two infrastructure staples owned through their default code paths in one news cycle.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-02-mai-code-2-and-code-2-flash-microsoft-s-from-scr.jpg" alt="MAI Code 2 and Code 2 Flash: Microsoft&#x27;s from-scratch coding MoEs at 5% of Opus cost" loading="lazy">
+      <a class="thumb" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-03-gemini-4-neon.png" alt="Gemini 4 Neon" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">Microsoft AI (via Hacker News, 301 pts)</span>
-          <a class="orig" href="https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50535885" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Google (via Hacker News)</span>
+          <a class="orig" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50552424" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/" target="_blank" rel="noopener">MAI Code 2 and Code 2 Flash: Microsoft's from-scratch coding MoEs at 5% of Opus cost</a></h2>
-        <div class="story-summary"><p>Microsoft announces two coding models it says were pretrained and post-trained entirely in-house: MAI Code 2 (80B active, 1M-token context) claiming 98% of GPT-6.1 Sol at 40% of the cost, and Code 2 Flash (12B active) for high-volume routine edits. The model card is unusually detailed — 50T-token pretraining, RL run directly inside the GitHub Copilot CLI and VS Code harnesses so offline gains transfer to real workflows, and explicit out-of-scope statements for long-horizon agentic work. The strategy read: every hyperscaler now needs its own coding stack, and the price floor for everyday agentic coding keeps collapsing.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-03-how-the-claude-code-team-thinks-about-verificati.png" alt="How the Claude Code team thinks about verification" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">Anthropic / Claude Code team (via Hacker News, 269 pts)</span>
-          <a class="orig" href="https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50529612" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/" target="_blank" rel="noopener">How the Claude Code team thinks about verification</a></h2>
-        <div class="story-summary"><p>The team behind Claude Code lays out what verification actually means when agents write most of the diff: tests the agent wrote for code the agent wrote are not evidence, and the bottleneck has moved to defining what &#x27;correct&#x27; is checkable. Pairs well with this week&#x27;s Harvard finding below and with yesterday&#x27;s Lean-verification post — a consistent thread that agent-era engineering hygiene is now the differentiator. Useful practical guidance on layering deterministic checks, review discipline, and evals around agent output rather than trusting a green test run.</p></div>
+        <h2 class="story-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener">Gemini 4 Neon</a></h2>
+        <div class="story-summary"><p>Google shipped Gemini 4 Neon, a smaller, cheaper tier of its new flagship line, and the HN thread is full of head-to-head reports positioning it against Opus-class models on coding and agent tasks. Third-party eval write-ups already claim it behaves like a top-model competitor at a fraction of the price, which matters more than the launch post itself if you are routing production traffic. Worth reading the benchmark disputes, not just the announcement.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://spiraldb.com/blog/rows-vs-columns" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-04-rows-vs-columns-how-different-are-they-really.png" alt="Rows vs. columns: how different are they, really?" loading="lazy">
+      <a class="thumb" href="https://energy-based-reasoners.github.io/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-04-energy-based-reasoners-99-9-on-sudoku-extreme-wi.png" alt="Energy-Based Reasoners: 99.9% on Sudoku-Extreme with 1.8M parameters" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff8000">HN</span>
-          <span class="by">SpiralDB (via Hacker News, 161 pts)</span>
-          <a class="orig" href="https://spiraldb.com/blog/rows-vs-columns" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50470523" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Chen, Gladstone, Li, Ji, Du (via Hacker News)</span>
+          <a class="orig" href="https://energy-based-reasoners.github.io/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50543989" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://spiraldb.com/blog/rows-vs-columns" target="_blank" rel="noopener">Rows vs. columns: how different are they, really?</a></h2>
-        <div class="story-summary"><p>A careful measurement-driven look at the oldest layout war in data systems, from a team that has to answer it for AI-era workloads. It goes past the &#x27;analytics wants columns, OLTP wants rows&#x27; slogan into where that breaks down — hybrid layouts, the actual cost of transposition, and why vector/embedding access patterns sit awkwardly in both camps. Good background for anyone picking a storage layer for retrieval pipelines, and the HN thread has the DuckDB/Velox crowd arguing about exactly where the crossover is.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="must" data-tier="essential">
-      <a class="thumb" href="https://arxiv.org/abs/2611.22179v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-05-arxiv-placeholder.svg" alt="RAG in a trenchcoat: when minimal memory is enough for agentic systems" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">Liu, Li, Xu, Zhou, Rabbani, Song, Zhang (NeurIPS 2026)</span>
-          <a class="orig" href="https://arxiv.org/abs/2611.22179v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.22179v1" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.22179v1" target="_blank" rel="noopener">RAG in a trenchcoat: when minimal memory is enough for agentic systems</a></h2>
-        <div class="story-summary"><p>A NeurIPS paper that audits the agentic-memory industrial complex — extraction, supersession, reflection, graph synthesis — and finds almost none of those primitives earn their cost on standard benchmarks. Their BRIDGE baseline (chained observation notes, BM25+cosine hybrid retrieval, chronological rendering) matches prior SOTA on LongMemEval-S and BEAM and beats the best memory baseline on EverMemBench at ~5-7K reader tokens per query and one LLM call per query. If you are paying for a memory framework, read this before your next invoice; the burden of proof just shifted.</p></div>
+        <h2 class="story-title"><a href="https://energy-based-reasoners.github.io/" target="_blank" rel="noopener">Energy-Based Reasoners: 99.9% on Sudoku-Extreme with 1.8M parameters</a></h2>
+        <div class="story-summary"><p>EBRs learn an energy function over latent reasoning states and treat each looped refinement step as gradient descent on that energy — the energy scores candidates without an external verifier, and its gradient doubles as a natural stopping signal. A 1.8M-parameter model hits 99.9% on Sudoku-Extreme using 345x less inference compute than the next-best approach, with adaptive stopping preserving accuracy at ~11x fewer FLOPs. A genuinely different architecture for algorithmic reasoning: small, self-verifying, and done looping when the landscape says so.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://arxiv.org/abs/2611.22148v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-06-arxiv-placeholder.svg" alt="Long-context generation is a sampling problem (when you turn up the heat)" loading="lazy">
+      <a class="thumb" href="https://arxiv.org/abs/2611.23835v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-05-arxiv-placeholder.svg" alt="NarrowSpec: the draft model&#x27;s hidden width need not match the target" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">Roush, Nguyen, Shwartz-Ziv, Goldfeder, Basu (NeurIPS 2026)</span>
-          <a class="orig" href="https://arxiv.org/abs/2611.22148v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.22148v1" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Valliappan, More, Mudigere, Mitra</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.23835v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.23835v1" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.22148v1" target="_blank" rel="noopener">Long-context generation is a sampling problem (when you turn up the heat)</a></h2>
-        <div class="story-summary"><p>Why do open-weight models get worse the longer they generate? This 29-model study (1B to 122B, across SWE-bench agents, long CoT, long-form writing, and needle retrieval to 1M tokens) says it is often the sampler, not the weights: samplers that keep their candidate pool small and steady as temperature rises don&#x27;t lose accuracy. That reframes a common debugging reflex — before reaching for more training or a bigger checkpoint, try constraining the decoding rule. Directly actionable for anyone running open models in agent loops where generation gets long.</p></div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.23835v1" target="_blank" rel="noopener">NarrowSpec: the draft model's hidden width need not match the target</a></h2>
+        <div class="story-summary"><p>Speculative-decoding drafters like DFlash and EAGLE-3 inherit the target model&#x27;s hidden width by convention; this paper shows the draft&#x27;s residual stream can run at half or a quarter width with largely unchanged acceptance rates. End-to-end decoding speeds up 1.13-1.44x on a DGX Spark&#x27;s GB10 and up to 1.21x at large batches on B200, with no narrow draft ever slower than full width. Practical free lunch for local inference stacks — the trained output adapter even folds into the borrowed vocabulary projection.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2611.23817v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-06-arxiv-placeholder.svg" alt="Metrics-in-the-Loop: complexity feedback reshapes agent-written code" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Chapados, Gagné, Dziri (IBM Research)</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.23817v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.23817v1" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.23817v1" target="_blank" rel="noopener">Metrics-in-the-Loop: complexity feedback reshapes agent-written code</a></h2>
+        <div class="story-summary"><p>Coding agents guided only by passing tests let complexity and coverage gaps accumulate, then build on top of them. The authors inject cheap code metrics mid-trajectory — naming functions over a cyclomatic-complexity limit or lines skipped by tests — giving the agent a chance to refactor before continuing. Across three long-horizon benchmarks and four strong models, complexity feedback significantly reduces code erosion without hurting held-out correctness. A concrete, cheap recipe for agent &#x27;re-railing&#x27; that any agent harness could adopt today.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://github.com/erkamyaman/rust-anything" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-07-rust-anything-rewrite-your-app-in-rust-one-piece.png" alt="rust-anything: rewrite your app in Rust one piece at a time, checked against recorded behavior" loading="lazy">
+      <a class="thumb" href="https://github.com/mit-han-lab/pear" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-07-pear-post-training-reasoning-models-to-natively-.png" alt="PEAR: post-training reasoning models to natively use real robots" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#8b5cf6">Gh</span>
-          <span class="by">erkamyaman (1.5k stars)</span>
-          <a class="orig" href="https://github.com/erkamyaman/rust-anything" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/erkamyaman/rust-anything" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">MIT HAN Lab</span>
+          <a class="orig" href="https://github.com/mit-han-lab/pear" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/mit-han-lab/pear" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://github.com/erkamyaman/rust-anything" target="_blank" rel="noopener">rust-anything: rewrite your app in Rust one piece at a time, checked against recorded behavior</a></h2>
-        <div class="story-summary"><p>A migration tool that turns &#x27;rewrite it in Rust&#x27; from a leap of faith into a ratchet: each piece is ported from TypeScript, Python, C, Go, Ruby or Java and checked against the original&#x27;s recorded behavior before the next piece moves. The interesting engineering is the behavior-recording harness — golden I/O from the live system becomes the oracle for the port — and it ships as agent skills for Claude Code and Codex, so the migration loop itself is agentic. The pattern generalizes beyond Rust to any verified incremental rewrite.</p></div>
+        <h2 class="story-title"><a href="https://github.com/mit-han-lab/pear" target="_blank" rel="noopener">PEAR: post-training reasoning models to natively use real robots</a></h2>
+        <div class="story-summary"><p>MIT&#x27;s HAN Lab open-sourced the training engine behind a result where an open 27B reasoning model learns to operate real robots entirely from simulation RL — zero demonstrations. It wires fully asynchronous GRPO training on veRL to simulators (MuJoCo on CPUs, Isaac Sim on GPUs) on the same Ray cluster, with LMCache offloading the KV cache to CPU memory and kernels tuned for H100/H200/GB300. Deploys to YAM and SO-101 arms; the paper and model collection are linked from the README.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://github.com/sybil-solutions/inference-optimisation-skill" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-08-inference-optimisation-skill-an-agent-skill-for-.png" alt="inference-optimisation-skill: an agent skill for hill-climbing local LLM serving speed" loading="lazy">
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/aryamandarda/tamserve" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-08-tamserve-open-source-real-time-object-tracking-f.png" alt="tamserve: open-source real-time object tracking for live video feeds" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#8b5cf6">Gh</span>
-          <span class="by">sybil-solutions (940 stars)</span>
-          <a class="orig" href="https://github.com/sybil-solutions/inference-optimisation-skill" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://github.com/sybil-solutions/inference-optimisation-skill" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">aryamandarda (via Show HN)</span>
+          <a class="orig" href="https://github.com/aryamandarda/tamserve" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50523377" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://github.com/sybil-solutions/inference-optimisation-skill" target="_blank" rel="noopener">inference-optimisation-skill: an agent skill for hill-climbing local LLM serving speed</a></h2>
-        <div class="story-summary"><p>A packaged agent skill that systematically optimizes local LLM serving — decode throughput, speculative decoding, prefill, KV cache, startup time, TTFT — on any hardware and quantization scheme. What makes it more than a benchmark script is the method: measure, hypothesize, patch, re-measure, keep wins, in a loop an agent can run unattended against vLLM-class stacks. For anyone who has watched tokens/s drift on a homelab box and given up on finding the knob, this encodes the search that practitioners usually do by folklore.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="ai" data-source="hf" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://huggingface.co/Arisp/chess-moves-2400plus" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-09-chess-moves-2400plus-a-52m-transformer-that-lear.png" alt="chess-moves-2400plus: a 52M transformer that learned chess purely from 2400+ games" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ffd21e">HF</span>
-          <span class="by">Arisp (52.6M params, MIT)</span>
-          <a class="orig" href="https://huggingface.co/Arisp/chess-moves-2400plus" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/Arisp/chess-moves-2400plus" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://huggingface.co/Arisp/chess-moves-2400plus" target="_blank" rel="noopener">chess-moves-2400plus: a 52M transformer that learned chess purely from 2400+ games</a></h2>
-        <div class="story-summary"><p>One token per UCI move over a 1,972-token vocabulary, trained on 10 million Lichess games where both players rated 2400+, never shown a board or the rules — and it learns legality and style from pure next-move prediction. The card is honest: it plays like a strong human of its band, blunders included, and resamples illegal moves up to five times. A wonderful small-model testbed for probing how much structure emerges from data alone, and it runs happily on CPU or any 3060 you have lying around.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://huggingface.co/BaseLayer/TUNAR_v2_mini" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-10-tunar-v2-mini-an-18-8m-parameter-uzbek-asr-fine-.png" alt="TUNAR_v2_mini: an 18.8M-parameter Uzbek ASR fine-tuned from Moonshine-tiny" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#ffd21e">HF</span>
-          <span class="by">BaseLayer (18.8M params)</span>
-          <a class="orig" href="https://huggingface.co/BaseLayer/TUNAR_v2_mini" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/BaseLayer/TUNAR_v2_mini" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
-        </div>
-        <h2 class="story-title"><a href="https://huggingface.co/BaseLayer/TUNAR_v2_mini" target="_blank" rel="noopener">TUNAR_v2_mini: an 18.8M-parameter Uzbek ASR fine-tuned from Moonshine-tiny</a></h2>
-        <div class="story-summary"><p>Uzbek speech recognition in under 20M parameters: a Moonshine-tiny fine-tune that runs on a phone-class device, with a clean transformers pipeline on the card and 16kHz mono audio in, text out. Low-resource ASR at this size is the sleeper category of the small-model wave — most of the 100+ languages the big whisper-class models handle badly are exactly where a 20M model that actually works changes what devices can do offline. Useful template if you are building ASR for any under-served language.</p></div>
+        <h2 class="story-title"><a href="https://github.com/aryamandarda/tamserve" target="_blank" rel="noopener">tamserve: open-source real-time object tracking for live video feeds</a></h2>
+        <div class="story-summary"><p>A Show HN serving tracker for live video streams — point it at a feed and get real-time object tracks over an API. Small project with a thin HN thread, but tracking-as-a-service with an open license fills a gap most builders currently paper over with per-frame detection. Worth a look if you are wiring cameras into agents or dashboards.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://www.cs.cmu.edu/learn/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-11-carnegie-mellon-is-putting-its-cs-courses-on-you.jpg" alt="Carnegie Mellon is putting its CS courses on YouTube for free" loading="lazy">
+      <a class="thumb" href="https://microsoft.ai/news/microsoft-ignite-2026/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-09-seven-new-models-at-scalable-price-performance-m.jpg" alt="Seven new models at scalable price-performance (Microsoft Ignite 2026)" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#22d3ee">WB</span>
-          <span class="by">CMU School of Computer Science (via Hacker News, 2286 pts)</span>
-          <a class="orig" href="https://www.cs.cmu.edu/learn/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50522980" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Microsoft AI</span>
+          <a class="orig" href="https://microsoft.ai/news/microsoft-ignite-2026/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50548021" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://www.cs.cmu.edu/learn/" target="_blank" rel="noopener">Carnegie Mellon is putting its CS courses on YouTube for free</a></h2>
-        <div class="story-summary"><p>CMU is publishing full computer-science course recordings for free, and HN made it the day&#x27;s top story at 2,286 points. For self-directed AI builders the value is the depth the bootcamp ecosystem skips — compilers, systems, database internals — now searchable and free. The thread is full of people auditing which courses are worth the hours; the consensus shortlist so far covers the systems and ML internals tracks, and it pairs naturally with the rows-vs-columns and sampler papers elsewhere on this page.</p></div>
+        <h2 class="story-title"><a href="https://microsoft.ai/news/microsoft-ignite-2026/" target="_blank" rel="noopener">Seven new models at scalable price-performance (Microsoft Ignite 2026)</a></h2>
+        <div class="story-summary"><p>Microsoft AI followed yesterday&#x27;s MAI Code 2 launch with a seven-model family at Ignite, pitching aggressive price-performance against the frontier labs. Coming one day after MAI Code 2 claimed Opus-class coding at ~5% of the cost, the release cements Microsoft&#x27;s from-scratch model line as a real price competitor rather than a distillation side-project. The HN thread is useful for where the benchmarks land once vendor framing is stripped away.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="notable">
-      <a class="thumb" href="https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/ai-12-harvard-researchers-find-ai-coding-agents-shifte.jpg" alt="Harvard researchers find AI coding agents shifted the bottleneck to code review" loading="lazy">
+      <a class="thumb" href="https://jimmyhmiller.com/magic-of-partial-evaluation" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-10-other-placeholder.svg" alt="The Magic of Partial Evaluation" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#22d3ee">WB</span>
-          <span class="by">Complex Discovery / Harvard (via Hacker News, 70 pts)</span>
-          <a class="orig" href="https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50538303" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Jimmy Miller</span>
+          <a class="orig" href="https://jimmyhmiller.com/magic-of-partial-evaluation" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50550096" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/" target="_blank" rel="noopener">Harvard researchers find AI coding agents shifted the bottleneck to code review</a></h2>
-        <div class="story-summary"><p>An observational study of teams adopting coding agents finds throughput didn&#x27;t arrive where everyone expected: writing code got faster, so review became the constraint, and teams that didn&#x27;t redesign review practice just built up queues of unexamined diffs. Read it next to the Claude Code verification post — one describes the process shift from the tooling side, this one measures it from the org side. The uncomfortable implication for agent-tool builders: the winning products of the next cycle are review and verification tools, not faster generation.</p></div>
+        <h2 class="story-title"><a href="https://jimmyhmiller.com/magic-of-partial-evaluation" target="_blank" rel="noopener">The Magic of Partial Evaluation</a></h2>
+        <div class="story-summary"><p>A crisp explainer on partial evaluation — running a program with some inputs known and some symbolic so the specializer emits a faster program that only does the remaining work. A classic idea resurfacing just as everyone tunes LLM inference pipelines, where &#x27;bake the known context, compute the rest&#x27; keeps showing up in new clothes. A good 20-minute read to connect an old PL technique to modern serving optimizations.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/Oulasong/ThunderTalk-ASR-0.6B" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-11-thundertalk-asr-0-6b-measured-3x-faster-dictatio.png" alt="ThunderTalk ASR 0.6B: measured 3x faster dictation via honest 8-bit quantization" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">Oulasong</span>
+          <a class="orig" href="https://huggingface.co/Oulasong/ThunderTalk-ASR-0.6B" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/Oulasong/ThunderTalk-ASR-0.6B" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/Oulasong/ThunderTalk-ASR-0.6B" target="_blank" rel="noopener">ThunderTalk ASR 0.6B: measured 3x faster dictation via honest 8-bit quantization</a></h2>
+        <div class="story-summary"><p>A 0.4B-parameter dictation model fine-tuned from Qwen3-ASR-0.6B for Chinese, English, and code-switched speech, with the text decoder quantized to 8-bit (1.2 GB total) and the audio encoder kept in fp16. The card shows exactly how it earns its keep: token error rate drops from 8.7% to 8.0% overall on a 44-recording human-referenced set, and decoding time falls from 36 ms to 12 ms per token — because dictation is memory-bound, halving weight bytes nearly triples throughput. Runs on Apple Silicon via MLX; the honest per-domain table (including where it regresses slightly) is a model card done right.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://huggingface.co/chiranko/PKU-KCL-Meteor-v1.5-2B" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/ai-12-pku-kcl-meteor-v1-5-2b-a-2-2b-typed-decision-mod.png" alt="PKU-KCL-Meteor-v1.5-2B: a 2.2B typed decision model answering 255-way choices in one pass" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">Knowledge Computing Lab, Peking University</span>
+          <a class="orig" href="https://huggingface.co/chiranko/PKU-KCL-Meteor-v1.5-2B" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/chiranko/PKU-KCL-Meteor-v1.5-2B" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/chiranko/PKU-KCL-Meteor-v1.5-2B" target="_blank" rel="noopener">PKU-KCL-Meteor-v1.5-2B: a 2.2B typed decision model answering 255-way choices in one pass</a></h2>
+        <div class="story-summary"><p>Peking University&#x27;s KCL released a 2.21B decision model on Qwen3.5-2B that answers typed questions — choice (up to 255 options), yes/no, and ordered score — with a probability per option in a single forward pass, generating no text. It scores 63.73 on the Decision Index 0.3 public suite across 140,178 requests with zero failures, and ships hash-verified weights plus a /v1/systemone serving endpoint. BF16 needs roughly 4-5 GB, so a quantized build fits comfortably on a 6GB card while serving structured decisions faster than any generate-then-parse loop.</p></div>
       </div>
     </article>
     </section>
@@ -258,7 +258,7 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-electronics">Electronics</h1>
-        <p class="section-summary">Firmware you can own: a Rust/Linux takeover of a budget scope, an energy monitor cut off from the cloud, a $50 open-source centrifuge, and measured filament results.</p>
+        <p class="section-summary">Bare-metal RISC-V tooling, a wall-sized plotter, an ESP32-P4 manga reader, and the most charming SDR observatory of the week.</p>
       </div>
       <span class="section-count" id="count-electronics">6 stories</span>
     </div>
@@ -274,99 +274,99 @@
     </section>
     <section class="stories" data-section-stories="electronics">
       
-    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="must" data-tier="essential">
-      <a class="thumb" href="https://blog.adafruit.com/2026-11-17/alternate-rigol-dho800-dho900-oscilloscope-firmware-with-a-linux-6-12-kernel-written-in-rust/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/electronics-01-adafruit-placeholder.svg" alt="Alternate Rigol DHO800/DHO900 firmware boots Linux 6.12 with a scope app written in Rust" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">Adafruit News / dekajoule</span>
-          <a class="orig" href="https://blog.adafruit.com/2026-11-17/alternate-rigol-dho800-dho900-oscilloscope-firmware-with-a-linux-6-12-kernel-written-in-rust/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-11-17/alternate-rigol-dho800-dho900-oscilloscope-firmware-with-a-linux-6-12-kernel-written-in-rust/" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-11-17/alternate-rigol-dho800-dho900-oscilloscope-firmware-with-a-linux-6-12-kernel-written-in-rust/" target="_blank" rel="noopener">Alternate Rigol DHO800/DHO900 firmware boots Linux 6.12 with a scope app written in Rust</a></h2>
-        <div class="story-summary"><p>OOS replaces the software on the wildly popular Rigol DHO800/DHO900 scopes with a Linux 6.12 kernel and a new scope application written in Rust, booting from the scope&#x27;s own SD card alongside the stock system, which stays selectable at power-on. That dual-boot safety net is what makes it worth trying on real hardware: worst case you pick the vendor firmware again. Independent of Rigol, so treat it as hacker firmware with hacker responsibility — but a Rust-based instrument stack on a $300 scope is exactly the kind of ownership the open-hardware world has been pushing toward.</p></div>
-      </div>
-    </article>
-
     <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://blog.adafruit.com/2026-11-17/smart-home-energy-monitoring-hacked-to-not-phone-home/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/electronics-02-adafruit-placeholder.svg" alt="Smart home energy monitoring hacked to not phone home (Emporia Vue 3)" loading="lazy">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/18/ch32fun-open-source-minimal-stack-for-the-ch32-and-ch5xx-wch-risc-v-microcontrollers/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/electronics-01-adafruit-placeholder.svg" alt="ch32fun: an open-source minimal stack for WCH CH32/CH5xx RISC-V MCUs" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">Adafruit News / LTT Labs</span>
-          <a class="orig" href="https://blog.adafruit.com/2026-11-17/smart-home-energy-monitoring-hacked-to-not-phone-home/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-11-17/smart-home-energy-monitoring-hacked-to-not-phone-home/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Adafruit Daily (Anne)</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/18/ch32fun-open-source-minimal-stack-for-the-ch32-and-ch5xx-wch-risc-v-microcontrollers/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/18/ch32fun-open-source-minimal-stack-for-the-ch32-and-ch5xx-wch-risc-v-microcontrollers/" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-11-17/smart-home-energy-monitoring-hacked-to-not-phone-home/" target="_blank" rel="noopener">Smart home energy monitoring hacked to not phone home (Emporia Vue 3)</a></h2>
-        <div class="story-summary"><p>LTT Labs&#x27; Web Team documented cutting the $199 Emporia Vue 3 — a 16-circuit breaker-panel energy monitor — off from Emporia&#x27;s cloud and running it entirely on the local network. The write-up covers the cloud dependency in the firmware, the local API surface, and the practical DNS/firewall isolation approach, which is reusable against any cloud-tethered panel device. Whole-home energy telemetry is exactly the kind of data nobody should have to trust a vendor&#x27;s servers with; this is the reference playbook for taking it back.</p></div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/18/ch32fun-open-source-minimal-stack-for-the-ch32-and-ch5xx-wch-risc-v-microcontrollers/" target="_blank" rel="noopener">ch32fun: an open-source minimal stack for WCH CH32/CH5xx RISC-V MCUs</a></h2>
+        <div class="story-summary"><p>The CH32 RISC-V User Group published ch32fun, a no-HAL development environment for the 10-cent CH32V003 (48 MHz RISC-V, 16 kB flash, 2 kB RAM) and the wider CH32/CH5xx family: headers, examples, and minichlink flashing plus gdbserver, built with plain gcc-riscv64 on Windows, Linux, or WSL. You write directly to the registers from the reference manual, and a blink compiles to about 500 bytes. The whole $0.10-microcontroller ecosystem&#x27;s missing open toolchain just got serious — PlatformIO and makefile templates included.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://blog.adafruit.com/2026-11-17/picocentrifuge-a-diy-centrifuge-with-raspberry-pi-pico/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/electronics-03-adafruit-placeholder.svg" alt="PicoCentrifuge: a $50 DIY lab centrifuge on a Raspberry Pi Pico and drone motors" loading="lazy">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/18/mural-is-a-low-cost-wall-plotter/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/electronics-02-adafruit-placeholder.svg" alt="Mural: a low-cost two-pin wall plotter that draws SVGs at meter scale" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">Adafruit News / Thomas (Comfyspace.tech)</span>
-          <a class="orig" href="https://blog.adafruit.com/2026-11-17/picocentrifuge-a-diy-centrifuge-with-raspberry-pi-pico/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-11-17/picocentrifuge-a-diy-centrifuge-with-raspberry-pi-pico/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Adafruit Daily (Anne Barela)</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/18/mural-is-a-low-cost-wall-plotter/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/18/mural-is-a-low-cost-wall-plotter/" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-11-17/picocentrifuge-a-diy-centrifuge-with-raspberry-pi-pico/" target="_blank" rel="noopener">PicoCentrifuge: a $50 DIY lab centrifuge on a Raspberry Pi Pico and drone motors</a></h2>
-        <div class="story-summary"><p>A fully open-source benchtop centrifuge built for around $50 using a Pi Pico and brushless drone motors, with code, hardware, and BOM published — against commercial units that run to $3,000. The hard parts of this build are the ones the project has to get right: rotor balance, speed control, and a lid interlock that actually stops the thing, so read the safety handling before spinning anything. A genuinely useful open-science-instrument template for makerspaces and teaching labs where $3K never gets approved.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://hackaday.com/2026-11-17/custom-firmware-for-fortinet-fortigate-60-firewall-router/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/electronics-04-custom-firmware-for-a-trash-picked-fortinet-fort.jpg" alt="Custom firmware for a trash-picked Fortinet FortiGate 60 firewall" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#f97316">HA</span>
-          <span class="by">Hackaday / Matt Williams</span>
-          <a class="orig" href="https://hackaday.com/2026-11-17/custom-firmware-for-fortinet-fortigate-60-firewall-router/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026-11-17/custom-firmware-for-fortinet-fortigate-60-firewall-router/" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
-        </div>
-        <h2 class="story-title"><a href="https://hackaday.com/2026-11-17/custom-firmware-for-fortinet-fortigate-60-firewall-router/" target="_blank" rel="noopener">Custom firmware for a trash-picked Fortinet FortiGate 60 firewall</a></h2>
-        <div class="story-summary"><p>Matt Williams pulled a 2000s-era enterprise FortiGate 60 out of the trash and rebuilt it with custom firmware — serial-console archaeology, storage imaging, and replacing vendor lock-in with something he controls. It is a clean walk-through of how these appliances are actually assembled (off-the-shelf SoC, CF card, stock Linux underneath the vendor shell), which demystifies a whole class of e-waved network gear. If you have ever eyed a discarded firewall at a hamfest, this is the template for deciding whether it is a platform or a paperweight.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://blog.adafruit.com/2026-11-17/connecting-a-raspberry-pi-to-llm-agents-through-mcp/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/electronics-05-adafruit-placeholder.svg" alt="Connecting a Raspberry Pi and ESP32 sensor fleet to LLM agents through MCP" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">Adafruit News / Francesco Azzola</span>
-          <a class="orig" href="https://blog.adafruit.com/2026-11-17/connecting-a-raspberry-pi-to-llm-agents-through-mcp/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-11-17/connecting-a-raspberry-pi-to-llm-agents-through-mcp/" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
-        </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-11-17/connecting-a-raspberry-pi-to-llm-agents-through-mcp/" target="_blank" rel="noopener">Connecting a Raspberry Pi and ESP32 sensor fleet to LLM agents through MCP</a></h2>
-        <div class="story-summary"><p>Francesco Azzola wired an ESP32 reading real environmental sensors — ENS160 air quality, MPU6050 motion — into an LLM agent via the Model Context Protocol, with a Pi bridging the hardware and the agent. It is one of the first concrete, reproducible examples of MCP meeting physical computing: the agent gets tools that touch the actual world and can act on what it senses. For anyone curious where agentic AI meets home automation, the parts list and wiring make it a weekend build rather than a thought experiment.</p></div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/18/mural-is-a-low-cost-wall-plotter/" target="_blank" rel="noopener">Mural: a low-cost two-pin wall plotter that draws SVGs at meter scale</a></h2>
+        <div class="story-summary"><p>Nik Ivanov&#x27;s Mural hangs from two push pins on a wall and drags a pen to render any SVG at mural size, fully open on GitHub. The web interface takes the pin span (a 1 m span yields 600 mm of usable width with 20% side margins), a processing step converts the SVG into pen-up/pen-down coordinate moves, and the microcontroller just replays the list. A charming, reproducible CoreXY-on-a-wall build with a clean software pipeline you could extend with any pen, marker, or erasable stylus.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="notable">
-      <a class="thumb" href="https://hackaday.com/2026-11-17/testing-tismo-whisker-reinforced-poticon-std1-pa-filament/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/electronics-06-testing-tismo-whisker-reinforced-pa-filament-pot.jpg" alt="Testing TISMO whisker-reinforced PA filament: potassium-titanite whiskers vs. glass and carbon" loading="lazy">
+      <a class="thumb" href="https://hackaday.com/2026/11/18/the-mega-tamagotchi-manga-reader/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/electronics-03-the-mega-tamagotchi-manga-reader-built-on-an-esp.jpg" alt="The Mega Tamagotchi manga reader built on an ESP32-P4" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#f97316">HA</span>
-          <span class="by">Hackaday</span>
-          <a class="orig" href="https://hackaday.com/2026-11-17/testing-tismo-whisker-reinforced-poticon-std1-pa-filament/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026-11-17/testing-tismo-whisker-reinforced-poticon-std1-pa-filament/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Zoe Skyforest (Hackaday)</span>
+          <a class="orig" href="https://hackaday.com/2026/11/18/the-mega-tamagotchi-manga-reader/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026/11/18/the-mega-tamagotchi-manga-reader/" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://hackaday.com/2026-11-17/testing-tismo-whisker-reinforced-poticon-std1-pa-filament/" target="_blank" rel="noopener">Testing TISMO whisker-reinforced PA filament: potassium-titanite whiskers vs. glass and carbon</a></h2>
-        <div class="story-summary"><p>A measured look at TISMO (potassium-titanite) whisker-reinforced filament, which at first glance looks like just another chopped-fiber additive but behaves quite differently from glass and carbon reinforcement. The value here is the actual test data rather than vendor claims — how the whiskers change strength, surface, and print handling compared to conventional reinforced nylons. Whisker reinforcement is a real materials story quietly entering the FDM market; having independent prints and numbers to compare against makes this worth bookmarking before you buy a spool.</p></div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/11/18/the-mega-tamagotchi-manga-reader/" target="_blank" rel="noopener">The Mega Tamagotchi manga reader built on an ESP32-P4</a></h2>
+        <div class="story-summary"><p>Arnov Sharma 3D-printed an oversized Tamagotchi shell around a Waveshare ESP32-P4 Touch LCD 4.3 (480x800, ESP32-P4 + ESP32-C6) and filled it with manga from an SD card. Page turns lean on the P4&#x27;s hardware JPEG decoder instead of the 2-5 second software decode, and the firmware adds contrast tricks for black-and-white scans plus vibrancy boosts for color. Ridiculous form factor, genuinely useful ESP32-P4 tricks for anyone doing image-heavy microcontroller UIs.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://hackaday.com/2026/11/18/remarkable-observatory-receives-orbital-radio/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/electronics-04-starlab-observatory-an-esp32-switched-sdr-array-.jpg" alt="Starlab Observatory: an ESP32-switched SDR array that hunts satellites on its own" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Ryan Flowers (Hackaday)</span>
+          <a class="orig" href="https://hackaday.com/2026/11/18/remarkable-observatory-receives-orbital-radio/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026/11/18/remarkable-observatory-receives-orbital-radio/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/11/18/remarkable-observatory-receives-orbital-radio/" target="_blank" rel="noopener">Starlab Observatory: an ESP32-switched SDR array that hunts satellites on its own</a></h2>
+        <div class="story-summary"><p>What began as a cheap RTL-SDR and a wish to catch ISS image transmissions grew into Tommy Lather&#x27;s open-source Starlab Observatory: an ESP32-controlled antenna switch, multiple SDRs and antennas, and a Python scheduler that predicts satellite passes, picks the right receiver/antenna pair, and logs the captures — with concurrent jobs. The comment section even does a drive-by security review of the GitHub project, which is the Hackaday circle of life. A good blueprint if you want autonomous satellite reception without buying a turnkey station.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/18/a-language-model-for-dos-that-fits-on-a-floppy-disk/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/electronics-05-adafruit-placeholder.svg" alt="Tiny-2.1: a language model for DOS that fits on a floppy disk" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit Daily</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/18/a-language-model-for-dos-that-fits-on-a-floppy-disk/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026/11/18/a-language-model-for-dos-that-fits-on-a-floppy-disk/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/18/a-language-model-for-dos-that-fits-on-a-floppy-disk/" target="_blank" rel="noopener">Tiny-2.1: a language model for DOS that fits on a floppy disk</a></h2>
+        <div class="story-summary"><p>WollyMonjac published Tiny-2.1, a question-answering transformer written in Turbo C 2.0 that runs on a 486DX or Pentium under plain DOS from a single floppy. The repo ships the complete kit — facts file, a question-pair generator, and a PyTorch training script where re-exporting reproduces the released TINY.BIN byte-for-byte — under MIT with data licenses preserved. Peak 2026 irony with real engineering underneath: a modern-trained LM squeezed into 1.44 MB, runnable on hardware from before LLMs existed.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://hackaday.com/2026/11/18/tracking-down-a-mystery-beep-by-giving-a-coding-agent-a-few-ears/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/electronics-06-giving-a-coding-agent-a-few-ears-to-triangulate-.png" alt="Giving a coding agent a few ears to triangulate a mystery beep" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Donald Papp (Hackaday)</span>
+          <a class="orig" href="https://hackaday.com/2026/11/18/tracking-down-a-mystery-beep-by-giving-a-coding-agent-a-few-ears/" target="_blank" rel="noopener">Hackaday ›</a><a class="discuss" href="https://hackaday.com/2026/11/18/tracking-down-a-mystery-beep-by-giving-a-coding-agent-a-few-ears/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/11/18/tracking-down-a-mystery-beep-by-giving-a-coding-agent-a-few-ears/" target="_blank" rel="noopener">Giving a coding agent a few ears to triangulate a mystery beep</a></h2>
+        <div class="story-summary"><p>Simon Willison wired a room of spare devices into ad-hoc listening posts — scan a QR code and the Web Audio API turns any device into a microphone feeding a Python web server — so a coding agent could triangulate an intermittent beep hiding among boxes. The culprit was a dying carbon-monoxide detector chirp in a buried box, but the real story is the pattern: give agents cheap physical sensors and they iterate on the real world instead of guessing at it. beep-locator is on GitHub if you have a beep of your own.</p></div>
       </div>
     </article>
     </section>
@@ -376,15 +376,13 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-interesting-news">Interesting News</h1>
-        <p class="section-summary">A dead star that pulses every eight minutes, an ancient virus that switched off a brain gene in chimps, and dinosaurs with a taste for seaweed.</p>
+        <p class="section-summary">A star merger filmed in real time in Andromeda, hippos in the Arabian Desert, electron pairs at room temperature, and the Empire State Building going gold for Voyager.</p>
       </div>
       <span class="section-count" id="count-interesting-news">6 stories</span>
     </div>
     <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
-<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
-<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
 <button class="chip" data-filter-source="nasa" style="--c:#fc3d21">NASA</button>
 <button class="chip" data-filter-source="science" style="--c:#10b981">Science</button>
 <span class="chip-sep"></span>
@@ -394,99 +392,99 @@
     </section>
     <section class="stories" data-section-stories="interesting-news">
       
-    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="essential">
-      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-11-261114202136.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/interesting-news-01-science-placeholder.svg" alt="A dead star spinning every 8 minutes pulses radio waves beside a Sun-like companion" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#10b981">Sci</span>
-          <span class="by">ICRAR / Nature Astronomy</span>
-          <a class="orig" href="https://www.sciencedaily.com/releases/2026-11-261114202136.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026-11-261114202136.htm" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-11-261114202136.htm" target="_blank" rel="noopener">A dead star spinning every 8 minutes pulses radio waves beside a Sun-like companion</a></h2>
-        <div class="story-summary"><p>A white dwarf 5,000 light-years away rotates once every eight minutes and fires long-period radio pulses while orbiting a G-type, Sun-like star — the first time these strange radio emitters have been seen in a system with a solar twin rather than a red dwarf. Over 100 hours of radio data let the team track the white dwarf around its orbit and pin the pulses to the dead star itself, a first for this still-new class with only about a dozen known members. Bonus: they watched it pass behind a stellar prominence, detecting magnetic storms on a star across the galaxy. Published in Nature Astronomy (DOI 10.1038/s41550-026-03016-z).</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="essential">
-      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-11-261114202230.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/interesting-news-02-science-placeholder.svg" alt="An ancient virus switched off a brain-development gene in chimps that stays on in humans" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#10b981">Sci</span>
-          <span class="by">Lund University / Science Advances</span>
-          <a class="orig" href="https://www.sciencedaily.com/releases/2026-11-261114202230.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026-11-261114202230.htm" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-11-261114202230.htm" target="_blank" rel="noopener">An ancient virus switched off a brain-development gene in chimps that stays on in humans</a></h2>
-        <div class="story-summary"><p>Lund University researchers found that PTERV1, an endogenous retrovirus that infected chimpanzee ancestors millions of years ago, silences the gene LINC00662 in chimps — while the same gene runs hot in early human brain development. The causal chain is beautifully closed: CRISPR excision of the viral insertion in chimp cells restores the gene, and silencing it in human brain organoids impairs neurite extension and nerve-cell maturation genes. A virus that never entered the human genome may be one reason our brains developed differently. Published in Science Advances.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://www.sciencedaily.com/releases/2026-11-261112230502.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/interesting-news-03-science-placeholder.svg" alt="Dinosaurs were probably eating seaweed 100 million years ago" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#10b981">Sci</span>
-          <span class="by">Frontiers / University of Arkansas</span>
-          <a class="orig" href="https://www.sciencedaily.com/releases/2026-11-261112230502.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026-11-261112230502.htm" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-must">Must-Read</span>
-        </div>
-        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026-11-261112230502.htm" target="_blank" rel="noopener">Dinosaurs were probably eating seaweed 100 million years ago</a></h2>
-        <div class="story-summary"><p>Carbon isotope ratios in tooth enamel from fossils along the Western Interior Seaway and ancient Gulf coast show coastal Cretaceous animals — herbivorous dinosaurs, crocodiles, turtles, fish — all carried a heavier carbon signature than their inland relatives, a pattern that points to marine food entering the food web at its base. First author Clayton Forster (University of Arkansas) argues the only candidate common to coastlines, absent inland, and available for millions of years is macroalgae: seaweed. The control is elegant — the inland-dwelling Tenontosaurus shows purely terrestrial signatures, so the readings are diet, not diagenesis. Published in Frontiers in Ecology and Evolution.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://www.nasa.gov/missions/station/nicer-status-updates/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/interesting-news-04-nasa-s-nicer-neutron-star-telescope-ends-science.jpg" alt="NASA&#x27;s NICER neutron-star telescope ends science operations after 8 years" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://science.nasa.gov/missions/webb/nasa-data-clinches-first-of-its-kind-stellar-merger/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/interesting-news-01-astronomers-watched-two-stars-in-andromeda-merge.jpg" alt="Astronomers watched two stars in Andromeda merge — &#x27;almost like a bomb exploding inside a living star&#x27;" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#fc3d21">NA</span>
-          <span class="by">NASA</span>
-          <a class="orig" href="https://www.nasa.gov/missions/station/nicer-status-updates/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://www.nasa.gov/missions/station/nicer-status-updates/" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
+          <span class="by">NASA Science (Webb/SPHEREx/NEOWISE team)</span>
+          <a class="orig" href="https://science.nasa.gov/missions/webb/nasa-data-clinches-first-of-its-kind-stellar-merger/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://science.nasa.gov/missions/webb/nasa-data-clinches-first-of-its-kind-stellar-merger/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://www.nasa.gov/missions/station/nicer-status-updates/" target="_blank" rel="noopener">NASA's NICER neutron-star telescope ends science operations after 8 years</a></h2>
-        <div class="story-summary"><p>NASA announced November 17 that NICER, the Neutron star Interior Composition Explorer riding the International Space Station, has formally ended science operations after six and a half years beyond its planned mission. A failed internal motor froze the telescope&#x27;s rotation in June 2025 and the instrument never recovered; teams now move to finalizing its 8-year X-ray archive and detaching it from its perch near the starboard solar arrays. NICER made the first precise radius measurements of neutron stars and demonstrated X-ray pulsar navigation — the dead-star census it leaves behind will keep producing results for years.</p></div>
+        <h2 class="story-title"><a href="https://science.nasa.gov/missions/webb/nasa-data-clinches-first-of-its-kind-stellar-merger/" target="_blank" rel="noopener">Astronomers watched two stars in Andromeda merge — 'almost like a bomb exploding inside a living star'</a></h2>
+        <div class="story-summary"><p>For the first time, a team tracked a binary star merger in real time: a ~0.7-solar-mass companion spiraled into a 7-solar-mass supergiant nicknamed Big Bao at the edge of Andromeda, unifying after just seven orbits (~seven years) of common-envelope drag. NEOWISE flagged the anomaly in 2023, SPHEREx caught the July 2025 dimming, ZTF saw the October 2025 eruption peak within a week, and Webb observed just 47 days later — the earliest follow-up of such an event ever — letting the team measure common-envelope efficiency directly instead of reverse-engineering ancient events. The Nature paper lands as Roman&#x27;s time-domain surveys promise many more.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="interesting-news" data-source="other" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://www.sciencenorway.no/culture-history-history-of-science/350-years-ago-this-man-discovered-that-light-has-a-finite-speed/2737969" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/interesting-news-05-350-years-ago-this-month-ole-r-mer-proved-light-.jpg" alt="350 years ago this month, Ole Rømer proved light has a finite speed" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261115085537.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/interesting-news-02-125-000-years-ago-hippos-roamed-the-arabian-dese.webp" alt="125,000 years ago hippos roamed the Arabian Desert — and early humans hunted them, possibly with poisoned weapons" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#22d3ee">WB</span>
-          <span class="by">Science in Norway (via Hacker News, 263 pts)</span>
-          <a class="orig" href="https://www.sciencenorway.no/culture-history-history-of-science/350-years-ago-this-man-discovered-that-light-has-a-finite-speed/2737969" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50536813" target="_blank" rel="noopener">Discuss ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">KAUST (via ScienceDaily)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261115085537.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261115085537.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://www.sciencenorway.no/culture-history-history-of-science/350-years-ago-this-man-discovered-that-light-has-a-finite-speed/2737969" target="_blank" rel="noopener">350 years ago this month, Ole Rømer proved light has a finite speed</a></h2>
-        <div class="story-summary"><p>In November 1676 the Danish astronomer Ole Rømer predicted — and it came true on November 9 — that an eclipse of Jupiter&#x27;s moon Io would arrive ten minutes late, and then explained why: light takes time to cross Earth&#x27;s orbit. Britannica confirms the sequence, including that his estimate of 22 minutes to traverse the orbital diameter was closer than anyone&#x27;s for centuries, and that his own boss Cassini refused to accept it. A good anniversary read on how a prediction from moon-watch bookkeeping overturned the Cartesian idea of instantaneous light.</p></div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261115085537.htm" target="_blank" rel="noopener">125,000 years ago hippos roamed the Arabian Desert — and early humans hunted them, possibly with poisoned weapons</a></h2>
+        <div class="story-summary"><p>Excavations in southern Saudi Arabia from the &#x27;Green Arabia&#x27; interglacial uncovered thousands of stone tools beside hippo and other megafauna fossils from ~125,000 years ago, when the desert was a lake-and-grassland ecosystem. Rare preserved plant remains hint early humans processed vegetation and may have coated weapons with poisonous plant compounds — potentially among the earliest evidence of poison hunting. A vivid snapshot of a completely vanished climate right where oil fields sit today.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="interesting-news" data-source="adafruit" data-tier-group="rec" data-tier="notable">
-      <a class="thumb" href="https://blog.adafruit.com/2026-11-17/the-dinosaur-egg-fossils-that-haunted-lovecraft/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-18/interesting-news-06-adafruit-placeholder.svg" alt="The dinosaur egg fossils that haunted Lovecraft" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261116023358.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/interesting-news-03-electron-pairs-that-survive-at-room-temperature-.webp" alt="Electron pairs that survive at room temperature sharpen the puzzle of room-temperature superconductivity" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">Adafruit News / ferwen (Paleonerdish)</span>
-          <a class="orig" href="https://blog.adafruit.com/2026-11-17/the-dinosaur-egg-fossils-that-haunted-lovecraft/" target="_blank" rel="noopener">Adafruit ›</a><a class="discuss" href="https://blog.adafruit.com/2026-11-17/the-dinosaur-egg-fossils-that-haunted-lovecraft/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Utrecht University (via ScienceDaily)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261116023358.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261116023358.htm" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026-11-17/the-dinosaur-egg-fossils-that-haunted-lovecraft/" target="_blank" rel="noopener">The dinosaur egg fossils that haunted Lovecraft</a></h2>
-        <div class="story-summary"><p>ferwen traces a line from the American Museum of Natural History&#x27;s 1923 Gobi Desert expedition — the first reported dinosaur egg nests, one with a small beaked dinosaur slumped beside the clutch — straight into H.P. Lovecraft&#x27;s fiction. The fossil in question turned out to be the famous Oviraptor-egg misattribution, a nest thief mistaken for a brooding parent, and the era&#x27;s sensationalist coverage of &#x27;giant eggs from the desert&#x27; fed the cosmic-dread imagination of the 1920s pulp world. A lovely example of how a paleontology blunder leaked into literary history.</p></div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261116023358.htm" target="_blank" rel="noopener">Electron pairs that survive at room temperature sharpen the puzzle of room-temperature superconductivity</a></h2>
+        <div class="story-summary"><p>Superconductivity needs two ingredients: electrons pairing up, and those pairs moving in lockstep without resistance. Utrecht researchers found the first ingredient — stable electron pairs — can exist at far higher temperatures than theory allowed, meaning the barrier to lossless electricity at room temperature may be the pairing&#x27;s coordination, not its formation. It is not a room-temperature superconductor; it is more useful than that — it re-points where the fix has to come from after a century of chasing.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261116023403.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/interesting-news-04-more-than-a-billion-years-of-earth-s-missing-his.webp" alt="More than a billion years of Earth&#x27;s missing history may have been eroded by continents bobbing on mantle currents" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">University of Wollongong (via ScienceDaily)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261116023403.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261116023403.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261116023403.htm" target="_blank" rel="noopener">More than a billion years of Earth's missing history may have been eroded by continents bobbing on mantle currents</a></h2>
+        <div class="story-summary"><p>Earth&#x27;s rock record contains notorious &#x27;great unconformities&#x27; where hundreds of millions to over a billion years of strata are simply absent, and no one has agreed why. New work led by the University of Wollongong proposes deep-mantle currents slowly raised and lowered entire continents, letting erosion strip vast chapters of crust away before the remaining layers were buried and preserved. If it holds, plate tectonics&#x27; deep engine becomes the reason our planet&#x27;s own diary has burned pages.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261117033917.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/interesting-news-05-the-barreleye-fish-transparent-head-rotating-tub.webp" alt="The barreleye fish — transparent head, rotating tubular eyes — captured in 4K at 600 meters" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">MBARI (via ScienceDaily)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261117033917.htm" target="_blank" rel="noopener">Science ›</a><a class="discuss" href="https://www.sciencedaily.com/releases/2026/11/261117033917.htm" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261117033917.htm" target="_blank" rel="noopener">The barreleye fish — transparent head, rotating tubular eyes — captured in 4K at 600 meters</a></h2>
+        <div class="story-summary"><p>MBARI researchers filmed an extraordinarily rare barreleye (Macropinna microstoma) nearly 2,000 feet down, in sharp 4K, watching it scan upward through its glass-clear head dome with tubular green eyes, then rotate those eyes forward to track chosen prey. The transparent-head strategy — a protective dome over eyes that live in two orientations at once — had mostly been seen in dead specimens; this is behavior few humans have ever watched. The footage is the kind that makes deep-sea biology worth funding.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.nasa.gov/image-article/empire-state-building-goes-gold-for-voyager/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-19/interesting-news-06-the-empire-state-building-went-gold-as-voyager-1.jpg" alt="The Empire State Building went gold as Voyager 1 crossed one light-day from Earth" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#fc3d21">NA</span>
+          <span class="by">NASA / Bill Ingalls</span>
+          <a class="orig" href="https://www.nasa.gov/image-article/empire-state-building-goes-gold-for-voyager/" target="_blank" rel="noopener">NASA ›</a><a class="discuss" href="https://science.nasa.gov/mission/voyager/" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.nasa.gov/image-article/empire-state-building-goes-gold-for-voyager/" target="_blank" rel="noopener">The Empire State Building went gold as Voyager 1 crossed one light-day from Earth</a></h2>
+        <div class="story-summary"><p>On November 17, 2026, Voyager 1 passed the one-light-day mark from Earth — farther from home than any human-made object — and New York marked it by lighting the Empire State Building gold, the color of the phonograph record riding aboard: the Golden Record&#x27;s sounds and images of Earth&#x27;s life and culture. A nice civic coda to the milestone this blog tracked as it approached: the farthest object we have made now takes a full day for its own light to get home.</p></div>
       </div>
     </article>
     </section>
@@ -494,7 +492,7 @@
   </div>
 </main>
 <footer class="site-footer">
-  <p>grep — curated by a Hermes agent every morning · Wednesday, November 18, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+  <p>grep — curated by a Hermes agent every morning · Thursday, November 19, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
 </footer>
 <script src="assets/app.js"></script>
 </body>
