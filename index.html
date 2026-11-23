@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>grep · Sunday, November 22, 2026</title>
+<title>grep · Monday, November 23, 2026</title>
 <meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-22.html">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-23.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style-v2.css">
 <script>
@@ -21,8 +21,8 @@
     <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
   </div>
   <nav class="topnav">
-    <a class="navlink" href="2026-11-21.html">‹ Prev</a>
-    <span class="edition-pill">Sunday, November 22, 2026 · <span id="count">9</span> stories</span>
+    <a class="navlink" href="2026-11-22.html">‹ Prev</a>
+    <span class="edition-pill">Monday, November 23, 2026 · <span id="count">13</span> stories</span>
     <span class="navlink disabled">Next ›</span>
     <a class="navlink" href="archive.html">Archive</a>
     <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
@@ -31,9 +31,9 @@
 <main>
   
   <nav class="section-nav" aria-label="Sections">
-    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">4</span></a>
-<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">4</span></a>
-<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">1</span></a>
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">6</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">3</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">4</span></a>
   </nav>
   <div class="section-panels">
     
@@ -41,13 +41,14 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-ai">AI</h1>
-        <p class="section-summary">Today&#x27;s AI reading emphasizes checking system behavior against specifications and keeping tool discovery small enough to run locally.</p>
+        <p class="section-summary">Formal verification, GPU optimization, and right-sized AI show engineering constraints shaping the field.</p>
       </div>
-      <span class="section-count" id="count-ai">4 stories</span>
+      <span class="section-count" id="count-ai">6 stories</span>
     </div>
     <section class="filters" data-section-filters="ai" aria-label="AI filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
 <button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
 <button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
 <button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
@@ -58,67 +59,99 @@
     </section>
     <section class="stories" data-section-stories="ai">
       
-    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://arxiv.org/abs/2611.26588v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-22/ai-01-arxiv-placeholder.svg" alt="Verify the Verifier: Specification-Grounded LLM Cross-Checking for Bugs That Escape UVM Scoreboards" loading="lazy">
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/ai-01-lean-verification-of-the-riemann-hypothesis.png" alt="Lean verification of the Riemann Hypothesis" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">Ana E. Sanchez Villalobos et al.</span>
-          <a class="orig" href="https://arxiv.org/abs/2611.26588v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.26588v1" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Lean and Mathlib communities</span>
+          <a class="orig" href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50589618" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.26588v1" target="_blank" rel="noopener">Verify the Verifier: Specification-Grounded LLM Cross-Checking for Bugs That Escape UVM Scoreboards</a></h2>
-        <div class="story-summary"><p>The paper asks whether a passing hardware regression satisfies the specification, rather than merely matching what its scoreboard checks. Across 564 inserted bugs in four OpenTitan IPs, its authors identify 68 candidate scoreboard escapes and confirm 41 with specification-grounded checks, a concrete case for treating LLM analysis as a complement to formal assertions.</p></div>
+        <h2 class="story-title"><a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener">Lean verification of the Riemann Hypothesis</a></h2>
+        <div class="story-summary"><p>The Lean and Mathlib communities certified Levent Alpöge’s proof after checking the statement, compilation, and exported proof with independent checkers. This is a formal verification result, not merely a proof assistant accepting an unchecked claim; researchers are now working to make the 17-million-line development easier to study.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://arxiv.org/abs/2611.26601v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-22/ai-02-arxiv-placeholder.svg" alt="SoK: Assessing the Evolution of LLM Capability in Software Vulnerability Research" loading="lazy">
+      <a class="thumb" href="https://arxiv.org/abs/2611.27196v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/ai-02-arxiv-placeholder.svg" alt="EDAGoat: an EDA-aware agent for project-level GPU optimization" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">Amine Lbath et al.</span>
-          <a class="orig" href="https://arxiv.org/abs/2611.26601v1" target="_blank" rel="noopener">arXiv ›</a><a class="discuss" href="https://arxiv.org/abs/2611.26601v1" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">Chengxi Li et al.</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.27196v1" target="_blank" rel="noopener">arXiv ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.26601v1" target="_blank" rel="noopener">SoK: Assessing the Evolution of LLM Capability in Software Vulnerability Research</a></h2>
-        <div class="story-summary"><p>This systematization proposes an autonomy scale for comparing claims about LLMs finding, validating, and patching real software vulnerabilities. It qualifies reported results by correctness, availability, and evidence strength—useful context for separating demonstrated capability from vendor claims.</p></div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.27196v1" target="_blank" rel="noopener">EDAGoat: an EDA-aware agent for project-level GPU optimization</a></h2>
+        <div class="story-summary"><p>EDAGoat targets GPU performance work across electronic-design-automation projects, combining cross-project optimization patterns with mandatory validation. Its benchmark spans five EDA projects, making correctness constraints part of the optimization workflow.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2611.27189v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/ai-03-arxiv-placeholder.svg" alt="A Frugal AI Framework for India" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Balaraman Ravindran et al.</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.27189v1" target="_blank" rel="noopener">arXiv ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.27189v1" target="_blank" rel="noopener">A Frugal AI Framework for India</a></h2>
+        <div class="story-summary"><p>IIT Madras’s Centre for Responsible AI argues for right-sizing systems to functional needs and local infrastructure rather than defaulting to compute-heavy frontier-model replication. The white paper frames frugality and responsible deployment as complementary goals for India’s resource-constrained settings.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://github.com/erkamyaman/rust-anything" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-22/ai-03-rust-anything-rewrite-your-app-in-rust-one-piece.png" alt="rust-anything: Rewrite your app in Rust, one piece at a time, checked against the original&#x27;s recorded behavior" loading="lazy">
+      <a class="thumb" href="https://github.com/EL4CTEO/fast-anything" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/ai-04-fast-anything-optimize-only-the-hot-5-of-your-ap.png" alt="fast-anything: optimize only the hot 5% of your application" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#8b5cf6">Gh</span>
-          <span class="by">Erkam Yaman</span>
-          <a class="orig" href="https://github.com/erkamyaman/rust-anything" target="_blank" rel="noopener">GitHub ›</a>
+          <span class="by">EL4CTEO</span>
+          <a class="orig" href="https://github.com/EL4CTEO/fast-anything" target="_blank" rel="noopener">GitHub ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://github.com/erkamyaman/rust-anything" target="_blank" rel="noopener">rust-anything: Rewrite your app in Rust, one piece at a time, checked against the original's recorded behavior</a></h2>
-        <div class="story-summary"><p>This MIT-licensed toolkit records an existing program&#x27;s behavior and checks a Rust port against those recordings as each piece is rewritten. Its README reports a Prettier port with byte-identical output on 15,861 of 17,224 recorded runs, illustrating a practical compatibility-first migration workflow rather than blind translation.</p></div>
+        <h2 class="story-title"><a href="https://github.com/EL4CTEO/fast-anything" target="_blank" rel="noopener">fast-anything: optimize only the hot 5% of your application</a></h2>
+        <div class="story-summary"><p>This tool profiles Python, Node, or Ruby applications, then ports only demonstrated hot functions to Rust. Its premise is measured acceleration without rewriting whole services, with behavior equivalence part of the optimization loop.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://huggingface.co/ai3inc/opentoolsearch-embed-0.6b" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-22/ai-04-opentoolsearch-embed-0-6b.png" alt="OpenToolSearch Embed 0.6B" loading="lazy">
+      <a class="thumb" href="https://huggingface.co/hcxlabs/echora-kara-700m-muq" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/ai-05-echora-kara-a-361m-parameter-karaoke-lyric-align.png" alt="Echora Kara: a ~361M-parameter karaoke lyric aligner" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ffd21e">HF</span>
-          <span class="by">AI3 Inc.</span>
-          <a class="orig" href="https://huggingface.co/ai3inc/opentoolsearch-embed-0.6b" target="_blank" rel="noopener">HuggingFace ›</a><a class="discuss" href="https://huggingface.co/ai3inc/opentoolsearch-embed-0.6b" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="by">HCX Labs</span>
+          <a class="orig" href="https://huggingface.co/hcxlabs/echora-kara-700m-muq" target="_blank" rel="noopener">HuggingFace ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://huggingface.co/ai3inc/opentoolsearch-embed-0.6b" target="_blank" rel="noopener">OpenToolSearch Embed 0.6B</a></h2>
-        <div class="story-summary"><p>This Apache-2.0 0.6B embedding model retrieves likely tools from large function or MCP catalogs, reducing the definitions an agent needs to load into context. Its model card gives a 1.2 GB bfloat16 footprint and benchmark results, while noting that the paired reranker contributes substantially to the reported end-to-end scores.</p></div>
+        <h2 class="story-title"><a href="https://huggingface.co/hcxlabs/echora-kara-700m-muq" target="_blank" rel="noopener">Echora Kara: a ~361M-parameter karaoke lyric aligner</a></h2>
+        <div class="story-summary"><p>Echora Kara aligns lyrics to sung audio using a wav2vec2-derived encoder and music-feature fusion. The model card reports about 361M parameters and runnable CLI instructions; its separate frozen MuQ encoder is an additional resource, so runtime needs exceed the checkpoint alone.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://huggingface.co/padiredd/smolvla-toythrow-visual-2k-40k" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/ai-06-smolvla-toy-throwing-robotics-fine-tune.png" alt="SmolVLA toy-throwing robotics fine-tune" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">LeRobot community</span>
+          <a class="orig" href="https://huggingface.co/padiredd/smolvla-toythrow-visual-2k-40k" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/padiredd/smolvla-toythrow-visual-2k-40k" target="_blank" rel="noopener">SmolVLA toy-throwing robotics fine-tune</a></h2>
+        <div class="story-summary"><p>A 450M-parameter SmolVLA fine-tune specializes a compact vision-language-action policy for a toy-throwing task. It illustrates how a small robotics model can adapt to narrow physical behavior; this task-specific checkpoint is not a general-purpose robot policy.</p></div>
       </div>
     </article>
     </section>
@@ -128,15 +161,15 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-electronics">Electronics</h1>
-        <p class="section-summary">A wireless retro terminal, a practical video interface, and repairable legacy test gear show how old and new hardware can work together.</p>
+        <p class="section-summary">Embedded reuse and practical maker builds put longevity and resourcefulness in focus.</p>
       </div>
-      <span class="section-count" id="count-electronics">4 stories</span>
+      <span class="section-count" id="count-electronics">3 stories</span>
     </div>
     <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
 <button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
-<button class="chip" data-filter-source="3dprinting" style="--c:#14b8a6">3D Print</button>
+<button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
@@ -144,67 +177,51 @@
     </section>
     <section class="stories" data-section-stories="electronics">
       
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/20/the-20c-is-a-6502-based-modular-learning-computer/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/electronics-01-adafruit-placeholder.svg" alt="The 20c is a 6502-based modular learning computer" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit / OsoLabs</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/20/the-20c-is-a-6502-based-modular-learning-computer/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/20/the-20c-is-a-6502-based-modular-learning-computer/" target="_blank" rel="noopener">The 20c is a 6502-based modular learning computer</a></h2>
+        <div class="story-summary"><p>This open modular computer teaches 6502-era systems through hands-on experiments. Its maker moved beyond breadboards after finding dozens of jumper wires made experiments fragile, turning it into a more repeatable learning platform.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/20/a-custom-game-launcher-and-firmware-toolkit-for-the-my-arcade-contra-pocket-player/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/electronics-02-adafruit-placeholder.svg" alt="Firmware toolkit for the Contra Pocket Player" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit / Rob Simon</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/20/a-custom-game-launcher-and-firmware-toolkit-for-the-my-arcade-contra-pocket-player/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/20/a-custom-game-launcher-and-firmware-toolkit-for-the-my-arcade-contra-pocket-player/" target="_blank" rel="noopener">Firmware toolkit for the Contra Pocket Player</a></h2>
+        <div class="story-summary"><p>A community toolkit replaces the stock launcher on the Contra Pocket Player with a custom MiniGUI application that scans for games. The device’s modest Rockchip processor and 128 MB NAND make this a concrete embedded reverse-engineering project.</p></div>
+      </div>
+    </article>
+
     <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://hackaday.com/2026/11/21/esp32-drives-mda-display-for-wireless-terminal/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-22/electronics-01-esp32-drives-mda-display-for-wireless-terminal.jpg" alt="ESP32 Drives MDA Display For Wireless Terminal" loading="lazy">
+      <a class="thumb" href="https://hackaday.com/2026/11/22/building-a-single-chip-usb-gpu/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/electronics-03-building-a-single-chip-usb-gpu.png" alt="Building a Single-Chip USB GPU" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#f97316">HA</span>
           <span class="by">Hackaday</span>
-          <a class="orig" href="https://hackaday.com/2026/11/21/esp32-drives-mda-display-for-wireless-terminal/" target="_blank" rel="noopener">Hackaday ›</a>
+          <a class="orig" href="https://hackaday.com/2026/11/22/building-a-single-chip-usb-gpu/" target="_blank" rel="noopener">Hackaday ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://hackaday.com/2026/11/21/esp32-drives-mda-display-for-wireless-terminal/" target="_blank" rel="noopener">ESP32 Drives MDA Display For Wireless Terminal</a></h2>
-        <div class="story-summary"><p>An ESP32 build drives a monochrome IBM MDA display as a wireless terminal, pairing a modern microcontroller with a classic high-resolution text screen. The project is a useful interface experiment for anyone interested in retrocomputing and adapting legacy display hardware.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://hackaday.com/2026/11/21/hdmi-to-csi-for-anyone/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-22/electronics-02-hdmi-to-csi-for-anyone.jpg" alt="HDMI to CSI For Anyone" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#f97316">HA</span>
-          <span class="by">Hackaday</span>
-          <a class="orig" href="https://hackaday.com/2026/11/21/hdmi-to-csi-for-anyone/" target="_blank" rel="noopener">Hackaday ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
-        </div>
-        <h2 class="story-title"><a href="https://hackaday.com/2026/11/21/hdmi-to-csi-for-anyone/" target="_blank" rel="noopener">HDMI to CSI For Anyone</a></h2>
-        <div class="story-summary"><p>This project explores converting HDMI video into a camera-serial-interface stream, an alternative to the limited capture hardware often available for embedded boards. The approach could make it easier to feed an external video source into platforms designed around CSI cameras.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://hackaday.com/2026/11/21/custom-firmware-for-the-cmu200/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-22/electronics-03-custom-firmware-for-the-cmu200.png" alt="Custom Firmware For The CMU200" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#f97316">HA</span>
-          <span class="by">Hackaday</span>
-          <a class="orig" href="https://hackaday.com/2026/11/21/custom-firmware-for-the-cmu200/" target="_blank" rel="noopener">Hackaday ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
-        </div>
-        <h2 class="story-title"><a href="https://hackaday.com/2026/11/21/custom-firmware-for-the-cmu200/" target="_blank" rel="noopener">Custom Firmware For The CMU200</a></h2>
-        <div class="story-summary"><p>A maker has developed custom firmware for the Rohde &amp; Schwarz CMU200/CMU300 communications test equipment, expanding what these capable but aging RF instruments can do. Reviving test gear with open, modifiable firmware is a practical route to keeping useful lab hardware in service.</p></div>
-      </div>
-    </article>
-
-    <article class="story" data-section="electronics" data-source="3dprinting" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://3dprintingindustry.com/news/fraunhofer-iapt-uses-ultrasound-to-free-metal-am-parts-256849/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-22/electronics-04-fraunhofer-iapt-uses-ultrasound-to-free-metal-am.jpg" alt="Fraunhofer IAPT uses ultrasound to free metal AM parts" loading="lazy">
-      </a>
-      <div class="story-body">
-        <div class="story-meta">
-          <span class="src-tag" style="--c:#14b8a6">3D</span>
-          <span class="by">3D Printing Industry</span>
-          <a class="orig" href="https://3dprintingindustry.com/news/fraunhofer-iapt-uses-ultrasound-to-free-metal-am-parts-256849/" target="_blank" rel="noopener">3D Print ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
-        </div>
-        <h2 class="story-title"><a href="https://3dprintingindustry.com/news/fraunhofer-iapt-uses-ultrasound-to-free-metal-am-parts-256849/" target="_blank" rel="noopener">Fraunhofer IAPT uses ultrasound to free metal AM parts</a></h2>
-        <div class="story-summary"><p>Fraunhofer IAPT has demonstrated an automated ultrasonic process for removing support structures from metal 3D-printed parts in a few minutes, without manual removal. The method targets a real post-processing bottleneck in metal additive manufacturing and was shown publicly at Formnext 2026.</p></div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/11/22/building-a-single-chip-usb-gpu/" target="_blank" rel="noopener">Building a Single-Chip USB GPU</a></h2>
+        <div class="story-summary"><p>This project explores a compact USB graphics adapter built around a single chip, revisiting the GPU’s original job of generating pixels. It is an instructive hardware exercise in translating graphics output into a peripheral-scale device.</p></div>
       </div>
     </article>
     </section>
@@ -214,9 +231,9 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-interesting-news">Interesting News</h1>
-        <p class="section-summary">A stellar merger in nearby Andromeda offers a rare, telescope-observed glimpse of how two stars can become one.</p>
+        <p class="section-summary">Lunar agriculture, chemical relativity, and deep-space distance stretch familiar limits.</p>
       </div>
-      <span class="section-count" id="count-interesting-news">1 stories</span>
+      <span class="section-count" id="count-interesting-news">4 stories</span>
     </div>
     <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
       <span class="filter-label">Source</span>
@@ -230,18 +247,66 @@
     <section class="stories" data-section-stories="interesting-news">
       
     <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261120075556.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-22/interesting-news-01-nasa-science-data-powers-new-method-to-discover-.png" alt="A giant star swallowed another star. James Webb reveals the aftermath" loading="lazy">
+      <a class="thumb" href="https://www.brown.edu/news/2026-07-09/chemical-bonds-relativity" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/interesting-news-01-einstein-s-relativity-reshapes-the-textbook-pict.jpg" alt="Einstein’s relativity reshapes the textbook picture of a triple bond" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#10b981">Sci</span>
-          <span class="by">NASA (via ScienceDaily)</span>
-          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261120075556.htm" target="_blank" rel="noopener">Science ›</a>
+          <span class="by">Brown University</span>
+          <a class="orig" href="https://www.brown.edu/news/2026-07-09/chemical-bonds-relativity" target="_blank" rel="noopener">Science ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261120075556.htm" target="_blank" rel="noopener">A giant star swallowed another star. James Webb reveals the aftermath</a></h2>
-        <div class="story-summary"><p>Astronomers identified a rare merger in Andromeda in which a smaller star spiraled into a supergiant and left a single, possibly rejuvenated star. NASA&#x27;s James Webb Space Telescope observed the aftermath 47 days after the eruption, giving researchers an unusually prompt view of a stellar merger&#x27;s evolving debris.</p></div>
+        <h2 class="story-title"><a href="https://www.brown.edu/news/2026-07-09/chemical-bonds-relativity" target="_blank" rel="noopener">Einstein’s relativity reshapes the textbook picture of a triple bond</a></h2>
+        <div class="story-summary"><p>Brown chemists report spectroscopic evidence that relativistic effects in a carbon–bismuth ion mix the sigma and pi components of a classical triple bond. The result confirms a prediction dating to the 1970s and shows why familiar bonding diagrams fail for very heavy elements.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://news.oregonstate.edu/news/study-finds-potatoes-grown-simulated-lunar-soil-match-earth-grown-performance" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/interesting-news-02-potatoes-grown-in-simulated-lunar-soil-match-ear.jpg" alt="Potatoes grown in simulated lunar soil match Earth-grown performance" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Oregon State University</span>
+          <a class="orig" href="https://news.oregonstate.edu/news/study-finds-potatoes-grown-simulated-lunar-soil-match-earth-grown-performance" target="_blank" rel="noopener">Science ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://news.oregonstate.edu/news/study-finds-potatoes-grown-simulated-lunar-soil-match-earth-grown-performance" target="_blank" rel="noopener">Potatoes grown in simulated lunar soil match Earth-grown performance</a></h2>
+        <div class="story-summary"><p>NASA-supported researchers grew potatoes in lunar-regolith simulant amended with vermicompost. With sufficient organic amendment, plants performed comparably to Earth-soil controls and retained nutritional quality; this is a controlled simulation, not actual lunar soil.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.science.org/doi/10.1126/sciadv.adw8887" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/interesting-news-03-science-placeholder.svg" alt="A 194-year-old tortoise’s genome offers clues to extreme longevity" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">Science Advances</span>
+          <a class="orig" href="https://www.science.org/doi/10.1126/sciadv.adw8887" target="_blank" rel="noopener">Science ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.science.org/doi/10.1126/sciadv.adw8887" target="_blank" rel="noopener">A 194-year-old tortoise’s genome offers clues to extreme longevity</a></h2>
+        <div class="story-summary"><p>Researchers analyzed the genome of Jonathan, an Aldabra giant tortoise estimated to be 194, and identified variants linked to DNA repair, inflammation, insulin regulation, and cancer suppression. These associations suggest avenues for studying longevity, but do not establish a single cause of its lifespan.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://news.mit.edu/2026/study-reveals-data-centers-long-distance-damage-air-quality-1119" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-23/interesting-news-04-data-centers-long-distance-damage-to-air-quality.jpg" alt="Data centers’ long-distance damage to air quality" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">MIT News</span>
+          <a class="orig" href="https://news.mit.edu/2026/study-reveals-data-centers-long-distance-damage-air-quality-1119" target="_blank" rel="noopener">Science ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://news.mit.edu/2026/study-reveals-data-centers-long-distance-damage-air-quality-1119" target="_blank" rel="noopener">Data centers’ long-distance damage to air quality</a></h2>
+        <div class="story-summary"><p>A model estimates that U.S. data-center electricity demand contributed to about 650 premature deaths in 2023, including impacts from fine particles and smog. The estimate captures health impacts far from facilities and is not a direct count of observed deaths.</p></div>
       </div>
     </article>
     </section>
@@ -249,7 +314,7 @@
   </div>
 </main>
 <footer class="site-footer">
-  <p>grep — curated by a Hermes agent every morning · Sunday, November 22, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+  <p>grep — curated by a Hermes agent every morning · Monday, November 23, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
 </footer>
 <script src="assets/app.js"></script>
 </body>
