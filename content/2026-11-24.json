@@ -1,0 +1,207 @@
+{
+  "date": "2026-11-24",
+  "summary": "Looped transformers and AI-formalized mathematics mark a strong day for AI engineering, while SDR hacking and lunar power anchor the rest.",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI",
+      "summary": "Formal mathematics, looped architectures, and computer-use measurement show verification and efficiency driving the field.",
+      "stories": [
+        {
+          "title": "Levent Alpöge responds to scrutiny of his Lean proof of the Riemann Hypothesis",
+          "url": "https://github.com/CocoSgt/riemann-hypothesis-lean",
+          "source": "github",
+          "byline": "Levent Alpöge (mirror: CocoSgt)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50620250",
+          "tier": "essential",
+          "summary": "Following yesterday's community verification of Alpöge's Lean proof, the author himself commented publicly on the proof, the role Claude played, and what remains to be checked. The mirror repository collects the formalization (RH plus GRH for Dirichlet L-functions) so anyone can compile and inspect the kernels directly."
+        },
+        {
+          "title": "VP ≠ VNP over every field, formalized in Lean by an Anthropic research model",
+          "url": "https://github.com/anthropics/formal-math/tree/main/vp-vnp",
+          "source": "hn",
+          "byline": "Claude (Anthropic formal-math)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50620102",
+          "tier": "essential",
+          "summary": "An internal Anthropic research Claude produced a lower-bound proof that permanent and Hamiltonian-cycle circuits need super-polynomial-subexponential size over every field, separating VP from VNP without settling P vs NP. The paper and its Lean 4 formalization are public, with a second independently written kernel re-checking the proof in CI; the README is explicit that no human mathematician has checked it yet."
+        },
+        {
+          "title": "GLM-5.4: Z.ai's first Loop Transformer flagship reaches for generalized coding",
+          "url": "https://z.ai/blog/glm-5.4",
+          "source": "hn",
+          "byline": "Z.ai",
+          "discuss_url": "https://news.ycombinator.com/item?id=50609685",
+          "tier": "must-read",
+          "summary": "GLM-5.4 loops 28 layers of the GLM-5 base for two iterations with gated progressive updates, a hybrid cross-loop KV cache, and sparse attention index reuse, claiming intelligence comparable to far larger dense models. An iso-parameter 30B ablation shows the looped variant beating the unlooped baseline on long-chain reasoning with 10-14% shorter thinking traces."
+        },
+        {
+          "title": "Nvidia reinstates Jensen Huang as President, CEO and board director",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director",
+          "source": "hn",
+          "byline": "Nvidia newsroom",
+          "discuss_url": "https://news.ycombinator.com/item?id=50611588",
+          "tier": "must-read",
+          "summary": "Nvidia's board unanimously reinstated Jensen Huang twelve days after his resignation amid reporting on a foreign intelligence effort, citing satisfaction with his candor and government input. The independent investigation continues, and a new National Security and Export Control Committee plus a Chief Compliance Officer search signal lasting governance changes."
+        },
+        {
+          "title": "Ladybird browser enters alpha",
+          "url": "https://ladybird.org/posts/alpha/",
+          "source": "hn",
+          "byline": "Ladybird Browser Initiative",
+          "discuss_url": "https://news.ycombinator.com/item?id=50614249",
+          "tier": "notable",
+          "summary": "The from-scratch, non-Chromium browser reaches its first alpha, a milestone for an independent engine built on its own LibWeb and LibJS stack. Alpha status means feature completeness is still ahead, but the project is now self-hosting enough to be tried by early adopters."
+        },
+        {
+          "title": "How should an LLM see a computer? Screenshots, accessibility trees, and ID clicks measured",
+          "url": "https://www.greptile.com/blog/trex-computer-use",
+          "source": "other",
+          "byline": "Ruban SK (Greptile)",
+          "discuss_url": "https://news.ycombinator.com/item?id=50615520",
+          "tier": "recommended",
+          "summary": "Across 172 OSWorld tasks and seven OpenAI models, accessibility trees and click-by-ID roughly tripled scores for weaker models (GPT-5.2: 15.8% to 52.8%) while barely moving the strongest ones. The practical takeaway is that computer-use scaffolding should be chosen per model generation, and re-measured as models improve."
+        },
+        {
+          "title": "MASSys: benchmarking multi-agent LLM systems across serving substrates",
+          "url": "https://arxiv.org/abs/2611.28671v1",
+          "source": "arxiv",
+          "byline": "Haoyuan Zheng et al. (Duke)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "MASSys shows that a multi-agent workflow's ranking can flip between serving substrates even with identical models, prompts, and tasks, then measures this dependence across five workload families and load regimes. For anyone deploying agent fleets, benchmark results are conditional on the execution substrate."
+        },
+        {
+          "title": "Crossfeed-Audex-2B: self-improving unified audio model with zero external data",
+          "url": "https://huggingface.co/Evan-Lin/Crossfeed-Audex-2B",
+          "source": "hf",
+          "byline": "Evan-Lin / NTU (paper checkpoint)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A 2.9B-parameter audio-language model fine-tuned from Nemotron-Labs-Audex-2B with the CROSSFEED method, which self-improves understanding, judging, and generation without any external training data. Verified BF16 safetensors; small enough for a single consumer GPU."
+        },
+        {
+          "title": "Inkling-2-Mini-DFlash2: a 495M block-diffusion drafter for speculative decoding",
+          "url": "https://huggingface.co/incoai/Inkling-2-Mini-DFlash2",
+          "source": "hf",
+          "byline": "Inco AI",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A ~495M draft model that predicts whole token blocks in one pass with a candidate-path selector, reporting 2.5-2.8x throughput over autoregressive decoding for thinkingmachines/Inkling-2-Mini in SGLang. A compact, runnable piece of the speculative-decoding stack that fits comfortably in small-VRAM setups."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "title": "Electronics",
+      "summary": "ESP32 radios, retro-console networking, and single-chip peripherals show embedded hackers working at every layer.",
+      "stories": [
+        {
+          "title": "ESP microcontrollers as analog radios",
+          "url": "https://hackaday.com/2026/11/23/esp-microcontrollers-as-analog-radios/",
+          "source": "hackaday",
+          "byline": "Hackaday",
+          "discuss_url": "",
+          "tier": "must-read",
+          "summary": "Espressif's release of the hidden SDR functionality in its radio sections has kicked off a wave of transmit-and-receive SDR hacking on stock ESP32 silicon. Turning commodity Wi-Fi MCUs into software-defined radios is a genuinely new playground for cheap RF experimentation."
+        },
+        {
+          "title": "Building a wireless network adapter for the Super Nintendo",
+          "url": "https://boland.dev/snet/",
+          "source": "hackaday",
+          "byline": "Danny Boland",
+          "discuss_url": "https://news.ycombinator.com/item?id=50611861",
+          "tier": "recommended",
+          "summary": "A WiFi peripheral that plugs into a SNES controller port and bit-bangs data over the console's synchronous serial buses at about 30 KB/s, with a RP2040-based prototype path documented end to end. A clean example of treating a 1990s game port as a real network interface."
+        },
+        {
+          "title": "TinyWifiDongle: an Arduino library turning a microcontroller into a USB WiFi dongle",
+          "url": "https://blog.adafruit.com/2026/11/23/tinywifidongle-an-arduino-library-turning-a-microcontroller-into-a-usb-wifi-dongle/",
+          "source": "adafruit",
+          "byline": "Phil Schatzmann (via Adafruit)",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "A header-only C++ library makes an ESP32-class board enumerate as a CDC-NCM USB network adapter, so the PC's traffic routes through the microcontroller's WiFi stack. Useful for injecting packets, air-gapped experiments, or adding wireless to machines with no native WiFi."
+        },
+        {
+          "title": "A bare-metal SSH OS for a Macintosh SE",
+          "url": "https://blog.adafruit.com/2026/11/23/a-bare-metal-ssh-os-for-a-macintosh-se/",
+          "source": "adafruit",
+          "byline": "Sebastian Munoz (via Adafruit)",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "SSH OS is a single-purpose operating system for the Macintosh SE that boots from BlueSCSI in seconds, joins WiFi, and provides an SSH terminal with no Mac OS underneath. The ROM is used only to read the kernel from disk, making this a from-scratch 68k embedded platform."
+        },
+        {
+          "title": "ESP32 LoRa air quality monitor sends data from one kilometer away",
+          "url": "https://blog.adafruit.com/2026/11/23/esp32-lora-air-quality-monitor-sends-data-from-one-kilometer-away/",
+          "source": "adafruit",
+          "byline": "How To Electronics (via Adafruit)",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A solar-powered two-node build: an outdoor ESP32-S3 with sensors, battery and panel transmits air-quality readings over LoRa to an indoor receiver about a kilometer away. Complete schematic and firmware make it a reproducible remote-telemetry starter project."
+        }
+      ]
+    },
+    {
+      "id": "interesting-news",
+      "title": "Interesting News",
+      "summary": "Lunar power and bricks, a revised Iron Age ruler, and overturned mutation dogma push familiar stories in new directions.",
+      "stories": [
+        {
+          "title": "NASA seeks industry partners to build the first nuclear reactor on the Moon",
+          "url": "https://www.nasa.gov/directorates/rtmd/nasa-seeks-partners-to-design-first-nuclear-reactor-for-the-moon/",
+          "source": "nasa",
+          "byline": "NASA",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "NASA's Lunar Reactor-1 (LR-1) request for proposals targets a 20 kW fission system that can run through the Moon's 14-day nights, with a launch-ready system aimed for 2030. Proposals are due December 21, and the reactor must meet DOE safety standards."
+        },
+        {
+          "title": "Voyager 1 is now one light-day from Earth",
+          "url": "https://www.nasa.gov/news-release/nasas-voyager-1-makes-history-reaching-one-light-day-from-earth/",
+          "source": "nasa",
+          "byline": "NASA",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Nearly 50 years after launch, Voyager 1 has become the first spacecraft whose signals take a full 24 hours to reach Earth. The probe keeps returning interstellar data on dwindling power, a living record of how far a 1977 design can go."
+        },
+        {
+          "title": "Iron Age ruler Verica, whose exile triggered Rome's invasion of Britain, may have been a woman",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261122060338.htm",
+          "source": "science",
+          "byline": "Bournemouth University",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Bournemouth archaeologist Miles Russell argues that 'rex' on Verica's coins was a non-gender-specific Roman title and that the coins depict a feminine horse-riding figure, making the exiled Atrebates ruler a woman whose appeal to Claudius set the AD 43 invasion in motion. The case rests on reinterpretation of coinage and names rather than a new find, so it will be debated."
+        },
+        {
+          "title": "Moon dust 3D-printed into LEGO-like bricks without any binder",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261119194525.htm",
+          "source": "science",
+          "byline": "University of Arkansas",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Using low-power laser powder bed fusion, researchers fused simulated lunar regolith into interlocking cross- and H-shaped blocks with no binding agent, publishing in npj Advanced Manufacturing. The bricks are still weaker than binder-based alternatives and untested in vacuum and low gravity, but binder-free in-situ construction removes a major supply problem for lunar bases."
+        },
+        {
+          "title": "A 50-year-old theory that evolution shields essential genes from mutation fails a clean test",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261119194538.htm",
+          "source": "science",
+          "byline": "University of Bath",
+          "discuss_url": "",
+          "tier": "recommended",
+          "summary": "Analyzing the largest mutation-accumulation datasets to date in E. coli and baker's yeast, Bath researchers found no evidence that essential genes mutate less often, in PLOS Biology. Earlier support appears to have been an artifact of 'ghost mutations' removed by selection before measurement."
+        },
+        {
+          "title": "Interstellar solar sails hit drag from their own drive beam at 75% of light speed",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261120071305.htm",
+          "source": "science",
+          "byline": "Universe Today",
+          "discuss_url": "",
+          "tier": "notable",
+          "summary": "A Harbin Institute of Technology analysis on arXiv finds that beyond roughly 0.75c, diffusely scattered photons from a sail's own propulsion beam transfer momentum backwards, producing drag. The effect adds a previously unappreciated constraint to laser-sail starship designs."
+        }
+      ]
+    }
+  ]
+}
