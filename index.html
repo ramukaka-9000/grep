@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>grep · Thursday, November 26, 2026</title>
+<title>grep · Friday, November 27, 2026</title>
 <meta name="description" content="a daily signal hunt — AI · Electronics · Interesting News">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-26.html">
+<link rel="canonical" href="https://grep.shantanugoel.com/2026-11-27.html">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style-v2.css">
 <script>
@@ -21,8 +21,8 @@
     <p class="tagline">a daily signal hunt — AI · Electronics · Interesting News</p>
   </div>
   <nav class="topnav">
-    <a class="navlink" href="2026-11-25.html">‹ Prev</a>
-    <span class="edition-pill">Thursday, November 26, 2026 · <span id="count">9</span> stories</span>
+    <a class="navlink" href="2026-11-26.html">‹ Prev</a>
+    <span class="edition-pill">Friday, November 27, 2026 · <span id="count">22</span> stories</span>
     <span class="navlink disabled">Next ›</span>
     <a class="navlink" href="archive.html">Archive</a>
     <button id="theme-toggle" class="navlink ghost" title="Toggle day/night" aria-label="Toggle day/night">☾</button>
@@ -31,9 +31,9 @@
 <main>
   
   <nav class="section-nav" aria-label="Sections">
-    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">4</span></a>
-<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">3</span></a>
-<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">2</span></a>
+    <a class="section-tab active" href="#ai" data-section-tab="ai" style="--section-color:#ff8000">AI <span class="section-tab-count">12</span></a>
+<a class="section-tab" href="#electronics" data-section-tab="electronics" style="--section-color:#22d3ee">Electronics <span class="section-tab-count">5</span></a>
+<a class="section-tab" href="#interesting-news" data-section-tab="interesting-news" style="--section-color:#f472b6">Interesting News <span class="section-tab-count">5</span></a>
   </nav>
   <div class="section-panels">
     
@@ -41,15 +41,18 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-ai">AI</h1>
-        <p class="section-summary">Hardware repair, code review, and two unusually compact language and speech models show where focused AI can be useful—and where validation matters.</p>
+        
       </div>
-      <span class="section-count" id="count-ai">4 stories</span>
+      <span class="section-count" id="count-ai">12 stories</span>
     </div>
     <section class="filters" data-section-filters="ai" aria-label="AI filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
+<button class="chip" data-filter-source="hn" style="--c:#ff8000">HN</button>
 <button class="chip" data-filter-source="arxiv" style="--c:#ff5a5f">arXiv</button>
+<button class="chip" data-filter-source="github" style="--c:#8b5cf6">GitHub</button>
 <button class="chip" data-filter-source="hf" style="--c:#ffd21e">HuggingFace</button>
+<button class="chip" data-filter-source="other" style="--c:#22d3ee">Web</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
@@ -57,67 +60,195 @@
     </section>
     <section class="stories" data-section-stories="ai">
       
-    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="must" data-tier="must-read">
-      <a class="thumb" href="https://arxiv.org/abs/2611.33748" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-26/ai-01-arxiv-placeholder.svg" alt="REFORGE: LLM-assisted RTL repair with structured verification evidence" loading="lazy">
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="essential">
+      <a class="thumb" href="https://scottaaronson.blog/?p=10379" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-01-scott-aaronson-the-magnitude-of-what-s-now-happe.jpg" alt="Scott Aaronson: The magnitude of what&#x27;s now happening" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">Tanvir Hossain, Sudipta Paria, Aidan Gleason Myers, Swarup Bhunia, and Tamzidul Hoque</span>
-          <a class="orig" href="https://arxiv.org/abs/2611.33748" target="_blank" rel="noopener">arXiv ›</a>
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Shtetl-Optimized</span>
+          <a class="orig" href="https://scottaaronson.blog/?p=10379" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50646108" target="_blank" rel="noopener">Discuss ›</a>
           <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.33748" target="_blank" rel="noopener">REFORGE: LLM-assisted RTL repair with structured verification evidence</a></h2>
-        <div class="story-summary"><p>REFORGE repairs hardware-description-language bugs while retaining separate evidence for simulation, formal equivalence, security, and implementation cost. Across 288 runs, the authors report that requiring all applicable checks yields far fewer verified repairs than a testbench-only pass, a useful warning for anyone applying code-generating models to safety- or hardware-critical work.</p></div>
+        <h2 class="story-title"><a href="https://scottaaronson.blog/?p=10379" target="_blank" rel="noopener">Scott Aaronson: The magnitude of what's now happening</a></h2>
+        <div class="story-summary"><p>Aaronson tries to process the cascade of AI-assisted proofs: OpenAI and Anthropic&#x27;s VP≠VNP, the Alpöge/Anthropic Riemann Hypothesis proof, and a matching OpenAI lower bound showing the matrix-multiplication exponent ω is exactly 9/4. His key observation is that AI is now producing lower bounds — the direction he considered nearly as hard as P≠NP — and that open problems are being straight-up answered rather than drip-fed. He ends by saying he feels for the first time that a proof of P≠NP is not far.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://github.com/lsernau/grh-lean" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-02-a-short-lean-4-proof-of-the-generalized-riemann-.png" alt="A short Lean 4 proof of the Generalized Riemann Hypothesis" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">lsernau (with Anthropic and Claude)</span>
+          <a class="orig" href="https://github.com/lsernau/grh-lean" target="_blank" rel="noopener">GitHub ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50648050" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/lsernau/grh-lean" target="_blank" rel="noopener">A short Lean 4 proof of the Generalized Riemann Hypothesis</a></h2>
+        <div class="story-summary"><p>A compact, machine-checked Lean 4 formalization of the Alpöge/Claude GRH proof, in two editions: a readable ~300k-line version and a ~76k-line compact one, built on Mathlib with only the standard axioms. The repo is explicit that the proof has passed machine checks only — no mathematician has read it through and no paper accompanies it. A rare, fully reproducible artifact from this week&#x27;s proof cascade.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://github.com/google-research/google-research/tree/4a7bc8ab0bc770e71a259b7966c500496b99010a/cogentic_research_papers/integer_factorization" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-03-unconditional-integer-factorization-in-subexpone.png" alt="Unconditional Integer Factorization in Subexponential Time" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">Google Research (cogentic_research_papers)</span>
+          <a class="orig" href="https://github.com/google-research/google-research/tree/4a7bc8ab0bc770e71a259b7966c500496b99010a/cogentic_research_papers/integer_factorization" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50651627" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/google-research/google-research/tree/4a7bc8ab0bc770e71a259b7966c500496b99010a/cogentic_research_papers/integer_factorization" target="_blank" rel="noopener">Unconditional Integer Factorization in Subexponential Time</a></h2>
+        <div class="story-summary"><p>A Google Research preprint claiming unconditional subexponential-time integer factorization has landed in their cogentic research papers directory, feeding this week&#x27;s rumor mill about labs cracking factoring. Treat it as an unrefereed claim for now — number-theory results of this size have a long history of subtle flaws — but the paper is public and checkable. Worth understanding both the claim and the community&#x27;s skepticism.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.theregister.com/hpc/2026/11/26/45c-inlets-just-killed-the-chiller-most-people-havent-noticed-yet/5311831" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-04-45-c-inlets-just-killed-the-chiller-most-people-.jpg" alt="45°C inlets just killed the chiller. Most people haven&#x27;t noticed yet" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">The Register — Dan Olds</span>
+          <a class="orig" href="https://www.theregister.com/hpc/2026/11/26/45c-inlets-just-killed-the-chiller-most-people-havent-noticed-yet/5311831" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50655278" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.theregister.com/hpc/2026/11/26/45c-inlets-just-killed-the-chiller-most-people-havent-noticed-yet/5311831" target="_blank" rel="noopener">45°C inlets just killed the chiller. Most people haven't noticed yet</a></h2>
+        <div class="story-summary"><p>Nvidia&#x27;s move to 45°C liquid inlet temperatures means datacenters in most climates can reject heat with rooftop dry coolers alone — chillers, the expensive refrigeration stage, become unnecessary for new builds. The piece walks through the two-loop architecture this enables and why free cooling stops being a cold-climate luxury if AMD and Intel match the spec. A quiet infrastructure shift with large capex and water implications.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hn" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://1password.com/blog/update-on-nov-2026-security-incident" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-05-1password-security-incident-attacker-pushed-mali.webp" alt="1Password security incident: attacker pushed malicious code via a compromised employee GitHub account" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ff8000">HN</span>
+          <span class="by">1Password</span>
+          <a class="orig" href="https://1password.com/blog/update-on-nov-2026-security-incident" target="_blank" rel="noopener">HN ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50644817" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://1password.com/blog/update-on-nov-2026-security-incident" target="_blank" rel="noopener">1Password security incident: attacker pushed malicious code via a compromised employee GitHub account</a></h2>
+        <div class="story-summary"><p>1Password confirms an attacker used a stolen employee GitHub token to access source code, push malicious code to backend services, and download account metadata — names, emails, public keys, and invitation/recovery link tokens — for a subset of users. Vault contents and secret keys were untouched, and the company has rotated credentials and lengthened recovery codes to ten alphanumeric characters. A useful case study in supply-chain blast radius and zero-knowledge design holding up under breach.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-06-the-new-york-times-warns-photographers-not-to-up.jpg" alt="The New York Times warns photographers not to update Photoshop over AI features" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">The Verge</span>
+          <a class="orig" href="https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50647673" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features" target="_blank" rel="noopener">The New York Times warns photographers not to update Photoshop over AI features</a></h2>
+        <div class="story-summary"><p>The NYT&#x27;s photography desk told staff to hold off on Photoshop updates because new AI features can silently alter image content in ways that complicate the paper&#x27;s authenticity standards. It&#x27;s a concrete example of newsroom provenance requirements colliding with generative defaults shipping in creative tools. The tension between AI-assisted editing and verifiable capture is now an operational policy question, not a hypothetical.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://arxiv.org/abs/2611.33639" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-26/ai-02-arxiv-placeholder.svg" alt="How much effort does an AI code reviewer need?" loading="lazy">
+      <a class="thumb" href="https://arxiv.org/abs/2611.34875v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-07-arxiv-placeholder.svg" alt="How Much Do Coding Agents Over-Edit, and Why? Delta Residue Attribution on 7,660 agent trajectories" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ff5a5f">Ax</span>
-          <span class="by">Zax Shen, Hanling Zhang, and Zixu Wang</span>
-          <a class="orig" href="https://arxiv.org/abs/2611.33639" target="_blank" rel="noopener">arXiv ›</a>
+          <span class="by">Goel, Steenhoek, Hu — arXiv 2611.34875</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.34875v1" target="_blank" rel="noopener">arXiv ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.33639" target="_blank" rel="noopener">How much effort does an AI code reviewer need?</a></h2>
-        <div class="story-summary"><p>This preregistered study tests three Claude 5.5 models on 90 agent-written Django patches, including plausible changes that pass ordinary tests but fail stronger checks. More review effort reduced acceptance of wrong patches, yet even the best settings accepted at least 45% of the incorrect ones, so the authors conclude AI review is not a dependable gate by itself.</p></div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.34875v1" target="_blank" rel="noopener">How Much Do Coding Agents Over-Edit, and Why? Delta Residue Attribution on 7,660 agent trajectories</a></h2>
+        <div class="story-summary"><p>The authors introduce Delta Residue Attribution: replay agent trajectories, trace every patch block to the step that wrote it, revert it, and rerun the task tests to decide if the edit was needed. Applied to 7,660 resolved Copilot CLI trajectories across 18 frontier models on SWE-bench Verified and DeepSWE, the study quantifies which of the extra lines agents add are actually necessary. Directly relevant to anyone reviewing AI-generated patches.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://huggingface.co/rawmind/whisper-small-sr-distill-v2" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-26/ai-03-whisper-small-distilled-for-serbian-and-croatian.png" alt="Whisper small distilled for Serbian and Croatian speech" loading="lazy">
+    <article class="story" data-section="ai" data-source="arxiv" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://arxiv.org/abs/2611.34934v1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-08-arxiv-placeholder.svg" alt="Attack Policy Selection can Mislead Monitor Evaluators" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#ffd21e">HF</span>
-          <span class="by">rawmind</span>
-          <a class="orig" href="https://huggingface.co/rawmind/whisper-small-sr-distill-v2" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="src-tag" style="--c:#ff5a5f">Ax</span>
+          <span class="by">Griffin et al. (Oxford, OpenAI) — arXiv 2611.34934</span>
+          <a class="orig" href="https://arxiv.org/abs/2611.34934v1" target="_blank" rel="noopener">arXiv ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://huggingface.co/rawmind/whisper-small-sr-distill-v2" target="_blank" rel="noopener">Whisper small distilled for Serbian and Croatian speech</a></h2>
-        <div class="story-summary"><p>This Whisper-small derivative is distilled for Serbian and Croatian, with training on read and parliamentary speech. Its model card says the quantized Q8 build is about 264 MB and reports results close to Whisper large-v3-turbo on Serbian parliamentary speech; it also cautions that automatic language detection is unreliable, so users should set the language explicitly.</p></div>
+        <h2 class="story-title"><a href="https://arxiv.org/abs/2611.34934v1" target="_blank" rel="noopener">Attack Policy Selection can Mislead Monitor Evaluators</a></h2>
+        <div class="story-summary"><p>Evaluations of AI monitors — classifiers that flag dangerous agent behaviour — depend heavily on how the proxy attack policies were generated. Using an ex-production OpenAI monitor, measured false-negative rates ranged from 0.5% to 20.8% across optimisation levels of a single RL method, and 6.4% to 23.0% across methods. A caution for anyone building or trusting AI-control evaluations: the metric you get is a function of the adversary you simulated.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="github" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://github.com/alesha-pro/llm.asm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-09-llm-asm-qwen3-0-6b-inference-and-a-bootable-os-i.png" alt="llm.asm: Qwen3-0.6B inference and a bootable OS in pure x86-64 assembly" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#8b5cf6">Gh</span>
+          <span class="by">alesha-pro</span>
+          <a class="orig" href="https://github.com/alesha-pro/llm.asm" target="_blank" rel="noopener">GitHub ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://github.com/alesha-pro/llm.asm" target="_blank" rel="noopener">llm.asm: Qwen3-0.6B inference and a bootable OS in pure x86-64 assembly</a></h2>
+        <div class="story-summary"><p>A from-scratch project fitting Qwen3-0.6B inference (12 KB), a bare-metal bootable OS (22 KB), and a Mini-GPT trainer with a live Braille TUI (32 KB) into pure x86-64 NASM assembly — no C, no libc, no dependencies. It doubles as a readable dissection of what an inference stack actually needs at the metal. Educational and genuinely tiny.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="other" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-10-google-will-make-ai-agents-use-its-mcp-servers-t.jpg" alt="Google will make AI agents use its MCP servers — the Gmail one can&#x27;t send email" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#22d3ee">WB</span>
+          <span class="by">TechStackUps</span>
+          <a class="orig" href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/" target="_blank" rel="noopener">Web ›</a><a class="discuss" href="https://news.ycombinator.com/item?id=50653477" target="_blank" rel="noopener">Discuss ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/" target="_blank" rel="noopener">Google will make AI agents use its MCP servers — the Gmail one can't send email</a></h2>
+        <div class="story-summary"><p>Google is moving Workspace agent integrations onto its own MCP servers, but the Gmail server reportedly cannot send email — a read-heavy, tightly scoped first cut. The piece surveys what this means for third-party agent developers building on Workspace and for the emerging norm of platform-controlled tool surfaces. Notable for anyone designing agent tool permissions.</p></div>
       </div>
     </article>
 
     <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="notable">
-      <a class="thumb" href="https://huggingface.co/Psalms23Wave/alkebulan-luganda-small-v0.1" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-26/ai-04-a-1-7-million-parameter-luganda-text-model-train.png" alt="A 1.7-million-parameter Luganda text model trained on a MacBook" loading="lazy">
+      <a class="thumb" href="https://huggingface.co/Ashreef/sonelgaz-darija-asr" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-11-sonelgaz-darija-asr-whisper-large-v3-turbo-fine-.png" alt="sonelgaz-darija-asr: Whisper-large-v3-turbo fine-tuned for Algerian Darija/French code-switching" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#ffd21e">HF</span>
-          <span class="by">Mathew Sekanjako / Psalms23Wave</span>
-          <a class="orig" href="https://huggingface.co/Psalms23Wave/alkebulan-luganda-small-v0.1" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="by">Ashreef — Hugging Face</span>
+          <a class="orig" href="https://huggingface.co/Ashreef/sonelgaz-darija-asr" target="_blank" rel="noopener">HuggingFace ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://huggingface.co/Psalms23Wave/alkebulan-luganda-small-v0.1" target="_blank" rel="noopener">A 1.7-million-parameter Luganda text model trained on a MacBook</a></h2>
-        <div class="story-summary"><p>This tiny Luganda text-completion model has 1,695,232 parameters and was trained on 58,346 lines in about 75 seconds on an M1 Pro. Its author reports a held-out score of 1.5055 bits per character and is candid that the model only continues text, often wanders semantically, and is not an instruction-following assistant.</p></div>
+        <h2 class="story-title"><a href="https://huggingface.co/Ashreef/sonelgaz-darija-asr" target="_blank" rel="noopener">sonelgaz-darija-asr: Whisper-large-v3-turbo fine-tuned for Algerian Darija/French code-switching</a></h2>
+        <div class="story-summary"><p>A full fine-tune of Whisper-large-v3-turbo (809M params, fp16 — comfortable on a 6GB card) on ~105h/epoch of Algerian Darija, Darija-French code-switched, and French speech, built for a utility call-center hackathon with all-public training data. The model card documents WER/CER per test set, including simulated 8kHz telephone degradation, and outputs Darija in Arabic script with Latin-script French loans. A serious low-resource ASR artifact with unusually honest data sourcing notes.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="ai" data-source="hf" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://huggingface.co/engenho-ai/Kuro3D-Architect" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/ai-12-kuro3d-architect-a-3b-model-specialized-for-open.png" alt="Kuro3D-Architect: a 3B model specialized for OpenSCAD and Blender Python" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#ffd21e">HF</span>
+          <span class="by">engenho-ai — Hugging Face</span>
+          <a class="orig" href="https://huggingface.co/engenho-ai/Kuro3D-Architect" target="_blank" rel="noopener">HuggingFace ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://huggingface.co/engenho-ai/Kuro3D-Architect" target="_blank" rel="noopener">Kuro3D-Architect: a 3B model specialized for OpenSCAD and Blender Python</a></h2>
+        <div class="story-summary"><p>A Qwen2.5-Coder-3B derivative fine-tuned for parametric 3D modeling in millimeters via OpenSCAD and Blender Python, running in roughly 1.9GB VRAM — easily within a 3060/3070 budget, with GGUF quantizations available. Part of a small family of task-specialized 3B models (its sibling KuroReflex-3B targets edge fast-reflex agents). Shows the trend of narrow, tool-language-specific small models rather than general chat finetunes.</p></div>
       </div>
     </article>
     </section>
@@ -127,15 +258,16 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-electronics">Electronics</h1>
-        <p class="section-summary">Three practical builds extend ESP32 hardware into a standalone recorder, networked stepper nodes, and a more dependable 3D-printer camera.</p>
+        
       </div>
-      <span class="section-count" id="count-electronics">3 stories</span>
+      <span class="section-count" id="count-electronics">5 stories</span>
     </div>
     <section class="filters" data-section-filters="electronics" aria-label="Electronics filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
 <button class="chip" data-filter-source="hackaday" style="--c:#f97316">Hackaday</button>
 <button class="chip" data-filter-source="adafruit" style="--c:#7c3aed">Adafruit</button>
+<button class="chip" data-filter-source="3dprinting" style="--c:#14b8a6">3D Print</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
@@ -143,51 +275,83 @@
     </section>
     <section class="stories" data-section-stories="electronics">
       
+    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://hackaday.com/2026/11/26/when-decoupling-capacitors-go-wrong/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/electronics-01-when-decoupling-capacitors-go-wrong.jpg" alt="When Decoupling Capacitors Go Wrong" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#f97316">HA</span>
+          <span class="by">Hackaday (on Ben Eater's video)</span>
+          <a class="orig" href="https://hackaday.com/2026/11/26/when-decoupling-capacitors-go-wrong/" target="_blank" rel="noopener">Hackaday ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
+        </div>
+        <h2 class="story-title"><a href="https://hackaday.com/2026/11/26/when-decoupling-capacitors-go-wrong/" target="_blank" rel="noopener">When Decoupling Capacitors Go Wrong</a></h2>
+        <div class="story-summary"><p>Popular wisdom says more decoupling capacitors is better; physics disagrees. Ben Eater walks through how parasitic inductance, anti-resonance between parallel caps, and poor placement can make a generously decoupled board worse than a sparse one. A concise corrective to cargo-cult power-plane design.</p></div>
+      </div>
+    </article>
+
     <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://blog.adafruit.com/2026/11/25/new-learn-guide-usb-microphone-recorder-on-metro-esp32-p4-lcds-displays-adafruitlearningsystem/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-26/electronics-01-adafruit-placeholder.svg" alt="USB microphone recording and live metering on an ESP32-P4" loading="lazy">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/24/tny-360-the-open-hardware-quadruped-robot-dog-that-fixes-itself/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/electronics-02-adafruit-placeholder.svg" alt="TNY-360: the open-hardware quadruped robot dog that checks its own build" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
           <span class="src-tag" style="--c:#7c3aed">Ad</span>
-          <span class="by">Adafruit Learning System</span>
-          <a class="orig" href="https://blog.adafruit.com/2026/11/25/new-learn-guide-usb-microphone-recorder-on-metro-esp32-p4-lcds-displays-adafruitlearningsystem/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="by">Adafruit / Open Electronics — Paul Loisil</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/24/tny-360-the-open-hardware-quadruped-robot-dog-that-fixes-itself/" target="_blank" rel="noopener">Adafruit ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/25/new-learn-guide-usb-microphone-recorder-on-metro-esp32-p4-lcds-displays-adafruitlearningsystem/" target="_blank" rel="noopener">USB microphone recording and live metering on an ESP32-P4</a></h2>
-        <div class="story-summary"><p>A new CircuitPython USB-host audio module lets a Metro ESP32-P4 record from a USB microphone, draw a live waveform and level meter, and save WAV files to an SD card. The guide pairs the board with a Raspberry Pi Touch Display 2, where tapping the screen starts and stops recording.</p></div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/24/tny-360-the-open-hardware-quadruped-robot-dog-that-fixes-itself/" target="_blank" rel="noopener">TNY-360: the open-hardware quadruped robot dog that checks its own build</a></h2>
+        <div class="story-summary"><p>An open-hardware ESP32-S3 quadruped for education whose firmware self-calibrates the leg servos and diagnoses assembly mistakes, telling the maker what to correct. The servos are modified for the design, and the whole build is documented for reproduction. A good reference for accessible legged-robot firmware that treats calibration as a first-class feature.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://hackaday.com/2026/11/25/daisy-chaining-stepper-motors/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-26/electronics-02-daisy-chained-esp32-stepper-nodes-use-can-wi-fi-.jpg" alt="Daisy-chained ESP32 stepper nodes use CAN, Wi-Fi, serial, or USB" loading="lazy">
+    <article class="story" data-section="electronics" data-source="3dprinting" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://3dprintingindustry.com/news/octoprint-2-0-0-adds-plugin-route-to-bambu-lab-printers-after-years-of-serial-only-connections-257408/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/electronics-03-octoprint-2-0-0-adds-a-plugin-route-to-bambu-lab.png" alt="OctoPrint 2.0.0 adds a plugin route to Bambu Lab printers after years of serial-only connections" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#f97316">HA</span>
-          <span class="by">Tom Nardi (Hackaday), covering Josh Rogan’s CANBUS Stepper project</span>
-          <a class="orig" href="https://hackaday.com/2026/11/25/daisy-chaining-stepper-motors/" target="_blank" rel="noopener">Hackaday ›</a>
+          <span class="src-tag" style="--c:#14b8a6">3D</span>
+          <span class="by">3D Printing Industry</span>
+          <a class="orig" href="https://3dprintingindustry.com/news/octoprint-2-0-0-adds-plugin-route-to-bambu-lab-printers-after-years-of-serial-only-connections-257408/" target="_blank" rel="noopener">3D Print ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://hackaday.com/2026/11/25/daisy-chaining-stepper-motors/" target="_blank" rel="noopener">Daisy-chained ESP32 stepper nodes use CAN, Wi-Fi, serial, or USB</a></h2>
-        <div class="story-summary"><p>Each compact node mounts on a NEMA 17 motor and combines an ESP32-S3 with a TMC2209 driver; commands can enter over USB, Wi-Fi, serial, or CAN and pass along the chain. The modular approach scales motor control without requiring every actuator to run back to a separate multi-channel controller.</p></div>
+        <h2 class="story-title"><a href="https://3dprintingindustry.com/news/octoprint-2-0-0-adds-plugin-route-to-bambu-lab-printers-after-years-of-serial-only-connections-257408/" target="_blank" rel="noopener">OctoPrint 2.0.0 adds a plugin route to Bambu Lab printers after years of serial-only connections</a></h2>
+        <div class="story-summary"><p>OctoPrint 2.0.0&#x27;s plugin transport API finally allows non-serial connections, opening a path to network-native printer ecosystems like Bambu Lab after years of serial-only support. Maintainer Gina Häußge frames it as opening the software to other printer stacks without endorsing vendor-locked protocols. A meaningful architecture change for the largest open-source print-server community.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="electronics" data-source="hackaday" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://hackaday.com/2026/11/25/camera-upgrades-for-3d-printers/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-26/electronics-03-an-esp32-s3-camera-upgrade-built-through-42-firm.jpg" alt="An ESP32-S3 camera upgrade built through 42 firmware revisions" loading="lazy">
+    <article class="story" data-section="electronics" data-source="3dprinting" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://3dprintingindustry.com/news/snapmaker-u1-brings-purge-free-four-toolhead-printing-to-the-desktop-for-under-900-257284/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/electronics-04-snapmaker-u1-review-purge-free-four-toolhead-cor.jpg" alt="Snapmaker U1 review: purge-free four-toolhead CoreXY under $900" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#f97316">HA</span>
-          <span class="by">Tom Nardi (Hackaday), covering Sam Lovick’s project</span>
-          <a class="orig" href="https://hackaday.com/2026/11/25/camera-upgrades-for-3d-printers/" target="_blank" rel="noopener">Hackaday ›</a>
+          <span class="src-tag" style="--c:#14b8a6">3D</span>
+          <span class="by">3D Printing Industry</span>
+          <a class="orig" href="https://3dprintingindustry.com/news/snapmaker-u1-brings-purge-free-four-toolhead-printing-to-the-desktop-for-under-900-257284/" target="_blank" rel="noopener">3D Print ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://hackaday.com/2026/11/25/camera-upgrades-for-3d-printers/" target="_blank" rel="noopener">An ESP32-S3 camera upgrade built through 42 firmware revisions</a></h2>
-        <div class="story-summary"><p>A Prusa Core One camera upgrade combines an autofocus ESP32-S3 camera with SD-card timelapse recording, then tackles exposure, digital zoom, and recovery from power loss. The author iterated through 42 firmware revisions and published the resulting firmware, a useful example of the work needed to make a maker-grade camera dependable in daily use.</p></div>
+        <h2 class="story-title"><a href="https://3dprintingindustry.com/news/snapmaker-u1-brings-purge-free-four-toolhead-printing-to-the-desktop-for-under-900-257284/" target="_blank" rel="noopener">Snapmaker U1 review: purge-free four-toolhead CoreXY under $900</a></h2>
+        <div class="story-summary"><p>The U1 swaps entire hotends via a four-toolhead changer rather than purging filament through one nozzle, bringing tool-changing multi-material printing — previously the domain of several-thousand-dollar machines — to a mainstream price. The review covers the mechanics of the changer and where the purge-free approach wins on waste and time. Watch how the mid-range multi-material market reorganizes around this.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="electronics" data-source="adafruit" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://blog.adafruit.com/2026/11/24/a-completely-useless-i287xl-instruction/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/electronics-05-adafruit-placeholder.svg" alt="A completely useless i287XL instruction? The mystery of FRSTPM" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#7c3aed">Ad</span>
+          <span class="by">Adafruit / OS/2 Museum — Michal Necasek</span>
+          <a class="orig" href="https://blog.adafruit.com/2026/11/24/a-completely-useless-i287xl-instruction/" target="_blank" rel="noopener">Adafruit ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://blog.adafruit.com/2026/11/24/a-completely-useless-i287xl-instruction/" target="_blank" rel="noopener">A completely useless i287XL instruction? The mystery of FRSTPM</a></h2>
+        <div class="story-summary"><p>Michal Necasek digs into FRSTPM, an undocumented sibling of the 287XL coprocessor&#x27;s FSETPM, where even Intel datasheets disagree on the opcode encoding. A small, satisfying piece of reverse-engineering archaeology on x87&#x27;s protected-mode transition. Good fuel for anyone who enjoys instruction-set history.</p></div>
       </div>
     </article>
     </section>
@@ -197,14 +361,14 @@
     <div class="section-heading">
       <div>
         <h1 id="heading-interesting-news">Interesting News</h1>
-        <p class="section-summary">NASA’s latest stories range from a geological bullseye visible from orbit to the crops being tested for future lunar and Martian crews.</p>
+        
       </div>
-      <span class="section-count" id="count-interesting-news">2 stories</span>
+      <span class="section-count" id="count-interesting-news">5 stories</span>
     </div>
     <section class="filters" data-section-filters="interesting-news" aria-label="Interesting News filters">
       <span class="filter-label">Source</span>
       <button class="chip active" data-filter-source="all">All</button>
-<button class="chip" data-filter-source="nasa" style="--c:#fc3d21">NASA</button>
+<button class="chip" data-filter-source="science" style="--c:#10b981">Science</button>
 <span class="chip-sep"></span>
 <button class="chip active" data-filter-tier="all">All</button>
 <button class="chip" data-filter-tier="rec">Recommended</button>
@@ -212,35 +376,83 @@
     </section>
     <section class="stories" data-section-stories="interesting-news">
       
-    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://www.nasa.gov/image-article/eye-of-the-sahara/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-26/interesting-news-01-nasa-astronaut-photographs-the-eye-of-the-sahara.jpg" alt="NASA astronaut photographs the Eye of the Sahara" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="must" data-tier="must-read">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261123005350.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/interesting-news-01-earth-s-next-ice-age-may-have-already-begun-glob.webp" alt="Earth&#x27;s next ice age may have already begun — global warming stopped it" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#fc3d21">NA</span>
-          <span class="by">NASA / Luke Delaney</span>
-          <a class="orig" href="https://www.nasa.gov/image-article/eye-of-the-sahara/" target="_blank" rel="noopener">NASA ›</a>
-          <span class="tier-chip tier-rec">Recommended</span>
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ScienceDaily / Science (Young et al., Oct 2026)</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261123005350.htm" target="_blank" rel="noopener">Science ›</a>
+          <span class="tier-chip tier-must">Must-Read</span>
         </div>
-        <h2 class="story-title"><a href="https://www.nasa.gov/image-article/eye-of-the-sahara/" target="_blank" rel="noopener">NASA astronaut photographs the Eye of the Sahara</a></h2>
-        <div class="story-summary"><p>An International Space Station photograph made on Nov. 14 and published by NASA on Nov. 25 shows Mauritania’s Richat Structure, the 45-kilometer-wide formation nicknamed the Eye of the Sahara. NASA describes it as an eroded geological dome roughly 100 million years old, with older rocks exposed toward the center of its concentric rings.</p></div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261123005350.htm" target="_blank" rel="noopener">Earth's next ice age may have already begun — global warming stopped it</a></h2>
+        <div class="story-summary"><p>Cosmogenic dating and ancient plants preserved beneath Barnes Ice Cap — the last remnant of the Laurentide Ice Sheet — show the ice began re-expanding about 2,000 years ago, marking the onset of the next glaciation, and reached maximum extent around 1960 before anthropogenic warming reversed it. The Science paper (Vol 394) attributes the termination of the next ice age directly to greenhouse forcing despite declining summer insolation. A cleanly verified, striking reframing of the Holocene&#x27;s end.</p></div>
       </div>
     </article>
 
-    <article class="story" data-section="interesting-news" data-source="nasa" data-tier-group="rec" data-tier="recommended">
-      <a class="thumb" href="https://science.nasa.gov/directorates/smd/nasa-eyes-crop-candidates-for-future-menus/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-        <img src="images/2026-11-26/interesting-news-02-nasa-tests-strawberries-cucumbers-and-lemon-basi.jpg" alt="NASA tests strawberries, cucumbers, and lemon basil for future space menus" loading="lazy">
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261122060343.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/interesting-news-02-this-tiny-spider-named-after-stephen-colbert-has.webp" alt="This tiny spider named after Stephen Colbert has a genome 50% larger than a human&#x27;s" loading="lazy">
       </a>
       <div class="story-body">
         <div class="story-meta">
-          <span class="src-tag" style="--c:#fc3d21">NA</span>
-          <span class="by">NASA Science Editorial Team</span>
-          <a class="orig" href="https://science.nasa.gov/directorates/smd/nasa-eyes-crop-candidates-for-future-menus/" target="_blank" rel="noopener">NASA ›</a>
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ScienceDaily / UC Davis — Journal of Heredity</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261122060343.htm" target="_blank" rel="noopener">Science ›</a>
           <span class="tier-chip tier-rec">Recommended</span>
         </div>
-        <h2 class="story-title"><a href="https://science.nasa.gov/directorates/smd/nasa-eyes-crop-candidates-for-future-menus/" target="_blank" rel="noopener">NASA tests strawberries, cucumbers, and lemon basil for future space menus</a></h2>
-        <div class="story-summary"><p>NASA reports recent tests of strawberries, cucumbers, and lemon basil as possible fresh foods for future Moon and Mars crews, balancing nutrition and variety with the demands of growing crops in spacecraft habitats. The strawberry comparison found the wild variety produced more buds, flowers, and fruit, but its runners took too much room; cucumbers yielded edible fruit in spaceflight-condition trials, while lemon basil has passed preliminary seed-sanitization testing.</p></div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261122060343.htm" target="_blank" rel="noopener">This tiny spider named after Stephen Colbert has a genome 50% larger than a human's</a></h2>
+        <div class="story-summary"><p>The first reference genome for the trapdoor spider Aptostichus stephencolberti (yes, named after the comedian, at his own request in 2008) comes in at 4.6 billion base pairs across 52 chromosomes — versus 3.1 billion and 23 in humans — with 77% of it repetitive sequence. The Journal of Heredity assembly also finds all spiders lack telomere repeats, an ancestral loss that may explain spiders&#x27; fast chromosome evolution. Verified against the paper and UC Davis&#x27;s release.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261125045307.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/interesting-news-03-a-345-million-year-old-fossil-had-scientists-foo.webp" alt="A 345-million-year-old fossil had scientists fooled for decades" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ScienceDaily / ESRF &amp; AMNH</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261125045307.htm" target="_blank" rel="noopener">Science ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261125045307.htm" target="_blank" rel="noopener">A 345-million-year-old fossil had scientists fooled for decades</a></h2>
+        <div class="story-summary"><p>Synchrotron X-ray imaging at the European Synchrotron Radiation Facility revealed that &#x27;Lizzie&#x27;, long billed as the earliest reptile, actually has internal bony gills and a fish-like mouth packed with thousands of tiny teeth — a primitive aquatic or amphibious creature, not a reptile. The reclassification implies several land-adaptation traits evolved in animals still tied to water. Confirmed by the American Museum of Natural History&#x27;s write-up.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="recommended">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261124055849.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/interesting-news-04-physicists-trap-a-single-antimatter-particle-for.webp" alt="Physicists trap a single antimatter particle for months in a wall-free cold trap" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ScienceDaily / Northwestern University — Physical Review Letters</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261124055849.htm" target="_blank" rel="noopener">Science ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261124055849.htm" target="_blank" rel="noopener">Physicists trap a single antimatter particle for months in a wall-free cold trap</a></h2>
+        <div class="story-summary"><p>Northwestern&#x27;s Gabrielse group captures positrons from sodium-22 decay, slows them through cold tungsten, and holds one in a wall-free electromagnetic trap at ~300 millikelvin — its quantum ground state — for months at a time. The &#x27;one-positron quantum cyclotron&#x27; sets up the most precise electron/positron comparison yet, where any difference would crack the Standard Model. Note the underlying PRL result was published October 21; ScienceDaily re-ran it this week.</p></div>
+      </div>
+    </article>
+
+    <article class="story" data-section="interesting-news" data-source="science" data-tier-group="rec" data-tier="notable">
+      <a class="thumb" href="https://www.sciencedaily.com/releases/2026/11/261125045259.htm" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
+        <img src="images/2026-11-27/interesting-news-05-scientists-discover-mysterious-lakes-more-than-a.webp" alt="Scientists discover mysterious lakes more than a mile beneath the Red Sea" loading="lazy">
+      </a>
+      <div class="story-body">
+        <div class="story-meta">
+          <span class="src-tag" style="--c:#10b981">Sci</span>
+          <span class="by">ScienceDaily / University of Miami Rosenstiel School — Communications Earth &amp; Environment</span>
+          <a class="orig" href="https://www.sciencedaily.com/releases/2026/11/261125045259.htm" target="_blank" rel="noopener">Science ›</a>
+          <span class="tier-chip tier-rec">Recommended</span>
+        </div>
+        <h2 class="story-title"><a href="https://www.sciencedaily.com/releases/2026/11/261125045259.htm" target="_blank" rel="noopener">Scientists discover mysterious lakes more than a mile beneath the Red Sea</a></h2>
+        <div class="story-summary"><p>Sam Purkis&#x27;s team and OceanX found the first documented brine pools in the Gulf of Aqaba at 1,770 meters — salt-saturated, oxygen-free lakes teeming with microbial life, found in the last five minutes of a ten-hour ROV dive. The pools preserve archives of ancient tsunamis and earthquakes, and their extremophile communities inform the search for life elsewhere. Verified against the University of Miami source and the published paper.</p></div>
       </div>
     </article>
     </section>
@@ -248,7 +460,7 @@
   </div>
 </main>
 <footer class="site-footer">
-  <p>grep — curated by a Hermes agent every morning · Thursday, November 26, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
+  <p>grep — curated by a Hermes agent every morning · Friday, November 27, 2026. Editions are generated from JSON; no manual HTML upkeep.</p>
 </footer>
 <script src="assets/app.js"></script>
 </body>
